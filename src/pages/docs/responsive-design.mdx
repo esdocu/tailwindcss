@@ -1,6 +1,6 @@
 ---
-title: Responsive Design
-description: Using responsive utility variants to build adaptive user interfaces.
+title: Diseño responsive
+description: Uso de variantes de utilidad responsive para crear interfaces de usuario adaptables.
 ---
 
 import { Heading } from '@/components/Heading'
@@ -8,11 +8,11 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 ## <Heading hidden>Overview</Heading>
 
-Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.
+Cada clase de utilidad en Tailwind se puede aplicar condicionalmente en diferentes breakpoints, lo que hace que sea pan comido para construir interfaces responsive complejas sin tener que salir de tu HTML.
 
-There are five breakpoints by default, inspired by common device resolutions:
+Hay cinco breakpoints por defecto, inspirados en resoluciones de dispositivos comunes:
 
-| Breakpoint prefix | Minimum width | CSS |
+| Prefijo de breakpoint | Width mínimo | CSS |
 | --- | --- | --- |
 | `sm` | 640px | `@media (min-width: 640px) { ... }` |
 | `md` | 768px | `@media (min-width: 768px) { ... }` |
@@ -20,16 +20,16 @@ There are five breakpoints by default, inspired by common device resolutions:
 | `xl` | 1280px | `@media (min-width: 1280px) { ... }` |
 | `2xl` | 1536px | `@media (min-width: 1536px) { ... }` |
 
-To add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the `:` character:
+Para agregar una utilidad pero que solo tenga efecto en un determinado breakpoint, todo lo que necesitas hacer es prefijar la utilidad con el nombre del breakpoint, seguido del carácter `:`:
 
 ```html
-<!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
+<!-- Width de 16 por defecto, 32 en pantallas medianas y 48 en pantallas grandes -->
 <img class="w-16 **md:w-32** **lg:w-48**" src="...">
 ```
 
-This works for **every utility class in the framework**, which means you can change literally anything at a given breakpoint — even things like letter spacing or cursor styles.
+Esto funciona para **cada clase de utilidad en el framework**, lo que significa que puedes cambiar literalmente cualquier cosa en un breakpoint dado, incluso cosas como el espaciado entre letras o los estilos de cursor.
 
-Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens *(resize your browser to see it in action)*:
+Aquí hay un ejemplo simple de un componente de página de marketing que usa un diseño apilado en pantallas pequeñas y un diseño de lado a lado en pantallas más grandes *(cambia el tamaño de tu navegador para verlo en acción)*:
 
 <Example resizable p="none">
   <iframe class="w-full h-[496px] pointer-events-none" src="/examples/responsive-design-demo"></iframe>
@@ -42,57 +42,57 @@ Here's a simple example of a marketing page component that uses a stacked layout
       <img class="h-48 w-full object-cover **md:h-full md:w-48**" src="/img/store.jpg" alt="Man looking at item at a store">
     </div>
     <div class="p-8">
-      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Case study</div>
-      <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Finding customers for your new business</a>
-      <p class="mt-2 text-slate-500">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
+      <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Caso de estudio</div>
+      <a href="#" class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">Encontrar clientes para tu nuevo negocio</a>
+      <p class="mt-2 text-slate-500">Poner en marcha un nuevo negocio requiere mucho trabajo. Aquí hay cinco ideas que puedes utilizar para encontrar tus primeros clientes.</p>
     </div>
   </div>
 </div>
 ```
 
-Here's how the example above works:
+Así es como funciona el ejemplo anterior:
 
-- By default, the outer `div` is `display: block`, but by adding the `md:flex` utility, it becomes `display: flex` on medium screens and larger.
-- When the parent is a flex container, we want to make sure the image never shrinks, so we've added `md:shrink-0` to prevent shrinking on medium screens and larger. Technically we could have just used `shrink-0` since it would do nothing on smaller screens, but since it only matters on `md` screens, it's a good idea to make that clear in the class name.
-- On small screens the image is automatically full width by default. On medium screens and up, we've constrained the width to a fixed size and ensured the image is full height using `md:h-full md:w-48`.
+- De forma predeterminada, el `div` exterior es `display: block`, pero al agregar la utilidad `md:flex`, se convierte en `display: flex` en pantallas medianas y más grandes.
+- Cuando el padre es un contenedor flexible, queremos asegurarnos de que la imagen nunca se encoja, por lo que agregamos `md:shrink-0` para evitar que se encoja en pantallas medianas y más grandes. Técnicamente podríamos haber usado `shrink-0` ya que no haría nada en pantallas más pequeñas, pero como solo importa en pantallas `md`, es una buena idea dejarlo claro en el nombre de la clase.
+- En pantallas pequeñas, la imagen ocupa automáticamente el ancho completo de forma predeterminada. En pantallas medianas y superiores, restringimos el ancho a un tamaño fijo y nos aseguramos de que la imagen tenga la altura completa usando `md:h-full md:w-48`.
 
-We've only used one breakpoint in this example, but you could easily customize this component at other sizes using the `sm`, `lg`, `xl`, or `2xl` responsive prefixes as well.
+Solo hemos usado un breakpoint en este ejemplo, pero también puedes personalizar fácilmente este componente en otros tamaños usando los prefijos de respuesta `sm`, `lg`, `xl` o `2xl`.
 
 ---
 
 ## Mobile First
 
-By default, Tailwind uses a mobile first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap.
+De forma predeterminada, Tailwind utiliza un sistema de breakpoints mobile-first, similar al que podrías estar acostumbrado en otros frameworks como Bootstrap.
 
-What this means is that unprefixed utilities (like `uppercase`) take effect on all screen sizes, while prefixed utilities (like `md:uppercase`) only take effect at the specified breakpoint *and above*.
+Lo que esto significa es que las utilidades sin prefijo (como `uppercase`) surten efecto en todos los tamaños de pantalla, mientras que las utilidades prefijadas (como `md:uppercase`) solo surten efecto en el breakpoint especificado *y superior*.
 
-### Targeting mobile screens
+### Apuntar a dispositivos móviles
 
-Where this approach surprises people most often is that to style something for mobile, you need to use the unprefixed version of a utility, not the `sm:` prefixed version. Don't think of `sm:` as meaning "on small screens", think of it as "at the small *breakpoint*".
+Donde este enfoque sorprende a la gente con mayor frecuencia es que, para diseñar algo para dispositivos móviles, debes usar la versión sin prefijo de una utilidad, no la versión con prefijo `sm:`. No pienses en `sm:` como si significara "en pantallas pequeñas", piensa en ello como "en el pequeño *breakpoint*".
 
-<TipBad>Don't use <code className="text-sm font-bold text-slate-800">sm:</code> to target mobile devices</TipBad>
+<TipBad>No utilices <code className="text-sm font-bold text-slate-800">sm:</code> para diseñar para dispositivos móviles</TipBad>
 
 ```html
-<!-- This will only center text on screens 640px and wider, not on small screens -->
+<!-- Esto solo centrará el texto en pantallas de 640px y más anchas, no en pantallas pequeñas -->
 <div class="sm:text-center"></div>
 ```
 
-<TipGood>Use unprefixed utilities to target mobile, and override them at larger breakpoints</TipGood>
+<TipGood>Usar utilidades sin prefijo para apuntar a dispositivos móviles y anularlas en breakpoint más grandes</TipGood>
 
 ```html
-<!-- This will center text on mobile, and left align it on screens 640px and wider -->
+<!-- Esto centrará el texto en el móvil y lo alineará a la izquierda en pantallas de 640px y más anchas. -->
 <div class="text-center sm:text-left"></div>
 ```
 
-For this reason, it's often a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for `sm` screens, followed by `md` screens, etc.
+Por esta razón, a menudo es una buena idea implementar primero el diseño móvil, luego superponer cualquier cambio que tenga sentido para las pantallas `sm`, seguidas de las pantallas `md`, etc.
 
-### Targeting a single breakpoint
+### Aplicar a un solo breakpoint
 
-Tailwind's breakpoints only include a `min-width` and don't include a `max-width`, which means any utilities you add at a smaller breakpoint will also be applied at larger breakpoints.
+Los breakpoints de Tailwind solo incluyen un `min-width` y no incluyen un `max-width`, lo que significa que cualquier utilidad que agregues en un breakpoint más pequeño también se aplicará en breakpoints más grandes.
 
-If you'd like to apply a utility at one breakpoint only, the solution is to *undo* that utility at larger sizes by adding another utility that counteracts it.
+Si deseas aplicar una utilidad solo en un breakpoint, la solución es *deshacer* esa utilidad en tamaños más grandes agregando otra utilidad que la contrarreste.
 
-Here is an example where the background color is red at the `md` breakpoint, but green at every other breakpoint:
+Aquí hay un ejemplo en el que el color de fondo es rojo en el breakpoint `md`, pero verde en todos los demás breakpoints:
 
 ```html
 <div class="bg-green-500 md:bg-red-500 lg:bg-green-500">
@@ -100,13 +100,13 @@ Here is an example where the background color is red at the `md` breakpoint, but
 </div>
 ```
 
-Notice that **we did not** have to specify a background color for the `sm` breakpoint or the `xl` breakpoint — you only need to specify when a utility should *start* taking effect, not when it should stop.
+Ten en cuenta que **no tuvimos** que especificar un color de fondo para el breakpoint `sm` o el breakpoint `xl`: solo necesitas especificar cuándo debe *comenzar* a tener efecto una utilidad, no cuándo debe detenerse.
 
 ---
 
-## Customizing breakpoints
+## Personalizar los breakpoints
 
-You can completely customize your breakpoints in your `tailwind.config.js` file:
+Puedes personalizar completamente tus breakpoints en tu archivo `tailwind.config.js`:
 
 ```js tailwind.config.js
 module.exports = {
@@ -125,4 +125,4 @@ module.exports = {
 }
 ```
 
-Learn more in the [customizing breakpoints documentation](/docs/breakpoints).
+Obtén más información en la [documentación sobre la personalización de los breakpoints](/docs/breakpoints).
