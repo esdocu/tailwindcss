@@ -5,12 +5,11 @@ import pkg from 'tailwindcss/package.json?fields=version'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Crea tu proyecto',
     body: () => (
       <p>
-        Start by creating a new Phoenix project if you don't have one set up already. You can follow
-        their <a href="https://hexdocs.pm/phoenix/installation.html">installation guide</a> to get up
-        and running.
+        Comienza por crear un nuevo proyecto de Phoenix si aún no tienes uno configurado. Puedes seguir 
+        su <a href="https://hexdocs.pm/phoenix/installation.html">guía de instalación</a> para ponerte en marcha.
       </p>
     ),
     code: {
@@ -20,10 +19,10 @@ let steps = [
     },
   },
   {
-    title: 'Install the Tailwind plugin',
+    title: 'Instala el complemento de Tailwind',
     body: () => (
       <p>
-        Add the Tailwind plugin to your dependencies and run <code>mix deps.get</code> to install it.
+        Agrega el complemento de Tailwind a tus dependencias y ejecuta <code>mix deps.get</code> para instalarlo.
       </p>
     ),
     code: {
@@ -37,11 +36,11 @@ let steps = [
     },
   },
   {
-    title: 'Configure the Tailwind plugin',
+    title: 'Configura el complemento de Tailwind',
     body: () => (
       <p>
-        In your <code>config.exs</code> file you can set which version of Tailwind CSS you want to use, the path to your Tailwind config,
-        and customize your asset paths.
+        En tu archivo <code>config.exs</code> puedes establecer qué versión de Tailwind CSS deseas usar, 
+        la ruta a tu configuración de Tailwind y personalizar tus rutas de activos.
       </p>
     ),
     code: {
@@ -58,10 +57,10 @@ let steps = [
     },
   },
   {
-    title: 'Update your deployment script',
+    title: 'Actualiza tu script de despliegue',
     body: () => (
       <p>
-        Configure an alias to build your CSS on deployment.
+        Configura un alias para construir tu CSS en despliegue.
       </p>
     ),
     code: {
@@ -75,10 +74,10 @@ let steps = [
     },
   },
   {
-    title: 'Enable watcher in development',
+    title: 'Habilita watcher en desarrollo',
     body: () => (
       <p>
-        Add Tailwind to your list of watchers in your <code>./config/dev.exs</code> file.
+        Agrega Tailwind a tu lista de watchers en tu archivo <code>./config/dev.exs</code>.
       </p>
     ),
     code: {
@@ -90,10 +89,10 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Instala Tailwind CSS',
     body: () => (
       <p>
-        Run the install command to download the standalone Tailwind CLI and generate a <code>tailwind.config.js</code> file in the <code>./assets</code> directory.
+        Ejecuta el comando de instalación para descargar la CLI de Tailwind independiente y generar un archivo <code>tailwind.config.js</code> en el directorio <code>./assets</code>.
       </p>
     ),
     code: {
@@ -103,10 +102,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Configura tus rutas de plantilla',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>./assets/tailwind.config.js</code> file.
+        Agrega las rutas a todos tus archivos de plantilla en tu archivo <code>./assets/tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -126,11 +125,11 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Agrega las directivas Tailwind a tu CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code>{' '}
-        directives for each of Tailwind’s layers to <code>./assets/css/app.css</code>
+        Agrega las directivas <code>@tailwind</code>{' '}
+        para cada una de las capas de Tailwind a <code>./assets/css/app.css</code>
       </p>
     ),
     code: {
@@ -140,10 +139,10 @@ let steps = [
     },
   },
   {
-    title: 'Remove the default CSS import',
+    title: 'Eliminar la importación de CSS predeterminada',
     body: () => (
       <p>
-        Remove the CSS import from <code>./assets/js/app.js</code>, as Tailwind is now handling this for you.
+        Elimina la importación de CSS de <code>./assets/js/app.js</code>, ya que Tailwind ahora se encarga de esto por ti.
       </p>
     ),
     code: {
@@ -154,10 +153,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Comienza tu proceso de compilación',
     body: () => (
       <p>
-        Run your build process with <code>mix phx.server</code>.
+        Ejecuta tu proceso de compilación con <code>mix phx.server</code>.
       </p>
     ),
     code: {
@@ -167,8 +166,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: 'Comienza a usar Tailwind en tu proyecto',
+    body: () => <p>Comienza a usar las clases de utilidad de Tailwind para diseñar tu contenido.</p>,
     code: {
       name: 'index.html.heex',
       lang: 'html',
@@ -182,8 +181,8 @@ let steps = [
 export default function UsingPhoenix({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Phoenix"
-      description="Setting up Tailwind CSS in a Phoenix project."
+      title="Instala Tailwind CSS con Phoenix"
+      description="Configuración de Tailwind CSS en un proyecto Phoenix."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -207,8 +206,8 @@ export function getStaticProps() {
 
 UsingPhoenix.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Phoenix',
-    section: 'Installation',
+    title: 'Instala Tailwind CSS con Phoenix',
+    section: 'Instalación',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

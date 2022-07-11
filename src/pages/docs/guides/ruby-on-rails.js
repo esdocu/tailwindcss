@@ -4,12 +4,11 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Crea tu proyecto',
     body: () => (
       <p>
-        Start by creating a new Rails project if you don't have one set up already. The most common
-        approach is to use the{' '}
-        <a href="https://guides.rubyonrails.org/command_line.html">Rails Command Line</a>.
+        Comienza creando un nuevo proyecto de Rails si aún no tienes uno configurado. El enfoque más común es usar la {' '}
+        <a href="https://guides.rubyonrails.org/command_line.html">Línea de comandos de Rails</a>.
       </p>
     ),
     code: {
@@ -19,11 +18,11 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Instala Tailwind CSS',
     body: () => (
       <p>
-        Install the <code>tailwindcss-rails</code> gem, and then run the install command to generate a {' '}
-        <code>tailwind.config.js</code> file in the <code>./config</code> directory.
+        Instala la gema <code>tailwindcss-rails</code> y luego ejecuta el comando de instalación para generar un archivo {' '}
+        <code>tailwind.config.js</code> en el directorio <code>./config</code>.
       </p>
     ),
     code: {
@@ -33,11 +32,11 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Configura tus rutas de plantilla',
     body: () => (
       <p>
-        Add the paths to all of your template files to your <code>./config/tailwind.config.js</code>{' '}
-        file.
+        Agrega las rutas a todos tus archivos de plantilla a tu archivo{' '}
+        <code>./config/tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -57,12 +56,12 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Agrega las directivas Tailwind a tu CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind's layers to your{' '}
-        <code>application.tailwind.css</code> file located in the{' '}
-        <code>./app/assets/stylesheets</code> directory.
+        Agrega las directivas <code>@tailwind</code> para cada una de las capas de Tailwind a tu archivo {' '}
+        <code>application.tailwind.css</code> ubicado en el directorio {' '}
+        <code>./app/assets/stylesheets</code>.
       </p>
     ),
     code: {
@@ -72,10 +71,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Comienza tu proceso de compilación',
     body: () => (
       <p>
-        Run your build process with <code>./bin/dev</code>.
+        Ejecuta tu proceso de compilación con <code>./bin/dev</code>.
       </p>
     ),
     code: {
@@ -85,8 +84,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind's utility classes to style your content.</p>,
+    title: 'Comienza a usar Tailwind en tu proyecto',
+    body: () => <p>Comienza a usar las clases de utilidad de Tailwind para diseñar tu contenido.</p>,
     code: {
       name: 'index.html.erb',
       lang: 'html',
@@ -100,16 +99,16 @@ let steps = [
 export default function UsingRails({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Ruby on Rails"
-      description="Setting up Tailwind CSS in Ruby on Rails v7+ project."
+      title="Instala Tailwind CSS con Ruby on Rails"
+      description="Configuración de Tailwind CSS en un proyecto Rails v7+."
     >
       <div className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
         <p>
-          The quickest way to start using Tailwind CSS in your Rails project is to use{' '}
-          <a href="https://github.com/rails/tailwindcss-rails">Tailwind CSS for Rails</a> by running{' '}
-          <code>rails new my-app --css tailwind</code>. This will automatically configure your
-          Tailwind setup based on the official Rails example. If you'd like to configure Tailwind
-          manually, continue with the rest of this guide.
+          La forma más rápida de comenzar a usar Tailwind CSS en tu proyecto de Rails es usar {' '}
+          <a href="https://github.com/rails/tailwindcss-rails">CSS Tailwind para Rails</a> ejecutando{' '}
+          <code>rails new my-app --css tailwind</code>. Esto configurará automáticamente tu configuración
+          de Tailwind según el ejemplo oficial de Rails. Si deseas configurar Tailwind manualmente,
+          continúa con el resto de esta guía.
         </p>
       </div>
       <Steps steps={steps} code={code} />
@@ -134,8 +133,8 @@ export function getStaticProps() {
 
 UsingRails.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Ruby on Rails',
-    section: 'Installation',
+    title: 'Instala Tailwind CSS con Ruby on Rails',
+    section: 'Instalación',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

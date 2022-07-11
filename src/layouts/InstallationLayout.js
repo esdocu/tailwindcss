@@ -6,19 +6,19 @@ import { IconContainer } from '@/components/home/common'
 
 let tabs = {
   'Tailwind CLI': '/docs/installation',
-  'Using PostCSS': '/docs/installation/using-postcss',
-  'Framework Guides': '/docs/installation/framework-guides',
+  'Usando PostCSS': '/docs/installation/using-postcss',
+  'Guías para Frameworks': '/docs/installation/framework-guides',
   'Play CDN': '/docs/installation/play-cdn',
 }
 
 let readNext = [
   {
-    title: 'Utility-First Fundamentals',
+    title: 'Fundamentos de utilidad-primero',
     href: '/docs/utility-first',
     body: () => (
       <p>
-        Using a utility-first workflow to build complex components from a constrained set of
-        primitive utilities.
+        Uso de un flujo de trabajo utilidad-primero para crear componentes complejos a partir 
+        de un conjunto restringido de utilidades primitivas.
       </p>
     ),
     icon: {
@@ -28,12 +28,12 @@ let readNext = [
     },
   },
   {
-    title: 'Responsive Design',
+    title: 'Diseño responsive',
     href: '/docs/responsive-design',
     body: () => (
       <p>
-        Build fully responsive user interfaces that adapt to any screen size using responsive
-        modifiers.
+        Crea interfaces de usuario totalmente responsive que se adapten a cualquier tamaño de 
+        pantalla utilizando modificadores responsive.
       </p>
     ),
     icon: {
@@ -43,12 +43,12 @@ let readNext = [
     },
   },
   {
-    title: 'Hover, Focus & Other States',
+    title: 'Hover, Focus y otros estados',
     href: '/docs/hover-focus-and-other-states',
     body: () => (
       <p>
-        Style elements in interactive states like hover, focus, and more using conditional
-        modifiers.
+        Elementos de estilo en estados interactivos como hover, focus y más usando 
+        modificadores condicionales.
       </p>
     ),
     icon: {
@@ -58,10 +58,10 @@ let readNext = [
     },
   },
   {
-    title: 'Dark Mode',
+    title: 'Modo oscuro',
     href: '/docs/dark-mode',
     body: () => (
-      <p>Optimize your site for dark mode directly in your HTML using the dark mode modifier.</p>
+      <p>Optimiza tu sitio para el modo oscuro directamente en su HTML usando el modificador dark.</p>
     ),
     icon: {
       className: 'dark:bg-slate-600 dark:highlight-white/20',
@@ -70,11 +70,11 @@ let readNext = [
     },
   },
   {
-    title: 'Reusing Styles',
+    title: 'Reutiliza estilos',
     href: '/docs/reusing-styles',
     body: () => (
       <p>
-        Manage duplication and keep your projects maintainable by creating reusable abstractions.
+        Administra la duplicación y mantén tus proyectos mantenibles mediante la creación de abstracciones reutilizables.
       </p>
     ),
     icon: {
@@ -84,10 +84,10 @@ let readNext = [
     },
   },
   {
-    title: 'Customizing the Framework',
+    title: 'Personaliza el Framework',
     href: '/docs/adding-custom-styles',
     body: () => (
-      <p>Customize the framework to match your brand and extend it with your own custom styles.</p>
+      <p>Personaliza el framework para que coincida con tu marca y extiéndelo con tus propios estilos personalizados.</p>
     ),
     icon: {
       className: 'dark:bg-pink-500 dark:highlight-white/30',
@@ -105,18 +105,18 @@ export function InstallationLayout({ children }) {
       <header id="header" className="mb-10 md:flex md:items-start">
         <div className="flex-auto max-w-4xl">
           <p className="mb-4 text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400">
-            Installation
+            Instalación
           </p>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight dark:text-slate-200">
-            Get started with Tailwind CSS
+            Comienza con Tailwind CSS
           </h1>
           <p className="mt-4 text-lg text-slate-700 dark:text-slate-400">
-            Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any
-            other templates for class names, generating the corresponding styles and then writing
-            them to a static CSS file.
+            Tailwind CSS funciona escaneando todos tus archivos HTML, componentes de JavaScript y 
+            cualquier otra plantilla en busca de nombres de clase, generando los estilos 
+            correspondientes y luego escribiéndolos en un archivo CSS estático.
           </p>
           <p className="mt-4 text-lg text-slate-700 dark:text-slate-400">
-            It's fast, flexible, and reliable — with zero-runtime.
+            Es rápido, flexible y confiable, sin tiempo de ejecución.
           </p>
         </div>
       </header>
@@ -126,7 +126,7 @@ export function InstallationLayout({ children }) {
             data-docsearch-ignore
             className="text-slate-900 text-xl tracking-tight font-bold mb-3 dark:text-slate-200"
           >
-            Installation
+            Instalación
           </h2>
           <div className="flex overflow-auto mb-6 -mx-4 sm:-mx-6">
             <div className="flex-none min-w-full px-4 sm:px-6">
@@ -158,12 +158,12 @@ export function InstallationLayout({ children }) {
 
       <section className="relative">
         <h2 className="text-slate-900 text-xl tracking-tight font-bold mb-3 dark:text-slate-200">
-          What to read next
+          Qué leer a continuación
         </h2>
         <div className="mb-10 max-w-2xl prose prose-slate xl:mb-0 dark:prose-dark">
           <p>
-            Get familiar with some of the core concepts that make Tailwind CSS different from
-            writing traditional CSS.
+            Familiarízate con algunos de los conceptos básicos que hacen que Tailwind CSS sea 
+            diferente de escribir CSS tradicional.
           </p>
         </div>
         <ul className="mt-10 grid grid-cols-1 gap-x-16 gap-y-8 xl:grid-cols-2 xl:gap-y-10">

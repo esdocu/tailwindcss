@@ -7,17 +7,17 @@ import { Steps } from '@/components/Steps'
 
 let tabs = [
   {
-    name: 'Using Vite',
+    name: 'Usando Vite',
     href: '#vite',
     steps: [
       {
-        title: 'Create your project',
+        title: 'Crea tu proyecto',
         body: () => (
           <p>
-            Start by creating a new Laravel project if you don’t have one set up already. The most
-            common approach is to use{' '}
+            Comienza creando un nuevo proyecto de Laravel si aún no tiene uno configurado. El enfoque 
+            más común es usar el{' '}
             <a href="https://laravel.com/docs/9.x#your-first-laravel-project">
-              the Composer <code>create-project</code> command
+              comando Composer <code>create-project</code>
             </a>
             .
           </p>
@@ -29,11 +29,11 @@ let tabs = [
         },
       },
       {
-        title: 'Install Tailwind CSS',
+        title: 'Instala Tailwind CSS',
         body: () => (
           <p>
-            Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-            command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+            Instala <code>tailwindcss</code> y sus dependencias de pares a través de npm, y luego ejecuta el 
+            comando init para generar tanto <code>tailwind.config.js</code> como <code>postcss.config.js</code>.
           </p>
         ),
         code: {
@@ -43,11 +43,10 @@ let tabs = [
         },
       },
       {
-        title: 'Configure your template paths',
+        title: 'Configura tus rutas de plantilla',
         body: () => (
           <p>
-            Add the paths to all of your template files in your <code>tailwind.config.js</code>{' '}
-            file.
+            Agrega las rutas a todos tus archivos de plantilla en tu archivo <code>tailwind.config.js</code>.
           </p>
         ),
         code: {
@@ -67,11 +66,11 @@ let tabs = [
         },
       },
       {
-        title: 'Add the Tailwind directives to your CSS',
+        title: 'Agrega las directivas Tailwind a tu CSS',
         body: () => (
           <p>
-            Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-            <code>./resources/css/app.css</code> file.
+            Agrega las directivas <code>@tailwind</code> para cada una de las capas de Tailwind a 
+            tu archivo <code>./resources/css/app.css</code>.
           </p>
         ),
         code: {
@@ -81,10 +80,10 @@ let tabs = [
         },
       },
       {
-        title: 'Start your build process',
+        title: 'Comienza tu proceso build',
         body: () => (
           <p>
-            Run your build process with <code>npm run watch</code>.
+            Ejecuta tu proceso de compilación con <code>npm run watch</code>.
           </p>
         ),
         code: {
@@ -94,11 +93,11 @@ let tabs = [
         },
       },
       {
-        title: 'Start using Tailwind in your project',
+        title: 'Comienza a usar Tailwind en tu proyecto',
         body: () => (
           <p>
-            Make sure your compiled CSS is included in the <code>{'<head>'}</code> then start using
-            Tailwind’s utility classes to style your content.
+            Asegúrate de que tu CSS compilado esté incluido en el <code>{'<head>'}</code> y luego comienza
+            a usar las clases de utilidad de Tailwind para diseñar tu contenido.
           </p>
         ),
         code: {
@@ -122,15 +121,15 @@ let tabs = [
     ],
   },
   {
-    name: 'Using Laravel Mix',
+    name: 'Usando Laravel Mix',
     href: '#mix',
     steps: [
       {
-        title: 'Install Tailwind CSS',
+        title: 'Instala Tailwind CSS',
         body: () => (
           <p>
-            Install <code>tailwindcss</code> and its peer dependencies via npm, and create your{' '}
-            <code>tailwind.config.js</code> file.
+            Instala <code>tailwindcss</code> y sus dependencias de pares a través de npm y crea tu 
+            archivo <code>tailwind.config.js</code>.
           </p>
         ),
         code: {
@@ -140,11 +139,11 @@ let tabs = [
         },
       },
       {
-        title: 'Add Tailwind to your Laravel Mix configuration',
+        title: 'Agrega Tailwind a tu configuración de Laravel Mix',
         body: () => (
           <p>
-            In your <code>webpack.mix.js</code> file, add <code>tailwindcss</code> as a PostCSS
-            plugin.
+            En tu archivo <code>webpack.mix.js</code>, agrega <code>tailwindcss</code> como 
+            complemento de PostCSS.
           </p>
         ),
         code: {
@@ -157,11 +156,10 @@ let tabs = [
         },
       },
       {
-        title: 'Configure your template paths',
+        title: 'Configura tus rutas de plantilla',
         body: () => (
           <p>
-            Add the paths to all of your template files in your <code>tailwind.config.js</code>{' '}
-            file.
+            Agrega las rutas a todos tus archivos de plantilla en tu archivo <code>tailwind.config.js</code>.
           </p>
         ),
         code: {
@@ -181,11 +179,11 @@ let tabs = [
         },
       },
       {
-        title: 'Add the Tailwind directives to your CSS',
+        title: 'Agrega las directivas Tailwind a tu CSS',
         body: () => (
           <p>
-            Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-            <code>./resources/css/app.css</code> file.
+            Agrega las directivas <code>@tailwind</code> para cada una de las capas de Tailwind 
+            a tu archivo <code>./resources/css/app.css</code>.
           </p>
         ),
         code: {
@@ -195,10 +193,10 @@ let tabs = [
         },
       },
       {
-        title: 'Start your build process',
+        title: 'Comienza tu proceso build',
         body: () => (
           <p>
-            Run your build process with <code>npm run watch</code>.
+            Ejecuta tu proceso de compilación con <code>npm run watch</code>.
           </p>
         ),
         code: {
@@ -208,11 +206,11 @@ let tabs = [
         },
       },
       {
-        title: 'Start using Tailwind in your project',
+        title: 'Comienza a usar Tailwind en tu proyecto',
         body: () => (
           <p>
-            Make sure your compiled CSS is included in the <code>{'<head>'}</code> then start using
-            Tailwind’s utility classes to style your content.
+            Asegúrate de que tu CSS compilado esté incluido en el <code>{'<head>'}</code> y luego comienza 
+            a usar las clases de utilidad de Tailwind para diseñar tu contenido.
           </p>
         ),
         code: {
@@ -248,8 +246,8 @@ export default function UsingLaravel({ code }) {
 
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Laravel"
-      description="Setting up Tailwind CSS in a Laravel project."
+      title="Instala Tailwind CSS con Laravel"
+      description="Configura Tailwind CSS en un proyecto de Laravel."
     >
       <div className="flex overflow-auto mb-6 -mx-4 sm:-mx-6">
         <div className="flex-none min-w-full px-4 sm:px-6">
@@ -300,8 +298,8 @@ export function getStaticProps() {
 
 UsingLaravel.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Laravel',
-    section: 'Installation',
+    title: 'Instala Tailwind CSS con Laravel',
+    section: 'Instalación',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

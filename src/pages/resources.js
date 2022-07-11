@@ -72,27 +72,27 @@ export default function Resources() {
     <BasicLayout>
       <header className="mb-20 max-w-xl">
         <p className="mb-4 text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400">
-          Resources
+          Recursos
         </p>
         <h1 className="mb-2 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-slate-200">
-          Everything else you need to build awesome Tailwind CSS websites
+          Todo lo demás que necesitas para crear increíbles sitios web Tailwind CSS
         </h1>
         <p className="text-lg text-slate-700 dark:text-slate-400">
-          We think Tailwind is an amazing CSS framework, but you need more than just a CSS framework
-          to produce visually awesome work.
+          Creemos que Tailwind es un framework CSS increíble, pero necesitas más que un 
+          framework CSS para producir un trabajo visualmente asombroso.
         </p>
       </header>
 
       <div className="space-y-16">
         <section>
           <h2 className="mb-2 text-2xl leading-7 tracking-tight text-slate-900 font-bold dark:text-slate-200">
-            Design resources
+            Recursos de diseño
           </h2>
           <div className="mb-10 prose prose-slate text-slate-600 max-w-3xl dark:prose-dark">
             <p>
-              Design is hard so we made a few resources to help you with it. These resources are a
-              great way to help you with your designs and a great way to support the development of
-              the framework.
+              El diseño es difícil, por lo que creamos algunos recursos para ayudarte. Estos recursos 
+              son una excelente manera de ayudarte con tus diseños y una excelente manera de apoyar 
+              el desarrollo del framework.
             </p>
           </div>
 
@@ -100,7 +100,7 @@ export default function Resources() {
             {[
               {
                 title: 'Refactoring UI',
-                description: 'Learn UI Design',
+                description: 'Aprende diseño UI',
                 images: [
                   require('@/img/resources/refactoringui-small@75.jpg').default,
                   require('@/img/resources/refactoringui@75.jpg').default,
@@ -110,20 +110,20 @@ export default function Resources() {
                 body: (
                   <>
                     <p>
-                      Refactoring UI is a design-for-developers book + video series put together by
-                      Adam Wathan and Steve Schoger. It covers literally everything we know about
-                      making things look awesome.
+                      Refactoring UI es una serie de videos y libros de diseño para desarrolladores 
+                      elaborados por Adam Wathan y Steve Schoger. Cubre literalmente todo lo que 
+                      sabemos sobre cómo hacer que las cosas se vean geniales.
                     </p>
                     <p>
-                      Almost 10,000 people have picked it up so far and have all sorts of awesome
-                      things to say about how it helped them improve their work.
+                      Casi 10,000 personas lo han elegido hasta ahora y tienen todo tipo de cosas 
+                      increíbles que decir sobre cómo les ayudó a mejorar su trabajo.
                     </p>
                   </>
                 ),
               },
               {
                 title: 'Tailwind UI',
-                description: 'Beautiful UI components, crafted by the creators of Tailwind CSS',
+                description: 'Hermosos componentes UI, creados por los creadores de Tailwind CSS',
                 images: [
                   require('@/img/resources/tailwindui-small@75.jpg').default,
                   require('@/img/resources/tailwindui@75.jpg').default,
@@ -133,13 +133,13 @@ export default function Resources() {
                 body: (
                   <>
                     <p>
-                      Tailwind UI is a collection of professionally designed, pre-built, fully
-                      responsive HTML snippets you can drop into your Tailwind projects.
+                      Tailwind UI es una colección de fragmentos HTML diseñados profesionalmente, 
+                      preconstruidos y totalmente responsive que puedes incluir en tus proyectos de Tailwind.
                     </p>
                     <p>
-                      There are currently over 550 components available in three different
-                      categories (Marketing, Application UI and E-commerce) and we’re always adding
-                      more.
+                      Actualmente hay más de 550 componentes disponibles en tres categorías diferentes 
+                      (Marketing, Interfaz de usuario de aplicaciones y Comercio electrónico) 
+                      y siempre estamos agregando más.
                     </p>
                   </>
                 ),
@@ -165,7 +165,7 @@ export default function Resources() {
                     ]}
                     darkColor="gray"
                   >
-                    Learn more<span className="sr-only">, {title}</span>
+                    Conoce más<span className="sr-only">, {title}</span>
                   </Button>
                 </div>
                 <div className="w-full flex-none mb-10 xl:mb-0 xl:ml-8 xl:w-[29rem]">
@@ -183,12 +183,12 @@ export default function Resources() {
 
         <section>
           <h2 className="mb-2 text-2xl leading-7 tracking-tight text-slate-900 font-bold dark:text-slate-200">
-            Additional resources
+            Recursos adicionales
           </h2>
           <div className="mb-10 prose prose-slate text-slate-600 max-w-3xl dark:prose-dark">
             <p>
-              Tailwind isn’t the only open-source project we maintain. We’ve made a few other
-              resources to help you with your design and development workflow.
+              Tailwind no es el único proyecto de código abierto que mantenemos. Hemos creado 
+              algunos otros recursos para ayudarte con tu flujo de trabajo de diseño y desarrollo.
             </p>
           </div>
 
@@ -196,11 +196,11 @@ export default function Resources() {
             {[
               {
                 superTitle: 'Headless UI',
-                title: 'Completely unstyled, fully accessible UI components',
+                title: 'Componentes UI totalmente accesibles y sin estilo',
                 body: (
                   <p>
-                    Completely unstyled, fully accessible UI components, designed to integrate
-                    beautifully with Tailwind CSS.
+                    Componentes UI completamente accesibles y sin estilo, diseñados para integrarse 
+                    a la perfección con Tailwind CSS.
                   </p>
                 ),
                 href: 'https://headlessui.dev',
@@ -209,11 +209,11 @@ export default function Resources() {
               },
               {
                 superTitle: 'Heroicons',
-                title: 'Beautiful hand-crafted SVG icons, by the makers of Tailwind CSS.',
+                title: 'Hermosos íconos SVG hechos a mano por los creadores de Tailwind CSS.',
                 body: (
                   <p>
-                    A set of 450+ free MIT-licensed SVG icons. Available as basic SVG icons and via
-                    first-party React and Vue libraries.
+                    Un conjunto de más de 450 íconos SVG gratuitos con licencia del MIT. Disponible 
+                    como íconos SVG básicos y a través de bibliotecas propias de React y Vue.
                   </p>
                 ),
                 href: 'https://heroicons.com',
@@ -222,11 +222,11 @@ export default function Resources() {
               },
               {
                 superTitle: 'Hero Patterns',
-                title: 'Seamless SVG background patterns by the makers of Tailwind CSS.',
+                title: 'Patrones de fondo SVG impecables de los creadores de Tailwind CSS.',
                 body: (
                   <p>
-                    A collection of over 100 free MIT-licensed high-quality SVG patterns for you to
-                    use in your web projects.
+                    Una colección de más de 100 patrones SVG gratuitos de alta calidad con 
+                    licencia del MIT para que los uses en tus proyectos web.
                   </p>
                 ),
                 href: 'https://heropatterns.com',
@@ -238,7 +238,7 @@ export default function Resources() {
                 key={card.title}
                 button={
                   <>
-                    Learn more<span className="sr-only">, {card.title}</span>
+                    Conoce más<span className="sr-only">, {card.title}</span>
                   </>
                 }
                 {...card}
@@ -253,20 +253,20 @@ export default function Resources() {
           </h2>
           <div className="mb-10 prose prose-slate text-slate-600 max-w-3xl dark:prose-dark">
             <p>
-              Head over to our official YouTube channel and dive into dozens of videos that will
-              teach you everything from Tailwind basics to advanced concepts.
+              Dirígete a nuestro canal oficial de YouTube y sumérgete en docenas de videos que te 
+              enseñarán todo, desde los conceptos básicos de Tailwind hasta conceptos avanzados.
             </p>
           </div>
 
           <CardGroup className="mb-10">
             {[
               {
-                superTitle: 'Fundamentals',
-                title: 'Translating a Custom Design System to Tailwind CSS',
+                superTitle: 'Fundamentos',
+                title: 'Traducir un sistema de diseño personalizado a Tailwind CSS',
                 body: (
                   <p>
-                    Learn how to configure Tailwind to create your own utility framework tuned
-                    specifically for your project.
+                    Aprende a configurar Tailwind para crear tu propio marco de utilidad 
+                    ajustado específicamente para tu proyecto.
                   </p>
                 ),
                 href: 'https://www.youtube.com/watch?v=cZc4Jn5nK3k',
@@ -274,12 +274,12 @@ export default function Resources() {
                 color: 'text-sky-500',
               },
               {
-                superTitle: 'Fundamentals',
-                title: 'Adding Tailwind CSS to an Existing Project',
+                superTitle: 'Fundamentos',
+                title: 'Agregar Tailwind CSS a un proyecto existente',
                 body: (
                   <p>
-                    Learn how to add Tailwind CSS to an existing project without running into naming
-                    collisions or specificity issues.
+                    Aprende a agregar Tailwind CSS a un proyecto existente sin encontrarte con 
+                    colisiones de nombres o problemas de especificidad.
                   </p>
                 ),
                 href: 'https://www.youtube.com/watch?v=oG6XPy1t1KA',
@@ -287,13 +287,13 @@ export default function Resources() {
                 color: 'text-pink-500',
               },
               {
-                superTitle: 'How we’d build it',
+                superTitle: 'Como lo construiríamos',
                 title:
-                  'Building a Headless Ecommerce Store with Tailwind CSS, Shopify, and Next.js',
+                  'Creación de una tienda de comercio electrónico Headless con Tailwind CSS, Shopify y Next.js',
                 body: (
                   <p>
-                    Fetch products from a Shopify store using the GraphQL API and assemble the pages
-                    using Tailwind UI.
+                    Obtén productos de una tienda Shopify usando la API de GraphQL y ensambla 
+                    las páginas usando la interfaz de usuario de Tailwind.
                   </p>
                 ),
                 href: 'https://www.youtube.com/watch?v=xNMYz74zNHM',
@@ -305,18 +305,18 @@ export default function Resources() {
             ))}
           </CardGroup>
 
-          <Button href="https://www.youtube.com/tailwindlabs">See all our screencasts</Button>
+          <Button href="https://www.youtube.com/tailwindlabs">Ver todos nuestros screencasts</Button>
         </section>
 
         <section className="border-t border-slate-100 pt-16 dark:border-slate-200/5">
           <h2 className="mb-2 text-xl tracking-tight text-slate-900 font-bold dark:text-slate-200">
-            Connect and contribute
+            Conéctate y contribuye
           </h2>
           <div className="mb-10 prose prose-slate text-slate-600 max-w-3xl dark:prose-dark">
             <p>
-              Whether you're a beginner or an advanced user, getting involved in the Tailwind
-              community is a great way to connect with like-minded folks who are building awesome
-              things with the framework.
+              Ya sea que seas un usuario principiante o avanzado, involucrarse en la comunidad de 
+              Tailwind es una excelente manera de conectarse con personas de ideas afines que 
+              están creando cosas increíbles con el framework.
             </p>
           </div>
 
@@ -326,7 +326,7 @@ export default function Resources() {
                 title: 'Discord',
                 href: '/discord',
                 description:
-                  'Join over 10,000 members on the Discord group to chat about Tailwind and other related topics.',
+                  'Únete a más de 10,000 miembros en el grupo de Discord para conversar sobre Tailwind y otros temas relacionados.',
                 icon: (
                   <Icon className="bg-[#838CF1]/[0.15] dark:bg-indigo-700">
                     <DiscordIcon className="w-6 h-auto dark:fill-indigo-200" />
@@ -339,7 +339,7 @@ export default function Resources() {
                 title: 'GitHub Discussions',
                 href: 'https://github.com/tailwindlabs/tailwindcss/discussions',
                 description:
-                  'Have an issue with your project? Connect with other members of the Tailwind community to get some assistance.',
+                  '¿Tienes algún problema con tu proyecto? Conéctate con otros miembros de la comunidad de Tailwind para obtener ayuda.',
                 icon: (
                   <Icon className="bg-slate-100 dark:bg-slate-800">
                     <GitHubIcon className="w-7 h-auto dark:fill-slate-400" />
@@ -396,7 +396,7 @@ export default function Resources() {
 
 Resources.layoutProps = {
   meta: {
-    title: 'Resources',
+    title: 'Recursos',
   },
   Layout: DocumentationLayout,
 }

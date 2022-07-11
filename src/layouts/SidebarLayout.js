@@ -127,7 +127,7 @@ function Nav({ nav, children, fallbackHref, mobile = false }) {
                     strokeLinejoin="round"
                   />
                 </svg>
-                Quick search...
+                  Búsqueda rápida...
                 {actionKey && (
                   <span className="ml-auto pl-3 flex-none text-xs font-semibold">
                     {actionKey[0]}K
@@ -282,7 +282,7 @@ function TopLevelNav({ mobile }) {
           </>
         }
       >
-        Documentation
+        Documentación
       </TopLevelLink>
       <TopLevelLink
         mobile={mobile}
@@ -315,7 +315,7 @@ function TopLevelNav({ mobile }) {
           </>
         }
       >
-        Components
+        Componentes
       </TopLevelLink>
       <TopLevelLink
         mobile={mobile}
@@ -345,7 +345,7 @@ function TopLevelNav({ mobile }) {
           </>
         }
       >
-        Templates
+        Plantillas
       </TopLevelLink>
       <TopLevelLink
         mobile={mobile}
@@ -459,7 +459,7 @@ function TopLevelNav({ mobile }) {
           </>
         }
       >
-        <span className={pathname === '/resources' ? 'dark:text-purple-400' : ''}>Resources</span>
+        <span className={pathname === '/resources' ? 'dark:text-purple-400' : ''}>Recursos</span>
       </TopLevelLink>
       <TopLevelLink
         mobile={mobile}
@@ -507,7 +507,7 @@ function TopLevelNav({ mobile }) {
           </>
         }
       >
-        Community
+        Comunidad
       </TopLevelLink>
     </>
   )

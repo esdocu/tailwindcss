@@ -37,7 +37,7 @@ function TableOfContents({ tableOfContents, currentSection }) {
   return (
     <>
       <h5 className="text-slate-900 font-semibold mb-4 text-sm leading-6 dark:text-slate-100">
-        On this page
+        En esta página
       </h5>
       <ul className="text-slate-700 text-sm leading-6">
         {tableOfContents.map((section) => (
@@ -208,7 +208,7 @@ export function ContentsLayout({ children, meta, classes, tableOfContents, secti
         <Link
           href={`https://github.com/tailwindlabs/tailwindcss.com/edit/master/src/pages${router.pathname}.mdx`}
         >
-          <a className="hover:text-slate-900 dark:hover:text-slate-400">Edit this page on GitHub</a>
+          <a className="hover:text-slate-900 dark:hover:text-slate-400">Editar esta página en GitHub</a>
         </Link>
       </Footer>
 

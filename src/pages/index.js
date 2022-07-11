@@ -43,7 +43,7 @@ function Header() {
           <Logo className="w-auto h-5" />
           <div className="flex items-center">
             <SearchButton className="text-slate-500 hover:text-slate-600 w-8 h-8 -my-1 flex items-center justify-center md:hidden dark:hover:text-slate-300">
-              <span className="sr-only">Search</span>
+              <span className="sr-only">Buscar</span>
               <svg
                 width="24"
                 height="24"
@@ -71,7 +71,7 @@ function Header() {
                   href="https://github.com/tailwindlabs/tailwindcss"
                   className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
                 >
-                  <span className="sr-only">Tailwind CSS on GitHub</span>
+                  <span className="sr-only">Tailwind CSS en GitHub</span>
                   <svg
                     viewBox="0 0 16 16"
                     className="w-5 h-5"
@@ -87,10 +87,10 @@ function Header() {
         </div>
         <div className="relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
           <h1 className="text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white">
-            Rapidly build modern websites without ever leaving your HTML.
+          Crea rápidamente sitios web modernos sin tener que abandonar tu HTML.
           </h1>
           <p className="mt-6 text-lg text-slate-600 text-center max-w-3xl mx-auto dark:text-slate-400">
-            A utility-first CSS framework packed with classes like{' '}
+          Un framework CSS que prioriza las utilidades, repleto de clases como{' '}
             <code className="font-mono font-medium text-sky-500 dark:text-sky-400">flex</code>,{' '}
             <code className="font-mono font-medium text-sky-500 dark:text-sky-400">pt-4</code>,{' '}
             <code className="font-mono font-medium text-sky-500 dark:text-sky-400">
@@ -98,12 +98,12 @@ function Header() {
             </code>{' '}
             and{' '}
             <code className="font-mono font-medium text-sky-500 dark:text-sky-400">rotate-90</code>{' '}
-            that can be composed to build any design, directly in your markup.
+            , que se pueden componer para crear cualquier diseño, directamente en tu marcado.
           </p>
           <div className="mt-6 sm:mt-10 flex justify-center space-x-6 text-sm">
             <NextLink href="/docs/installation">
               <a className="bg-slate-900 hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400">
-                Get started
+                Empezar
               </a>
             </NextLink>
             <SearchButton className="hidden sm:flex items-center w-72 text-left space-x-3 px-4 h-12 bg-white ring-1 ring-slate-900/10 hover:ring-slate-300 focus:outline-none focus:ring-2 focus:ring-sky-500 shadow-sm rounded-lg text-slate-400 dark:bg-slate-800 dark:ring-0 dark:text-slate-300 dark:highlight-white/5 dark:hover:bg-slate-700">
@@ -123,7 +123,7 @@ function Header() {
                     <path d="m19 19-3.5-3.5" />
                     <circle cx="11" cy="11" r="6" />
                   </svg>
-                  <span className="flex-auto">Quick search...</span>
+                  <span className="flex-auto">Búsqueda rápida...</span>
                   {actionKey && (
                     <kbd className="font-sans font-semibold dark:text-slate-500">
                       <abbr
@@ -160,28 +160,29 @@ export default function Home() {
           property="og:title"
           content="Tailwind CSS - Rapidly build modern websites without ever leaving your HTML."
         />
-        <title>Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.</title>
+        <title>Tailwind CSS en Español - Crea rápidamente sitios web modernos sin tener que abandonar tu HTML.</title>
       </Head>
       <div className="mb-20 space-y-20 overflow-hidden sm:mb-32 sm:space-y-32 md:mb-40 md:space-y-40">
         <Header />
         <section className="text-center px-8">
           <h2 className="text-slate-900 text-4xl tracking-tight font-extrabold sm:text-5xl dark:text-white">
-            “Best practices” don’t actually work.
+           Las “buenas prácticas” en realidad no funcionan.
           </h2>
           <figure>
             <blockquote>
               <p className="mt-6 max-w-3xl mx-auto text-lg">
-                I’ve written{' '}
+                He escrito{' '}
                 <a
                   href="https://adamwathan.me/css-utility-classes-and-separation-of-concerns/"
                   className="text-sky-500 font-semibold dark:text-sky-400"
                 >
-                  a few thousand words
+                  unos cuantos miles de palabras
                 </a>{' '}
-                on why traditional “semantic class names” are the reason CSS is hard to maintain,
-                but the truth is you’re never going to believe me until you actually try it. If you
-                can suppress the urge to retch long enough to give it a chance, I really think
-                you’ll wonder how you ever worked with CSS any other way.
+                  sobre por qué los "nombres de clase semánticos" tradicionales son la 
+                  razón por la que CSS es difícil de mantener,pero la verdad es que nunca 
+                  me vas a creer hasta que realmente lo pruebes. Si puede reprimir el 
+                  impulso de vomitar el tiempo suficiente para darle una oportunidad, 
+                  realmente creo que se preguntará cómo pudo trabajar con CSS de otra manera.
               </p>
             </blockquote>
             <figcaption className="mt-6 flex items-center justify-center space-x-4 text-left">
@@ -193,7 +194,7 @@ export default function Home() {
               />
               <div>
                 <div className="text-slate-900 font-semibold dark:text-white">Adam Wathan</div>
-                <div className="mt-0.5 text-sm leading-6">Creator of Tailwind CSS</div>
+                <div className="mt-0.5 text-sm leading-6">Creador de Tailwind CSS</div>
               </div>
             </figcaption>
           </figure>

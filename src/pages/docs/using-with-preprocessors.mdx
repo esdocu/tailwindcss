@@ -1,42 +1,43 @@
 ---
-title: Using with Preprocessors
-description: A guide to using Tailwind with common CSS preprocessors like Sass, Less, and Stylus.
+title: Uso con preprocesadores
+description: Una guía para usar Tailwind con preprocesadores CSS comunes como Sass, Less y Stylus.
 ---
 
 import { TipGood, TipBad } from '@/components/Tip'
 
-Since Tailwind is a PostCSS plugin, there's nothing stopping you from using it with Sass, Less, Stylus, or other preprocessors, just like you can with other PostCSS plugins like [Autoprefixer](https://github.com/postcss/autoprefixer).
+Dado que Tailwind es un complemento de PostCSS, no hay nada que te impida usarlo con Sass, Less, Stylus u otros preprocesadores, al igual que puedes hacerlo con otros complementos de PostCSS como [Autoprefixer](https://github.com/postcss/autoprefixer).
 
-It's important to note that **you don't need to use a preprocessor with Tailwind** — you typically write very little CSS on a Tailwind project anyways so using a preprocessor just isn't as beneficial as it would be in a project where you write a lot of custom CSS.
+Es importante tener en cuenta que **no necesitas usar un preprocesador con Tailwind**; de todos modos, normalmente escribes muy poco CSS en un proyecto de  Tailwind, por lo que usar un preprocesador no es tan beneficioso como lo sería en un proyecto en el que escribes mucho CSS personalizado.
 
-This guide only exists as a reference for people who need to integrate Tailwind with a preprocessor for reasons outside of their control, not because it is a recommended practice.
+Esta guía solo existe como referencia para las personas que necesitan integrar Tailwind con un preprocesador por razones fuera de su control, no porque sea una práctica recomendada.
 
 ---
 
-## Using PostCSS as your preprocessor
+## Usando PostCSS como su preprocesador
 
-If you're using Tailwind for a brand new project and don't need to integrate it with any existing Sass/Less/Stylus stylesheets, you should highly consider relying on other PostCSS plugins to add the preprocessor features you use instead of using a separate preprocessor.
+Si estás utilizando Tailwind para un proyecto completamente nuevo y no necesitas integrarlo con ninguna hoja de estilo Sass/Less/Stylus existente, deberías considerar confiar en otros complementos de PostCSS para agregar las funciones de preprocesador que usas en lugar de usar un preprocesador separado.
 
-This has a few benefits:
+Esto tiene algunos beneficios:
 
-- **Your builds will be faster**. Since your CSS doesn't have to be parsed and processed by multiple tools, your CSS will compile much quicker using only PostCSS.
-- **No quirks or workarounds.** Because Tailwind adds some new non-standard keywords to CSS (like `@tailwind`, `@apply`, `theme()`, etc.), you often have to write your CSS in annoying, unintuitive ways to get a preprocessor to give you the expected output. Working exclusively with PostCSS avoids this.
+- **Tus compilaciones serán más rápidas**. Dado que tu CSS no tiene que ser analizado y procesado por múltiples herramientas, tu CSS se compilará mucho más rápido usando solo PostCSS.
+- **Sin peculiaridades ni soluciones alternativas.** Debido a que Tailwind agrega algunas palabras clave no estándar nuevas a CSS (como `@tailwind`, `@apply`, `theme()`, etc.), a menudo tienes que escribir tu CSS en formas molestas y poco intuitivas para obtener un preprocesador que te brinde el resultado esperado. Trabajar exclusivamente con PostCSS evita esto.
 
-For a fairly comprehensive list of available PostCSS plugins see the [PostCSS GitHub repository](https://github.com/postcss/postcss/blob/master/docs/plugins.md), but here are a few important ones we use on our own projects and can recommend.
+Para obtener una lista bastante completa de los complementos PostCSS disponibles, consulta el [repositorio PostCSS GitHub](https://github.com/postcss/postcss/blob/master/docs/plugins.md), pero aquí hay algunos importantes que usamos en nuestros propios proyectos y podemos recomendar.
 
-### Build-time imports
 
-One of the most useful features preprocessors offer is the ability to organize your CSS into multiple files and combine them at build time by processing `@import` statements in advance, instead of in the browser.
+### Importaciones en tiempo de compilación
 
-The canonical plugin for handling this with PostCSS is [postcss-import](https://github.com/postcss/postcss-import).
+Una de las características más útiles que ofrecen los preprocesadores es la capacidad de organizar tu CSS en varios archivos y combinarlos en el momento de la compilación mediante el procesamiento de declaraciones `@import` por adelantado, en lugar de en el navegador.
 
-To use it, install the plugin via npm:
+El complemento canónico para manejar esto con PostCSS es [postcss-import](https://github.com/postcss/postcss-import).
+
+Para usarlo, instala el complemento a través de npm:
 
 ```shell
 npm install -D postcss-import
 ```
 
-Then add it as the very first plugin in your PostCSS configuration:
+Luego agrégalo como el primer complemento en tu configuración de PostCSS:
 
 ```js
 // postcss.config.js
@@ -49,9 +50,9 @@ module.exports = {
 }
 ```
 
-One important thing to note about `postcss-import` is that it strictly adheres to the CSS spec and disallows `@import` statements anywhere except at the very top of a file.
+Una cosa importante a tener en cuenta sobre `postcss-import` es que se adhiere estrictamente a la especificación CSS y no permite las declaraciones `@import` en cualquier lugar, excepto en la parte superior de un archivo.
 
-<TipBad>Won't work, `@import` statements must come first</TipBad>
+<TipBad>No funcionará, las declaraciones `@import` deben ir primero</TipBad>
 
 ```css
 /* components.css */
@@ -91,9 +92,9 @@ The easiest solution to this problem is to never mix regular CSS and imports in 
 }
 ```
 
-The place you are most likely to run into this situation is in your main CSS file that includes your `@tailwind` declarations.
+El lugar donde es más probable que te encuentres con esta situación es en tu archivo CSS principal que incluye tus declaraciones `@tailwind`.
 
-<TipBad>Won't work, `@import` statements must come first</TipBad>
+<TipBad>No funcionará, las declaraciones `@import` deben ir primero</TipBad>
 
 ```css
 @tailwind base;
@@ -106,11 +107,11 @@ The place you are most likely to run into this situation is in your main CSS fil
 @import "./custom-utilities.css";
 ```
 
-You can solve this by creating separate files for each `@tailwind` declaration, and then importing those files in your main stylesheet. To make this easy, we provide separate files for each `@tailwind` declaration out of the box that you can import directly from `node_modules`.
+Puedes resolver esto creando archivos separados para cada declaración `@tailwind` y luego importando esos archivos en tu hoja de estilo principal. Para facilitar esto, proporcionamos archivos separados para cada declaración `@tailwind` lista para usar que puedes importar directamente desde `node_modules`.
 
-The `postcss-import` plugin is smart enough to look for files in the `node_modules` folder automatically, so you don't need to provide the entire path — `"tailwindcss/base"` for example is enough.
+El complemento `postcss-import` es lo suficientemente inteligente como para buscar archivos en la carpeta `node_modules` automáticamente, por lo que no necesitas proporcionar la ruta completa; `"tailwindcss/base"`, por ejemplo, es suficiente.
 
-<TipGood>Import our provided CSS files</TipGood>
+<TipGood>Importar nuestros archivos CSS proporcionados</TipGood>
 
 ```css
 @import "tailwindcss/base";
@@ -123,11 +124,11 @@ The `postcss-import` plugin is smart enough to look for files in the `node_modul
 @import "./custom-utilities.css";
 ```
 
-### Nesting
+### Anidamiento
 
-To add support for nested declarations, we recommend our bundled `tailwindcss/nesting` plugin, which is a PostCSS plugin that wraps [postcss-nested](https://github.com/postcss/postcss-nested) or [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) and acts as a compatibility layer to make sure your nesting plugin of choice properly understands Tailwind's custom syntax like `@apply` and `@screen`.
+Para agregar soporte para declaraciones anidadas, recomendamos nuestro complemento incluido `tailwindcss/nesting`, que es un complemento de PostCSS que envuelve [postcss-nested](https://github.com/postcss/postcss-nested) o [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) y actúa como una capa de compatibilidad para asegurarse de que tu complemento de anidamiento de elección comprenda correctamente la sintaxis personalizada de Tailwind como `@apply` y `@screen`.
 
-It's included directly in the `tailwindcss` package itself, so to use it all you need to do is add it to your PostCSS configuration, somewhere before Tailwind:
+Está incluido directamente en el paquete `tailwindcss`, por lo que para usarlo todo lo que necesitas hacer es agregarlo a tu configuración de PostCSS, en algún lugar antes de Tailwind:
 
 ```js
 // postcss.config.js
@@ -141,15 +142,15 @@ module.exports = {
 }
 ```
 
-By default, it uses the [postcss-nested](https://github.com/postcss/postcss-nested) plugin under the hood, which uses a Sass-like syntax and is the plugin that powers nesting support in the [Tailwind CSS plugin API](/docs/plugins#css-in-js-syntax).
+De manera predeterminada, usa el complemento [postcss-nested](https://github.com/postcss/postcss-nested) debajo del capó, que usa una sintaxis similar a Sass y es el complemento que impulsa el soporte de anidamiento en [API del complemento Tailwind CSS](/docs/plugins#css-in-js-syntax).
 
-If you'd rather use [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) (which is based on the work-in-progress [CSS Nesting](https://drafts.csswg.org/css-nesting-1/) specification), first install the plugin:
+Si prefieres usar [postcss-nesting](https://github.com/jonathantneal/postcss-nesting) (que se basa en la especificación del trabajo en progreso [CSS Nesting](https://drafts.csswg.org/css-nesting-1/)), primero instala el complemento:
+
 
 ```shell
 npm install -D postcss-nesting
 ```
-
-Then pass the plugin itself as an argument to `tailwindcss/nesting` in your PostCSS configuration:
+Luego pasa el complemento como argumento a `tailwindcss/nesting` en tu configuración de PostCSS:
 
 ```js
 // postcss.config.js
@@ -163,9 +164,9 @@ module.exports = {
 }
 ```
 
-This can also be helpful if for whatever reason you need to use a very specific version of `postcss-nested` and want to override the version we bundle with `tailwindcss/nesting` itself.
+Esto también puede ser útil si, por alguna razón, necesitas usar una versión muy específica de `postcss-nested` y deseas anular la versión que empaquetamos con `tailwindcss/nesting`.
 
-Note that if you are using [`postcss-preset-env`](https://github.com/csstools/postcss-preset-env) in your project, you should make sure to disable nesting and let `tailwindcss/nesting` handle it for you instead:
+Ten en cuenta que si estás utilizando [`postcss-preset-env`](https://github.com/csstools/postcss-preset-env) en tu proyecto, debes asegurarte de deshabilitar el anidamiento y permitir que `tailwindcss/nesting` lo maneje por tí en su lugar:
 
 ```js
 // postcss.config.js
@@ -183,7 +184,7 @@ module.exports = {
 
 ### Variables
 
-These days CSS variables (officially known as custom properties) have really good [browser support](https://caniuse.com/#search=css%20custom%20properties), so you don't need a preprocessor to use variables at all.
+En estos días, las variables CSS (oficialmente conocidas como propiedades personalizadas) tienen un [soporte de navegador](https://caniuse.com/#search=css%20custom%20properties) realmente bueno, por lo que no necesitas un preprocesador para usar variables en absoluto. .
 
 ```css
 :root {
@@ -198,9 +199,9 @@ These days CSS variables (officially known as custom properties) have really goo
 }
 ```
 
-We use CSS variables extensively within Tailwind itself, so if you can use Tailwind, you can use native CSS variables.
+Usamos variables CSS de forma extensiva dentro de Tailwind, por lo que si puedes usar Tailwind, puedes usar variables CSS nativas.
 
-You may also find that most of the things you've used variables for in the past can be replaced with Tailwind's `theme()` function, which gives you access to all of your design tokens from your `tailwind.config.js` file directly in your CSS:
+También puedes encontrar que la mayoría de las cosas para las que usaste variables en el pasado se pueden reemplazar con la función `theme()` de Tailwind, que te da acceso a todos tus tokens de diseño desde tu archivo `tailwind.config.js` directamente en tu CSS:
 
 ```css
 .btn {
@@ -210,19 +211,19 @@ You may also find that most of the things you've used variables for in the past 
 }
 ```
 
-Learn more about the `theme()` function in our [functions and directives documentation](/docs/functions-and-directives#theme);
+Obtén más información sobre la función `theme()` en nuestra [documentación de funciones y directivas](/docs/functions-and-directives#theme);
 
-### Vendor prefixes
+### Prefijos de proveedores
 
-For automatically managing vendor prefixes in your CSS, you should use [Autoprefixer](https://github.com/postcss/autoprefixer).
+Para administrar automáticamente los prefijos de proveedores en tu CSS, debes usar [Autoprefixer](https://github.com/postcss/autoprefixer).
 
-To use it, install it via npm:
+Para usarlo, instálalo a través de npm:
 
 ```shell
 npm install -D autoprefixer
 ```
 
-Then add it to the very end of your plugin list in your PostCSS configuration:
+Luego agrégualo al final de tu lista de complementos en tu configuración de PostCSS:
 
 ```js
 module.exports = {
@@ -235,17 +236,17 @@ module.exports = {
 
 ---
 
-## Using Sass, Less, or Stylus
+## Usando Sass, Less, or Stylus
 
-For the best development experience, we highly recommended that you [use PostCSS exclusively](#using-post-css-as-your-preprocessor), and that you don't use preprocessors like Sass or Less in your Tailwind projects.
+Para obtener la mejor experiencia de desarrollo, te recomendamos que [uses PostCSS exclusivamente](#usando-post-css-como-su-preprocesador), y que no uses preprocesadores como Sass o Less en tus proyectos Tailwind.
 
-To use Tailwind with a preprocessing tool like Sass, Less, or Stylus, you'll need to add an additional build step to your project that lets you run your preprocessed CSS through PostCSS. If you're using Autoprefixer in your project, you already have something like this set up.
+Para usar Tailwind con una herramienta de preprocesamiento como Sass, Less o Stylus, deberás agregar un paso de compilación adicional a tu proyecto que te permita ejecutar tu CSS preprocesado a través de PostCSS. Si estás utilizando Autoprefixer en tu proyecto, ya tienes algo como esto configurado.
 
-See our documentation on [installing Tailwind as a PostCSS plugin](/docs/installation/using-postcss) to learn more about integrating Tailwind into your existing build process.
+Consulta nuestra documentación sobre [instalación de Tailwind como complemento de PostCSS](/docs/installation/using-postcss) para obtener más información sobre cómo integrar Tailwind en tu proceso de compilación existente.
 
-The most important thing to understand about using Tailwind with a preprocessor is that **preprocessors like Sass, Less, and Stylus run separately, before Tailwind**. This means that you can't feed output from Tailwind's `theme()` function into a Sass color function for example, because the `theme()` function isn't actually evaluated until your Sass has been compiled to CSS and fed into PostCSS.
+Lo más importante que debes entender sobre el uso de Tailwind con un preprocesador es que **preprocesadores como Sass, Less y Stylus se ejecutan por separado, antes de Tailwind**. Esto significa que no puedes enviar la salida de la función `theme()` de Tailwind a por ejemplo una función color de Sass, porque la función `theme()` no se evalúa realmente hasta que tu Sass se haya compilado en CSS y se haya introducido en PostCSS. .
 
-<TipBad>Won't work, Sass is processed first</TipBad>
+<TipBad>No funcionará, Sass se procesa primero</TipBad>
 
 ```css
 .alert {
@@ -253,13 +254,13 @@ The most important thing to understand about using Tailwind with a preprocessor 
 }
 ```
 
-Aside from that, each preprocessor has its own quirk or two when used with Tailwind, which are outlined with workarounds below.
+Aparte de eso, cada preprocesador tiene su propia peculiaridad o dos cuando se usa con Tailwind, que se describen con las soluciones a continuación.
 
 ### Sass
 
-When using Tailwind with Sass, using `!important` with `@apply` requires you to use interpolation to compile properly.
+Al usar Tailwind con Sass, usar `!important` con `@apply` requiere que uses la interpolación para compilar correctamente.
 
-<TipBad>Won't work, Sass complains about !important</TipBad>
+<TipBad>No funcionará, Sass se queja de !important</TipBad>
 
 ```css
 .alert {
@@ -267,7 +268,7 @@ When using Tailwind with Sass, using `!important` with `@apply` requires you to 
 }
 ```
 
-<TipGood>Use interpolation as a workaround</TipGood>
+<TipGood>Utiliza la interpolación como solución alternativa</TipGood>
 
 ```css
 .alert {
@@ -277,9 +278,9 @@ When using Tailwind with Sass, using `!important` with `@apply` requires you to 
 
 ### Less
 
-When using Tailwind with Less, you cannot nest Tailwind's `@screen` directive.
+Al usar Tailwind con Less, no puedes anidar la directiva `@screen` de Tailwind.
 
-<TipBad>Won't work, Less doesn't realise it's a media query</TipBad>
+<TipBad>No funcionará, Less no se da cuenta de que es una media query</TipBad>
 
 ```css
 .card {
@@ -290,10 +291,9 @@ When using Tailwind with Less, you cannot nest Tailwind's `@screen` directive.
   }
 }
 ```
+En su lugar, utiliza una media query regular junto con la función `theme()` para hacer referencia a los tamaños de pantalla, o simplemente no anides tus directivas `@screen`.
 
-Instead, use a regular media query along with the `theme()` function to reference your screen sizes, or simply don't nest your `@screen` directives.
-
-<TipGood>Use a regular media query and theme()</TipGood>
+<TipGood>Utiliza una media query regular y theme()</TipGood>
 
 ```css
 .card {
@@ -305,7 +305,7 @@ Instead, use a regular media query along with the `theme()` function to referenc
 }
 ```
 
-<TipGood>Use the @screen directive at the top-level</TipGood>
+<TipGood>Utiliza la directiva @screen en el nivel superior</TipGood>
 
 ```css
 .card {
@@ -320,9 +320,9 @@ Instead, use a regular media query along with the `theme()` function to referenc
 
 ### Stylus
 
-When using Tailwind with Stylus, you can't use Tailwind's `@apply` feature without wrapping the entire CSS rule in `@css` so that Stylus treats it as literal CSS:
+Al usar Tailwind con Stylus, no puedes usar la función `@apply` de Tailwind sin envolver toda la regla CSS en `@css` para que Stylus la trate como CSS literal:
 
-<TipBad>Won't work, Stylus complains about @apply</TipBad>
+<TipBad>No funciona, Stylus se queja de @apply</TipBad>
 
 ```css
 .card {
@@ -330,7 +330,7 @@ When using Tailwind with Stylus, you can't use Tailwind's `@apply` feature witho
 }
 ```
 
-<TipGood>Use @css to avoid processing as Stylus</TipGood>
+<TipGood>Utiliza @css para evitar el procesamiento como Stylus</TipGood>
 
 ```css
 @css {
@@ -340,11 +340,11 @@ When using Tailwind with Stylus, you can't use Tailwind's `@apply` feature witho
 }
 ```
 
-This comes with a significant cost however, which is that **you cannot use any Stylus features inside a `@css` block**.
+Sin embargo, esto tiene un costo significativo, que es que **no puedes usar ninguna característica de Stylus dentro de un bloque `@css`**.
 
-Another option is to use the `theme()` function instead of `@apply`, and write out the actual CSS properties in long form:
+Otra opción es usar la función `theme()` en lugar de `@apply`, y escribir las propiedades CSS reales en forma larga:
 
-<TipGood>Use theme() instead of @apply</TipGood>
+<TipGood>Usar theme() en lugar de @apply</TipGood>
 
 ```css
 .card {
@@ -354,9 +354,9 @@ Another option is to use the `theme()` function instead of `@apply`, and write o
 }
 ```
 
-In addition to this, Stylus doesn't support nesting the `@screen` directive (just like Less).
+Además de esto, Stylus no admite el anidamiento de la directiva `@screen` (al igual que Less).
 
-<TipBad>Won't work, Stylus doesn't realise it's a media query</TipBad>
+<TipBad>No funcionará, Stylus no se da cuenta de que es una media query</TipBad>
 
 ```css
 .card {
@@ -368,9 +368,9 @@ In addition to this, Stylus doesn't support nesting the `@screen` directive (jus
 }
 ```
 
-Instead, use a regular media query along with the `theme()` function to reference your screen sizes, or simply don't nest your `@screen` directives.
+En su lugar, utiliza una media query regular junto con la función `theme()` para hacer referencia a los tamaños de pantalla, o simplemente no anides tus directivas `@screen`.
 
-<TipGood>Use a regular media query and theme()</TipGood>
+<TipGood>Utiliza una media query normal y theme()</TipGood>
 
 ```css
 .card {
@@ -382,7 +382,7 @@ Instead, use a regular media query along with the `theme()` function to referenc
 }
 ```
 
-<TipGood>Use the @screen directive at the top-level</TipGood>
+<TipGood>Utiliza la directiva @screen en el nivel superior</TipGood>
 
 ```css
 .card {

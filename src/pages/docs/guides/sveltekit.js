@@ -4,15 +4,13 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Crea tu proyecto',
     body: () => (
       <p>
-        Start by creating a new SvelteKit project if you don't have one set up already. The most
-        common approach is outlined in the{' '}
+        Comienza creando un nuevo proyecto SvelteKit si aún no tienes uno configurado. El enfoque más común se describe en los{' '}
         <a href="https://kit.svelte.dev/docs#introduction-getting-started">
-          Getting Started with SvelteKit
-        </a>{' '}
-        introduction.
+          Primeros pasos con SvelteKit
+        </a>.
       </p>
     ),
     code: {
@@ -22,12 +20,13 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Instala Tailwind CSS',
     body: () => (
       <p>
-        Using npm, install <code>tailwindcss</code> and its peer dependencies, as well as{' '}
-        <code>svelte-preprocess</code>, and then run the following commands to generate both{' '}
-        <code>tailwind.config.cjs</code> and <code>postcss.config.cjs</code>.
+        Instala <code>tailwindcss</code> y sus dependencias de pares a través de npm, como también {' '}
+        <code>svelte-preprocess</code> y luego 
+        ejecuta los siguientes comandos para generar tanto <code>tailwind.config.cjs</code> como {' '}
+        <code>postcss.config.cjs</code>.
       </p>
     ),
     code: {
@@ -37,11 +36,11 @@ let steps = [
     },
   },
   {
-    title: 'Enable use of PostCSS in <style> blocks',
+    title: 'Habilitar el uso de PostCSS en bloques <style>',
     body: () => (
       <p>
-        In your <code>svelte.config.js</code> file, import <code>svelte-preprocess</code> and
-        configure it to process <code>&lt;style&gt;</code> blocks as PostCSS.
+        En tu archivo <code>svelte.config.js</code>, importa <code>svelte-preprocess</code> y configúralo para 
+        procesar bloques <code>&lt;style&gt;</code> como PostCSS.
       </p>
     ),
     code: {
@@ -59,10 +58,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Configura tus rutas de plantilla',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.cjs</code> file.
+        Agrega las rutas a todos tus archivos de plantilla en tu archivo <code>tailwind.config.cjs</code>.
       </p>
     ),
     code: {
@@ -78,11 +77,11 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Agrega las directivas Tailwind a tu CSS',
     body: () => (
       <p>
-        Create a <code>./src/app.css</code> file and add the <code>@tailwind</code> directives for
-        each of Tailwind’s layers.
+        Crea un archivo <code>./src/app.css</code> y agrega las directivas <code>@tailwind</code> para 
+        cada una de las capas de Tailwind.
       </p>
     ),
     code: {
@@ -94,11 +93,11 @@ let steps = [
     },
   },
   {
-    title: 'Import the CSS file',
+    title: 'Importa el archivo CSS',
     body: () => (
       <p>
-        Create a <code>./src/routes/__layout.svelte</code> file and import the newly-created{' '}
-        <code>app.css</code> file.
+        Crea un archivo <code>./src/routes/__layout.svelte</code> e importa el archivo {' '}
+        <code>app.css</code> recién creado.
       </p>
     ),
     code: {
@@ -112,10 +111,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Comienza tu proceso de compilación',
     body: () => (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Ejecuta tu proceso de compilación con <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -125,8 +124,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: 'Comienza a usar Tailwind en tu proyecto',
+    body: () => <p>Comienza a usar las clases de utilidad de Tailwind para diseñar tu contenido.</p>,
     code: {
       name: 'index.svelte',
       lang: 'html',
@@ -140,8 +139,8 @@ let steps = [
 export default function UsingSvelteKit({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with SvelteKit"
-      description="Setting up Tailwind CSS in a SvelteKit project."
+      title="Instala Tailwind CSS con SvelteKit"
+      description="Configuración de Tailwind CSS en un proyecto SvelteKit."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -170,8 +169,8 @@ export function getStaticProps() {
 
 UsingSvelteKit.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with SvelteKit',
-    section: 'Getting Started',
+    title: 'Instala Tailwind CSS con SvelteKit',
+    section: 'Instalación',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

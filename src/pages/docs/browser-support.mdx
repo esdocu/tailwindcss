@@ -1,21 +1,21 @@
 ---
-title: Browser Support
-description: Understanding which browsers Tailwind supports and how to manage vendor prefixes.
+title: Compatibilidad con navegador
+description: Comprender qué navegadores admite Tailwind y cómo administrar los prefijos de proveedores.
 ---
 
-In general, Tailwind CSS v3.0 is designed for and tested on the latest stable versions of Chrome, Firefox, Edge, and Safari. It does not support any version of IE, including IE 11.
+En general, Tailwind CSS v3.0 está diseñado y probado en las últimas versiones estables de Chrome, Firefox, Edge y Safari. No es compatible con ninguna versión de IE, incluido IE 11.
 
-While most of the features in Tailwind CSS will work in all modern browsers, Tailwind also includes APIs for several bleeding-edge features that aren't yet supported by all browsers, for example the `:focus-visible` pseudo-class and `backdrop-filter` utilities.
+Si bien la mayoría de las funciones de Tailwind CSS funcionarán en todos los navegadores modernos, Tailwind también incluye API para varias funciones de última generación que aún no son compatibles con todos los navegadores, por ejemplo, la pseudoclase `:focus-visible` y las utilidades `backdrop-filter`.
 
-Since Tailwind is such a low-level framework, it's easy to avoid these features if you can't use them by simply not using the utility or modifier that's not supported, much like how you just wouldn't use those CSS features in your CSS.
+Dado que Tailwind es un framework de tan bajo nivel, es fácil evitar estas funciones si no puedes usarlas simplemente al no usar la utilidad o el modificador que no es compatible, al igual que no usaría esas funciones de CSS en tu CSS .
 
-The [Can I Use](https://caniuse.com/?search=focus-visible) database is a great resource when you're unsure about the support for an unfamiliar CSS feature.
+La base de datos [Can I Use](https://caniuse.com/?search=focus-visible) es un excelente recurso cuando no estás seguro acerca de la compatibilidad con una característica CSS desconocida.
 
 ---
 
-## Vendor Prefixes
+## Prefijos de proveedores
 
-Many CSS properties require vendor prefixes to be understood by browsers, for example `background-clip: text` needs the `-webkit` prefix to work in most browsers:
+Muchas propiedades CSS requieren que los navegadores entiendan los prefijos de los proveedores, por ejemplo, `background-clip: text` necesita el prefijo `-webkit` para funcionar en la mayoría de los navegadores:
 
 ```css
 .bg-clip-text {
@@ -24,17 +24,17 @@ Many CSS properties require vendor prefixes to be understood by browsers, for ex
 }
 ```
 
-If you're using the Tailwind CLI tool, vendor prefixes like this will be added automatically.
+Si estás utilizando la herramienta Tailwind CLI, los prefijos de proveedores como este se agregarán automáticamente.
 
-If not, we recommend that you use [Autoprefixer](https://github.com/postcss/autoprefixer), which is a PostCSS plugin that automatically adds any necessary vendor prefixes based on the browsers you tell it you need to support.
+De lo contrario, le recomendamos que utiliza [Autoprefixer](https://github.com/postcss/autoprefixer), que es un complemento de PostCSS que agrega automáticamente cualquier prefijo de proveedor necesario en función de los navegadores que le indicas que necesita admitir.
 
-To use it, install it via npm:
+Para usarlo, instálalo a través de npm:
 
 ```shell
 npm install -D autoprefixer
 ```
 
-Then add it to the very end of your plugin list in your PostCSS configuration:
+Luego agrégalo al final de tu lista de complementos en tu configuración de PostCSS:
 
 ```js
 module.exports = {
@@ -45,4 +45,4 @@ module.exports = {
 }
 ```
 
-To learn more about specifying which browsers you need to support, check out [Browserslist](https://github.com/browserslist/browserslist) which is the standard way to define target browsers in front-end tooling.
+Para obtener más información sobre cómo especificar los navegadores que necesita admitir, consulta [Browserslist](https://github.com/browserslist/browserslist), que es la forma estándar de definir los navegadores de destino en las herramientas de front-end.

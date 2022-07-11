@@ -414,7 +414,7 @@ But with the new `enabled` modifier, you can write it like this instead:
 
 Instead of overriding the hover color back to the default color when the button is disabled, we combine the `hover` and `enabled` variants to just not apply the hover styles when the button is disabled in the first place. I think that's better!
 
-Here's an example combining the new `optional` modifier with our [sibling state features](/docs/hover-focus-and-other-states#styling-based-on-sibling-state) to hide a little "Required" notice for fields that aren't required:
+Here's an example combining the new `optional` modifier with our [sibling state features](/docs/hover-focus-and-other-states#estilo-basado-en-el-estado-del-hermano) to hide a little "Required" notice for fields that aren't required:
 
 <Example p="none">
   <div class="max-w-sm mx-auto bg-white shadow py-5 px-6">
@@ -552,7 +552,7 @@ Okay so this one is the real highlight for me — you know how we give you the [
 </div>
 ```
 
-Well Tailwind CSS v3.1 introduces [arbitrary variants](/docs/hover-focus-and-other-states#using-arbitrary-variants), letting you create your own ad hoc variants directly in your HTML:
+Well Tailwind CSS v3.1 introduces [arbitrary variants](/docs/hover-focus-and-other-states#usar-variantes-arbitrarias), letting you create your own ad hoc variants directly in your HTML:
 
 ```html
 <div class="**[&:nth-child(3)]**:py-0">

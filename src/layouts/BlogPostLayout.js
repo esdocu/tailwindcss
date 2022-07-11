@@ -126,10 +126,10 @@ function Metadata({ meta }) {
 
   return (
     <Head>
-      <title>{meta.title} – Tailwind CSS</title>
+      <title>{meta.title} – Tailwind CSS en Español</title>
       <meta name="twitter:site" content="@tailwindcss" />
       <meta name="twitter:creator" content="@tailwindcss" />
-      <meta name="twitter:title" content={`${meta.title} – Tailwind CSS`} />
+      <meta name="twitter:title" content={`${meta.title} – Tailwind CSS en Español`} />
       <meta name="twitter:description" content={meta.description} />
       {meta.image ? (
         <>
@@ -147,7 +147,7 @@ function Metadata({ meta }) {
       )}
       <meta property="og:url" content={`https://tailwindcss.com${router.pathname}`} />
       <meta property="og:type" content="article" />
-      <meta property="og:title" content={`${meta.title} – Tailwind CSS`} />
+      <meta property="og:title" content={`${meta.title} – Tailwind CSS en Español`} />
       <meta property="og:description" content={meta.description} />
       <meta property="og:image" content={`https://tailwindcss.com${meta.image}`} />
       <meta name="description" content={meta.description}></meta>

@@ -1,6 +1,6 @@
 ---
-title: Utility-First Fundamentals
-description: Building complex components from a constrained set of primitive utilities.
+title: Fundamentos de utilidad-primero
+description: Construcción de componentes complejos a partir de un conjunto restringido de utilidades primitivas.
 ---
 
 import { Heading } from '@/components/Heading'
@@ -8,11 +8,11 @@ import { TipGood, TipBad } from '@/components/Tip'
 
 ---
 
-## <Heading hidden>Overview</Heading>
+## <Heading hidden>Visión general</Heading>
 
-Traditionally, whenever you need to style something on the web, you write CSS.
+Tradicionalmente, cada vez que necesitas diseñar algo en la web, escribes CSS.
 
-<TipBad>Using a traditional approach where custom designs require custom CSS</TipBad>
+<TipBad>Usando un enfoque tradicional donde los diseños personalizados requieren CSS personalizado</TipBad>
 
 <Example>
   <div class="max-w-sm mx-auto p-6 flex items-center bg-white rounded-xl shadow-lg space-x-4">
@@ -21,7 +21,7 @@ Traditionally, whenever you need to style something on the web, you write CSS.
     </div>
     <div>
       <div class="text-xl font-medium text-black">ChitChat</div>
-      <p class="text-slate-500">You have a new message!</p>
+      <p class="text-slate-500">¡Tienes un nuevo mensaje!</p>
     </div>
   </div>
 </Example>
@@ -33,7 +33,7 @@ Traditionally, whenever you need to style something on the web, you write CSS.
   </div>
   <div class="chat-notification-content">
     <h4 class="chat-notification-title">ChitChat</h4>
-    <p class="chat-notification-message">You have a new message!</p>
+    <p class="chat-notification-message">¡Tienes un nuevo mensaje!</p>
   </div>
 </div>
 
@@ -71,9 +71,9 @@ Traditionally, whenever you need to style something on the web, you write CSS.
 </style>
 ```
 
-With Tailwind, you style elements by applying pre-existing classes directly in your HTML.
+Con Tailwind, diseñas elementos aplicando clases preexistentes directamente en tu HTML.
 
-<TipGood>Using utility classes to build custom designs without writing CSS</TipGood>
+<TipGood>Uso de clases de utilidad para crear diseños personalizados sin escribir CSS</TipGood>
 
 <Example>
   <div class="max-w-sm mx-auto p-6 flex items-center bg-white rounded-xl shadow-lg space-x-4">
@@ -82,7 +82,7 @@ With Tailwind, you style elements by applying pre-existing classes directly in y
     </div>
     <div>
       <div class="text-xl font-medium text-black">ChitChat</div>
-      <p class="text-slate-500">You have a new message!</p>
+      <p class="text-slate-500">¡Tienes un nuevo mensaje!</p>
     </div>
   </div>
 </Example>
@@ -94,45 +94,45 @@ With Tailwind, you style elements by applying pre-existing classes directly in y
   </div>
   <div>
     <div class="text-xl font-medium text-black">ChitChat</div>
-    <p class="text-slate-500">You have a new message!</p>
+    <p class="text-slate-500">¡Tienes un nuevo mensaje!</p>
   </div>
 </div>
 ```
 
-In the example above, we've used:
+En el ejemplo anterior, hemos utilizado:
 
-- Tailwind's [flexbox](/docs/display#flex) and [padding](/docs/padding) utilities (`flex`, `shrink-0`, and `p-6`) to control the overall card layout
-- The [max-width](/docs/max-width) and [margin](/docs/margin) utilities (`max-w-sm` and `mx-auto`) to constrain the card width and center it horizontally
-- The [background color](/docs/background-color), [border radius](/docs/border-radius), and [box-shadow](/docs/box-shadow) utilities (`bg-white`, `rounded-xl`, and `shadow-lg`) to style the card's appearance
-- The [width](/docs/width) and [height](/docs/height) utilities (`w-12` and `h-12`) to size the logo image
-- The [space-between](/docs/space) utilities (`space-x-4`) to handle the spacing between the logo and the text
-- The [font size](/docs/font-size), [text color](/docs/text-color), and [font-weight](/docs/font-weight) utilities (`text-xl`, `text-black`, `font-medium`, etc.) to style the card text
+- Las utilidades [flexbox](/docs/display#flex) y [padding](/docs/padding) de Tailwind (`flex`, `shrink-0` y `p-6`) para controlar el diseño general de la tarjeta
+- Las utilidades [max-width](/docs/max-width) y [margin](/docs/margin) (`max-w-sm` y `mx-auto`) para restringir el ancho de la tarjeta y centrarla horizontalmente
+- Las utilidades [background-color](/docs/background-color), [border-radius](/docs/border-radius) y [box-shadow](/docs/box-shadow) (`bg-white`, `rounded-xl` y `shadow-lg`) para darle estilo a la apariencia de la tarjeta
+- Las utilidades [width](/docs/width) y [height](/docs/height) (`w-12` y `h-12`) para cambiar el tamaño de la imagen del logotipo
+- Las utilidades [space-between](/docs/space) (`space-x-4`) para manejar el espacio entre el logotipo y el texto
+- Las utilidades [font-size](/docs/font-size), [text-color](/docs/text-color) y [font-weight](/docs/font-weight) (`text-xl`, `text-black`, `font-medium`, etc.) para darle estilo al texto de la tarjeta
 
-This approach allows us to implement a completely custom component design without writing a single line of custom CSS.
+Este enfoque nos permite implementar un diseño de componente completamente personalizado sin escribir una sola línea de CSS personalizado.
 
-Now I know what you're thinking, _"this is an atrocity, what a horrible mess!"_ and you're right, it's kind of ugly. In fact it's just about impossible to think this is a good idea the first time you see it — **you have to actually try it**.
+Ahora sé lo que estás pensando, _"¡esto es una atrocidad, qué lío tan horrible!"_ y tienes razón, es algo feo. De hecho, es casi imposible pensar que es una buena idea la primera vez que la ves; **tienes que probarla**.
 
-But once you've actually built something this way, you'll quickly notice some really important benefits:
+Pero una vez que hayas construido algo de esta manera, notarás rápidamente algunos beneficios realmente importantes:
 
-- **You aren't wasting energy inventing class names**. No more adding silly class names like `sidebar-inner-wrapper` just to be able to style something, and no more agonizing over the perfect abstract name for something that's really just a flex container.
-- **Your CSS stops growing**. Using a traditional approach, your CSS files get bigger every time you add a new feature. With utilities, everything is reusable so you rarely need to write new CSS.
-- **Making changes feels safer**. CSS is global and you never know what you're breaking when you make a change. Classes in your HTML are local, so you can change them without worrying about something else breaking.
+- **No estás desperdiciando energía inventando nombres de clase**. No más agregar nombres de clase tontos como `sidebar-inner-wrapper` solo para poder diseñar algo, y no más angustiarse por el nombre abstracto perfecto para algo que en realidad es solo un contenedor flexible.
+- **Tu CSS deja de crecer**. Usando un enfoque tradicional, sus archivos CSS se hacen más grandes cada vez que agregas una nueva función. Con las utilidades, todo es reutilizable, por lo que rara vez necesitas escribir CSS nuevo.
+- **Hacer cambios se siente más seguro**. CSS es global y nunca sabes lo que estás rompiendo cuando haces un cambio. Las clases en tu HTML son locales, por lo que puedes cambiarlas sin preocuparte de que algo más se rompa.
 
-When you realize how productive you can be working exclusively in HTML with predefined utility classes, working any other way will feel like torture.
+Cuando te das cuenta de lo productivo que puedes ser trabajando exclusivamente en HTML con clases de utilidad predefinidas, trabajar de otra manera te parecerá una tortura.
 
 ---
 
-## Why not just use inline styles?
+## ¿Por qué no usar simplemente estilos en línea?
 
-A common reaction to this approach is wondering, "isn't this just inline styles?" and in some ways it is — you're applying styles directly to elements instead of assigning them a class name and then styling that class.
+Una reacción común a este enfoque es preguntarse, "¿no son solo estilos en línea?" y de alguna manera lo son: estás aplicando estilos directamente a los elementos en lugar de asignarles un nombre de clase y luego diseñar esa clase.
 
-But using utility classes has a few important advantages over inline styles:
+Pero el uso de clases de utilidad tiene algunas ventajas importantes sobre los estilos en línea:
 
-- **Designing with constraints**. Using inline styles, every value is a magic number. With utilities, you're choosing styles from a predefined [design system](/docs/theme), which makes it much easier to build visually consistent UIs.
-- **Responsive design**. You can't use media queries in inline styles, but you can use Tailwind's [responsive utilities](/docs/responsive-design) to build fully responsive interfaces easily.
-- **Hover, focus, and other states**. Inline styles can't target states like hover or focus, but Tailwind's [state variants](/docs/hover-focus-and-other-states) make it easy to style those states with utility classes.
+- **Diseñar con restricciones**. Usando estilos en línea, cada valor es un número mágico. Con las utilidades, estás eligiendo estilos de un [sistema de diseño](/docs/theme) predefinido, lo que hace que sea mucho más fácil crear interfaces de usuario visualmente consistentes.
+- **Diseño responsive**. No puedes usar media queries en estilos en línea, pero puedes usar las [utilidades responsive](/docs/responsive-design) de Tailwind para crear interfaces totalmente responsive fácilmente.
+- **Hover, focus y otros estados**. Los estilos en línea no pueden apuntar a estados como hover o focus, pero las [variantes de estado](/docs/hover-focus-and-other-states) de Tailwind facilitan el estilo de esos estados con clases de utilidad.
 
-This component is fully responsive and includes a button with hover and focus styles, and is built entirely with utility classes:
+Este componente es totalmente responsive e incluye un botón con estilos para focus y hover, y está construido completamente con clases de utilidad:
 
 <Example>
   <div class="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg sm:flex sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 sm:py-4">
@@ -143,7 +143,7 @@ This component is fully responsive and includes a button with hover and focus st
           Erin Lindford
         </p>
         <p class="text-slate-500 font-medium">
-          Product Engineer
+          Ingeniera de producto
         </p>
       </div>
       <button class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2">Message</button>
@@ -160,7 +160,7 @@ This component is fully responsive and includes a button with hover and focus st
         Erin Lindford
       </p>
       <p class="text-slate-500 font-medium">
-        Product Engineer
+        Ingeniera de producto
       </p>
     </div>
     <button class="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 **hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2**">Message</button>
@@ -170,11 +170,11 @@ This component is fully responsive and includes a button with hover and focus st
 
 ---
 
-## Maintainability concerns
+## Problemas de mantenibilidad
 
-The biggest maintainability concern when using a utility-first approach is managing commonly repeated utility combinations.
+La mayor preocupación de mantenibilidad cuando se utiliza un enfoque de utilidad-primero es administrar combinaciones de utilidades que se repiten con frecuencia.
 
-This is easily solved by [extracting components and partials](/docs/reusing-styles#extracting-components-and-partials), and using [editor and language features](/docs/reusing-styles#using-editor-and-language-features) like multi-cursor editing and simple loops.
+Esto se resuelve fácilmente [extrayendo componentes y parciales](/docs/reusing-styles#extracting-components-and-partials) y usando [funciones del editor y del lenguaje](/docs/reusing-styles#using-editor-and-language-features) como la edición de múltiples cursores y bucles simples.
 
 ```html
 <!-- PrimaryButton.vue -->
@@ -185,13 +185,13 @@ This is easily solved by [extracting components and partials](/docs/reusing-styl
 </template>
 ```
 
-Aside from that, maintaining a utility-first CSS project turns out to be a lot easier than maintaining a large CSS codebase, simply because HTML is so much easier to maintain than CSS. Large companies like GitHub, Netflix, Heroku, Kickstarter, Twitch, Segment, and more are using this approach with great success.
+Aparte de eso, mantener un proyecto CSS de utilidad-primero resulta mucho más fácil que mantener una gran base de código CSS, simplemente porque HTML es mucho más fácil de mantener que CSS. Grandes empresas como GitHub, Netflix, Heroku, Kickstarter, Twitch, Segment y más están utilizando este enfoque con gran éxito.
 
-If you'd like to hear about others' experiences with this approach, check out the following resources:
+Si deseas conocer las experiencias de otros con este enfoque, consulta los siguientes recursos:
 
-- [By The Numbers: A Year and a Half with Atomic CSS](https://medium.com/@johnpolacek/by-the-numbers-a-year-and-half-with-atomic-css-39d75b1263b4) by John Polacek
-- [Building a Scalable CSS Architecture](https://blog.algolia.com/redesigning-our-docs-part-4-building-a-scalable-css-architecture/) by Sarah Dayan of Algolia
-- [No, Utility Classes Aren't the Same As Inline Styles](https://frontstuff.io/no-utility-classes-arent-the-same-as-inline-styles) by Sarah Dayan of Algolia
-- [Diana Mounter on using utility classes at GitHub](http://www.fullstackradio.com/75), a podcast interview
+- [En cifras: año y medio con Atomic CSS](https://medium.com/@johnpolacek/by-the-numbers-a-year-and-half-with-atomic-css-39d75b1263b4) por Juan Polacek
+- [Construyendo una arquitectura CSS escalable](https://blog.algolia.com/redesigning-our-docs-part-4-building-a-scalable-css-architecture/) por Sarah Dayan de Algolia
+- [No, las clases de utilidad no son lo mismo que los estilos en línea](https://frontstuff.io/no-utility-classes-arent-the-same-as-inline-styles) por Sarah Dayan de Algolia
+- [Diana Mounter sobre el uso de clases de utilidad en GitHub](http://www.fullstackradio.com/75), una entrevista de podcast
 
-For even more, check out [The Case for Atomic/Utility-First CSS](https://johnpolacek.github.io/the-case-for-atomic-css/), curated by [John Polacek](https://twitter.com/johnpolacek).
+Para obtener aún más, consulta [The Case for Atomic/Utility-First CSS](https://johnpolacek.github.io/the-case-for-atomic-css/), seleccionado por [John Polacek](https://twitter.com/johnpolacek).

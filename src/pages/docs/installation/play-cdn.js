@@ -5,11 +5,11 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Add the Play CDN script to your HTML',
+    title: 'Añade el script Play CDN a tu HTML',
     body: () => (
       <p>
-        Add the Play CDN script tag to the <code>&lt;head&gt;</code> of your HTML file, and start
-        using Tailwind’s utility classes to style your content.
+        Agrega el script Play CDN al <code>&lt;head&gt;</code> de tu archivo HTML y comienza a
+        usar las clases de utilidad de Tailwind para diseñar tu contenido.
       </p>
     ),
     code: {
@@ -31,14 +31,14 @@ let steps = [
     },
   },
   {
-    title: 'Try customizing your config',
+    title: 'Prueba personalizar tu configuración',
     body: () => (
       <p>
-        Edit the <code>tailwind.config</code> object to{' '}
+        Edita el objeto <code>tailwind.config</code> para{' '}
         <NextLink href="/docs/configuration">
-          <a>customize your configuration</a>
+          <a>personaliza tu configuración</a>
         </NextLink>{' '}
-        with your own design tokens.
+        con tus propios tokens de diseño.
       </p>
     ),
     code: {
@@ -71,11 +71,11 @@ let steps = [
     },
   },
   {
-    title: 'Try adding some custom CSS',
+    title: 'Prueba agregar algo de CSS personalizado',
     body: () => (
       <p>
-        Use <code>type="text/tailwindcss"</code> to add custom CSS that supports all of Tailwind's
-        CSS features.
+        Utiliza <code>type="text/tailwindcss"</code> para agregar CSS personalizado que 
+        admita todas las funciones de CSS de Tailwind.
       </p>
     ),
     code: {
@@ -104,11 +104,11 @@ let steps = [
     },
   },
   {
-    title: 'Try using a first-party plugin',
+    title: 'Prueba trabajar con un complemento del core',
     body: () => (
       <p>
-        Enable first-party plugins, like forms and typography, using the <code>plugins</code> query
-        parameter.
+        Habilita core plugins, como formularios y tipografía, mediante el 
+        parámetro de consulta <code>plugins</code>.
       </p>
     ),
     code: {
@@ -140,8 +140,9 @@ export default function PlayCdn({ code }) {
       >
         <h3 className="sr-only">Play CDN</h3>
         <p>
-          Use the Play CDN to try Tailwind right in the browser without any build step. The Play CDN
-          is designed for development purposes only, and is not the best choice for production.
+          Usa Play CDN para probar Tailwind directamente en el navegador sin ningún paso de
+          compilación. Play CDN está diseñado solo para fines de desarrollo y no es la mejor
+          opción para producción.
         </p>
       </div>
       <Steps level={4} steps={steps} code={code} />
@@ -171,8 +172,8 @@ export function getStaticProps() {
 
 PlayCdn.layoutProps = {
   meta: {
-    title: 'Installation: Play CDN',
-    section: 'Getting Started',
+    title: 'Instalación: Play CDN',
+    section: 'Empezando',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

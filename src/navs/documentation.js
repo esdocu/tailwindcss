@@ -6,9 +6,9 @@ const pages = createPageList(
 )
 
 export const documentationNav = {
-  'Getting Started': [
+  'Empezando': [
     {
-      title: 'Installation',
+      title: 'Instalación',
       href: '/docs/installation',
       match: /^\/docs\/installation/,
     },
@@ -21,7 +21,7 @@ export const documentationNav = {
     pages['browser-support'],
     pages['upgrade-guide'],
   ],
-  'Core Concepts': [
+  'Conceptos básicos': [
     pages['utility-first'],
     // TODO: Maybe write this page
     // pages['writing-your-html'],
@@ -32,7 +32,7 @@ export const documentationNav = {
     pages['adding-custom-styles'],
     pages['functions-and-directives'],
   ],
-  Customization: [
+  Personalización: [
     pages['configuration'],
     pages['content-configuration'],
     // TODO: Remove + redirect to v2

@@ -1,15 +1,14 @@
 import { DocumentationLayout } from '@/layouts/DocumentationLayout'
 import { InstallationLayout } from '@/layouts/InstallationLayout'
-import { Cta } from '@/components/Cta'
+// import { Cta } from '@/components/Cta'
 import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Install Tailwind CSS',
+    title: 'Instalar Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> via npm, and create your <code>tailwind.config.js</code>{' '}
-        file.
+        Instala <code>tailwindcss</code> vía npm, y crea tu archivo <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -19,10 +18,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Configura tus rutas de plantilla',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Agrega las rutas a todos tus archivos de plantilla en tu archivo <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -38,11 +37,11 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Agrega las directivas de Tailwind a tu CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your main CSS
-        file.
+        Agrega las directivas <code>@tailwind</code> para cada una de las capas de Tailwind a tu 
+        archivo CSS principal.
       </p>
     ),
     code: {
@@ -52,8 +51,8 @@ let steps = [
     },
   },
   {
-    title: 'Start the Tailwind CLI build process',
-    body: () => <p>Run the CLI tool to scan your template files for classes and build your CSS.</p>,
+    title: 'Inicia el proceso de compilación de la CLI de Tailwind',
+    body: () => <p>Ejecuta la herramienta CLI para escanear tus archivos de plantilla en busca de clases y crea tu CSS.</p>,
     code: {
       name: 'Terminal',
       lang: 'terminal',
@@ -61,11 +60,11 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your HTML',
+    title: 'Comienza a usar Tailwind en tu HTML',
     body: () => (
       <p>
-        Add your compiled CSS file to the <code>{'<head>'}</code> and start using Tailwind’s utility
-        classes to style your content.
+        Agrega tu archivo CSS compilado a <code>{'<head>'}</code> y comienza a usar las clases de 
+        utilidad de Tailwind para diseñar tu contenido.
       </p>
     ),
     code: {
@@ -95,10 +94,10 @@ export default function TailwindCli({ code }) {
         id="content-wrapper"
         className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark"
       >
-        <h3 className="sr-only">Installing Tailwind CLI</h3>
+        <h3 className="sr-only">Instalar Tailwind CLI</h3>
         <p>
-          The simplest and fastest way to get up and running with Tailwind CSS from scratch is with
-          the Tailwind CLI tool.
+          La forma más sencilla y rápida de poner en marcha Tailwind CSS desde cero es con la 
+          herramienta Tailwind CLI.
         </p>
       </div>
       <Steps level={4} steps={steps} code={code} />
@@ -142,7 +141,7 @@ export function getStaticProps() {
 
 TailwindCli.layoutProps = {
   meta: {
-    title: 'Installation: Tailwind CLI',
+    title: 'Instalación: Tailwind CLI',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

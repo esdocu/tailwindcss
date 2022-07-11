@@ -23,10 +23,10 @@ export default function FrameworkGuides() {
   return (
     <InstallationLayout>
       <div id="content-wrapper" className="prose prose-slate mb-10 max-w-3xl dark:prose-dark">
-        <h3 className="sr-only">Framework Guides</h3>
+        <h3 className="sr-only">Guías para Frameworks</h3>
         <p>
-          Framework-specific guides that cover our recommended approach to installing Tailwind CSS
-          in a number of popular environments.
+          Guías específicas de frameworks que cubren nuestro enfoque recomendado para instalar 
+          Tailwind CSS en varios entornos populares.
         </p>
       </div>
       <ul className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
@@ -34,50 +34,50 @@ export default function FrameworkGuides() {
           {
             name: 'Next.js',
             slug: 'nextjs',
-            description: 'Full-featured React framework with great developer experience.',
+            description: 'React framework con todas las funciones y una gran experiencia de desarrollador.',
             logo: NextJsLogo,
             logoDark: NextJsLogoWhite,
           },
           {
             name: 'Laravel',
             slug: 'laravel',
-            description: 'PHP web application framework with expressive, elegant syntax.',
+            description: 'Framework de aplicación web PHP con sintaxis expresiva y elegante.',
             logo: LaravelLogo,
           },
           {
             name: 'Vite',
             slug: 'vite',
-            description: 'Fast and modern development server and build tool.',
+            description: 'Servidor de desarrollo rápido y moderno y herramienta de compilación.',
             logo: ViteLogo,
           },
           {
             name: 'Nuxt.js',
             slug: 'nuxtjs',
-            description: 'Intuitive Vue framework for building universal applications.',
+            description: 'Framework Vue intuitivo para crear aplicaciones universales.',
             logo: NuxtJsLogo,
           },
           {
             name: 'Gatsby',
             slug: 'gatsby',
-            description: 'Framework for building static sites with React and GraphQL.',
+            description: 'Framework para construir sitios estáticos con React y GraphQL.',
             logo: GatsbyLogo,
           },
           {
             name: 'Create React App',
             slug: 'create-react-app',
-            description: 'CLI tool for scaffolding a new single-page React application.',
+            description: 'Herramienta CLI para montar una nueva aplicación React de una sola página.',
             logo: CraLogo,
           },
           {
             name: 'SvelteKit',
             slug: 'sveltekit',
-            description: 'The fastest way to build apps of all sizes with Svelte.js.',
+            description: 'La forma más rápida de crear aplicaciones de todos los tamaños con Svelte.js.',
             logo: SvelteLogo,
           },
           {
             name: 'Angular',
             slug: 'angular',
-            description: 'Platform for building mobile and desktop web applications.',
+            description: 'Plataforma para la creación de aplicaciones web móviles y de escritorio.',
             logo: AngularLogo,
             logoDark: AngularLogoWhite,
           },
@@ -85,21 +85,21 @@ export default function FrameworkGuides() {
             name: 'Ruby on Rails',
             slug: 'ruby-on-rails',
             description:
-              'Full-stack framework with all the tools needed to build amazing web apps.',
+              'Framework full-stack con todas las herramientas necesarias para crear aplicaciones web sorprendentes.',
             logo: RailsLogo,
             logoDark: RailsLogoWhite,
           },
           {
             name: 'Remix',
             slug: 'remix',
-            description: 'Full stack framework focused on web fundamentals and modern UX.',
+            description: 'Full stack framework centrado en los fundamentos web y una moderna experiencia de usuario.',
             logo: RemixLogo,
             logoDark: RemixLogoWhite,
           },
           {
             name: 'Phoenix',
             slug: 'phoenix',
-            description: 'A framework to build rich, interactive applications with Elixir.',
+            description: 'Un framework para construir aplicaciones ricas e interactivas con Elixir.',
             logo: () => (
               <img
                 src={PhoenixLogo}
@@ -112,7 +112,7 @@ export default function FrameworkGuides() {
           {
             name: 'Parcel',
             slug: 'parcel',
-            description: 'The zero-configuration build tool for the web.',
+            description: 'La herramienta de compilación de configuración cero para la web.',
             logo: () => (
               <img
                 src={ParcelLogo}
@@ -163,15 +163,15 @@ export default function FrameworkGuides() {
       </ul>
       <div className="mt-16 prose prose-slate max-w-3xl dark:prose-dark">
         <p>
-          Don't see your framework of choice? Try using{' '}
+          ¿No ves el framework de tu elección? Intenta usar{' '}
           <Link href="/docs/installation">
             <a>Tailwind CLI</a>
           </Link>{' '}
-          or installing Tailwind{' '}
+          o instala Tailwind{' '}
           <Link href="/docs/installation/using-postcss">
-            <a>as a PostCSS plugin</a>
+            <a>como un complemento de PostCSS</a>
           </Link>{' '}
-          instead.
+          en su lugar.
         </p>
       </div>
     </InstallationLayout>
@@ -180,8 +180,8 @@ export default function FrameworkGuides() {
 
 FrameworkGuides.layoutProps = {
   meta: {
-    title: 'Installation: Framework Guides',
-    section: 'Getting Started',
+    title: 'Instalación: Guías para Frameworks',
+    section: 'Empezando',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

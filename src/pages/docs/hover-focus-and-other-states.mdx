@@ -1,36 +1,36 @@
 ---
-title: Handling Hover, Focus, and Other States
-shortTitle: Hover, Focus, and Other States
-description: Using utilities to style elements on hover, focus, and more.
+title: Manejo de Hover, Focus y otros estados
+shortTitle: Hover, Focus, y otros estados
+description: Uso de utilidades para diseñar elementos al pasar el mouse, enfocar y más.
 ---
 
 import { TipGood, TipBad, TipInfo } from '@/components/Tip'
 import { SnippetGroup } from '@/components/SnippetGroup'
 
-Every utility class in Tailwind can be applied _conditionally_ by adding a modifier to the beginning of the class name that describes the condition you want to target.
+Cada clase de utilidad en Tailwind se puede aplicar _condicionalmente_ agregando un modificador al comienzo del nombre de la clase que describe la condición a la que deseas apuntar.
 
-For example, to apply the `bg-sky-700` class on hover, use the `hover:bg-sky-700` class:
+Por ejemplo, para aplicar la clase `bg-sky-700` al pasar el mouse, usa la clase `hover:bg-sky-700`:
 
 <Example hint="Hover over this button to see the background color change">
   <div class="grid place-items-center">
     <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
-      Save changes
+      Guardar cambios
     </button>
   </div>
 </Example>
 
 ```html
 <button class="bg-sky-600 **hover:bg-sky-700** ...">
-  Save changes
+  Guardar cambios
 </button>
 ```
 
 <details className="-mt-2 mb-10 rounded-xl border px-6 py-3 prose prose-slate open:pb-5 dark:prose-dark dark:border-slate-800">
-  <summary className="font-medium cursor-default select-none text-slate-900 dark:text-slate-200">How does this compare to traditional CSS?</summary>
+  <summary className="font-medium cursor-default select-none text-slate-900 dark:text-slate-200">¿Cómo se compara esto con el CSS tradicional?</summary>
 
-When writing CSS the traditional way, a single class name would do different things based on the current state.
+Al escribir CSS de la manera tradicional, un solo nombre de clase haría cosas diferentes según el estado actual.
 
-<TipBad>Traditionally the same class name applies different styles on hover</TipBad>
+<TipBad>Tradicionalmente, el mismo nombre de clase aplica diferentes estilos al pasar el mouse</TipBad>
 
 ```css
 .btn-primary {
@@ -41,9 +41,9 @@ When writing CSS the traditional way, a single class name would do different thi
 }
 ```
 
-In Tailwind, rather than adding the styles for a hover state to an existing class, you add another class to the element that _only_ does something on hover.
+En Tailwind, en lugar de agregar los estilos para un estado hover a una clase existente, agregas otra clase al elemento que _solo_ hace algo al pasar el mouse.
 
-<TipGood>In Tailwind, separate classes are used for the default state and the hover state</TipGood>
+<TipGood>En Tailwind, se usan clases separadas para el estado predeterminado y el estado hover</TipGood>
 
 ```css
 .bg-sky-500 {
@@ -54,58 +54,58 @@ In Tailwind, rather than adding the styles for a hover state to an existing clas
 }
 ```
 
-Notice how `hover:bg-sky-700` _only_ defines styles for the `:hover` state? It does nothing by default, but as soon as you hover over an element with that class, the background color will change to `sky-700`.
+¿Ves cómo `hover:bg-sky-700` _solo_ define estilos para el estado `:hover`? No hace nada de forma predeterminada, pero tan pronto como pasas el cursor sobre un elemento con esa clase, el color de fondo cambiará a `sky-700`.
 
-This is what we mean when we say a utility class can be applied _conditionally_ — by using modifiers you can control exactly how your design behaves in different states, without ever leaving your HTML.
+Esto es lo que queremos decir cuando decimos que una clase de utilidad se puede aplicar _condicionalmente_: al usar modificadores, puedes controlar exactamente cómo se comporta tu diseño en diferentes estados, sin tener que abandonar tu HTML.
 
 </details>
 
-Tailwind includes modifiers for just about everything you'll ever need, including:
+Tailwind incluye modificadores para casi todo lo que necesitarás, incluyendo:
 
-- [Pseudo-classes](#pseudo-classes), like `:hover`, `:focus`, `:first-child`, and `:required`
-- [Pseudo-elements](#pseudo-elements), like `::before`, `::after`, `::placeholder`, and `::selection`
-- [Media queries](#media-queries), like responsive breakpoints, dark mode, and `prefers-reduced-motion`
-- [Attribute selectors](#attribute-selectors), like `[dir="rtl"]` and `[open]`
+- [Pseudo-clases](#pseudo-clases), como `:hover`, `:focus`, `:first-child` y `:required`
+- [Pseudo-elementos](#pseudo-elementos), como `::before`, `::after`, `::placeholder`, y `::selection`
+- [Media queries](#media-queries), como breakpoints responsive, modo oscuro y `prefers-reduced-motion`
+- [Selectores de atributos](#selector-de-atributos), como `[dir="rtl"]` y `[open]`
 
-These modifiers can even be [stacked](#ordering-stacked-modifiers) to target more specific situations, for example changing the background color in dark mode, at the medium breakpoint, on hover:
+Estos modificadores pueden incluso [apilarse](#ordenar-modificadores-apilados) para dirigirse a situaciones más específicas, por ejemplo, cambiar el color de fondo en modo oscuro, en el breakpoint medio, al pasar el mouse:
 
 ```html
 <button class="**dark:md:hover:bg-fuchsia-600** ...">
-  Save changes
+  Guardar cambios
 </button>
 ```
 
-In this guide you'll learn about every modifier available in the framework, how to use them with your own custom classes, and even how to create your own.
+En esta guía, aprenderás sobre todos los modificadores disponibles en el framework, cómo usarlos con tus propias clases personalizadas e incluso cómo crear las tuyas propias.
 
 ---
 
-## Pseudo-classes
+## Pseudo-clases
 
-### Hover, focus, and active
+### Hover, focus, y active
 
-Style elements on hover, focus, and active using the `hover`, `focus`, and `active` modifiers:
+Estila elementos al pasar el mouse, enfocar y activar usando los modificadores `hover`, `focus` y `active`:
 
 <Example hint="Try interacting with this button to see the hover, focus, and active states">
   <div class="grid place-items-center">
     <button type="button" class="bg-violet-500 hover:bg-violet-600 focus:outline-none focus:ring focus:ring-violet-300 active:bg-violet-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
-      Save changes
+      Guardar cambios
     </button>
   </div>
 </Example>
 
 ```html
 <button class="bg-violet-500 **hover:bg-violet-600** **active:bg-violet-700** **focus:outline-none focus:ring focus:ring-violet-300** ...">
-  Save changes
+  Guardar cambios
 </button>
 ```
 
-Tailwind also includes modifiers for other interactive states like `:visited`, `:focus-within`, `:focus-visible`, and more.
+Tailwind también incluye modificadores para otros estados interactivos como `:visited`, `:focus-within`, `:focus-visible` y más.
 
-See the [pseudo-class reference](#pseudo-class-reference) for a complete list of available pseudo-class modifiers.
+Consulta la [referencia de pseudoclase](#referencia-de-pseudoclase) para obtener una lista completa de los modificadores de pseudoclase disponibles.
 
-### First, last, odd, and even
+### First, last, odd, y even
 
-Style an element when it is the first-child or last-child using the `first` and `last` modifiers:
+Dale estilo a un elemento cuando es el primer hijo o el último hijo usando los modificadores `first` y `last`:
 
 <Example p="none">
   <div class="px-4">
@@ -159,7 +159,7 @@ Style an element when it is the first-child or last-child using the `first` and 
 </ul>
 ```
 
-You can also style an element when it's an odd or even child using the `odd` and `even` modifiers:
+También puedes diseñar un elemento cuando es un hijo par o impar usando los modificadores `odd` (impar) y `even` (par):
 
 <Example p="none">
   <div class="px-0 sm:px-6">
@@ -171,10 +171,10 @@ You can also style an element when it's an odd or even child using the `odd` and
               <thead class="bg-slate-50 border-b border-slate-200">
                 <tr>
                   <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
-                    Name
+                    Nombre
                   </th>
                   <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
-                    Title
+                    Título
                   </th>
                   <th scope="col" class="px-6 py-3 text-left text-sm font-medium text-slate-900">
                     Email
@@ -262,19 +262,19 @@ You can also style an element when it's an odd or even child using the `odd` and
 </table>
 ```
 
-Tailwind also includes modifiers for other structural pseudo-classes like `:only-child`, `:first-of-type`, `:empty`, and more.
+Tailwind también incluye modificadores para otras pseudoclases estructurales como `:only-child`, `:first-of-type`, `:empty` y más.
 
-See the [pseudo-class reference](#pseudo-class-reference) for a complete list of available pseudo-class modifiers.
+Consulta la [referencia de pseudoclase](#referencia-de-pseudoclase) para obtener una lista completa de los modificadores de pseudoclase disponibles.
 
-### Form states
+### Estados de formulario
 
-Style form elements in different states using modifiers like `required`, `invalid`, and `disabled`:
+Aplica estilo a elementos de formulario en diferentes estados usando modificadores como `required`, `invalid` y `disabled`:
 
 <Example hint="Try making the email address valid to see the styles change" p="none">
   <div class="max-w-sm mx-auto bg-white shadow py-5 px-6">
     <form>
       <div>
-        <label for="username" class="block text-sm font-medium text-slate-700">Username</label>
+        <label for="username" class="block text-sm font-medium text-slate-700">Nombre de usuario</label>
         <div class="mt-1">
           <input type="text" name="username" id="username" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="tbone" disabled />
         </div>
@@ -286,14 +286,14 @@ Style form elements in different states using modifiers like `required`, `invali
         </div>
       </div>
       <div class="mt-6">
-        <label for="password" class="block text-sm font-medium text-slate-700">Password</label>
+        <label for="password" class="block text-sm font-medium text-slate-700">Constraseña</label>
         <div class="mt-1">
           <input type="password" name="password" id="password" class="px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="Bosco" />
         </div>
       </div>
       <div class="mt-6 text-right">
         <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2.5 text-sm leading-5 rounded-md font-semibold text-white">
-          Save changes
+          Guardar cambios
         </button>
       </div>
     </form>
@@ -303,8 +303,8 @@ Style form elements in different states using modifiers like `required`, `invali
 ```html
 <form>
   <label class="block">
-    <span class="block text-sm font-medium text-slate-700">Username</span>
-    <!-- Using form state modifers, the classes can be identical for every input -->
+    <span class="block text-sm font-medium text-slate-700">Nombre de usuario</span>
+    <!-- Usando modificadores de estado de formulario, las clases pueden ser idénticas para cada entrada -->
     <input type="text" value="tbone" disabled class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
       focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
       **disabled:bg-slate-50** **disabled:text-slate-500** **disabled:border-slate-200** **disabled:shadow-none**
@@ -316,15 +316,15 @@ Style form elements in different states using modifiers like `required`, `invali
 </form>
 ```
 
-Using modifiers for this sort of thing can reduce the amount of conditional logic in your templates, letting you use the same set of classes regardless of what state an input is in and letting the browser apply the right styles for you.
+El uso de modificadores para este tipo de cosas puede reducir la cantidad de lógica condicional en tus plantillas, permitiéndote usar el mismo conjunto de clases independientemente del estado en el que se encuentre una entrada y permitiendo que el navegador aplique los estilos correctos para tí.
 
-Tailwind also includes modifiers for other form states like `:read-only`, `:indeterminate`, `:checked`,  and more.
+Tailwind también incluye modificadores para otros estados de formulario como `:read-only`, `:indeterminate`, `:checked` y más.
 
-See the [pseudo-class reference](#disabled) for a complete list of available pseudo-class modifiers.
+Consulta la [referencia de pseudoclase](#disabled) para obtener una lista completa de los modificadores de pseudoclase disponibles.
 
-### Styling based on parent state <small>(group-{'{modifier}'})</small>
+### Estilo basado en el estado del parent <small>(group-{'{modifier}'})</small>
 
-When you need to style an element based on the state of some _parent_ element, mark the parent with the `group` class, and use `group-*` modifiers like `group-hover` to style the target element:
+Cuando necesites diseñar un elemento en función del estado de algún elemento _parent_, marca el elemento principal con la clase `group` y usa modificadores `group-*` como `group-hover` para diseñar el elemento de destino:
 
 <Example hint="Hover over the card to see both text elements change color">
   <a href="#" class="group block max-w-xs mx-auto rounded-lg p-4 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
@@ -335,9 +335,9 @@ When you need to style an element based on the state of some _parent_ element, m
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
           d="M14 7.64L13.042 6c-.36-.616-1.053-1-1.806-1H7.057C5.921 5 5 5.86 5 6.92V11M17 15v4M19 17h-4" />
       </svg>
-      <h3 class="text-sm text-slate-900 font-semibold group-hover:text-white">New project</h3>
+      <h3 class="text-sm text-slate-900 font-semibold group-hover:text-white">Nuevo proyecto</h3>
     </div>
-    <p class="text-sm text-slate-500 group-hover:text-white">Create a new project from a variety of starting templates.</p>
+    <p class="text-sm text-slate-500 group-hover:text-white">Crea un nuevo proyecto a partir de una variedad de plantillas iniciales.</p>
   </a>
 </Example>
 
@@ -345,18 +345,17 @@ When you need to style an element based on the state of some _parent_ element, m
 <a href="#" class="**group** block max-w-xs mx-auto rounded-lg p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500">
   <div class="flex items-center space-x-3">
     <svg class="h-6 w-6 stroke-sky-500 **group-hover:stroke-white**" fill="none" viewBox="0 0 24 24"><!-- ... --></svg>
-    <h3 class="text-slate-900 **group-hover:text-white** text-sm font-semibold">New project</h3>
+    <h3 class="text-slate-900 **group-hover:text-white** text-sm font-semibold">Nuevo proyecto</h3>
   </div>
-  <p class="text-slate-500 **group-hover:text-white** text-sm">Create a new project from a variety of starting templates.</p>
+  <p class="text-slate-500 **group-hover:text-white** text-sm">Crea un nuevo proyecto a partir de una variedad de plantillas iniciales.</p>
 </a>
 ```
 
-This pattern works with every pseudo-class modifier, for example `group-focus`, `group-active`, or even `group-odd`.
+Este patrón funciona con todos los modificadores de pseudoclase, por ejemplo, `group-focus`, `group-active` o incluso `group-odd`.
 
+### Estilo basado en el estado de hermano <small>(peer-{'{modifier}'})</small>
 
-### Styling based on sibling state <small>(peer-{'{modifier}'})</small>
-
-When you need to style an element based on the state of a _sibling_ element, mark the sibling with the `peer` class, and use `peer-*` modifiers like `peer-invalid` to style the target element:
+Cuando necesites diseñar un elemento en función del estado de un elemento _hermano_, marca el hermano con la clase `peer` y usa modificadores `peer-*` como `peer-invalid` para diseñar el elemento de destino:
 
 <Example hint="Try making the email address valid to see the warning disappear" p="none">
   <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
@@ -365,7 +364,7 @@ When you need to style an element based on the state of a _sibling_ element, mar
         <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
         <div class="mt-1">
           <input type="email" name="email" id="email" class="peer px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400  disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none" value="george@krugerindustrial." placeholder="you@example.com" />
-          <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">Please provide a valid email address.</p>
+          <p class="mt-2 invisible peer-invalid:visible text-pink-600 text-sm">Por favor ingresa una dirección de correo electrónico válida.</p>
         </div>
       </div>
     </form>
@@ -378,19 +377,19 @@ When you need to style an element based on the state of a _sibling_ element, mar
     <span class="block text-sm font-medium text-slate-700">Email</span>
     <input type="email" class="**peer** ..."/>
     <p class="mt-2 invisible **peer-invalid:visible** text-pink-600 text-sm">
-      Please provide a valid email address.
+      Por favor ingresa una dirección de correo electrónico válida.
     </p>
   </label>
 </form>
 ```
 
-This makes it possible to do all sorts of neat tricks, like [floating labels](https://www.youtube.com/watch?v=nJzKi6oIvBA) for example without any JS.
+Esto hace posible hacer todo tipo de trucos ingeniosos, como [etiquetas flotantes](https://www.youtube.com/watch?v=nJzKi6oIvBA), por ejemplo, sin JS.
 
-This pattern works with every pseudo-class modifier, for example `peer-focus`, `peer-required`, and `peer-disabled`.
+Este patrón funciona con todos los modificadores de pseudoclase, por ejemplo, `peer-focus`, `peer-required` y `peer-disabled`.
 
-It's important to note that the `peer` marker can only be used on _previous_ siblings because of how the [general sibling combinator](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator) works in CSS.
+Es importante tener en cuenta que el marcador `peer` solo se puede usar en hermanos _anteriores_ debido a cómo funciona el [combinador general de hermanos](https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator) en CSS.
 
-<TipBad>Won't work, only previous siblings can be marked as peers</TipBad>
+<TipBad>No funcionará, solo los hermanos anteriores pueden marcarse como compañeros</TipBad>
 
 ```html
 <label>
@@ -401,11 +400,11 @@ It's important to note that the `peer` marker can only be used on _previous_ sib
 
 ---
 
-## Pseudo-elements
+## Pseudo-elementos
 
-### Before and after
+### Before y after
 
-Style the `::before` and `::after` pseudo-elements using the `before` and `after` modifiers:
+Dale estilo a los pseudo-elementos `::before` y `::after` usando los modificadores `before` y `after`:
 
 <Example p="none">
   <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-5 px-6">
@@ -427,14 +426,13 @@ Style the `::before` and `::after` pseudo-elements using the `before` and `after
 </label>
 ```
 
-When using these modifiers, Tailwind will automatically add `content: ''` by default so you don't have to specify it unless you want a different value:
-
+Al usar estos modificadores, Tailwind agregará automáticamente `content: ''` de forma predeterminada para que no tengas que especificarlo a menos que desees un valor diferente:
 
 <Example p="none">
   <div class="px-6">
     <div class="max-w-lg mx-auto bg-white shadow py-8 px-6">
       <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
-        When you look <span class="relative inline-block before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500"><span class="relative text-white">annoyed</span></span> all the time, people think that you're busy.
+        Cuando te ves <span class="relative inline-block before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500"><span class="relative text-white">molesto</span></span> todo el tiempo, la gente piensa que estás ocupado.
       </blockquote>
     </div>
   </div>
@@ -442,34 +440,34 @@ When using these modifiers, Tailwind will automatically add `content: ''` by def
 
 ```html
 <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
-  When you look
+  Cuando te ves
   <span class="**before:block** **before:absolute** **before:-inset-1** **before:-skew-y-3** **before:bg-pink-500** relative inline-block">
-    <span class="relative text-white">annoyed</span>
+    <span class="relative text-white">molesto</span>
   </span>
-  all the time, people think that you're busy.
+  todo el tiempo, la gente piensa que estás ocupado.
 </blockquote>
 ```
 
-It's worth noting that you don't really need `::before` and `::after` pseudo-elements for most things in Tailwind projects — it's usually simpler to just use a real HTML element.
+Vale la pena señalar que realmente no necesitas los pseudoelementos `::before` y `::after` para la mayoría de las cosas en los proyectos de Tailwind; por lo general, es más simple usar un elemento HTML real.
 
-For example, here's the same design from above but using a `<span>` instead of the `::before` pseudo-element, which is a little easier to read and is actually less code:
+Por ejemplo, aquí está el mismo diseño de arriba pero usando un `<span>` en lugar del pseudo-elemento `::before`, que es un poco más fácil de leer y en realidad es menos código:
 
 ```html
   <blockquote class="text-2xl font-semibold italic text-center text-slate-900">
-    When you look
+    Cuando te ves
     <span class="relative">
 >     <span class="block absolute -inset-1 -skew-y-3 bg-pink-500" aria-hidden="true"></span>
-      <span class="relative text-white">annoyed</span>
+      <span class="relative text-white">molesto</span>
     </span>
-    all the time, people think that you're busy.
+    todo el tiempo, la gente piensa que estás ocupado.
   </blockquote>
 ```
 
-Save `before` and `after` for situations where it's important that the content of the pseudo-element is not actually in the DOM and can't be selected by the user.
+Guarda `before` y `after` para situaciones en las que es importante que el contenido del pseudoelemento no esté realmente en el DOM y el usuario no pueda seleccionarlo.
 
-Note that if you've disabled our [preflight base styles](/docs/preflight), the content property will not be set to an empty string by default, and you will need to include `content-['']` any time you use the `before` and `after` modifiers.
+Ten en cuenta que si has deshabilitado nuestros [estilos base de verificación previa (preflight)](/docs/preflight), la propiedad de contenido no se establecerá en una cadena vacía de forma predeterminada, y deberás incluir `content-['']` en todo momento que uses los modificadores `before` y `after`.
 
-<TipInfo>If you've disabled preflight make sure to set the content manually</TipInfo>
+<TipInfo>Si has deshabilitado la verificación previa, asegúrate de configurar el contenido manualmente</TipInfo>
 
 ```html
 <div class="**before:content-['']** before:block ...">
@@ -477,9 +475,9 @@ Note that if you've disabled our [preflight base styles](/docs/preflight), the c
 </div>
 ```
 
-### Placeholder text
+### Texto placeholder
 
-Style the placeholder text of any input or textarea using the `placeholder` modifier:
+Dale estilo al texto placeholder de cualquier entrada o área de texto usando el modificador `placeholder`:
 
 <Example>
   <div class="max-w-sm mx-auto">
@@ -494,8 +492,8 @@ Style the placeholder text of any input or textarea using the `placeholder` modi
             />
           </svg>
         </span>
-        <span class="sr-only">Search</span>
-        <input type="text" name="search" class="block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..."
+        <span class="sr-only">Buscar</span>
+        <input type="text" name="search" class="block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Busca cualquier cosa..."
         />
       </label>
     </form>
@@ -504,17 +502,17 @@ Style the placeholder text of any input or textarea using the `placeholder` modi
 
 ```html
 <label class="relative block">
-  <span class="sr-only">Search</span>
+  <span class="sr-only">Buscar</span>
   <span class="absolute inset-y-0 left-0 flex items-center pl-2">
     <svg class="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"><!-- ... --></svg>
   </span>
-  <input class="**placeholder:italic** **placeholder:text-slate-400** block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..." type="text" name="search"/>
+  <input class="**placeholder:italic** **placeholder:text-slate-400** block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Busca cualquier cosa..." type="text" name="search"/>
 </label>
 ```
 
-### File input buttons
+### Botones de entrada de archivos
 
-Style the button in file inputs using the `file` modifier:
+Dale estilo al botón en las entradas de archivos usando el modificador `file`:
 
 <Example p="none">
   <div class="px-6">
@@ -524,7 +522,7 @@ Style the button in file inputs using the `file` modifier:
           <img class="h-16 w-16 object-cover rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" alt="Current profile photo" />
         </div>
         <label class="block">
-          <span class="sr-only">Choose profile photo</span>
+          <span class="sr-only">Elige una foto de perfil</span>
           <input type="file" class="block w-full text-sm text-slate-500 file:text-sm file:font-semibold file:py-2 file:px-4 file:bg-violet-50 file:text-violet-700 file:rounded-full file:border-0 file:mr-4 hover:file:bg-violet-100"
           />
         </label>
@@ -539,7 +537,7 @@ Style the button in file inputs using the `file` modifier:
     <img class="h-16 w-16 object-cover rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80" alt="Current profile photo" />
   </div>
   <label class="block">
-    <span class="sr-only">Choose profile photo</span>
+    <span class="sr-only">Elige una foto de perfil</span>
     <input type="file" class="block w-full text-sm text-slate-500
       **file:mr-4** **file:py-2** **file:px-4**
       **file:rounded-full** **file:border-0**
@@ -551,24 +549,24 @@ Style the button in file inputs using the `file` modifier:
 </form>
 ```
 
-Note that Tailwind's [border reset](/docs/preflight#border-styles-are-reset-globally) is not applied to file input buttons. This means that to add a border to a file input button, you need to explicitly set the [border-style](/docs/border-style) using a class like `file:border-solid` alongside any [border-width](/docs/border-width) utility:
+Ten en cuenta que el [restablecimiento de borde](/docs/preflight#border-styles-are-reset-globally) de Tailwind no se aplica a los botones de entrada de archivos. Esto significa que para agregar un borde a un botón de entrada de archivo, debes configurar explícitamente [border-style](/docs/border-style) usando una clase como `file:border-solid` junto con cualquier utilidad [border-width](/docs/border-width):
 
 ```html
 <input type="file" class="file:border **file:border-solid** ..." />
 ```
 
-### List markers
+### Marcadores de lista
 
-Style the counters or bullets in lists using the `marker` modifier:
+Dale estilo a los contadores o viñetas en las listas usando el modificador `marker`:
 
 <Example p="none">
   <div class="px-6">
     <div class="max-w-sm mx-auto bg-white shadow py-8 px-8 dark:bg-slate-800">
-      <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200">Ingredients</h2>
+      <h2 class="text-base font-semibold text-slate-900 dark:text-slate-200">Ingredientes</h2>
       <ul role="list" class="mt-3 list-disc pl-5 space-y-3 text-slate-500 marker:text-sky-400 dark:text-slate-400">
-        <li>5 cups chopped Porcini mushrooms</li>
-        <li>1/2 cup of olive oil</li>
-        <li>3lb of celery</li>
+        <li>5 tazas de hongos Porcini picados</li>
+        <li>1/2 taza de aceite de oliva</li>
+        <li>3 libras de apio</li>
       </ul>
     </div>
   </div>
@@ -576,23 +574,23 @@ Style the counters or bullets in lists using the `marker` modifier:
 
 ```html
 <ul role="list" class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-slate-500" dark-class="**marker:text-sky-400** list-disc pl-5 space-y-3 text-slate-400">
-  <li>5 cups chopped Porcini mushrooms</li>
-  <li>1/2 cup of olive oil</li>
-  <li>3lb of celery</li>
+  <li>5 tazas de hongos Porcini picados</li>
+  <li>1/2 taza de aceite de oliva</li>
+  <li>3 libras de apio</li>
 </ul>
 ```
 
-We've designed the `marker` modifier to be inheritable, so although you can use it directly on an `<li>` element, you can also use it on a parent to avoid repeating yourself.
+Hemos diseñado el modificador `marker` para que sea heredable, por lo que aunque puedes usarlo directamente en un elemento `<li>`, también puedes usarlo en un elemento principal para evitar que se repita.
 
-### Highlighted text
+### Texto resaltado
 
-Style the active text selection using the `selection` modifier:
+Aplica estilo a la selección de texto activa usando el modificador `selection`:
 
-<Example p="none" hint="Try selecting some of this text with your mouse">
+<Example p="none" hint="Prueba a seleccionar parte de este texto con el ratón.">
   <div class="px-6">
     <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 selection:bg-fuchsia-300 selection:text-fuchsia-900 dark:bg-slate-800 dark:text-slate-400">
       <p>
-        So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
+        Así que comencé a caminar hacia el agua. No les mentiré muchachos, estaba aterrorizado. Pero seguí adelante, y mientras me abría paso entre las rompientes me invadió una extraña calma. No sé si fue una intervención divina o el parentesco de todos los seres vivos, pero te digo, Jerry, en ese momento, yo <em>era</em> biólogo marino.
       </p>
     </div>
   </div>
@@ -601,18 +599,18 @@ Style the active text selection using the `selection` modifier:
 ```html
 <div class="**selection:bg-fuchsia-300** **selection:text-fuchsia-900**">
   <p>
-    So I started to walk into the water. I won't lie to you boys, I was
-    terrified. But I pressed on, and as I made my way past the breakers
-    a strange calm came over me. I don't know if it was divine intervention
-    or the kinship of all living things but I tell you Jerry at that moment,
-    I <em>was</em> a marine biologist.
+    Así que comencé a caminar hacia el agua. No les mentiré muchachos, estaba 
+    aterrorizado. Pero seguí adelante, y mientras me abría paso entre las 
+    rompientes me invadió una extraña calma. No sé si fue una intervención 
+    divina o el parentesco de todos los seres vivos, pero te digo, Jerry, 
+    en ese momento, yo <em>era</em> biólogo marino.
   </p>
 </div>
 ```
 
-We've designed the `selection` modifier to be inheritable, so you can add it anywhere in the tree and it will be applied to all descendant elements.
+Hemos diseñado el modificador `selection` para que sea heredable, por lo que puedes agregarlo en cualquier parte del árbol y se aplicará a todos los elementos descendientes.
 
-This makes it easy to set the selection color to match your brand across your entire site:
+Esto facilita la configuración del color de selección para que coincida con tu marca en todo tu sitio:
 
 ```html
 <html>
@@ -625,18 +623,18 @@ This makes it easy to set the selection color to match your brand across your en
 </html>
 ```
 
-### First-line and first-letter
+### First-line y first-letter
 
-Style the first line in a block of content using the `first-line` modifier, and the first letter using the `first-letter` modifier:
+Aplica estilo a la primera línea de un bloque de contenido con el modificador `first-line` y a la primera letra con el modificador `first-letter`:
 
 <Example p="none">
   <div class="px-6">
     <div class="max-w-lg mx-auto bg-white text-slate-700 shadow py-8 px-6 font-serif dark:bg-slate-800 dark:text-slate-200">
       <p class="first-line:uppercase first-line:tracking-widest first-letter:text-slate-900 first-letter:text-7xl first-letter:leading-none first-letter:float-left first-letter:font-bold first-letter:mr-3 dark:first-letter:text-white">
-        Well, let me tell you something, funny boy. Y'know that little stamp, the one that says "New York Public Library"? Well that may not mean anything to you, but that means a lot to me. One whole hell of a lot.
+        Bueno, déjame decirte algo, chico divertido. ¿Conoces ese pequeño sello, el que dice "Biblioteca Pública de Nueva York"? Bueno, puede que eso no signifique nada para ti, pero significa mucho para mí. Todo un infierno.
       </p>
       <p class="mt-6">
-        Sure, go ahead, laugh if you want to. I've seen your type before: Flashy, making the scene, flaunting convention. Yeah, I know what you're thinking. What's this guy making such a big stink about old library books? Well, let me give you a hint, junior.
+        Claro, adelante, ríete si quieres. He visto tu tipo antes: Llamativo, haciendo la escena, haciendo alarde de las convenciones. Sí, sé lo que estás pensando. ¿Qué es lo que hace este tipo con tanto alboroto con los libros viejos de la biblioteca? Bueno, déjame darte una pista, junior.
       </p>
     </div>
   </div>
@@ -650,15 +648,15 @@ Style the first line in a block of content using the `first-line` modifier, and 
   **first-letter:text-7xl** **first-letter:font-bold** **first-letter:text-white**
   **first-letter:mr-3** **first-letter:float-left**
 ">
-  Well, let me tell you something, funny boy. Y'know that little stamp, the one
-  that says "New York Public Library"? Well that may not mean anything to you,
-  but that means a lot to me. One whole hell of a lot.
+  Bueno, déjame decirte algo, chico divertido. ¿Conoces ese pequeño sello, 
+  el que dice "Biblioteca Pública de Nueva York"? Bueno, puede que eso no 
+  signifique nada para ti, pero significa mucho para mí. Todo un infierno.
 </p>
 ```
 
-### Dialog backdrops
+### Fondos de diálogo
 
-Style the backdrop of a [native `<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) using the `backdrop` modifier:
+Aplica estilo al fondo de un [elemento `<dialog>` nativo](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) usando el modificador `backdrop`:
 
 ```html
 <dialog class="**backdrop:bg-gray-50**">
@@ -668,7 +666,7 @@ Style the backdrop of a [native `<dialog>` element](https://developer.mozilla.or
 </dialog>
 ```
 
-If you're using native `<dialog>` elements in your project, you may also want to read about [styling open/closed states](/docs/hover-focus-and-other-states#open-closed-state) using the `open` modifier.
+Si estás utilizando elementos `<dialog>` nativos en tu proyecto, es posible que desees leer sobre [estilizar estados open/closed](/docs/hover-focus-and-other-states#estado-open-closed) usando el modificador `open`.
 
 ---
 
@@ -676,9 +674,9 @@ If you're using native `<dialog>` elements in your project, you may also want to
 
 ### Responsive breakpoints
 
-To style an element at a specific breakpoint, use responsive modifiers like `md` and `lg`.
+Para diseñar un elemento en un breakpoint específico, usa modificadores de respuesta como `md` y `lg`.
 
-For example, this will render a 3-column grid on mobile, a 4-column grid on medium-width screens, and a 6-column grid on large-width screens:
+Por ejemplo, esto generará una cuadrícula de 3 columnas en dispositivos móviles, una cuadrícula de 4 columnas en pantallas de ancho medio y una cuadrícula de 6 columnas en pantallas de ancho grande:
 
 ```html
 <div class="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
@@ -686,18 +684,18 @@ For example, this will render a 3-column grid on mobile, a 4-column grid on medi
 </div>
 ```
 
-Check out the [Responsive Design](/docs/responsive-design) documentation for an in-depth look at how these features work.
+Consulta la documentación de [Responsive Design](/docs/responsive-design) para ver en profundidad cómo funcionan estas funciones.
 
 ### Prefers color scheme
 
-The `prefers-color-scheme` media query tells you whether the user prefers a light theme or dark theme, and is usually configured at the operating system level.
+La media query `prefers-color-scheme` te indica si el usuario prefiere un tema claro o un tema oscuro, y generalmente se configura en el nivel del sistema operativo.
 
-Use utilities with no modifier to target light mode, and use the `dark` modifier to provide overrides for dark mode:
+Usa utilidades sin modificador para apuntar al modo claro y usa el modificador `dark` para proporcionar anulaciones para el modo oscuro:
 
 <Example p="none">
   <div class="grid grid-cols-1 sm:grid-cols-2">
     <div class="p-8 pt-7">
-      <p class="mb-2 text-sm font-medium text-slate-500">Light mode</p>
+      <p class="mb-2 text-sm font-medium text-slate-500">Modo claro</p>
       <div class="bg-white rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
         <div>
           <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
@@ -706,14 +704,14 @@ Use utilities with no modifier to target light mode, and use the `dark` modifier
             </svg>
           </span>
         </div>
-        <h3 class="mt-5 text-base font-medium text-slate-900 tracking-tight">Writes Upside-Down</h3>
+        <h3 class="mt-5 text-base font-medium text-slate-900 tracking-tight">Escribe al revés</h3>
         <p class="mt-2 text-sm text-slate-500">
-          The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+          El bolígrafo Zero Gravity se puede utilizar para escribir en cualquier orientación, incluso al revés. Incluso funciona en el espacio exterior.
         </p>
       </div>
     </div>
     <div class="bg-slate-900 p-8 pt-7">
-      <p class="mb-2 text-sm font-medium text-slate-400">Dark mode</p>
+      <p class="mb-2 text-sm font-medium text-slate-400">Modo oscuro</p>
       <div class="bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
         <div>
           <span class="inline-flex items-center justify-center p-2 bg-indigo-500 rounded-md shadow-lg">
@@ -722,9 +720,9 @@ Use utilities with no modifier to target light mode, and use the `dark` modifier
             </svg>
           </span>
         </div>
-        <h3 class="mt-5 text-base font-medium text-white tracking-tight">Writes Upside-Down</h3>
+        <h3 class="mt-5 text-base font-medium text-white tracking-tight">Escribe al revés</h3>
         <p class="mt-2 text-sm text-slate-400">
-          The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+          El bolígrafo Zero Gravity se puede utilizar para escribir en cualquier orientación, incluso al revés. Incluso funciona en el espacio exterior.
         </p>
       </div>
     </div>
@@ -738,20 +736,20 @@ Use utilities with no modifier to target light mode, and use the `dark` modifier
       <svg class="h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><!-- ... --></svg>
     </span>
   </div>
-  <h3 class="text-slate-900 **dark:text-white** mt-5 text-base font-medium tracking-tight">Writes Upside-Down</h3>
+  <h3 class="text-slate-900 **dark:text-white** mt-5 text-base font-medium tracking-tight">Escribe al revés</h3>
   <p class="text-slate-500 **dark:text-slate-400** mt-2 text-sm">
-    The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+    El bolígrafo Zero Gravity se puede utilizar para escribir en cualquier orientación, incluso al revés. Incluso funciona en el espacio exterior.
   </p>
 </div>
 ```
 
-Check out the [Dark Mode](/docs/dark-mode) documentation for an in-depth look at how this feature works.
+Consulta la documentación del [Modo oscuro](/docs/dark-mode) para ver en profundidad cómo funciona esta función.
 
 ### Prefers reduced motion
 
-The `prefers-reduced-motion` media query tells you if the user has requested that you minimize non-essential motion.
+La consulta de medios `prefers-reduced-motion` te indica si el usuario ha solicitado que minimices el movimiento no esencial.
 
-Use the `motion-reduce` modifier to conditionally add styles when the user has requested reduced motion:
+Usa el modificador `motion-reduce` para agregar estilos condicionalmente cuando el usuario haya solicitado un movimiento reducido:
 
 <Example hint="Try emulating `prefers-reduced-motion: reduce` in your developer tools to hide the spinner">
   <div class="flex items-center justify-center">
@@ -760,7 +758,7 @@ Use the `motion-reduce` modifier to conditionally add styles when the user has r
         <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
         <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
       </svg>
-      Processing...
+      Procesando...
     </button>
   </div>
 </Example>
@@ -768,38 +766,38 @@ Use the `motion-reduce` modifier to conditionally add styles when the user has r
 ```html
 <button type="button" class="bg-indigo-500 ..." disabled>
   <svg class="**motion-reduce:hidden** animate-spin ..." viewBox="0 0 24 24"><!-- ... --></svg>
-  Processing...
+  Procesando...
 </button>
 ```
 
-Tailwind also includes a `motion-safe` modifier that only adds styles when the user has _not_ requested reduced motion. This can be useful when using the `motion-reduce` helper would mean having to "undo" a lot of styles:
+Tailwind también incluye un modificador `motion-safe` que solo agrega estilos cuando el usuario _no_ ha solicitado un movimiento reducido. Esto puede ser útil cuando usar el ayudante `motion-reduce` significaría tener que "deshacer" muchos estilos:
 
 ```html
-<!-- Using `motion-reduce` can mean lots of "undoing" styles -->
+<!-- Usar `motion-reduce` puede significar muchos estilos de "deshacer" -->
 <button class="hover:-translate-y-0.5 transition **motion-reduce:hover:translate-y-0** **motion-reduce:transition-none** ...">
-  Save changes
+  Guardar cambios
 </button>
 
-<!-- Using `motion-safe` is less code in these situations -->
+<!-- Usar `motion-safe` es menos código en estas situaciones -->
 <button class="**motion-safe:hover:-translate-x-0.5** **motion-safe:transition** ...">
-  Save changes
+  Guardar cambios
 </button>
 ```
 
 ### Prefers contrast
 
-The `prefers-contrast` media query tells you if the user has requested more or less contrast.
+La media query `prefers-contrast` te dice si el usuario ha solicitado más o menos contraste.
 
-Use the `contrast-more` modifier to conditionally add styles when the user has requested more contrast:
+Usa el modificador `contrast-more` para agregar estilos condicionalmente cuando el usuario haya solicitado más contraste:
 
 <Example hint="Try emulating `prefers-contrast: more` in your developer tools to see the changes" p="none">
   <div class="max-w-sm mx-auto bg-white shadow pt-6 pb-4 px-6">
     <form>
       <div>
-        <label for="contrast-example" class="block text-sm font-medium text-slate-700">Social Security Number</label>
+        <label for="contrast-example" class="block text-sm font-medium text-slate-700">Número de seguro social</label>
         <div class="mt-1">
           <input type="text" name="contrast-example" id="contrast-example" class="px-3 py-2 bg-white border shadow-sm border-slate-200 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"  placeholder="000-00-0000" />
-          <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">We need this to steal your identity.</p>
+          <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">Necesitamos esto para robar su identidad.</p>
         </div>
       </div>
     </form>
@@ -809,20 +807,20 @@ Use the `contrast-more` modifier to conditionally add styles when the user has r
 ```html
 <form>
   <label class="block">
-    <span class="block text-sm font-medium text-slate-700">Social Security Number</span>
+    <span class="block text-sm font-medium text-slate-700">Número de seguro social</span>
     <input class="border-slate-200 placeholder-slate-400 **contrast-more:border-slate-400** **contrast-more:placeholder-slate-500**"/>
     <p class="mt-2 opacity-10 **contrast-more:opacity-100** text-slate-600 text-sm">
-      We need this to steal your identity.
+      Necesitamos esto para robar su identidad.
     </p>
   </label>
 </form>
 ```
 
-Tailwind also includes a `contrast-less` modifier you can use to conditionally add styles when the user has requested less contrast.
+Tailwind también incluye un modificador `contrast-less` que puedes usar para agregar estilos condicionalmente cuando el usuario ha solicitado menos contraste.
 
-### Viewport orientation
+### Orientación del viewport
 
-Use the `portrait` and `landscape` modifiers to conditionally add styles when the viewport is in a specific orientation:
+Usa los modificadores `portrait` y `landscape` para agregar estilos condicionalmente cuando la ventana gráfica está en una orientación específica:
 
 ```html
 <div>
@@ -831,54 +829,54 @@ Use the `portrait` and `landscape` modifiers to conditionally add styles when th
   </div>
   <div class="landscape:hidden">
     <p>
-      This experience is designed to be viewed in landscape. Please rotate your
-      device to view the site.
+      Esta experiencia está diseñada para la vista de paisaje (landscape). 
+      Gira tu dispositivo para ver el sitio.
     </p>
   </div>
 </div>
 ```
 
-### Print styles
+### Estilos de impresión
 
-Use the `print` modifier to conditionally add styles that only apply when the document is being printed:
+Usa el modificador `print` para agregar condicionalmente estilos que solo se aplican cuando se está imprimiendo el documento:
 
 ```html
 <div>
   <article class="**print:hidden**">
-    <h1>My Secret Pizza Recipe</h1>
-    <p>This recipe is a secret, and must not be shared with anyone</p>
+    <h1>Mi receta secreta de pizza</h1>
+    <p>Esta receta es un secreto y no debe compartirse con nadie</p>
     <!-- ... -->
   </article>
   <div class="hidden **print:block**">
-    Are you seriously trying to print this? It's secret!
+    ¿En serio estás tratando de imprimir esto? ¡Es secreto!
   </div>
 </div>
 ```
 
 ---
 
-## Attribute selectors
+## Selectores de atributos
 
-### RTL support
+### Soporte RTL
 
-_Right-to-left support is experimental and the details of how it works may change. Share your feedback in the [community](https://github.com/tailwindlabs/tailwindcss/discussions) to help us get it ready for prime time._
+_El soporte de derecha a izquierda es experimental y los detalles de su funcionamiento pueden cambiar. Comparte tus comentarios en la [comunidad](https://github.com/tailwindlabs/tailwindcss/discussions) para ayudarnos a prepararlo para el horario de máxima audiencia._
 
-Use the `rtl` and `ltr` modifiers conditionally add styles in right-to-left and left-to-right modes respectively when building multi-directional layouts:
+Usa los modificadores `rtl` y `ltr` para agregar estilos de forma condicional en los modos de derecha a izquierda y de izquierda a derecha respectivamente al crear diseños multidireccionales:
 
 <Example>
   <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-10 max-w-lg mx-auto">
     <div dir="ltr">
-      <p class="mb-4 text-sm font-medium">Left-to-right</p>
+      <p class="mb-4 text-sm font-medium">De izquierda a derecha</p>
       <div class="group flex items-center">
         <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
         <div class="ml-3 rtl:ml-0 rtl:mr-3">
           <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">Tom Cook</p>
-          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">Director of Operations</p>
+          <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">Director de Operaciones</p>
         </div>
       </div>
     </div>
     <div dir="rtl">
-      <p class="mb-4 text-sm font-medium">Right-to-left</p>
+      <p class="mb-4 text-sm font-medium">De derecha a izquierda</p>
       <div class="group flex items-center">
         <img class="shrink-0 h-12 w-12 rounded-full" src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
         <div class="ml-3 rtl:ml-0 rtl:mr-3">
@@ -900,9 +898,9 @@ Use the `rtl` and `ltr` modifiers conditionally add styles in right-to-left and 
   </div>
 ```
 
-Note that the `ltr` modifier will not take effect unless the `dir` attribute is explicitly set to `ltr`, so if you are building a multi-directional site make sure to always set a direction, not just in `rtl` mode.
+Ten en cuenta que el modificador `ltr` no tendrá efecto a menos que el atributo `dir` se establezca explícitamente en `ltr`, por lo que si estás creando un sitio multidireccional, asegúrate de establecer siempre una dirección, no solo en el modo `rtl`.
 
-<TipInfo>Always set the direction, even if left-to-right is your default</TipInfo>
+<TipInfo>Establece siempre la dirección, incluso si la dirección predeterminada es de izquierda a derecha</TipInfo>
 
 ```html
 <html dir="ltr">
@@ -910,21 +908,21 @@ Note that the `ltr` modifier will not take effect unless the `dir` attribute is 
 </html>
 ```
 
-Remember, these modifiers are only useful if you are building a site that needs to support _both_ left-to-right and right-to-left layouts. If you're building a site that only needs to support a single direction, you don't need these modifiers — just apply the styles that make sense for your content.
+Recuerda, estos modificadores solo son útiles si estás creando un sitio que necesita admitir _ambos_ diseños de izquierda a derecha y de derecha a izquierda. Si estás creando un sitio que solo necesita admitir una sola dirección, no necesitas estos modificadores, solo aplica los estilos que tengan sentido para tu contenido.
 
 
-### Open/closed state
+### Estado open/closed
 
-Use the `open` modifier to conditionally add styles when a `<details>` or `<dialog>` element is in an open state:
+Usa el modificador `open` para agregar estilos condicionalmente cuando un elemento `<details>` o `<dialog>` está en un estado abierto:
 
 <Example hint="Try toggling the disclosure to see the styles change">
   <div class="max-w-lg mx-auto">
     <details class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
       <summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
-        Why do they call it Ovaltine?
+        ¿Por qué lo llaman Ovaltine?
       </summary>
       <div class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
-        <p>The mug is round. The jar is round. They should call it Roundtine.</p>
+        <p>La taza es redonda. El frasco es redondo. Deberían llamarlo Roundtine.</p>
       </div>
     </details>
   </div>
@@ -935,10 +933,10 @@ Use the `open` modifier to conditionally add styles when a `<details>` or `<dial
   <div class="max-w-lg mx-auto p-8">
 >   <details class="open:bg-white dark:open:bg-slate-900 open:ring-1 open:ring-black/5 dark:open:ring-white/10 open:shadow-lg p-6 rounded-lg" open>
       <summary class="text-sm leading-6 text-slate-900 dark:text-white font-semibold select-none">
-        Why do they call it Ovaltine?
+        ¿Por qué lo llaman Ovaltine?
       </summary>
       <div class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
-        <p>The mug is round. The jar is round. They should call it Roundtine.</p>
+        <p>La taza es redonda. El frasco es redondo. Deberían llamarlo Roundtine.</p>
       </div>
     </details>
   </div>
@@ -946,13 +944,13 @@ Use the `open` modifier to conditionally add styles when a `<details>` or `<dial
 
 ---
 
-## Custom modifiers
+## Modificadores personalizados
 
-### Using arbitrary variants
+### Usar variantes arbitrarias
 
-Just like [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) let you use custom values with your utility classes, arbitrary variants let you write custom selector modifiers directly in your HTML.
+Al igual que los [valores arbitrarios](/docs/adding-custom-styles#using-arbitrary-values) te permiten usar valores personalizados con tus clases de utilidad, las variantes arbitrarias te permiten escribir modificadores de selector personalizados directamente en tu HTML.
 
-Arbitrary variants are just format strings that represent the selector, wrapped in square brackets. For example, this arbitrary modifier selects an element only when it is the third child:
+Las variantes arbitrarias son solo cadenas de formato que representan el selector, entre corchetes. Por ejemplo, este modificador arbitrario selecciona un elemento solo cuando es el tercer hijo:
 
 <SnippetGroup>
 
@@ -973,9 +971,9 @@ Arbitrary variants are just format strings that represent the selector, wrapped 
 
 </SnippetGroup>
 
-The format string is the same as what you'd use with the [`addVariant` plugin API](/docs/plugins#adding-variants), with the `&` representing the selector being modified.
+La cadena de formato es la misma que usaría con la [API del complemento `addVariant`](/docs/plugins#adding-variants), con el `&` que representa el selector que se estás modificando.
 
-Arbitrary variants can be stacked with built-in modifiers or with each other, just like the rest of the modifiers in Tailwind:
+Las variantes arbitrarias se pueden apilar con modificadores incorporados o entre sí, al igual que el resto de los modificadores en Tailwind:
 
 <SnippetGroup>
 
@@ -998,8 +996,7 @@ Arbitrary variants can be stacked with built-in modifiers or with each other, ju
 
 </SnippetGroup>
 
-
-If you need spaces in your selector, you can use an underscore. For example, this arbitrary modifier selects all `p` elements within the element where you've added the class:
+Si necesitas espacios en tu selector, puedes usar un guión bajo. Por ejemplo, este modificador arbitrario selecciona todos los elementos `p` dentro del elemento donde has agregado la clase:
 
 <SnippetGroup>
 
@@ -1023,7 +1020,7 @@ If you need spaces in your selector, you can use an underscore. For example, thi
 
 </SnippetGroup>
 
-You can also use at-rules like `@media` or `@supports` in arbitrary variants:
+También puedes usar reglas-arroba como `@media` o `@supports` en variantes arbitrarias:
 
 <SnippetGroup>
 
@@ -1044,9 +1041,9 @@ You can also use at-rules like `@media` or `@supports` in arbitrary variants:
 
 </SnippetGroup>
 
-With at-rule custom modifiers the `&` placeholder isn't necessary, just like when nesting with a preprocessor.
+Con los modificadores personalizados de regla-arroba, el marcador de posición `&` no es necesario, al igual que cuando se anida con un preprocesador.
 
-You can even combine at-rules and regular selector modifiers by including the selector modifier within curly braces after the at-rule:
+Incluso puedes combinar reglas-arroba y modificadores de selector regulares al incluir el modificador selector entre llaves después de la regla arroba:
 
 
 <SnippetGroup>
@@ -1069,9 +1066,9 @@ You can even combine at-rules and regular selector modifiers by including the se
 </SnippetGroup>
 
 
-### Creating a plugin
+### Crear un complemento
 
-If you find yourself using the same arbitrary modifier multiple times in your project, it might be worth extracting it to a plugin using the `addVariant` API:
+Si te encuentras usando el mismo modificador arbitrario varias veces en tu proyecto, podría valer la pena extraerlo a un complemento usando la API `addVariant`:
 
 ```js tailwind.config.js
 let plugin = require('tailwindcss/plugin')
@@ -1080,22 +1077,23 @@ module.exports = {
   // ...
   plugins: [
     plugin(function ({ addVariant }) {
-      // Add a `third` variant, ie. `third:pb-0`
+      // Añade una variante `third`, ej. `third:pb-0`
       addVariant('third', '&:nth-child(3)')
     })
   ]
 }
 ```
 
-Learn more in the [adding variant plugins](/docs/plugins#adding-variants) documentation.
+Obtén más información en la documentación sobre [agregar variantes de complementos](/docs/plugins#adding-variants).
 
 ---
 
-## Advanced topics
+## Temas avanzados
 
-### Using with your own classes
+### Uso con tus propias clases
 
-All of Tailwind's modifiers are available to use with your own custom classes as long as you've defined them in one of Tailwind's [layers](/docs/adding-custom-styles#using-css-and-layer) or added them using a [plugin](/docs/adding-custom-styles#writing-plugins):
+Todos los modificadores de Tailwind están disponibles para usar con tus propias clases personalizadas siempre que los hayas definido en una de las [capas](/docs/adding-custom-styles#using-css-and-layer) de Tailwind o los hayas agregado usando un [complemento](/docs/adding-custom-styles#writing-plugins):
+
 
 ```css main.css
 @tailwind base;
@@ -1115,21 +1113,21 @@ All of Tailwind's modifiers are available to use with your own custom classes as
 </div>
 ```
 
-### Ordering stacked modifiers
+### Ordenar modificadores apilados
 
-When stacking modifiers, they are applied from the inside-out, like nested function calls:
+Al apilar modificadores, se aplican de adentro hacia afuera, como llamadas a funciones anidadas:
 
 ```js
-// These modifiers:
+// Estos modificadores:
 'dark:group-hover:focus:opacity-100'
 
-// ...are applied like this:
+// ...se aplican así:
 dark(groupHover(focus('opacity-100')))
 ```
 
-For the most part this doesn't actually matter, but there are a few situations where the order you use actually generates meaningfully different CSS.
+En su mayor parte, esto en realidad no importa, pero hay algunas situaciones en las que el orden que usas en realidad genera un CSS significativamente diferente.
 
-For example, if you have `darkMode` configured to `class`, combining the `dark` and `group-hover` modifiers generates a different result depending on the order you use:
+Por ejemplo, si tienes `darkMode` configurado en `class`, la combinación de los modificadores `dark` y `group-hover` genera un resultado diferente dependiendo del orden que use:
 
 ```css
 /* dark:group-hover:opacity-100 */
@@ -1143,9 +1141,9 @@ For example, if you have `darkMode` configured to `class`, combining the `dark` 
 }
 ```
 
-In the first example, the `dark` element needs to be a parent of the `group` element, but in the second example it's reversed.
+En el primer ejemplo, el elemento `dark` debe ser padre del elemento `group`, pero en el segundo ejemplo se invierte.
 
-Another place this is important is when using modifiers like `prose-headings` that are included with the official typography plugin:
+Otro lugar en el que esto es importante es cuando se usan modificadores como `prose-headings` que se incluyen con el complemento de tipografía oficial:
 
 ```css
 /* prose-headings:hover:underline */
@@ -1159,16 +1157,16 @@ Another place this is important is when using modifiers like `prose-headings` th
 }
 ```
 
-In the first example, every single heading is underlined when you hover over the article itself, whereas in the second example each heading is only underlined when you hover over that heading.
+En el primer ejemplo, cada encabezado individual se subraya cuando pasa el mouse sobre el artículo en sí, mientras que en el segundo ejemplo, cada encabezado solo se subraya cuando pasa el mouse sobre ese encabezado.
 
 
 ---
 
-## Appendix
+## Apéndice
 
-### Quick reference
+### Referencia rápida
 
-A quick reference table of every single modifier included in Tailwind by default.
+Una tabla de referencia rápida de cada modificador incluido en Tailwind por defecto.
 
 <div class="overflow-scroll max-w-screen">
 
@@ -1203,15 +1201,15 @@ A quick reference table of every single modifier included in Tailwind by default
 | <a href="#placeholder-shown" className="whitespace-nowrap">placeholder-shown</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:placeholder-shown</code> |
 | <a href="#autofill" className="whitespace-nowrap">autofill</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:autofill</code> |
 | <a href="#read-only" className="whitespace-nowrap">read-only</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>:read-only</code> |
-| <a href="#open-closed-state" className="whitespace-nowrap">open</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[open]</code> |
-| <a href="#before-and-after" className="whitespace-nowrap">before</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::before</code> |
-| <a href="#before-and-after" className="whitespace-nowrap">after</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::after</code> |
-| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-letter</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-letter</code> |
-| <a href="#first-line-and-first-letter" className="whitespace-nowrap">first-line</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-line</code> |
-| <a href="#highlighted-text" className="whitespace-nowrap">marker</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::marker</code> |
+| <a href="#estado-open-closed" className="whitespace-nowrap">open</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>[open]</code> |
+| <a href="#before-y-after" className="whitespace-nowrap">before</a> | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::before</code> |
+| <a href="#before-y-after" className="whitespace-nowrap">after</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::after</code> |
+| <a href="#first-line-y-first-letter" className="whitespace-nowrap">first-letter</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-letter</code> |
+| <a href="#first-line-y-first-letter" className="whitespace-nowrap">first-line</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::first-line</code> |
+| <a href="#texto-resaltado" className="whitespace-nowrap">marker</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::marker</code> |
 | <a href="#selection" className="whitespace-nowrap">selection</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::selection</code> |
-| <a href="#file-input-buttons" className="whitespace-nowrap">file</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::file-selector-button</code> |
-| <a href="#dialog-backdrops" className="whitespace-nowrap">backdrop</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::backdrop</code> |
+| <a href="#botones-de-entrada-de-archivos" className="whitespace-nowrap">file</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::file-selector-button</code> |
+| <a href="#fondos-de-dialogos" className="whitespace-nowrap">backdrop</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::backdrop</code> |
 | <a href="#placeholder" className="whitespace-nowrap">placeholder</a>  | <code className="whitespace-nowrap before:content-none after:content-none"><span className="text-slate-400">&</span>::placeholder</code> |
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">sm</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 640px)</code> |
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">md</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 768px)</code> |
@@ -1219,25 +1217,25 @@ A quick reference table of every single modifier included in Tailwind by default
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">xl</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1280px)</code> |
 | <a href="#responsive-breakpoints" className="whitespace-nowrap">2xl</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (min-width: 1536px)</code> |
 | <a href="#prefers-color-scheme" className="whitespace-nowrap">dark</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-color-scheme: dark)</code> |
-| <a href="#viewport-orientation" className="whitespace-nowrap">portrait</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (orientation: portrait)</code> |
-| <a href="#viewport-orientation" className="whitespace-nowrap">landscape</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (orientation: landscape)</code> |
+| <a href="#orientacion-del-viewport" className="whitespace-nowrap">portrait</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (orientation: portrait)</code> |
+| <a href="#orientacion-del-viewport" className="whitespace-nowrap">landscape</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (orientation: landscape)</code> |
 | <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-safe</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: no-preference)</code> |
 | <a href="#prefers-reduced-motion" className="whitespace-nowrap">motion-reduce</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-reduced-motion: reduce)</code> |
 | <a href="#prefers-contrast" className="whitespace-nowrap">contrast-more</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-contrast: more)</code> |
 | <a href="#prefers-contrast" className="whitespace-nowrap">contrast-less</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media (prefers-contrast: less)</code> |
-| <a href="#print-styles" className="whitespace-nowrap">print</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media print</code> |
-| <a href="#rtl-support" className="whitespace-nowrap">rtl</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="rtl"] <span className="text-slate-400">&</span></code> |
-| <a href="#rtl-support" className="whitespace-nowrap">ltr</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="ltr"] <span className="text-slate-400">&</span></code> |
+| <a href="#estilos-de-impresion" className="whitespace-nowrap">print</a> | <code className="whitespace-nowrap before:content-none after:content-none">@media print</code> |
+| <a href="#soporte-rtl" className="whitespace-nowrap">rtl</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="rtl"] <span className="text-slate-400">&</span></code> |
+| <a href="#soporte-rtl" className="whitespace-nowrap">ltr</a> | <code className="whitespace-nowrap before:content-none after:content-none">[dir="ltr"] <span className="text-slate-400">&</span></code> |
 
 </div>
 
-### Pseudo-class reference
+### Referencia de pseudoclase
 
-This is a comprehensive list of examples for all the pseudo-class modifiers included in Tailwind to complement the [pseudo-classes  documentation](/docs/hover-focus-and-other-states#pseudo-classes) at the beginning of this guide.
+Esta es una lista completa de ejemplos de todos los modificadores de pseudoclases incluidos en Tailwind para complementar la [documentación de pseudoclases](/docs/hover-focus-and-other-states#pseudo-clases) al comienzo de esta guía .
 
 #### hover <small>(:hover)</small>
 
-Style an element when the user hovers over it with the mouse cursor using the `hover` modifier:
+Aplica estilo a un elemento cuando el usuario se desplaza sobre él con el cursor del mouse usando el modificador `hover`:
 
 ```html
 <div class="bg-black **hover:bg-white** ...">
@@ -1247,7 +1245,7 @@ Style an element when the user hovers over it with the mouse cursor using the `h
 
 #### focus <small>(:focus)</small>
 
-Style an element when it has focus the `focus` modifier:
+Dale estilo a un elemento cuando tiene el foco con el modificador `focus`:
 
 ```html
 <input class="border-gray-300 **focus:border-blue-400** ..." />
@@ -1255,7 +1253,7 @@ Style an element when it has focus the `focus` modifier:
 
 #### focus-within <small>(:focus-within)</small>
 
-Style an element when it or one of its descendants has focus using the `focus-within` modifier:
+Dale estilo a un elemento cuando él o uno de sus descendientes tiene el foco usando el modificador `focus-within`:
 
 ```html
 <div class="**focus-within:shadow-lg** ...">
@@ -1265,7 +1263,7 @@ Style an element when it or one of its descendants has focus using the `focus-wi
 
 #### focus-visible <small>(:focus-visible)</small>
 
-Style an element when it has been focused using the keyboard using the `focus-visible` modifier:
+Dale estilo a un elemento cuando se haya enfocado usando el teclado usando el modificador `focus-visible`:
 
 ```html
 <button class="focus:outline-none **focus-visible:ring** ...">
@@ -1275,7 +1273,7 @@ Style an element when it has been focused using the keyboard using the `focus-vi
 
 #### active <small>(:active)</small>
 
-Style an element when it is being pressed using the `active` modifier:
+Dale estilo a un elemento cuando se presiona usando el modificador `active`:
 
 ```html
 <button class="bg-blue-500 **active:bg-blue-600** ...">
@@ -1285,7 +1283,7 @@ Style an element when it is being pressed using the `active` modifier:
 
 #### visited <small>(:visited)</small>
 
-Style a link when it has already been visited using the `visited` modifier:
+Dale estilo a un enlace cuando ya ha sido visitado usando el modificador `visited`:
 
 ```html
 <a href="https://seinfeldquotes.com" class="text-blue-600 **visited:text-purple-600** ...">
@@ -1295,7 +1293,7 @@ Style a link when it has already been visited using the `visited` modifier:
 
 #### target <small>(:target)</small>
 
-Style an element if its ID matches the current URL fragment using the `target` modifier:
+Dale estilo a un elemento si su ID coincide con el fragmento de URL actual usando el modificador `target`:
 
 ```html
 <div id="about" class="**target:shadow-lg** ...">
@@ -1305,7 +1303,7 @@ Style an element if its ID matches the current URL fragment using the `target` m
 
 #### first <small>(:first-child)</small>
 
-Style an element if it's the first child using the `first` modifier:
+Dale estilo a un elemento si es el primer hijo usando el modificador `first`:
 
 ```html
 <ul>
@@ -1319,7 +1317,7 @@ Style an element if it's the first child using the `first` modifier:
 
 #### last <small>(:last-child)</small>
 
-Style an element if it's the last child using the `last` modifier:
+Dale estilo a un elemento si es el último hijo usando el modificador `last`:
 
 ```html
 <ul>
@@ -1333,7 +1331,7 @@ Style an element if it's the last child using the `last` modifier:
 
 #### only <small>(:only-child)</small>
 
-Style an element if it's the only child using the `only` modifier:
+Dale estilo a un elemento si es el único hijo usando el modificador `only`:
 
 ```html
 <ul>
@@ -1347,7 +1345,7 @@ Style an element if it's the only child using the `only` modifier:
 
 #### odd <small>(:nth-child(odd))</small>
 
-Style an element if it's an oddly numbered child using the `odd` modifier:
+Dale estilo a un elemento si es un hijo impar usando el modificador `odd`:
 
 ```html
 <table>
@@ -1361,7 +1359,7 @@ Style an element if it's an oddly numbered child using the `odd` modifier:
 
 #### even <small>(:nth-child(even))</small>
 
-Style an element if it's an evenly numbered child using the `even` modifier:
+Dale estilo a un elemento si es un elemento par usando el modificador `even`:
 
 ```html
 <table>
@@ -1375,7 +1373,7 @@ Style an element if it's an evenly numbered child using the `even` modifier:
 
 #### first-of-type <small>(:first-of-type)</small>
 
-Style an element if it's the first child of its type using the `first-of-type` modifier:
+Dale estilo a un elemento si es el primer hijo de su tipo usando el modificador `first-of-type`:
 
 ```html
 <nav>
@@ -1390,7 +1388,7 @@ Style an element if it's the first child of its type using the `first-of-type` m
 
 #### last-of-type <small>(:last-of-type)</small>
 
-Style an element if it's the last child of its type using the `last-of-type` modifier:
+Dale estilo a un elemento si es el último hijo de su tipo usando el modificador `last-of-type`:
 
 ```html
 <nav>
@@ -1406,7 +1404,7 @@ Style an element if it's the last child of its type using the `last-of-type` mod
 
 #### only-of-type <small>(:only-of-type)</small>
 
-Style an element if it's the only child of its type using the `only-of-type` modifier:
+Dale estilo a un elemento si es el único hijo de su tipo usando el modificador `only-of-type`:
 
 ```html
 <nav>
@@ -1416,13 +1414,13 @@ Style an element if it's the only child of its type using the `only-of-type` mod
       <!-- ... -->
     </a>
   {/each}
-  <button>More</button>
+  <button>Más</button>
 </table>
 ```
 
 #### empty <small>(:empty)</small>
 
-Style an element if it has no content using the `empty` modifier:
+Dale estilo a un elemento si no tiene contenido usando el modificador `empty`:
 
 ```html
 <ul>
@@ -1434,7 +1432,7 @@ Style an element if it has no content using the `empty` modifier:
 
 #### disabled <small>(:disabled)</small>
 
-Style an input when it's disabled using the `disabled` modifier:
+Dale estilo a una entrada cuando está deshabilitada usando el modificador `disabled`:
 
 ```html
 <input class="**disabled:opacity-75** ..." />
@@ -1442,7 +1440,7 @@ Style an input when it's disabled using the `disabled` modifier:
 
 #### enabled <small>(:enabled)</small>
 
-Style an input when it's enabled using the `enabled` modifier, most helpful when you only want to apply another style when an element is not disabled:
+Aplica estilo a una entrada cuando está habilitada usando el modificador `enabled`, más útil cuando solo deseas aplicar otro estilo cuando un elemento no está deshabilitado:
 
 ```html
 <input class="**enabled:hover:border-gray-400** disabled:opacity-75 ..." />
@@ -1450,7 +1448,7 @@ Style an input when it's enabled using the `enabled` modifier, most helpful when
 
 #### checked <small>(:checked)</small>
 
-Style a checkbox or radio button when it's checked using the `checked` modifier:
+Dale estilo a una casilla de verificación o botón de radio cuando esté marcado usando el modificador `checked`:
 
 ```html
 <input type="checkbox" class="appearance-none **checked:bg-blue-500** ..." />
@@ -1458,7 +1456,7 @@ Style a checkbox or radio button when it's checked using the `checked` modifier:
 
 #### indeterminate <small>(:indeterminate)</small>
 
-Style a checkbox or radio button in an indeterminate state using the `indeterminate` modifier:
+Dale estilo a una casilla de verificación o botón de radio en un estado indeterminado usando el modificador `indeterminate`:
 
 ```html
 <input type="checkbox" class="appearance-none **indeterminate:bg-gray-300** ..." />
@@ -1466,7 +1464,7 @@ Style a checkbox or radio button in an indeterminate state using the `indetermin
 
 #### default <small>(:default)</small>
 
-Style an option, checkbox or radio button that was the default value when the page initially loaded using the `default` modifier:
+Aplica estilo a una opción, casilla de verificación o botón de radio que tenía el valor predeterminado cuando la página se cargó inicialmente usando el modificador `default`:
 
 ```html
 <input type="checkbox" class="**default:ring-2** ..." />
@@ -1474,7 +1472,7 @@ Style an option, checkbox or radio button that was the default value when the pa
 
 #### required <small>(:required)</small>
 
-Style an input when it's required using the `required` modifier:
+Dale estilo a una entrada cuando sea necesario usando el modificador `required`:
 
 ```html
 <input class="**required:border-red-500** ..." />
@@ -1482,7 +1480,7 @@ Style an input when it's required using the `required` modifier:
 
 #### valid <small>(:valid)</small>
 
-Style an input when it's valid using the `valid` modifier:
+Dale estilo a una entrada cuando sea válida usando el modificador `valid`:
 
 ```html
 <input class="**valid:border-green-500** ..." />
@@ -1490,7 +1488,7 @@ Style an input when it's valid using the `valid` modifier:
 
 #### invalid <small>(:invalid)</small>
 
-Style an input when it's invalid using the `invalid` modifier:
+Aplica estilo a una entrada cuando no es válida usando el modificador `invalid`:
 
 ```html
 <input class="**invalid:border-red-500** ..." />
@@ -1498,7 +1496,7 @@ Style an input when it's invalid using the `invalid` modifier:
 
 #### in-range <small>(:in-range)</small>
 
-Style an input when it's value is within a specified range limit using the `in-range` modifier:
+Dale estilo a una entrada cuando su valor esté dentro de un límite de rango específico usando el modificador `in-range`:
 
 ```html
 <input min="1" max="5" class="**in-range:border-green-500** ..." />
@@ -1506,7 +1504,7 @@ Style an input when it's value is within a specified range limit using the `in-r
 
 #### out-of-range <small>(:out-of-range)</small>
 
-Style an input when it's value is outside of a specified range limit using the `out-of-range` modifier:
+Dale estilo a una entrada cuando su valor está fuera de un límite de rango especificado usando el modificador `out-of-range`:
 
 ```html
 <input min="1" max="5" class="**out-of-range:border-red-500** ..." />
@@ -1514,7 +1512,7 @@ Style an input when it's value is outside of a specified range limit using the `
 
 #### placeholder-shown <small>(:placeholder-shown)</small>
 
-Style an input when the placeholder is shown using the `placeholder-shown` modifier:
+Aplica estilo a una entrada cuando se muestra el placeholder usando el modificador `placeholder-shown`:
 
 ```html
 <input class="**placeholder-shown:border-gray-500** ..." placeholder="you@example.com" />
@@ -1522,7 +1520,7 @@ Style an input when the placeholder is shown using the `placeholder-shown` modif
 
 #### autofill <small>(:autofill)</small>
 
-Style an input when it has been autofilled by the browser using the `autofill` modifier:
+Dale estilo a una entrada cuando el navegador la haya autocompletado usando el modificador `autofill`:
 
 ```html
 <input class="**autofill:bg-yellow-200** ..." />
@@ -1530,7 +1528,7 @@ Style an input when it has been autofilled by the browser using the `autofill` m
 
 #### read-only <small>(:read-only)</small>
 
-Style an input when it is read-only using the `read-only` modifier:
+Dale estilo a una entrada cuando es de solo lectura usando el modificador `read-only`:
 
 ```html
 <input class="**read-only:bg-gray-100** ..." />

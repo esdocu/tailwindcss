@@ -4,12 +4,12 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Crea tu proyecto',
     body: () => (
       <p>
-        Start by creating a new Parcel project if you don’t have one set up already. The most common
-        approach is to add Parcel as a dev-dependency to your project as outlined in their{' '}
-        <a href="https://parceljs.org/getting-started/webapp/">getting started guide</a>.
+        Comienza por crear un nuevo proyecto Parcel si aún no tienes uno configurado. El enfoque más
+        común es agregar Parcel como una dependencia de desarrollo a tu proyecto como se describe en tu{' '}
+        <a href="https://parceljs.org/getting-started/webapp/">guía de inicio</ a>.
       </p>
     ),
     code: {
@@ -19,11 +19,11 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Instala Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-        command to generate <code>tailwind.config.js</code>.
+        Instala <code>tailwindcss</code> y sus dependencias de pares a través de npm, y luego ejecuta
+        el comando init para generar tanto <code>tailwind.config.js</code> como <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -33,10 +33,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure PostCSS',
+    title: 'Configura PostCSS',
     body: () => (
       <p>
-        Create a <code>.postcssrc</code> file in your project root, and enable the <code>tailwindcss</code> plugin.
+        Crea un archivo <code>.postcssrc</code> en la raíz de tu proyecto y habilita el complemento <code>tailwindcss</code>.
       </p>
     ),
     code: {
@@ -50,10 +50,10 @@ let steps = [
     }
   },
   {
-    title: 'Configure your template paths',
+    title: 'Configura tus rutas de plantilla',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Agrega las rutas a todos tus archivos de plantilla en tu archivo <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -71,11 +71,11 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Agrega las directivas Tailwind a tu CSS',
     body: () => (
       <p>
-        Create a <code>./src/index.css</code> file and add the <code>@tailwind</code> directives for
-        each of Tailwind’s layers.
+        Crea un archivo <code>./src/index.css</code> y agrega las directivas <code>@tailwind</code> para 
+        cada una de las capas de Tailwind.
       </p>
     ),
     code: {
@@ -85,10 +85,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Comienza tu proceso de compilación',
     body: () => (
       <p>
-        Run your build process with <code>npx parcel src/index.html</code>.
+        Ejecuta tu proceso de compilación con <code>npx parcel src/index.html</code>.
       </p>
     ),
     code: {
@@ -98,10 +98,10 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
+    title: 'Comienza a usar Tailwind en tu proyecto',
     body: () => (<p>
-      Add your CSS file to the <code>{'<head>'}</code> and start using Tailwind’s utility
-      classes to style your content.
+      Agrega tu archivo CSS a <code>{'<head>'}</code> y comienza a usar las clases de 
+      utilidad de Tailwind para diseñar tu contenido.
     </p>),
     code: {
       name: 'index.html',
@@ -126,8 +126,8 @@ let steps = [
 export default function UsingParcel({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Parcel"
-      description="Setting up Tailwind CSS in a Parcel project."
+      title="Instala Tailwind CSS con Parcel"
+      description="Configuración de Tailwind CSS en un proyecto Parcel."
     >
       <Steps steps={steps} code={code} />
     </FrameworkGuideLayout>
@@ -156,8 +156,8 @@ export function getStaticProps() {
 
 UsingParcel.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Parcel',
-    section: 'Installation',
+    title: 'Instala Tailwind CSS con Parcel',
+    section: 'Instalación',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

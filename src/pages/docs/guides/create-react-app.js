@@ -5,12 +5,12 @@ import { Steps } from '@/components/Steps'
 
 let steps = [
   {
-    title: 'Create your project',
+    title: 'Crea tu proyecto',
     body: () => (
       <p>
-        Start by creating a new React project with{' '}
-        <a href="https://create-react-app.dev/docs/getting-started">Create React App v5.0+</a> if
-        you don't have one already set up.
+        Comienza creando un nuevo proyecto de React con {' '}
+        <a href="https://create-react-app.dev/docs/getting-started">Create React App v5.0+</a> si
+        no tienes uno ya configurado.
       </p>
     ),
     code: {
@@ -20,11 +20,11 @@ let steps = [
     },
   },
   {
-    title: 'Install Tailwind CSS',
+    title: 'Instala Tailwind CSS',
     body: () => (
       <p>
-        Install <code>tailwindcss</code> and its peer dependencies via npm, and then run the init
-        command to generate both <code>tailwind.config.js</code> and <code>postcss.config.js</code>.
+        Instala <code>tailwindcss</code> y sus dependencias de pares a través de npm, y luego ejecuta 
+        el comando init para generar tanto <code>tailwind.config.js</code> como <code>postcss.config.js</code>.
       </p>
     ),
     code: {
@@ -34,10 +34,10 @@ let steps = [
     },
   },
   {
-    title: 'Configure your template paths',
+    title: 'Configura tus rutas de plantilla',
     body: () => (
       <p>
-        Add the paths to all of your template files in your <code>tailwind.config.js</code> file.
+        Agrega las rutas a todos tus archivos de plantilla en tu archivo <code>tailwind.config.js</code>.
       </p>
     ),
     code: {
@@ -55,11 +55,11 @@ let steps = [
     },
   },
   {
-    title: 'Add the Tailwind directives to your CSS',
+    title: 'Agrega las directivas Tailwind a tu CSS',
     body: () => (
       <p>
-        Add the <code>@tailwind</code> directives for each of Tailwind’s layers to your{' '}
-        <code>./src/index.css</code> file.
+        Agrega las directivas <code>@tailwind</code> para cada una de las capas de Tailwind a tu archivo{' '}
+        <code>./src/index.css</code>.
       </p>
     ),
     code: {
@@ -69,10 +69,10 @@ let steps = [
     },
   },
   {
-    title: 'Start your build process',
+    title: 'Comienza tu proceso de compilación',
     body: () => (
       <p>
-        Run your build process with <code>npm run start</code>.
+        Ejecuta tu proceso de compilación con <code>npm run start</code>.
       </p>
     ),
     code: {
@@ -82,8 +82,8 @@ let steps = [
     },
   },
   {
-    title: 'Start using Tailwind in your project',
-    body: () => <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: 'Comienza a usar Tailwind en tu proyecto',
+    body: () => <p>Comienza a usar las clases de utilidad de Tailwind para diseñar tu contenido.</p>,
     code: {
       name: 'App.js',
       lang: 'jsx',
@@ -101,12 +101,12 @@ let steps = [
 export default function UsingCRA({ code }) {
   return (
     <FrameworkGuideLayout
-      title="Install Tailwind CSS with Create React App"
-      description="Setting up Tailwind CSS in a Create React App project."
+      title="Instala Tailwind CSS con Create React App"
+      description="Configuración de Tailwind CSS en un proyecto Create React App."
     >
       <div className="relative z-10 prose prose-slate mb-16 max-w-3xl dark:prose-dark">
         <p>
-          Note that for new React projects, we highly recommend using{' '}
+          Ten en cuenta que para los nuevos proyectos de React, recomendamos encarecidamente utilizar{' '}
           <Link href="https://vitejs.dev">
             <a>Vite</a>
           </Link>
@@ -118,13 +118,12 @@ export default function UsingCRA({ code }) {
           <Link href="https://remix.run">
             <a>Remix</a>
           </Link>
-          , or{' '}
+          , o{' '}
           <Link href="https://parceljs.org">
             <a>Parcel</a>
           </Link>{' '}
-          instead of Create React App. They provide an equivalent or better developer experience but
-          with more flexibility, giving you more control over how Tailwind and PostCSS are
-          configured.
+          en lugar de Create React App. Brindan una experiencia de desarrollador equivalente o mejor, 
+          pero con más flexibilidad, lo que te brinda más control sobre cómo se configuran Tailwind y PostCSS.
         </p>
       </div>
       <Steps steps={steps} code={code} />
@@ -149,8 +148,8 @@ export function getStaticProps() {
 
 UsingCRA.layoutProps = {
   meta: {
-    title: 'Install Tailwind CSS with Create React App',
-    section: 'Installation',
+    title: 'Instala Tailwind CSS con Create React App',
+    section: 'Instalación',
   },
   Layout: DocumentationLayout,
   allowOverflow: false,

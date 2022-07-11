@@ -224,12 +224,12 @@
   { "source": "/docs", "destination": "/docs/installation", "permanent": false },
   {
     "source": "/docs/placeholder-color",
-    "destination": "/docs/hover-focus-and-other-states#placeholder-text",
+    "destination": "/docs/hover-focus-and-other-states#texto-placeholder",
     "permanent": false
   },
   {
     "source": "/docs/placeholder-opacity",
-    "destination": "/docs/hover-focus-and-other-states#placeholder-text",
+    "destination": "/docs/hover-focus-and-other-states#texto-placeholder",
     "permanent": false
   },
   {

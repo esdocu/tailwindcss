@@ -11,7 +11,7 @@ import { ThemeSelect, ThemeToggle } from './ThemeToggle'
 function Featured() {
   return (
     <Link href="/blog/tailwindcss-v3-1">
-      <a className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20">
+      <a target="_blank" className="ml-3 text-xs leading-5 font-medium text-sky-600 dark:text-sky-400 bg-sky-400/10 rounded-full py-1 px-3 hidden xl:flex items-center hover:bg-sky-400/20">
         <strong className="font-semibold">Tailwind CSS v3.1</strong>
         <svg
           width="2"
@@ -64,7 +64,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
         className="text-slate-500 w-8 h-8 flex items-center justify-center hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
         onClick={() => setIsOpen(true)}
       >
-        <span className="sr-only">Navigation</span>
+        <span className="sr-only">Navegación</span>
         <svg width="24" height="24" fill="none" aria-hidden="true">
           <path
             d="M12 6v.01M12 12v.01M12 18v.01M12 7a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm0 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"
@@ -88,7 +88,7 @@ export function NavPopover({ display = 'md:hidden', className, ...props }) {
             className="absolute top-5 right-5 w-8 h-8 flex items-center justify-center text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
             onClick={() => setIsOpen(false)}
           >
-            <span className="sr-only">Close navigation</span>
+            <span className="sr-only">Cerrar navegación</span>
             <svg viewBox="0 0 10 10" className="w-2.5 h-2.5 overflow-visible" aria-hidden="true">
               <path
                 d="M0 0L10 10M10 0L0 10"
@@ -129,7 +129,7 @@ export function NavItems() {
       </li>
       <li>
         <a href="https://tailwindui.com" className="hover:text-sky-500 dark:hover:text-sky-400">
-          Components
+          Componentes
         </a>
       </li>
       <li>
@@ -206,7 +206,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                     Router.push('/brand')
                   }}
                 >
-                  <span className="sr-only">Tailwind CSS home page</span>
+                  <span className="sr-only">Tailwind CSS página de inicio</span>
                   <Logo className="w-auto h-5" />
                 </a>
               </Link>
@@ -224,7 +224,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                     href="https://github.com/tailwindlabs/tailwindcss"
                     className="ml-6 block text-slate-400 hover:text-slate-500 dark:hover:text-slate-300"
                   >
-                    <span className="sr-only">Tailwind CSS on GitHub</span>
+                    <span className="sr-only">Tailwind CSS en GitHub</span>
                     <svg
                       viewBox="0 0 16 16"
                       className="w-5 h-5"
@@ -237,7 +237,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                 </div>
               </div>
               <SearchButton className="ml-auto text-slate-500 w-8 h-8 -my-1 flex items-center justify-center hover:text-slate-600 lg:hidden dark:text-slate-400 dark:hover:text-slate-300">
-                <span className="sr-only">Search</span>
+                <span className="sr-only">Buscar</span>
                 <svg
                   width="24"
                   height="24"
@@ -262,7 +262,7 @@ export function Header({ hasNav = false, navIsOpen, onNavToggle, title, section 
                 onClick={() => onNavToggle(!navIsOpen)}
                 className="text-slate-500 hover:text-slate-600 dark:text-slate-400 dark:hover:text-slate-300"
               >
-                <span className="sr-only">Navigation</span>
+                <span className="sr-only">Navegación</span>
                 <svg width="24" height="24">
                   <path
                     d="M5 6h14M5 12h14M5 18h14"
