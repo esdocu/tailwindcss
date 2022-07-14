@@ -1,21 +1,21 @@
 ---
-title: Reusing Styles
-description: Managing duplication and creating reusable abstractions.
+title: Reutilización de estilos
+description: Gestionar la duplicación y crear abstracciones reutilizables.
 ---
 
 import { TipGood, TipBad, TipInfo } from '@/components/Tip'
 import { MultiCursorDemo } from '@/components/MultiCursorDemo'
 
-Tailwind encourages a [utility-first](/docs/utility-first) workflow, where designs are implemented using only low-level utility classes. This is a powerful way to avoid premature abstraction and the pain points that come with it.
+Tailwind fomenta un flujo de trabajo [utility-first](/docs/utility-first), donde los diseños se implementan utilizando solo clases de utilidad de bajo nivel. Esta es una forma poderosa de evitar la abstracción prematura y los puntos débiles que la acompañan.
 
-But of course as a project grows, you'll inevitably find yourself repeating common utility combinations to recreate the same design in many different places.
+Pero, por supuesto, a medida que crece un proyecto, inevitablemente te encontrarás repitiendo combinaciones de utilidades comunes para recrear el mismo diseño en muchos lugares diferentes.
 
-For example, in the template below you can see the utility classes for each avatar image are repeated five separate times:
+Por ejemplo, en la plantilla a continuación, puedes ver que las clases de utilidad para cada imagen de avatar se repiten cinco veces por separado:
 
 <Example p="none">
   <div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
     <div class="flex text-base items-center space-x-2">
-      <h4 class="text-base font-semibold text-slate-900">Contributors</h4>
+      <h4 class="text-base font-semibold text-slate-900">Colaboradores</h4>
       <span class="text-xs rounded-full px-2 py-1 bg-slate-100 font-semibold text-slate-700">204</span>
     </div>
     <div class="mt-3 flex -space-x-2 overflow-hidden">
@@ -26,7 +26,7 @@ For example, in the template below you can see the utility classes for each avat
       <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
     </div>
     <div class="mt-3 text-sm font-medium">
-      <a href="#" class="text-blue-500">+ 198 others</a>
+      <a href="#" class="text-blue-500">+ 198 más</a>
     </div>
   </div>
 </Example>
@@ -34,7 +34,7 @@ For example, in the template below you can see the utility classes for each avat
 ```html
 <div>
   <div class="flex items-center space-x-2 text-base">
-    <h4 class="font-semibold text-slate-900">Contributors</h4>
+    <h4 class="font-semibold text-slate-900">Colaboradores</h4>
     <span class="rounded-full bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700">204</span>
   </div>
   <div class="mt-3 flex -space-x-2 overflow-hidden">
@@ -45,41 +45,41 @@ For example, in the template below you can see the utility classes for each avat
     <img class="**inline-block h-12 w-12 rounded-full ring-2 ring-white**" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
   </div>
   <div class="mt-3 text-sm font-medium">
-    <a href="#" class="text-blue-500">+ 198 others</a>
+    <a href="#" class="text-blue-500">+ 198 más</a>
   </div>
 </div>
 ```
 
-Don't panic! In this guide, you'll learn about different strategies for reusing styles in your project, as well as best practices for when to employ each one.
+¡No entres en pánico! En esta guía, aprenderás sobre diferentes estrategias para reutilizar estilos en tu proyecto, así como las mejores prácticas sobre cuándo emplear cada una.
 
 ---
 
-## Using editor and language features
+## Uso del editor y las funciones del lenguaje
 
-A lot of the time duplication like this isn't even a real problem because it's all together in one place, or doesn't even actually exist because you're iterating over an array of items and only writing the markup once.
+Muchas veces, una duplicación como esta ni siquiera es un problema real porque está todo junto en un solo lugar, o ni siquiera existe porque estás iterando sobre una serie de elementos y solo escribiendo el marcado una vez.
 
-If the styles you need to reuse only need to be reused within a single file, multi-cursor editing and loops are the simplest way to manage any duplication.
+Si los estilos que necesitas reutilizar solo necesitan reutilizarse dentro de un solo archivo, la edición de múltiples cursores y los bucles son la forma más sencilla de administrar cualquier duplicación.
 
-### Multi-cursor editing
+### Edición multi-cursor
 
-When duplication is localized to a group of elements in a single file, the easiest way to deal with it to use [multi-cursor editing](https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor) to quickly select and edit the class list for each element at once:
+Cuando la duplicación se localiza en un grupo de elementos en un solo archivo, la forma más fácil de manejarla es usar [edición de varios cursores](https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor) para seleccionar y editar rápidamente la lista de clases para cada elemento a la vez:
 
 <MultiCursorDemo />
 
-You'd be surprised at how often this ends up being the best solution. If you can quickly edit all of the duplicated class lists simultaneously, there's no benefit to introducing any additional abstraction.
+Te sorprendería la frecuencia con la que esto termina siendo la mejor solución. Si puedes editar rápidamente todas las listas de clases duplicadas simultáneamente, no hay ningún beneficio en introducir ninguna abstracción adicional.
 
-### Loops
+### Bucles
 
-Before you assume you're going to need to extract a component or create a custom class for something, make sure you're _actually_ using it more than once in your template.
+Antes de asumir que necesitarás extraer un componente o crear una clase personalizada para algo, asegúrate de estar _realmente_ usándolo más de una vez en tu plantilla.
 
-A lot of the time a design element that shows up more than once in the rendered page is only actually authored once because the actual markup is rendered in a loop.
+Muchas veces, un elemento de diseño que aparece más de una vez en la página renderizada solo se crea una vez porque el marcado real se representa en un bucle.
 
-For example, the duplicate avatars at the beginning of this guide would almost certainly be rendered in a loop in a real project:
+Por ejemplo, los avatares duplicados al comienzo de esta guía seguramente se renderizarían en un bucle en un proyecto real:
 
 <Example p="none">
   <div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
     <div class="flex text-base items-center space-x-2">
-      <h4 class="text-base font-semibold text-slate-900">Contributors</h4>
+      <h4 class="text-base font-semibold text-slate-900">Colaboradores</h4>
       <span class="text-xs rounded-full px-2 py-1 bg-slate-100 font-semibold text-slate-700">204</span>
     </div>
     <div class="mt-3 flex -space-x-2 overflow-hidden">
@@ -90,7 +90,7 @@ For example, the duplicate avatars at the beginning of this guide would almost c
       <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
     </div>
     <div class="mt-3 text-sm font-medium">
-      <a href="#" class="text-blue-500">+ 198 others</a>
+      <a href="#" class="text-blue-500">+ 198 más</a>
     </div>
   </div>
 </Example>
@@ -98,7 +98,7 @@ For example, the duplicate avatars at the beginning of this guide would almost c
 ```html
 <div>
   <div class="flex items-center space-x-2 text-base">
-    <h4 class="font-semibold text-slate-900">Contributors</h4>
+    <h4 class="font-semibold text-slate-900">Colaboradores</h4>
     <span class="rounded-full bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700">204</span>
   </div>
   <div class="mt-3 flex -space-x-2 overflow-hidden">
@@ -107,21 +107,21 @@ For example, the duplicate avatars at the beginning of this guide would almost c
 **    {/each}**
   </div>
   <div class="mt-3 text-sm font-medium">
-    <a href="#" class="text-blue-500">+ 198 others</a>
+    <a href="#" class="text-blue-500">+ 198 más</a>
   </div>
 </div>
 ```
 
-You could even rewrite the navigation example using a loop or `map` if you preferred as well:
+Incluso podrías reescribir el ejemplo de navegación usando un bucle o `map` si así lo prefieres:
 
 <Example p="none">
   <div class="sm:px-8 flex sm:justify-center">
     <div class="bg-white px-6 py-4 shadow">
       <nav class="flex justify-center space-x-4">
-        <a href="#/dashboard" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Home</a>
-        <a href="#/team" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Team</a>
-        <a href="#/projects" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Projects</a>
-        <a href="#/reports" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Reports</a>
+        <a href="#/dashboard" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Inicio</a>
+        <a href="#/team" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Equipo</a>
+        <a href="#/projects" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Proyectos</a>
+        <a href="#/reports" class="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">Informes</a>
       </nav>
     </div>
   </div>
@@ -130,23 +130,23 @@ You could even rewrite the navigation example using a loop or `map` if you prefe
 ```jsx
 <nav className="flex sm:justify-center space-x-4">
   {[
-    ['Home', '/dashboard'],
-    ['Team', '/team'],
-    ['Projects', '/projects'],
-    ['Reports', '/reports'],
+    ['Inicio', '/dashboard'],
+    ['Equipo', '/team'],
+    ['Proyectos', '/projects'],
+    ['Informes', '/reports'],
   ].map(([title, url]) => (
     <a href={url} className="rounded-lg px-3 py-2 text-slate-700 font-medium hover:bg-slate-100 hover:text-slate-900">{title}</a>
   ))}
 </nav>
 ```
 
-When elements are rendered in a loop like this, the actual class list is only written once so there's no actual duplication problem to solve.
+Cuando los elementos se renderizan en un bucle como este, la lista de clases realmente solo se escriben una vez, por lo que no hay un problema de duplicación real que resolver.
 
 ---
 
-## Extracting components and partials
+## Extracción de componentes y parciales
 
-If you need to reuse some styles across multiple files, the best strategy is to create a _component_ if you're using a front-end framework like React, Svelte, or Vue, or a _template partial_ if you're using a templating language like Blade, ERB, Twig, or Nunjucks.
+Si necesitas reutilizar algunos estilos en varios archivos, la mejor estrategia es crear un _componente_ si estás usando un framework como React, Svelte o Vue, o una _plantilla parcial_ si estás usando un lenguaje de plantillas como Blade, ERB, Twig o Nunjucks.
 
 <Example p="none">
   <div class="w-72 sm:w-96 px-8 sm:px-12 py-6 sm:py-8 mx-auto bg-white shadow">
@@ -154,11 +154,11 @@ If you need to reuse some styles across multiple files, the best strategy is to 
       <img class="rounded" src="https://images.unsplash.com/photo-1452784444945-3f422708fe5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=512&q=80" width="512" height="341" alt="Beach" />
       <div class="mt-2">
         <div>
-          <div class="text-xs text-slate-600 uppercase font-bold tracking-wider">Private Villa</div>
+          <div class="text-xs text-slate-600 uppercase font-bold tracking-wider">Villa Privada</div>
           <div class="font-bold text-slate-700 leading-snug">
-            <a href="#" class="hover:underline">Relaxing All-Inclusive Resort in Cancun</a>
+            <a href="#" class="hover:underline">Relajante Resort Todo Incluido en Cancún</a>
           </div>
-          <div class="mt-2 text-sm text-slate-600">$299 USD per night</div>
+          <div class="mt-2 text-sm text-slate-600">$299 USD por noche</div>
         </div>
       </div>
     </div>
@@ -188,13 +188,13 @@ If you need to reuse some styles across multiple files, the best strategy is to 
 </script>
 ```
 
-Now you can use this component in as many places as you like, while still having a single source of truth for the styles so they can easily be updated together in one place.
+Ahora puedes usar este componente en tantos lugares como desees, sin dejar de tener una única fuente de verdad para los estilos, de modo que puedan actualizarse fácilmente juntos en un solo lugar.
 
-### Compared to CSS abstractions
+### En comparación con las abstracciones de CSS
 
-Unless a component is a single HTML element, the information needed to define it can't be captured in CSS alone. For anything even remotely complex, the HTML structure is just as important as the CSS.
+A menos que un componente sea un único elemento HTML, la información necesaria para definirlo no se puede capturar solo en CSS. Para cualquier cosa, incluso remotamente compleja, la estructura HTML es tan importante como el CSS.
 
-<TipBad>Don't rely on CSS classes to extract complex components</TipBad>
+<TipBad>No confíes en las clases CSS para extraer componentes complejos</TipBad>
 
 <Example p="none">
   <div class="px-6 py-12">
@@ -204,21 +204,21 @@ Unless a component is a single HTML element, the information needed to define it
       </div>
       <div>
         <div class="text-base sm:text-xl font-medium text-black">ChitChat</div>
-        <p class="text-sm sm:text-base text-slate-500">You have a new message!</p>
+        <p class="text-sm sm:text-base text-slate-500">¡Tienes un nuevo mensaje!</p>
       </div>
     </div>
   </div>
 </Example>
 
 ```html
-<!-- Even with custom CSS, you still need to duplicate this HTML structure -->
+<!-- Incluso con CSS personalizado, aún necesitas duplicar esta estructura HTML -->
 <div class="chat-notification">
   <div class="chat-notification-logo-wrapper">
     <img class="chat-notification-logo" src="/img/logo.svg" alt="ChitChat Logo">
   </div>
   <div class="chat-notification-content">
     <h4 class="chat-notification-title">ChitChat</h4>
-    <p class="chat-notification-message">You have a new message!</p>
+    <p class="chat-notification-message">¡Tienes un nuevo mensaje!</p>
   </div>
 </div>
 
@@ -232,11 +232,11 @@ Unless a component is a single HTML element, the information needed to define it
 </style>
 ```
 
-Even if you create classes for the different elements in a component like this, _you still have to duplicate the HTML every time you want to use this component_. Sure you can update the font-size for every instance in a single place, but what if you need to turn the title into a link?
+Incluso si creas clases para los diferentes elementos en un componente como este, _todavía tienes que duplicar el HTML cada vez que quieras usar este componente_. Claro que puedes actualizar el tamaño de fuente para cada instancia en un solo lugar, pero ¿qué sucede si necesitas convertir el título en un enlace?
 
-Components and template partials solve this problem much better than CSS-only abstractions because a component can encapsulate the HTML _and_ the styles. Changing the font-size for every instance is just as easy as it is with CSS, but now you can turn all of the titles into links in a single place too.
+Los componentes y las plantillas parciales resuelven este problema mucho mejor que las abstracciones de solo CSS porque un componente puede encapsular el HTML _y_ los estilos. Cambiar el tamaño de fuente para cada instancia es tan fácil como con CSS, pero ahora también puedes convertir todos los títulos en enlaces en un solo lugar.
 
-<TipGood>Create a template partial or JavaScript component</TipGood>
+<TipGood>Crea una plantilla parcial o un componente de JavaScript</TipGood>
 
 <Example p="none">
   <div class="px-6 py-12">
@@ -246,7 +246,7 @@ Components and template partials solve this problem much better than CSS-only ab
       </div>
       <div>
         <div class="text-base sm:text-xl font-medium text-black">ChitChat</div>
-        <p class="text-sm sm:text-base text-slate-500">You have a new message!</p>
+        <p class="text-sm sm:text-base text-slate-500">¡Tienes un nuevo mensaje!</p>
       </div>
     </div>
   </div>
@@ -268,35 +268,35 @@ function Notification({ imageUrl, imageAlt, title, message }) {
 }
 ```
 
-When you create components and template partials like this, there's no reason to use anything other than utility classes because you already have a single source of truth for the styles.
+Cuando creas componentes y plantillas parciales como esta, no hay razón para usar nada más que clases de utilidad porque ya tienes una única fuente de verdad para los estilos.
 
 ---
 
-## Extracting classes with @apply
+## Extrayendo clases con @apply
 
-If you're using a traditional templating language like ERB or Twig, creating a template partial for something as small as a button can feel like overkill compared to a simple CSS class like `btn`.
+Si estás utilizando un lenguaje de plantillas tradicional como ERB o Twig, crear una plantilla parcial para algo tan pequeño como un botón puede parecer excesivo en comparación con una clase CSS simple como `btn`.
 
-While it's highly recommended that you create proper template partials for more complex components, you can use Tailwind's `@apply` directive to extract repeated utility patterns to custom CSS classes when a template partial feels heavy-handed.
+Si bien es muy recomendable que crees plantillas parciales adecuadas para componentes más complejos, puedes usar la directiva `@apply` de Tailwind para extraer patrones de utilidad repetidos para clases CSS personalizadas cuando una plantilla parcial se siente pesada.
 
-Here's what a `btn-primary` class might look like using `@apply` to compose it from existing utilities:
+Así es como se vería una clase `btn-primary` usando `@apply` para componerla a partir de utilidades existentes:
 
 <Example>
   <div class="text-center">
     <button type="button" class="py-2 px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75">
-      Save changes
+      Guardar cambios
     </button>
   </div>
 </Example>
 
 ```html HTML
-<!-- Before extracting a custom class -->
+<!-- Antes de extraer una clase personalizada -->
 <button class="py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-  Save changes
+  Guardar cambios
 </button>
 
-<!-- After extracting a custom class -->
+<!-- Después de extraer una clase personalizada -->
 <button class="**btn-primary**">
-  Save changes
+  Guardar cambios
 </button>
 ```
 
@@ -314,18 +314,17 @@ Here's what a `btn-primary` class might look like using `@apply` to compose it f
 }
 ```
 
-Learn more about `@apply` and `@layer` in the [Functions & Directives](/docs/functions-and-directives#layer) documentation.
+Obtén más información sobre `@apply` y `@layer` en la documentación de [Funciones y directivas](/docs/functions-and-directives#layer).
 
+### Evitar la abstracción prematura
 
-### Avoiding premature abstraction
+Hagas lo que hagas, **no uses <code className="font-semibold text-slate-900">@apply</code> solo para que las cosas se vean "más limpias"**. Sí, las plantillas HTML llenas de clases de Tailwind son un poco feas. Hacer cambios en un proyecto que tiene toneladas de CSS personalizado es peor.
 
-Whatever you do, **don't use <code className="font-semibold text-slate-900">@apply</code> just to make things look "cleaner"**. Yes, HTML templates littered with Tailwind classes are kind of ugly. Making changes in a project that has tons of custom CSS is worse.
+Si comienzas a usar `@apply` para todo, básicamente solo estás escribiendo CSS nuevamente y desechando todas las ventajas de flujo de trabajo y mantenimiento que te brinda Tailwind, por ejemplo:
 
-If you start using `@apply` for everything, you are basically just writing CSS again and throwing away all of the workflow and maintainability advantages Tailwind gives you, for example:
+- **Tienes que pensar en nombres de clase todo el tiempo**: nada te ralentizará ni te quitará la energía como pensar en un nombre de clase para algo que no merece ser nombrado.
+- **Tienes que saltar entre varios archivos para hacer cambios**, lo que es un factor de destrucción de flujo de trabajo mucho mayor de lo que pensarías antes de ubicar todo junto.
+- **Cambiar estilos da más miedo** — CSS es global, ¿estás _seguro_ de que puedes cambiar el valor min-width en esa clase sin romper algo en otra parte del sitio?
+- **Tu paquete de CSS será más grande** — oof.
 
-- **You have to think up class names all the time** — nothing will slow you down or drain your energy like coming up with a class name for something that doesn't deserve to be named.
-- **You have to jump between multiple files to make changes** — which is a way bigger workflow killer than you'd think before co-locating everything together.
-- **Changing styles is scarier** — CSS is global, are you _sure_ you can change the min-width value in that class without breaking something in another part of the site?
-- **Your CSS bundle will be bigger** — oof.
-
-If you're going to use `@apply`, use it for very small, highly reusable things like buttons and form controls — and even then only if you're not using a framework like React where a component would be a better choice.
+Si vas a usar `@apply`, utilízalo para cosas muy pequeñas y altamente reutilizables, como botones y controles de formulario, e incluso solo si no estás usando un framework como React, donde un componente sería una mejor opción.
