@@ -1,4 +1,4 @@
-export const dynamicParams = false;
+export const dynamic = "force-static";
 import { getBlogPostBySlug, getBlogPostSlugs, nonNullable } from "@/app/blog/api";
 import { Feed } from "feed";
 import { notFound } from "next/navigation";
