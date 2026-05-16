@@ -1,0 +1,40 @@
+import { adamwathan } from "@/app/blog/authors";
+import { Image } from "@/components/media";
+import Link from "next/link";
+import card from "./card.jpg";
+
+export const meta = {
+  title: "Tailwind CSS v1.8.0",
+  description: `¡Tailwind CSS v1.8.0 ya está disponible, con soporte para font-variant-numeric, modo oscuro experimental y más!`,
+  date: "2020-09-04T20:15:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      ¡Tailwind CSS v1.8 ya está disponible con un puñado de nuevas utilidades, un par de nuevas características y un nuevo y emocionante experimento!
+    </>
+  ),
+};
+
+¡Tailwind CSS v1.8 ya está disponible con un puñado de nuevas utilidades, un par de nuevas características y un nuevo y emocionante experimento!
+
+## Nuevas características
+
+- Nuevas utilidades `font-variant-numeric` ([#2305](https://github.com/tailwindlabs/tailwindcss/pull/2305))
+- Nuevas utilidades `place-items`, `place-content`, `place-self`, `justify-items` y `justify-self` ([#2306](https://github.com/tailwindlabs/tailwindcss/pull/2306))
+- Nueva opción `preserveHtmlElements` para `purge` ([#2283](https://github.com/tailwindlabs/tailwindcss/pull/2283))
+- Nuevo modo `layers` para `purge` ([#2288](https://github.com/tailwindlabs/tailwindcss/pull/2288))
+- Soporte para configurar variantes como funciones ([#2309](https://github.com/tailwindlabs/tailwindcss/pull/2309))
+- Variante de modo oscuro (experimental) ([#2279](https://github.com/tailwindlabs/tailwindcss/pull/2279))
+
+## Cambios
+
+- El CSS dentro de las reglas `@layer` ahora se agrupa con la regla `@tailwind` correspondiente ([#2312](https://github.com/tailwindlabs/tailwindcss/pull/2312))
+
+## Descontinuaciones
+
+- El modo `conservative` de `purge` ha sido descontinuado en favor del nuevo modo `layers` ([#2288](https://github.com/tailwindlabs/tailwindcss/pull/2288))
+
+Consulta las [notas completas de la versión en GitHub](https://github.com/tailwindlabs/tailwindcss/releases/tag/v1.8.0) para obtener más detalles.
+
+¿Quieres hablar sobre esta publicación? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2315">Discútelo en GitHub →</a>

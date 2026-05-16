@@ -1,0 +1,265 @@
+import { danhollick } from "@/app/blog/authors";
+import twitterCard from "./twitter-card.png";
+import template from "./template.png";
+import { Image, Video } from "@/components/media";
+import savvycalRadiant from "./savvycal-radiant.jpg";
+import sanityStudio from "./sanity-studio.png";
+import blog from "./blog.png";
+
+export const meta = {
+  title: "Radiant: Una nueva y hermosa plantilla de sitio de marketing",
+  description: `Durante los últimos meses hemos estado trabajando en una nueva plantilla SaaS llamada Radiant y ya está disponible como parte de Tailwind UI.`,
+  date: "2024-09-12T10:30:00.000Z",
+  authors: [danhollick],
+  image: twitterCard,
+  excerpt: (
+    <>
+      Durante los últimos meses hemos estado trabajando en una nueva plantilla de sitio de marketing SaaS para Tailwind UI. Se
+      llama <a href="https://tailwindui.com/templates/radiant">Radiant</a>, y puedes empezar a usarla hoy mismo.
+    </>
+  ),
+};
+
+<a href="https://tailwindui.com/templates/radiant">
+  <Image src={template} alt="Aprende sobre la plantilla Radiant" />
+</a>
+
+Acabamos de terminar el trabajo en una nueva y hermosa plantilla de sitio de marketing SaaS llamada [Radiant](https://tailwindui.com/templates/radiant), y ya está disponible como parte de [Tailwind UI](https://tailwindui.com).
+
+Está construida con Next.js, Framer Motion y Tailwind CSS, con un blog impulsado por Sanity.
+
+Hacía tiempo que no construíamos una plantilla de marketing SaaS como esta, y en ese tiempo hemos aprendido mucho sobre lo que hace que una plantilla como esta sea útil y fácil de trabajar. Hemos intentado incorporar todos esos aprendizajes en Radiant.
+
+Consulta la [vista previa en vivo](https://radiant.tailwindui.com) como siempre para la experiencia completa — hay toneladas de detalles geniales en esta que tienes que ver en el navegador para apreciarlos realmente.
+
+---
+
+## Interactivo con buen gusto
+
+Es súper fácil exagerar la animación en un sitio como este. Todos hemos visto sitios en los que ni siquiera puedes desplazarte unos pocos píxeles sin que un montón de elementos diferentes se animen en su lugar. Peor aún es lo lentas que se sienten las cosas cuando tienes que esperar a que aparezca el contenido antes de poder leerlo.
+
+Radiant está cargado de animaciones encantadoras, pero todas están superpuestas al contenido existente y se activan por la interacción del usuario para que el sitio siga sintiéndose rápido. En la mayoría de los casos, optamos por animaciones que se repiten en bucle para que los elementos se sientan "vivos" mientras interactúas con ellos.
+
+<Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/scheduling-animation.mp4" />
+
+Usamos [Framer Motion](https://www.framer.com/motion/) para casi todas las animaciones. Es declarativo, lo que facilita la creación de nuestras propias APIs para animaciones complejas que otras personas pueden personalizar sin mucho esfuerzo.
+
+Sin embargo, tiene algunos inconvenientes que hay que solucionar. Por ejemplo, cuando tienes múltiples elementos animándose independientemente, es molesto pasar un estado hover a cada hijo. Terminamos aprovechando la propagación de variantes de Framer para que esto funcione — un evento hover desencadena un cambio de variante en el padre que se propaga a los hijos porque comparten las mismas claves de variante.
+
+```jsx
+// [!code filename:bento-card.tsx]
+export function BentoCard() {
+  return (
+    // [!code highlight:7]
+    <motion.div
+      initial="idle"
+      whileHover="active"
+      variants={{ idle: {}, active: {} }}
+      data-dark={dark ? "true" : undefined}
+    >
+      /* ... */
+    </motion.div>
+  );
+}
+```
+
+No hay diferencia entre las variantes en el padre, por lo que en realidad no cambia, pero los hijos aún reciben una señal para cambiar de variantes en hover, incluso si están profundamente anidados.
+
+```jsx
+// [!code filename:map.tsx]
+function Marker({
+  src,
+  top,
+  offset,
+  delay,
+}: {
+  src: string
+  top: number
+  offset: number
+  delay: number
+}) {
+  return (
+    <motion.div
+      variants={{
+        // [!code highlight:3]
+        idle: { scale: 0, opacity: 0, rotateX: 0, rotate: 0, y: 0 },
+        active: { y: [-20, 0, 4, 0], scale: [0.75, 1], opacity: [0, 1] },
+      }}
+      transition={{ duration: 0.25, delay, ease: 'easeOut' }}
+      style={{ '--offset': `${offset}px`, top } as React.CSSProperties}
+      className="absolute left-[calc(50%+var(--offset))] size-[38px] drop-shadow-[0_3px_1px_rgba(0,0,0,.15)]"
+    >
+      /* ... */
+    </motion.div>
+  )
+}
+
+/* ... */
+```
+
+La animación de la línea de tiempo del logo es un poco diferente, porque queríamos que los logos se detuvieran en su posición actual cuando dejas de pasar el mouse sobre ellos, en lugar de volver a su posición original. Esto no funciona muy bien con el enfoque de Framer de especificar estados iniciales y finales, por lo que en realidad fue más fácil construir esto en CSS.
+
+<Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/logo-timeline.mp4" />
+
+Aprovecha el hecho de que puedes establecer un valor negativo de `animation-delay` para compensar la posición inicial del elemento. De esa manera, todos los logos comparten los mismos keyframes de animación, pero pueden comenzar en diferentes posiciones y tener diferentes duraciones.
+
+```jsx
+// [!code filename:logo-timeline.tsx]
+function Logo({
+  label,
+  src,
+  className,
+}: {
+  label: string
+  src: string
+  className: string
+}) {
+  return (
+    <div
+      className={clsx(
+        className,
+        'absolute top-2 grid grid-cols-[1rem,1fr] items-center gap-2 whitespace-nowrap px-3 py-1',
+        'rounded-full bg-gradient-to-t from-gray-800 from-50% to-gray-700 ring-1 ring-inset ring-white/10',
+        // [!code highlight:2]
+        '[--move-x-from:-100%] [--move-x-to:calc(100%+100cqw)] [animation-iteration-count:infinite] [animation-name:move-x] [animation-play-state:paused] [animation-timing-function:linear] group-hover:[animation-play-state:running]',
+      )}
+    >
+      <img alt="" src={src} className="size-4" />
+      <span className="text-sm/6 font-medium text-white">{label}</span>
+    </div>
+  )
+}
+
+export function LogoTimeline() {
+  return (
+    /* ... */
+    <Row>
+      <Logo
+        label="Loom"
+        src="./logo-timeline/loom.svg"
+        // [!code highlight:2]
+        className="[animation-delay:-26s] [animation-duration:30s]"
+      />
+      <Logo
+        label="Gmail"
+        src="./logo-timeline/gmail.svg"
+        // [!code highlight:2]
+        className="[animation-delay:-8s] [animation-duration:30s]"
+      />
+    </Row>
+    /* ... */
+```
+
+Este enfoque significa que no necesitamos rastrear el estado de reproducción en JavaScript, podemos simplemente usar una clase `group-hover:[animation-play-state:running]` para iniciar la animación cuando se pasa el mouse sobre el padre.
+
+Como quizás hayas notado, estamos usando un montón de propiedades arbitrarias para propiedades individuales de `animation` en este componente, ya que estas utilidades no existen en Tailwind hoy. Esto es lo bueno de construir estas plantillas — nos ayuda a encontrar puntos ciegos en Tailwind CSS. Quién sabe, ¡quizás veamos estas utilidades agregadas para la v4.0!
+
+---
+
+## Deliberadamente reutilizable
+
+La parte más difícil de diseñar una plantilla SaaS como esta es idear elementos interactivos que la gente pueda aplicar a su propio producto sin demasiado esfuerzo. No hay nada peor que comprar una plantilla y darse cuenta de que es tan específica para el contenido de ejemplo que en realidad no puedes usarla para tu propio proyecto.
+
+<Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/light-bento.mp4" />
+
+Se nos ocurrieron algunos elementos gráficos centrales que la mayoría de los productos SaaS podrían tener. Un mapa con pines, un clúster de logos, un teclado — cosas que podrían aplicarse a un montón de características diferentes. Como queríamos que fueran fáciles de reutilizar para tu propio producto, construimos muchos de ellos en código y diseñamos APIs agradables para ellos.
+
+El clúster de logos, por ejemplo, tiene una API simple que te permite pasar tus propios logos, ajustar su posición y animación hover para que coincidan.
+
+```jsx
+<Logo src="./logo-cluster/dribbble.svg" left={285} top={20} hover={{ x: 4, y: -5, rotate: 6, delay: 0.3 }} />
+```
+
+La sección de atajos de teclado es otro buen ejemplo. Agregar tus propios atajos es tan simple como pasar un array de nombres de teclas al componente Keyboard y, como cada tecla es un componente, puedes agregar fácilmente teclas personalizadas o cambiar la disposición.
+
+```jsx
+<Keyboard highlighted={["F", "M", "L"]} />
+```
+
+Resulta que en realidad es bastante trabajo construir un teclado en código, pero al menos ahora nunca tendrás que descubrirlo por ti mismo.
+
+<Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/keyboard.mp4" />
+
+Por supuesto, también dejamos espacios para que coloques capturas de pantalla de tu propio producto. Así es como se ve esta sección personalizada para adaptarse a nuestros amigos de [SavvyCal](https://savvycal.com/), utilizando los mismos componentes interactivos.
+
+<Image alt="Radiant como SavvyCal" src={savvycalRadiant} />
+
+---
+
+## Impulsado por un CMS
+
+Normalmente solo usamos MDX al agregar un blog a una plantilla, pero esta vez pensamos que sería divertido jugar con un CMS headless. Decidimos probar [Sanity](https://www.sanity.io/) para este después de [encuestar a nuestra audiencia](https://x.com/adamwathan/status/1796225062279717142) y escuchar muchas cosas buenas.
+
+En lugar de crear archivos, hacer commits y administrar imágenes y cosas a mano, un CMS te permite manejar todo desde su interfaz de usuario, por lo que incluso los no desarrolladores pueden contribuir fácilmente.
+
+<Image alt="Sanity Studio" src={sanityStudio} />
+
+Una cosa genial de los CMS headless como Sanity es que obtienes tu contenido en un formato estructurado, por lo que, de manera similar a MDX, puedes mapear elementos a tus propios componentes personalizados para manejar todos tus estilos de tipografía.
+
+```jsx
+<PortableText
+  value={post.body}
+  components={{
+    block: {
+      normal: ({ children }) => <p className="my-10 text-base/8 first:mt-0 last:mb-0">{children}</p>,
+      h2: ({ children }) => (
+        <h2 className="mt-12 mb-10 text-2xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+          {children}
+        </h2>
+      ),
+      h3: ({ children }) => (
+        <h3 className="mt-12 mb-10 text-xl/8 font-medium tracking-tight text-gray-950 first:mt-0 last:mb-0">
+          {children}
+        </h3>
+      ),
+      blockquote: ({ children }) => (
+        <blockquote className="my-10 border-l-2 border-l-gray-300 pl-6 text-base/8 text-gray-950 first:mt-0 last:mb-0">
+          {children}
+        </blockquote>
+      ),
+    },
+    types: {
+      image: ({ value }) => (
+        <img className="w-full rounded-2xl" src={image(value).width(2000).url()} alt={value.alt || ""} />
+      ),
+    },
+    /* ... */
+  }}
+/>
+```
+
+Trabajar con un CMS también significa que todos tus activos como imágenes están alojados para ti, y puedes controlar el tamaño, la calidad y el formato de la imagen sobre la marcha.
+
+{/* prettier-ignore */}
+```jsx
+<div className="text-sm/5 max-sm:text-gray-700 sm:font-medium">
+  {dayjs(post.publishedAt).format('dddd, MMMM D, YYYY')}
+</div>
+{post.author && (
+  <div className="mt-2.5 flex items-center gap-3">
+    {post.author.image && (
+      // [!code highlight:6]
+      <img
+        className="aspect-square size-6 rounded-full object-cover"
+        src={image(post.author.image).width(64).height(64).url()}
+        alt=""
+      />
+    )}
+    <div className="text-sm/5 text-gray-700">
+      {post.author.name}
+    </div>
+  </div>
+)}
+```
+
+Como podrías hacer con front matter en Markdown, también puedes enriquecer el contenido con campos personalizados. Por ejemplo, agregamos un campo booleano `featured` al esquema de la publicación del blog para que puedas destacar algunas publicaciones en una sección especial en el blog.
+
+<Image alt="Blog de Radiant" src={blog} />
+
+Sanity en particular es un producto de pago, pero tienen un nivel gratuito bastante generoso que es más que suficiente para jugar. Y si quisieras probar un CMS headless diferente, creo que la integración de Sanity que hemos reunido aquí seguirá sirviendo como un gran ejemplo informativo de cómo podrías abordar la conexión de las cosas con otra herramienta.
+
+---
+
+¡Y eso es [Radiant](https://tailwindui.com/templates/radiant)! Echa un vistazo bajo el capó, pruébalo y déjanos saber lo que piensas.
+
+Como todas nuestras plantillas, está incluida con una licencia de compra única [Tailwind UI all-access](https://tailwindui.com/all-access), que es la mejor manera de apoyar nuestro trabajo en Tailwind CSS y hacer posible que sigamos construyendo cosas increíbles para ti durante años.

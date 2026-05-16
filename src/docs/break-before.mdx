@@ -1,0 +1,38 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "break-before";
+export const description = "Utilidades para controlar cómo una columna o página debe romperse antes de un elemento.";
+
+<ApiTable
+  rows={[
+    ["break-before-auto", "break-before: auto;"],
+    ["break-before-avoid", "break-before: avoid;"],
+    ["break-before-all", "break-before: all;"],
+    ["break-before-avoid-page", "break-before: avoid-page;"],
+    ["break-before-page", "break-before: page;"],
+    ["break-before-left", "break-before: left;"],
+    ["break-before-right", "break-before: right;"],
+    ["break-before-column", "break-before: column;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Ejemplo básico
+
+Usa utilidades como `break-before-column` y `break-before-page` para controlar cómo un salto de columna o página debe comportarse antes de un elemento:
+
+```html
+<!-- [!code classes:break-before-column] -->
+<div class="columns-2">
+  <p>Bueno, déjame decirte algo, ...</p>
+  <p class="break-before-column">Claro, adelante, ríete...</p>
+  <p>Tal vez podamos vivir sin...</p>
+  <p>Mira. Si crees que esto es...</p>
+</div>
+```
+
+### Diseño Responsive
+
+<ResponsiveDesign property="break-before" defaultClass="break-before-column" featuredClass="break-before-auto" />

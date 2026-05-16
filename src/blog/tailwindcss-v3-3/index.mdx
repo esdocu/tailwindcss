@@ -1,0 +1,630 @@
+import { adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import { Image } from "@/components/media";
+import Image950Sky from "./950-sky.png";
+import Image950SkyDark from "./950-sky-dark.png";
+import Image950Slate from "./950-slate.png";
+import { CodeExample, js, ts, CodeExampleGroup, CodeBlock } from "@/components/code-example";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure";
+
+export const meta = {
+  title: "Tailwind CSS v3.3: Paleta de colores extendida, soporte ESM/TS, propiedades lógicas y más",
+  description: `Tailwind CSS v3.3 está aquí — trayendo un montón de nuevas características que la gente ha estado pidiendo desde siempre, y un montón de cosas nuevas que ni siquiera sabías que querías.`,
+  date: "2023-03-28T14:30:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Tailwind CSS v3.3 está aquí — trayendo un montón de nuevas características que la gente ha estado pidiendo desde siempre, y un montón de
+      cosas nuevas que ni siquiera sabías que querías.
+    </>
+  ),
+};
+
+<Image alt="Tailwind CSS v3.3" src={card} />
+
+Tailwind CSS v3.3 está aquí — trayendo un montón de nuevas características que la gente ha estado pidiendo desde siempre, y un montón de cosas nuevas que ni siquiera sabías que querías.
+
+- [Paleta de colores extendida para oscuros más oscuros:](#extended-color-palette-for-darker-darks) Nuevos tonos 950 más oscuros para cada color.
+- [Soporte ESM y TypeScript:](#esm-and-type-script-support) Escribe tu archivo de configuración usando ESM o TypeScript.
+- [Soporte RTL simplificado con propiedades lógicas:](#simplified-rtl-support-with-logical-properties) Construye layouts que se adapten a direcciones diferentes.
+- [Ajusta finamente las posiciones de las paradas de color del gradiente:](#fine-tune-gradient-color-stop-positions) Especifica exactamente dónde quieres que vaya cada parada de color.
+- [Line-clamp listo para usar:](#line-clamp-out-of-the-box) Trunca texto de varias líneas sin un plugin.
+- [Nuevo modificador de line-height:](#new-line-height-shorthand-for-font-size-utilities) Establece tu font-size y line-height con una sola clase.
+- [Variables CSS sin el var():](#css-variables-without-the-var) Nueva sintaxis abreviada para valores arbitrarios.
+- [`font-variation-settings` configurable:](#configure-font-variation-settings-for-custom-font-families) Integrado directamente en tus utilidades `font-*`.
+- [Nuevas utilidades `list-style-image`:](#new-list-style-image-utilities) Para que puedas usar horribles clip art para las viñetas.
+- [Nuevas utilidades `hyphens`:](#new-hyphens-utilities) Para ajustar finamente el comportamiento de la separación silábica.
+- [Nuevas utilidades `caption-side`:](#new-caption-side-utilities) Titula tus tablas con estilo.
+
+Eso cubre las cosas más emocionantes, pero echa un vistazo a las [notas de la versión](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.3.0) para obtener una lista exhaustiva de cada pequeña mejora que hemos hecho desde la última versión.
+
+Actualizar tus proyectos es tan fácil como instalar la última versión de `tailwindcss` desde npm:
+
+```sh
+npm install -D tailwindcss@latest
+```
+
+También puedes probar todas las nuevas características en [Tailwind Play](https://play.tailwindcss.com), directamente en tu navegador.
+
+---
+
+## Paleta de colores extendida para oscuros más oscuros
+
+Una de las solicitudes de características más comunes que hemos tenido a lo largo de los años es agregar tonos más oscuros para cada color — generalmente porque alguien está construyendo una UI oscura y solo quiere más opciones en ese extremo oscuro del espectro.
+
+Bueno, deseo concedido — en Tailwind CSS v3.3 hemos agregado un nuevo tono `950` para cada color.
+
+En los grises actúan básicamente como un negro teñido, lo cual es genial para UIs ultra oscuras:
+
+<Image
+  alt="Comparación entre dos interfaces de usuario oscuras, una usando slate-900 como el color más oscuro y la otra usando slate-950 como el color más oscuro"
+  src={Image950Slate}
+/>
+
+Y en el resto del espectro de colores optimizamos `950` para texto de alto contraste y fondos de control teñidos:
+
+<Image
+  alt="Comparación entre dos interfaces de usuario claras, una usando sky-900 como el color más oscuro y la otra usando sky-950 como el color más oscuro"
+  src={Image950Sky}
+  className="dark:hidden"
+/>
+
+<Image
+  alt="Comparación entre dos interfaces de usuario claras, una usando sky-900 como el color más oscuro y la otra usando sky-950 como el color más oscuro"
+  src={Image950SkyDark}
+  className="hidden dark:block"
+/>
+
+Lo creas o no, la parte más difícil de este proyecto fue convencernos a nosotros mismos de estar de acuerdo con tener 11 tonos por color. Intentar que eso se viera bien en la [documentación de la paleta de colores](https://v3.tailwindcss.com/docs/customizing-colors) fue una pesadilla.
+
+También brindemos por los chistes de 50 sombras de gris que solíamos poder hacer.
+
+---
+
+## Soporte ESM y TypeScript
+
+Ahora puedes configurar Tailwind CSS en ESM, o incluso en TypeScript:
+
+<CodeExampleGroup filenames={["Módulo ES", "TypeScript"]}>
+  <CodeBlock
+    example={js`
+      /** @type {import('tailwindcss').Config} */
+      export default {
+        content: [],
+        theme: {
+          extend: {},
+        },
+        plugins: [],
+      };
+    `}
+  />
+  <CodeBlock
+    example={ts`
+      import type { Config } from 'tailwindcss'
+
+      export default {
+        content: [],
+        theme: {
+          extend: {},
+        },
+        plugins: [],
+      } satisfies Config
+    `}
+
+/>
+
+</CodeExampleGroup>
+
+Cuando ejecutes `npx tailwindcss init`, detectaremos si tu proyecto es un Módulo ES y generaremos automáticamente tu archivo de configuración con la sintaxis correcta.
+
+También puedes generar un archivo de configuración ESM explícitamente usando la bandera `--esm`:
+
+```sh
+npx tailwindcss init --esm
+```
+
+Para generar un archivo de configuración TypeScript, usa la bandera `--ts`:
+
+```sh
+npx tailwindcss init --ts
+```
+
+Mucha gente asume que esto es fácil porque ya están escribiendo su propio código en ESM (incluso si está siendo transpilado por su herramienta de compilación) pero en realidad es bastante complicado — literalmente tenemos que transpilar el archivo de configuración por ti sobre la marcha.
+
+Es un poco más fácil entender por qué tiene que suceder esto cuando piensas en el caso de TypeScript, porque por supuesto Tailwind se distribuye como JavaScript, y no puede importar mágicamente un archivo TypeScript no compilado.
+
+Estamos manejando esto con la maravillosa biblioteca [jiti](https://github.com/unjs/jiti) internamente, y usando [Sucrase](https://github.com/alangpierce/sucrase) para transpilar el código con el mejor rendimiento posible mientras mantenemos pequeña la huella de instalación.
+
+---
+
+## Soporte RTL simplificado con propiedades lógicas
+
+Hemos hecho posible estilizar sitios web multidireccionales usando nuestras [variantes LTR y RTL](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#rtl-support) durante un tiempo, pero ahora puedes usar [propiedades lógicas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) para hacer la mayor parte de este estilizado de manera más fácil y automática.
+
+Usando nuevas utilidades como `ms-3` y `me-3`, puedes estilizar el _inicio_ y el _final_ de un elemento para que tus estilos se adapten automáticamente en RTL, en lugar de escribir código como `ltr:ml-3 rtl:mr-3`:
+
+<Figure>
+
+<Example>
+  {
+    <div className="mx-auto grid max-w-lg grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2">
+      <div dir="ltr">
+        <p className="mb-4 text-sm font-medium">De izquierda a derecha</p>
+        <div className="group flex items-center">
+          <img
+            className="h-12 w-12 shrink-0 rounded-full"
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <div className="ms-3">
+            <p className="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">
+              <>Tom Cook</>
+            </p>
+            <p className="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">
+              <>Director de Operaciones</>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div dir="rtl">
+        <p className="mb-4 text-sm font-medium">De derecha a izquierda</p>
+        <div className="group flex items-center">
+          <img
+            className="h-12 w-12 shrink-0 rounded-full"
+            src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <div className="ms-3">
+            <p className="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">
+              <>تامر كرم</>
+            </p>
+            <p className="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">
+              <>Director Ejecutivo</>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<div class="group flex items-center">
+  <img class="h-12 w-12 shrink-0 rounded-full" src="..." alt="" />
+  <div class="ltr:ml-3 rtl:mr-3">
+    <div class="ms-3">
+      <p
+        class="text-sm font-medium text-slate-700 group-hover:text-slate-900"
+        dark-class="text-sm font-medium text-slate-300 group-hover:text-white"
+      >
+        ...
+      </p>
+      <p
+        class="text-sm font-medium text-slate-500 group-hover:text-slate-700"
+        dark-class="text-sm font-medium text-slate-500 group-hover:text-slate-300"
+      >
+        ...
+      </p>
+    </div>
+  </div>
+</div>
+```
+
+</Figure>
+
+Hemos agregado nuevas utilidades de propiedades lógicas para [inset](https://v3.tailwindcss.com/docs/top-right-bottom-left), [margin](https://v3.tailwindcss.com/docs/margin), [padding](https://v3.tailwindcss.com/docs/padding), [border-radius](https://v3.tailwindcss.com/docs/border-radius), [scroll-margin](https://v3.tailwindcss.com/docs/scroll-margin), y [scroll-padding](https://v3.tailwindcss.com/docs/scroll-padding).
+
+Aquí hay una lista completa de todas las nuevas utilidades que hemos agregado y a qué se mapean:
+
+{
+
+<div className="-mx-4 overflow-x-auto sm:mx-0">
+  <div className="inline-block min-w-full align-middle whitespace-nowrap">
+    <table>
+      <thead>
+        <tr>
+          <th className="pl-4 sm:pl-0">Nueva clase</th>
+          <th>Propiedades</th>
+          <th className="pr-4 sm:pr-0">Contraparte física (LTR)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"start-*"}</code>
+          </td>
+          <td>
+            <code>inset-inline-start</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"left-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>end-*</code>
+          </td>
+          <td>
+            <code>inset-inline-end</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"right-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"ms-*"}</code>
+          </td>
+          <td>
+            <code>margin-inline-start</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"ml-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"me-*"}</code>
+          </td>
+          <td>
+            <code>margin-inline-end</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"mr-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"ps-*"}</code>
+          </td>
+          <td>
+            <code>padding-inline-start</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"pl-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"pe-*"}</code>
+          </td>
+          <td>
+            <code>padding-inline-end</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"pr-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"rounded-s-*"}</code>
+          </td>
+          <td>
+            <code>border-start-start-radius</code>
+            <br />
+            <code>border-end-start-radius</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"rounded-l-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"rounded-e-*"}</code>
+          </td>
+          <td>
+            <code>border-start-end-radius</code>
+            <br />
+            <code>border-end-end-radius</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"rounded-r-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"rounded-ss-*"}</code>
+          </td>
+          <td>
+            <code>border-start-start-radius</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"rounded-tl-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"rounded-se-*"}</code>
+          </td>
+          <td>
+            <code>border-start-end-radius</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"rounded-tr-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"rounded-ee-*"}</code>
+          </td>
+          <td>
+            <code>border-end-end-radius</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"rounded-br-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"rounded-es-*"}</code>
+          </td>
+          <td>
+            <code>border-end-start-radius</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"rounded-bl-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"border-s-*"}</code>
+          </td>
+          <td>
+            <code>border-inline-start-width</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"border-l-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"border-e-*"}</code>
+          </td>
+          <td>
+            <code>border-inline-end-width</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"border-r-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"border-s-*"}</code>
+          </td>
+          <td>
+            <code>border-inline-start-color</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"border-l-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"border-e-*"}</code>
+          </td>
+          <td>
+            <code>border-inline-end-color</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"border-r-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"scroll-ms-*"}</code>
+          </td>
+          <td>
+            <code>scroll-margin-inline-start</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"scroll-ml-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"scroll-me-*"}</code>
+          </td>
+          <td>
+            <code>scroll-margin-inline-end</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"scroll-mr-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"scroll-ps-*"}</code>
+          </td>
+          <td>
+            <code>scroll-padding-inline-start</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"scroll-pl-*"}</code>
+          </td>
+        </tr>
+        <tr>
+          <td className="pl-4 sm:pl-0">
+            <code>{"scroll-pe-*"}</code>
+          </td>
+          <td>
+            <code>scroll-padding-inline-end</code>
+          </td>
+          <td className="pr-4 sm:pr-0">
+            <code>{"scroll-pr-*"}</code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+}
+
+Estas deberían ahorrarte un montón de código si construyes regularmente sitios que necesitan soportar idiomas LTR y RTL, y siempre puedes combinarlas con las variantes `ltr` y `rtl` cuando necesites más control.
+
+---
+
+## Ajusta finamente las posiciones de las paradas de color del gradiente
+
+Hemos agregado nuevas utilidades como `from-5%`, `via-35%`, y `to-85%` que te permiten ajustar la posición real de cada parada de color en tus gradientes:
+
+<svg className="hidden" hidden>
+  <symbol id="gradient-color-stop" viewBox="0 0 32 34">
+    <path d="M1 4a4 4 0 0 1 4-4h22a4 4 0 0 1 4 4v19.6a4 4 0 0 1-2.118 3.53L16 34 3.118 27.13A4 4 0 0 1 1 23.6V4Z" />
+    <path
+      fill="none"
+      stroke="#000"
+      strokeOpacity=".05"
+      d="M5 .5h22A3.5 3.5 0 0 1 30.5 4v19.6a3.5 3.5 0 0 1-1.853 3.088L16 33.433 3.353 26.688A3.5 3.5 0 0 1 1.5 23.6V4A3.5 3.5 0 0 1 5 .5Z"
+    />
+  </symbol>
+</svg>
+
+<Figure>
+
+<Example>
+  <div className="mx-5">
+    <div className="relative h-[3.625rem]">
+      <div className="absolute top-0 left-[10%] -ml-4 flex h-12 flex-col items-center">
+        <svg viewBox="0 0 32 34" className="w-8 flex-none fill-indigo-500 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        <div className="absolute top-0 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold text-white">
+          <>10%</>
+        </div>
+      </div>
+      <div className="absolute top-0 left-[30%] -ml-4 flex h-12 flex-col items-center">
+        <svg viewBox="0 0 32 34" className="w-8 flex-none fill-sky-500 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        <div className="absolute top-0 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold text-white">
+          <>30%</>
+        </div>
+      </div>
+      <div className="absolute top-0 right-[10%] -mr-4 flex h-12 flex-col items-center">
+        <svg viewBox="0 0 32 34" className="w-8 flex-none fill-emerald-500 drop-shadow">
+          <use href="#gradient-color-stop" />
+        </svg>
+        <div className="mt-2 h-2 w-0.5 bg-gray-900/30 dark:bg-white/30"></div>
+        <div className="absolute top-0 left-0 flex h-8 w-full items-center justify-center font-mono text-[0.6875rem] font-semibold text-white">
+          <>90%</>
+        </div>
+      </div>
+    </div>
+    <div className="h-10 rounded-lg bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90%"></div>
+  </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:from-10%] -->
+<!-- [!code word:via-30%] -->
+<!-- [!code word:to-90%] -->
+<div class="bg-gradient-to-r from-indigo-500 from-10% via-purple-500 via-30% to-pink-500 to-90% ...">
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+Hemos incluido cada valor del 0% al 100% en pasos de 5 de forma predeterminada, pero por supuesto puedes usar valores arbitrarios para obtener exactamente el efecto que deseas:
+
+```html
+<!-- [!code word:from-[21.56%\]] -->
+<div class="bg-gradient-to-r from-cyan-400 from-[21.56%] ...">
+  <!-- ... -->
+</div>
+```
+
+Para más detalles, consulta la [documentación de paradas de color de gradiente](https://v3.tailwindcss.com/docs/gradient-color-stops#specifying-stop-positions).
+
+---
+
+## Line-clamp listo para usar
+
+Lanzamos nuestro [plugin oficial line-clamp](/blog/multi-line-truncation-with-tailwindcss-line-clamp) hace poco más de dos años y aunque usa un montón de cosas raras obsoletas de `-webkit-*`, funciona en todos los navegadores y va a funcionar para siempre, así que decidimos simplemente incorporarlo al propio framework.
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="px-4 sm:px-0">
+      <article className="mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400">
+        <time dateTime="2020-03-16" className="block text-sm leading-6 text-slate-500 dark:text-slate-400">
+          Mar 10, 2020
+        </time>
+        <h2 className="mt-2 text-lg font-semibold text-slate-900 dark:text-slate-200">Impulsa tu tasa de conversión</h2>
+        <p className="mt-4 line-clamp-3 text-sm leading-6 text-slate-500 dark:text-slate-400">
+          <>\n            Nulla dolor velit adipisicing duis excepteur esse in duis nostrud occaecat mollit incididunt deserunt sunt.\n            Ut ut sunt laborum ex occaecat eu tempor labore enim adipisicing minim ad. Est in quis eu dolore occaecat\n            excepteur fugiat dolore nisi aliqua fugiat enim ut cillum. Labore enim duis nostrud eu. Est ut eiusmod\n            consequat irure quis deserunt ex. Enim laboris dolor magna pariatur. Dolor et ad sint voluptate sunt elit\n            mollit officia ad enim sit consectetur enim.\n          </>
+        </p>
+        <div className="mt-4 flex gap-x-2.5 text-sm leading-6 font-semibold text-slate-900 dark:text-slate-200">
+          <img
+            className="h-6 w-6 flex-none rounded-full bg-slate-50 dark:bg-slate-900"
+            src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <>Lindsay Walton</>
+        </div>
+      </article>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:line-clamp-3] -->
+<article>
+  <div>
+    <time datetime="2020-03-16" class="block text-sm/6 text-gray-600">Mar 10, 2020</time>
+    <h2 class="mt-2 text-lg font-semibold text-gray-900">Impulsa tu tasa de conversión</h2>
+    >
+    <p class="mt-4 line-clamp-3 text-sm/6 text-gray-600">
+      Nulla dolor velit adipisicing duis excepteur esse in duis nostrud occaecat mollit incididunt deserunt sunt. Ut ut
+      sunt laborum ex occaecat eu tempor labore enim adipisicing minim ad. Est in quis eu dolore occaecat excepteur
+      fugiat dolore nisi aliqua fugiat enim ut cillum. Labore enim duis nostrud eu. Est ut eiusmod consequat irure quis
+      deserunt ex. Enim laboris dolor magna pariatur. Dolor et ad sint voluptate sunt elit mollit officia ad enim sit
+      consectetur enim.
+    </p>
+  </div>
+  <div class="mt-4 flex gap-x-2.5 text-sm leading-6 font-semibold text-gray-900">
+    <img src="..." class="h-6 w-6 flex-none rounded-full bg-gray-50" />
+    Lindsay Walton
+  </div>
+</article>
+```
+
+</Figure>
+
+Así que cuando actualices a v3.3, puedes eliminar de forma segura el plugin line-clamp si lo estabas usando:
+
+{/* prettier-ignore */}
+```js
+// [!code filename:tailwind.config.js]
+module.exports = {
+  // ...
+  plugins: [\n    require('@tailwindcss/line-clamp') // [!code --]\n  ]\n}
+```
+
+Que no te golpee la puerta en el trasero al salir, plugin.
+
+Echa un vistazo a la nueva [documentación de line-clamp](https://v3.tailwindcss.com/docs/line-clamp) para aprender más sobre cómo funciona todo si no has jugado con él antes.
+
+---
+
+## Nuevo atajo de line-height para utilidades de font-size
+
+Una cosa que hemos descubierto a lo largo de años y años de diseñar cosas bonitas con Tailwind es que literalmente _nunca_ establecemos un line-height sin establecer también el font-size al mismo tiempo.
+
+Así que, inspirados por nuestra sintaxis de modificador de opacidad de color, decidimos hacer posible ahorrar algunos caracteres estableciéndolos juntos con una sola utilidad:
+
+{/* prettier-ignore */}
+```html
+<!-- [!code filename:index.html] -->
+<!-- [!code word:leading-7] -->
+<!-- [!code word:text-lg/7] -->
+<!-- [!code word:text-lg] -->
+<p class="text-lg leading-7 ...\"><!-- [!code --] -->
+<p class="text-lg/7 ...\"><!-- [!code ++] -->\n  Así que empecé a caminar hacia el agua. No les mentiré chicos, estaba aterrorizado. Pero seguí adelante, y mientras pasaba las rompientes una extraña calma me invadió. No sé si fue intervención divina o la hermandad de todos los seres vivos pero te digo Jerry en ese momento, I <em>era</em> un biólogo marino.\n</p>\n```\n\nPuedes usar cualquier valor definido en tu [escala de line-height](https://v3.tailwindcss.com/docs/line-height), o usar valores arbitrarios si necesitas desviarte de tus tokens de diseño:\n\n```html\n<!-- [!code word:/[17px\\]] -->\n<p class=\"text-sm/[17px] ...\"></p>\n```\n\nEcha un vistazo a la [documentación de font size](https://v3.tailwindcss.com/docs/font-size#setting-the-line-height) para algunos ejemplos más.\n\n---\n\n## Variables CSS sin el `var()`\n\nCon el espíritu de escribir menos, también hemos hecho posible omitir el `var()` al usar una variable CSS como un valor arbitrario:\n\n```js\n// [!code filename:my-component.jsx]\nexport function MyComponent({ company }) {\n  return (\n    <div\n      style={{\n        \"--brand-color\": company.brandColor,\n        \"--brand-hover-color\": company.brandHoverColor,\n      }}\n      className=\"bg-[var(--brand-color)] hover:bg-[var(--brand-hover-color)]\" // [!code --]\n      className=\"bg-(--brand-color) hover:bg-(--brand-hover-color)\" // [!code ++]\n    />\n  );\n}\n```\n\nEse es un truco bastante genial para usar cosas como `hover:` con estilos que provienen de la base de datos o algo así, por cierto.\n\n---\n\n## Configurar `font-variation-settings` para familias de fuentes personalizadas\n\nAl usar fuentes personalizada, a menudo querrás configurar cosas como `font-feature-settings` o `font-variation-settings` para optar por ajustes específicos que ofrece la fuente.\n\nHemos facilitado hacer esto para `font-feature-settings` durante un tiempo, pero ahora puedes hacer lo mismo con `font-variation-settings` proporcionando un valor para ello en el objeto de opciones que puedes colocar después de la lista de fuentes en tu archivo de configuración:\n\n```js\n// [!code filename:tailwind.config.js]\nmodule.exports = {\n  theme: {\n    fontFamily: {\n      sans: [\n        \"Inter var, sans-serif\"\n        // [!code highlight:5]\n        {\n          fontFeatureSettings: '\"cv11\", \"ss01\"',\n          fontVariationSettings: '\"opsz\" 32',\n        },\n      ],\n    },\n  },\n};\n```\n\nEn el ejemplo anterior estamos usando una versión reciente de [Inter](https://github.com/rsms/inter/releases/tag/v4.0-beta7) que admite el uso del eje de tamaño óptico para activar la variación \"Display\" de la fuente, optimizada para tamaños más grandes como titulares.\n\n---\n\n## Nuevas utilidades `list-style-image`\n\n¿Alguna vez quisiste usar una imagen de una zanahoria como marcador de elemento de lista? Bueno, ahora puedes, con las nuevas utilidades `list-image-*`.\n\n<Figure>\n\n<Example padding={false}>\n  {\n    <div className=\"px-4 sm:px-0\">\n      <div className=\"mx-auto max-w-sm bg-white p-8 text-sm leading-6 text-slate-700 shadow-xl sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-400\">\n        <ul className=\"list-image-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIiBmaWxsPSIjZjk3MzE2Ij48cGF0aCBkPSJNMzQ2LjcgNkMzMzcuNiAxNyAzMjAgNDIuMyAzMjAgNzJjMCA0MCAxNS4zIDU1LjMgNDAgODBzNDAgNDAgODAgNDBjMjkuNyAwIDU1LTE3LjYgNjYtMjYuN2M0LTMuMyA2LTguMiA2LTEzLjNzLTItMTAtNi0xMy4yYy0xMS40LTkuMS0zOC4zLTI2LjgtNzQtMjYuOGMtMzIgMC00MCA4LTQwIDhzOC04IDgtNDBjMC0zNS43LTE3LjctNjIuNi0yNi44LTc0QzM3MCAyIDM2NS4xIDAgMzYwIDBzLTEwIDItMTMuMyA2ek0yNDQuNiAxMzZjLTQwIDAtNzcuMSAxOC4xLTEwMS43IDQ4LjJsNjAuNSA2MC41YzYuMiA2LjIgNi4yIDE2LjQgMCAyMi42cy0xNi40IDYuMi0yMi42IDBsLTU1LjMtNTUuMyAwIC4xTDIuMiA0NzcuOUMtMiA0ODctLjEgNDk3LjggNyA1MDVzMTcuOSA5IDI3LjEgNC44bDEzNC43LTYyLjQtNTIuMS01Mi4xYy02LjItNi4yLTYuMi0xNi40IDAtMjIuNnMxNi40LTYuMiAyMi42IDBMMTk5LjcgNDMzbDEwMC4yLTQ2LjRjNDYuNC0yMS41IDc2LjItNjggNzYuMi0xMTkuMkMzNzYgMTk0LjggMzE3LjIgMTM2IDI0NC42IDEzNnoiLz48L3N2Zz4=')] pl-4 text-slate-900 marker:text-2xl dark:text-slate-200\">\n          <li className=\"pl-2\">5 tazas de champiñones Porcini picados</li>\n          <li className=\"pl-2\">1/2 taza de aceite de oliva</li>\n          <li className=\"pl-2\">3 libras de apio</li>\n        </ul>\n      </div>\n    </div>\n  }\n</Example>\n\n```html\n<!-- [!code word:list-image-[url(/carrot.png)\\]] -->\n<ul class=\"list-image-[url(/carrot.png)] ...\">\n  <li>5 tazas de champiñones Porcini picados</li>\n  <!-- ... -->\n</ul>\n```\n\n</Figure>\n\nNo vamos a empezar a enviar clip art de vegetales con el framework, pero puedes usar cualquier imagen que quieras ya sea como un valor arbitrario o configurándola en la sección `listStyleImage` de tu tema.\n\nEcha un vistazo a la [documentación de list style image](https://v3.tailwindcss.com/docs/list-style-image) para aprender más.\n\n---\n\n## Nuevas utilidades `hyphens`\n\n¿Alguna vez has oído hablar de la entidad HTML `&shy;`? Yo tampoco hasta que agregamos soporte para estas utilidades `hyphens-*`.\n\nUsando `hyphens-manual` y un `&shy;` cuidadosamente colocado, puedes decirle al navegador dónde insertar un guion cuando necesite dividir una palabra en varias líneas:\n\n<Figure>\n\n<Example padding={false}>\n  {\n    <div className=\"overflow-x-scroll px-4 sm:overflow-x-visible\">\n      <div className=\"mx-auto max-w-xs bg-white p-12 text-slate-500 shadow-xl dark:bg-slate-800 dark:text-slate-400\">\n        <p className=\"hyphens-manual\">\n          <>Reconocida oficialmente por el diccionario Duden como la palabra más larga en alemán, </>\n          <span className=\"font-medium text-slate-900 dark:text-slate-200\" lang=\"de\">\n            <>Kraftfahrzeug&shy;haftpflichtversicherung</>\n          </span>\n          <> es una palabra de 36 letras para seguro de responsabilidad civil de vehículos motorizados.</>\n        </p>\n      </div>\n    </div>\n  }\n</Example>\n\n```html\n<!-- [!code word:hyphens-manual] -->\n<!-- [!code word:&shy;] -->\n<p class=\"hyphens-manual ...\">... Kraftfahrzeug&shy;haftpflichtversicherung es una ...</p>\n```\n\n</Figure>\n\nTal vez un fragmento de código como este sería útil para incluir como parte del kit de prensa de tu banda de death metal impronunciable para que los periodistas no arruinen la separación silábica en el artículo que finalmente te lanza a la fama.\n\nEcha un vistazo a la [documentación de hyphens](https://v3.tailwindcss.com/docs/hyphens) para aprender más.\n\n---\n\n## Nuevas utilidades `caption-side`\n\nOtra novedad para mí — ¡el elemento `<caption>`! Tenemos nuevas utilidades `caption-*` que puedes usar en los títulos de las tablas para controlar si aparecen en la parte superior o inferior de la tabla a la que están adjuntos.\n\n<Figure>\n\n<Example padding={false}>\n  {\n    <div className=\"overflow-hidden px-4 py-8 shadow-sm sm:px-8\">\n      <table className=\"w-full table-auto border-collapse text-sm\">\n        <caption className=\"caption-bottom pt-4 text-xs text-slate-500 dark:text-slate-400\">\n          <>Tabla 3.1: Luchadores profesionales y sus movimientos característicos.</>\n        </caption>\n        <thead>\n          <tr>\n            <th className=\"border border-slate-200 p-4 pt-3 pb-3 pl-8 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200\">\n              <>Luchador</>\n            </th>\n            <th className=\"border border-slate-200 p-4 pt-3 pr-8 pb-3 text-left font-medium text-slate-400 dark:border-slate-600 dark:text-slate-200\">\n              <>Movimiento(s) característico(s)</>\n            </th>\n          </tr>\n        </thead>\n        <tbody className=\"bg-white dark:bg-slate-800\">\n          <tr>\n            <td className=\"border border-slate-200 p-4 pl-8 text-slate-500 dark:border-slate-600 dark:text-slate-400\">\n              <>\"Stone Cold\" Steve Austin</>\n            </td>\n            <td className=\"border border-slate-200 p-4 pr-8 text-slate-500 dark:border-slate-600 dark:text-slate-400\">\n              <>Stone Cold Stunner, Lou Thesz Press</>\n            </td>\n          </tr>\n          <tr>\n            <td className=\"border border-slate-200 p-4 pl-8 text-slate-500 dark:border-slate-600 dark:text-slate-400\">\n              <>Bret \"The Hitman\" Hart</>\n            </td>\n            <td className=\"border border-slate-200 p-4 pr-8 text-slate-500 dark:border-slate-600 dark:text-slate-400\">\n              <>The Sharpshooter</>\n            </td>\n          </tr>\n          <tr>\n            <td className=\"border border-slate-200 p-4 pl-8 text-slate-500 dark:border-slate-600 dark:text-slate-400\">\n              <>Razor Ramon</>\n            </td>\n            <td className=\"border border-slate-200 p-4 pr-8 text-slate-500 dark:border-slate-600 dark:text-slate-400\">\n              <>Razor's Edge, Fallaway Slam</>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n    </div>\n  }\n</Example>\n\n```html\n<!-- [!code word:caption-bottom] -->\n<table>\n  <caption class=\"caption-bottom\">\n    Tabla 3.1: Luchadores profesionales y sus movimientos característicos.\n  </caption>\n  <thead>\n    <tr>\n      <th>Luchador</th>\n      <th>Movimiento(s) característico(s)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>\"Stone Cold\" Steve Austin</td>\n      <td>Stone Cold Stunner, Lou Thesz Press</td>\n    </tr>\n    <tr>\n      <td>Bret \"The Hitman\" Hart</td>\n      <td>The Sharpshooter</td>\n    </tr>\n    <tr>\n      <td>Razor Ramon</td>\n      <td>Razor's Edge, Fallaway Slam</td>\n    </tr>\n  </tbody>\n</table>\n```\n\n</Figure>\n\nEcha un vistazo a la [documentación de caption side](https://v3.tailwindcss.com/docs/caption-side) para algunos ejemplos más.\n\n---\n\n¡Así que eso es Tailwind CSS v3.3! Sin cambios disruptivos, solo un montón de cosas nuevas divertidas. Pruébalo en tus proyectos hoy actualizando a la última versión con npm:\n\n```sh\nnpm install -D tailwindcss@latest\n```\n\nSí, otro lanzamiento sin utilidades `text-shadow`. ¿Recuerdas ese episodio de Seinfeld donde Kramer intenta ver qué tan lejos puede conducir sin parar a repostar? Ese es mi episodio favorito.

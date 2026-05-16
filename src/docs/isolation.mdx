@@ -1,0 +1,30 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "isolation";
+export const description =
+  "Utilidades para controlar si un elemento debe crear explícitamente un nuevo contexto de apilamiento.";
+
+<ApiTable
+  rows={[
+    ["isolate", "isolation: isolate;"],
+    ["isolation-auto", "isolation: auto;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Ejemplo básico
+
+Usa las utilidades `isolate` y `isolation-auto` para controlar si un elemento debe crear explícitamente un nuevo contexto de apilamiento:
+
+```html
+<!-- [!code classes:isolate] -->
+<div class="isolate ...">
+  <!-- ... -->
+</div>
+```
+
+### Responsive design
+
+<ResponsiveDesign property="isolation" defaultClass="isolate" featuredClass="isolation-auto" />

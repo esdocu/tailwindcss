@@ -1,0 +1,204 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "clear";
+export const description = "Utilidades para controlar el ajuste del contenido alrededor de un elemento.";
+
+<ApiTable
+  rows={[
+    ["clear-left", "clear: left;"],
+    ["clear-right", "clear: right;"],
+    ["clear-both", "clear: both;"],
+    ["clear-start", "clear: inline-start;"],
+    ["clear-end", "clear: inline-end;"],
+    ["clear-none", "clear: none;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Limpiando a la izquierda
+
+Usa la utilidad `clear-left` para posicionar un elemento debajo de cualquier elemento flotante izquierdo precedente:
+
+<Figure>
+
+<Example resizable>
+  {
+    <>
+      <img
+        className="float-left mr-6 mb-4 aspect-16/9 w-1/4 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
+        src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <img
+        className="float-right ml-6 aspect-6/5 w-2/5 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
+        src="https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <p className="clear-left text-justify">
+        Tal vez podamos vivir sin bibliotecas, gente como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, ahora mismo, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popis en El Gato en el Sombrero y Los Cinco Hermanos Chinos? ¿No se merece algo mejor? Mira. Si crees que esto se trata de multas por retraso y libros perdidos, será mejor que lo pienses de nuevo. ¡Se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te excite, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
+      </p>
+    </>
+  }
+</Example>
+
+```html
+<!-- [!code classes:clear-left] -->
+<article>
+  <img class="float-left ..." src="/img/snow-mountains.jpg" />
+  <img class="float-right ..." src="/img/green-mountains.jpg" />
+  <p class="clear-left ...">Tal vez podamos vivir sin bibliotecas...</p>
+</article>
+```
+
+</Figure>
+
+### Limpiando a la derecha
+
+Usa la utilidad `clear-right` para posicionar un elemento debajo de cualquier elemento flotante derecho precedente:
+
+<Figure>
+
+<Example resizable>
+  {
+    <>
+      <img
+        className="float-left mr-6 aspect-6/5 w-2/5 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
+        src="https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <img
+        className="float-right mb-4 ml-6 aspect-16/9 w-1/4 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
+        src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=formathttps://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <p className="clear-right text-justify">
+        Tal vez podamos vivir sin bibliotecas, gente como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, ahora mismo, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popis en El Gato en el Sombrero y Los Cinco Hermanos Chinos? ¿No se merece algo mejor? Mira. Si crees que esto se trata de multas por retraso y libros perdidos, será mejor que lo pienses de nuevo. ¡Se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te excite, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
+      </p>
+    </>
+  }
+</Example>
+
+```html
+<!-- [!code classes:clear-right] -->
+<article>
+  <img class="float-left ..." src="/img/green-mountains.jpg" />
+  <img class="float-right ..." src="/img/snow-mountains.jpg" />
+  <p class="clear-right ...">Tal vez podamos vivir sin bibliotecas...</p>
+</article>
+```
+
+</Figure>
+
+### Limpiando todo
+
+Usa la utilidad `clear-both` para posicionar un elemento debajo de todos los elementos flotantes precedentes:
+
+<Figure>
+
+<Example resizable>
+  {
+    <>
+      <img
+        className="float-left mr-6 mb-4 aspect-16/9 w-1/4 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
+        src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=formathttps://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <img
+        className="float-right mb-4 ml-6 aspect-6/5 w-2/5 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
+        src="https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <p className="clear-both text-justify">
+        Tal vez podamos vivir sin bibliotecas, gente como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, ahora mismo, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popis en El Gato en el Sombrero y Los Cinco Hermanos Chinos? ¿No se merece algo mejor? Mira. Si crees que esto se trata de multas por retraso y libros perdidos, será mejor que lo pienses de nuevo. ¡Se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te excite, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
+      </p>
+    </>
+  }
+</Example>
+
+```html
+<!-- [!code classes:clear-both] -->
+<article>
+  <img class="float-left ..." src="/img/snow-mountains.jpg" />
+  <img class="float-right ..." src="/img/green-mountains.jpg" />
+  <p class="clear-both ...">Tal vez podamos vivir sin bibliotecas...</p>
+</article>
+```
+
+</Figure>
+
+### Usando propiedades lógicas
+
+Usa las utilidades `clear-start` y `clear-end`, que usan [propiedades lógicas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) para mapear al lado izquierdo o derecho según la dirección del texto:
+
+<Figure>
+
+<Example resizable>
+  {
+    <div dir="rtl">
+      <img
+        className="float-left mr-6 mb-4 aspect-16/9 w-1/4 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
+        src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <img
+        className="float-right ml-6 aspect-6/5 w-2/5 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
+        src="https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <p className="clear-end text-justify">
+        ربما يمكننا العيش بدون مكتبات، أشخاص مثلي ومثلك. ربما. بالتأكيد، نحن أكبر من أن نغير العالم، ولكن ماذا عن ذلك
+        الطفل الذي يجلس ويفتح كتابًا الآن في أحد فروع المكتبة المحلية ويجد رسومات للتبول والبول على القطة في القبعة
+        والإخوة الصينيون الخمسة؟ ألا يستحق الأفضل؟ ينظر. إذا كنت تعتقد أن الأمر يتعلق بالغرامات المتأخرة والكتب
+        المفقودة، فمن الأفضل أن تفكر مرة أخرى. يتعلق الأمر بحق ذلك الطفل في قراءة كتاب دون أن يتشوه عقله! أو: ربما يثيرك
+        هذا يا سينفيلد؛ ربما هذه هي الطريقة التي تحصل بها على ركلاتك. أنت ورفاقك الطيبين.
+      </p>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:dir="rtl"] -->
+<!-- [!code classes:clear-end] -->
+<article dir="rtl">
+  <img class="float-left ..." src="/img/green-mountains.jpg" />
+  <img class="float-right ..." src="/img/green-mountains.jpg" />
+  <p class="clear-end ...">...ربما يمكننا العيش بدون مكتبات،</p>
+</article>
+```
+
+</Figure>
+
+### Deshabilitando limpiezas
+
+Usa la utilidad `clear-none` para restablecer cualquier limpieza que se aplique a un elemento:
+
+<Figure>
+
+<Example resizable>
+  {
+    <>
+      <img
+        className="float-left mr-6 aspect-6/5 w-2/5 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
+        src="https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <img
+        className="float-right ml-6 aspect-16/9 w-1/4 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
+        src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=formathttps://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
+      />
+      <p className="text-justify">
+        Tal vez podamos vivir sin bibliotecas, gente como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, ahora mismo, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popis en El Gato en el Sombrero y Los Cinco Hermanos Chinos? ¿No se merece algo mejor? Mira. Si crees que esto se trata de multas por retraso y libros perdidos, será mejor que lo pienses de nuevo. ¡Se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te excite, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
+      </p>
+    </>
+  }
+</Example>
+
+```html
+<!-- [!code classes:clear-none] -->
+<article>
+  <img class="float-left ..." src="/img/green-mountains.jpg" />
+  <img class="float-right ..." src="/img/snow-mountains.jpg" />
+  <p class="clear-none ...">Tal vez podamos vivir sin bibliotecas...</p>
+</article>
+```
+
+</Figure>
+
+### Diseño Responsive
+
+<ResponsiveDesign element="p" property="clear" defaultClass="clear-left" featuredClass="clear-none" />

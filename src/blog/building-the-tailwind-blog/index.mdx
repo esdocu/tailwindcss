@@ -1,0 +1,275 @@
+import { adamwathan } from "@/app/blog/authors";
+import { Image } from "@/components/media";
+import Link from "next/link";
+import card from "./card.jpg";
+
+export const meta = {
+  title: "Construyendo el Blog de Tailwind con Next.js",
+  description: `Una de las cosas en las que creemos como equipo es que todo lo que hacemos debe sellarse con una publicación de blog. Obligarnos a escribir una breve publicación de anuncio para cada proyecto en el que trabajamos actúa como un control de calidad incorporado, asegurándonos de que nunca llamemos a un proyecto "terminado" hasta que nos sintamos cómodos diciéndole al mundo que ya está disponible. ¡El problema era que hasta hoy, en realidad no teníamos dónde publicar esas entradas!`,
+  date: "2020-06-30T18:05:31Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Una de las cosas en las que creemos como equipo es que todo lo que hacemos debe ser{" "}
+      <Link href="https://public.3.basecamp.com/p/toAcDMxu8Fvq2yMfd2azTuaV">sellado con una publicación de blog</Link>. Obligarnos
+      a escribir una breve publicación de anuncio para cada proyecto en el que trabajamos actúa como un control de calidad incorporado,
+      asegurándonos de que nunca llamemos a un proyecto "terminado" hasta que nos sintamos cómodos diciéndole al mundo que ya está disponible.
+    </>
+  ),
+};
+
+Una de las cosas en las que creemos como equipo es que todo lo que hacemos debe ser [sellado con una publicación de blog](https://public.3.basecamp.com/p/toAcDMxu8Fvq2yMfd2azTuaV). Obligarnos a escribir una breve publicación de anuncio para cada proyecto en el que trabajamos actúa como un control de calidad incorporado, asegurándonos de que nunca llamemos a un proyecto "terminado" hasta que nos sintamos cómodos diciéndole al mundo que ya está disponible.
+
+¡El problema era que hasta hoy, en realidad no teníamos dónde publicar esas entradas!
+
+## Eligiendo una plataforma
+
+Somos un equipo de desarrolladores, así que, naturalmente, no había forma de convencernos de usar algo listo para usar, y optamos por construir algo simple y personalizado con [Next.js](http://nextjs.org).
+
+Hay muchas cosas que gustan de Next.js, pero la razón principal por la que decidimos usarlo es que tiene un gran soporte para [MDX](https://mdxjs.com/), que es el formato que queríamos usar para escribir nuestras publicaciones.
+
+```md
+# Mi primera publicación MDX
+
+MDX es un formato de autoría realmente genial porque te permite
+incrustar componentes de React directamente en tu markdown:
+
+<MyComponent myProp={5} />
+
+¿Qué tan genial es eso?
+```
+
+MDX es realmente interesante porque, a diferencia del Markdown normal, puedes incrustar componentes de React en vivo directamente en tu contenido. Esto es emocionante porque abre muchas oportunidades en cómo comunicas ideas en tu escritura. En lugar de depender solo de imágenes, videos o bloques de código, puedes construir demos interactivos y pegarlos directamente entre dos párrafos de contenido, sin desechar la ergonomía de la autoría en Markdown.
+
+Estamos planeando hacer un rediseño y reconstrucción del sitio de documentación de Tailwind CSS más adelante este año y poder incrustar componentes interactivos marca una gran diferencia en nuestra capacidad para enseñar cómo funciona el framework, por lo que usar nuestro pequeño sitio de blog como proyecto de prueba tenía mucho sentido.
+
+## Organizando nuestro contenido
+
+Comenzamos escribiendo publicaciones como documentos MDX simples que vivían directamente en el directorio `pages`. Sin embargo, eventualmente nos dimos cuenta de que casi todas las publicaciones también tendrían activos asociados, por ejemplo, una imagen Open Graph como mínimo.
+
+Tener que almacenarlos en otra carpeta se sentía un poco descuidado, así que decidimos darle a cada publicación su propia carpeta en el directorio `pages` y poner el contenido de la publicación en un archivo `index.mdx`.
+
+```
+public/
+src/
+├── components/
+├── css/
+├── img/
+└── pages/
+    ├── building-the-tailwindcss-blog/
+    │   ├── index.mdx
+    │   └── card.jpeg
+    ├── introducing-linting-for-tailwindcss-intellisense/
+    │   ├── index.mdx
+    │   ├── css.png
+    │   ├── html.png
+    │   └── card.jpeg
+    ├── _app.js
+    ├── _document.js
+    └── index.js
+next.config.js
+package.json
+postcss.config.js
+README.md
+tailwind.config.js
+```
+
+Esto nos permitió colocar cualquier activo para esa publicación en la misma carpeta y aprovechar el [file-loader](https://github.com/tailwindcss/blog/blob/59bd38f2f423f133c0b6157a925ec2875ce880af/next.config.js#L28-L39) de webpack para importar esos activos directamente en la publicación.
+
+## Metadatos
+
+Almacenamos metadatos sobre cada publicación en un objeto `meta` que exportamos en la parte superior de cada archivo MDX:
+
+```js
+import { bradlc } from "@/app/blog/authors";
+import openGraphImage from "./card.jpeg";
+
+export const meta = {
+  title: "Presentando el linting para Tailwind CSS IntelliSense",
+  description: `Hoy lanzamos una nueva versión de la extensión Tailwind CSS IntelliSense para Visual Studio Code que agrega linting específico de Tailwind tanto a tu CSS como a tu markup.`,
+  date: "2020-06-23T18:52:03Z",
+  authors: [bradlc],
+  image: openGraphImage,
+  discussion: "https://github.com/tailwindcss/tailwindcss/discussions/1956",
+};
+
+// El contenido de la publicación va aquí
+```
+
+Aquí es donde definimos el título de la publicación (utilizado para el `h1` real en la página de la publicación y el título de la página), la descripción (para las vistas previas de Open Graph), la fecha de publicación, los autores, la imagen de Open Graph y un enlace al hilo de GitHub Discussions para la publicación.
+
+Almacenamos todos los datos de nuestros autores en un archivo separado que solo contiene el nombre de cada miembro del equipo, el nombre de usuario de Twitter y el avatar.
+
+```js
+import adamwathanAvatar from "./img/adamwathan.jpg";
+import bradlcAvatar from "./img/bradlc.jpg";
+import steveschogerAvatar from "./img/steveschoger.jpg";
+
+export const adamwathan = {
+  name: "Adam Wathan",
+  twitter: "@adamwathan",
+  avatar: adamwathanAvatar,
+};
+
+export const bradlc = {
+  name: "Brad Cornes",
+  twitter: "@bradlc",
+  avatar: bradlcAvatar,
+};
+
+export const steveschoger = {
+  name: "Steve Schoger",
+  twitter: "@steveschoger",
+  avatar: steveschogerAvatar,
+};
+```
+
+Lo bueno de importar el objeto de autor en una publicación en lugar de conectarlo a través de algún tipo de identificador es que podemos agregar fácilmente un autor en línea si quisiéramos:
+
+```js
+export const meta = {
+  title: "Un ejemplo de una publicación invitada por alguien que no está en el equipo",
+  authors: [
+    {
+      name: "Simon Vrachliotis",
+      twitter: "@simonswiss",
+      avatar: "https://pbs.twimg.com/profile_images/1160929863/n510426211_274341_6220_400x400.jpg",
+    },
+  ],
+  // ...
+};
+```
+
+Esto nos facilita mantener sincronizada la información del autor al darle una fuente central de verdad, pero no renuncia a ninguna flexibilidad.
+
+## Mostrando vistas previas de publicaciones
+
+Queríamos mostrar vistas previas de cada publicación en la página de inicio, y esto resultó ser un problema sorprendentemente desafiante.
+
+Esencialmente, lo que queríamos poder hacer era usar la función `getStaticProps` de Next.js para obtener una lista de todas las publicaciones en tiempo de compilación, extraer la información que necesitamos y pasarla al componente de la página real para renderizar.
+
+El desafío es que queríamos hacer esto sin importar realmente cada página, porque eso significaría que nuestro bundle para la página de inicio contendría cada publicación de blog para todo el sitio, lo que llevaría a un bundle mucho más grande de lo necesario. Tal vez no sea un gran problema ahora que solo tenemos un par de publicaciones, pero una vez que llegas a docenas o cientos de publicaciones, son muchos bytes desperdiciados.
+
+Probamos algunos enfoques diferentes, pero el que elegimos fue usar la función [resourceQuery](https://webpack.js.org/configuration/module/#ruleresourcequery) de webpack combinada con un par de cargadores personalizados para que sea posible cargar cada publicación de blog en dos formatos:
+
+1. La publicación completa, utilizada para las páginas de publicaciones.
+2. La vista previa de la publicación, donde cargamos los datos mínimos necesarios para la página de inicio.
+
+La forma en que lo configuramos, cada vez que agregamos una consulta `?preview` al final de una importación para una publicación individual, obtenemos una versión mucho más pequeña de esa publicación que solo incluye los metadatos y el extracto de vista previa, en lugar de todo el contenido de la publicación.
+
+Aquí hay un fragmento de cómo se ve ese cargador personalizado:
+
+```js
+{
+  resourceQuery: /preview/,
+  use: [
+    ...mdx,
+    createLoader(function (src) {
+      if (src.includes('<!--​more​-->')) {
+        const [preview] = src.split('<!--​more​-->')
+        return this.callback(null, preview)
+      }
+
+      const [preview] = src.split('<!--​/excerpt​-->')
+      return this.callback(null, preview.replace('<!--​excerpt​-->', ''))
+    }),
+  ],
+},
+```
+
+Nos permite definir el extracto para cada publicación ya sea pegando `<!--​more-->` después del párrafo de introducción, o envolviendo el extracto en un par de etiquetas `<!--​excerpt-->` y `<!--​/excerpt-->`, lo que nos permite escribir un extracto que es completamente independiente del contenido de la publicación.
+
+```
+export const meta = {
+  // ...
+}
+
+Este es el comienzo de la publicación, y lo que nos gustaría
+mostrar en la página de inicio.
+
+<!--​more-->
+
+Cualquier cosa después de eso no se incluye en el bundle a menos que
+estés viendo esa publicación.
+```
+
+Resolver este problema de manera elegante fue bastante desafiante, pero en última instancia fue genial encontrar una solución que nos permitiera mantener todo en un solo archivo en lugar de usar un archivo separado para la vista previa y el contenido real de la publicación.
+
+## Generando enlaces de publicación siguiente/anterior
+
+El último desafío que tuvimos al construir este sitio simple fue poder incluir enlaces a la publicación siguiente y anterior cada vez que estás viendo una publicación individual.
+
+En esencia, lo que necesitábamos hacer era cargar todas las publicaciones (idealmente en tiempo de compilación), encontrar la publicación actual en esa lista, luego tomar la publicación que vino antes y la publicación que vino después para poder pasarlas al componente de la página como props.
+
+Esto terminó siendo más difícil de lo que esperábamos, porque resulta que MDX actualmente no admite `getStaticProps` de la manera en que normalmente lo usarías. En realidad, no puedes exportarlo directamente desde tus archivos MDX, sino que tienes que almacenar tu código en un archivo separado y reexportarlo desde allí.
+
+No queríamos cargar este código adicional al importar solo las _vistas previas_ de nuestras publicaciones en la página de inicio, y tampoco queríamos tener que repetir este código en cada publicación, así que decidimos anteponer esta exportación al principio de cada publicación usando otro cargador personalizado:
+
+```js
+{
+  use: [
+    ...mdx,
+    createLoader(function (src) {
+      const content = [
+        'import Post from "@/components/Post"',
+        'export { getStaticProps } from "@/getStaticProps"',
+        src,
+        'export default (props) => <Post meta={meta} {...props} />',
+      ].join('\n')
+
+      if (content.includes('<!--​more-->')) {
+        return this.callback(null, content.split('<!--​more-->').join('\n'))
+      }
+
+      return this.callback(null, content.replace(/<!--​excerpt-->.*<!--\/excerpt-->/s, ''))
+    }),
+  ],
+}
+```
+
+También necesitábamos usar este cargador personalizado para pasar esas props estáticas a nuestro componente `Post`, así que agregamos esa exportación adicional que ves arriba también.
+
+Sin embargo, este no fue el único problema. Resulta que `getStaticProps` no te da ninguna información sobre la página actual que se está renderizando, por lo que no teníamos forma de saber qué publicación estábamos viendo al tratar de determinar las publicaciones siguiente y anterior. Sospecho que esto se puede resolver, pero debido a limitaciones de tiempo, optamos por hacer más de ese trabajo en el cliente y menos en tiempo de compilación, para poder ver cuál era la ruta actual al tratar de averiguar qué enlaces necesitábamos.
+
+Cargamos todas las publicaciones en `getStaticProps` y las mapeamos a objetos muy ligeros que solo contienen la URL de la publicación y el título de la publicación:
+
+```js
+import getAllPostPreviews from "@/getAllPostPreviews";
+
+export async function getStaticProps() {
+  return {
+    props: {
+      posts: getAllPostPreviews().map((post) => ({
+        title: post.module.meta.title,
+        link: post.link.substr(1),
+      })),
+    },
+  };
+}
+```
+
+Luego, en nuestro componente de diseño `Post` real, usamos la ruta actual para determinar las publicaciones siguiente y anterior:
+
+```js
+export default function Post({ meta, children, posts }) {
+  const router = useRouter();
+  const postIndex = posts.findIndex((post) => post.link === router.pathname);
+  const previous = posts[postIndex + 1];
+  const next = posts[postIndex - 1];
+
+  // ...
+}
+```
+
+Esto funciona bastante bien por ahora, pero de nuevo, a largo plazo, me gustaría encontrar una solución más simple que nos permita cargar solo las publicaciones siguiente y anterior en `getStaticProps` en lugar de todo.
+
+Hay una biblioteca interesante de Hashicorp diseñada para hacer posible tratar los archivos MDX como una fuente de datos llamada [Next MDX Remote](https://github.com/hashicorp/next-mdx-remote) que probablemente exploraremos en el futuro. Debería permitirnos cambiar al enrutamiento dinámico basado en slugs, lo que nos daría acceso al pathname actual en `getStaticProps` y nos daría mucho más poder.
+
+## Conclusión
+
+En general, construir este pequeño sitio con Next.js fue una experiencia de aprendizaje divertida. Siempre me sorprende lo complicadas que terminan siendo cosas aparentemente simples con muchas de estas herramientas, pero soy muy optimista sobre el futuro de Next.js y estoy deseando construir la próxima iteración de [tailwindcss.com](https://tailwindcss.com) con él en los próximos meses.
+
+Si estás interesado en revisar el código base de este blog o incluso enviar una pull request para simplificar cualquiera de las cosas que mencioné anteriormente, [revisa el repositorio en GitHub](https://github.com/tailwindcss/blog).
+
+¿Quieres hablar sobre esta publicación? <a href="https://github.com/tailwindcss/tailwindcss/discussions/1987">Discútelo en GitHub →</a>

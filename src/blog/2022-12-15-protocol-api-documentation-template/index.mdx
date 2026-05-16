@@ -1,0 +1,195 @@
+import { adamwathan } from "@/app/blog/authors";
+import Link from "next/link";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure";
+import { Image, Video } from "@/components/media";
+
+import home from "./home.png";
+import documentation from "./documentation.png";
+import texture from "./texture.png";
+import darkmode from "./darkmode.png";
+
+export const meta = {
+  title: "Protocol: Un hermoso punto de partida para tu próximo sitio de documentación API",
+  description: `Han sido meses de trabajo, pero estoy emocionado de lanzar finalmente nuestra próxima plantilla de sitio web — Protocol, un hermoso kit de inicio para construir sitios web de referencia API increíbles.`,
+  date: "2022-12-15T15:00:00.000Z",
+  authors: [adamwathan],
+  excerpt: (
+    <>
+      Han sido meses de trabajo, pero estoy emocionado de lanzar finalmente nuestra próxima plantilla de sitio web —{" "}
+      <Link href="https://tailwindui.com/templates/protocol">Protocol</Link>, un hermoso kit de inicio para construir
+      sitios web de referencia API increíbles.
+    </>
+  ),
+};
+
+<Link href="https://tailwindui.com/templates/protocol">
+  <Image alt="Aprende sobre la plantilla Protocol" src={home} />
+</Link>
+
+Han sido meses de trabajo, pero estoy emocionado de lanzar finalmente nuestra próxima plantilla de sitio web — <Link href="https://tailwindui.com/templates/protocol">Protocol</Link>, un hermoso kit de inicio para construir sitios web de referencia API increíbles.
+
+Impulsado por Next.js y MDX y estilizado con Tailwind CSS, está construido exactamente como construiríamos nuestra propia documentación de referencia API.
+
+Juega con la <Link href="https://protocol.tailwindui.com/">demo en vivo</Link> o <Link href="https://tailwindui.com/templates/protocol">descarga el código fuente</Link> si tienes una licencia de acceso total a Tailwind UI — es una actualización gratuita, por supuesto, para los clientes con acceso total.
+
+## Cargado de detalles de diseño
+
+Como de costumbre, nos divertimos mucho dejándonos llevar por el diseño y poniendo esa capa extra de pulido en las cosas para que sea realmente agradable navegar por el sitio.
+
+Tenemos bloques de código fijos que permanecen a la vista mientras te desplazas por los detalles de la solicitud y la respuesta para ese endpoint:
+
+<Video src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/sticky-code-blocks.mp4" />
+
+También está este hermoso efecto hover en las tarjetas de la página de inicio — sigue el cursor de tu ratón con este brillo degradado que descubre un sutil patrón de fondo:
+
+<Video src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/hovering-cards.mp4" />
+
+Sin embargo, mi detalle favorito tiene que ser la navegación de la barra lateral, que rastrea el contenido visible de la página pero usando una especie de estrategia de "minimapa", donde _todas_ las secciones visibles de la página están resaltadas:
+
+<Video src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/animated-sidebar.mp4" />
+
+Ver esto animarse mientras te desplazas por la página es realmente un espectáculo digno de contemplar — felicitaciones a <Link href="https://www.framer.com/motion/">Framer Motion</Link> por hacer el trabajo pesado aquí como de costumbre. Incluso si odiara absolutamente React, estoy bastante seguro de que todavía lo usaría solo para usar esta librería, es realmente tan buena.
+
+## La experiencia de desarrollador que querríamos nosotros mismos
+
+Pasamos mucho tiempo decidiendo cómo conectar el contenido real en este caso. Exploramos un montón de opciones diferentes para la autogeneración de documentación utilizando diferentes estándares, pero para mis gustos de todos modos, todo se sentía un poco restrictivo.
+
+Personalmente, quiero poder escribir exactamente la documentación que quiero. Así que para Protocol, optimizamos para el máximo control pero con muchas comodidades de autoría que hacen que sea realmente fácil escribir exactamente lo que quieres, _rápido_.
+
+Escribes la documentación de tu endpoint en MDX, mezclando un puñado de pequeños componentes que proporcionamos para estructurar las cosas rápidamente:
+
+````jsx
+// [!code filename:messages.mdx]
+## Create a message {{ tag: 'POST', label: '/v1/messages' }}
+
+<Row>
+  <Col>
+
+    Publishes a new message to a specific conversation.
+
+    ### Required attributes
+
+    <Properties>
+      <Property name="conversation_id" type="string">
+        Unique identifier for the conversation the message belongs to.
+      </Property>
+      <Property name="message" type="string">
+        The message content.
+      </Property>
+    </Properties>
+
+  </Col>
+  <Col sticky>
+
+    <CodeGroup title="Request" tag="POST" label="/v1/messages">
+
+    ```bash {{ title: 'cURL' }}
+    curl https://api.protocol.chat/v1/messages \
+      -H "Authorization: Bearer {token}" \
+      -d conversation_id="xgQQXg3hrtjh7AvZ" \
+      -d message="You're what the French call 'les incompetents.'"
+    ```
+
+    ```js
+    import ApiClient from '@example/protocol-api'
+    const client = new ApiClient(token)
+    await client.messages.create({
+      conversation_id: 'xgQQXg3hrtjh7AvZ',
+      message: 'You're what the French call 'les incompetents.'',
+    })
+    ```
+
+    </CodeGroup>
+
+    ```json {{ title: 'Response' }}
+    {
+      "id": "gWqY86BMFRiH5o11",
+      "conversation_id": "xgQQXg3hrtjh7AvZ",
+      "message": "You're what the French call 'les incompetents.'",
+      "reactions": [],
+      "created_at": 692233200,
+    }
+    ```
+
+  </Col>
+</Row>
+````
+
+Esto producirá documentación que se ve así:
+
+<Image alt="Ejemplo de documentación generada desde la fuente MDX" src={documentation} />
+
+Para realmente clavar la experiencia de autoría, incluso construimos <Link href="https://www.npmjs.com/package/mdx-annotations">mdx-annotations</Link> — una nueva librería que trae la característica de anotaciones que nos encantó al trabajar con <Link href="https://markdoc.dev/">Markdoc</Link> a MDX.
+
+Te permite pasar props a las etiquetas en el contenido MDX anotándolas con un objeto, como este encabezado:
+
+```mdx
+## Create a message { tag: 'POST', label: '/v1/messages' }
+```
+
+...que se traduce en este JSX:
+
+```jsx
+<Heading level={2} tag="POST" label="/v1/messages">
+  Create a message
+</Heading>
+```
+
+Esto te permite moverte bastante más rápido porque puedes seguir escribiendo en Markdown y no tener que recurrir a JSX crudo solo para pasar algunos datos adicionales.
+
+## Diseño adaptable
+
+Creo que esta plantilla va a ser realmente útil para mucha gente tal cual, así que era importante para nosotros que fuera fácil personalizar el diseño para que coincida con tu marca.
+
+Diseñamos deliberadamente el patrón de fondo ilustrado que usamos en el sitio para que se sintiera "de marca" para básicamente cualquiera — puedes decir que es el trabajo de un diseñador profesional pero es simple y se inclina hacia el motivo "técnico", que es algo que todos los sitios de referencia API van a tener en común de todos modos.
+
+<Image alt="El patrón de fondo ilustrado incluido en esta plantilla" src={texture} />
+
+Construimos el patrón en código en lugar de exportarlo como un activo con todos los colores integrados, por lo que es fácil ajustarlo para que coincida con tu propio esquema de color.
+
+Para el resaltado de sintaxis, estamos usando <Link href="https://github.com/shikijs/shiki">Shiki</Link> con el tema `css-variables`, lo que facilita la actualización del resaltado de sintaxis para tu marca eligiendo solo 9 colores:
+
+```css
+:root {
+  --shiki-color-text: theme("colors.white");
+  --shiki-token-constant: theme("colors.emerald.300");
+  --shiki-token-string: theme("colors.emerald.300");
+  --shiki-token-comment: theme("colors.zinc.500");
+  --shiki-token-keyword: theme("colors.sky.300");
+  --shiki-token-parameter: theme("colors.pink.300");
+  --shiki-token-function: theme("colors.violet.300");
+  --shiki-token-string-expression: theme("colors.emerald.300");
+  --shiki-token-punctuation: theme("colors.zinc.200");
+}
+```
+
+¡Esto es mucho menos trabajo que tratar de crear tu propio tema desde cero!
+
+Además de los cuatro iconos que hemos usado en nuestra demo, hemos incluido otros 24 iconos para un montón de tipos comunes de recursos API:
+
+Echa un vistazo a esta captura de pantalla, donde hemos adaptado la plantilla Protocol como si estuviera siendo utilizada por nuestros amigos de <Link href="https://convertkit.com/">ConvertKit</Link> para impulsar su referencia API:
+
+Parece muy diferente a simple vista, pero cuando realmente profundizas, en realidad no ha cambiado mucho aquí en absoluto — solo actualizar algunos colores de botones y enlaces, el logotipo, ajustar el degradado en la ilustración y elegir algunos colores diferentes de resaltado de sintaxis.
+
+## Modo oscuro
+
+Naturalmente, el sitio incluye soporte para el modo oscuro — está destinado a desarrolladores, ¿realmente crees que podríamos ser tan ignorantes? Nunca nos lo perdonarías.
+
+<Image alt="El diseño de la plantilla Protocol en modo oscuro" src={darkmode} />
+
+La versión de modo oscuro también tiene muchos de sus propios detalles de diseño geniales — me encanta el diferente tratamiento del botón primario, por ejemplo.
+
+## Paleta de comandos con integración de Algolia DocSearch
+
+Nos encanta Algolia para la búsqueda de documentación, y lo usamos para el sitio web de Tailwind CSS, así como en nuestra plantilla <Link href="https://tailwindui.com/templates/syntax">Syntax</Link>.
+
+También lo hemos conectado para Protocol, pero esta vez usando la librería headless <Link href="https://www.algolia.com/doc/ui-libraries/autocomplete/introduction/what-is-autocomplete/">autocomplete</Link> de Algolia para tener control total de la interfaz de usuario de búsqueda:
+
+<Video src="https://assets.tailwindcss.com/blog/2022-12-15-protocol-api-documentation-template/command-palette.mp4" />
+
+Lo bueno de este enfoque es que podemos usar clases de utilidad regulares para dar estilo a todo en lugar de escribir CSS personalizado para dar estilo a un widget ya estilizado, lo que simplemente se siente mucho más _correcto_ en un proyecto de Tailwind CSS.
+
+---
+
+¡Y eso es todo — una última plantilla de Tailwind UI para terminar 2022! Tenemos <Link href="https://twitter.com/jamesm/status/1597230404200968195">otra</Link> casi lista para salir también, así que estate atento a eso en el nuevo año. ¡Pronto también tendremos noticias bastante emocionantes sobre Tailwind CSS v4.0 para compartir!

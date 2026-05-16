@@ -1,0 +1,44 @@
+import { adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import { YouTubeVideo } from "@/components/media";
+import Link from "next/link";
+
+export const meta = {
+  title: "Dando la bienvenida a David Luhr a Tailwind Labs",
+  description: `Comenzamos a trabajar con David Luhr el verano pasado para ayudarnos a desarrollar una versión Figma de Tailwind UI, así como para aprovechar su experiencia en accesibilidad, asegurando que seguíamos las mejores prácticas y entregábamos un marcado que funcionara para todos. ¡Hoy estamos emocionados de compartir que David se ha unido al equipo a tiempo completo!`,
+  date: "2021-02-01T13:35:00.0Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Comenzamos a trabajar con <Link href="https://twitter.com/david_luhr">David Luhr</Link> el verano pasado proyecto por proyecto para ayudarnos a desarrollar una versión Figma de{" "}
+      <Link href="https://tailwindui.com">Tailwind UI</Link> (¡casi lista!), así como para aprovechar su experiencia en accesibilidad al construir plantillas de Tailwind UI, asegurando que seguíamos las mejores prácticas y entregábamos un marcado
+      que funcionara para todos, sin importar las herramientas que utilicen para navegar por la web.
+    </>
+  ),
+};
+
+Comenzamos a trabajar con <Link href="https://twitter.com/david_luhr">David Luhr</Link> el verano pasado proyecto por proyecto para ayudarnos a desarrollar una versión Figma de <Link href="https://tailwindui.com">Tailwind UI</Link> _(¡casi lista!)_, así como para aprovechar su experiencia en accesibilidad al construir plantillas de Tailwind UI, asegurando que seguíamos las mejores prácticas y entregábamos un marcado que funcionara para todos, sin importar las herramientas que utilicen para navegar por la web.
+
+¡Hoy estamos emocionados de compartir que David se ha unido al equipo a tiempo completo!
+
+<figure>
+  <YouTubeVideo id="djg8WoRGrq0" />
+  <figcaption>¡Mira a David construir algunos componentes de Tailwind UI en Figma en vivo en su canal de YouTube!</figcaption>
+</figure>
+
+David es un experto en accesibilidad, un desarrollador front-end de clase mundial, un educador talentoso y un líder compasivo. Ha hecho magia negra con Tailwind UI en Figma que Steve y yo ni siquiera sabíamos que era posible, y ha estado haciendo un trabajo increíble convirtiendo los diseños de Tailwind UI de Steve en HTML y CSS perfectos al píxel que funcionan para todos.
+
+Digas lo que digas sobre que HTML es fácil de aprender, es muy difícil de dominar. David sabe cosas sobre la especificación que nunca he encontrado en 20 años construyendo cosas para la web, y tiene tanto conocimiento acumulado de sus propias pruebas en dispositivos del mundo real que tomaría años de enfoque dedicado siquiera acercarse a escribir un marcado tan a prueba de balas como el que David produce por defecto.
+
+Como empresa que se especializa en ayudar a los desarrolladores a construir mejores interfaces más rápido, es nuestra responsabilidad asegurarnos de que las herramientas que construimos sigan las mejores prácticas de accesibilidad por defecto, y no podríamos estar más agradecidos de tener a David en el equipo para ayudarnos a cumplir con esa responsabilidad.
+
+Uno de mis problemas favoritos que David me ayudó a resolver es desarrollar las nuevas <Link href="https://v2.tailwindcss.com/docs/ring-offset-width">utilidades ring</Link> en Tailwind CSS v2.0. Cuando David comenzó a auditar nuestro trabajo en Tailwind UI en busca de mejoras de accesibilidad, mencionó que algunos de nuestros estilos de foco no eran lo suficientemente obvios. Resulta que simplemente cambiar el _color_ de un botón, por ejemplo, no es suficiente: es importante que algo _nuevo_ se dibuje en la pantalla (como un anillo de foco) que sea realmente fácil de ver para cualquiera.
+
+Intentar encontrar una manera de resolver esto fue difícil. Necesitaba verse bien, ser sencillo de hacer con clases de utilidad y ser posible de implementar realmente en Tailwind internamente. David sugirió que estudiáramos las interfaces de cosas como consolas de videojuegos o el Apple TV en busca de inspiración, ya que no puedes interactuar con ellas con un mouse, y ahí es donde llegamos a intentar construir algún tipo de anillo de foco desplazado personalizable.
+
+Elaborar una implementación para esto fue difícil porque necesitaba implementarse con una `box-shadow`, y tuvimos que encontrar la manera de hacerlo componible con la API de `box-shadow` existente. Hubo muchos momentos en los que me frustré e incluso podría haber renunciado si hubiera estado trabajando solo en ello, pero finalmente lo descubrimos y ahora es una de mis características favoritas en el framework.
+
+David liderará el desarrollo de componentes y activos de diseño en Tailwind UI, y proporcionará orientación sobre accesibilidad en nuestros otros proyectos como Tailwind CSS y Headless UI. Ha sido una experiencia increíble trabajar con él durante los últimos 6 meses y estamos muy emocionados de tenerlo en el equipo a tiempo completo.
+
+¿Quieres mantenerte al día con el trabajo de David? <Link href="https://twitter.com/david_luhr">Sigue a David en Twitter →</Link>

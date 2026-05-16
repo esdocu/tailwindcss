@@ -1,0 +1,91 @@
+import { Example, Figure } from "@/components/example.tsx";
+import { Iframe } from "@/components/media";
+import Link from "next/link";
+import { CodeExample, js, ts, CodeExampleGroup, CodeBlock } from "@/components/code-example";
+import { robinmalfait } from "@/app/blog/authors";
+import image from "./card.jpg";
+
+export const meta = {
+  title: "Transiciones Amigables con Utilitarios con @tailwindui/react",
+  description: `Anunciamos la primera versión de @tailwindui/react, que introduce un componente <Transition> para transiciones de entrada/salida basadas en utilitarios.`,
+  date: "2020-08-27T18:30:00.000Z",
+  authors: [robinmalfait],
+  image,
+  excerpt: (
+    <>
+      En febrero lanzamos <Link href="https://tailwindui.com">Tailwind UI</Link>, un directorio de ejemplos de componentes
+      HTML diseñados para que copies y pegues en tus proyectos de Tailwind como punto de partida para tus propios diseños.
+    </>
+  ),
+};
+
+En febrero lanzamos [Tailwind UI](https://tailwindui.com), un directorio de ejemplos de componentes HTML diseñados para que copies y pegues en tus proyectos de Tailwind como punto de partida para tus propios diseños.
+
+Construimos Tailwind UI como un producto solo de HTML, donde tú pones tu propio JS, para hacerlo lo más universal posible, pero muchos diseños son inherentemente interactivos y portar esos comportamientos interactivos entre frameworks de JavaScript desafortunadamente no siempre es muy fácil.
+
+Un ejemplo de esto son las transiciones de entrada/salida, como cuando activas un menú desplegable y lo ves aparecer y desaparecer gradualmente.
+
+Vue.js tiene un componente `<transition>` muy bueno para transiciones de entrada/salida con una API muy amigable con los utilitarios:
+
+```html
+<transition
+  enter-active-class="transition-opacity duration-75"
+  enter-from-class="opacity-0"
+  enter-to-class="opacity-100"
+  leave-active-class="transition-opacity duration-150"
+  leave-from-class="opacity-100"
+  leave-to-class="opacity-0"
+>
+  <div v-show="isShowing">
+    <!-- Aparecerá y desaparecerá gradualmente -->
+  </div>
+</transition>
+```
+
+Pero replicar esto en React resulta ser mucho más difícil, porque hasta ahora no ha habido una librería diseñada para soportar el estilo de transiciones basado en utilitarios.
+
+**Así que a principios de esta semana, lanzamos la primera versión de [@tailwindui/react](https://github.com/tailwindlabs/tailwindui-react), una librería que proporciona primitivas de bajo nivel para convertir HTML basado en utilitarios en interfaces de usuario totalmente interactivas.**
+
+Estaremos añadiendo muchos más componentes en los próximos meses _(como menús desplegables, interruptores, modales y más, ¡y también para Vue!)_ pero pensamos en empezar con un componente `<Transition>` para al menos poner la experiencia actual de Tailwind UI para usuarios de React a la par con lo que es posible en Vue y Alpine.js.
+
+Así es como se ve al usarlo:
+
+```jsx
+import { Transition } from "@tailwindui/react";
+import { useState } from "react";
+
+function MyComponent() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setIsOpen(!isOpen)}>Toggle</button>
+      <Transition
+        show={isOpen}
+        enter="transition-opacity duration-75"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-150"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        {/* Aparecerá y desaparecerá gradualmente */}
+      </Transition>
+    </div>
+  );
+}
+```
+
+[Lee la documentación](https://github.com/tailwindlabs/tailwindui-react) para aprender más sobre funcionalidades avanzadas, como:
+
+- Renderizar sin un elemento DOM extra
+- Coordinar transiciones relacionadas
+- Transicionar en el montaje inicial.
+
+Míralo en acción en esta demostración de CodeSandbox:
+
+<Iframe src="https://codesandbox.io/embed/dreamy-villani-1lz49?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.js&view=preview" />
+
+Pruébalo en tus proyectos, y si encuentras algún problema, [reporta un issue en GitHub](https://github.com/tailwindlabs/tailwindui-react).
+
+¿Quieres hablar sobre esta publicación? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2262">Discútelo en GitHub →</a>

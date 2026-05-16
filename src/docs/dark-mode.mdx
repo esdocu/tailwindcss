@@ -1,0 +1,191 @@
+import { TipGood, TipBad, TipInfo } from "@/components/tips";
+import { Iframe } from "@/components/iframe";
+import { Example } from "@/components/example";
+import { Figure } from "@/components/figure";
+
+export const title = "Modo oscuro";
+export const description = "Usando variantes para estilizar tu sitio en modo oscuro.";
+
+## Resumen
+
+Ahora que el modo oscuro es una característica de primera clase en muchos sistemas operativos, es cada vez más común diseñar una versión oscura de tu sitio web para acompañar el diseño predeterminado.
+
+Para hacerlo lo más fácil posible, Tailwind incluye una variante `dark` que te permite estilizar tu sitio de manera diferente cuando el modo oscuro está habilitado:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="grid grid-cols-1 sm:grid-cols-2">
+      <div className="p-8 pt-7 dark:bg-gray-900">
+        <p className="mb-2 text-sm font-medium text-gray-500 dark:text-gray-400">Modo claro</p>
+        <div className="rounded-lg bg-white px-6 py-8 shadow-xl ring ring-gray-900/5 dark:bg-gray-800">
+          <div>
+            <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
+              <svg
+                className="h-6 w-6 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                />
+              </svg>
+            </span>
+          </div>
+          <p className="mt-5 text-base font-medium tracking-tight text-gray-900 dark:text-white">Escribe al revés</p>
+          <p
+            className="mt-2 text-sm text-gray-500 dark:text-gray-400"
+            children={`El Zero Gravity Pen se puede usar para escribir en cualquier orientación,
+          incluso al revés. Incluso funciona en el espacio exterior.`}
+          />
+        </div>
+      </div>
+      <div className="bg-gray-900 p-8 pt-7">
+        <p className="mb-2 text-sm font-medium text-gray-400">Modo oscuro</p>
+        <div className="rounded-lg bg-gray-800 px-6 py-8 shadow-xl ring ring-gray-900/5">
+          <div>
+            <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
+              <svg
+                className="h-6 w-6 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                />
+              </svg>
+            </span>
+          </div>
+          <p className="mt-5 text-base font-medium tracking-tight text-white">Escribe al revés</p>
+          <p
+            className="mt-2 text-sm text-gray-400"
+            children={`El Zero Gravity Pen se puede usar para escribir en cualquier orientación,
+          incluso al revés. Incluso funciona en el espacio exterior.`}
+          />
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:dark\:bg-gray-800] -->
+<!-- prettier-ignore -->
+<div class="bg-white dark:bg-gray-800 rounded-lg px-6 py-8 ring shadow-xl ring-gray-900/5">
+  <div>
+    <span class="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
+      <svg class="h-6 w-6 stroke-white" ...>
+        <!-- ... -->
+      </svg>
+    </span>
+  </div>
+  <!-- prettier-ignore -->
+  <!-- [!code word:dark\:text-white] -->
+  <h3 class="text-gray-900 dark:text-white mt-5 text-base font-medium tracking-tight ">Writes upside-down</h3>
+  <!-- prettier-ignore -->
+  <!-- [!code word:dark\:text-gray-400] -->
+  <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm ">
+    The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
+  </p>
+</div>
+```
+
+</Figure>
+
+Por defecto, esto usa la característica de media CSS `prefers-color-scheme`, pero también puedes construir sitios que soporten [activar/desactivar el modo oscuro manualmente](#toggling-dark-mode-manually) sobrescribiendo la variante dark.
+
+## Activar/desactivar el modo oscuro manualmente
+
+Si quieres que tu tema oscuro sea impulsado por un selector CSS en lugar de la media query `prefers-color-scheme`, sobrescribe la variante `dark` para usar tu selector personalizado:
+
+```css
+/* [!code filename:app.css] */
+@import "tailwindcss";
+
+/* [!code highlight:2] */
+@custom-variant dark (&:where(.dark, .dark *));
+```
+
+Ahora, en lugar de que las utilidades `dark:*` se apliquen basadas en `prefers-color-scheme`, se aplicarán siempre que la clase `dark` esté presente antes en el árbol HTML:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:dark\:bg-black] -->
+<!-- [!code word:dark] -->
+<html class="dark">
+  <body>
+    <div class="bg-white dark:bg-black">
+      <!-- ... -->
+    </div>
+  </body>
+</html>
+```
+
+Cómo agregues la clase `dark` al elemento `html` depende de ti, pero un enfoque común es usar un poco de JavaScript que actualice el atributo `class` y sincronice esa preferencia en algún lugar como `localStorage`.
+
+### Usando un atributo de datos
+
+Para usar un atributo de datos en lugar de una clase para activar el modo oscuro, simplemente sobrescribe la variante `dark` con un selector de atributo:
+
+```css
+/* [!code filename:app.css] */
+@import "tailwindcss";
+
+/* [!code highlight:2] */
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+```
+
+Ahora las utilidades de modo oscuro se aplicarán siempre que el atributo `data-theme` esté establecido en `dark` en algún lugar superior del árbol:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:dark\:bg-black] -->
+<!-- [!code word:data-theme="dark"] -->
+<html data-theme="dark">
+  <body>
+    <div class="bg-white dark:bg-black">
+      <!-- ... -->
+    </div>
+  </body>
+</html>
+```
+
+### Con soporte para el tema del sistema
+
+Para construir interruptores de tema de tres vías que soporten modo claro, modo oscuro y el tema de tu sistema, usa un selector de modo oscuro personalizado y la [API `window.matchMedia()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) para detectar el tema del sistema y actualizar el elemento `html` cuando sea necesario.
+
+Aquí tienes un ejemplo simple de cómo puedes soportar el modo claro, el modo oscuro, así como respetar la preferencia del sistema operativo:
+
+```js
+// [!code filename:spaghetti.js]
+// Al cargar la página o al cambiar temas, es mejor agregarlo en línea en `head` para evitar FOUC
+document.documentElement.classList.toggle(
+  "dark",
+  localStorage.theme === "dark" ||
+    (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches),
+);
+
+// Cada vez que el usuario elige explícitamente el modo claro
+localStorage.theme = "light";
+
+// Cada vez que el usuario elige explícitamente el modo oscuro
+localStorage.theme = "dark";
+
+// Cada vez que el usuario elige explícitamente respetar la preferencia del SO
+localStorage.removeItem("theme");
+```
+
+Nuevamente, puedes administrar esto como quieras, incluso almacenando la preferencia en el lado del servidor en una base de datos y renderizando la clase en el servidor — depende totalmente de ti.

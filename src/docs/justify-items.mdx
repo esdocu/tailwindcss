@@ -1,0 +1,286 @@
+import { CodeExampleStack } from "@/components/code-example";
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+
+export const title = "justify-items";
+export const description = "Utilidades para controlar cómo se alinean los elementos de la cuadrícula (grid items) a lo largo de su eje inline.";
+
+<ApiTable
+  rows={[
+    ["justify-items-start", "justify-items: start;"],
+    ["justify-items-end", "justify-items: end;"],
+    ["justify-items-end-safe", "justify-items: safe end;"],
+    ["justify-items-center", "justify-items: center;"],
+    ["justify-items-center-safe", "justify-items: safe center;"],
+    ["justify-items-stretch", "justify-items: stretch;"],
+    ["justify-items-normal", "justify-items: normal;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Start
+
+Usa la utilidad `justify-items-start` para justificar los elementos de la cuadrícula contra el inicio de su eje inline:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-3 gap-4 font-mono text-sm leading-6 font-bold text-white">
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          01
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          02
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          03
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          04
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          05
+        </div>
+      </div>
+      <div className="grid rounded-lg">
+        <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+        <div className="col-start-1 row-start-1 flex size-14 items-center justify-center justify-self-start rounded-lg bg-sky-500">
+          06
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:justify-items-start] -->
+<div class="grid justify-items-start ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+</Figure>
+
+### End
+
+Usa las utilidades `justify-items-end` o `justify-items-end-safe` para justificar los elementos de la cuadrícula contra el final de su eje inline:
+
+<Figure hint="Redimensiona el contenedor para ver el comportamiento de la alineación">
+
+<Example resizable>
+  {
+    <div className="grid grid-cols-1 gap-8">
+      <div>
+        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">justify-items-end</p>
+        <div className="mt-4 grid auto-rows-fr grid-cols-3 justify-items-stretch gap-10 text-center font-mono text-sm leading-6 font-bold text-white">
+          <div className="grid grid-cols-1 justify-items-end">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-blue-500 p-4">01</div>
+          </div>
+          <div className="grid grid-cols-1 justify-items-end">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-blue-500 p-4">02</div>
+          </div>
+          <div className="grid grid-cols-1 justify-items-end">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-blue-500 p-4">03</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+          justify-items-end-safe
+        </p>
+        <div className="mt-4 grid auto-rows-fr grid-cols-3 justify-items-stretch gap-10 text-center font-mono text-sm leading-6 font-bold text-white">
+          <div className="grid grid-cols-1 justify-items-end-safe">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-purple-500 p-4">01</div>
+          </div>
+          <div className="grid grid-cols-1 justify-items-end-safe">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-purple-500 p-4">02</div>
+          </div>
+          <div className="grid grid-cols-1 justify-items-end-safe">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-purple-500 p-4">03</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+<CodeExampleStack>
+
+```html
+<!-- [!code filename:justify-items-end] -->
+<!-- [!code classes:justify-items-end] -->
+<div class="grid grid-flow-col justify-items-end ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+```html
+<!-- [!code filename:justify-items-end-safe] -->
+<!-- [!code classes:justify-items-end-safe] -->
+<div class="grid grid-flow-col justify-items-end-safe ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+</ CodeExampleStack>
+
+</Figure>
+
+Cuando no hay suficiente espacio disponible, la utilidad `justify-items-end-safe` alineará los elementos al inicio del contenedor en lugar del final.
+
+### Center
+
+Usa las utilidades `justify-items-center` o `justify-items-center-safe` para justificar los elementos de la cuadrícula contra el centro de su eje inline:
+
+<Figure hint="Redimensiona el contenedor para ver el comportamiento de la alineación">
+
+<Example resizable>
+  {
+    <div className="grid grid-cols-1 gap-8">
+      <div>
+        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+          justify-items-center
+        </p>
+        <div className="mt-4 grid auto-rows-fr grid-cols-3 justify-items-stretch gap-10 text-center font-mono text-sm leading-6 font-bold text-white">
+          <div className="grid grid-cols-1 justify-items-center">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-indigo-500 p-4">01</div>
+          </div>
+          <div className="grid grid-cols-1 justify-items-center">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-indigo-500 p-4">02</div>
+          </div>
+          <div className="grid grid-cols-1 justify-items-center">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-indigo-500 p-4">03</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+          justify-items-center-safe
+        </p>
+        <div className="mt-4 grid auto-rows-fr grid-cols-3 justify-items-stretch gap-10 text-center font-mono text-sm leading-6 font-bold text-white">
+          <div className="grid grid-cols-1 justify-items-center-safe">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-fuchsia-500 p-4">01</div>
+          </div>
+          <div className="grid grid-cols-1 justify-items-center-safe">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-fuchsia-500 p-4">02</div>
+          </div>
+          <div className="grid grid-cols-1 justify-items-center-safe">
+            <Stripes border className="col-start-1 row-start-1 justify-self-stretch rounded-lg" />
+            <div className="col-start-1 row-start-1 size-14 rounded-lg bg-fuchsia-500 p-4">03</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+<CodeExampleStack>
+
+```html
+<!-- [!code filename:justify-items-center] -->
+<!-- [!code classes:justify-items-center] -->
+<div class="grid grid-flow-col justify-items-center ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+```html
+<!-- [!code filename:justify-items-center-safe] -->
+<!-- [!code classes:justify-items-center-safe] -->
+<div class="grid grid-flow-col justify-items-center-safe ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+</div>
+```
+
+</CodeExampleStack>
+
+</Figure>
+
+Cuando no hay suficiente espacio disponible, la utilidad `justify-items-center-safe` alineará los elementos al inicio del contenedor en lugar del centro.
+
+### Stretch
+
+Usa la utilidad `justify-items-stretch` para estirar los elementos a lo largo de su eje inline:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 grid grid-cols-3 justify-items-stretch gap-4 font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">01</div>
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">02</div>
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">03</div>
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">04</div>
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">05</div>
+        <div className="flex h-14 items-center justify-center rounded-lg bg-blue-500">06</div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:justify-items-stretch] -->
+<div class="grid justify-items-stretch ...">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+  <div>05</div>
+  <div>06</div>
+</div>
+```
+
+</Figure>
+
+### Diseño Responsive
+
+<ResponsiveDesign
+  property="justify-items"
+  defaultClass="grid justify-items-start"
+  featuredClass="justify-items-center"
+/>

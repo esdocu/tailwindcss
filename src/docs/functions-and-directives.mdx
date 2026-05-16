@@ -1,0 +1,263 @@
+import { CodeExampleStack } from "@/components/code-example";
+
+export const title = "Funciones y directivas";
+export const description = "Una referencia para las funciones y directivas personalizadas que Tailwind expone a tu CSS.";
+
+## Directivas
+
+Las directivas son [reglas-at](https://developer.mozilla.org/en-US/docs/Web/CSS/At-rule) personalizadas específicas de Tailwind que puedes usar en tu CSS y que ofrecen funcionalidades especiales para proyectos de Tailwind CSS.
+
+<h3 id="import-directive">@import</h3>
+
+Utiliza la directiva `@import` para importar archivos CSS en línea, incluyendo Tailwind mismo:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+```
+
+<h3 id="theme-directive">@theme</h3>
+
+Utiliza la directiva `@theme` para definir los tokens de diseño personalizados de tu proyecto, como fuentes, colores y puntos de interrupción:
+
+```css
+/* [!code filename:CSS] */
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+
+  --breakpoint-3xl: 120rem;
+
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+  --color-avocado-400: oklch(0.92 0.19 114.08);
+  --color-avocado-500: oklch(0.84 0.18 117.33);
+  --color-avocado-600: oklch(0.53 0.12 118.34);
+
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ... */
+}
+```
+
+Aprende más sobre la personalización de tu tema en la [documentación de variables de tema](/docs/theme).
+
+<h3 id="source-directive">@source</h3>
+
+Utiliza la directiva `@source` para especificar explícitamente archivos fuente que no son detectados por la detección automática de contenido de Tailwind:
+
+```css
+/* [!code filename:CSS] */
+@source "../node_modules/@my-company/ui-lib";
+```
+
+Aprende más sobre la detección automática de contenido en la [documentación de detección de clases en archivos fuente](/docs/detecting-classes-in-source-files).
+
+<h3 id="utility-directive">@utility</h3>
+
+Utiliza la directiva `@utility` para agregar utilidades personalizadas a tu proyecto que funcionan con variantes como `hover`, `focus` y `lg`:
+
+```css
+/* [!code filename:CSS] */
+@utility tab-4 {
+  tab-size: 4;
+}
+```
+
+Aprende más sobre el registro de utilidades personalizadas en la [documentación de adición de utilidades personalizadas](/docs/adding-custom-styles#adding-custom-utilities).
+
+<h3 id="variant-directive">@variant</h3>
+
+Utiliza la directiva `@variant` para aplicar una variante de Tailwind a los estilos en tu CSS:
+
+```css
+/* [!code filename:CSS] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:4] */
+  @variant dark {
+    background: black;
+  }
+}
+```
+
+Aprende más sobre el uso de variantes en la [documentación de uso de variantes](/docs/adding-custom-styles#using-variants).
+
+<h3 id="custom-variant-directive">@custom-variant</h3>
+
+Utiliza la directiva `@custom-variant` para agregar una variante personalizada en tu proyecto:
+
+```css
+/* [!code filename:CSS] */
+@custom-variant theme-midnight (&:where([data-theme="midnight"] *));
+```
+
+Esto te permite escribir utilidades como `theme-midnight:bg-black` y `theme-midnight:text-white`.
+
+Aprende más sobre la adición de variantes personalizadas en la [documentación de adición de variantes personalizadas](/docs/adding-custom-styles#adding-custom-variants).
+
+<h3 id="apply-directive">@apply</h3>
+
+Utiliza la directiva `@apply` para insertar cualquier clase de utilidad existente en tu propio CSS personalizado:
+
+```css
+/* [!code filename:CSS] */
+.select2-dropdown {
+  /* [!code highlight:2] */
+  @apply rounded-b-lg shadow-md;
+}
+
+.select2-search {
+  /* [!code highlight:2] */
+  @apply rounded border border-gray-300;
+}
+
+.select2-results__group {
+  /* [!code highlight:2] */
+  @apply text-lg font-bold text-gray-900;
+}
+```
+
+Esto es útil cuando necesitas escribir CSS personalizado (como para sobrescribir los estilos en una biblioteca de terceros) pero aún quieres trabajar con tus tokens de diseño y usar la misma sintaxis que estás acostumbrado a usar en tu HTML.
+
+<h3 id="reference-directive">@reference</h3>
+
+Si quieres usar `@apply` o `@variant` en el bloque `<style>` de un componente Vue o Svelte, o dentro de módulos CSS, necesitarás importar tus variables de tema, utilidades personalizadas y variantes personalizadas para hacer que esos valores estén disponibles en ese contexto.
+
+Para hacer esto sin duplicar ningún CSS en tu salida, usa la directiva `@reference` para importar tu hoja de estilos principal como referencia sin incluir realmente los estilos:
+
+```html
+<!-- [!code filename:Vue] -->
+<template>
+  <h1>¡Hola mundo!</h1>
+</template>
+
+<style>
+  /* [!code highlight:2] */
+  @reference "../../app.css";
+
+  h1 {
+    @apply text-2xl font-bold text-red-500;
+  }
+</style>
+```
+
+Si solo estás usando el tema predeterminado sin personalizaciones, puedes importar `tailwindcss` directamente:
+
+```html
+<!-- [!code filename:Vue] -->
+<template>
+  <h1>¡Hola mundo!</h1>
+</template>
+
+<style>
+  /* [!code highlight:2] */
+  @reference "tailwindcss";
+
+  h1 {
+    @apply text-2xl font-bold text-red-500;
+  }
+</style>
+```
+
+## Funciones
+
+Tailwind proporciona las siguientes funciones en tiempo de compilación para facilitar el trabajo con colores y la escala de espaciado.
+
+<h3 id="alpha-function">--alpha()</h3>
+
+Utiliza la función `--alpha()` para ajustar la opacidad de un color:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:Input CSS] */
+.my-element {
+  /* [!code highlight:2] */
+  color: --alpha(var(--color-lime-300) / 50%);
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  color: color-mix(in oklab, var(--color-lime-300) 50%, transparent);
+}
+```
+
+</CodeExampleStack>
+
+<h3 id="spacing-function">--spacing()</h3>
+
+Utiliza la función `--spacing()` para generar un valor de espaciado basado en tu tema:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:Input CSS] */
+.my-element {
+  /* [!code highlight:2] */
+  margin: --spacing(4);
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  margin: calc(var(--spacing) * 4);
+}
+```
+
+</CodeExampleStack>
+
+Esto también puede ser útil en valores arbitrarios, especialmente en combinación con `calc()`:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:py-[calc(--spacing(4)-1px)]] -->
+<div class="py-[calc(--spacing(4)-1px)]">
+  <!-- ... -->
+</div>
+```
+
+## Compatibilidad
+
+Las siguientes directivas y funciones existen únicamente para compatibilidad con Tailwind CSS v3.x.
+
+<h3 id="config-directive">@config</h3>
+
+Utiliza la directiva `@config` para cargar un archivo de configuración heredado basado en JavaScript:
+
+```css
+/* [!code filename:CSS] */
+@config "../../tailwind.config.js";
+```
+
+Las opciones `corePlugins`, `safelist`, y `separator` de la configuración basada en JavaScript no son compatibles en v4.0.
+
+<h3 id="plugin-directive">@plugin</h3>
+
+Utiliza la directiva `@plugin` para cargar un plugin heredado basado en JavaScript:
+
+```css
+/* [!code filename:CSS] */
+@plugin "@tailwindcss/typography";
+```
+
+La directiva `@plugin` acepta ya sea un nombre de paquete o una ruta local.
+
+<h3 id="theme-function">theme()</h3>
+
+Utiliza la función `theme()` para acceder a los valores de tu tema de Tailwind usando notación de puntos:
+
+```css
+/* [!code filename:CSS] */
+.my-element {
+  /* [!code highlight:2] */
+  margin: theme(spacing.12);
+}
+```
+
+Esta función está obsoleta, y recomendamos [usar variables de tema CSS](/docs/theme#using-your-theme-variables) en su lugar.

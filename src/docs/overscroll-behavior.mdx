@@ -1,0 +1,151 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "overscroll-behavior";
+export const description =
+  "Utilidades para controlar cómo se comporta el navegador al alcanzar el límite de un área de desplazamiento.";
+
+<ApiTable
+  rows={[
+    ["overscroll-auto", "overscroll-behavior: auto;"],
+    ["overscroll-contain", "overscroll-behavior: contain;"],
+    ["overscroll-none", "overscroll-behavior: none;"],
+    ["overscroll-x-auto", "overscroll-behavior-x: auto;"],
+    ["overscroll-x-contain", "overscroll-behavior-x: contain;"],
+    ["overscroll-x-none", "overscroll-behavior-x: none;"],
+    ["overscroll-y-auto", "overscroll-behavior-y: auto;"],
+    ["overscroll-y-contain", "overscroll-behavior-y: contain;"],
+    ["overscroll-y-none", "overscroll-behavior-y: none;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Previniendo el overscroll del padre
+
+Usa la utilidad `overscroll-contain` para evitar que el desplazamiento en el área objetivo active el desplazamiento en el elemento padre, pero conserva los efectos de "rebote" al desplazarse más allá del final del contenedor en los sistemas operativos que lo soportan:
+
+<Figure hint="Desplázate para ver el comportamiento">
+
+<Example padding={false}>
+  {
+    <div className="h-48 space-y-4 overflow-auto overscroll-contain p-8 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+      <p
+        children={`
+      Bueno, déjame decirte algo, chico gracioso. ¿Sabes ese pequeño sello,
+      el que dice "Biblioteca Pública de Nueva York"? Bueno, eso puede no significar nada
+      para ti, pero significa mucho para mí. Un montón.`}
+      />
+      <p
+        children={`
+      Claro, adelante, ríete si quieres. He visto a gente como tú antes: Llamativos,
+      haciendo la escena, haciendo alarde de la convención. Sí, sé lo que estás pensando.
+      ¿Por qué este tipo hace tanto escándalo por viejos libros de biblioteca? Bueno, déjame
+      darte una pista, junior.`}
+      />
+      <p
+        children={`
+      Quizás podamos vivir sin bibliotecas, gente como tú y yo. Quizás. Claro,
+      somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado,
+      abriendo un libro, ahora mismo, en una sucursal de la biblioteca local y encontrando
+      dibujos de pipís y cacas en El Gato en el Sombrero y Los Cinco
+      Hermanos Chinos? ¿No MERECE algo mejor?`}
+      />
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:overscroll-contain] -->
+<div class="overscroll-contain ...">Well, let me tell you something, ...</div>
+```
+
+</Figure>
+
+### Previniendo el rebote del overscroll
+
+Usa la utilidad `overscroll-none` para evitar que el desplazamiento en el área objetivo active el desplazamiento en el elemento padre, y también evita los efectos de "rebote" al desplazarse más allá del final del contenedor:
+
+<Figure hint="Desplázate para ver el comportamiento">
+
+<Example padding={false}>
+  {
+    <div className="h-48 space-y-4 overflow-auto overscroll-none p-8 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+      <p
+        children={`
+      Bueno, déjame decirte algo, chico gracioso. ¿Sabes ese pequeño sello,
+      el que dice "Biblioteca Pública de Nueva York"? Bueno, eso puede no significar nada
+      para ti, pero significa mucho para mí. Un montón.`}
+      />
+      <p
+        children={`
+      Claro, adelante, ríete si quieres. He visto a gente como tú antes: Llamativos,
+      haciendo la escena, haciendo alarde de la convención. Sí, sé lo que estás pensando.
+      ¿Por qué este tipo hace tanto escándalo por viejos libros de biblioteca? Bueno, déjame
+      darte una pista, junior.`}
+      />
+      <p
+        children={`
+      Quizás podamos vivir sin bibliotecas, gente como tú y yo. Quizás. Claro,
+      somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado,
+      abriendo un libro, ahora mismo, en una sucursal de la biblioteca local y encontrando
+      dibujos de pipís y cacas en El Gato en el Sombrero y Los Cinco
+      Hermanos Chinos? ¿No MERECE algo mejor?`}
+      />
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:overscroll-none] -->
+<div class="overscroll-none ...">Well, let me tell you something, ...</div>
+```
+
+</Figure>
+
+### Usando el comportamiento de overscroll predeterminado
+
+Usa la utilidad `overscroll-auto` para hacer posible que el usuario continúe desplazándose por un área de desplazamiento padre cuando alcance el límite del área de desplazamiento principal:
+
+<Figure hint="Desplázate para ver el comportamiento">
+
+<Example padding={false}>
+  {
+    <div className="h-48 space-y-4 overflow-auto overscroll-auto p-8 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
+      <p
+        children={`
+      Bueno, déjame decirte algo, chico gracioso. ¿Sabes ese pequeño sello,
+      el que dice "Biblioteca Pública de Nueva York"? Bueno, eso puede no significar nada
+      para ti, pero significa mucho para mí. Un montón.`}
+      />
+      <p
+        children={`
+      Claro, adelante, ríete si quieres. He visto a gente como tú antes: Llamativos,
+      haciendo la escena, haciendo alarde de la convención. Sí, sé lo que estás pensando.
+      ¿Por qué este tipo hace tanto escándalo por viejos libros de biblioteca? Bueno, déjame
+      darte una pista, junior.`}
+      />
+      <p
+        children={`
+      Quizás podamos vivir sin bibliotecas, gente como tú y yo. Quizás. Claro,
+      somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado,
+      abriendo un libro, ahora mismo, en una sucursal de la biblioteca local y encontrando
+      dibujos de pipís y cacas en El Gato en el Sombrero y Los Cinco
+      Hermanos Chinos? ¿No MERECE algo mejor?`}
+      />
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:overscroll-auto] -->
+<div class="overscroll-auto ...">Well, let me tell you something, ...</div>
+```
+
+</Figure>
+
+### Diseño Responsive
+
+<ResponsiveDesign property="overscroll-behavior" defaultClass="overscroll-auto" featuredClass="overscroll-contain" />

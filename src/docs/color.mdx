@@ -1,0 +1,125 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import {
+  CustomizingYourThemeColors,
+  ResponsiveDesign,
+  TargetingSpecificStates,
+  UsingACustomValue,
+} from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import colors from "./utils/colors";
+
+export const title = "color";
+export const description = "Utilidades para controlar el color del texto de un elemento.";
+
+<ApiTable
+  rows={[
+    ["text-inherit", "color: inherit;"],
+    ["text-current", "color: currentColor;"],
+    ["text-transparent", "color: transparent;"],
+    ...Object.entries(colors).map(([name, value]) => [`text-${name}`, `color: var(--color-${name}); /* ${value} */`]),
+    ["text-(<custom-property>)", "color: var(<custom-property>);"],
+    ["text-[<value>]", "color: <value>;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Ejemplo básico
+
+Usa utilidades como `text-blue-600` y `text-sky-400` para controlar el color del texto de un elemento:
+
+<Figure>
+
+<Example>
+  {
+    <div className="relative text-center text-xl leading-6 font-medium">
+      <p className="text-blue-600 dark:text-sky-400">El rápido zorro marrón salta sobre el perro perezoso.</p>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:text-blue-600,dark:text-sky-400] -->
+<p class="text-blue-600 dark:text-sky-400">El rápido zorro marrón...</p>
+```
+
+</Figure>
+
+### Cambiando la opacidad
+
+Usa el modificador de opacidad de color para controlar la opacidad del color del texto de un elemento:
+
+<Figure>
+
+<Example>
+  {
+    <div className="space-y-4 text-center text-xl leading-6 font-medium">
+      <p className="text-blue-600/100 dark:text-sky-400/100">El rápido zorro marrón salta sobre el perro perezoso.</p>
+      <p className="text-blue-600/75 dark:text-sky-400/75">El rápido zorro marrón salta sobre el perro perezoso.</p>
+      <p className="text-blue-600/50 dark:text-sky-400/50">El rápido zorro marrón salta sobre el perro perezoso.</p>
+      <p className="text-blue-600/25 dark:text-sky-400/25">El rápido zorro marrón salta sobre el perro perezoso.</p>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:\/100] -->
+<!-- [!code word:\/75] -->
+<!-- [!code word:\/50] -->
+<!-- [!code word:\/25] -->
+<p class="text-blue-600/100 dark:text-sky-400/100">El rápido zorro marrón...</p>
+<p class="text-blue-600/75 dark:text-sky-400/75">El rápido zorro marrón...</p>
+<p class="text-blue-600/50 dark:text-sky-400/50">El rápido zorro marrón...</p>
+<p class="text-blue-600/25 dark:text-sky-400/25">El rápido zorro marrón...</p>
+```
+
+</Figure>
+
+### Usando un valor personalizado
+
+<UsingACustomValue element="p" utility="text" name="color de texto" variable="color" value="#50d71e" />
+
+### Aplicando al pasar el cursor (hover)
+
+<TargetingSpecificStates property="color">
+
+<Figure hint="Pasa el cursor sobre el texto para ver el comportamiento esperado">
+
+<Example>
+  {
+    <p className="text-center text-xl font-medium text-gray-900 dark:text-gray-200">
+      ¡Oh, tengo que meterme en ese
+      <a
+        href="https://en.wikipedia.org/wiki/Internet"
+        target="_blank"
+        className="underline hover:text-blue-600 dark:hover:text-blue-400"
+      >
+        internet
+      </a>
+      , estoy atrasado en todo!
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:hover:text-blue-600,dark:hover:text-blue-400] -->
+<!-- prettier-ignore -->
+<p class="...">
+  Oh, tengo que meterme en ese
+  <a class="underline hover:text-blue-600 dark:hover:text-blue-400" href="https://en.wikipedia.org/wiki/Internet">internet</a>,
+  ¡estoy atrasado en todo!
+</p>
+```
+
+</Figure>
+
+</TargetingSpecificStates>
+
+### Diseño Responsive
+
+<ResponsiveDesign element="p" property="color" defaultClass="text-blue-600" featuredClass="text-green-600" />
+
+## Personalizando tu tema
+
+<CustomizingYourThemeColors element="p" utility="text" />

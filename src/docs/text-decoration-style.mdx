@@ -1,0 +1,75 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "text-decoration-style";
+export const description = "Utilidades para controlar el estilo de las decoraciones de texto.";
+
+<ApiTable
+  rows={[
+    ["decoration-solid", "text-decoration-style: solid;"],
+    ["decoration-double", "text-decoration-style: double;"],
+    ["decoration-dotted", "text-decoration-style: dotted;"],
+    ["decoration-dashed", "text-decoration-style: dashed;"],
+    ["decoration-wavy", "text-decoration-style: wavy;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Ejemplo básico
+
+Usa utilidades como `decoration-dotted` y `decoration-dashed` para cambiar el estilo de [decoración de texto](/docs/text-decoration-line) de un elemento:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex flex-col gap-8 text-gray-900 dark:text-gray-200">
+      <div>
+        <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">decoration-solid</div>
+        <p className="text-lg font-medium underline decoration-solid">El rápido zorro marrón salta sobre el perro perezoso.</p>
+      </div>
+      <div>
+        <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">decoration-double</div>
+        <p
+          className="text-lg font-medium underline decoration-double"
+          children="El rápido zorro marrón salta sobre el perro perezoso."
+        />
+      </div>
+      <div>
+        <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">decoration-dotted</div>
+        <p className="text-lg font-medium underline decoration-dotted">El rápido zorro marrón salta sobre el perro perezoso.</p>
+      </div>
+      <div>
+        <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">decoration-dashed</div>
+        <p className="text-lg font-medium underline decoration-dashed">El rápido zorro marrón salta sobre el perro perezoso.</p>
+      </div>
+      <div>
+        <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">decoration-wavy</div>
+        <p className="text-lg font-medium underline decoration-wavy">El rápido zorro marrón salta sobre el perro perezoso.</p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:decoration-solid,decoration-double,decoration-dotted,decoration-dashed,decoration-wavy] -->
+<p class="underline decoration-solid">El rápido zorro marrón...</p>
+<p class="underline decoration-double">El rápido zorro marrón...</p>
+<p class="underline decoration-dotted">El rápido zorro marrón...</p>
+<p class="underline decoration-dashed">El rápido zorro marrón...</p>
+<p class="underline decoration-wavy">El rápido zorro marrón...</p>
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign
+  element="p"
+  property="text-decoration-style"
+  defaultClass="underline"
+  featuredClass="decoration-dashed"
+/>

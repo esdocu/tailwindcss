@@ -1,0 +1,114 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "user-select";
+export const description = "Utilidades para controlar si el usuario puede seleccionar texto en un elemento.";
+
+<ApiTable
+  rows={[
+    ["select-none", "user-select: none;"],
+    ["select-text", "user-select: text;"],
+    ["select-all", "user-select: all;"],
+    ["select-auto", "user-select: auto;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Deshabilitando la selección de texto
+
+Usa la utilidad `select-none` para evitar la selección de texto en un elemento y sus hijos:
+
+<Figure hint="Intenta seleccionar el texto para ver el comportamiento esperado">
+
+<Example>
+  {
+    <div className="flex justify-center">
+      <div className="dark:highlight-white/5 inline-flex rounded-lg bg-white px-4 py-3 text-center font-sans text-sm font-semibold text-gray-900 ring-1 ring-gray-900/5 select-none dark:bg-gray-800 dark:text-gray-200 dark:ring-0">
+        El rápido zorro marrón salta sobre el perro perezoso.
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:select-none] -->
+<div class="select-none ...">El rápido zorro marrón salta sobre el perro perezoso.</div>
+```
+
+</Figure>
+
+### Permitiendo la selección de texto
+
+Usa la utilidad `select-text` para permitir la selección de texto en un elemento y sus hijos:
+
+<Figure hint="Intenta seleccionar el texto para ver el comportamiento esperado">
+
+<Example>
+  {
+    <div className="flex justify-center">
+      <div className="dark:highlight-white/5 inline-flex rounded-lg bg-white px-4 py-3 text-center font-sans text-sm font-semibold text-gray-900 ring-1 ring-gray-900/5 select-text dark:bg-gray-800 dark:text-gray-200 dark:ring-0">
+        El rápido zorro marrón salta sobre el perro perezoso.
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:select-text] -->
+<div class="select-text ...">El rápido zorro marrón salta sobre el perro perezoso.</div>
+```
+
+</Figure>
+
+### Seleccionando todo el texto con un clic
+
+Usa la utilidad `select-all` para seleccionar automáticamente todo el texto en un elemento cuando un usuario hace clic:
+
+<Figure hint="Intenta hacer clic en el texto para ver el comportamiento esperado">
+
+<Example>
+  {
+    <div className="flex justify-center">
+      <div className="dark:highlight-white/5 inline-flex rounded-lg bg-white px-4 py-3 text-center font-sans text-sm font-semibold text-gray-900 ring-1 ring-gray-900/5 select-all dark:bg-gray-800 dark:text-gray-200 dark:ring-0">
+        El rápido zorro marrón salta sobre el perro perezoso.
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:select-all] -->
+<div class="select-all ...">El rápido zorro marrón salta sobre el perro perezoso.</div>
+```
+
+</Figure>
+
+### Usando el comportamiento de selección automático
+
+Usa la utilidad `select-auto` para usar el comportamiento predeterminado del navegador para seleccionar texto:
+
+<Figure hint="Intenta seleccionar el texto para ver el comportamiento esperado">
+
+<Example>
+  {
+    <div className="flex justify-center">
+      <div className="dark:highlight-white/5 inline-flex rounded-lg bg-white px-4 py-3 text-center font-sans text-sm font-semibold text-gray-900 ring-1 ring-gray-900/5 select-auto dark:bg-gray-800 dark:text-gray-200 dark:ring-0">
+        El rápido zorro marrón salta sobre el perro perezoso.
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:select-auto] -->
+<div class="select-auto ...">El rápido zorro marrón salta sobre el perro perezoso.</div>
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign property="user-select" defaultClass="select-none" featuredClass="select-all" />

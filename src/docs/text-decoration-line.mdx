@@ -1,0 +1,143 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign, TargetingSpecificStates } from "@/components/content.tsx";
+
+export const title = "text-decoration-line";
+export const description = "Utilidades para controlar la decoración del texto.";
+
+<ApiTable
+  rows={[
+    ["underline", "text-decoration-line: underline;"],
+    ["overline", "text-decoration-line: overline;"],
+    ["line-through", "text-decoration-line: line-through;"],
+    ["no-underline", "text-decoration-line: none;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Subrayando texto
+
+Usa la utilidad `underline` para agregar un subrayado al texto de un elemento:
+
+<Figure>
+
+<Example>
+  {
+    <p className="text-center text-lg font-medium text-gray-900 underline dark:text-gray-200">
+      El rápido zorro marrón salta sobre el perro perezoso.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:underline] -->
+<p class="underline">El rápido zorro marrón...</p>
+```
+
+</Figure>
+
+### Agregando una línea superior al texto
+
+Usa la utilidad `overline` para agregar una línea superior al texto de un elemento:
+
+<Figure>
+
+<Example>
+  {
+    <p className="text-center text-lg font-medium text-gray-900 overline dark:text-gray-200">
+      El rápido zorro marrón salta sobre el perro perezoso.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:overline] -->
+<p class="overline">El rápido zorro marrón...</p>
+```
+
+</Figure>
+
+### Agregando una línea a través del texto
+
+Usa la utilidad `line-through` para agregar una línea a través del texto de un elemento:
+
+<Figure>
+
+<Example>
+  {
+    <p className="text-center text-lg font-medium text-gray-900 line-through dark:text-gray-200">
+      El rápido zorro marrón salta sobre el perro perezoso.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:line-through] -->
+<p class="line-through">El rápido zorro marrón...</p>
+```
+
+</Figure>
+
+### Quitando una línea del texto
+
+Usa la utilidad `no-underline` para quitar una línea del texto de un elemento:
+
+<Figure>
+
+<Example>
+  {
+    <p className="text-center text-lg font-medium text-gray-900 no-underline dark:text-gray-200">
+      El rápido zorro marrón salta sobre el perro perezoso.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:no-underline] -->
+<p class="no-underline">El rápido zorro marrón...</p>
+```
+
+</Figure>
+
+### Aplicando en hover
+
+<TargetingSpecificStates property="text-decoration-line">
+
+<Figure hint="Pasa el cursor sobre el texto para ver el comportamiento esperado">
+
+<Example>
+  {
+    <div className="text-center text-lg font-medium text-gray-900 no-underline dark:text-gray-200">
+      El{" "}
+      <a
+        href="https://en.wikipedia.org/wiki/The_quick_brown_fox_jumps_over_the_lazy_dog"
+        target="blank"
+        className="text-sky-600 no-underline hover:underline dark:text-sky-400"
+      >
+        rápido zorro marrón
+      </a>{" "}
+      salta sobre el perro perezoso.
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:hover:underline] -->
+<p>El <a href="..." class="no-underline hover:underline ...">rápido zorro marrón</a> salta sobre el perro perezoso.</p>
+```
+
+</Figure>
+
+</TargetingSpecificStates>
+
+### Responsive design
+
+<ResponsiveDesign
+  element="a"
+  elementAttributes={{ href: "..." }}
+  property="text-decoration-line"
+  defaultClass="no-underline"
+  featuredClass="underline"
+/>

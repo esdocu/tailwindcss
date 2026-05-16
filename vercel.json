@@ -1,0 +1,29 @@
+{
+  "redirects": [
+    {
+      "source": "/plus",
+      "destination": "https://tailwindcss.com/plus",
+      "permanent": true
+    },
+    {
+      "source": "/plus/ui-blocks",
+      "destination": "https://tailwindcss.com/plus/ui-blocks",
+      "permanent": true
+    },
+    {
+      "source": "/plus/templates",
+      "destination": "https://tailwindcss.com/plus/templates",
+      "permanent": true
+    },
+    {
+      "source": "/plus/ui-kit",
+      "destination": "https://tailwindcss.com/plus/ui-kit",
+      "permanent": true
+    },
+    {
+      "source": "/build-uis-that-dont-suck",
+      "destination": "https://tailwindcss.com/build-uis-that-dont-suck",
+      "permanent": true
+    }    
+  ]
+} 

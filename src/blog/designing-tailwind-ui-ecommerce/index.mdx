@@ -1,0 +1,143 @@
+import { adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import { Image } from "@/components/media";
+import Link from "next/link";
+
+export const meta = {
+  private: true,
+  title: "Diseñando Tailwind UI Ecommerce",
+  description: `¡Hola! Hemos estado trabajando en este nuevo kit de Tailwind UI Ecommerce durante meses y finalmente nos estamos acercando a la meta, así que pensé en escribir un poco sobre el proceso y darte una actualización sobre cómo van las cosas.`,
+  date: "2021-08-07T12:45:00.0Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      ¡Hola! Hemos estado trabajando en este nuevo kit de Tailwind UI Ecommerce durante meses y finalmente nos estamos acercando a la
+      meta, así que pensé en escribir un poco sobre el proceso y darte una actualización sobre cómo van las cosas.
+    </>
+  ),
+};
+
+¡Hola! Hemos estado trabajando en este nuevo kit de Tailwind UI Ecommerce durante meses y finalmente nos estamos acercando a la meta, así que pensé en escribir un poco sobre el proceso y darte una actualización sobre cómo van las cosas.
+
+Diseñar y construir un gran kit de componentes como este es una cantidad _enorme_ de trabajo. Si no estabas siguiendo cuando Steve y yo empezamos a trabajar en Tailwind UI en primer lugar, nos llevó unos 10 meses antes de tener algo que nos sintiéramos cómodos lanzando. Diseñamos docenas de componentes solo para desecharlos todos y empezar de cero al menos tres veces distintas. _Uf._
+
+Hemos aprendido mucho desde entonces y realmente hemos refinado nuestro proceso, y eso ha hecho que armar estas ideas de ecommerce sea mucho más fluido.
+
+---
+
+**El primer paso fue investigar y catalogar**. Empezamos estudiando tantos sitios de ecommerce como pudimos encontrar y catalogando cada patrón de UI que pudimos identificar, como:
+
+- Descripciones generales de productos
+- Listas de productos
+- Detalles de características del producto
+- Vistas previas de categorías
+- Formularios de pago
+- Carritos de compra
+- Filtros de categoría
+- Reseñas de clientes
+- Historial de pedidos
+- Detalles del pedido
+- Mega menús de categoría
+- Vistas rápidas de productos
+- Secciones de promoción
+
+Exploramos docenas de diferentes tipos de tiendas como parte de esta investigación, incluyendo tiendas de ropa como [Everlane](https://www.everlane.com/), tiendas de zapatos como [Allbirds](https://www.allbirds.com/), fabricantes de accesorios de oficina como [Grovemade](https://grovemade.com/), compañías de colchones como [Casper](https://casper.com/), desarrolladores de plugins de audio como [Toontrack](https://www.toontrack.com/), y muchas más. Intentamos no centrarnos en ningún _tipo_ específico de tienda, y creo que eso realmente ayudó a identificar qué patrones son verdaderamente universales para este tipo de sitios, y cómo encajan las diferentes ideas en esos patrones.
+
+Algunos de ellos fueron bastante difíciles de identificar, especialmente porque hay bastante superposición entre el tipo de patrones que ves en un sitio de ecommerce y en un sitio web de marketing más estilo folleto.
+
+Por ejemplo, esta sección no es realmente tan diferente de una sección hero que podrías ver en un sitio de marketing:
+
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/adidas-hero.jpg" />
+
+Entonces, ¿el kit de ecommerce debería tener también "Secciones Hero", como el kit de marketing? Y si es así, ¿qué las hace diferentes? ¿Por qué tener dos categorías duplicadas?
+
+Nos llevó mucha investigación y reflexión antes de que finalmente notáramos que en los sitios de ecommerce, el "hero" casi _nunca_ es un verdadero hero. Nunca es algo como un resumen de toda la marca o algo así, como "Accesorios de oficina hechos a mano para el trabajador del conocimiento moderno", siempre es algo promocional oportuno como "Obtén un 50% de descuento hasta el final del verano" o "Nuestra colección de otoño acaba de llegar, explórala ahora".
+
+También notamos que estas secciones "hero" eran casi siempre diseños que podrían moverse muy fácilmente al medio de la página; nunca eran realmente contenido de "encabezado". Fue entonces cuando se nos ocurrió el concepto de "sección de promoción", que es como un gran banner que promociona una oferta o un nuevo producto y _podría_ usarse como un hero, pero también podría mezclarse con otro contenido de la página.
+
+Hubo muchos pequeños momentos eureka como este que no parecen mucho cuando ves el resultado final, pero hombre, es un trabajo duro descifrar estas cosas. Organizar y categorizar todas estas ideas fue casi tanto trabajo como diseñarlas.
+
+---
+
+**Lo siguiente fue diseñar ejemplos de página completa**. Si hay algo que aprendimos del trabajo inicial en los paquetes de Application UI y Marketing, es que los componentes que extraes son mucho mejores cuando se diseñan en el contexto de una página completa.
+
+Para el primer conjunto de cosas de Tailwind UI, hicimos mucho diseño de forma aislada, simplemente pensando en un bonito diseño de paginación, por ejemplo. Pero lo que descubrimos es que cuando empezamos a juntar todo eso en interfaces de usuario reales, muchas pequeñas cosas no encajaban.
+
+A veces era el tamaño de la fuente un poco demasiado grande en comparación con otros elementos del diseño, tal vez no usar suficiente espacio en blanco, o dar a un elemento demasiado contraste, haciéndolo destacar sobre el resto de la página cuando se suponía que debía sentirse como contenido secundario. Cuando reelaboramos nuestro enfoque para _extraer_ siempre ejemplos más pequeños de ejemplos más grandes, todo empezó a encajar mucho mejor.
+
+Así que para el paquete de ecommerce, diseñamos _todo_ como ejemplos de página desde el principio. En total, hemos diseñado alrededor de 50 páginas completas hasta ahora, incluyendo páginas de inicio, listados de categorías, páginas de productos, formularios de pago y mucho más.
+
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/50-pages.jpg" />
+
+Reutilizaríamos algunas cosas entre páginas para movernos rápidamente (como ideas de pie de página o barra de navegación), pero generalmente intentamos que cada elemento central de cada página fuera único, para generar tantas ideas como fuera posible.
+
+---
+
+**Luego construimos las páginas.** Mucha gente asume que tenemos este proceso de entrega de diseño súper limpio donde creamos estos diseños de Figma perfectos a prueba de balas, luego los implementamos exactamente como están en su forma perfecta, pero eso no es cierto en absoluto.
+
+Lo que sucede en cambio es que tomamos los diseños de página completa que están en _bastante buena_ forma, los construimos lo mejor que podemos, luego revisamos los diseños terminados juntos en el navegador para hacer ajustes. Por lo general, hay _muchos_ pequeños cambios que ocurren, especialmente cosas relacionadas con pequeños detalles de espaciado que son simplemente más fáciles de juzgar en el navegador que en un archivo de diseño. Sin embargo, a veces hacemos cambios realmente drásticos, como reemplazar totalmente parte del diseño con otra cosa si decidimos que simplemente no se ve tan bien como esperábamos, o si haría que el código fuera extremadamente complicado para coincidir exactamente con el diseño, pero con poco o ningún beneficio sobre un diseño ligeramente diferente.
+
+Aquí tienes un ejemplo de un diseño que cambió _mucho_ durante el proceso de construcción: Figma a la izquierda, versión HTML final a la derecha:
+
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/figma-vs-html.jpg" />
+
+Definitivamente creo que todo sale mucho mejor cuando estamos abiertos a iterar en diseños como este sobre la marcha en lugar de simplemente lanzarlos por encima del muro.
+
+Si estás interesado en el proceso real que usamos para escribir las plantillas, las creamos en una especie de lenguaje de plantillas casero impulsado por PostHTML, que finalmente usamos para renderizar los componentes a múltiples destinos, como HTML, React y Vue.
+
+Así es como se ve:
+
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/templating-sample.jpg" />
+
+Puedes leer más al respecto [en este correo electrónico que envié en abril](https://blog.tailwindcss.com/building-react-and-vue-support-for-tailwind-ui) si tienes curiosidad por más detalles.
+
+---
+
+**A continuación, extrajimos los componentes individuales.** Una vez que los diseños de página están finalizados y construidos, extraemos los elementos individuales en sus propias plantillas. Aquí es donde se extraen las "Descripciones generales de productos" de las páginas de productos, las "Listas de productos" de las páginas de categorías y las "Secciones de promoción" de las páginas de inicio de la tienda.
+
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/exploded-view.jpg" />
+
+Lo difícil de este proceso es que no es tan simple como "una página se compone de componentes"; como probablemente sabes, incluso los _componentes_ se componen de componentes, por lo que decidir exactamente cómo dividir las cosas para Tailwind UI siempre es difícil.
+
+Generalmente nos inclinamos por componentes más grandes, porque es fácil para alguien sacar una pequeña pieza de un componente más grande si le gusta y quiere usarla en otro lugar, pero no siempre es fácil idear los componentes más grandes tú mismo si todo lo que tienes son las pequeñas piezas individuales.
+
+La forma en que me gusta pensar en ello es que estamos tratando de darte creaciones de LEGO preconstruidas, no solo los ladrillos.
+
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/lego.jpeg" />
+
+Es fácil quitarle las ruedas al camión si eso es todo lo que necesitas; sin embargo, es más difícil convertir las ruedas, un asiento y unos faros en un bonito camión desde cero.
+
+Por ejemplo, esta única sección de "Descripción general del producto" podría dividirse en un montón de componentes más pequeños:
+
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/product-overview.jpg" />
+
+Hay una galería de imágenes, un widget de reseña de estrellas, un selector de muestras de color y un acordeón de características allí como mínimo. Pero creo que proporcionarlo de forma holística como esta es el mejor lugar para empezar: todavía puedes tomar todo eso si lo necesitas, pero como un componente más grande también sirve como _inspiración_ y ese es un ingrediente realmente importante en lo que hace que Tailwind UI sea un producto genial.
+
+Podríamos extraer muchas de estas cosas en componentes más pequeños también en el futuro, pero definitivamente creo que este enfoque "de afuera hacia adentro" es el camino correcto en general.
+
+---
+
+**Finalmente, haz inventario y repite todo el proceso.** Una lección que sigo reaprendiendo una y otra vez sobre el diseño de productos es que ninguna cantidad de planificación conducirá al producto correcto al primer intento. Tienes que seguir iterando y mejorando; no es un proceso lineal.
+
+Para este kit de ecommerce, realmente no pudimos ver dónde estaban los agujeros en el producto hasta que diseñamos y construimos un montón de páginas, extrajimos todos esos componentes y luego evaluamos dónde estábamos.
+
+Notamos un montón de cosas a las que al principio estábamos ciegos, por ejemplo, solo teníamos dos ideas de mega menú, probablemente porque era muy fácil simplemente no diseñar el estado "abierto" de ninguna barra de navegación al diseñar nuevas páginas. Así que volvimos al paso de diseño y se nos ocurrieron un montón de conceptos nuevos para desarrollar la categoría.
+
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/mega-menu-concepts.jpg" />
+
+También notamos que teníamos un número desproporcionado de diseños basados en tarjetas sobre fondos blanquecinos, y no suficientes diseños planos y simples, que creo que son mucho más comunes en el diseño de ecommerce. Así que volvimos al principio y diseñamos un montón de páginas nuevas para llenar este vacío también:
+
+<Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/white-backgrounds.jpg" />
+
+Estamos a menos de una semana de cuando esperamos lanzar esto y todos los días _todavía_ estamos diseñando cosas nuevas para llenar los vacíos que identificamos a medida que nos acercamos a la meta. Sin embargo, el producto se vuelve más increíble cada día, y creo que estos son los mejores diseños que hemos creado para Tailwind UI hasta ahora _(gracias a dios, empeorar en esto sería deprimente.)_
+
+---
+
+**Entonces, ¿cuándo saldrá?** No quiero hacer promesas, pero estamos intentando _muy_ duro sacar esto a mediados de la próxima semana. Definitivamente enviaré otra actualización cuando lo sepamos con certeza, pero se ve bien en este momento aunque todavía tenemos mucho que concluir.
+
+Como se mencionó en una actualización anterior, el kit de ecommerce es un producto separado, por lo que será un complemento de pago para los clientes existentes, pero si ya posees los paquetes de Marketing y Application UI, será _realmente_ asequible, como más barato que llevar a tus hijos a almorzar. **Odio** cuando las empresas dan las mejores ofertas a los nuevos clientes _(hola industria de las telecomunicaciones)_ en lugar de recompensar a las personas que los apoyaron desde el principio, y nunca seremos ese tipo de negocio.
+
+Gracias como siempre por seguirnos; busca otra actualización a principios de la próxima semana, ¡y crucemos los dedos para tener esto listo para lanzar poco después!
+
+– Adam

@@ -1,0 +1,608 @@
+import { Image, YouTubeVideo } from "@/components/media";
+import Link from "next/link";
+import { Example } from "@/components/example";
+import { Figure } from "@/components/figure";
+import card from "./card.jpg";
+import { adamwathan } from "@/app/blog/authors";
+
+export const meta = {
+  title: "Tailwind CSS v3.0",
+  description:
+    "Tailwind CSS v3.0 ya está aquí — trayendo increíbles ganancias de rendimiento, enormes mejoras en el flujo de trabajo y un número seriamente ridículo de nuevas características.",
+  date: "2021-12-09T16:00:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Tailwind CSS v3.0 ya está aquí — trayendo increíbles ganancias de rendimiento, enormes mejoras en el flujo de trabajo y un número seriamente
+      ridículo de nuevas características.
+    </>
+  ),
+};
+
+<YouTubeVideo id="TmWIrBPE6Bc" />
+
+Tailwind CSS v3.0 ya está aquí — trayendo increíbles ganancias de rendimiento, enormes mejoras en el flujo de trabajo y un número seriamente ridículo de nuevas características.
+
+Para un recorrido por algunas de las características nuevas más geniales, echa un vistazo al video {" "}<Link href="https://www.youtube.com/watch?v=mSC6GwizOag">"Novedades en Tailwind CSS v3.0"</Link> en nuestro canal de YouTube
+channel.
+
+Tailwind CSS v3.0 tiene que ser nuestro lanzamiento más emocionante hasta la fecha, incluyendo mejoras como:
+
+- [Just-in-Time, todo el tiempo](#just-in-time-all-the-time) — tiempos de compilación ultrarrápidos, variantes apilables,
+  soporte para valores arbitrarios, mejor rendimiento del navegador y más.
+- [Todos los colores listos para usar](#every-color-out-of-the-box) — incluyendo todos los colores de la paleta extendida
+  como cyan, rose, fuchsia y lime, y cincuenta sombras de ~~grey~~ gray.
+- [Sombras de caja coloreadas](#colored-box-shadows) — para efectos divertidos de brillo y reflejo, y sombras más naturales
+  en fondos coloreados.
+- [API de Scroll snap](#scroll-snap-api) — un conjunto completo y componible de utilidades para scroll snapping
+  solo con CSS.
+- [Layout Multi-columna](#multi-column-layout) — para que finalmente puedas construir ese periódico en línea con el que has
+  estado soñando.
+- [Estilizado de controles de formulario nativos](#native-form-control-styling) — haz que checkboxes, radio buttons y
+  entradas de archivo coincidan con tu marca sin reinventar la rueda.
+- [Modificador de impresión](#print-modifier) — controla cómo se ve tu sitio cuando alguien lo imprime, directamente desde
+  tu HTML.
+- [API moderna de aspect ratio](#modern-aspect-ratio-api) — no más trucos de padding, bueno, a menos que necesites
+  soportar Safari 14, lo cual probablemente hagas, pero aún así.
+- [Estilos de subrayado elegantes](#fancy-underline-styles) — la pieza faltante para hacer que ese proyecto paralelo tuyo
+  finalmente despegue.
+- [Modificadores RTL y LTR](#rtl-and-ltr-modifiers) — para un control completo al construir
+  sitios web multidireccionales.
+- [Modificadores Portrait y landscape](#portrait-and-landscape-modifiers) — honestamente, solo porque eran
+  muy fáciles de añadir.
+- [Propiedades arbitrarias](#arbitrary-properties) — ahora Tailwind soporta propiedades CSS de las que nunca habíamos
+  oído hablar.
+- [Play CDN](#play-cdn) — el nuevo motor Just-in-Time comprimido en un script CDN que se ejecuta directamente en el
+  navegador.
+- **Toneladas de otras utilidades** — incluyendo soporte para touch-action, will-change, flex-basis, text-indent, scroll-behavior y más.
+
+Además de un hermoso y flamante [sitio web de documentación](https://tailwindcss.com), cargado con contenido mejorado y ejemplos en cada página.
+
+Para empezar a jugar con Tailwind CSS v3.0 hoy, obtén la última versión de npm:
+
+```sh
+npm install -D tailwindcss@latest postcss autoprefixer
+```
+
+...o dirígete a [Tailwind Play](https://play.tailwindcss.com) para probar las últimas características directamente en el navegador.
+
+Tailwind CSS v3.0 es una nueva versión mayor del framework y hay algunos cambios menores que rompen la compatibilidad, pero hemos trabajado muy duro para hacer el proceso de actualización lo más fluido posible, y para la mayoría de los proyectos deberías poder instalar v3.0 sin hacer ningún cambio.
+
+Por ejemplo, [Tailwind UI](https://tailwindui.com) es probablemente el proyecto Tailwind más grande del mundo y cada plantilla es totalmente compatible tanto con v2 como con v3 sin necesidad de cambios.
+
+Para más detalles e instrucciones paso a paso sobre cómo migrar a v3.0, consulta la <Link href="https://v3.tailwindcss.com/docs/upgrade-guide">guía de actualización</Link>.
+
+---
+
+## Just-in-Time, todo el tiempo
+
+En marzo introdujimos el nuevo <Link href="/blog/just-in-time-the-next-generation-of-tailwind-css">motor Just-in-Time</Link> que trajo enormes ganancias de rendimiento, desbloqueó nuevas y emocionantes características como <Link href="https://v3.tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values">valores arbitrarios</Link>, e hizo que las configuraciones complejas de variantes fueran cosa del pasado.
+
+<YouTubeVideo id="3O_3X7InOw8" />
+
+En Tailwind CSS v3.0, el nuevo motor se ha vuelto estable y ha reemplazado al motor clásico, por lo que cada proyecto de Tailwind puede beneficiarse de estas mejoras de forma predeterminada.
+
+---
+
+## Todos los colores listos para usar
+
+Antes del nuevo motor, siempre teníamos que tener cuidado con el tamaño del archivo CSS en desarrollo, y una de las mayores concesiones que tuvimos que hacer fue limitar cuidadosamente la paleta de colores.
+
+En v3.0, cada color de la paleta de colores extendida está habilitado por defecto, incluyendo lime, cyan, sky, fuchsia, rose y cincuenta sombras de gray.
+
+Consulta la <Link href="https://v3.tailwindcss.com/docs/customizing-colors">referencia de la paleta de colores</Link> para obtener más información.
+
+---
+
+## Sombras de caja coloreadas
+
+La gente nos ha estado pidiendo sombras coloreadas durante años, pero soportarlo de una manera componible que realmente tuviera sentido fue mucho más difícil de lo que esperaba.
+
+Después de unas cinco salidas en falso, finalmente descubrimos un enfoque que nos gustó, y ahora Tailwind CSS v3.0 incluye sombras coloreadas:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex flex-col justify-center gap-8 sm:flex-row sm:gap-16">
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+          <>shadow-cyan-500/50</>
+        </p>
+        <button className="rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 focus:outline-none">
+          <>Suscribirse</>
+        </button>
+      </div>
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+          <>shadow-blue-500/50</>
+        </p>
+        <button className="rounded-md bg-blue-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/50 focus:outline-none">
+          <>Suscribirse</>
+        </button>
+      </div>
+      <div className="flex shrink-0 flex-col items-center">
+        <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+          <>shadow-indigo-500/50</>
+        </p>
+        <button className="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/50 focus:outline-none">
+          <>Suscribirse</>
+        </button>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:shadow-lg shadow-cyan-500/50] -->
+<button class="bg-cyan-500 shadow-lg shadow-cyan-500/50 ...">Suscribirse</button>
+<!-- [!code word:shadow-lg shadow-blue-500/50] -->
+<button class="bg-blue-500 shadow-lg shadow-blue-500/50 ...">Suscribirse</button>
+<!-- [!code word:shadow-lg shadow-indigo-500/50] -->
+<button class="bg-indigo-500 shadow-lg shadow-indigo-500/50 ...">Suscribirse</button>
+```
+
+</Figure>
+
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/box-shadow-color">Color de Sombra de Caja</Link>.
+
+---
+
+## API de Scroll snap
+
+Hemos añadido un conjunto completo de utilidades para el módulo CSS Scroll Snap, dándote el poder de construir experiencias de scroll snapping muy ricas directamente en tu HTML:
+
+<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
+
+<Example padding={false}>
+  {
+    <div className="relative">
+      <div className="mb-6 ml-[50%] flex items-end justify-start pt-10">
+        <div className="dark:highlight-white/10 ml-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
+          <>punto de snap</>
+        </div>
+        <div className="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
+      </div>
+      <div className="relative flex w-full snap-x snap-mandatory gap-6 overflow-x-auto pb-14">
+        <div className="shrink-0 snap-center">
+          <div className="w-4 shrink-0 sm:w-37"></div>
+        </div>
+        <div className="shrink-0 snap-center">
+          <img
+            className="bg-whit h-40 w-80 shrink-0 rounded-lg"
+            src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+          />
+        </div>
+        <div className="shrink-0 snap-center">
+          <img
+            className="bg-whit h-40 w-80 shrink-0 rounded-lg"
+            src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+          />
+        </div>
+        <div className="shrink-0 snap-center">
+          <img
+            className="bg-whit h-40 w-80 shrink-0 rounded-lg"
+            src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+          />
+        </div>
+        <div className="shrink-0 snap-center">
+          <img
+            className="bg-whit h-40 w-80 shrink-0 rounded-lg"
+            src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+          />
+        </div>
+        <div className="shrink-0 snap-center">
+          <img
+            className="bg-whit h-40 w-80 shrink-0 rounded-lg"
+            src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+          />
+        </div>
+        <div className="shrink-0 snap-center">
+          <img
+            className="bg-whit h-40 w-80 shrink-0 rounded-lg"
+            src="https://images.unsplash.com/photo-1559333086-b0a56225a93c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80"
+          />
+        </div>
+        <div className="shrink-0 snap-center">
+          <div className="w-4 shrink-0 sm:w-37"></div>
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<!-- [!code word:snap-x] -->
+<!-- [!code word:snap-center] -->
+<div class="snap-x ...">
+  <div class="snap-center ...">
+    <img src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?auto=format&fit=crop&w=320&h=160&q=80" />
+  </div>
+  <div class="snap-center ...">
+    <img src="https://images.unsplash.com/photo-1540206351-d6465b3ac5c1?auto=format&fit=crop&w=320&h=160&q=80" />
+  </div>
+  <div class="snap-center ...">
+    <img src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?auto=format&fit=crop&w=320&h=160&q=80" />
+  </div>
+  <div class="snap-center ...">
+    <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=320&h=160&q=80" />
+  </div>
+  <div class="snap-center ...">
+    <img src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?auto=format&fit=crop&w=320&h=160&q=80" />
+  </div>
+  <div class="snap-center ...">
+    <img src="https://images.unsplash.com/photo-1559333086-b0a56225a93c?auto=format&fit=crop&w=320&h=160&q=80" />
+  </div>
+</div>
+```
+
+</Figure>
+
+Comienza con las nuevas utilidades de <Link href="https://v3.tailwindcss.com/docs/scroll-margin">Margen de Scroll</Link> y recorre toda la API para obtener más información.
+
+---
+
+## Layout Multi-columna
+
+Hemos añadido soporte para <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/columns">columns</Link> — del tipo de layout de periódico. Estas son realmente súper útiles, y son geniales para cosas como layouts de navegación de pie de página también.
+
+<Figure>
+
+<Example>
+  {
+    <div className="relative">
+      <div className="relative columns-1 gap-6 text-justify font-serif text-base sm:columns-3">
+        <p>
+          Expedita quo ea quod laborum ullam ipsum enim. Deleniti commodi et. Nam id laborum placeat natus eum. Aliquid
+          aut aut soluta nesciunt culpa magni. Velit possimus autem et aut repudiandae culpa rerum. Qui blanditiis ut
+          qui quia expedita necessitatibus sed. Autem sed ut saepe doloremque aut placeat voluptas ipsum.
+        </p>
+        <p className="mt-6">
+          Eligendi error nisi recusandae velit numquam nihil aperiam enim. Eum et molestias. Id qui cum veritatis id ea
+          quidem ea rerum saepe. Iste itaque fugiat sequi. Voluptatem quae minus. Maxime ullam ea praesentium recusandae
+          vero est quas. Quia minima fugiat aut laborum impedit facere autem sit qui. Et eos et ullam necessitatibus. Ut
+          voluptatem saepe natus itaque maiores sit repellat aut natus assumenda.
+        </p>
+        <p className="mt-6">
+          Blanditiis ipsa officia dolores exercitationem nemo beatae voluptatem eos rerum velit asperiores. Non quisquam
+          accusantium officia nisi eius necessitatibus.
+        </p>
+        <p className="mt-6">
+          Quaerat quia ad voluptatem laudantium natus. Aut ipsa et numquam delectus aliquam. Recusandae libero
+          consequatur dolorum. Animi culpa rerum molestiae ut non et molestias aliquid aut nemo. Sint dolorem dolorem.
+          Iure dolorum amet ea sit perferendis.
+        </p>
+        <p className="mt-6">
+          Et illum ut officia nisi commodi. Quia et mollitia possimus modi. Delectus aliquid quam eos consectetur.
+        </p>
+        <p className="mt-6">
+          Accusantium et et qui non sed modi. Corrupti deserunt culpa eos vitae neque aperiam. Repellat tenetur fugit.
+        </p>
+        <p className="mt-6">
+          Deleniti distinctio ad corrupti nisi. Mollitia qui est natus cumque. Officia dolor qui perferendis
+          necessitatibus saepe excepturi asperiores quos voluptas. Est suscipit facere nihil expedita suscipit
+          quibusdam. Quod cupiditate vero distinctio. Sed est soluta nostrum magnam et saepe blanditiis aut. Vero
+          dolores repellendus et libero minima explicabo provident. Culpa aut dolorem est.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:columns-1] -->
+<!-- [!code word:sm\:columns-3] -->
+<div class="columns-1 sm:columns-3 ...">
+  <p>...</p>
+  <!-- ... -->
+</div>
+```
+
+</Figure>
+
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/columns">columns</Link> — y echa un vistazo también a las nuevas utilidades de <Link href="https://v3.tailwindcss.com/docs/break-after">break-after/inside/before</Link>.
+
+---
+
+## Estilizado de controles de formulario nativos
+
+Hemos añadido soporte para la nueva propiedad accent-color, así como un modificador para estilizar botones de entrada de archivo para que sea más fácil que nunca poner tu propio toque en los controles de formulario nativos:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="px-6">
+      <div className="mx-auto max-w-sm bg-white px-6 py-8 shadow">
+        <form>
+          <div className="flex items-center space-x-6">
+            <div className="shrink-0">
+              <img
+                className="h-16 w-16 rounded-full object-cover"
+                src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
+                alt="Foto de perfil actual"
+              />
+            </div>
+            <label className="block">
+              <span className="sr-only">Elegir foto de perfil</span>
+              <input
+                type="file"
+                className="block w-full text-sm text-slate-500 file:mr-4 file:rounded-full file:border-0 file:bg-violet-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-violet-700 hover:file:bg-violet-100"
+              />
+            </label>
+          </div>
+          <label className="mt-6 flex items-center justify-center space-x-2 text-sm font-medium text-slate-600">
+            <input type="checkbox" className="accent-violet-500" defaultChecked />
+            <span>Sí, envíenme todas sus estúpidas actualizaciones</span>
+          </label>
+        </form>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:file\:mr-4] -->
+<!-- [!code word:file\:py-2] -->
+<!-- [!code word:file\:px-4] -->
+<!-- [!code word:file\:rounded-full] -->
+<!-- [!code word:file\:border-0] -->
+<!-- [!code word:file\:text-sm] -->
+<!-- [!code word:file\:font-semibold] -->
+<!-- [!code word:file\:bg-violet-50] -->
+<!-- [!code word:file\:text-violet-700] -->
+<!-- [!code word:hover\:file\:bg-violet-100] -->
+<form>
+  <div class="flex items-center space-x-6">
+    <div class="shrink-0">
+      <img
+        class="h-16 w-16 rounded-full object-cover"
+        src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
+        alt="Foto de perfil actual"
+      />
+    </div>
+    <label class="block">
+      <span class="sr-only">Elegir foto de perfil</span>
+      <input
+        type="file"
+        class="block w-full text-sm text-slate-500 file:mr-4 file:rounded-full file:border-0 file:bg-violet-50 file:py-2 file:text-sm file:font-semibold file:text-violet-700 hover:file:bg-violet-100"
+      />
+    </label>
+  </div>
+  <label class="mt-6 flex items-center justify-center space-x-2 text-sm font-medium text-slate-600">
+    <!-- [!code word:accent-violet-500] -->
+    <input type="checkbox" class="accent-violet-500" checked />
+    <span>Sí, envíenme todas sus estúpidas actualizaciones</span>
+  </label>
+</form>
+```
+
+</Figure>
+
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/accent-color">accent color</Link> y <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#file-input-buttons">botones de entrada de archivo</Link>.
+
+---
+
+## Modificador de impresión
+
+El nuevo modificador `print` te permite estilizar cómo debería verse tu sitio cuando los ~~animales~~ personas lo imprimen:
+
+```html
+<div>
+  <!-- [!code word:print\:hidden] -->
+  <article class="print:hidden">
+    <h1>Mi receta secreta de pizza</h1>
+    <p>Esta receta es secreta y no debe compartirse con nadie</p>
+    <!-- ... -->
+  </article>
+  <!-- [!code word:print\:block] -->
+  <div class="hidden print:block">¿En serio estás intentando imprimir esto? ¡Es secreto!</div>
+</div>
+```
+
+Diría "obtén más información en la <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#print-styles">documentación de estilos de impresión</Link>" pero no sería verdad.
+
+---
+
+## API moderna de aspect ratio
+
+Hemos añadido soporte para la nueva propiedad nativa `aspect-ratio`, que está empezando a tener un sólido soporte en navegadores:
+
+<Figure>
+
+<Example resizable>
+  {
+    <iframe
+      className="aspect-video w-full rounded-lg shadow-lg"
+      src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+      frameBorder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowFullScreen
+    ></iframe>
+  }
+</Example>
+
+```html
+<!-- [!code word:aspect-video] -->
+<iframe class="aspect-video w-full ..." src="https://www.youtube.com/..."></iframe>
+```
+
+</Figure>
+
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/aspect-ratio">aspect ratio</Link>.
+
+---
+
+## Estilos de subrayado elegantes
+
+Ahora puedes cambiar los colores, el grosor y más del subrayado:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="mx-auto max-w-md bg-white p-8 text-sm leading-6 text-slate-900 shadow-lg sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-200">
+      <p className="text-base leading-6">
+        Soy Derek, un astro-ingeniero con sede en Tatooine. Me gusta construir X-Wings en{" "}
+        <a href="#" className="font-semibold underline decoration-sky-500 decoration-2">
+          Mi Compañía, Inc
+        </a>
+        . Fuera del trabajo, me gusta{" "}
+        <a href="#" className="font-semibold underline decoration-pink-500 decoration-dotted decoration-2">
+          ver carreras de pods
+        </a>{" "}
+        y tener{" "}
+        <a href="#" className="font-semibold underline decoration-indigo-500 decoration-wavy decoration-2">
+          peleas de sables de luz
+        </a>
+        .
+      </p>
+    </div>
+  }
+</Example>
+
+```html
+<p>
+  Soy Derek, un astro-ingeniero con sede en Tatooine. Me gusta construir X-Wings en
+  <!-- [!code word:decoration-sky-500 decoration-2] -->
+  <a href="#" class="underline decoration-sky-500 decoration-2"> Mi Compañía, Inc </a>. Fuera del trabajo, me gusta{" "}
+  <!-- [!code word:decoration-pink-500 decoration-dotted decoration-2] -->
+  <a href="#" class="underline decoration-pink-500 decoration-dotted decoration-2"> ver carreras de pods </a> y tener
+  <!-- [!code word:decoration-indigo-500 decoration-wavy decoration-2] -->
+  <a href="#" class="underline decoration-indigo-500 decoration-wavy decoration-2"> peleas de sables de luz </a>.
+</p>
+```
+
+</Figure>
+
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/text-decoration-color">color de decoración de texto</Link>, <Link href="https://v3.tailwindcss.com/docs/text-decoration-style">estilo de decoración de texto</Link>, <Link href="https://v3.tailwindcss.com/docs/text-decoration-thickness">grosor de decoración de texto</Link>, y <Link href="https://v3.tailwindcss.com/docs/text-underline-offset">desplazamiento de subrayado de texto</Link>.
+
+---
+
+## Modificadores RTL y LTR
+
+Hemos añadido soporte experimental para layouts multidireccionales con nuevos modificadores `rtl` y `ltr`:
+
+<Example>
+  {
+    <div className="mx-auto grid max-w-lg grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2">
+      <div dir="ltr">
+        <p className="mb-4 text-sm font-medium text-slate-500 dark:text-slate-400">De izquierda a derecha</p>
+        <div className="group flex items-center">
+          <img
+            className="h-12 w-12 shrink-0 rounded-full"
+            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <div className="ml-3 rtl:mr-3 rtl:ml-0">
+            <p className="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">
+              <>Tom Cook</>
+            </p>
+            <p className="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">
+              <>Director de Operaciones</>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div dir="rtl">
+        <p className="mb-4 text-sm font-medium text-slate-500 dark:text-slate-400">De derecha a izquierda</p>
+        <div className="group flex items-center">
+          <img
+            className="h-12 w-12 shrink-0 rounded-full"
+            src="https://images.unsplash.com/photo-1563833717765-00462801314e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <div className="ml-3 rtl:mr-3 rtl:ml-0">
+            <p className="text-sm font-medium text-slate-700 group-hover:text-slate-900 dark:text-slate-300 dark:group-hover:text-white">
+              <>تامر كرم</>
+            </p>
+            <p className="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">
+              <>الرئيس التنفيذي</>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<div class="group flex items-center">
+  <img class="h-12 w-12 shrink-0 rounded-full" src="..." alt="" />
+  >
+  <!-- [!code highlight:2] -->
+  <div class="ltr:ml-3 rtl:mr-3">
+    <p class="text-sm font-medium text-slate-700 group-hover:text-slate-900">...</p>
+    <p class="text-sm font-medium text-slate-500 group-hover:text-slate-700">...</p>
+  </div>
+</div>
+```
+
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#rtl-support">soporte RTL</Link>.
+
+---
+
+## Modificadores Portrait y landscape
+
+Usa los nuevos modificadores `portrait` y `landscape` para añadir estilos condicionalmente cuando el viewport está en una orientación específica:
+
+```html
+<div>
+  <div class="portrait:hidden">
+    <!-- ... -->
+  </div>
+  <div class="landscape:hidden">
+    <p>Esta experiencia está diseñada para ser vista en landscape. Por favor, rota tu dispositivo para ver el sitio.</p>
+  </div>
+</div>
+```
+
+La <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#viewport-orientation">documentación para esta característica</Link> tiene incluso menos contenido que esta sección de esta publicación.
+
+---
+
+## Propiedades arbitrarias
+
+Esto podría ser ilegal, pero hemos hecho posible añadir CSS totalmente arbitrario que puedes combinar con modificadores como `hover`, `lg` y cualquier otro:
+
+```html
+<div class="[mask-type:luminance] hover:[mask-type:alpha]">
+  <!-- ... -->
+</div>
+```
+
+Esto es lo que los estilos inline quieren ser cuando crezcan. Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/adding-custom-styles#arbitrary-properties">propiedades arbitrarias</Link>.
+
+---
+
+## Play CDN
+
+No hay forma de hacer una compilación CDN basada en CSS sensata para Tailwind CSS v3.0, así que tuvimos que hacer algo diferente — construimos una biblioteca JavaScript.
+
+{/* prettier-ignore */}
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo</title>
+    <script src="https://cdn.tailwindcss.com/"></script> <!-- [!code ++] -->
+  </head>
+  <body>
+    <!-- -->
+  </body>
+</html>
+```
+
+Añade esa etiqueta de script a cualquier documento HTML y podrás usar todas las características de Tailwind, directamente en el navegador. Está destinado solo para fines de desarrollo, pero seguro que es una forma divertida de construir pequeñas demos o experimentar con una nueva idea.
+
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/installation/play-cdn">Play CDN</Link>.
+
+---
+
+Así que ahí lo tienes — ¡Tailwind CSS v3.0! Dirígete al nuevo <Link href="/">sitio de documentación</Link> para empezar a usarlo hoy mismo.
+
+Para una lista completa de cada cambio, consulta el <Link href="https://github.com/tailwindlabs/tailwindcss/blob/master/CHANGELOG.md">changelog</Link> en GitHub.

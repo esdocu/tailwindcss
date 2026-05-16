@@ -1,0 +1,783 @@
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { Image } from "@/components/media";
+import Link from "next/link";
+import { CodeExample, js, css, html, ts, CodeExampleGroup, CodeBlock } from "@/components/code-example";
+import card from "./card.jpg";
+import { adamwathan } from "@/app/blog/authors";
+
+export const meta = {
+  title: "Tailwind CSS v3.2: Breakpoints dinámicos, configuración múltiple y container queries, ¡oh cielos!",
+  description: "...y soporte para grupos anidados, variantes `aria-*`, variantes `data-*`, soporte para `@supports` y más.",
+  date: "2022-10-19T15:30:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Bueno, ¡llegó ese momento otra vez! El momento en el que pasamos rápidamente de{" "}
+      <em>"Realmente no tengo idea de qué podríamos añadir a una nueva versión de Tailwind"</em> a{" "}
+      <em>
+        "vaya, bueno, esto es en realidad una cantidad ridícula de cosas nuevas — será mejor que etiquetemos una versión antes de que las cosas se nos vayan
+        completamente de las manos"
+      </em>
+      .
+    </>
+  ),
+};
+
+<Image alt="Tailwind CSS v3.2" src={card} />
+
+Tailwind CSS v3.2 está aquí con una cantidad absolutamente _masiva_ de cosas nuevas, incluyendo soporte para breakpoints dinámicos, múltiples archivos de configuración en un solo proyecto, grupos anidados, variantes parametrizadas, container queries y más.
+
+Como siempre, revisa las <Link href="https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.2.0">notas de la versión</Link> para cada pequeño arreglo y mejora, pero aquí está lo más destacado:
+
+- <Link href="#multiple-config-files-in-one-project-using-config">
+    Múltiples archivos de configuración en un proyecto usando `@config`
+  </Link>
+- <Link href="#browser-support-based-styling-with-supports">Estilos basados en el soporte del navegador con `supports-*`</Link>
+- <Link href="#aria-attribute-variants">Variantes de atributos ARIA</Link>
+- <Link href="#data-attribute-variants">Variantes de atributos Data</Link>
+- <Link href="#max-width-and-dynamic-breakpoints">Max-width y breakpoints dinámicos</Link>
+- <Link href="#dynamic-group-and-peer-variants">Variantes dinámicas `group-*` y `peer-*`</Link>
+- <Link href="#dynamic-variants-with-match-variant">Variantes dinámicas con `matchVariant`</Link>
+- <Link href="#nested-group-and-multiple-peer-support-using-variant-modifiers">
+    Soporte para `group` anidado y múltiples `peer` usando modificadores de variantes
+  </Link>
+- <Link href="#container-queries">Container queries</Link>
+
+Actualiza tus proyectos instalando la última versión de `tailwindcss` desde npm:
+
+```sh
+npm install -D tailwindcss@latest
+```
+
+O juega con las nuevas características en <Link href="https://play.tailwindcss.com">Tailwind Play</Link> donde puedes probar todo al instante, directamente en el navegador.
+
+---
+
+## Múltiples archivos de configuración en un proyecto usando @config
+
+Hemos añadido una nueva directiva `@config` que puedes usar en un archivo CSS para especificar qué configuración de Tailwind CSS usar para ese archivo:
+
+<CodeExampleGroup filenames={["./styles/admin.css", "./styles/client.css"]}>
+  <CodeBlock
+    example={js`
+      @config "./tailwind.admin.config.js";
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+    `}
+  />
+  <CodeBlock
+    example={js`
+      @config "./tailwind.client.config.js";
+      @tailwind base;
+      @tailwind components;
+      @tailwind utilities;
+    `}
+  />
+</CodeExampleGroup>
+
+Esto facilita mucho la construcción de múltiples hojas de estilo en un solo proyecto que tengan configuraciones de Tailwind separadas. Por ejemplo, podrías tener un archivo de configuración para la parte de tu sitio orientada al cliente, y otro archivo de configuración para el área de administración/backend.
+
+Técnicamente siempre has podido hacer esto con suficiente magia de webpack, pero la nueva directiva `@config` lo hace súper fácil y accesible para todos, incluso en proyectos donde no tienes tanto control sobre la configuración de la herramienta de compilación.
+
+---
+
+## Estilos basados en el soporte del navegador con supports-\*
+
+Ahora puedes aplicar estilos condicionalmente según si una característica específica es compatible con el navegador del usuario usando la variante `supports-[...]`, que genera reglas [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) bajo el capó.
+
+```html
+<!-- [!code word:supports-[display\:grid\]\:grid] -->
+<div class="flex supports-[display:grid]:grid ...">
+  <!-- ... -->
+</div>
+```
+
+La variante `supports-[...]` acepta cualquier cosa que usarías con `@supports (...)` entre los corchetes, como un par propiedad/valor, e incluso expresiones usando `and` y `or`.
+
+Si solo necesitas comprobar si una propiedad en sí misma es compatible, puedes incluso especificar solo el nombre de la propiedad y Tailwind rellenará los espacios por ti:
+
+```html
+<!-- [!code word:supports-[backdrop-filter\]\:bg-black/25] -->
+<!-- [!code word:supports-[backdrop-filter\]\:backdrop-blur] -->
+<div class="bg-black/75 supports-[backdrop-filter]:bg-black/25 supports-[backdrop-filter]:backdrop-blur ...">
+  <!-- ... -->
+</div>
+```
+
+---
+
+## Variantes de atributos ARIA
+
+Ahora puedes aplicar estilos condicionalmente basados en [atributos ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes) con las nuevas variantes `aria-*`.
+
+Por ejemplo, puedes actualizar el color de fondo de un elemento basado en si el estado `aria-checked` es `true`:
+
+```html
+<!-- [!code word:aria-checked\:bg-blue-600] -->
+<span class="bg-gray-600 aria-checked:bg-blue-600" aria-checked="true" role="checkbox">
+  <!-- ... -->
+</span>
+```
+
+Por defecto, hemos incluido modificadores para los atributos booleanos ARIA más comunes:
+
+{
+
+<table>
+  <thead>
+    <tr>
+      <th>Modificador</th>
+      <th>CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code className="before:content-none after:content-none">aria-checked</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap before:content-none after:content-none">
+          <span className="text-slate-400">&</span>[aria-checked="true"]
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="before:content-none after:content-none">aria-disabled</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap before:content-none after:content-none">
+          <span className="text-slate-400">&</span>[aria-disabled="true"]
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="before:content-none after:content-none">aria-expanded</code>
+      </td>
+      <td>
+        <code className="before:content:none whitespace-nowrap after:content-none">
+          <span className="text-slate-400">&</span>[aria-expanded="true"]
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="before:content:none after:content-none">aria-hidden</code>
+      </td>
+      <td>
+        <code className="whitespace-nowap before:content:none after:content-none">
+          <span className="text-slate-400">&</span>[aria-hidden="true"]
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="before:content-none after:content-none">aria-pressed</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap before:content-none after:content-none">
+          <span className="text-slate-400">&</span>[aria-pressed="true"]
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="before:content-none after:content-none">aria-readonly</code>
+      </td>
+      <td>
+        <code className="whitespace-nowrap before:content-none after:content-none">
+          <span className="text-slate-400">&</span>[aria-readonly="true"]
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="before:content-none after:content-none">aria-required</code>
+      </td>
+      <td>
+        <code className="before:content:none whitespace-nowrap after:content-none">
+          <span className="text-slate-400">&</span>[aria-required="true"]
+        </code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code className="before:content:none after:content-none">aria-selected</code>
+      </td>
+      <td>
+        <code className="whitespace-nowap before:content:none after:content-none">
+          <span className="text-slate-400">&</span>[aria-selected="true"]
+        </code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+}
+
+Puedes personalizar qué modificadores `aria-*` están disponibles editando `theme.aria` o `theme.extend.aria` en tu
+archivo `tailwind.config.js`:
+
+```js
+// [!code filename:tailwind.config.js]
+module.exports = {
+  theme: {
+    extend: {
+      aria: {
+        asc: 'sort="ascending"',
+        desc: 'sort="descending"',
+      },
+    },
+  },
+};
+```
+
+Si necesitas usar un modificador `aria` único que no tenga sentido incluir en tu tema, o para atributos ARIA más complejos que toman valores específicos, usa corchetes para generar una propiedad sobre la marcha usando cualquier valor arbitrario.
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="py-8">
+      <table className="w-full border-collapse border-y border-slate-400 bg-white text-sm shadow-sm dark:border-slate-500 dark:bg-slate-800">
+        <thead className="bg-slate-50 dark:bg-slate-700">
+          <tr>
+            <th
+              className="group border border-slate-300 px-4 py-3 text-left font-semibold text-slate-900 first:border-l-0 last:border-r-0 dark:border-slate-600 dark:text-slate-200"
+              aria-sort="ascending"
+            >
+              <span className="flex w-full items-center justify-between gap-2">
+                Nº Factura
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  className="h-5 w-5 fill-slate-500 group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M10 5a.75.75 0 01.75.75v6.638l1.96-2.158a.75.75 0 111.08 1.04l-3.25 3.5a.75.75 0 01-1.08 0l-3.25-3.5a.75.75 0 111.08-1.04l1.96 2.158V5.75A.75.75 0 0110 5z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </span>
+            </th>
+            <th className="border border-slate-300 px-4 py-3 text-left font-semibold text-slate-900 first:border-l-0 last:border-r-0 dark:border-slate-600 dark:text-slate-200">
+              Cliente
+            </th>
+            <th className="border border-slate-300 px-4 py-3 text-right font-semibold text-slate-900 first:border-l-0 last:border-r-0 dark:border-slate-600 dark:text-slate-200">
+              Monto
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td className="border border-slate-300 px-4 py-3 text-slate-500 first:border-l-0 last:border-r-0 dark:border-slate-700 dark:text-slate-400">
+              #100
+            </td>
+            <td className="border border-slate-300 px-4 py-3 text-slate-500 first:border-l-0 last:border-r-0 dark:border-slate-700 dark:text-slate-400">
+              Pendant Publishing
+            </td>
+            <td className="border border-slate-300 px-4 py-3 text-right text-slate-500 tabular-nums first:border-l-0 last:border-r-0 dark:border-slate-700 dark:text-slate-400">
+              $2,000.00
+            </td>
+          </tr>
+          <tr>
+            <td className="border border-slate-300 px-4 py-3 text-slate-500 first:border-l-0 last:border-r-0 dark:border-slate-700 dark:text-slate-400">
+              #101
+            </td>
+            <td className="border border-slate-300 px-4 py-3 text-slate-500 first:border-l-0 last:border-r-0 dark:border-slate-700 dark:text-slate-400">
+              Kruger Industrial Smoothing
+            </td>
+            <td className="border border-slate-300 px-4 py-3 text-right text-slate-500 tabular-nums first:border-l-0 last:border-r-0 dark:border-slate-700 dark:text-slate-400">
+              $545.00
+            </td>
+          </tr>
+          <tr>
+            <td className="border border-slate-300 px-4 py-3 text-slate-500 first:border-l-0 last:border-r-0 dark:border-slate-700 dark:text-slate-400">
+              #102
+            </td>
+            <td className="border border-slate-300 px-4 py-3 text-slate-500 first:border-l-0 last:border-r-0 dark:border-slate-700 dark:text-slate-400">
+              J. Peterman
+            </td>
+            <td className="border border-slate-300 px-4 py-3 text-right text-slate-500 tabular-nums first:border-l-0 last:border-r-0 dark:border-slate-700 dark:text-slate-400">
+              $10,000.25
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  }
+</Example>
+
+<CodeExampleGroup filenames={['HTML', 'CSS Generado']}>
+  <CodeBlock
+    example={html`
+      <!-- [!code word:aria-[sort=ascending\]\:bg-[url('/img/down-arrow.svg')\]] -->
+      <!-- [!code word:aria-[sort=descending\]\:bg-[url('/img/up-arrow.svg')\]] -->
+      <table>
+        <thead>
+          <tr>
+            <th
+              aria-sort="ascending"
+              class="aria-[sort=ascending]:bg-[url('/img/down-arrow.svg')] aria-[sort=descending]:bg-[url('/img/up-arrow.svg')]"
+            >
+              Nº Factura
+            </th>
+            <!-- ... -->
+          </tr>
+        </thead>
+        <!-- ... -->
+      </table>
+    `}
+  />
+  <CodeBlock
+    example={css`
+      .aria-\\[sort\\=ascending\\]\\:bg-\\[url\\(\\'\\/img\\/down-arrow\\.svg\\'\\)\\][aria-sort="ascending"] {
+        background-image: url("/img/down-arrow.svg");
+      }
+
+      .aria-\\[sort\\=descending\\]\\:bg-\\[url\\(\\'\\/img\\/up-arrow\\.svg\\'\\)\\][aria-sort="descending"] {
+      background-image: url("/img/up-arrow.svg");
+      }
+    `}
+
+/>
+
+</CodeExampleGroup>
+
+</Figure>
+
+Los modificadores de estado ARIA también pueden apuntar a elementos padre y hermanos usando los modificadores `group-aria-*` y `peer-aria-*`:
+
+<CodeExampleGroup filenames={['HTML', 'CSS Generado']}>
+  <CodeBlock
+    example={html`
+      <!-- [!code word:group-aria-[sort=ascending\]\:rotate-0] -->
+      <!-- [!code word:group-aria-[sort=descending\]\:rotate-180] -->
+      <table>
+        <thead>
+          <tr>
+            <th aria-sort="ascending" class="group">
+              Nº Factura
+              <svg
+                class="group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180"
+              >
+                <!-- ... -->
+              </svg>
+            </th>
+            <!-- ... -->
+          </tr>
+        </thead>
+        <!-- ... -->
+      </table>
+    `}
+  />
+  <CodeBlock
+    example={js`
+      .group[aria-sort="ascending"] .group-aria-\\[sort\\=ascending\\]\\:rotate-0 {
+        --tw-rotate: 0deg;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+          rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+          scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+      }
+
+      .group[aria-sort="descending"] .group-aria-\\[sort\\=descending\\]\\:rotate-180 {
+        --tw-rotate: 180deg;
+        transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+        rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+        scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+      }
+
+`}
+/>
+
+</CodeExampleGroup>
+
+---
+
+## Variantes de atributos Data
+
+Ahora puedes aplicar estilos condicionalmente basados en [atributos data](https://developer.mozilla.org/es/docs/Learn/HTML/Howto/Use_data_attributes) con las nuevas variantes `data-*`.
+
+Dado que no hay atributos `data-*` estándar por definición, solo admitimos valores arbitrarios de forma predeterminada, por ejemplo:
+
+```html
+<!-- Se aplicará -->
+<div data-size="large" class="data-[size=large]:p-8">
+  <!-- ... -->
+</div>
+
+<!-- No se aplicará -->
+<div data-size="medium" class="data-[size=large]:p-8">
+  <!-- ... -->
+</div>
+
+<!-- CSS Generado -->
+<style>
+  .data-\\[size\\=large\\]\\:p-8[data-size="large"] {
+    padding: 2rem;
+  }
+</style>
+```
+
+Puedes configurar atajos para selectores de atributos de datos comunes que estés usando en tu proyecto bajo la clave `data` en la sección `theme` de tu archivo `tailwind.config.js`:
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    data: {
+      checked: 'ui~="checked"',
+    },
+  },
+  // ...
+};
+```
+
+```html
+<div data-ui="checked active" class="data-checked:underline">
+  <!-- ... -->
+</div>
+```
+
+Estas variantes también funcionan como variantes `group-*` y `peer-*` como muchas otras variantes en el framework:
+
+```html
+<div data-size="large" class="group">
+  <div class="group-data-[size=large]:p-8">
+    <!-- Aplicará `p-8` -->
+  </div>
+</div>
+
+<div data-size="medium" class="group">
+  <div class="group-data-[size=large]:p-8">
+    <!-- No aplicará `p-8` -->
+  </div>
+</div>
+```
+
+---
+
+## Max-width y breakpoints dinámicos
+
+Hemos añadido una nueva variante `max-*` que te permite aplicar media queries de max-width basadas en tus breakpoints configurados:
+
+```html
+<div class="max-lg:p-8">
+  <!-- Aplicará `p-8` hasta que el breakpoint `lg` entre en acción -->
+</div>
+```
+
+Como regla general, personalmente seguiría recomendando usar breakpoints de min-width, pero esta característica desbloquea un beneficio útil del flujo de trabajo que es no tener que _deshacer_ algún estilo en un breakpoint diferente.
+
+Por ejemplo, sin esta característica, a menudo terminas haciendo cosas como esta:
+
+```html
+<div class="md:sr-only xl:not-sr-only">
+  <!-- ... -->
+</div>
+```
+
+Con esta característica, puedes evitar deshacer ese estilo apilando una variante `max-*` en la declaración original:
+
+```html
+<div class="md:max-xl:sr-only">
+  <!-- ... -->
+</div>
+```
+
+Junto con esto, hemos añadido soporte para valores arbitrarios, y una nueva variante `min-*` que solo acepta valores arbitrarios, para que puedas hacer cosas como esta:
+
+```html
+<div class="min-[712px]:max-[877px]:right-16 ...">
+  <!-- ... -->
+</div>
+```
+
+Es importante tener en cuenta que **estas características solo estarán disponibles si tu proyecto utiliza una configuración `screens` simple.**
+
+Estas características son mucho más complicadas de lo que parecen debido a la necesidad de asegurar que todas estas media queries estén ordenadas en el CSS final de una manera que te dé el comportamiento esperado en el navegador. Así que, por ahora, solo funcionarán si tu configuración `screens` es un objeto simple con valores de cadena, como la configuración por defecto:
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+    },
+  },
+};
+```
+
+Si tienes una configuración compleja donde ya tienes breakpoints de `max-width` definidos, o media queries basadas en rangos, o _cualquier cosa_ que no sean solo cadenas, estas características no estarán disponibles. Podríamos resolver eso en el futuro, pero simplemente crea tantas preguntas sobre cómo se debe ordenar el CSS que aún no tenemos respuestas.
+
+Así que por ahora (y posiblemente para siempre), si quieres usar estas características, tu configuración `screens` necesita ser simple. Mi esperanza es que estas características hagan innecesarias de todos modos las configuraciones `screens` complejas.
+
+---
+
+## Variantes dinámicas group-\* y peer-\*
+
+Ahora es posible crear variantes personalizadas `group-*` y `peer-*` sobre la marcha pasando tu propio selector para ser "groupificado" o "peerificado" entre corchetes:
+
+<CodeExampleGroup filenames={['HTML', 'CSS Generado']}>
+  <CodeBlock
+    example={html`
+      <!-- [!code word:group-[.is-published\]\:block] -->
+      <div class="group is-published">
+        <div class="group-[.is-published]:block hidden">Publicado</div>
+      </div>
+    `}
+  />
+  <CodeBlock
+    example={css`
+      .group.is-published .group-\\[\\.is-published\\]\\:block {
+        display: block;
+      }
+    `}
+  />
+</CodeExampleGroup>
+
+Para mayor control, puedes usar el carácter `&` para marcar dónde deben terminar `.group` o `.peer` en el selector final en relación con el selector que estás pasando:
+
+<CodeExampleGroup filenames={['HTML', 'CSS Generado']}>
+  <CodeBlock
+    example={html`
+      <!-- [!code word:peer-[\:nth-of-type(3)_&\]\:block] -->
+      <div>
+        <input type="text" class="peer" />
+        <div class="peer-[:nth-of-type(3)_&]:block hidden">
+          <!-- ... -->
+        </div>
+      </div>
+    `}
+  />
+  <CodeBlock
+    example={css`
+      :nth-of-type(3) .peer ~ .peer-\\[\\:nth-of-type\\(3\\)_\\&\\]\\:block {
+        display: block;
+      }
+    `}
+  />
+</CodeExampleGroup>
+
+Seamos serios, probablemente vas a usar estas características como tres veces en toda tu vida, pero sigue siendo bastante genial. Esperamos poder usar esto como un bloque de construcción para hacer que `group` y `peer` funcionen más automáticamente con variantes registradas por plugins de terceros en el futuro.
+
+---
+
+## Variantes dinámicas con matchVariant
+
+Probablemente hayas notado esta nueva sintaxis `variant-[...]` en muchas de estas nuevas características — todo esto está impulsado por una nueva API de plugin `matchVariant` que hace posible crear lo que llamamos "variantes dinámicas".
+
+Aquí hay un ejemplo de cómo crear una variante `placement-*` para alguna biblioteca imaginaria de tooltips que usa un atributo `data-placement` para decirte dónde está posicionado actualmente el tooltip:
+
+```js
+// [!code word:js]
+let plugin = require("tailwindcss/plugin");
+
+module.exports = {
+  // ...
+  plugins: [
+    plugin(function ({ matchVariant }) {
+      matchVariant(
+        "placement",
+        (value) => {
+          return `&[data-placement=${value}]`;
+        },
+        {
+          values: {
+            t: "top",
+            r: "right",
+            b: "bottom",
+            l: "left",
+          },
+        },
+      );
+    }),
+  ],
+};
+```
+
+La variante definida arriba te daría variantes como `placement-t` y `placement-b`, pero también soportaría la porción arbitraria entre corchetes, así que si esta biblioteca imaginaria de tooltips tuviera otros valores potenciales para los que no sintieras la necesidad de crear valores incorporados, aún podrías hacer cosas como esta:
+
+```html
+<div class="placement-[top-start]:mb-2 ...">
+  <!-- ... -->
+</div>
+```
+
+Al definir una variante personalizada con esta API, a menudo es importante que tengas cierto control sobre en qué orden se genera el CSS para asegurarte de que cada clase tenga la precedencia correcta con respecto a otros valores que provienen de la misma variante. Para soportar esto, hay una función `sort` que puedes proporcionar al definir tu variante:
+
+```js
+// [!code word:js]
+matchVariant("min", (value) => `@media (min-width: ${value})`, {
+  sort(a, z) {
+    return parseInt(a) - parseInt(z);
+  },
+});
+```
+
+---
+
+## Soporte para group anidado y múltiples peer usando modificadores de variantes
+
+A veces puedes encontrarte con problemas cuando tienes múltiples trozos de `group` anidados unos dentro de otros porque Tailwind no tiene una forma real de desambiguarlos.
+
+Para solucionar esto, estamos añadiendo soporte para _modificadores de variantes_, que son un nuevo trozo dinámico que puedes añadir al final de una variante (inspirado en nuestra sintaxis opcional de modificador de opacidad) que puedes usar para darle a cada group/peer tu propio identificador.
+
+Así es como se ve:
+
+```html
+<!-- [!code word:group/sidebar] -->
+<!-- [!code word:group/navitem] -->
+<!-- [!code word:group-hover/sidebar\:opacity-75] -->
+<!-- [!code word:group-hover/navitem\:bg-black/75] -->
+<div class="group/sidebar ...">
+  <!-- ... -->
+  <div class="group/navitem ...">
+    <a href="#" class="opacity-50 group-hover/navitem:bg-black/75 group-hover/sidebar:opacity-75">
+      <!-- ... -->
+    </a>
+  </div>
+  <!-- ... -->
+</div>
+```
+
+Esto te permite dar a cada grupo un nombre claro que tenga sentido para ese contexto sobre la marcha, y Tailwind generará el CSS necesario para hacerlo funcionar.
+
+Estoy realmente emocionado de tener una solución para esto porque es algo en lo que he estado tratando de encontrar un buen enfoque durante varios años, y esta es la primera cosa que se nos ha ocurrido que realmente parece ofrecer el poder y la flexibilidad que creo que debería.
+
+---
+
+## Container queries
+
+Apenas puedo creerlo, pero las [container queries](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Container_Queries) finalmente son reales y el soporte de los navegadores está peligrosamente cerca de hacerlas listas para producción — de hecho, si estás construyendo una aplicación [Electron](https://www.electronjs.org/) podrías usarlas hoy mismo.
+
+Hoy estamos lanzando `@tailwindcss/container-queries`, que es un nuevo plugin oficial que añade soporte para container query al framework, usando una nueva sintaxis `@` para diferenciarlas de las media queries normales:
+
+```html
+<div class="@container">
+  <div class="block @lg:flex">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+De forma predeterminada, incluimos un conjunto de tamaños de contenedor que coinciden con nuestra escala `max-width` predeterminada:
+
+{
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>xs</td>
+      <td>20rem</td>
+    </tr>
+    <tr>
+      <td>sm</td>
+      <td>24rem</td>
+    </tr>
+    <tr>
+      <td>md</td>
+      <td>28rem</td>
+    </tr>
+    <tr>
+      <td>lg</td>
+      <td>32rem</td>
+    </tr>
+    <tr>
+      <td>xl</td>
+      <td>36rem</td>
+    </tr>
+    <tr>
+      <td>2xl</td>
+      <td>42rem</td>
+    </tr>
+    <tr>
+      <td>3xl</td>
+      <td>48rem</td>
+    </tr>
+    <tr>
+      <td>4xl</td>
+      <td>56rem</td>
+    </tr>
+    <tr>
+      <td>5xl</td>
+      <td>64rem</td>
+    </tr>
+    <tr>
+      <td>6xl</td>
+      <td>72rem</td>
+    </tr>
+    <tr>
+      <td>7xl</td>
+      <td>80rem</td>
+    </tr>
+  </tbody>
+</table>
+}
+
+Puedes configurar qué valores están disponibles usando la clave `containers` en tu archivo `tailwind.config.js`:
+
+```js
+// tailwind.config.js
+module.exports = {
+  theme: {
+    extend: {
+      containers: {
+        "2xs": "16rem",
+        // etc...
+      },
+    },
+  },
+};
+```
+
+También incluimos soporte para valores arbitrarios, usando la sintaxis `@[...]`:
+
+```html
+<div class="@container">
+  <div class="block @[618px]:flex">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+...y contenedores nombrados usando la misma sintaxis de modificador de variante que ahora enviamos para las variantes `group-*` y `peer-*`:
+
+```html
+<div class="@container/main">
+  <!-- ... -->
+  <div>
+    <div class="block @lg/main:flex">
+      <!-- ... -->
+    </div>
+  </div>
+</div>
+```
+
+Por ahora estamos empezando con simple `min-width` based container queries, pero planeamos expandir el alcance con el tiempo, y cuando sintamos que realmente hemos perfeccionado las APIs, lo llevaremos todo al núcleo.
+
+Para una documentación completa, consulta el plugin <Link href="https://github.com/tailwindlabs/tailwindcss-container-queries">en GitHub</Link>.
+
+---
+
+¡Así que ahí lo tienes — Tailwind CSS v3.2! Mejoras importantes pero solo un cambio de versión menor, así que no hay cambios que rompan la compatibilidad y deberías poder actualizar tu proyecto simplemente actualizando tu dependencia:
+
+```sh
+npm install -D tailwindcss@latest
+```
+
+Sí, te escucho al fondo, todavía no hay sombras de texto, pero bueno, al menos puedes estilizar el hermano de un checkbox cuando el padre del checkbox es el tercer hijo en una lista sin salir de tu HTML. Prioridades, gente.

@@ -1,0 +1,53 @@
+import { adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import Link from "next/link";
+import { Image } from "@/components/media";
+
+export const meta = {
+  title: "Tailwind UI es ahora Tailwind Plus",
+  description: `Acabamos de lanzar un gran proyecto de rebranding, convirtiendo lo que antes se conocía como Tailwind UI en Tailwind Plus. Tailwind Plus son los mismos recursos de alta calidad que conoces de Tailwind UI, pero con posibilidades y potencial completamente nuevos.`,
+  date: "2025-03-04T16:00:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Acabamos de lanzar un gran proyecto de rebranding, convirtiendo lo que antes se conocía como Tailwind UI en Tailwind Plus.
+      Tailwind Plus son los mismos recursos de alta calidad que conoces de Tailwind UI, pero con posibilidades y
+      potencial completamente nuevos.
+    </>
+  ),
+};
+
+<Link href="https://tailwindcss.com/plus">
+  <Image src={card} alt="Tailwind Plus" />
+</Link>
+
+Acabamos de lanzar un gran proyecto de rebranding, convirtiendo lo que antes se conocía como Tailwind UI en [Tailwind Plus](https://tailwindcss.com/plus).
+
+Antes de que saques conclusiones precipitadas, esto es lo que _no_ cambia:
+
+- **Sin precios de suscripción** — sigue siendo una compra única con acceso de por vida, tal como siempre ha sido.
+- **Sin costo de actualización** — si ya tenías una licencia Tailwind UI All-Access, ahora tienes una licencia Tailwind Plus. El precio tampoco cambia para los nuevos clientes.
+- **Todo el mismo contenido** — obtienes acceso a todo el mismo contenido, incluidos todos nuestros componentes, plantillas y nuestro kit de UI Catalyst.
+
+Entonces, ¿por qué el cambio? En pocas palabras, hay mucho que queremos hacer por nuestra comunidad que no parece encajar en la caja de Tailwind UI.
+
+Aquí tienes algunas de las ideas que hemos estado explorando para Tailwind Plus:
+
+- **Cuentas de Tailwind Play** — para que puedas guardar tus experimentos y encontrar ideas antiguas más fácilmente, e incluso actualizar Plays existentes sin perder la URL original.
+- **Temas de editor personalizados** — la gente nos pregunta todo el timepo sobre los temas de sintaxis personalizados que usamos para nuestras cosas, y Tailwind Plus parece una forma genial de ponerlos a disposición de la gente.
+- **Paletas de colores** — alternativas a la paleta de colores predeterminada de Tailwind CSS, seleccionadas para ti por diseñadores expertos.
+- **Temas de tipografía** — más estilos de tipografía como los que obtienes con nuestro plugin de tipografía, pero con diferentes elecciones estilísticas.
+- **Construir una comunidad privada más fuerte** — Tailwind es utilizado por millones de personas, lo cual es increíble, pero también significa que hay mucho ruido en los canales públicos. Queremos construir una gran comunidad donde puedas tener conversaciones de alta calidad sobre desarrollo front-end con otros ingenieros de UI y conectarte directamente con el equipo de Tailwind CSS.
+- **Acceso anticipado a la documentación beta** — obtén acceso a la documentación de funciones inéditas antes de que se hagan públicas y ayúdanos a refinar las cosas antes de que se vuelvan estables.
+- **Registro anticipado para eventos presenciales** — como las reuniones de Tailwind Connect que hemos organizado, donde puedes pasar el rato con el equipo de Tailwind y charlar sobre el trabajo con otros en la comunidad.
+
+Algunas de estas ideas están más avanzadas que otras y algunas de ellas podrían no terminar siendo buenas ideas en absoluto, pero estoy muy emocionado de seguir explorándolas en los próximos meses.
+
+¡Por supuesto, también vamos a seguir invirtiendo en más mejoras de [ejemplos de componentes](/plus/ui-blocks), [plantillas](/plus/templates) y [Catalyst](/plus/ui-kit)! Estamos ansiosos por **diseñar un combobox para Catalyst pronto**, por ejemplo, y también estamos a punto de comenzar a prototipar **versiones HTML simples de nuestras plantillas** para personas que no usan React.
+
+Así que, en última instancia, Tailwind Plus son los mismos recursos de alta calidad que conoces de Tailwind UI, pero con posibilidades y potencial completamente nuevos.
+
+Es un gran riesgo hacer un cambio como este, but es algo que he querido hacer durante años y estoy emocionado de finalmente apretar el gatillo y lanzarlo.
+
+Así que brindemos por una nueva era — no puedo esperar para construirte algunas cosas nuevas e increíbles.

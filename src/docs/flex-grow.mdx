@@ -1,0 +1,129 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+
+export const title = "flex-grow";
+export const description = "Utilidades para controlar cómo crecen los elementos flex.";
+
+<ApiTable
+  rows={[
+    ["grow", "flex-grow: 1;"],
+    ["grow-<number>", "flex-grow: <number>;"],
+    ["grow-[<value>]", "flex-grow: <value>;"],
+    ["grow-(<custom-property>)", "flex-grow: var(<custom-property>);"],
+  ]}
+/>
+
+## Ejemplos
+
+### Permitir que los elementos crezcan
+
+Usa `grow` para permitir que un elemento flex crezca para llenar cualquier espacio disponible:
+
+<Figure>
+
+<Example resizable>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex gap-4 rounded-lg font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex size-14 flex-none items-center justify-center rounded-lg bg-sky-300 dark:bg-sky-800 dark:text-sky-400">
+          01
+        </div>
+        <div className="flex size-14 grow items-center justify-center rounded-lg bg-sky-500 p-4">02</div>
+        <div className="flex size-14 flex-none items-center justify-center rounded-lg bg-sky-300 p-4 dark:bg-sky-800 dark:text-sky-400">
+          03
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:grow] -->
+<div class="flex ...">
+  <div class="size-14 flex-none ...">01</div>
+  <div class="size-14 grow ...">02</div>
+  <div class="size-14 flex-none ...">03</div>
+</div>
+```
+
+</Figure>
+
+### Elementos que crecen basados en factor
+
+Usa utilidades `grow-<number>` como `grow-3` para hacer que los elementos flex crezcan proporcionalmente según su factor de crecimiento, permitiéndoles llenar el espacio disponible en relación entre sí:
+
+<Figure>
+
+<Example resizable>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex gap-4 rounded-lg font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex size-14 grow-3 items-center justify-center rounded-lg bg-indigo-300 dark:bg-indigo-800 dark:text-indigo-400">
+          01
+        </div>
+        <div className="flex size-14 grow-7 items-center justify-center rounded-lg bg-indigo-500 p-4">02</div>
+        <div className="flex size-14 grow-3 items-center justify-center rounded-lg bg-indigo-300 p-4 dark:bg-indigo-800 dark:text-indigo-400">
+          03
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:grow-3,grow-7] -->
+<div class="flex ...">
+  <div class="size-14 grow-3 ...">01</div>
+  <div class="size-14 grow-7 ...">02</div>
+  <div class="size-14 grow-3 ...">03</div>
+</div>
+```
+
+</Figure>
+
+### Evitar que los elementos crezcan
+
+Usa `grow-0` para evitar que un elemento flex crezca:
+
+<Figure>
+
+<Example resizable>
+  {
+    <div className="grid grid-cols-1">
+      <Stripes border className="col-start-1 row-start-1 rounded-lg" />
+      <div className="col-start-1 row-start-1 flex gap-4 rounded-lg font-mono text-sm leading-6 font-bold text-white">
+        <div className="flex size-14 grow items-center justify-center rounded-lg bg-pink-300 p-4 dark:bg-pink-800 dark:text-pink-400">
+          01
+        </div>
+        <div className="flex size-14 shrink-0 grow-0 items-center justify-center rounded-lg bg-pink-500">02</div>
+        <div className="hidden size-14 grow items-center justify-center rounded-lg bg-pink-300 p-4 md:flex dark:bg-pink-800 dark:text-pink-400">
+          03
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:grow-0] -->
+<div class="flex ...">
+  <div class="size-14 grow ...">01</div>
+  <div class="size-14 grow-0 ...">02</div>
+  <div class="size-14 grow ...">03</div>
+</div>
+```
+
+</Figure>
+
+### Usando un valor personalizado
+
+<UsingACustomValue utility="grow" name="flex grow factor" value="25vw" />
+
+### Responsive design
+
+<ResponsiveDesign property="flex-grow" defaultClass="grow" featuredClass="grow-0" />

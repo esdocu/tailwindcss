@@ -1,0 +1,270 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+import { CustomizingYourSpacingScale } from "@/components/content.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+
+export const title = "top / right / bottom / left";
+export const description = "Utilidades para controlar la ubicación de elementos posicionados.";
+
+<ApiTable
+  rows={[
+    { prefix: "inset", property: "inset" },
+    { prefix: "inset-x", property: "inset-inline" },
+    { prefix: "inset-y", property: "inset-block" },
+    { prefix: "start", property: "inset-inline-start" },
+    { prefix: "end", property: "inset-inline-end" },
+    { prefix: "top", property: "top" },
+    { prefix: "right", property: "right" },
+    { prefix: "bottom", property: "bottom" },
+    { prefix: "left", property: "left" },
+  ].flatMap(({ prefix, property }) =>
+    [
+      ["<number>", "calc(var(--spacing) * <number>)"],
+      ["<number>", "calc(var(--spacing) * -<number>)", true],
+      ["<fraction>", "calc(<fraction> * 100%)"],
+      ["<fraction>", "calc(<fraction> * -100%)", true],
+      ["px", "1px"],
+      ["px", "-1px", true],
+      ["full", "100%"],
+      ["full", "-100%", true],
+      ["auto", "auto"],
+      ["(<custom-property>)", "var(<custom-property>)"],
+      ["[<value>]", "<value>"],
+    ].map(([suffix, value, negative]) => [`${negative ? "-" : ""}${prefix}-${suffix}`, `${property}: ${value};`]),
+  )}
+/>
+
+## Ejemplos
+
+### Ejemplo básico
+
+Usa las utilidades `top-<number>`, `right-<number>`, `bottom-<number>`, `left-<number>`, e `inset-<number>` como `top-0` y `bottom-4` para establecer la posición horizontal o vertical de un [elemento posicionado](/docs/position):
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-3 grid-rows-3 place-items-center gap-4 font-mono text-sm leading-6 font-bold text-white">
+      <div className="relative size-18 rounded-lg sm:size-32">
+        <div className="absolute inset-0">
+          <Stripes border className="h-full rounded-lg" />
+        </div>
+        <div className="absolute top-0 left-0 flex size-16 items-center justify-center rounded-lg bg-purple-500 p-4">
+          01
+        </div>
+      </div>
+      <div className="relative size-18 rounded-lg sm:size-32">
+        <div className="absolute inset-0">
+          <Stripes border className="h-full rounded-lg" />
+        </div>
+        <div className="absolute inset-x-0 top-0 flex h-16 items-center justify-center rounded-lg bg-purple-500 p-4">
+          02
+        </div>
+      </div>
+      <div className="relative size-18 rounded-lg sm:size-32">
+        <div className="absolute inset-0">
+          <Stripes border className="h-full rounded-lg" />
+        </div>
+        <div className="absolute top-0 right-0 flex size-16 items-center justify-center rounded-lg bg-purple-500 p-4">
+          03
+        </div>
+      </div>
+      <div className="relative size-18 rounded-lg sm:size-32">
+        <div className="absolute inset-0">
+          <Stripes border className="h-full rounded-lg" />
+        </div>
+        <div className="absolute inset-y-0 left-0 flex w-16 items-center justify-center rounded-lg bg-purple-500 p-4">
+          04
+        </div>
+      </div>
+      <div className="relative size-18 rounded-lg sm:size-32">
+        <div className="absolute inset-0">
+          <Stripes border className="h-full rounded-lg" />
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-purple-500 p-4">05</div>
+      </div>
+      <div className="relative size-18 rounded-lg sm:size-32">
+        <div className="absolute inset-0">
+          <Stripes border className="h-full rounded-lg" />
+        </div>
+        <div className="absolute inset-y-0 right-0 flex w-16 items-center justify-center rounded-lg bg-purple-500 p-4">
+          06
+        </div>
+      </div>
+      <div className="relative size-18 rounded-lg sm:size-32">
+        <div className="absolute inset-0">
+          <Stripes border className="h-full rounded-lg" />
+        </div>
+        <div className="absolute bottom-0 left-0 flex size-16 items-center justify-center rounded-lg bg-purple-500 p-4">
+          07
+        </div>
+      </div>
+      <div className="relative size-18 rounded-lg sm:size-32">
+        <div className="absolute inset-0">
+          <Stripes border className="h-full rounded-lg" />
+        </div>
+        <div className="absolute inset-x-0 bottom-0 flex h-16 items-center justify-center rounded-lg bg-purple-500 p-4">
+          08
+        </div>
+      </div>
+      <div className="relative size-18 rounded-lg sm:size-32">
+        <div className="absolute inset-0">
+          <Stripes border className="h-full rounded-lg" />
+        </div>
+        <div className="absolute right-0 bottom-0 flex size-16 items-center justify-center rounded-lg bg-purple-500 p-4">
+          09
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:inset-x-0,inset-y-0,inset-0,right-0,left-0,top-0,bottom-0] -->
+<!-- Fijar a la esquina superior izquierda -->
+<div class="relative size-32 ...">
+  <div class="absolute top-0 left-0 size-16 ...">01</div>
+</div>
+
+<!-- Abarcar borde superior -->
+<div class="relative size-32 ...">
+  <div class="absolute inset-x-0 top-0 h-16 ...">02</div>
+</div>
+
+<!-- Fijar a la esquina superior derecha -->
+<div class="relative size-32 ...">
+  <div class="absolute top-0 right-0 size-16 ...">03</div>
+</div>
+
+<!-- Abarcar borde izquierdo -->
+<div class="relative size-32 ...">
+  <div class="absolute inset-y-0 left-0 w-16 ...">04</div>
+</div>
+
+<!-- Llenar todo el padre -->
+<div class="relative size-32 ...">
+  <div class="absolute inset-0 ...">05</div>
+</div>
+
+<!-- Abarcar borde derecho -->
+<div class="relative size-32 ...">
+  <div class="absolute inset-y-0 right-0 w-16 ...">06</div>
+</div>
+
+<!-- Fijar a la esquina inferior izquierda -->
+<div class="relative size-32 ...">
+  <div class="absolute bottom-0 left-0 size-16 ...">07</div>
+</div>
+
+<!-- Abarcar borde inferior -->
+<div class="relative size-32 ...">
+  <div class="absolute inset-x-0 bottom-0 h-16 ...">08</div>
+</div>
+
+<!-- Fijar a la esquina inferior derecha -->
+<div class="relative size-32 ...">
+  <div class="absolute right-0 bottom-0 size-16 ...">09</div>
+</div>
+```
+
+</Figure>
+
+### Usando valores negativos
+
+Para usar un valor negativo de top/right/bottom/left, antepone un guion al nombre de la clase para convertirlo en un valor negativo:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex justify-center font-mono text-sm leading-6 font-bold text-white">
+      <div className="relative size-18 rounded-lg sm:h-32 sm:w-32">
+        <div className="absolute inset-0">
+          <Stripes border className="h-full rounded-lg" />
+        </div>
+        <div className="absolute -top-4 -left-4 flex items-center justify-center rounded-lg bg-purple-500 p-4"></div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:-left-4,-top-4] -->
+<div class="relative size-32 ...">
+  <div class="absolute -top-4 -left-4 size-14 ..."></div>
+</div>
+```
+
+</Figure>
+
+### Usando propiedades lógicas
+
+Usa utilidades `start-<number>` o `end-<number>` como `start-0` y `end-4` para establecer las [propiedades lógicas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) `inset-inline-start` y `inset-inline-end`, que se asignan al lado izquierdo o derecho según la dirección del texto:
+
+<Figure>
+
+<Example>
+  {
+    <div className="grid grid-cols-2 place-items-center gap-x-4">
+      <div className="flex flex-col items-start gap-y-4">
+        <p className="text-sm font-medium">De izquierda a derecha</p>
+        <div className="relative size-18 rounded-lg sm:size-32">
+          <div className="absolute inset-0">
+            <Stripes border className="h-full rounded-lg" />
+          </div>
+          <div className="absolute top-0 left-0 flex size-14 items-center justify-center rounded-lg bg-purple-500 p-4"></div>
+        </div>
+      </div>
+      <div className="flex flex-col items-end gap-y-4">
+        <p className="text-sm font-medium">De derecha a izquierda</p>
+        <div className="relative size-18 rounded-lg sm:size-32">
+          <div className="absolute inset-0">
+            <Stripes border className="h-full rounded-lg" />
+          </div>
+          <div className="absolute top-0 right-0 flex size-14 items-center justify-center rounded-lg bg-purple-500 p-4"></div>
+        </div>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:start-0] -->
+<div dir="ltr">
+  <div class="relative size-32 ...">
+    <div class="absolute start-0 top-0 size-14 ..."></div>
+  </div>
+  <div>
+    <div dir="rtl">
+      <div class="relative size-32 ...">
+        <div class="absolute start-0 top-0 size-14 ..."></div>
+      </div>
+      <div></div>
+    </div>
+  </div>
+</div>
+```
+
+</Figure>
+
+Para mayor control, también puedes usar los [modificadores LTR y RTL](/docs/hover-focus-and-other-states#rtl-support) para aplicar estilos específicos condicionalmente según la dirección actual del texto.
+
+### Usando un valor personalizado
+
+<UsingACustomValue utilities={["inset", "top"]} name="position" value="3px" variable="position" />
+
+### Responsive Design
+
+<ResponsiveDesign
+  properties={["inset", "inset-x", "inset-y", "start", "end", "top", "left", "bottom", "right"]}
+  defaultClass="top-4"
+  featuredClass="top-6"
+/>
+
+## Personalizando tu tema
+
+<CustomizingYourSpacingScale
+  utilities={["inset", "inset-x", "inset-y", "start", "end", "top", "left", "bottom", "right"]}
+/>
