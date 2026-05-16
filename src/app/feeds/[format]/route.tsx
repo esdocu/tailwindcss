@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { getBlogPostBySlug, getBlogPostSlugs, nonNullable } from "@/app/blog/api";
 import { Feed } from "feed";
 import { notFound } from "next/navigation";
