@@ -188,6 +188,10 @@ export default async function RootLayout({
             <div className="isolate">{children}</div>
           </ThemeProvider>
         </SearchProvider>
+        <Script
+          src="https://static-ads.xeost.com/ads.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
