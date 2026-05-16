@@ -1,3 +1,4 @@
+export const dynamicParams = false;
 import { loadGuide, loadGuides } from "@/app/(docs)/docs/installation/framework-guides";
 import { Steps } from "@/components/installation-steps";
 import { TabBar } from "@/components/installation-tabs";

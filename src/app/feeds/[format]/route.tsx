@@ -1,4 +1,4 @@
-export const runtime = "edge";
+export const dynamicParams = false;
 import { getBlogPostBySlug, getBlogPostSlugs, nonNullable } from "@/app/blog/api";
 import { Feed } from "feed";
 import { notFound } from "next/navigation";

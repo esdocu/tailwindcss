@@ -1,3 +1,4 @@
+export const dynamicParams = false;
 import { notFound } from "next/navigation";
 import React from "react";
 import { formatDate, getBlogPostBySlug, getBlogPostSlugs } from "../api";
