@@ -1,4 +1,3 @@
-export const dynamicParams = false;
 import { Breadcrumb } from "@/components/breadcrumb";
 import { getDocPageSlugs, getSectionAndTitleBySlug } from "../../../../(docs)/docs/api";
 

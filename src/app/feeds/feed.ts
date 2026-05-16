@@ -1,18 +1,10 @@
-export const dynamic = "force-static";
 import { getBlogPostBySlug, getBlogPostSlugs, nonNullable } from "@/app/blog/api";
 import { Feed } from "feed";
-import { notFound } from "next/navigation";
 
 const BASE_URL = "https://tailwindcss.com";
 const BLOG_URL = `${BASE_URL}/blog`;
 
-export async function generateStaticParams() {
-  return [{ format: "feed.xml" }, { format: "feed.json" }, { format: "atom.xml" }];
-}
-
-export async function GET(request: Request, { params }: { params: Promise<{ format: string }> }) {
-  let format = (await params).format;
-
+export async function generateFeed() {
   const feed = new Feed({
     title: "Blog de Tailwind CSS",
     description: "Todas las últimas noticias de Tailwind CSS, directamente del equipo.",
@@ -53,26 +45,5 @@ export async function GET(request: Request, { params }: { params: Promise<{ form
     });
   }
 
-  switch (format) {
-    case "feed.xml":
-      return new Response(feed.rss2(), {
-        headers: {
-          "Content-Type": "application/xml; charset=utf-8",
-        },
-      });
-    case "feed.json":
-      return new Response(feed.json1(), {
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-        },
-      });
-    case "atom.xml":
-      return new Response(feed.atom1(), {
-        headers: {
-          "Content-Type": "application/xml; charset=utf-8",
-        },
-      });
-    default:
-      notFound();
-  }
+  return feed;
 }

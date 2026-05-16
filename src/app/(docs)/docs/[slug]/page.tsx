@@ -1,4 +1,3 @@
-export const dynamicParams = false;
 import Pagination from "@/components/pagination";
 import { RandomPromo } from "@/components/promos";
 import TableOfContents from "@/components/table-of-contents";
