@@ -5,7 +5,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "flex-shrink";
-export const description = "Utilidades para controlar cómo se encogen los elementos flex.";
+export const description = "Utilities for controlling how flex items shrink.";
 
 <ApiTable
   rows={[
@@ -16,11 +16,11 @@ export const description = "Utilidades para controlar cómo se encogen los eleme
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Permitir que los elementos flex se encojan
+### Allowing flex items to shrink
 
-Usa `shrink` para permitir que un elemento flex se encoja si es necesario:
+Use `shrink` to allow a flex item to shrink if needed:
 
 <Figure>
 
@@ -52,9 +52,9 @@ Usa `shrink` para permitir que un elemento flex se encoja si es necesario:
 
 </Figure>
 
-### Evitar que los elementos se encojan
+### Preventing items from shrinking
 
-Usa `shrink-0` para evitar que un elemento flex se encoja:
+Use `shrink-0` to prevent a flex item from shrinking:
 
 <Figure>
 
@@ -86,7 +86,7 @@ Usa `shrink-0` para evitar que un elemento flex se encoja:
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="shrink" name="flex shrink factor" value="calc(100vw-var(--sidebar))" />
 

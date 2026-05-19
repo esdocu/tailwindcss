@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "outline-style";
-export const description = "Utilidades para controlar el estilo del contorno de un elemento.";
+export const description = "Utilities for controlling the style of an element's outline.";
 
 <ApiTable
   rows={[
@@ -17,11 +17,11 @@ export const description = "Utilidades para controlar el estilo del contorno de 
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades como `outline-solid` y `outline-dashed` para establecer el estilo del contorno de un elemento:
+Use utilities like `outline-solid` and `outline-dashed` to set the style of an element's outline:
 
 <Figure>
 
@@ -72,11 +72,11 @@ Usa utilidades como `outline-solid` y `outline-dashed` para establecer el estilo
 
 </Figure>
 
-### Ocultando un contorno
+### Hiding an outline
 
-Usa la utilidad `outline-hidden` para ocultar el contorno predeterminado del navegador en los elementos enfocados, mientras conservas el contorno en el modo de colores forzados:
+Use the `outline-hidden` utility to hide the default browser outline on focused elements, while still preserving the outline in forced colors mode:
 
-<Figure hint="Intenta emular `forced-colors: active` en tus herramientas de desarrollador para ver el comportamiento">
+<Figure hint="Try emulating `forced-colors: active` in your developer tools to see the behavior">
 
 <Example>
   {
@@ -95,11 +95,11 @@ Usa la utilidad `outline-hidden` para ocultar el contorno predeterminado del nav
 
 </Figure>
 
-Se recomienda encarecidamente aplicar tu propio estilo de enfoque por accesibilidad al usar esta utilidad.
+It is highly recommended to apply your own focus styling for accessibility when using this utility.
 
-### Eliminando contornos
+### Removing outlines
 
-Usa la utilidad `outline-none` para eliminar por completo el contorno predeterminado del navegador en los elementos enfocados:
+Use the `outline-none` utility to completely remove the default browser outline on focused elements:
 
 <Figure>
 
@@ -127,8 +127,8 @@ Usa la utilidad `outline-none` para eliminar por completo el contorno predetermi
 
 </Figure>
 
-Se recomienda encarecidamente aplicar tu propio estilo de enfoque por accesibilidad al usar esta utilidad.
+It is highly recommended to apply your own focus styling for accessibility when using this utility.
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="outline-style" defaultClass="outline" featuredClass="outline-dashed" />

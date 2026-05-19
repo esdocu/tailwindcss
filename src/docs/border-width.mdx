@@ -5,7 +5,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import dedent from "dedent";
 
 export const title = "border-width";
-export const description = "Utilidades para controlar el ancho de los bordes de un elemento.";
+export const description = "Utilities for controlling the width of an element's borders.";
 
 <ApiTable
   rows={[
@@ -29,6 +29,14 @@ export const description = "Utilidades para controlar el ancho de los bordes de 
     ["border-e-<number>", "border-inline-end-width: <number>px;"],
     ["border-e-(length:<custom-property>)", "border-inline-end-width: var(<custom-property>);"],
     ["border-e-[<value>]", "border-inline-end-width: <value>;"],
+    ["border-bs", "border-block-start-width: 1px;"],
+    ["border-bs-<number>", "border-block-start-width: <number>px;"],
+    ["border-bs-(length:<custom-property>)", "border-block-start-width: var(<custom-property>);"],
+    ["border-bs-[<value>]", "border-block-start-width: <value>;"],
+    ["border-be", "border-block-end-width: 1px;"],
+    ["border-be-<number>", "border-block-end-width: <number>px;"],
+    ["border-be-(length:<custom-property>)", "border-block-end-width: var(<custom-property>);"],
+    ["border-be-[<value>]", "border-block-end-width: <value>;"],
     ["border-t", "border-top-width: 1px;"],
     ["border-t-<number>", "border-top-width: <number>px;"],
     ["border-t-(length:<custom-property>)", "border-top-width: var(<custom-property>);"],
@@ -122,11 +130,11 @@ export const description = "Utilidades para controlar el ancho de los bordes de 
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `border` o `border-<number>` como `border-2` y `border-4` para establecer el ancho del borde para todos los lados de un elemento:
+Use `border` or `border-<number>` utilities like `border-2` and `border-4` to set the border width for all sides of an element:
 
 <Figure>
 
@@ -163,9 +171,9 @@ Usa utilidades `border` o `border-<number>` como `border-2` y `border-4` para es
 
 </Figure>
 
-### Lados individuales
+### Individual sides
 
-Usa utilidades como `border-r` y `border-t-4` para establecer el ancho del borde para un lado de un elemento:
+Use utilities like `border-r` and `border-t-4` to set the border width for one side of an element:
 
 <Figure>
 
@@ -202,9 +210,9 @@ Usa utilidades como `border-r` y `border-t-4` para establecer el ancho del borde
 
 </Figure>
 
-### Lados horizontales y verticales
+### Horizontal and vertical sides
 
-Usa utilidades como `border-x` y `border-y-4` para establecer el ancho del borde en dos lados de un elemento al mismo tiempo:
+Use utilities like `border-x` and `border-y-4` to set the border width on two sides of an element at the same time:
 
 <Figure>
 
@@ -231,9 +239,9 @@ Usa utilidades como `border-x` y `border-y-4` para establecer el ancho del borde
 
 </Figure>
 
-### Usando propiedades lógicas
+### Using logical properties
 
-Usa utilidades como `border-s` y `border-e-4` para establecer las [propiedades lógicas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) `border-inline-start-width` y `border-inline-end-width`, que se asignan al borde izquierdo o derecho según la dirección del texto:
+Use utilities like `border-s` and `border-e-4` to set the `border-inline-start-width` and `border-inline-end-width` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right border based on the text direction:
 
 <Figure>
 
@@ -241,11 +249,11 @@ Usa utilidades como `border-s` y `border-e-4` para establecer las [propiedades l
   {
     <div className="grid grid-cols-2 place-items-center gap-x-4">
       <div className="flex flex-col items-start gap-y-4" dir="ltr">
-        <p className="text-sm font-medium">De izquierda a derecha</p>
+        <p className="text-sm font-medium">Left-to-right</p>
         <div className="size-16 border-s-4 border-indigo-500 p-4 outline-1 -outline-offset-1 outline-gray-900/20 outline-dashed dark:outline-white/20"></div>
       </div>
       <div className="flex flex-col items-start gap-y-4" dir="rtl">
-        <p className="text-sm font-medium">De derecha a izquierda</p>
+        <p className="text-sm font-medium">Right-to-left</p>
         <div className="size-16 border-s-4 border-indigo-500 p-4 outline-1 -outline-offset-1 outline-gray-900/20 outline-dashed dark:outline-white/20"></div>
       </div>
     </div>
@@ -266,9 +274,16 @@ Usa utilidades como `border-s` y `border-e-4` para establecer las [propiedades l
 
 </Figure>
 
-### Entre hijos
+Use the `border-bs-<number>` and `border-be-<number>` utilities to set the `border-block-start-width` and `border-block-end-width` logical properties, which map to either the top or bottom border based on the writing mode:
 
-Usa utilidades como `divide-x` y `divide-y-4` para agregar bordes entre elementos hijos:
+```html
+<!-- [!code classes:border-bs-4] -->
+<div class="border-bs-4 ..."></div>
+```
+
+### Between children
+
+Use utilities like `divide-x` and `divide-y-4` to add borders between child elements:
 
 <Figure>
 
@@ -293,9 +308,9 @@ Usa utilidades como `divide-x` y `divide-y-4` para agregar bordes entre elemento
 
 </Figure>
 
-#### Invirtiendo el orden de los hijos
+#### Reversing children order
 
-Si tus elementos están en orden inverso (usando, por ejemplo, `flex-row-reverse` o `flex-col-reverse`), usa las utilidades `divide-x-reverse` o `divide-y-reverse` para asegurarte de que el borde se agregue al lado correcto de cada elemento:
+If your elements are in reverse order (using say `flex-row-reverse` or `flex-col-reverse`), use the `divide-x-reverse` or `divide-y-reverse` utilities to ensure the border is added to the correct side of each element:
 
 <Figure>
 
@@ -320,10 +335,10 @@ Si tus elementos están en orden inverso (usando, por ejemplo, `flex-row-reverse
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="border" name="border width" value="2vw" dataType="length" variable="border-width" />
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="border-width" defaultClass="border-2" featuredClass="border-t-4" />

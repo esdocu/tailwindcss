@@ -5,20 +5,20 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "box-decoration-break";
 export const description =
-  "Utilidades para controlar cómo deben renderizarse los fragmentos de elementos en múltiples líneas, columnas o páginas.";
+  "Utilities for controlling how element fragments should be rendered across multiple lines, columns, or pages.";
 
 <ApiTable
   rows={[
-    ["box-decoration-clone", "box-decoration-break: clone"],
-    ["box-decoration-slice", "box-decoration-break: slice"],
+    ["box-decoration-clone", "box-decoration-break: clone;"],
+    ["box-decoration-slice", "box-decoration-break: slice;"],
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa las utilidades `box-decoration-slice` y `box-decoration-clone` para controlar si propiedades como background, border, border-image, box-shadow, clip-path, margin y padding deben renderizarse como si el elemento fuera un fragmento continuo o bloques distintos:
+Use the `box-decoration-slice` and `box-decoration-clone` utilities to control whether properties like background, border, border-image, box-shadow, clip-path, margin, and padding should be rendered as if the element were one continuous fragment, or distinct blocks:
 
 <Figure>
 
@@ -62,7 +62,7 @@ Usa las utilidades `box-decoration-slice` y `box-decoration-clone` para controla
 
 </Figure>
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign
   property="box-decoration-break"

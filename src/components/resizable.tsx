@@ -124,7 +124,7 @@ export function ResizableHandle(props: ComponentProps<typeof motion.div>) {
         />
       </div>
       <motion.div
-        title="Arrastra para redimensionar"
+        title="Drag to resize"
         drag="x"
         dragElastic={0}
         dragMomentum={false}

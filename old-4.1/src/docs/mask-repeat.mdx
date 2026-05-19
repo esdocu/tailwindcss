@@ -1,0 +1,169 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+
+export const title = "mask-repeat";
+export const description = "Utilidades para controlar la repetición de la imagen de máscara de un elemento.";
+
+<ApiTable
+  rows={[
+    ["mask-repeat", "mask-repeat: repeat;"],
+    ["mask-no-repeat", "mask-repeat: no-repeat;"],
+    ["mask-repeat-x", "mask-repeat: repeat-x;"],
+    ["mask-repeat-y", "mask-repeat: repeat-y;"],
+    ["mask-repeat-space", "mask-repeat: space;"],
+    ["mask-repeat-round", "mask-repeat: round;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Ejemplo básico
+
+Usa la utilidad `mask-repeat` para repetir la imagen de máscara tanto vertical como horizontalmente:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex flex-col py-8">
+      <Stripes className="h-40 w-full rounded-lg" border>
+        <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-size-[50px_50px] mask-center mask-repeat"></div>
+      </Stripes>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<!-- [!code classes:mask-repeat] -->
+<div class="mask-repeat mask-[url(/img/circle.png)] mask-size-[50px_50px] bg-[url(/img/mountains.jpg)] ..."></div>
+```
+
+</Figure>
+
+### Repetir horizontalmente
+
+Usa la utilidad `mask-repeat-x` para repetir la imagen de máscara solo horizontalmente:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex flex-col py-8">
+      <Stripes className="h-40 w-full rounded-lg" border>
+        <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-size-[50px_50px] mask-center mask-repeat-x"></div>
+      </Stripes>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<!-- [!code classes:mask-repeat-x] -->
+<div class="mask-repeat-x mask-[url(/img/circle.png)] mask-size-[50px_50px] bg-[url(/img/mountains.jpg)]..."></div>
+```
+
+</Figure>
+
+### Repetir verticalmente
+
+Usa la utilidad `mask-repeat-y` para repetir la imagen de máscara solo verticalmente:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex flex-col py-8">
+      <Stripes className="h-40 w-full rounded-lg" border>
+        <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-size-[50px_50px] mask-center mask-repeat-y"></div>
+      </Stripes>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<!-- [!code classes:mask-repeat-y] -->
+<div class="mask-repeat-y mask-[url(/img/circle.png)] mask-size-[50px_50px] bg-[url(/img/mountains.jpg)]..."></div>
+```
+
+</Figure>
+
+### Prevenir recorte
+
+Usa la utilidad `mask-repeat-space` para repetir la imagen de máscara sin recortarla:
+
+<Figure>
+
+<Example resizable>
+  {
+    <div className="flex flex-col py-8">
+      <Stripes className="h-40 w-full rounded-lg" border>
+        <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-size-[50px_50px] mask-repeat-space"></div>
+      </Stripes>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<!-- [!code classes:mask-repeat-space] -->
+<div class="mask-repeat-space mask-[url(/img/circle.png)] mask-size-[50px_50px] bg-[url(/img/mountains.jpg)] ..."></div>
+```
+
+</Figure>
+
+### Prevenir recorte y espacios
+
+Usa la utilidad `mask-repeat-round` para repetir la imagen de máscara sin recortarla, estirándola si es necesario para evitar espacios:
+
+<Figure>
+
+<Example resizable>
+  {
+    <div className="flex flex-col py-8">
+      <Stripes className="h-40 w-full rounded-lg" border>
+        <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-size-[50px_50px] mask-repeat-round"></div>
+      </Stripes>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<!-- [!code classes:mask-repeat-round] -->
+<div class="mask-repeat-round mask-[url(/img/circle.png)] mask-size-[50px_50px] bg-[url(/img/mountains.jpg)] ..."></div>
+```
+
+</Figure>
+
+### Deshabilitar repetición
+
+Usa la utilidad `mask-no-repeat` para evitar que una imagen de máscara se repita:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex flex-col py-8">
+      <Stripes className="h-40 w-full rounded-lg" border>
+        <div className="h-full rounded-lg bg-[url(https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=80)] mask-radial-from-100% mask-radial-closest-side bg-cover bg-center mask-size-[50px_50px] mask-center mask-no-repeat"></div>
+      </Stripes>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<!-- [!code classes:mask-no-repeat] -->
+<div class="mask-no-repeat mask-[url(/img/circle.png)] mask-size-[50px_50px] bg-[url(/img/mountains.jpg)] ..."></div>
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign property="mask-repeat" defaultClass="mask-repeat" featuredClass="mask-repeat-x" />

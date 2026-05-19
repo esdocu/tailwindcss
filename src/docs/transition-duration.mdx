@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "transition-duration";
-export const description = "Utilidades para controlar la duración de las transiciones CSS.";
+export const description = "Utilities for controlling the duration of CSS transitions.";
 
 <ApiTable
   rows={[
@@ -15,13 +15,13 @@ export const description = "Utilidades para controlar la duración de las transi
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades como `duration-150` y `duration-700` para establecer la duración de la transición de un elemento en milisegundos:
+Use utilities like `duration-150` and `duration-700` to set the transition duration of an element in milliseconds:
 
-<Figure hint="Pasa el cursor sobre cada botón para ver el comportamiento esperado">
+<Figure hint="Hover each button to see the expected behavior">
 
 <Example>
   {
@@ -57,11 +57,22 @@ Usa utilidades como `duration-150` y `duration-700` para establecer la duración
 
 </Figure>
 
-### Usando un valor personalizado
+### Supporting reduced motion
+
+For situations where the user has specified that they prefer reduced motion, you can conditionally apply animations and transitions using the `motion-safe` and `motion-reduce` variants:
+
+```html
+<!-- [!code classes:motion-reduce:duration-0] -->
+<button type="button" class="duration-300 motion-reduce:duration-0 ...">
+  <!-- ... -->
+</button>
+```
+
+### Using a custom value
 
 <UsingACustomValue element="button" utility="duration" value="1s,15s" name="transition duration" />
 
-### Responsive Design
+### Responsive design
 
 <ResponsiveDesign
   element="button"

@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, TargetingSpecificStates } from "@/components/content.tsx";
 
 export const title = "text-decoration-line";
-export const description = "Utilidades para controlar la decoración del texto.";
+export const description = "Utilities for controlling the decoration of text.";
 
 <ApiTable
   rows={[
@@ -15,117 +15,117 @@ export const description = "Utilidades para controlar la decoración del texto."
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Subrayando texto
+### Underling text
 
-Usa la utilidad `underline` para agregar un subrayado al texto de un elemento:
+Use the `underline` utility to add an underline to the text of an element:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 underline dark:text-gray-200">
-      El rápido zorro marrón salta sobre el perro perezoso.
+      The quick brown fox jumps over the lazy dog.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:underline] -->
-<p class="underline">El rápido zorro marrón...</p>
+<p class="underline">The quick brown fox...</p>
 ```
 
 </Figure>
 
-### Agregando una línea superior al texto
+### Adding an overline to text
 
-Usa la utilidad `overline` para agregar una línea superior al texto de un elemento:
+Use the `overline` utility to add an overline to the text of an element:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 overline dark:text-gray-200">
-      El rápido zorro marrón salta sobre el perro perezoso.
+      The quick brown fox jumps over the lazy dog.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:overline] -->
-<p class="overline">El rápido zorro marrón...</p>
+<p class="overline">The quick brown fox...</p>
 ```
 
 </Figure>
 
-### Agregando una línea a través del texto
+### Adding a line through text
 
-Usa la utilidad `line-through` para agregar una línea a través del texto de un elemento:
+Use the `line-through` utility to add a line through the text of an element:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 line-through dark:text-gray-200">
-      El rápido zorro marrón salta sobre el perro perezoso.
+      The quick brown fox jumps over the lazy dog.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:line-through] -->
-<p class="line-through">El rápido zorro marrón...</p>
+<p class="line-through">The quick brown fox...</p>
 ```
 
 </Figure>
 
-### Quitando una línea del texto
+### Removing a line from text
 
-Usa la utilidad `no-underline` para quitar una línea del texto de un elemento:
+Use the `no-underline` utility to remove a line from the text of an element:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 no-underline dark:text-gray-200">
-      El rápido zorro marrón salta sobre el perro perezoso.
+      The quick brown fox jumps over the lazy dog.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:no-underline] -->
-<p class="no-underline">El rápido zorro marrón...</p>
+<p class="no-underline">The quick brown fox...</p>
 ```
 
 </Figure>
 
-### Aplicando en hover
+### Applying on hover
 
 <TargetingSpecificStates property="text-decoration-line">
 
-<Figure hint="Pasa el cursor sobre el texto para ver el comportamiento esperado">
+<Figure hint="Hover over the text to see the expected behavior">
 
 <Example>
   {
     <div className="text-center text-lg font-medium text-gray-900 no-underline dark:text-gray-200">
-      El{" "}
+      The{" "}
       <a
         href="https://en.wikipedia.org/wiki/The_quick_brown_fox_jumps_over_the_lazy_dog"
         target="blank"
         className="text-sky-600 no-underline hover:underline dark:text-sky-400"
       >
-        rápido zorro marrón
+        quick brown fox
       </a>{" "}
-      salta sobre el perro perezoso.
+      jumps over the lazy dog.
     </div>
   }
 </Example>
 
 ```html
 <!-- [!code classes:hover:underline] -->
-<p>El <a href="..." class="no-underline hover:underline ...">rápido zorro marrón</a> salta sobre el perro perezoso.</p>
+<p>The <a href="..." class="no-underline hover:underline ...">quick brown fox</a> jumps over the lazy dog.</p>
 ```
 
 </Figure>

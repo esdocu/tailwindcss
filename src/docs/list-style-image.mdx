@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "list-style-image";
-export const description = "Utilidades para controlar las imágenes del marcador para los elementos de la lista.";
+export const description = "Utilities for controlling the marker images for list items.";
 
 <ApiTable
   rows={[
@@ -14,11 +14,11 @@ export const description = "Utilidades para controlar las imágenes del marcador
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa la sintaxis `list-image-[<value>]` para controlar la imagen del marcador para los elementos de la lista:
+Use the `list-image-[<value>]` syntax to control the marker image for list items:
 
 <Figure>
 
@@ -46,9 +46,9 @@ Usa la sintaxis `list-image-[<value>]` para controlar la imagen del marcador par
 
 </Figure>
 
-### Usando una variable CSS
+### Using a CSS variable
 
-Usa la sintaxis `list-image-{(<custom-property>)}` para controlar la imagen del marcador para los elementos de la lista usando una variable CSS:
+Use the <code>list-image-{'(<custom-property>)'}</code> syntax to control the marker image for list items using a CSS variable:
 
 ```html
 <!-- [!code classes:list-image-(--my-list-image)] -->
@@ -57,11 +57,11 @@ Usa la sintaxis `list-image-{(<custom-property>)}` para controlar la imagen del 
 </ul>
 ```
 
-Esto es solo un atajo para `list-image-{[var(<custom-property>)]}` que agrega la función `var()` automáticamente por ti.
+This is just a shorthand for <code>list-image-{'[var(<custom-property>)]'}</code> that adds the `var()` function for you automatically.
 
-### Eliminando una imagen de marcador
+### Removing a marker image
 
-Usa la utilidad `list-image-none` para eliminar una imagen de marcador existente de los elementos de la lista:
+Use the `list-image-none` utility to remove an existing marker image from list items:
 
 ```html
 <!-- [!code classes:list-image-none] -->
@@ -76,4 +76,5 @@ Usa la utilidad `list-image-none` para eliminar una imagen de marcador existente
   property="list-style-image"
   defaultClass="list-image-none"
   featuredClass="list-image-[url(/img/checkmark.png)]"
+  element="ul"
 />

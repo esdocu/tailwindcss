@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "text-underline-offset";
-export const description = "Utilidades para controlar el desplazamiento de un subrayado de texto.";
+export const description = "Utilities for controlling the offset of a text underline.";
 
 <ApiTable
   rows={[
@@ -16,11 +16,11 @@ export const description = "Utilidades para controlar el desplazamiento de un su
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `underline-offset-<number>` como `underline-offset-2` y `underline-offset-4` para cambiar el desplazamiento de un subrayado de texto:
+Use `underline-offset-<number>` utilities like `underline-offset-2` and `underline-offset-4` to change the offset of a text underline:
 
 <Figure>
 
@@ -29,19 +29,19 @@ Usa utilidades `underline-offset-<number>` como `underline-offset-2` y `underlin
     <div className="flex flex-col gap-8 text-gray-900 dark:text-gray-200">
       <div>
         <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">underline-offset-1</div>
-        <p className="text-lg font-medium underline underline-offset-1">El rápido zorro marrón salta sobre el perro perezoso.</p>
+        <p className="text-lg font-medium underline underline-offset-1">The quick brown fox jumps over the lazy dog.</p>
       </div>
       <div>
         <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">underline-offset-2</div>
-        <p className="text-lg font-medium underline underline-offset-2">El rápido zorro marrón salta sobre el perro perezoso.</p>
+        <p className="text-lg font-medium underline underline-offset-2">The quick brown fox jumps over the lazy dog.</p>
       </div>
       <div>
         <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">underline-offset-4</div>
-        <p className="text-lg font-medium underline underline-offset-4">El rápido zorro marrón salta sobre el perro perezoso.</p>
+        <p className="text-lg font-medium underline underline-offset-4">The quick brown fox jumps over the lazy dog.</p>
       </div>
       <div>
         <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">underline-offset-8</div>
-        <p className="text-lg font-medium underline underline-offset-8">El rápido zorro marrón salta sobre el perro perezoso.</p>
+        <p className="text-lg font-medium underline underline-offset-8">The quick brown fox jumps over the lazy dog.</p>
       </div>
     </div>
   }
@@ -49,18 +49,18 @@ Usa utilidades `underline-offset-<number>` como `underline-offset-2` y `underlin
 
 ```html
 <!-- [!code classes:underline-offset-1] -->
-<p class="underline underline-offset-1">El rápido zorro marrón...</p>
+<p class="underline underline-offset-1">The quick brown fox...</p>
 <!-- [!code classes:underline-offset-2] -->
-<p class="underline underline-offset-2">El rápido zorro marrón...</p>
+<p class="underline underline-offset-2">The quick brown fox...</p>
 <!-- [!code classes:underline-offset-4] -->
-<p class="underline underline-offset-4">El rápido zorro marrón...</p>
+<p class="underline underline-offset-4">The quick brown fox...</p>
 <!-- [!code classes:underline-offset-8] -->
-<p class="underline underline-offset-8">El rápido zorro marrón...</p>
+<p class="underline underline-offset-8">The quick brown fox...</p>
 ```
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue element="p" utility="underline-offset" name="text underline offset" value="3px" />
 

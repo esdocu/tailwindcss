@@ -5,14 +5,14 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import dedent from "dedent";
 
 export const title = "transition-property";
-export const description = "Utilidades para controlar qué propiedades CSS transicionan.";
+export const description = "Utilities for controlling which CSS properties transition.";
 
 <ApiTable
   rows={[
     [
       "transition",
       dedent`
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+        transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter, display, content-visibility, overlay, pointer-events;
         transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
         transition-duration: var(--default-transition-duration); /* 150ms */
       `,
@@ -28,7 +28,7 @@ export const description = "Utilidades para controlar qué propiedades CSS trans
     [
       "transition-colors",
       dedent`
-        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+        transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
         transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
         transition-duration: var(--default-transition-duration); /* 150ms */
       `,
@@ -77,19 +77,19 @@ export const description = "Utilidades para controlar qué propiedades CSS trans
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades como `transition` y `transition-colors` para especificar qué propiedades deben transicionar cuando cambian:
+Use utilities like `transition` and `transition-colors` to specify which properties should transition when they change:
 
-<Figure hint="Pasa el cursor sobre el botón para ver el comportamiento esperado">
+<Figure hint="Hover the button to see the expected behavior">
 
 <Example>
   {
     <div className="flex justify-around text-sm leading-6 font-bold text-white">
       <button className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
-        Guardar cambios
+        Save Changes
       </button>
     </div>
   }
@@ -99,15 +99,15 @@ Usa utilidades como `transition` y `transition-colors` para especificar qué pro
 ```html
 <!-- [!code classes:transition] -->
 <button class="bg-blue-500 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 ...">
-  Guardar cambios
+  Save Changes
 </button>
 ```
 
 </Figure>
 
-### Soportando movimiento reducido
+### Supporting reduced motion
 
-Para situaciones en las que el usuario ha especificado que prefiere movimiento reducido, puedes aplicar animaciones y transiciones condicionalmente usando las variantes `motion-safe` y `motion-reduce`:
+For situations where the user has specified that they prefer reduced motion, you can conditionally apply animations and transitions using the `motion-safe` and `motion-reduce` variants:
 
 ```html
 <!-- [!code classes:motion-reduce:transition-none,motion-reduce:hover:transform-none] -->
@@ -117,7 +117,7 @@ Para situaciones en las que el usuario ha especificado que prefiere movimiento r
 </button>
 ```
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue
   element="button"
@@ -127,7 +127,7 @@ Para situaciones en las que el usuario ha especificado que prefiere movimiento r
   variable="properties"
 />
 
-### Responsive Design
+### Responsive design
 
 <ResponsiveDesign
   element="button"

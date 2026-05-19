@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "scroll-snap-type";
-export const description = "Utilidades para controlar cuán estrictamente se aplican los puntos de ajuste en un contenedor de ajuste.";
+export const description = "Utilities for controlling how strictly snap points are enforced in a snap container.";
 
 <ApiTable
   rows={[
@@ -17,20 +17,20 @@ export const description = "Utilidades para controlar cuán estrictamente se apl
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ajuste de desplazamiento horizontal
+### Horizontal scroll snapping
 
-Usa la utilidad `snap-x` para habilitar el ajuste de desplazamiento horizontal dentro de un elemento:
+Use the `snap-x` utility to enable horizontal scroll snapping within an element:
 
-<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
+<Figure hint="Scroll in the grid of images to see the expected behavior">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mb-6 ml-[50%] flex items-end justify-start pt-10">
         <div className="dark:highlight-white/10 ml-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          punto de ajuste
+          snap point
         </div>
         <div className="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
       </div>
@@ -108,20 +108,20 @@ Usa la utilidad `snap-x` para habilitar el ajuste de desplazamiento horizontal d
 
 </Figure>
 
-Para que el ajuste de desplazamiento funcione, también necesitas establecer la [alineación de ajuste de desplazamiento](/docs/scroll-snap-align) en los hijos.
+For scroll snapping to work, you need to also set the [scroll snap alignment](/docs/scroll-snap-align) on the children.
 
-### Ajuste de desplazamiento obligatorio
+### Mandatory scroll snapping
 
-Usa la utilidad `snap-mandatory` para forzar que un contenedor de ajuste siempre se detenga en un punto de ajuste:
+Use the `snap-mandatory` utility to force a snap container to always come to rest on a snap point:
 
-<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
+<Figure hint="Scroll in the grid of images to see the expected behavior">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mb-6 ml-[50%] flex items-end justify-start pt-10">
         <div className="dark:highlight-white/10 ml-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          punto de ajuste
+          snap point
         </div>
         <div className="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
       </div>
@@ -199,18 +199,18 @@ Usa la utilidad `snap-mandatory` para forzar que un contenedor de ajuste siempre
 
 </Figure>
 
-### Ajuste de desplazamiento por proximidad
+### Proximity scroll snapping
 
-Usa la utilidad `snap-proximity` para hacer que un contenedor de ajuste se detenga en puntos de ajuste que están cerca:
+Use the `snap-proximity` utility to make a snap container come to rest on snap points that are close in proximity:
 
-<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
+<Figure hint="Scroll in the grid of images to see the expected behavior">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mb-6 ml-[50%] flex items-end justify-start pt-10">
         <div className="dark:highlight-white/10 ml-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          punto de ajuste
+          snap point
         </div>
         <div className="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
       </div>

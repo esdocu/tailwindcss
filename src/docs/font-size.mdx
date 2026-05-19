@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "font-size";
-export const description = "Utilidades para controlar el tamaño de fuente de un elemento.";
+export const description = "Utilities for controlling the font size of an element.";
 
 <ApiTable
   rows={[
@@ -56,11 +56,11 @@ export const description = "Utilidades para controlar el tamaño de fuente de un
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Utiliza utilidades como `text-sm` y `text-lg` para establecer el tamaño de fuente de un elemento:
+Use utilities like `text-sm` and `text-lg` to set the font size of an element:
 
 <Figure>
 
@@ -70,31 +70,31 @@ Utiliza utilidades como `text-sm` y `text-lg` para establecer el tamaño de fuen
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">text-sm</span>
         <p className="text-sm font-medium text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">text-base</span>
         <p className="text-base font-medium text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">text-lg</span>
         <p className="text-lg font-medium text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">text-xl</span>
         <p className="text-xl font-medium text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">text-2xl</span>
         <p className="text-2xl font-medium text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
     </div>
@@ -103,18 +103,18 @@ Utiliza utilidades como `text-sm` y `text-lg` para establecer el tamaño de fuen
 
 ```html
 <!-- [!code classes:text-sm,text-base,text-lg,text-xl,text-2xl] -->
-<p class="text-sm ...">El rápido zorro marrón ...</p>
-<p class="text-base ...">El rápido zorro marrón ...</p>
-<p class="text-lg ...">El rápido zorro marrón ...</p>
-<p class="text-xl ...">El rápido zorro marrón ...</p>
-<p class="text-2xl ...">El rápido zorro marrón ...</p>
+<p class="text-sm ...">The quick brown fox ...</p>
+<p class="text-base ...">The quick brown fox ...</p>
+<p class="text-lg ...">The quick brown fox ...</p>
+<p class="text-xl ...">The quick brown fox ...</p>
+<p class="text-2xl ...">The quick brown fox ...</p>
 ```
 
 </Figure>
 
-### Estableciendo el interlineado
+### Setting the line-height
 
-Utiliza utilidades como `text-sm/6` y `text-lg/7` para establecer el tamaño de fuente y el interlineado de un elemento al mismo tiempo:
+Use utilities like `text-sm/6` and `text-lg/7` to set the font size and line-height of an element at the same time:
 
 <Figure>
 
@@ -124,19 +124,25 @@ Utiliza utilidades como `text-sm/6` y `text-lg/7` para establecer el tamaño de 
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">text-sm/6</span>
         <p className="text-sm/6 text-gray-900 dark:text-gray-200">
-          Así que empecé a caminar hacia el agua. No les mentiré chicos, estaba aterrorizado. Pero seguí adelante, y mientras pasaba las olas una extraña calma me invadió. No sé si fue intervención divina o la hermandad de todos los seres vivos, pero te digo Jerry en ese momento, <em>era</em> un biólogo marino.
+          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
+          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">text-sm/7</span>
         <p className="text-sm/7 text-gray-900 dark:text-gray-200">
-          Así que empecé a caminar hacia el agua. No les mentiré chicos, estaba aterrorizado. Pero seguí adelante, y mientras pasaba las olas una extraña calma me invadió. No sé si fue intervención divina o la hermandad de todos los seres vivos, pero te digo Jerry en ese momento, <em>era</em> un biólogo marino.
+          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
+          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">text-sm/8</span>
         <p className="text-sm/8 text-gray-900 dark:text-gray-200">
-          Así que empecé a caminar hacia el agua. No les mentiré chicos, estaba aterrorizado. Pero seguí adelante, y mientras pasaba las olas una extraña calma me invadió. No sé si fue intervención divina o la hermandad de todos los seres vivos, pero te digo Jerry en ese momento, <em>era</em> un biólogo marino.
+          So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made
+          my way past the breakers a strange calm came over me. I don't know if it was divine intervention or the
+          kinship of all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
         </p>
       </div>
     </div>
@@ -145,14 +151,14 @@ Utiliza utilidades como `text-sm/6` y `text-lg/7` para establecer el tamaño de 
 
 ```html
 <!-- [!code classes:text-sm/6,text-sm/7,text-sm/8] -->
-<p class="text-sm/6 ...">Así que empecé a caminar hacia el agua...</p>
-<p class="text-sm/7 ...">Así que empecé a caminar hacia el agua...</p>
-<p class="text-sm/8 ...">Así que empecé a caminar hacia el agua...</p>
+<p class="text-sm/6 ...">So I started to walk into the water...</p>
+<p class="text-sm/7 ...">So I started to walk into the water...</p>
+<p class="text-sm/8 ...">So I started to walk into the water...</p>
 ```
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue element="p" utility="text" name="font size" value="14px" variable="text-size" dataType="length" />
 
@@ -160,11 +166,11 @@ Utiliza utilidades como `text-sm/6` y `text-lg/7` para establecer el tamaño de 
 
 <ResponsiveDesign element="p" property="font-size" defaultClass="text-sm" featuredClass="text-base" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourTheme utility="text" name="font size" customValue="0.625rem" customName="tiny">
 
-También puedes proporcionar valores predeterminados de `line-height`, `letter-spacing` y `font-weight` para un tamaño de fuente:
+You can also provide default `line-height`, `letter-spacing`, and `font-weight` values for a font size:
 
 ```css
 @theme {

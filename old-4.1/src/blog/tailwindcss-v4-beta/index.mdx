@@ -1,0 +1,36 @@
+import { adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import { Image } from "@/components/media";
+
+export const meta = {
+  title: "Tailwind CSS v4.0 Beta 1",
+  description: `Después de un largo período alfa, estamos emocionados de lanzar la primera beta pública de Tailwind CSS v4.0.`,
+  date: "2024-11-21T18:30:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Hace unos ocho meses{" "}
+      <a href="https://tailwindcss.com/blog/tailwindcss-v4-alpha">abrimos nuestro progreso</a> en Tailwind CSS v4.0.
+      Cientos de horas arreglando errores, trabajo de compatibilidad hacia atrás desgarrador y solucionando fallos de CI en Windows
+      después, estoy emocionado de finalmente etiquetar la primera versión beta pública.
+    </>
+  ),
+};
+
+<Image src={card} alt="Tailwind CSS v4.0-beta" />
+
+Hace unos ocho meses [abrimos nuestro progreso](https://tailwindcss.com/blog/tailwindcss-v4-alpha) en Tailwind CSS v4.0. Cientos de horas arreglando errores, trabajo de compatibilidad hacia atrás desgarrador y solucionando fallos de CI en Windows después, estoy emocionado de finalmente etiquetar la primera versión beta pública.
+
+Como mencioné cuando publicamos la primera alfa, Tailwind CSS v4.0 es un motor completamente nuevo construido para el rendimiento y diseñado para la web moderna.
+
+- **Construido para el rendimiento** — las compilaciones completas en el nuevo motor son hasta 5 veces más rápidas, y las compilaciones incrementales son más de 100 veces más rápidas — y se miden en microsegundos.
+- **Cadena de herramientas unificada** — manejo de importaciones integrado, prefijos de proveedor y transformaciones de sintaxis, sin necesidad de herramientas adicionales.
+- **Configuración CSS-first** — una experiencia de desarrollador reimaginada donde personalizas y extiendes el framework directamente en CSS en lugar de un archivo de configuración de JavaScript.
+- **Diseñado para la web moderna** — construido sobre capas de cascada nativas, colores de amplia gama, e incluyendo soporte de primera clase para características modernas de CSS como container queries, `@starting-style`, popovers y más.
+
+Hay mucho más que decir, pero todo lo que necesitas para empezar está en la nueva documentación beta que publicamos hoy:
+
+[Empieza con Tailwind CSS v4.0 Beta 1 &rarr;](/docs)
+
+Empieza a construir y ayúdanos a hacer esto a prueba de balas para el lanzamiento estable a principios del nuevo año.

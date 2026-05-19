@@ -5,58 +5,86 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 import { UsingACustomValue } from "@/components/content.tsx";
 
-export const title = "Configuración del editor";
-export const description = "Herramientas para mejorar la experiencia de desarrollo al trabajar con Tailwind CSS.";
+export const title = "Editor setup";
+export const description = "Tooling to improve the developer experience when working with Tailwind CSS.";
 
-## Soporte de sintaxis
+## Syntax support
 
-Tailwind CSS usa sintaxis CSS personalizada como `@theme`, `@variant`, y `@source`, y en algunos editores esto puede generar advertencias o errores donde estas reglas no se reconocen.
+Tailwind CSS uses custom CSS syntax like `@theme`, `@variant`, and `@source`, and in some editors this can trigger warnings or errors where these rules aren't recognized.
 
-Si usas VS Code, nuestro plugin oficial [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) incluye un modo de lenguaje dedicado de Tailwind CSS que tiene soporte para todas las @-rules y funciones personalizadas que Tailwind utiliza.
+If you're using VS Code, our official [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) plugin includes a dedicated Tailwind CSS language mode that has support for all of the custom at-rules and functions Tailwind uses.
 
-En algunos casos, es posible que debas deshabilitar el linting/validaciones nativas de CSS si tu editor es muy estricto con la sintaxis que espera en tus archivos CSS.
+In some cases, you may need to disable native CSS linting/validations if your editor is very strict about the syntax it expects in your CSS files.
 
-## IntelliSense para VS Code
+## Cursor
 
-La extensión oficial [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) para Visual Studio Code mejora la experiencia de desarrollo de Tailwind al proporcionar a los usuarios funciones avanzadas como autocompletado, resaltado de sintaxis y linting.
+[Cursor](https://cursor.com/?utm_source=tailwind) is an AI-native code editor with features like context-aware autocomplete and built-in coding agents. Since it supports VS Code extensions, all of the Tailwind CSS tooling you're already familiar with works out of the box – including our official [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) extension and the [Prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) for class sorting.
 
 <img
-  src={require("./img/intellisense.png").default.src}
-  alt="Extensión Tailwind CSS IntelliSense para Visual Studio Code"
+  src={require("./img/cursor-intellisense.png").default.src}
+  alt="Tailwind CSS IntelliSense extension for Cursor"
   width={1344}
   height={672}
   className="rounded-lg"
 />
 
-- **Autocompletado** — proporciona sugerencias inteligentes para clases de utilidad, así como [funciones y directivas de CSS](/docs/functions-and-directives).
-- **Linting** — resalta errores y posibles bugs tanto en tu CSS como en tu marcado.
-- **Vistas previas al pasar el cursor (Hover)** — revela el CSS completo para las clases de utilidad cuando pasas el cursor sobre ellas.
-- **Resaltado de sintaxis** — para que las características de Tailwind que usan sintaxis CSS personalizada se resalten correctamente.
+Check out and download [Cursor](https://cursor.com/?utm_source=tailwind).
 
-Echa un vistazo al proyecto [en GitHub](https://github.com/tailwindcss/intellisense) para obtener más información, o [agrégalo a Visual Studio Code](vscode:extension/bradlc.vscode-tailwindcss) para empezar ahora.
+## Zed
 
-## Ordenación de clases con Prettier
+[Zed](https://zed.dev/?utm_source=tailwind) is a fast, modern code editor, designed from the ground-up for cutting-edge development workflows, including agentic editing with AI. It has built-in support for Tailwind CSS autocompletions, linting, and hover previews, without the need to install and configure a separate extension. It also integrates tightly with Prettier, so our official [Prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) works seamlessly with Zed when installed.
 
-Mantenemos un [plugin oficial de Prettier](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) para Tailwind CSS que ordena automáticamente tus clases siguiendo nuestro [orden de clases recomendado](/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted).
+<img
+  src={require("./img/zed-intellisense.png").default.src}
+  alt="Built-in support for Tailwind CSS in Zed via Tailwind CSS IntelliSense"
+  width={1344}
+  height={672}
+  className="rounded-lg"
+/>
+
+Check out [Zed](https://zed.dev/?utm_source=tailwind) and learn more about [how it works with Tailwind CSS](https://zed.dev/docs/languages/tailwindcss?utm_source=tailwind).
+
+## IntelliSense for VS Code
+
+The official [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) extension for Visual Studio Code enhances the Tailwind development experience by providing users with advanced features such as autocomplete, syntax highlighting, and linting.
+
+<img
+  src={require("./img/intellisense.png").default.src}
+  alt="Tailwind CSS IntelliSense extension for Visual Studio Code"
+  width={1344}
+  height={672}
+  className="rounded-lg"
+/>
+
+- **Autocomplete** — providing intelligent suggestions for utility classes, as well as [CSS functions and directives](/docs/functions-and-directives).
+- **Linting** — highlighting errors and potential bugs in both your CSS and your markup.
+- **Hover previews** — revealing the complete CSS for utility classes when you hover over them.
+- **Syntax highlighting** — so that Tailwind features that use custom CSS syntax are highlighted correctly.
+
+Check out the project [on GitHub](https://github.com/tailwindcss/intellisense) to learn more, or [add it to Visual Studio Code](vscode:extension/bradlc.vscode-tailwindcss) to get started now.
+
+## Class sorting with Prettier
+
+We maintain an official [Prettier plugin](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) for Tailwind CSS that automatically sorts your classes following our [recommended class order](/blog/automatic-class-sorting-with-prettier#how-classes-are-sorted).
 
 <img src={require("./img/prettier-banner.jpg").default.src} alt="" width={2400} height={819} className="rounded-lg" />
 
-Funciona perfectamente con configuraciones personalizadas de Tailwind, y como es solo un plugin de Prettier, funciona en cualquier lugar donde Prettier funcione, incluyendo todos los editores e IDE populares y, por supuesto, en la línea de comandos.
+It works seamlessly with custom Tailwind configurations, and because it’s just a Prettier plugin, it works anywhere Prettier works — including every popular editor and IDE, and of course on the command line.
 
+{/* prettier-ignore */}
 ```html
 <!-- [!code filename:HTML] -->
-<!-- Antes -->
-<!-- prettier-ignore -->
+<!-- Before -->
 <button class="text-white px-4 sm:px-8 py-2 sm:py-3 bg-sky-700 hover:bg-sky-800">Submit</button>
 
-<!-- Después -->
+<!-- After -->
 <button class="bg-sky-700 px-4 py-2 text-white hover:bg-sky-800 sm:px-8 sm:py-3">Submit</button>
 ```
 
-Echa un vistazo al plugin [en GitHub](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) para obtener más información y empezar.
+Check out the plugin [on GitHub](https://github.com/tailwindlabs/prettier-plugin-tailwindcss) to learn more and get started.
 
-## IDEs de JetBrains
+## JetBrains IDEs
 
-Los IDEs de JetBrains como WebStorm, PhpStorm y otros incluyen soporte para completados inteligentes de Tailwind CSS en tu HTML.
+JetBrains IDEs like WebStorm, PhpStorm, and others include support for intelligent Tailwind CSS completions in your HTML.
 
-[Aprende más sobre el soporte de Tailwind CSS en los IDEs de JetBrains &rarr;](https://www.jetbrains.com/help/webstorm/tailwind-css.html)
+[Learn more about Tailwind CSS support in JetBrains IDEs &rarr;](https://www.jetbrains.com/help/webstorm/tailwind-css.html)

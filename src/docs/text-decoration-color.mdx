@@ -10,7 +10,7 @@ import { Figure } from "@/components/figure.tsx";
 import colors from "./utils/colors";
 
 export const title = "text-decoration-color";
-export const description = "Utilidades para controlar el color de las decoraciones de texto.";
+export const description = "Utilities for controlling the color of text decorations.";
 
 <ApiTable
   rows={[
@@ -26,30 +26,30 @@ export const description = "Utilidades para controlar el color de las decoracion
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades como `decoration-sky-500` y `decoration-pink-500` para cambiar el color de la [decoración de texto](/docs/text-decoration-line) de un elemento:
+Use utilities like `decoration-sky-500` and `decoration-pink-500` to change the [text decoration](/docs/text-decoration-line) color of an element:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-sm gap-4 p-8 text-sm/6 text-gray-900 dark:text-gray-200">
-      Soy Derek, un astro-ingeniero con base en Tattooine. Me gusta construir X-Wings en{" "}
+      I’m Derek, an astro-engineer based in Tattooine. I like to build X-Wings at{" "}
       <a href="#" className="font-bold underline decoration-sky-500 decoration-2 dark:text-gray-200">
         My Company, Inc
       </a>
-      . Fuera del trabajo, me gusta{" "}
+      . Outside of work, I like to{" "}
       <a href="#" className="font-bold underline decoration-pink-500 decoration-2 dark:text-gray-200">
-        ver carreras de pods
+        watch pod-racing
       </a>{" "}
-      y tener{" "}
+      and have{" "}
       <a href="#" className="font-bold underline decoration-indigo-500 decoration-2 dark:text-gray-200">
-        peleas de sables de luz
-      </a>
-      .
+        light-saber
+      </a>{" "}
+      fights.
     </p>
   }
 </Example>
@@ -58,37 +58,37 @@ Usa utilidades como `decoration-sky-500` y `decoration-pink-500` para cambiar el
 <!-- [!code classes:decoration-sky-500,decoration-pink-500,decoration-indigo-500] -->
 <!-- prettier-ignore -->
 <p>
-  Soy Derek, un astro-ingeniero con base en Tattooine. Me gusta construir X-Wings
-  en <a class="underline decoration-sky-500">My Company, Inc</a>. Fuera
-  del trabajo, me gusta <a class="underline decoration-pink-500">ver carreras de pods</a>
-  y tener <a class="underline decoration-indigo-500">peleas de sables de luz</a>.
+  I’m Derek, an astro-engineer based in Tattooine. I like to build X-Wings
+  at <a class="underline decoration-sky-500">My Company, Inc</a>. Outside
+  of work, I like to <a class="underline decoration-pink-500">watch pod-racing</a>
+  and have <a class="underline decoration-indigo-500">light-saber</a> fights.
 </p>
 ```
 
 </Figure>
 
-### Cambiando la opacidad
+### Changing the opacity
 
-Usa el modificador de opacidad de color para controlar la opacidad del color de la decoración de texto de un elemento:
+Use the color opacity modifier to control the text decoration color opacity of an element:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-sm gap-4 p-8 text-sm/6 text-gray-900 dark:text-gray-200">
-      Soy Derek, un astro-ingeniero con base en Tattooine. Me gusta construir X-Wings en{" "}
+      I’m Derek, an astro-engineer based in Tattooine. I like to build X-Wings at{" "}
       <a href="#" className="font-bold underline decoration-sky-500/30 decoration-2 dark:text-gray-200">
         My Company, Inc
       </a>
-      . Fuera del trabajo, me gusta{" "}
+      . Outside of work, I like to{" "}
       <a href="#" className="font-bold underline decoration-pink-500/30 decoration-2 dark:text-gray-200">
-        ver carreras de pods
+        watch pod-racing
       </a>{" "}
-      y tener{" "}
+      and have{" "}
       <a href="#" className="font-bold underline decoration-indigo-500/30 decoration-2 dark:text-gray-200">
-        peleas de sables de luz
+        light-saber
       </a>{" "}
-      .
+      fights.
     </p>
   }
 </Example>
@@ -97,44 +97,44 @@ Usa el modificador de opacidad de color para controlar la opacidad del color de 
 <!-- [!code word:\/30] -->
 <!-- prettier-ignore -->
 <p>
-  Soy Derek, un astro-ingeniero con base en Tattooine. Me gusta construir X-Wings
-  en <a class="underline decoration-sky-500/30">My Company, Inc</a>. Fuera
-  del trabajo, me gusta <a class="underline decoration-pink-500/30">ver carreras de pods</a>
-  y tener <a class="underline decoration-indigo-500/30">peleas de sables de luz</a>.
+  I’m Derek, an astro-engineer based in Tattooine. I like to build X-Wings
+  at <a class="underline decoration-sky-500/30">My Company, Inc</a>. Outside
+  of work, I like to <a class="underline decoration-pink-500/30">watch pod-racing</a>
+  and have <a class="underline decoration-indigo-500/30">light-saber</a> fights.
 </p>
 ```
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue element="p" utility="decoration" name="text decoration color" value="#50d71e" variable="color" />
 
-### Aplicando en hover
+### Applying on hover
 
 <TargetingSpecificStates property="text-decoration-color">
 
-<Figure hint="Pasa el cursor sobre el texto para ver el comportamiento esperado">
+<Figure hint="Hover over the text to see the expected behavior">
 
 <Example>
   {
     <div className="text-center text-lg font-medium text-gray-900 no-underline dark:text-gray-200">
-      El{" "}
+      The{" "}
       <a
         href="https://en.wikipedia.org/wiki/The_quick_brown_fox_jumps_over_the_lazy_dog"
         target="blank"
         className="underline hover:decoration-pink-500"
       >
-        rápido zorro marrón
+        quick brown fox
       </a>{" "}
-      salta sobre el perro perezoso.
+      jumps over the lazy dog.
     </div>
   }
 </Example>
 
 ```html
 <!-- [!code classes:hover:decoration-pink-500] -->
-<p>El <a href="..." class="underline hover:decoration-pink-500 ...">rápido zorro marrón</a> salta sobre el perro perezoso.</p>
+<p>The <a href="..." class="underline hover:decoration-pink-500 ...">quick brown fox</a> jumps over the lazy dog.</p>
 ```
 
 </Figure>
@@ -150,6 +150,6 @@ Usa el modificador de opacidad de color para controlar la opacidad del color de 
   featuredClass="decoration-blue-400"
 />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourThemeColors element="p" utility="decoration" />

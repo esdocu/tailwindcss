@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "transition-delay";
-export const description = "Utilidades para controlar el retraso de las transiciones CSS.";
+export const description = "Utilities for controlling the delay of CSS transitions.";
 
 <ApiTable
   rows={[
@@ -14,13 +14,13 @@ export const description = "Utilidades para controlar el retraso de las transici
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades como `delay-150` y `delay-700` para establecer el retraso de transición de un elemento en milisegundos:
+Use utilities like `delay-150` and `delay-700` to set the transition delay of an element in milliseconds:
 
-<Figure hint="Pasa el cursor sobre cada botón para ver el comportamiento esperado">
+<Figure hint="Hover each button to see the expected behavior">
 
 <Example>
   {
@@ -56,10 +56,21 @@ Usa utilidades como `delay-150` y `delay-700` para establecer el retraso de tran
 
 </Figure>
 
-### Usando un valor personalizado
+### Supporting reduced motion
+
+For situations where the user has specified that they prefer reduced motion, you can conditionally apply animations and transitions using the `motion-safe` and `motion-reduce` variants:
+
+```html
+<!-- [!code classes:motion-reduce:delay-0] -->
+<button type="button" class="delay-300 motion-reduce:delay-0 ...">
+  <!-- ... -->
+</button>
+```
+
+### Using a custom value
 
 <UsingACustomValue element="button" utility="delay" value="1s,250ms" name="transition delay" />
 
-### Responsive Design
+### Responsive design
 
 <ResponsiveDesign element="button" property="transition-delay" defaultClass="delay-150" featuredClass="delay-300" />

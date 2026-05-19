@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import clsx from "clsx";
-import { Button, Tooltip, TooltipPanel, TooltipTrigger } from "@headlessui/react";
+import { Button } from "@headlessui/react";
+import { TooltipTrigger } from "./tooltip";
 
 const hexColors = {
   slate: {
@@ -69,6 +70,58 @@ const hexColors = {
     800: "#292524",
     900: "#1c1917",
     950: "#0c0a09",
+  },
+  taupe: {
+    50: "#fbfaf9",
+    100: "#f3f1f1",
+    200: "#e8e4e3",
+    300: "#d8d2d0",
+    400: "#aba09c",
+    500: "#7c6d67",
+    600: "#5b4f4b",
+    700: "#473c39",
+    800: "#2b2422",
+    900: "#1d1816",
+    950: "#0c0a09",
+  },
+  mauve: {
+    50: "#fafafa",
+    100: "#f3f1f3",
+    200: "#e7e4e7",
+    300: "#d7d0d7",
+    400: "#a89ea9",
+    500: "#79697b",
+    600: "#594c5b",
+    700: "#463947",
+    800: "#2a212c",
+    900: "#1d161e",
+    950: "#0c090c",
+  },
+  mist: {
+    50: "#f9fbfb",
+    100: "#f1f3f3",
+    200: "#e3e7e8",
+    300: "#d0d6d8",
+    400: "#9ca8ab",
+    500: "#67787c",
+    600: "#4b585b",
+    700: "#394447",
+    800: "#22292b",
+    900: "#161b1d",
+    950: "#090b0c",
+  },
+  olive: {
+    50: "#fbfbf9",
+    100: "#f4f4f0",
+    200: "#e8e8e3",
+    300: "#d8d8d0",
+    400: "#abab9c",
+    500: "#7c7c67",
+    600: "#5b5b4b",
+    700: "#474739",
+    800: "#2b2b22",
+    900: "#1d1d16",
+    950: "#0c0c09",
   },
   red: {
     50: "#fef2f2",
@@ -295,7 +348,7 @@ const hexColors = {
 
 export function Color({ name, shade, value }: { name: string; shade: string; value: string }) {
   let useShift = useShiftKey();
-  let panelRef = useRef<HTMLElement>(null);
+  let [copied, setCopied] = useState<"color" | "hex" | false>(false);
 
   let colorVariableName = `--color-${name}-${shade}`;
   let hexValue = hexColors[name]?.[shade];
@@ -304,48 +357,40 @@ export function Color({ name, shade, value }: { name: string; shade: string; val
     e.preventDefault();
     e.stopPropagation();
 
-    let panel = panelRef.current;
-    if (!panel) return;
-
-    let prevValue = panel.innerHTML;
     if (e.shiftKey) {
       navigator.clipboard.writeText(hexColors[name][shade]);
-      panel.innerHTML = "¡Valor hexadecimal copiado!";
+      setCopied("hex");
     } else {
       navigator.clipboard.writeText(value);
-      panel.innerHTML = "¡Copiado al portapeles!";
+      setCopied("color");
     }
-    setTimeout(() => {
-      panel.innerHTML = prevValue;
-    }, 1300);
+
+    setTimeout(() => setCopied(false), 1300);
+  }
+
+  let tooltip: string;
+
+  if (copied === "color") {
+    tooltip = "Copied to clipboard!";
+  } else if (copied === "hex") {
+    tooltip = "Copied hex value!";
+  } else if (useShift) {
+    tooltip = hexValue;
+  } else {
+    tooltip = value;
   }
 
   return (
-    <Tooltip as="div" showDelayMs={100} hideDelayMs={0} className="contents">
-      <TooltipTrigger>
-        <Button
-          type="button"
-          onClick={copyHexToClipboard}
-          style={{ backgroundColor: `var(${colorVariableName})` }}
-          className={clsx(
-            "aspect-1/1 w-full rounded-sm outline -outline-offset-1 outline-black/10 sm:rounded-md dark:outline-white/10",
-          )}
-        />
-      </TooltipTrigger>
-      <TooltipPanel
-        as="div"
-        anchor="top"
-        className="pointer-events-none z-10 flex translate-y-2 items-center gap-1 rounded-full border border-gray-950 bg-gray-950/90 py-0.5 pr-2 pb-1 pl-3 text-center font-mono text-xs/6 font-medium whitespace-nowrap text-white opacity-100 inset-ring inset-ring-white/10 transition-[opacity] starting:opacity-0"
-      >
-        <span
-          ref={(panel) => {
-            if (panel) panelRef.current = panel;
-          }}
-        >
-          {useShift && hexValue ? hexValue : value}
-        </span>
-      </TooltipPanel>
-    </Tooltip>
+    <TooltipTrigger content={tooltip}>
+      <Button
+        type="button"
+        onClick={copyHexToClipboard}
+        style={{ backgroundColor: `var(${colorVariableName})` }}
+        className={clsx(
+          "aspect-1/1 w-full rounded-sm outline -outline-offset-1 outline-black/10 sm:rounded-md dark:outline-white/10",
+        )}
+      />
+    </TooltipTrigger>
   );
 }
 

@@ -6,7 +6,7 @@ import Image from "next/image";
 import tshirtImage from "./img/t-shirt.jpg";
 
 export const title = "forced-color-adjust";
-export const description = "Utilidades para optar por participar o no en los colores forzados.";
+export const description = "Utilities for opting in and out of forced colors.";
 
 <ApiTable
   rows={[
@@ -15,13 +15,13 @@ export const description = "Utilidades para optar por participar o no en los col
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Optar por no usar colores forzados
+### Opting out of forced colors
 
-Utiliza la utilidad `forced-color-adjust-none` para excluir un elemento de los colores impuestos por el modo de colores forzados. Esto es útil en situaciones donde imponer una paleta de colores limitada degradará la usabilidad.
+Use the `forced-color-adjust-none` utility to opt an element out of the colors enforced by forced colors mode. This is useful in situations where enforcing a limited color palette will degrade usability.
 
-<Figure hint="Intenta emular `forced-colors: active` en tus herramientas de desarrollador para ver los cambios">
+<Figure hint="Try emulating `forced-colors: active` in your developer tools to see the changes">
 
 <Example>
   {
@@ -29,17 +29,17 @@ Utiliza la utilidad `forced-color-adjust-none` para excluir un elemento de los c
       <div className="aspect-h-3 aspect-w-3 overflow-hidden">
         <Image
           src={tshirtImage}
-          alt="Dos camisetas de cada color: gris, blanco y negro, extendidas."
+          alt="Two each of gray, white, and black shirts laying flat."
           className="h-full w-full object-cover object-center"
         />
       </div>
       <div className="grid grid-cols-[1fr_auto] items-center gap-4 p-4">
         <div>
-          <p className="font-medium text-gray-900 dark:text-white">Camiseta Básica</p>
+          <p className="font-medium text-gray-900 dark:text-white">Basic Tee</p>
           <p className="text-sm font-medium text-gray-900 dark:text-white">$35</p>
         </div>
         <fieldset>
-          <legend className="sr-only">Elige un color</legend>
+          <legend className="sr-only">Choose a color</legend>
           <div className="grid grid-flow-col items-center gap-3 forced-color-adjust-none">
             <label className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-0 focus:outline-none has-checked:ring-1 has-checked:ring-gray-400 has-checked:ring-offset-1">
               <input
@@ -50,7 +50,7 @@ Utiliza la utilidad `forced-color-adjust-none` para excluir un elemento de los c
                 aria-labelledby="color-choice-0-label"
               />
               <span id="color-choice-0-label" className="sr-only">
-                Blanco
+                White
               </span>
               <span
                 aria-hidden="true"
@@ -60,7 +60,7 @@ Utiliza la utilidad `forced-color-adjust-none` para excluir un elemento de los c
             <label className="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 ring-0 focus:outline-none has-checked:ring-1 has-checked:ring-gray-400 has-checked:ring-offset-1">
               <input type="radio" defaultChecked name="color-choice" value="Gray" className="sr-only" />
               <span id="color-choice-1-label" className="sr-only">
-                Gris
+                Gray
               </span>
               <span
                 aria-hidden="true"
@@ -76,7 +76,7 @@ Utiliza la utilidad `forced-color-adjust-none` para excluir un elemento de los c
                 aria-labelledby="color-choice-2-label"
               />
               <span id="color-choice-2-label" className="sr-only">
-                Negro
+                Black
               </span>
               <span
                 aria-hidden="true"
@@ -95,14 +95,14 @@ Utiliza la utilidad `forced-color-adjust-none` para excluir un elemento de los c
 <form>
   <img src="/img/shirt.jpg" />
   <div>
-    <h3>Camiseta Básica</h3>
+    <h3>Basic Tee</h3>
     <h3>$35</h3>
     <fieldset>
-      <legend class="sr-only">Elige un color</legend>
+      <legend class="sr-only">Choose a color</legend>
       <div class="forced-color-adjust-none ...">
         <label>
           <input class="sr-only" type="radio" name="color-choice" value="White" />
-          <span class="sr-only">Blanco</span>
+          <span class="sr-only">White</span>
           <span class="size-6 rounded-full border border-black/10 bg-white"></span>
         </label>
         <!-- ... -->
@@ -114,21 +114,21 @@ Utiliza la utilidad `forced-color-adjust-none` para excluir un elemento de los c
 
 </Figure>
 
-También puedes usar la [variante de colores forzados](/docs/hover-focus-and-other-states#forced-colors) para agregar estilos condicionalmente cuando el usuario ha habilitado un modo de color forzado.
+You can also use the [forced colors variant](/docs/hover-focus-and-other-states#forced-colors) to conditionally add styles when the user has enabled a forced color mode.
 
-### Restaurando colores forzados
+### Restoring forced colors
 
-Utiliza la utilidad `forced-color-adjust-auto` para hacer que un elemento se adhiera a los colores impuestos por el modo de colores forzados:
+Use the `forced-color-adjust-auto` utility to make an element adhere to colors enforced by forced colors mode:
 
 ```html
 <!-- [!code classes:lg:forced-color-adjust-auto] -->
 <form>
   <fieldset class="forced-color-adjust-none lg:forced-color-adjust-auto ...">
-    <legend>Elige un color:</legend>
+    <legend>Choose a color:</legend>
     <select class="hidden lg:block">
-      <option value="White">Blanco</option>
-      <option value="Gray">Gris</option>
-      <option value="Black">Negro</option>
+      <option value="White">White</option>
+      <option value="Gray">Gray</option>
+      <option value="Black">Black</option>
     </select>
     <div class="lg:hidden">
       <label>
@@ -141,7 +141,7 @@ Utiliza la utilidad `forced-color-adjust-auto` para hacer que un elemento se adh
 </form>
 ```
 
-Esto puede ser útil si quieres deshacer la utilidad `forced-color-adjust-none`, por ejemplo, en un tamaño de pantalla más grande.
+This can be useful if you want to undo the `forced-color-adjust-none` utility, for example on a larger screen size.
 
 ### Responsive design
 

@@ -1,4 +1,3 @@
-export const runtime = "edge";
 import { ImageResponse } from "next/og";
 import { NextRequest, NextResponse } from "next/server";
 import openGraphScraper from "open-graph-scraper-lite";
@@ -40,7 +39,6 @@ export async function GET(req: NextRequest) {
       matches[2]
         .toLocaleUpperCase()
         // For some reasons, regular dashes can not be rendered, so we're using en dashes instead
-        // Por alguna razón, los guiones normales no se pueden renderizar, así que estamos usando guiones largos en su lugar
         .replace("-", "–") ?? "";
   }
 
@@ -49,7 +47,6 @@ export async function GET(req: NextRequest) {
   }
 
   // Avoid stray words at the last line.
-  // Evitar palabras sueltas en la última línea.
   if (description.split(" ").length > 2) {
     description =
       description.split(" ").slice(0, -1).join(" ") +

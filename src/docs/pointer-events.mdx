@@ -3,7 +3,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "pointer-events";
-export const description = "Utilidades para controlar si un elemento responde a los eventos de puntero.";
+export const description = "Utilities for controlling whether an element responds to pointer events.";
 
 <ApiTable
   rows={[
@@ -12,13 +12,13 @@ export const description = "Utilidades para controlar si un elemento responde a 
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ignorar eventos de puntero
+### Ignoring pointer events
 
-Usa la utilidad `pointer-events-none` para hacer que un elemento ignore los eventos de puntero, como los eventos `:hover` y `click`:
+Use the `pointer-events-none` utility to make an element ignore pointer events, like `:hover` and `click` events:
 
-<Figure hint="Haz clic en los íconos de búsqueda para ver el comportamiento esperado">
+<Figure hint="Click the search icons to see the expected behavior">
 
 <Example>
   {
@@ -88,11 +88,11 @@ Usa la utilidad `pointer-events-none` para hacer que un elemento ignore los even
 
 </Figure>
 
-Los eventos de puntero aún se activarán en los elementos hijos y pasarán a los elementos que están "debajo" del objetivo.
+The pointer events will still trigger on child elements and pass-through to elements that are "beneath" the target.
 
-### Restaurar eventos de puntero
+### Restoring pointer events
 
-Usa la utilidad `pointer-events-auto` para revertir al comportamiento predeterminado del navegador para los eventos de puntero:
+Use the `pointer-events-auto` utility to revert to the default browser behavior for pointer events:
 
 ```html
 <div class="pointer-events-none md:pointer-events-auto ...">

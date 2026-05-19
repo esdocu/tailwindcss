@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "caption-side";
-export const description = "Utilidades para controlar la alineación de un elemento de título dentro de una tabla.";
+export const description = "Utilities for controlling the alignment of a caption element inside of a table.";
 
 <ApiTable
   rows={[
@@ -13,11 +13,11 @@ export const description = "Utilidades para controlar la alineación de un eleme
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Colocando en la parte superior de la tabla
+### Placing at top of table
 
-Usa la utilidad `caption-top` para posicionar un elemento de título en la parte superior de una tabla:
+Use the `caption-top` utility to position a caption element at the top of a table:
 
 <Figure>
 
@@ -26,15 +26,15 @@ Usa la utilidad `caption-top` para posicionar un elemento de título en la parte
     <div className="overflow-hidden px-4 py-8 sm:px-8">
       <table className="w-full table-auto border-collapse text-sm">
         <caption className="caption-top pb-4 text-xs text-gray-500 dark:text-gray-400">
-          Tabla 3.1: Luchadores profesionales y sus movimientos característicos.
+          Table 3.1: Professional wrestlers and their signature moves.
         </caption>
         <thead>
           <tr>
             <th className="border border-gray-200 bg-gray-50 p-4 py-3 pl-8 text-left font-medium text-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200">
-              Luchador
+              Wrestler
             </th>
             <th className="border border-gray-200 bg-gray-50 p-4 py-3 pr-8 text-left font-medium text-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200">
-              Movimiento(s) característico(s)
+              Signature Move(s)
             </th>
           </tr>
         </thead>
@@ -73,12 +73,12 @@ Usa la utilidad `caption-top` para posicionar un elemento de título en la parte
 <!-- [!code classes:caption-top] -->
 <table>
   <caption class="caption-top">
-    Tabla 3.1: Luchadores profesionales y sus movimientos característicos.
+    Table 3.1: Professional wrestlers and their signature moves.
   </caption>
   <thead>
     <tr>
-      <th>Luchador</th>
-      <th>Movimiento(s) característico(s)</th>
+      <th>Wrestler</th>
+      <th>Signature Move(s)</th>
     </tr>
   </thead>
   <tbody>
@@ -100,9 +100,9 @@ Usa la utilidad `caption-top` para posicionar un elemento de título en la parte
 
 </Figure>
 
-### Colocando en la parte inferior de la tabla
+### Placing at bottom of table
 
-Usa la utilidad `caption-bottom` para posicionar un elemento de título en la parte inferior de una tabla:
+Use the `caption-bottom` utility to position a caption element at the bottom of a table:
 
 <Figure>
 
@@ -111,15 +111,15 @@ Usa la utilidad `caption-bottom` para posicionar un elemento de título en la pa
     <div className="overflow-hidden px-4 py-8 sm:px-8">
       <table className="w-full table-auto border-collapse text-sm">
         <caption className="caption-bottom pt-4 text-xs text-gray-500 dark:text-gray-400">
-          Tabla 3.1: Luchadores profesionales y sus movimientos característicos.
+          Table 3.1: Professional wrestlers and their signature moves.
         </caption>
         <thead>
           <tr>
             <th className="border border-gray-200 bg-gray-50 p-4 py-3 pl-8 text-left font-medium text-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200">
-              Luchador
+              Wrestler
             </th>
             <th className="border border-gray-200 bg-gray-50 p-4 py-3 pr-8 text-left font-medium text-gray-400 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-200">
-              Movimiento(s) característico(s)
+              Signature Move(s)
             </th>
           </tr>
         </thead>
@@ -158,12 +158,12 @@ Usa la utilidad `caption-bottom` para posicionar un elemento de título en la pa
 <!-- [!code word:caption-bottom] -->
 <table>
   <caption class="caption-bottom">
-    Tabla 3.1: Luchadores profesionales y sus movimientos característicos.
+    Table 3.1: Professional wrestlers and their signature moves.
   </caption>
   <thead>
     <tr>
-      <th>Luchador</th>
-      <th>Movimiento(s) característico(s)</th>
+      <th>Wrestler</th>
+      <th>Signature Move(s)</th>
     </tr>
   </thead>
   <tbody>
@@ -185,6 +185,6 @@ Usa la utilidad `caption-bottom` para posicionar un elemento de título en la pa
 
 </Figure>
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="caption-side" element="caption" defaultClass="caption-top" featuredClass="caption-bottom" />

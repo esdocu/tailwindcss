@@ -15,11 +15,11 @@ export function SignUpForm() {
           id="email"
           name="email_address"
           className="w-3xs min-w-0 shrink grow rounded-full bg-transparent px-4 py-2 text-sm/6 text-gray-950 focus:outline-none"
-          placeholder="Ingresa tu correo electrónico"
-          aria-label="Dirección de correo electrónico"
+          placeholder="Enter your email"
+          aria-label="Email address"
         />
         <button className="mr-0.5 shrink-0 overflow-hidden rounded-full bg-gray-950 px-3 py-1.5 text-sm/6 font-semibold text-nowrap text-white hover:bg-gray-950/85">
-          Obtén el curso
+          Get the course
         </button>
       </div>
     </form>
@@ -94,14 +94,14 @@ export function HeroActions({
                   type="email"
                   name="email_address"
                   className="w-3xs rounded-full bg-transparent px-4 py-2 text-sm/6 text-gray-950 focus:outline-none"
-                  placeholder="Ingresa tu correo electrónico"
-                  aria-label="Dirección de correo electrónico"
+                  placeholder="Enter your email"
+                  aria-label="Email address"
                 />
                 <button
                   type="submit"
                   className="mr-0.5 shrink-0 overflow-hidden rounded-full bg-gray-950 px-3 py-1.5 text-sm/6 font-semibold text-nowrap text-white hover:bg-gray-950/85"
                 >
-                  Regístrate
+                  Sign up
                 </button>
               </motion.form>
             )}
@@ -129,7 +129,7 @@ export function HeroActions({
                 }}
                 transition={{ duration: 0.2 }}
               >
-                Obtén el curso gratuito &rarr;
+                Get the free course &rarr;
               </motion.button>
             )}
           </AnimatePresence>
@@ -165,7 +165,7 @@ export function HeroActions({
               />
             </svg>
             <span>
-              Ver <span className="max-sm:hidden">el</span> video <span className="max-sm:hidden">de introducción</span>
+              Watch <span className="max-sm:hidden">the</span> intro <span className="max-sm:hidden">video</span>
             </span>
           </Button>
         )}

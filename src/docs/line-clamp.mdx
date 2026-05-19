@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "line-clamp";
-export const description = "Utilidades para limitar el texto a un número específico de líneas.";
+export const description = "Utilities for clamping text to a specific number of lines.";
 
 <ApiTable
   rows={[
@@ -27,11 +27,11 @@ export const description = "Utilidades para limitar el texto a un número espec�
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `line-clamp-<number>` como `line-clamp-2` y `line-clamp-3` para truncar texto de varias líneas después de un número específico de líneas:
+Use `line-clamp-<number>` utilities like `line-clamp-2` and `line-clamp-3` to truncate multi-line text after a specific number of lines:
 
 <Figure>
 
@@ -84,9 +84,9 @@ Usa utilidades `line-clamp-<number>` como `line-clamp-2` y `line-clamp-3` para t
 
 </Figure>
 
-### Deshaciendo el límite de líneas
+### Undoing line clamping
 
-Usa `line-clamp-none` para deshacer una utilidad de límite de líneas aplicada previamente:
+Use `line-clamp-none` to undo a previously applied line clamp utility:
 
 ```html
 <!-- [!code classes:lg:line-clamp-none] -->
@@ -95,7 +95,7 @@ Usa `line-clamp-none` para deshacer una utilidad de límite de líneas aplicada 
 </p>
 ```
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue
   element="p"

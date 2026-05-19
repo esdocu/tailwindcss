@@ -4,22 +4,22 @@ import LogoDark from "@/docs/img/guides/astro-white.react.svg";
 
 export let tile: Tile = {
   title: "Astro",
-  description: "El framework web todo en uno diseñado para la velocidad.",
+  description: "The all-in-one web framework designed for speed.",
   Logo,
   LogoDark,
 };
 
 export let page: Page = {
-  title: "Instalar Tailwind CSS con Astro",
-  description: "Configurando Tailwind CSS en un proyecto Astro.",
+  title: "Install Tailwind CSS with Astro",
+  description: "Setting up Tailwind CSS in an Astro project.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Crea tu proyecto",
+    title: "Create your project",
     body: (
       <p>
-        Comienza creando un nuevo proyecto Astro si aún no tienes uno configurado. El enfoque más común es usar{" "}
+        Start by creating a new Astro project if you don't have one set up already. The most common approach is to use{" "}
         <a href="https://docs.astro.build/en/install-and-setup/#install-from-the-cli-wizard">create astro</a>.
       </p>
     ),
@@ -33,10 +33,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Instala Tailwind CSS",
+    title: "Install Tailwind CSS",
     body: (
       <p>
-        Instala <code>@tailwindcss/vite</code> y sus dependencias peer a través de npm.
+        Install <code>@tailwindcss/vite</code> and its peer dependencies via npm.
       </p>
     ),
     code: {
@@ -48,10 +48,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configura el plugin de Vite",
+    title: "Configure Vite Plugin",
     body: (
       <p>
-        Añade el plugin <code>@tailwindcss/vite</code> a tus plugins de Vite en tu archivo de configuración de Astro.
+        Add the <code>@tailwindcss/vite</code> plugin to your Vite plugins in your Astro config file.
       </p>
     ),
     code: {
@@ -74,10 +74,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Importa Tailwind CSS",
+    title: "Import Tailwind CSS",
     body: (
       <p>
-        Crea un archivo <code>./src/styles/global.css</code> y añade un <code>@import</code> para Tailwind CSS.
+        Create a <code>./src/styles/global.css</code> file and add an <code>@import</code> for Tailwind CSS.
       </p>
     ),
     code: {
@@ -89,10 +89,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Inicia tu proceso de build",
+    title: "Start your build process",
     body: (
       <p>
-        Ejecuta tu proceso de build con <code>npm run dev</code>.
+        Run your build process with <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -104,11 +104,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Comienza a usar Tailwind en tu proyecto",
+    title: "Start using Tailwind in your project",
     body: (
       <p>
-        Comienza a usar las clases de utilidad de Tailwind para estilizar tu contenido asegurándote de importar el
-        archivo CSS recién creado.
+        Start using Tailwind's utility classes to style your content while making sure to import the newly created CSS
+        file.
       </p>
     ),
     code: {

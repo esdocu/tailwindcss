@@ -5,27 +5,27 @@ import image from "./card.jpg";
 
 export const meta = {
   title: "Tailwind CSS v1.7.0",
-  description: `¡Tailwind CSS v1.7.0 ya está disponible, con gradientes y más!`,
+  description: `Tailwind CSS v1.7.0 is now available, with gradients and more!`,
   date: "2020-08-18T19:15:00.000Z",
   authors: [adamwathan],
   image,
   excerpt: (
     <>
-      ¡Otro nuevo lanzamiento de Tailwind está aquí! Esta vez con soporte para gradientes, background-clip, soporte experimental
-      para usar <code>@apply</code> con utilidades de variantes, y mucho más. ¡Vamos a ello!
+      Another new Tailwind release is here! This time with support for gradients, background-clip, experimental support
+      for using <code>@apply</code> with variant utilities, and tons more. Let's dig in!
     </>
   ),
 };
 
-¡Otro nuevo lanzamiento de Tailwind está aquí! Esta vez con soporte para gradientes, background-clip, soporte experimental para usar `@apply` con utilidades de variantes, y mucho más. ¡Vamos a ello!
+Another new Tailwind release is here! This time with support for gradients, background-clip, experimental support for using `@apply` with variant utilities, and tons more. Let's dig in!
 
-## Nuevas características
+## New features
 
-### Gradientes
+### Gradients
 
-La gran novedad de este lanzamiento — ¡Tailwind ahora viene con soporte integrado para gradientes de fondo!
+The big one for this release — Tailwind now ships with built-in support for background gradients!
 
-Los gradientes están diseñados con una API altamente componible que te permite especificar hasta tres paradas de color en una de las 8 direcciones por defecto:
+Gradients are designed with a highly composable API that lets you specify up to three color stops in one of 8 directions by default:
 
 <Figure>
 
@@ -39,9 +39,9 @@ Los gradientes están diseñados con una API altamente componible que te permite
 
 </Figure>
 
-Esto es posible gracias a un nuevo plugin de núcleo `backgroundImage` (¡que puedes usar para cualquier imagen de fondo que quieras!) y un nuevo plugin de núcleo `gradientColorStops`.
+This is made possible by a new `backgroundImage` core plugin (which you can use for any background images you like!) and a new `gradientColorStops` core plugin.
 
-La configuración por defecto para estos plugins se ve así:
+The default configuration for these plugins looks like this:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -66,19 +66,20 @@ module.exports = {
 };
 ```
 
-Aprende más en [el pull request original](https://github.com/tailwindlabs/tailwindcss/pull/2176).
+Learn more [the original pull request](https://github.com/tailwindlabs/tailwindcss/pull/2176).
 
-### Nuevas utilidades background-clip
+### New background-clip utilities
 
-También hemos añadido un nuevo plugin de núcleo `backgroundClip` que puedes usar para controlar cómo se renderizan los fondos dentro de un elemento.
+We've also added a new `backgroundClip` core plugin that you can use to control how background are rendered within an element.
 
-Incluye 4 nuevas utilidades:
+It includes 4 new utilities:
 
 {
+
 <table>
   <thead>
     <tr>
-      <th>Clase</th>
+      <th>Class</th>
       <th>CSS</th>
     </tr>
   </thead>
@@ -119,7 +120,7 @@ Incluye 4 nuevas utilidades:
 </table>
 }
 
-Combinado con las nuevas características de gradiente, puedes usar esto para hacer cosas geniales con texto gradiente como esto:
+Combined with the new gradient features, you can use this to do cool gradient text stuff like this:
 
 <Figure>
 
@@ -127,7 +128,7 @@ Combinado con las nuevas características de gradiente, puedes usar esto para ha
   {
     <div className="text-center text-5xl font-bold">
       <span className="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
-        Saludos desde Tailwind v1.7.
+        Greetings from Tailwind v1.7.
       </span>
     </div>
   }
@@ -136,14 +137,14 @@ Combinado con las nuevas características de gradiente, puedes usar esto para ha
 ```html
 <h1 class="text-center text-5xl font-bold">
   <span class="bg-gradient-to-r from-teal-400 to-blue-500 bg-clip-text text-transparent">
-    Saludos desde Tailwind v1.7.
+    Greetings from Tailwind v1.7.
   </span>
 </h1>
 ```
 
 </Figure>
 
-Solo las variantes Responsive están habilitadas para el plugin `backgroundClip` por defecto:
+Only responsive variants are enabled for the `backgroundClip` plugin by default:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -154,17 +155,17 @@ module.exports = {
 };
 ```
 
-### Nuevos alias para utilidades gap
+### New gap utility aliases
 
-Por alguna razón tonta llamé a las utilidades `column-gap` y `row-gap` como `col-gap-{n}` y `row-gap-{n}` respectivamente, lo cual no es terrible pero no es consistente con cómo se nombran otras cosas en Tailwind.
+For some dumb reason I named the `column-gap` and `row-gap` utilities `col-gap-{n}` and `row-gap-{n}` respectively, which isn't terrible but it's not consistent with how other things in Tailwind are named.
 
-Me encontraba confundiéndolas todo el tiempo — ¿es `row-gap` el espacio en una fila, o el espacio entre filas?
+I was finding myself getting them wrong all the time — is `row-gap` the gaps in a row, or the gap between rows?
 
-Tailwind v1.7 introduce nuevas utilidades `gap-x-{n}` y `gap-y-{n}` que hacen exactamente lo mismo pero tienen nombres que no apestan. Tienen mucho más sentido que los nombres reales de CSS ahora que el gap para flexbox está empezando a implementarse también, ya que flexbox no tiene "columnas".
+Tailwind v1.7 introduces new `gap-x-{n}` and `gap-y-{n}` utilities that do the exact same thing but have names that don't suck. They make way more sense than the actual CSS names now that gap for flexbox is starting to roll out too, since flexbox has no "columns".
 
-Estas utilidades reemplazarán a las antiguas en la v2.0, pero por ahora ambas existen juntas.
+These utilities will replace the old ones in v2.0, but for now they both exist together.
 
-**Recomendamos migrar a los nuevos nombres ahora, y deshabilitar los nombres antiguos usando esta bandera de característica:**
+**We recommend migrating to the new names now, and disabling the old names using this feature flag:**
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -176,16 +177,16 @@ module.exports = {
 };
 ```
 
-Tailwind emitirá una advertencia en la consola para recordarte que estás incluyendo clases descontinuadas en tu compilación hasta que habilites esta bandera.
+Tailwind will issue a warning in the console to remind you that you are including deprecated classes in your build until you enable this flag.
 
-### Nueva utilidad de display `contents`
+### New `contents` display utility
 
-Hemos añadido una nueva clase `contents` para la reciente característica CSS `display: contents`.
+We've added a new `contents` class for the recent `display: contents` CSS feature.
 
 ```html
 <div class="flex">
   <div><!-- ... --></div>
-  <!-- Este contenedor actuará como un contenedor fantasma, y sus hijos serán tratados como parte del contenedor flex padre -->
+  <!-- This container will act as a phantom container, and its children will be treated as part of the parent flex container -->
   <div class="contents">
     <div><!-- ... --></div>
     <div><!-- ... --></div>
@@ -194,22 +195,22 @@ Hemos añadido una nueva clase `contents` para la reciente característica CSS `
 </div>
 ```
 
-Aprende más sobre esto en [este genial artículo de Rachel Andrew](https://rachelandrew.co.uk/archives/2016/01/29/vanishing-boxes-with-display-contents/).
+Learn more about it in [this great article by Rachel Andrew](https://rachelandrew.co.uk/archives/2016/01/29/vanishing-boxes-with-display-contents/).
 
-### Letter-spacing por defecto por tamaño de fuente
+### Default letter-spacing per font-size
 
-Ahora puedes configurar un valor de letter-spacing por defecto para cada tamaño de fuente en tu tema `tailwind.config.js`, usando una sintaxis de tupla:
+You can now configure a default letter-spacing value for each font-size in your `tailwind.config.js` theme, using a tuple syntax:
 
 ```js
 // [!code filename:tailwind.config.js]
 module.exports = {
   theme: {
     fontSize: {
-      '2xl': ['24px', {
+      2xl: ['24px', {
         letterSpacing: '-0.01em',
       }],
-      // O con una altura de línea por defecto también
-      '3xl': ['32px', {
+      // Or with a default line-height as well
+      3xl: ['32px', {
         letterSpacing: '-0.02em',
         lineHeight: '40px',
       }],
@@ -218,11 +219,11 @@ module.exports = {
 }
 ```
 
-Esta nueva sintaxis es soportada además de la sintaxis más simple `[{fontSize}, {lineHeight}]` que fue introducida recientemente.
+This new syntax is supported in addition to the simpler `[{fontSize}, {lineHeight}]` syntax that was recently introduced.
 
-### Estilos de borde para Divide
+### Divide border styles
 
-Hemos añadido utilidades para establecer el estilo de borde en las utilidades `divide`:
+We've added utilities for setting the border style on the `divide` utilities:
 
 ```html
 <div class="divide-y divide-dashed">
@@ -233,7 +234,7 @@ Hemos añadido utilidades para establecer el estilo de borde en las utilidades `
 </div>
 ```
 
-Estas utilidades incluyen variantes `responsive` por defecto:
+These utilities include `responsive` variants by default:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -244,51 +245,51 @@ module.exports = {
 };
 ```
 
-### Acceder al objeto de configuración completo desde plugins
+### Access entire config object from plugins
 
-La función `config` pasada a la API del plugin ahora devuelve todo el objeto de configuración cuando se invoca sin argumentos:
+The `config` function passed to the plugin API now returns the entire config option when invoked with no arguments:
 
 ```js
 tailwind.plugin(function ({ config, addUtilities, /* ... */ })) {
-  // Devuelve el objeto de configuración completo
+  // Returns entire config object
   config()
 })
 ```
 
-### Definir colores como closures
+### Define colors as closures
 
-Puedes definir ahora tus colores como callbacks, que reciben una bolsa de parámetros que puedes usar para generar tu valor de color.
+You can now define your colors as callbacks, which receive a bag of parameters you can use to generate your color value.
 
-Esto es particularmente útil cuando intentas hacer que tus colores personalizados funcionen con las utilidades `backgroundOpacity`, `textOpacity`, etc.
+This is particularly useful when trying to make your custom colors work with the `backgroundOpacity`, `textOpacity`, etc. utilities
 
 ```js
 // [!code filename:tailwind.config.js]
 module.exports = {
   theme: {
     colors: {
-      primary: ({ opacityVariable }) => `rgba(var(--color-primary), var(${opacityVariable}, 1))`,
+      primary: ({ opacityVariable }) => `rgba(var(--color-primary), var(${variable}, 1))`,
     },
   },
 };
 ```
 
-Actualmente lo único que se pasa es una propiedad `opacityVariable`, que contiene el nombre de la variable de opacidad actual (`--background-opacity`, `--text-opacity`, etc.) dependiendo de qué plugin esté usando el color.
+Currently the only thing passed through is an `opacityVariable` property, which contains the name of the current opacity variable (`--background-opacity`, `--text-opacity`, etc.) depending on which plugin is using the color.
 
-## Descontinuaciones
+## Deprecations
 
-Tailwind v1.7 introduce un nuevo sistema de banderas de características y descontinuación diseñado para hacer las actualizaciones lo más indoloras posible.
+Tailwind v1.7 introduces a new feature flagging and deprecation system designed to make upgrades as painless as possible.
 
-Cada vez que descontinuemos funcionalidad o introduzcamos nuevos cambios (estables) que rompan la compatibilidad, estarán disponibles en Tailwind v1.x bajo una propiedad `future` en tu archivo `tailwind.config.js`.
+Any time we deprecate functionality or introduce new (stable) breaking changes, they will be available in Tailwind v1.x under a `future` property in your `tailwind.config.js` file.
 
-Siempre que haya descontinuaciones o cambios que rompan la compatibilidad disponibles, Tailwind te advertirá en la consola en cada compilación hasta que adoptes los nuevos cambios y habilites la bandera en tu archivo de configuración:
+Whenever there are deprecations or breaking changes available, Tailwind will warn you in the console on every build until you adopt the new changes and enable the flag in your config file:
 
 ```txt
-risk - Hay próximos cambios que rompen la compatibilidad: removeDeprecatedGapUtilities
-risk - Recomendamos encarecidamente optar por estos cambios ahora para simplificar la actualización de Tailwind en el futuro.
+risk - There are upcoming breaking changes: removeDeprecatedGapUtilities
+risk - We highly recommend opting-in to these changes now to simplify upgrading Tailwind in the future.
 risk - https://tailwindcss.com/docs/upcoming-changes
 ```
 
-Puedes optar por un cambio que rompa la compatibilidad estableciendo esa bandera a `true` en tu archivo `tailwind.config.js`:
+You can opt-in to a breaking change by setting that flag to `true` in your `tailwind.config.js` file:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -299,7 +300,7 @@ module.exports = {
 };
 ```
 
-Si prefieres no optar pero te gustaría silenciar la advertencia, establece explícitamente la bandera a `false`:
+If you'd prefer not to opt-in but would like to silence the warning, explicitly set the flag to `false`:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -310,15 +311,15 @@ module.exports = {
 };
 ```
 
-**No recomendamos esto**, ya que hará más difícil la actualización a Tailwind v2.0.
+**We do not recommend this**, as it will make upgrading to Tailwind v2.0 more difficult.
 
-### Utilidades gap descontinuadas
+### Deprecated gap utilities
 
-Como se mencionó anteriormente, Tailwind v1.7.0 introduce nuevas utilidades `gap-x-{n}` y `gap-y-{n}` para reemplazar las actuales utilidades `col-gap-{n}` y `row-gap-{n}`.
+As mentioned previously, Tailwind v1.7.0 introduces new `gap-x-{n}` and `gap-y-{n}` utilities to replace the current `col-gap-{n}` and `row-gap-{n}` utilities.
 
-Por defecto ambas clases existirán, pero las utilidades antiguas serán eliminadas en Tailwind v2.0.
+By default both classes will exist, but the old utilities will be removed in Tailwind v2.0.
 
-Para migrar a los nuevos nombres de clase, simplemente reemplaza cualquier uso existente de los nombres antiguos con los nuevos nombres:
+To migrate to the new class names, simply replace any existing usage of the old names with the new names:
 
 {/* prettier-ignore */}
 ```html
@@ -327,7 +328,7 @@ Para migrar a los nuevos nombres de clase, simplemente reemplaza cualquier uso e
 </div>
 ```
 
-Para optar por los nuevos nombres ahora, habilita la bandera `removeDeprecatedGapUtilities` en tu archivo `tailwind.config.js`:
+To opt-in to the new names now, enable the `removeDeprecatedGapUtilities` flag in your `tailwind.config.js` file:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -338,13 +339,13 @@ module.exports = {
 };
 ```
 
-## Características experimentales
+## Experimental features
 
-Tailwind v1.7.0 introduce un nuevo sistema de características experimentales que te permite optar por nueva funcionalidad que llegará a Tailwind pronto pero que aún no es completamente estable.
+Tailwind v1.7.0 introduces a new experimental feature system that allows you to opt-in to new functionality that is coming to Tailwind soon but isn't quite stable yet.
 
-Es importante notar que **las características experimentales pueden introducir cambios que rompan la compatibilidad, no siguen semver, y pueden cambiar en cualquier momento**.
+It's important to note that **experimental features may introduce breaking changes, do not follow semver, and can change at any time**.
 
-Sin embargo, si te gusta vivir al límite, puedes habilitarlas todas así:
+If you like to live on the wild side though, you can enable all of them like so:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -353,11 +354,11 @@ module.exports = {
 };
 ```
 
-Con eso aclarado, aquí hay algunas de las cosas divertidas en las que estamos trabajando y que estamos emocionados de que finalmente puedas probar...
+With that out of the way, here is some of the fun stuff we're working on that we're pumped you can finally play with...
 
-### Usar `@apply` con variantes y otras clases complejas
+### Use `@apply` with variants and other complex classes
 
-Esto es enorme — ¡finalmente puedes usar `@apply` con variantes Responsive, variantes de pseudo-clase y otras clases complejas!
+This is a huge one — you can finally use `@apply` with responsive variants, pseudo-class variants, and other complex classes!
 
 ```css
 .btn {
@@ -365,11 +366,11 @@ Esto es enorme — ¡finalmente puedes usar `@apply` con variantes Responsive, v
 }
 ```
 
-Hay muchos detalles que entender con esto, así que recomiendo [leer el pull request](https://github.com/tailwindlabs/tailwindcss/pull/2159) para aprender cómo funciona todo.
+There are a lot of details to understand with this one, so I recommend [reading the pull request](https://github.com/tailwindlabs/tailwindcss/pull/2159) to learn about how it all works.
 
-Esto introduce cambios que rompen la compatibilidad en cómo funcionaba `@apply` antes, así que asegúrate de leer todos los detalles antes de simplemente activar el interruptor.
+This introduces breaking changes to how `@apply` worked before, so be sure to read all of the details before just flipping the switch.
 
-Para habilitar esta característica, usa la bandera `applyComplexClasses`:
+To enable this feature, use the `applyComplexClasses` flag:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -380,9 +381,9 @@ module.exports = {
 };
 ```
 
-### Nueva paleta de colores
+### New color palette
 
-Hemos añadido un adelanto de la nueva paleta de colores de Tailwind 2.0 con la que puedes empezar a jugar hoy usando la bandera `uniformColorPalette`:
+We've added a teaser of the new Tailwind 2.0 color palette that you can start playing with today using the `uniformColorPalette` flag:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -393,15 +394,15 @@ module.exports = {
 };
 ```
 
-La idea detrás de la nueva paleta es que cada color en cada tono tenga un brillo percibido similar. Así puedes intercambiar `indigo-600` con `blue-600` y esperar el mismo contraste de color.
+The idea behind the new palette is that every color at every shade has a similar perceived brightness. So you can swap `indigo-600` with `blue-600` and expect the same color contrast.
 
-Esperamos que estos colores continúen cambiando mucho a medida que iteramos sobre ellos, así que úsalos bajo tu propio riesgo.
+We do expect these colors to continue to change a lot as we iterate on them, so use these at your own risk.
 
-### Escala de espaciado extendida
+### Extended spacing scale
 
-Hemos añadido una escala de espaciado mucho más grande que incluye nuevos micro valores como `0.5`, `1.5`, `2.5`, y `3.5`, así como nuevos valores grandes como `72`, `80`, y `96`, _y_ hemos añadido valores fraccionarios basados en porcentajes a toda la escala de espaciado (`1/2`, `5/6`, `7/12`, etc.)
+We've added a much bigger spacing scale that includes new micro values like `0.5`, `1.5`, `2.5`, and `3.5`, as well as new large values like `72`, `80`, and `96`, _and_ added percentage-based fractional values to the whole spacing scale (`1/2`, `5/6`, `7/12`, etc.)
 
-Puedes habilitar la escala de espaciado extendida usando la bandera `extendedSpacingScale`:
+You can enable the extended spacing scale using the `extendedSpacingScale` flag:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -412,11 +413,11 @@ module.exports = {
 };
 ```
 
-Esto es bastante estable, me sorprendería si cambiamos esto.
+This is pretty stable, I would be surprised if we change this.
 
-### Alturas de línea por defecto por tamaño de fuente por defecto
+### Default line-heights per font-size by default
 
-Hemos añadido alturas de línea por defecto recomendadas a cada tamaño de fuente incorporado, que se pueden habilitar usando la bandera `defaultLineHeights`:
+We've added recommended default line-heights to every built-in font-size, which can be enabled using the `defaultLineHeights` flag:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -427,13 +428,13 @@ module.exports = {
 };
 ```
 
-Esto es un cambio que rompe la compatibilidad e impactará tus diseños, ya que anteriormente todos los tamaños de fuente tenían una altura de línea por defecto de `1.5`.
+This is a breaking change and will impact your designs, as previously all font sizes had a default line-height of `1.5`.
 
-### Escala de tamaño de fuente extendida
+### Extended font size scale
 
-Hemos añadido tres nuevos tamaños de fuente (`7xl`, `8xl`, y `9xl`) para mantenernos al día con las últimas tendencias de texto de héroe enormes. Incluyen alturas de línea por defecto también.
+We've added three new font sizes (`7xl`, `8xl`, and `9xl`) to keep up with the latest huge-as-hell-hero-text trends. They include default line-heights as well.
 
-Puedes habilitarlos bajo la bandera `extendedFontSizeScale`:
+You can enable them under the `extendedFontSizeScale` flag:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -444,4 +445,4 @@ module.exports = {
 };
 ```
 
-¿Quieres hablar sobre esta publicación? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2183">Discútelo en GitHub →</a>
+Want to talk about this post? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2183">Discuss this on GitHub →</a>

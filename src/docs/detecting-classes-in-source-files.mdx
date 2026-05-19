@@ -4,20 +4,20 @@ import { Example } from "@/components/example";
 import { Figure } from "@/components/figure";
 import { CodeExampleStack } from "@/components/code-example";
 
-export const title = "Detectando clases en archivos fuente";
-export const description = "Comprendiendo y personalizando cómo Tailwind escanea tus archivos fuente.";
+export const title = "Detecting classes in source files";
+export const description = "Understanding and customizing how Tailwind scans your source files.";
 
-## Resumen
+## Overview
 
-Tailwind funciona escaneando tu proyecto en busca de clases de utilidad, y luego generando todo el CSS necesario basado en las clases que realmente has usado.
+Tailwind works by scanning your project for utility classes, then generating all of the necessary CSS based on the classes you've actually used.
 
-Esto asegura que tu CSS sea lo más pequeño posible, y también es lo que hace posibles características como los [valores arbitrarios](/docs/adding-custom-styles#using-arbitrary-values).
+This makes sure your CSS is as small as possible, and is also what makes features like [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) possible.
 
-### Cómo se detectan las clases
+### How classes are detected
 
-Tailwind trata todos tus archivos fuente como texto plano, y no intenta analizar tus archivos como código de ninguna manera.
+Tailwind treats all of your source files as plain text, and doesn't attempt to actually parse your files as code in any way.
 
-En cambio, simplemente busca cualquier token en tu archivo que pueda ser una clase basándose en los caracteres que Tailwind espera en los nombres de clase:
+Instead it just looks for any tokens in your file that could be classes based on which characters Tailwind is expecting in class names:
 
 ```jsx
 // [!code filename:JSX]
@@ -60,24 +60,24 @@ export function Button({ color, children }) {
 }
 ```
 
-Luego, intenta generar el CSS para todos estos tokens, descartando aquellos que no se mapean a una clase de utilidad que el framework conoce.
+Then it tries to generate the CSS for all of these tokens, throwing away any tokens that don't map to a utility class the framework knows about.
 
-### Nombres de clase dinámicos
+### Dynamic class names
 
-Dado que Tailwind escanea tus archivos fuente como texto plano, no tiene forma de entender la concatenación o interpolación de cadenas en el lenguaje de programación que estás usando.
+Since Tailwind scans your source files as plain text, it has no way of understanding string concatenation or interpolation in the programming language you're using.
 
-<TipBad>{<>No construyas nombres de clase dinámicamente</>}</TipBad>
+<TipBad>{<>Don't construct class names dynamically</>}</TipBad>
 
 ```html
 <!-- [!code filename:HTML] -->
 <div class="text-{{ error ? 'red' : 'green' }}-600"></div>
 ```
 
-En el ejemplo anterior, las cadenas `text-red-600` y `text-green-600` no existen, por lo que Tailwind no generará esas clases.
+In the example above, the strings `text-red-600` and `text-green-600` do not exist, so Tailwind will not generate those classes.
 
-En su lugar, asegúrate de que todos los nombres de clase que estés usando existan completos:
+Instead, make sure any class names you’re using exist in full:
 
-<TipGood>{<>Usa siempre nombres de clase completos</>}</TipGood>
+<TipGood>{<>Always use complete class names</>}</TipGood>
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -86,9 +86,9 @@ En su lugar, asegúrate de que todos los nombres de clase que estés usando exis
 <div class="{{ error ? 'text-red-600' : 'text-green-600' }}"></div>
 ```
 
-Si estás usando una biblioteca de componentes como React o Vue, esto significa que no deberías usar props para construir clases dinámicamente:
+If you're using a component library like React or Vue, this means you shouldn't use props to dynamically construct classes:
 
-<TipBad>No uses props para construir nombres de clase dinámicamente</TipBad>
+<TipBad>Don't use props to build class names dynamically</TipBad>
 
 ```jsx
 // [!code filename:JSX]
@@ -97,9 +97,9 @@ function Button({ color, children }) {
 }
 ```
 
-En su lugar, mapea los props a nombres de clase completos que sean detectables estáticamente en tiempo de compilación:
+Instead, map props to complete class names that are statically detectable at build-time:
 
-<TipGood>Mapea siempre los props a nombres de clase estáticos</TipGood>
+<TipGood>Always map props to static class names</TipGood>
 
 ```jsx
 // [!code filename:JSX]
@@ -113,7 +113,7 @@ function Button({ color, children }) {
 }
 ```
 
-Esto tiene el beneficio adicional de permitirte mapear diferentes valores de prop a diferentes tonos de color, por ejemplo:
+This has the added benefit of letting you map different prop values to different color shades for example:
 
 ```jsx
 // [!code filename:JSX]
@@ -128,22 +128,23 @@ function Button({ color, children }) {
 }
 ```
 
-Mientras siempre uses nombres de clase completos en tu código, Tailwind generará todo tu CSS perfectamente cada vez.
+As long as you always use complete class names in your code, Tailwind will generate all of your CSS perfectly every time.
 
-### Qué archivos se escanean
+### Which files are scanned
 
-Tailwind escaneará cada archivo en tu proyecto en busca de nombres de clase, excepto en los siguientes casos:
+Tailwind will scan every file in your project for class names, except in the following cases:
 
-- Archivos que están en tu archivo `.gitignore`
-- Archivos binarios como imágenes, videos o archivos zip
-- Archivos CSS
-- Archivos de bloqueo comunes de gestores de paquetes
+- Files that are in your `.gitignore` file
+- Files in the `node_modules` directory
+- Binary files like images, videos, or zip files
+- CSS files
+- Common package manager lock files
 
-Si necesitas escanear algún archivo que Tailwind esté ignorando por defecto, puedes [registrar explícitamente](#explicitly-registering-sources) esas fuentes.
+If you need to scan any files that Tailwind is ignoring by default, you can [explicitly register](#explicitly-registering-sources) those sources.
 
-## Registrando fuentes explícitamente
+## Explicitly registering sources
 
-Usa `@source` para registrar explícitamente rutas de origen relativas a la hoja de estilos:
+Use `@source` to explicitly register source paths relative to the stylesheet:
 
 ```css
 /* [!code filename:CSS] */
@@ -152,13 +153,13 @@ Usa `@source` para registrar explícitamente rutas de origen relativas a la hoja
 @source "../node_modules/@acmecorp/ui-lib";
 ```
 
-Esto es especialmente útil cuando necesitas escanear una biblioteca externa construida con Tailwind, ya que las dependencias suelen estar listadas en tu archivo `.gitignore` y son ignoradas por Tailwind por defecto.
+This is especially useful when you need to scan an external library that is built with Tailwind, since dependencies are usually listed in your `.gitignore` file and ignored by Tailwind by default.
 
-### Estableciendo tu ruta base
+### Setting your base path
 
-Tailwind usa el directorio de trabajo actual como punto de partida al escanear nombres de clase por defecto.
+Tailwind uses the current working directory as its starting point when scanning for class names by default.
 
-Para establecer la ruta base para la detección de fuentes explícitamente, usa la función `source()` al importar Tailwind en tu CSS:
+To set the base path for source detection explicitly, use the `source()` function when importing Tailwind in your CSS:
 
 ```css
 /* [!code filename:CSS] */
@@ -166,11 +167,11 @@ Para establecer la ruta base para la detección de fuentes explícitamente, usa 
 @import "tailwindcss" source("../src");
 ```
 
-Esto puede ser útil al trabajar con monorepos donde tus comandos de compilación se ejecutan desde la raíz del monorepo en lugar de la raíz de cada proyecto.
+This can be useful when working with monorepos where your build commands run from the root of the monorepo instead of the root of each project.
 
-### Ignorando rutas específicas
+### Ignoring specific paths
 
-Usa `@source not` para ignorar rutas específicas, relativas a la hoja de estilos, al escanear nombres de clase:
+Use `@source not` to ignore specific paths, relative to the stylesheet, when scanning for class names:
 
 ```css
 /* [!code filename:CSS] */
@@ -179,11 +180,11 @@ Usa `@source not` para ignorar rutas específicas, relativas a la hoja de estilo
 @source not "../src/components/legacy";
 ```
 
-Esto es útil cuando tienes directorios grandes en tu proyecto que sabes que no usan clases de Tailwind, como componentes heredados o bibliotecas de terceros.
+This is useful when you have large directories in your project that you know don't use Tailwind classes, like legacy components or third-party libraries.
 
-### Deshabilitando la detección automática
+### Disabling automatic detection
 
-Usa `source(none)` para deshabilitar completamente la detección automática de fuentes si quieres registrar todas tus fuentes explícitamente:
+Use `source(none)` to completely disable automatic source detection if you want to register all of your sources explicitly:
 
 ```css
 /* [!code filename:CSS] */
@@ -194,11 +195,11 @@ Usa `source(none)` para deshabilitar completamente la detección automática de 
 @source "../shared";
 ```
 
-Esto puede ser útil en proyectos que tienen múltiples hojas de estilo Tailwind donde quieres asegurarte de que cada una solo incluya las clases que necesita.
+This can be useful in projects that have multiple Tailwind stylesheets where you want to make sure each one only includes the classes each stylesheet needs.
 
-## Incluyendo utilidades específicas en la lista segura
+## Safelisting specific utilities
 
-Si necesitas asegurarte de que Tailwind genere ciertos nombres de clase que no existen en tus archivos de contenido, usa `@source inline()` para forzar su generación:
+If you need to make sure Tailwind generates certain class names that don’t exist in your content files, use `@source inline()` to force them to be generated:
 
 <CodeExampleStack>
 ```css
@@ -211,15 +212,15 @@ Si necesitas asegurarte de que Tailwind genere ciertos nombres de clase que no e
 ```css
 /* [!code filename:Generated CSS] */
 .underline {
-  text-decoration: underline;
+  text-decoration-line: underline;
 }
 ```
 
 </CodeExampleStack>
 
-### Incluyendo variantes en la lista segura
+### Safelisting variants
 
-También puedes usar `@source inline()` para generar clases con variantes. Por ejemplo, para generar la clase `underline` con variantes hover y focus, agrega `{hover:,focus:,}` a la entrada de origen:
+You can also use `@source inline()` to generate classes with variants. For example, to generate the `underline` class with hover and focus variants, add `{hover:,focus:,}` to the source input:
 
 <CodeExampleStack>
 ```css
@@ -232,25 +233,25 @@ También puedes usar `@source inline()` para generar clases con variantes. Por e
 ```css
 /* [!code filename:Generated CSS] */
 .underline {
-  text-decoration: underline;
+  text-decoration-line: underline;
 }
 @media (hover: hover) {
   .hover\:underline:hover {
-    text-decoration: underline;
+    text-decoration-line: underline;
   }
 }
 @media (focus: focus) {
   .focus\:underline:focus {
-    text-decoration: underline;
+    text-decoration-line: underline;
   }
 }
 ```
 
 </CodeExampleStack>
 
-### Incluyendo en la lista segura con rangos
+### Safelisting with ranges
 
-La entrada de origen se [expande con llaves](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html), por lo que puedes generar múltiples clases a la vez. Por ejemplo, para generar todos los colores de fondo rojos con variantes hover, usa un rango:
+The source input is [brace expanded](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html), so you can generate multiple classes at once. For example, to generate all the red background colors with hover variants, use a range:
 
 <CodeExampleStack>
 ```css
@@ -298,11 +299,11 @@ La entrada de origen se [expande con llaves](https://www.gnu.org/software/bash/m
 
 </CodeExampleStack>
 
-Esto genera colores de fondo rojos del 100 al 900 en incrementos de 100, junto con los primeros y últimos tonos de 50 y 950. También agrega la variante `hover:` para cada una de esas clases.
+This generates red background colors from 100 to 900 in increments of 100, along with the first and last shades of 50 and 950. It also adds the `hover:` variant for each of those classes.
 
-### Excluyendo clases explícitamente
+### Explicitly excluding classes
 
-Usa `@source not inline()` para evitar que se generen clases específicas, incluso si se detectan en tus archivos fuente:
+Use `@source not inline()` to prevent specific classes from being generated, even if they are detected in your source files:
 
 ```css
 /* [!code filename:CSS] */
@@ -311,4 +312,4 @@ Usa `@source not inline()` para evitar que se generen clases específicas, inclu
 @source not inline("{hover:,focus:,}bg-red-{50,{100..900..100},950}");
 ```
 
-Esto excluirá explícitamente las utilidades de fondo rojas, junto con sus variantes hover y focus, de ser generadas.
+This will explicitly exclude the red background utilities, along with their hover and focus variants, from being generated.

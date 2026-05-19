@@ -5,14 +5,14 @@ import { Figure } from "@/components/figure.tsx";
 import dedent from "dedent";
 
 export const title = "animation";
-export const description = "Utilidades para animar elementos con animaciones CSS.";
+export const description = "Utilities for animating elements with CSS animations.";
 
 <ApiTable
   rows={[
     [
       "animate-spin",
       dedent`
-        animation: var(--animate-spin); /* rotar 1s linear infinito */
+        animation: var(--animate-spin); /* spin 1s linear infinite */
 
         @keyframes spin {
           to {
@@ -24,7 +24,7 @@ export const description = "Utilidades para animar elementos con animaciones CSS
     [
       "animate-ping",
       dedent`
-        animation: var(--animate-ping); /* ping 1s cubic-bezier(0, 0, 0.2, 1) infinito */
+        animation: var(--animate-ping); /* ping 1s cubic-bezier(0, 0, 0.2, 1) infinite */
 
         @keyframes ping {
           75%, 100% {
@@ -37,7 +37,7 @@ export const description = "Utilidades para animar elementos con animaciones CSS
     [
       "animate-pulse",
       dedent`
-        animation: var(--animate-pulse); /* pulso 2s cubic-bezier(0.4, 0, 0.6, 1) infinito */
+        animation: var(--animate-pulse); /* pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite */
 
         @keyframes pulse {
           50% {
@@ -49,7 +49,7 @@ export const description = "Utilidades para animar elementos con animaciones CSS
     [
       "animate-bounce",
       dedent`
-        animation: var(--animate-bounce); /* rebote 1s infinito */
+        animation: var(--animate-bounce); /* bounce 1s infinite */
 
         @keyframes bounce {
           0%, 100% {
@@ -70,11 +70,11 @@ export const description = "Utilidades para animar elementos con animaciones CSS
 ]}
 />
 
-## Ejemplos
+## Examples
 
-### Agregando una animación de giro
+### Adding a spin animation
 
-Usa la utilidad `animate-spin` para agregar una animación de giro lineal a elementos como indicadores de carga:
+Use the `animate-spin` utility to add a linear spin animation to elements like loading indicators:
 
 <Figure>
 
@@ -99,7 +99,7 @@ Usa la utilidad `animate-spin` para agregar una animación de giro lineal a elem
             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
           ></path>
         </svg>
-        Procesando…
+        Processing…
       </button>
     </div>
   }
@@ -111,15 +111,15 @@ Usa la utilidad `animate-spin` para agregar una animación de giro lineal a elem
   <svg class="mr-3 size-5 animate-spin ..." viewBox="0 0 24 24">
     <!-- ... -->
   </svg>
-  Procesando…
+  Processing…
 </button>
 ```
 
 </Figure>
 
-### Agregando una animación de ping
+### Adding a ping animation
 
-Usa la utilidad `animate-ping` para hacer que un elemento escale y se desvanezca como un ping de radar o una onda en el agua—útil para cosas como insignias de notificación:
+Use the `animate-ping` utility to make an element scale and fade like a radar ping or ripple of water—useful for things like notification badges:
 
 <Figure>
 
@@ -132,7 +132,7 @@ Usa la utilidad `animate-ping` para hacer que un elemento escale y se desvanezca
           className="inline-flex cursor-not-allowed items-center rounded-md bg-white px-4 py-2 text-sm leading-6 font-semibold text-sky-500 ring-1 ring-gray-900/10 transition duration-150 ease-in-out dark:bg-white/5 dark:ring-white/20"
           disabled
         >
-          Transacciones
+          Transactions
         </button>
         <span className="absolute top-0 right-0 -mt-1 -mr-1 flex size-3">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
@@ -153,9 +153,9 @@ Usa la utilidad `animate-ping` para hacer que un elemento escale y se desvanezca
 
 </Figure>
 
-### Agregando una animación de pulso
+### Adding a pulse animation
 
-Usa la utilidad `animate-pulse` para hacer que un elemento se desvanezca suavemente—útil para cosas como skeleton loaders:
+Use the `animate-pulse` utility to make an element gently fade in and out—useful for things like skeleton loaders:
 
 <Figure>
 
@@ -202,9 +202,9 @@ Usa la utilidad `animate-pulse` para hacer que un elemento se desvanezca suaveme
 
 </Figure>
 
-### Agregando una animación de rebote
+### Adding a bounce animation
 
-Usa la utilidad `animate-bounce` para hacer que un elemento rebote hacia arriba y hacia abajo—útil para cosas como indicadores de 'desplázate hacia abajo':
+Use the `animate-bounce` utility to make an element bounce up and down—useful for things like "scroll down" indicators:
 
 <Figure>
 
@@ -237,9 +237,9 @@ Usa la utilidad `animate-bounce` para hacer que un elemento rebote hacia arriba 
 
 </Figure>
 
-### Soportando movimiento reducido
+### Supporting reduced motion
 
-Para situaciones donde el usuario ha especificado que prefiere movimiento reducido, puedes aplicar condicionalmente animaciones y transiciones usando las variantes `motion-safe` y `motion-reduce`:
+For situations where the user has specified that they prefer reduced motion, you can conditionally apply animations and transitions using the `motion-safe` and `motion-reduce` variants:
 
 ```html
 <!-- [!code classes:motion-safe:animate-spin] -->
@@ -247,19 +247,19 @@ Para situaciones donde el usuario ha especificado que prefiere movimiento reduci
   <svg class="mr-3 size-5 motion-safe:animate-spin ..." viewBox="0 0 24 24">
     <!-- ... -->
   </svg>
-  Procesando
+  Processing
 </button>
 ```
 
-### Usando un valor personalizado
+### Using a custom value
 
-<UsingACustomValue utility="animate" name="animación" value="wiggle_1s_ease-in-out_infinite" variable="animation" />
+<UsingACustomValue utility="animate" name="animation" value="wiggle_1s_ease-in-out_infinite" variable="animation" />
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="animation" defaultClass="animate-none" featuredClass="animate-spin" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourTheme
   utility="animate"

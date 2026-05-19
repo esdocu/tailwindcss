@@ -7,6 +7,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { IconButton } from "./icon-button";
 import { SearchButton } from "./search";
+import { version } from "tailwindcss/package.json";
+
+let TAILWINDCSS_VERSION = version.split(".").slice(0, 2).join(".");
 
 function Logo(props: React.ComponentProps<"svg">) {
   return (
@@ -52,9 +55,9 @@ function VersionPicker() {
     <Menu>
       <MenuButton
         className="flex items-center gap-0.5 rounded-2xl bg-gray-950/5 py-0.5 pr-1.5 pl-2.5 text-xs/5 font-medium text-gray-950 tabular-nums hover:bg-gray-950/7.5 data-active:bg-gray-950/7.5 dark:bg-white/10 dark:text-white dark:hover:bg-white/12.5 dark:data-active:bg-white/12.5"
-        aria-label="Selecciona la versión de la librería"
+        aria-label="Select version of library"
       >
-        v4.1
+        v{TAILWINDCSS_VERSION}
         <ChevronDownIcon className="size-4 fill-gray-400" />
       </MenuButton>
       <MenuItems
@@ -63,7 +66,7 @@ function VersionPicker() {
       >
         <MenuItem disabled>
           <div className="flex items-center justify-between gap-2 rounded-lg px-2.5 data-active:bg-gray-950/5 dark:data-active:bg-white/10">
-            v4.1
+            v{TAILWINDCSS_VERSION}
             <CheckIcon className="size-4" />
           </div>
         </MenuItem>
@@ -153,6 +156,9 @@ export function Header(props: React.PropsWithChildren) {
           <Link href="/showcase" className="text-sm/6 text-gray-950 dark:text-white">
             Showcase
           </Link>
+          <Link href="/partners" className="text-sm/6 text-gray-950 dark:text-white">
+            Partners
+          </Link>
           <a href="/plus?ref=top" className="group relative px-1.5 text-sm/6 text-sky-800 dark:text-sky-300">
             <span className="absolute inset-0 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15 dark:border-sky-300/30" />
             Plus
@@ -190,12 +196,12 @@ export function Header(props: React.PropsWithChildren) {
             </svg>
           </a>
 
-          <Link href="https://github.com/tailwindlabs/tailwindcss" aria-label="Repositorio de GitHub">
+          <Link href="https://github.com/tailwindlabs/tailwindcss" aria-label="GitHub repository">
             <GitHubLogo className="size-5 fill-black/40 dark:fill-gray-400" />
           </Link>
         </div>
         <div className="flex items-center gap-2.5 md:hidden">
-          <SearchButton aria-label="Buscar" className="inline-grid size-7 place-items-center rounded-md">
+          <SearchButton aria-label="Search" className="inline-grid size-7 place-items-center rounded-md">
             <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
               <path
                 fillRule="evenodd"
@@ -205,7 +211,7 @@ export function Header(props: React.PropsWithChildren) {
             </svg>
           </SearchButton>
 
-          <IconButton aria-label="Navegación" onClick={() => setNavIsOpen(!navIsOpen)}>
+          <IconButton aria-label="Navigation" onClick={() => setNavIsOpen(!navIsOpen)}>
             <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
               <path d="M8 2a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM8 6.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM9.5 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
             </svg>
@@ -219,7 +225,7 @@ export function Header(props: React.PropsWithChildren) {
             <DialogPanel className="size-full overflow-y-auto">
               <div className="flex h-14 items-center justify-between px-4 py-4 sm:px-6">
                 <TailwindMark className="h-6" />
-                <IconButton aria-label="Navegación" onClick={() => setNavIsOpen(false)}>
+                <IconButton aria-label="Navigation" onClick={() => setNavIsOpen(false)}>
                   <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
                     <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
                   </svg>
@@ -249,6 +255,12 @@ export function Header(props: React.PropsWithChildren) {
                   className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
                 >
                   Showcase
+                </Link>
+                <Link
+                  href="/partners"
+                  className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
+                >
+                  Partners
                 </Link>
                 <Link
                   href="https://github.com/tailwindlabs/tailwindcss"

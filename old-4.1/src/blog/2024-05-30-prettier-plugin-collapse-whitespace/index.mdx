@@ -1,0 +1,50 @@
+import { adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import { Image, Video } from "@/components/media";
+
+export const meta = {
+  title: "Limpia automáticamente los espacios en blanco y los nombres de clase duplicados",
+  description:
+    "Acabamos de lanzar una nueva versión de prettier-plugin-tailwindcss que agrega soporte para eliminar espacios en blanco innecesarios y clases duplicadas al ordenar.",
+  date: "2024-05-31T16:30:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Acabamos de lanzar una nueva versión de `prettier-plugin-tailwindcss` que agrega soporte para eliminar espacios en blanco innecesarios
+       y clases duplicadas al ordenar.
+    </>
+  ),
+};
+
+<Image alt="Vista previa del diseño de la aplicación Catalyst" src={card} />
+
+Acabamos de lanzar una nueva versión de `prettier-plugin-tailwindcss` que agrega soporte para eliminar espacios en blanco innecesarios y clases duplicadas al ordenar.
+
+---
+
+## Limpiar espacios en blanco innecesarios
+
+Cuando estás copiando nombres de clase o eliminando un nombre de clase del medio de una lista, es fácil terminar con algunos espacios en blanco adicionales que necesitan ser limpiados.
+
+Ahora nuestro plugin de Prettier se encargará de esto automáticamente por ti, así que no necesitas limpiarlo tú mismo.
+
+<Video src="https://assets.tailwindcss.com/blog/2024-05-30-prettier-plugin-collapse-whitespace/collapse-whitespace.mp4" />
+
+---
+
+## Eliminar clases duplicadas
+
+Nuestra [extensión de VS Code](/docs/editor-setup#intellisense-for-vs-code) te ha advertido sobre nombres de clase duplicados durante mucho tiempo, pero ahora nuestro plugin de Prettier puede eliminar esas clases duplicadas automáticamente por ti.
+
+<Video src="https://assets.tailwindcss.com/blog/2024-05-30-prettier-plugin-collapse-whitespace/remove-duplicates.mp4" />
+
+---
+
+Para empezar a jugar con estas mejoras en tus propios proyectos, simplemente instala la última versión:
+
+```sh
+npm i prettier-plugin-tailwindcss@latest
+```
+
+Si tienes algún problema, ¡avísanos en [GitHub](https://github.com/tailwindlabs/prettier-plugin-tailwindcss/)!

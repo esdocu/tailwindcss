@@ -1,0 +1,629 @@
+import { CodeExampleStack } from "@/components/code-example";
+
+export const title = "Adding custom styles";
+export const description = "Mejores prácticas para agregar tus propios estilos personalizados en proyectos de Tailwind.";
+
+A menudo, el mayor desafío al trabajar con un framework es descubrir qué se supone que debes hacer cuando hay algo que necesitas que el framework no maneja por ti.
+
+Tailwind ha sido diseñado desde cero para ser extensible y personalizable, de modo que no importa lo que estés construyendo, nunca sientas que estás luchando contra el framework.
+
+Esta guía cubre temas como la personalización de tus tokens de diseño, cómo salir de esas restricciones cuando sea necesario, agregar tu propio CSS personalizado y extender el framework con plugins.
+
+## Personalizando tu tema
+
+Si deseas cambiar cosas como tu paleta de colores, escala de espaciado, escala de tipografía o breakpoints, agrega tus personalizaciones usando la directiva `@theme` en tu CSS:
+
+```css
+/* [!code filename:CSS] */
+@theme {
+  --font-display: "Satoshi", "sans-serif";
+
+  --breakpoint-3xl: 120rem;
+
+  --color-avocado-100: oklch(0.99 0 0);
+  --color-avocado-200: oklch(0.98 0.04 113.22);
+  --color-avocado-300: oklch(0.94 0.11 115.03);
+  --color-avocado-400: oklch(0.92 0.19 114.08);
+  --color-avocado-500: oklch(0.84 0.18 117.33);
+  --color-avocado-600: oklch(0.53 0.12 118.34);
+
+  --ease-fluid: cubic-bezier(0.3, 0, 0, 1);
+  --ease-snappy: cubic-bezier(0.2, 0, 0, 1);
+
+  /* ... */
+}
+```
+
+Obtén más información sobre cómo personalizar tu tema en la [documentación de variables de tema](/docs/theme).
+
+## Usando valores arbitrarios
+
+Si bien generalmente puedes construir la mayor parte de un diseño bien elaborado utilizando un conjunto restringido de tokens de diseño, de vez en cuando necesitas salir de esas restricciones para que las cosas queden perfectas al píxel.
+
+Cuando realmente necesites algo como `top: 117px` para colocar una imagen de fondo en el lugar exacto, usa la notación de corchetes de Tailwind para generar una clase sobre la marcha con cualquier valor arbitrario:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:top-[117px]] -->
+<div class="top-[117px]">
+  <!-- ... -->
+</div>
+```
+
+Esto es básicamente como estilos en línea, con el gran beneficio de que puedes combinarlo con modificadores interactivos como `hover` y modificadores responsive como `lg`:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:top-[117px],lg:top-[344px]] -->
+<div class="top-[117px] lg:top-[344px]">
+  <!-- ... -->
+</div>
+```
+
+Esto funciona para todo en el framework, incluidas cosas como colores de fondo, tamaños de fuente, contenido de pseudo-elementos y más:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:bg-[#bada55],text-[22px],before:content-['Festivus']] -->
+<div class="bg-[#bada55] text-[22px] before:content-['Festivus']">
+  <!-- ... -->
+</div>
+```
+
+Si estás haciendo referencia a una variable CSS como un valor arbitrario, puedes usar la sintaxis de propiedad personalizada:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:fill-(--my-brand-color)] -->
+<div class="fill-(--my-brand-color) ...">
+  <!-- ... -->
+</div>
+```
+
+Esto es solo un atajo para <code>fill-{'[var(--my-brand-color)]'}</code> que agrega la función `var()` automáticamente.
+
+### Propiedades arbitrarias
+
+Si alguna vez necesitas usar una propiedad CSS para la que Tailwind no incluye una utilidad lista para usar, también puedes usar la notación de corchetes para escribir CSS completamente arbitrario:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:[mask-type:luminance]] -->
+<div class="[mask-type:luminance]">
+  <!-- ... -->
+</div>
+```
+
+Esto es _realmente_ como estilos en línea, pero nuevamente con el beneficio de que puedes usar modificadores:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:[mask-type:luminance],hover:[mask-type:alpha]] -->
+<div class="[mask-type:luminance] hover:[mask-type:alpha]">
+  <!-- ... -->
+</div>
+```
+
+Esto también puede ser útil para cosas como variables CSS, especialmente cuando necesitan cambiar bajo diferentes condiciones:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:[--scroll-offset:56px],lg:[--scroll-offset:44px]] -->
+<div class="[--scroll-offset:56px] lg:[--scroll-offset:44px]">
+  <!-- ... -->
+</div>
+```
+
+### Variantes arbitrarias
+
+Las _variantes_ arbitrarias son como valores arbitrarios pero para hacer modificaciones de selector sobre la marcha, como puedes hacer con variantes de pseudo-clases incorporadas como `hover:{utility}` o variantes responsive como `md:{utility}` pero usando la notación de corchetes directamente en tu HTML.
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:\[&\:nth-child(-n+3)\]] -->
+<ul role="list">
+  {#each items as item}
+  <li class="lg:[&:nth-child(-n+3)]:hover:underline">{item}</li>
+  {/each}
+</ul>
+```
+
+Obtén más información en la documentación de [variantes arbitrarias](/docs/hover-focus-and-other-states#using-arbitrary-variants).
+
+### Manejo de espacios en blanco
+
+Cuando un valor arbitrario necesita contener un espacio, usa un guion bajo (`_`) en su lugar y Tailwind lo convertirá automáticamente en un espacio en tiempo de compilación:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:grid-cols-[1fr_500px_2fr]] -->
+<div class="grid grid-cols-[1fr_500px_2fr]">
+  <!-- ... -->
+</div>
+```
+
+En situaciones donde los guiones bajos son comunes pero los espacios no son válidos, Tailwind preservará el guion bajo en lugar de convertirlo en un espacio, por ejemplo, en URLs:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:bg-[url('/what_a_rush.png')]] -->
+<div class="bg-[url('/what_a_rush.png')]">
+  <!-- ... -->
+</div>
+```
+
+En el raro caso de que realmente necesites usar un guion bajo pero sea ambiguo porque un espacio también es válido, escapa el guion bajo con una barra invertida y Tailwind no lo convertirá en un espacio:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:before:content-['hello\_world']] -->
+<div class="before:content-['hello\_world']">
+  <!-- ... -->
+</div>
+```
+
+Si estás usando algo como JSX donde la barra invertida se elimina del HTML renderizado, usa [String.raw()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw) para que la barra invertida no se trate como un carácter de escape de JavaScript:
+
+```jsx
+<div className={String.raw`before:content-['hello\_world']`}>
+  <!-- ... -->
+</div>
+```
+
+### Resolviendo ambigüedades
+
+Muchas utilidades en Tailwind comparten un espacio de nombres común pero se asignan a diferentes propiedades CSS. Por ejemplo, `text-lg` y `text-black` comparten el espacio de nombres `text-`, pero uno es para `font-size` y el otro es para `color`.
+
+Al usar valores arbitrarios, Tailwind generalmente puede manejar esta ambigüedad automáticamente basándose en el valor que le pases:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:text-[22px],text-[#bada55]] -->
+<!-- Generará una utilidad de font-size -->
+<div class="text-[22px]">...</div>
+
+<!-- Generará una utilidad de color -->
+<div class="text-[#bada55]">...</div>
+```
+
+Sin embargo, a veces es realmente ambiguo, por ejemplo, al usar variables CSS:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:text-(--my-var)] -->
+<div class="text-(--my-var)">...</div>
+```
+
+En estas situaciones, puedes "sugerir" el tipo subyacente a Tailwind agregando un [tipo de datos CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Types) antes del valor:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:text-(length:--my-var),text-(color:--my-var)] -->
+<!-- Generará una utilidad de font-size -->
+<div class="text-(length:--my-var)">...</div>
+
+<!-- Generará una utilidad de color -->
+<div class="text-(color:--my-var)">...</div>
+```
+
+## Usando CSS personalizado
+
+Si bien Tailwind está diseñado para manejar la mayor parte de tus necesidades de estilo, no hay nada que te impida simplemente escribir CSS plano cuando lo necesites:
+
+```css
+/* [!code filename:CSS] */
+@import "tailwindcss";
+
+/* [!code highlight:4] */
+.my-custom-style {
+  /* ... */
+}
+```
+
+### Agregando estilos base
+
+Si solo quieres establecer algunos valores predeterminados para la página (como el color del texto, el color de fondo o la familia de fuentes), la opción más fácil es simplemente agregar algunas clases a los elementos `html` o `body`:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:bg-gray-100,font-serif,text-gray-900] -->
+<!doctype html>
+<html lang="en" class="bg-gray-100 font-serif text-gray-900">
+  <!-- ... -->
+</html>
+```
+
+Esto mantiene tus decisiones de estilo base en tu marcado junto con todos tus otros estilos, en lugar de ocultarlas en un archivo separado.
+
+Si deseas agregar tus propios estilos base predeterminados para elementos HTML específicos, usa la directiva `@layer` para agregar esos estilos a la capa `base` de Tailwind:
+
+```css
+/* [!code filename:CSS] */
+/* [!code highlight:2] */
+@layer base {
+  h1 {
+    font-size: var(--text-2xl);
+  }
+
+  h2 {
+    font-size: var(--text-xl);
+  }
+  /* [!code highlight:2] */
+}
+```
+
+### Agregando clases de componentes
+
+Usa la capa `components` para cualquier clase más complicada que quieras agregar a tu proyecto y que aún quieras poder sobrescribir con clases de utilidad.
+
+Tradicionalmente, estas serían clases como `card`, `btn`, `badge`, ese tipo de cosas.
+
+```css
+/* [!code filename:CSS] */
+/* [!code highlight:2] */
+@layer components {
+  .card {
+    background-color: var(--color-white);
+    border-radius: var(--rounded-lg);
+    padding: var(--spacing-6);
+    box-shadow: var(--shadow-xl);
+  }
+  /* [!code highlight:2] */
+}
+```
+
+Al definir clases de componentes en la capa `components`, aún puedes usar clases de utilidad para sobrescribirlas cuando sea necesario:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:card,rounded-none] -->
+<!-- Se verá como una tarjeta, pero con esquinas cuadradas -->
+<div class="card rounded-none">
+  <!-- ... -->
+</div>
+```
+
+Usando Tailwind, probablemente no necesites este tipo de clases tan a menudo como crees. Lee nuestra guía sobre [gestión de la duplicación](/docs/styling-with-utility-classes#managing-duplication) para nuestras recomendaciones.
+
+La capa `components` también es un buen lugar para poner estilos personalizados para cualquier componente de terceros que estés usando:
+
+```css
+/* [!code filename:CSS] */
+@layer components {
+  .select2-dropdown {
+    /* ... */
+  }
+}
+```
+
+### Usando variantes
+
+Usa la directiva `@variant` para aplicar una variante de Tailwind dentro de CSS personalizado:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:app.css] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:4] */
+  @variant dark {
+    background: black;
+  }
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:4] */
+  @media (prefers-color-scheme: dark) {
+    background: black;
+  }
+}
+```
+
+</CodeExampleStack>
+
+Si necesitas aplicar múltiples variantes al mismo tiempo, usa anidamiento:
+
+<CodeExampleStack>
+
+```css
+/* [!code filename:app.css] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:6] */
+  @variant dark {
+    @variant hover {
+      background: black;
+    }
+  }
+}
+```
+
+```css
+/* [!code filename:Compiled CSS] */
+.my-element {
+  background: white;
+
+  /* [!code highlight:7] */
+  @media (prefers-color-scheme: dark) {
+    &:hover {
+      @media (hover: hover) {
+        background: black;
+      }
+    }
+  }
+}
+```
+
+</CodeExampleStack>
+
+## Agregando utilidades personalizadas
+
+### Utilidades simples
+
+Además de usar las utilidades que vienen con Tailwind, también puedes agregar tus propias utilidades personalizadas. Esto puede ser útil cuando hay una característica de CSS que te gustaría usar en tu proyecto para la cual Tailwind no incluye utilidades listas para usar.
+
+Usa la directiva `@utility` para agregar una utilidad personalizada a tu proyecto:
+
+```css
+/* [!code filename:CSS] */
+@utility content-auto {
+  content-visibility: auto;
+}
+```
+
+Puedes usar esta utilidad en tu HTML ahora:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:content-auto] -->
+<div class="content-auto">
+  <!-- ... -->
+</div>
+```
+
+También funcionará con variantes como `hover`, `focus` y `lg`:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code classes:hover:content-auto] -->
+<div class="hover:content-auto">
+  <!-- ... -->
+</div>
+```
+
+Las utilidades personalizadas se insertan automáticamente en la capa `utilities` junto con todas las utilidades incorporadas en el framework.
+
+### Utilidades complejas
+
+Si tu utilidad personalizada es más compleja que un solo nombre de clase, usa anidamiento para definir la utilidad:
+
+```css
+/* [!code filename:CSS] */
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+```
+
+### Utilidades funcionales
+
+Además de registrar utilidades simples con la directiva `@utility`, también puedes registrar utilidades funcionales que aceptan un argumento:
+
+```css
+/* [!code filename:CSS] */
+@utility tab-* {
+  /* prettier-ignore */
+  tab-size: --value(--tab-size-*);
+}
+```
+
+La función especial `--value()` se utiliza para resolver el valor de la utilidad.
+
+#### Coincidencia con valores del tema
+
+Usa la sintaxis `--value(--theme-key-*)` para resolver el valor de la utilidad contra un conjunto de claves del tema:
+
+```css
+/* [!code filename:CSS] */
+@theme {
+  --tab-size-2: 2;
+  --tab-size-4: 4;
+  --tab-size-github: 8;
+}
+
+@utility tab-* {
+  /* [!code highlight:2] */
+  /* prettier-ignore */
+  tab-size: --value(--tab-size-*);
+}
+```
+
+Esto coincidirá con utilidades como `tab-2`, `tab-4` y `tab-github`.
+
+#### Valores básicos
+
+Para resolver el valor como un valor básico, usa la sintaxis `--value({type})`, donde `{type}` es el tipo de datos con el que deseas validar el valor básico:
+
+```css
+/* [!code filename:CSS] */
+@utility tab-* {
+  tab-size: --value(integer);
+}
+```
+
+Esto coincidirá con utilidades como `tab-1` y `tab-76`.
+
+#### Valores literales
+
+Para admitir valores literales, usa la sintaxis `--value('literal')` (observa las comillas):
+
+```css
+/* [!code filename:CSS] */
+@utility tab-* {
+  tab-size: --value('inherit', 'initial', 'unset');
+}
+```
+
+Esto coincidirá con utilidades como `tab-inherit`, `tab-initial` y `tab-unset`.
+
+#### Valores arbitrarios
+
+Para admitir valores arbitrarios, usa la sintaxis `--value([{type}])` (observa los corchetes) para indicarle a Tailwind qué tipos son compatibles como valor arbitrario:
+
+```css
+/* [!code filename:CSS] */
+@utility tab-* {
+  tab-size: --value([integer]);
+}
+```
+
+Esto coincidirá con utilidades como `tab-[1]` y `tab-[76]`. Si deseas admitir cualquier tipo de datos, puedes usar `--value([*])`.
+
+#### Admitiendo valores de tema, básicos y arbitrarios juntos
+
+Las tres formas de la función `--value()` se pueden usar dentro de una regla como múltiples declaraciones, y cualquier declaración que no se resuelva se omitirá en la salida:
+
+```css
+/* [!code filename:CSS] */
+@theme {
+  --tab-size-github: 8;
+}
+
+@utility tab-* {
+  tab-size: --value([integer]);
+  tab-size: --value(integer);
+  /* prettier-ignore */
+  tab-size: --value(--tab-size-*);
+}
+```
+
+Esto permite tratar el valor de manera diferente en cada caso si es necesario, por ejemplo, traduciendo un entero básico a un porcentaje:
+
+```css
+/* [!code filename:CSS] */
+@utility opacity-* {
+  opacity: --value([percentage]);
+  /* [!code highlight:2] */
+  opacity: calc(--value(integer) * 1%);
+  /* prettier-ignore */
+  opacity: --value(--opacity-*);
+}
+```
+
+La función `--value()` también puede tomar múltiples argumentos y resolverlos de izquierda a derecha si no necesitas tratar el valor de retorno de manera diferente en distintos casos:
+
+```css
+/* [!code filename:CSS] */
+@theme {
+  --tab-size-github: 8;
+}
+
+@utility tab-* {
+  /* [!code highlight:2] */
+  /* prettier-ignore */
+  tab-size: --value(--tab-size-*, integer, [integer]);
+}
+
+@utility opacity-* {
+  opacity: calc(--value(integer) * 1%);
+  /* [!code highlight:2] */
+  /* prettier-ignore */
+  opacity: --value(--opacity-*, [percentage]);
+}
+```
+
+#### Valores negativos
+
+Para admitir valores negativos, registra utilidades positivas y negativas separadas en declaraciones distintas:
+
+```css
+/* [!code filename:CSS] */
+@utility inset-* {
+  inset: calc(var(--spacing) * --value([percentage], [length]));
+}
+
+/* [!code highlight:4] */
+@utility -inset-* {
+  inset: calc(var(--spacing) * --value([percentage], [length]) * -1);
+}
+```
+
+#### Modificadores
+
+Los modificadores se manejan usando la función `--modifier()`, que funciona exactamente igual que la función `--value()` pero opera sobre un modificador si está presente:
+
+```css
+/* [!code filename:CSS] */
+@utility text-* {
+  /* prettier-ignore */
+  font-size: --value(--text-*, [length]);
+  /* [!code highlight:2] */
+  /* prettier-ignore */
+  line-height: --modifier(--leading-*, [length], [*]);
+}
+```
+
+Si no hay un modificador presente, cualquier declaración que dependa de un modificador simplemente no se incluye en la salida.
+
+#### Fracciones
+
+Para manejar fracciones, dependemos del tipo de datos CSS `ratio`. Si se usa con `--value()`, es una señal para Tailwind para tratar el valor y el modificador como un solo valor:
+
+```css
+/* [!code filename:CSS] */
+@utility aspect-* {
+  /* [!code word:ratio, \[ratio\]] */
+  /* prettier-ignore */
+  aspect-ratio: --value(--aspect-ratio-*, ratio, [ratio]);
+}
+```
+
+Esto coincidirá con utilidades como `aspect-square`, `aspect-3/4` y `aspect-[7/9]`.
+
+## Agregando variantes personalizadas
+
+Además de usar las variantes que vienen con Tailwind, también puedes agregar tus propias variantes personalizadas usando la directiva `@custom-variant`:
+
+```css
+@custom-variant theme-midnight {
+  &:where([data-theme="midnight"] *) {
+    @slot;
+  }
+}
+```
+
+Ahora puedes usar la variante `theme-midnight:<utility>` en tu HTML:
+
+```html
+<!-- [!code classes:theme-midnight:bg-black] -->
+<html data-theme="midnight">
+  <button class="theme-midnight:bg-black ..."></button>
+</html>
+```
+
+Puedes crear variantes usando la sintaxis abreviada cuando no se requiere anidamiento:
+
+```css
+@custom-variant theme-midnight (&:where([data-theme="midnight"] *));
+```
+
+Cuando una variante personalizada tiene múltiples reglas, se pueden anidar una dentro de la otra:
+
+```css
+@custom-variant any-hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @slot;
+    }
+  }
+}
+```

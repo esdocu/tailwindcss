@@ -1,5 +1,5 @@
 import { Breadcrumb } from "@/components/breadcrumb";
 
 export default function Page() {
-  return <Breadcrumb section="Primeros Pasos" title="Play CDN" />;
+  return <Breadcrumb section="Getting Started" title="Play CDN" />;
 }

@@ -1,22 +1,22 @@
 export default {
-  "Primeros pasos": [
-    ["Instalación", "/docs/installation"],
-    ["Configuración del editor", "/docs/editor-setup"],
-    ["Compatibilidad", "/docs/compatibility"],
-    ["Guía de actualización", "/docs/upgrade-guide"],
+  "Getting started": [
+    ["Installation", "/docs/installation"],
+    ["Editor setup", "/docs/editor-setup"],
+    ["Compatibility", "/docs/compatibility"],
+    ["Upgrade guide", "/docs/upgrade-guide"],
   ] as const,
-  "Conceptos básicos": [
-    ["Estilizar con clases de utilidad", "/docs/styling-with-utility-classes"],
-    ["Hover, focus y otros estados", "/docs/hover-focus-and-other-states"],
-    ["Diseño Responsive", "/docs/responsive-design"],
-    ["Modo oscuro", "/docs/dark-mode"],
-    ["Variables de tema", "/docs/theme"],
-    ["Colores", "/docs/colors"],
-    ["Añadir estilos personalizados", "/docs/adding-custom-styles"],
-    ["Detectar clases en archivos fuente", "/docs/detecting-classes-in-source-files"],
-    ["Funciones y directivas", "/docs/functions-and-directives"],
+  "Core concepts": [
+    ["Styling with utility classes", "/docs/styling-with-utility-classes"],
+    ["Hover, focus, and other states", "/docs/hover-focus-and-other-states"],
+    ["Responsive design", "/docs/responsive-design"],
+    ["Dark mode", "/docs/dark-mode"],
+    ["Theme variables", "/docs/theme"],
+    ["Colors", "/docs/colors"],
+    ["Adding custom styles", "/docs/adding-custom-styles"],
+    ["Detecting classes in source files", "/docs/detecting-classes-in-source-files"],
+    ["Functions and directives", "/docs/functions-and-directives"],
   ] as const,
-  "Estilos base": [["Preflight", "/docs/preflight"]] as const,
+  "Base styles": [["Preflight", "/docs/preflight"]] as const,
   Layout: [
     ["aspect-ratio", "/docs/aspect-ratio"],
     ["columns", "/docs/columns"],
@@ -64,19 +64,25 @@ export default {
     ["place-items", "/docs/place-items"],
     ["place-self", "/docs/place-self"],
   ] as const,
-  Espaciado: [
+  Spacing: [
     ["padding", "/docs/padding"],
     ["margin", "/docs/margin"],
   ] as const,
-  Dimensionamiento: [
+  Sizing: [
     ["width", "/docs/width"],
     ["min-width", "/docs/min-width"],
     ["max-width", "/docs/max-width"],
     ["height", "/docs/height"],
     ["min-height", "/docs/min-height"],
     ["max-height", "/docs/max-height"],
+    ["inline-size", "/docs/inline-size"],
+    ["min-inline-size", "/docs/min-inline-size"],
+    ["max-inline-size", "/docs/max-inline-size"],
+    ["block-size", "/docs/block-size"],
+    ["min-block-size", "/docs/min-block-size"],
+    ["max-block-size", "/docs/max-block-size"],
   ] as const,
-  Tipografía: [
+  Typography: [
     ["font-family", "/docs/font-family"],
     ["font-size", "/docs/font-size"],
     ["font-smoothing", "/docs/font-smoothing"],
@@ -84,6 +90,7 @@ export default {
     ["font-weight", "/docs/font-weight"],
     ["font-stretch", "/docs/font-stretch"],
     ["font-variant-numeric", "/docs/font-variant-numeric"],
+    ["font-feature-settings", "/docs/font-feature-settings"],
     ["letter-spacing", "/docs/letter-spacing"],
     ["line-clamp", "/docs/line-clamp"],
     ["line-height", "/docs/line-height"],
@@ -101,6 +108,7 @@ export default {
     ["text-overflow", "/docs/text-overflow"],
     ["text-wrap", "/docs/text-wrap"],
     ["text-indent", "/docs/text-indent"],
+    ["tab-size", "/docs/tab-size"],
     ["vertical-align", "/docs/vertical-align"],
     ["white-space", "/docs/white-space"],
     ["word-break", "/docs/word-break"],
@@ -108,7 +116,7 @@ export default {
     ["hyphens", "/docs/hyphens"],
     ["content", "/docs/content"],
   ] as const,
-  Fondos: [
+  Backgrounds: [
     ["background-attachment", "/docs/background-attachment"],
     ["background-clip", "/docs/background-clip"],
     ["background-color", "/docs/background-color"],
@@ -118,7 +126,7 @@ export default {
     ["background-repeat", "/docs/background-repeat"],
     ["background-size", "/docs/background-size"],
   ] as const,
-  Bordes: [
+  Borders: [
     ["border-radius", "/docs/border-radius"],
     ["border-width", "/docs/border-width"],
     ["border-color", "/docs/border-color"],
@@ -128,7 +136,7 @@ export default {
     ["outline-style", "/docs/outline-style"],
     ["outline-offset", "/docs/outline-offset"],
   ] as const,
-  Efectos: [
+  Effects: [
     ["box-shadow", "/docs/box-shadow"],
     ["text-shadow", "/docs/text-shadow"],
     ["opacity", "/docs/opacity"],
@@ -144,7 +152,7 @@ export default {
     ["mask-size", "/docs/mask-size"],
     ["mask-type", "/docs/mask-type"],
   ] as const,
-  Filtros: [
+  Filters: [
     [
       "filter",
       "/docs/filter",
@@ -176,13 +184,13 @@ export default {
       ] as const,
     ] as const,
   ] as const,
-  Tablas: [
+  Tables: [
     ["border-collapse", "/docs/border-collapse"],
     ["border-spacing", "/docs/border-spacing"],
     ["table-layout", "/docs/table-layout"],
     ["caption-side", "/docs/caption-side"],
   ] as const,
-  "Transiciones y Animación": [
+  "Transitions & Animation": [
     ["transition-property", "/docs/transition-property"],
     ["transition-behavior", "/docs/transition-behavior"],
     ["transition-duration", "/docs/transition-duration"],
@@ -190,7 +198,7 @@ export default {
     ["transition-delay", "/docs/transition-delay"],
     ["animation", "/docs/animation"],
   ] as const,
-  Transformaciones: [
+  Transforms: [
     ["backface-visibility", "/docs/backface-visibility"],
     ["perspective", "/docs/perspective"],
     ["perspective-origin", "/docs/perspective-origin"],
@@ -201,8 +209,9 @@ export default {
     ["transform-origin", "/docs/transform-origin"],
     ["transform-style", "/docs/transform-style"],
     ["translate", "/docs/translate"],
+    ["zoom", "/docs/zoom"],
   ] as const,
-  Interactividad: [
+  Interactivity: [
     ["accent-color", "/docs/accent-color"],
     ["appearance", "/docs/appearance"],
     ["caret-color", "/docs/caret-color"],
@@ -212,6 +221,9 @@ export default {
     ["pointer-events", "/docs/pointer-events"],
     ["resize", "/docs/resize"],
     ["scroll-behavior", "/docs/scroll-behavior"],
+    ["scrollbar-color", "/docs/scrollbar-color"],
+    ["scrollbar-width", "/docs/scrollbar-width"],
+    ["scrollbar-gutter", "/docs/scrollbar-gutter"],
     ["scroll-margin", "/docs/scroll-margin"],
     ["scroll-padding", "/docs/scroll-padding"],
     ["scroll-snap-align", "/docs/scroll-snap-align"],
@@ -226,5 +238,5 @@ export default {
     ["stroke", "/docs/stroke"],
     ["stroke-width", "/docs/stroke-width"],
   ] as const,
-  Accesibilidad: [["forced-color-adjust", "/docs/forced-color-adjust"]] as const,
+  Accessibility: [["forced-color-adjust", "/docs/forced-color-adjust"]] as const,
 };

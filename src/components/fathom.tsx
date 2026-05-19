@@ -1,5 +1,6 @@
 "use client";
 
+import { load, trackPageview } from "fathom-client";
 import { usePathname, useSearchParams } from "next/navigation";
 import { Suspense, useEffect } from "react";
 
@@ -9,11 +10,9 @@ function TrackPageView() {
 
   // Load the Fathom script on mount
   useEffect(() => {
-    import("fathom-client").then(({ load }) => {
-      load("PMFMDJGK", {
-        includedDomains: ["tailwindcss.com"],
-        auto: false,
-      });
+    load("PMFMDJGK", {
+      includedDomains: ["tailwindcss.com"],
+      auto: false,
     });
   }, []);
 
@@ -21,11 +20,9 @@ function TrackPageView() {
   useEffect(() => {
     if (!pathname) return;
 
-    import("fathom-client").then(({ trackPageview }) => {
-      trackPageview({
-        url: pathname + searchParams?.toString(),
-        referrer: document.referrer,
-      });
+    trackPageview({
+      url: pathname + searchParams?.toString(),
+      referrer: document.referrer,
     });
   }, [pathname, searchParams]);
 

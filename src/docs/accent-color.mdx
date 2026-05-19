@@ -10,7 +10,7 @@ import { Figure } from "@/components/figure.tsx";
 import colors from "./utils/colors";
 
 export const title = "accent-color";
-export const description = "Utilidades para controlar el color de acento de un control de formulario.";
+export const description = "Utilities for controlling the accented color of a form control.";
 
 <ApiTable
   rows={[
@@ -21,16 +21,16 @@ export const description = "Utilidades para controlar el color de acento de un c
       `accent-${name}`,
       `accent-color: var(--color-${name}); /* ${value} */`,
     ]),
-    ["accent-<custom-property>", "accent-color: var(<custom-property>);"],
+    ["accent-(<custom-property>)", "accent-color: var(<custom-property>);"],
     ["accent-[<value>]", "accent-color: <value>;"],
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Estableciendo el color de acento
+### Setting the accent color
 
-Usa utilidades como `accent-rose-500` y `accent-lime-600` para cambiar el color de acento de un elemento:
+Use utilities like `accent-rose-500` and `accent-lime-600` to change the accent color of an element:
 
 <Figure>
 
@@ -39,11 +39,11 @@ Usa utilidades como `accent-rose-500` y `accent-lime-600` para cambiar el color 
     <div className="flex flex-wrap justify-center gap-6">
       <label className="flex items-center space-x-2">
         <input type="checkbox" defaultChecked />
-        <div className="text-sm font-semibold text-gray-900 dark:text-gray-200">Predeterminado del navegador</div>
+        <div className="text-sm font-semibold text-gray-900 dark:text-gray-200">Browser default</div>
       </label>
       <label className="flex items-center space-x-2">
         <input type="checkbox" className="accent-pink-500" defaultChecked />
-        <div className="text-sm font-semibold text-gray-900 dark:text-gray-200">Personalizado</div>
+        <div className="text-sm font-semibold text-gray-900 dark:text-gray-200">Customized</div>
       </label>
     </div>
   }
@@ -53,21 +53,21 @@ Usa utilidades como `accent-rose-500` y `accent-lime-600` para cambiar el color 
 <!-- [!code classes:accent-pink-500] -->
 <label>
   <input type="checkbox" checked />
-  Predeterminado del navegador
+  Browser default
 </label>
 <label>
   <input class="accent-pink-500" type="checkbox" checked />
-  Personalizado
+  Customized
 </label>
 ```
 
 </Figure>
 
-Esto es útil para estilizar elementos como checkboxes y grupos de radio sobrescribiendo el color predeterminado del navegador.
+This is helpful for styling elements like checkboxes and radio groups by overriding the browser's default color.
 
-### Cambiando la opacidad
+### Changing the opacity
 
-Usa el modificador de opacidad de color para controlar la opacidad del color de acento de un elemento:
+Use the color opacity modifier to control the opacity of an element's accent color:
 
 <Figure>
 
@@ -95,9 +95,9 @@ Usa el modificador de opacidad de color para controlar la opacidad del color de 
 
 </Figure>
 
-Establecer la opacidad del color de acento tiene soporte limitado en navegadores y actualmente solo funciona en Firefox.
+Setting the accent color opacity has limited browser-support and only works in Firefox at this time.
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue
   element="input"
@@ -108,7 +108,7 @@ Establecer la opacidad del color de acento tiene soporte limitado en navegadores
   variable="accent-color"
 />
 
-### Aplicando en hover
+### Applying on hover
 
 <TargetingSpecificStates property="accent-color">
 
@@ -119,7 +119,7 @@ Establecer la opacidad del color de acento tiene soporte limitado en navegadores
     <div className="flex flex-wrap justify-center gap-6">
       <label className="flex items-center space-x-2">
         <input type="checkbox" className="accent-black hover:accent-pink-500" defaultChecked />
-        <div className="text-sm font-semibold text-gray-900 dark:text-gray-200">Aceptar términos</div>
+        <div className="text-sm font-semibold text-gray-900 dark:text-gray-200">Agree to terms</div>
       </label>
     </div>
   }
@@ -144,6 +144,6 @@ Establecer la opacidad del color de acento tiene soporte limitado en navegadores
   featuredClass="accent-pink-500"
 />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourThemeColors element="input" elementAttributes={{ type: "checkbox" }} utility="accent" />

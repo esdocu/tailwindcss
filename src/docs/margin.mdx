@@ -6,7 +6,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "margin";
-export const description = "Utilidades para controlar el margen de un elemento.";
+export const description = "Utilities for controlling an element's margin.";
 
 <ApiTable
   rows={[
@@ -16,6 +16,8 @@ export const description = "Utilidades para controlar el margen de un elemento."
       ["my", "margin-block"],
       ["ms", "margin-inline-start"],
       ["me", "margin-inline-end"],
+      ["mbs", "margin-block-start"],
+      ["mbe", "margin-block-end"],
       ["mt", "margin-top"],
       ["mr", "margin-right"],
       ["mb", "margin-bottom"],
@@ -98,11 +100,11 @@ export const description = "Utilidades para controlar el margen de un elemento."
 ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `m-<number>` como `m-4` y `m-8` para controlar el margen en todos los lados de un elemento:
+Use `m-<number>` utilities like `m-4` and `m-8` to control the margin on all sides of an element:
 
 <Figure>
 
@@ -126,9 +128,9 @@ Usa utilidades `m-<number>` como `m-4` y `m-8` para controlar el margen en todos
 
 </Figure>
 
-### Añadir margen a un solo lado
+### Adding margin to a single side
 
-Usa utilidades `mt-<number>`, `mr-<number>`, `mb-<number>` y `ml-<number>` como `ml-2` y `mt-6` para controlar el margen en un lado de un elemento:
+Use `mt-<number>`, `mr-<number>`, `mb-<number>`, and `ml-<number>` utilities like `ml-2` and `mt-6` to control the margin on one side of an element:
 
 <Figure>
 
@@ -173,9 +175,9 @@ Usa utilidades `mt-<number>`, `mr-<number>`, `mb-<number>` y `ml-<number>` como 
 
 </Figure>
 
-### Añadir margen horizontal
+### Adding horizontal margin
 
-Usa utilidades `mx-<number>` como `mx-4` y `mx-8` para controlar el margen horizontal de un elemento:
+Use `mx-<number>` utilities like `mx-4` and `mx-8` to control the horizontal margin of an element:
 
 <Figure>
 
@@ -199,9 +201,9 @@ Usa utilidades `mx-<number>` como `mx-4` y `mx-8` para controlar el margen horiz
 
 </Figure>
 
-### Añadir margen vertical
+### Adding vertical margin
 
-Usa utilidades `my-<number>` como `my-4` y `my-8` para controlar el margen vertical de un elemento:
+Use `my-<number>` utilities like `my-4` and `my-8` to control the vertical margin of an element:
 
 <Figure>
 
@@ -225,9 +227,9 @@ Usa utilidades `my-<number>` como `my-4` y `my-8` para controlar el margen verti
 
 </Figure>
 
-### Usar valores negativos
+### Using negative values
 
-Para usar un valor de margen negativo, antepone un guion al nombre de la clase para convertirlo en un valor negativo:
+To use a negative margin value, prefix the class name with a dash to convert it to a negative value:
 
 <Figure>
 
@@ -250,9 +252,9 @@ Para usar un valor de margen negativo, antepone un guion al nombre de la clase p
 
 </Figure>
 
-### Usar propiedades lógicas
+### Using logical properties
 
-Usa utilidades `ms-<number>` o `me-<number>` como `ms-4` y `me-8` para establecer las propiedades lógicas `margin-inline-start` y `margin-inline-end`:
+Use `ms-<number>` or `me-<number>` utilities like `ms-4` and `me-8` to set the `margin-inline-start` and `margin-inline-end` logical properties:
 
 <Figure>
 
@@ -260,7 +262,7 @@ Usa utilidades `ms-<number>` o `me-<number>` como `ms-4` y `me-8` para establece
   {
     <div className="grid grid-cols-2 place-items-center gap-x-4">
       <div className="flex flex-col items-start gap-y-4" dir="ltr">
-        <p className="text-sm font-medium">De izquierda a derecha</p>
+        <p className="text-sm font-medium">Left-to-right</p>
         <div className="relative flex rounded-lg font-mono text-sm leading-6 font-bold text-white">
           <Stripes border className="absolute min-h-full w-full rounded-lg" />
           <div className="relative ms-8 rounded-lg bg-indigo-500 p-4">ms-8</div>
@@ -271,7 +273,7 @@ Usa utilidades `ms-<number>` o `me-<number>` como `ms-4` y `me-8` para establece
         </div>
       </div>
       <div className="flex flex-col items-start gap-y-4" dir="rtl">
-        <p className="text-sm font-medium">De derecha a izquierda</p>
+        <p className="text-sm font-medium">Right-to-left</p>
         <div className="relative flex rounded-lg font-mono text-sm leading-6 font-bold text-white">
           <Stripes border className="absolute min-h-full w-full rounded-lg" />
           <div className="relative ms-8 rounded-lg bg-indigo-500 p-4">ms-8</div>
@@ -303,9 +305,16 @@ Usa utilidades `ms-<number>` o `me-<number>` como `ms-4` y `me-8` para establece
 
 </Figure>
 
-### Añadir espacio entre hijos
+Use the `mbs-<number>` and `mbe-<number>` utilities to set the `margin-block-start` and `margin-block-end` logical properties, which map to either the top or bottom side based on the writing mode:
 
-Usa utilidades `space-x-<number>` o `space-y-<number>` como `space-x-4` y `space-y-8` para controlar el espacio entre elementos:
+```html
+<!-- [!code classes:mbs-8] -->
+<div class="mbs-8 ...">mbs-8</div>
+```
+
+### Adding space between children
+
+Use `space-x-<number>` or `space-y-<number>` utilities like `space-x-4` and `space-y-8` to control the space between elements:
 
 <Figure>
 
@@ -335,9 +344,9 @@ Usa utilidades `space-x-<number>` o `space-y-<number>` como `space-x-4` y `space
 
 </Figure>
 
-#### Invertir el orden de los hijos
+#### Reversing children order
 
-Si tus elementos están en orden inverso (usando, por ejemplo, `flex-row-reverse` o `flex-col-reverse`), usa las utilidades `space-x-reverse` o `space-y-reverse` para asegurarte de que el espacio se añada al lado correcto de cada elemento:
+If your elements are in reverse order (using say `flex-row-reverse` or `flex-col-reverse`), use the `space-x-reverse` or `space-y-reverse` utilities to ensure the space is added to the correct side of each element:
 
 <Figure>
 
@@ -367,15 +376,15 @@ Si tus elementos están en orden inverso (usando, por ejemplo, `flex-row-reverse
 
 </Figure>
 
-#### Limitaciones
+#### Limitations
 
-Las utilidades de espacio son en realidad solo un atajo para añadir margen a todos los elementos de un grupo excepto al último, y no están diseñadas para manejar casos complejos como grids, layouts que se envuelven, o situaciones donde los hijos se renderizan en un orden personalizado complejo en lugar de su orden natural del DOM.
+The space utilities are really just a shortcut for adding margin to all-but-the-last-item in a group, and aren't designed to handle complex cases like grids, layouts that wrap, or situations where the children are rendered in a complex custom order rather than their natural DOM order.
 
-Para esas situaciones, es mejor usar las [utilidades gap](/docs/gap) cuando sea posible, o añadir margen a cada elemento con un margen negativo correspondiente en el padre.
+For those situations, it's better to use the [gap utilities](/docs/gap) when possible, or add margin to every element with a matching negative margin on the parent.
 
-Además, las utilidades de espacio no están diseñadas para funcionar junto con las [utilidades divide](/docs/border-width#between-children). Para esas situaciones, considera añadir utilidades de margen/padding a los hijos en su lugar.
+Additionally, the space utilities are not designed to work together with the [divide utilities](/docs/border-width#between-children). For those situations, consider adding margin/padding utilities to the children instead.
 
-### Usar un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utilities={["m", "mx", "mb"]} name="margin" variable="margin" value="5px" />
 
@@ -383,6 +392,6 @@ Además, las utilidades de espacio no están diseñadas para funcionar junto con
 
 <ResponsiveDesign property="margin" defaultClass="mt-4" featuredClass="mt-8" />
 
-## Personalizar tu tema
+## Customizing your theme
 
-<CustomizingYourSpacingScale utilities={["m", "mx", "my", "ms", "me", "mt", "mr", "mb", "ml"]} />
+<CustomizingYourSpacingScale utilities={["m", "mx", "my", "ms", "me", "mbs", "mbe", "mt", "mr", "mb", "ml"]} />

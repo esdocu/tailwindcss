@@ -3,32 +3,32 @@ import { TabBar } from "@/components/installation-tabs";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - Tailwind CSS en Español",
-    default: "Instalación",
+    template: "%s - Tailwind CSS",
+    default: "Installation",
   },
   openGraph: {
     type: "article",
     title: {
-      template: "%s - Instalación",
-      default: "Instalación",
+      template: "%s - Installation",
+      default: "Installation",
     },
   },
 };
 
 const tabs = {
-  "Usando Vite": "/docs/installation/using-vite",
-  "Usando PostCSS": "/docs/installation/using-postcss",
+  "Using Vite": "/docs/installation/using-vite",
+  "Using PostCSS": "/docs/installation/using-postcss",
   "Tailwind CLI": "/docs/installation/tailwind-cli",
-  "Guías de Frameworks": "/docs/installation/framework-guides",
+  "Framework Guides": "/docs/installation/framework-guides",
   "Play CDN": "/docs/installation/play-cdn",
 };
 
 const readNext = [
   {
-    title: "Estilizando con clases de utilidad",
+    title: "Styling with utility classes",
     href: "/docs/styling-with-utility-classes",
     body: (
-      <p>Usa un flujo de trabajo utility-first para construir componentes complejos a partir de un conjunto limitado de utilidades primitivas.</p>
+      <p>Using a utility-first workflow to build complex components from a constrained set of primitive utilities.</p>
     ),
     // icon: {
     //   className: "dark:bg-indigo-500 dark:highlight-white/20",
@@ -38,9 +38,9 @@ const readNext = [
     icon: require("@/components/home/icons/css-grid-icon").default,
   },
   {
-    title: "Diseño Responsive",
+    title: "Responsive Design",
     href: "/docs/responsive-design",
-    body: <p>Construye interfaces de usuario totalmente responsive que se adapten a cualquier tamaño de pantalla usando modificadores responsive.</p>,
+    body: <p>Build fully responsive user interfaces that adapt to any screen size using responsive modifiers.</p>,
     icon: {
       className: "dark:bg-indigo-500 dark:highlight-white/20",
       // light: require("@/img/icons/home/mobile-first.png").default.src,
@@ -48,9 +48,9 @@ const readNext = [
     },
   },
   {
-    title: "Hover, Focus y Otros Estados",
+    title: "Hover, Focus & Other States",
     href: "/docs/hover-focus-and-other-states",
-    body: <p>Estiliza elementos en estados interactivos como hover, focus y más usando modificadores condicionales.</p>,
+    body: <p>Style elements in interactive states like hover, focus, and more using conditional modifiers.</p>,
     icon: {
       className: "dark:bg-blue-500 dark:highlight-white/20",
       // light: require("@/img/icons/home/state-variants.png").default.src,
@@ -58,9 +58,9 @@ const readNext = [
     },
   },
   {
-    title: "Modo Oscuro",
+    title: "Dark Mode",
     href: "/docs/dark-mode",
-    body: <p>Optimiza tu sitio para el modo oscuro directamente en tu HTML usando el modificador de modo oscuro.</p>,
+    body: <p>Optimize your site for dark mode directly in your HTML using the dark mode modifier.</p>,
     icon: {
       className: "dark:bg-slate-600 dark:highlight-white/20",
       // light: require("@/img/icons/home/dark-mode.png").default.src,
@@ -68,9 +68,9 @@ const readNext = [
     },
   },
   {
-    title: "Reutilizando Estilos",
+    title: "Reusing Styles",
     href: "/docs/reusing-styles",
-    body: <p>Maneja la duplicación y mantén tus proyectos mantenibles creando abstracciones reutilizables.</p>,
+    body: <p>Manage duplication and keep your projects maintainable by creating reusable abstractions.</p>,
     icon: {
       className: "dark:bg-sky-500 dark:highlight-white/20",
       // light: require("@/img/icons/home/component-driven.png").default.src,
@@ -78,9 +78,9 @@ const readNext = [
     },
   },
   {
-    title: "Personalizando el Framework",
+    title: "Customizing the Framework",
     href: "/docs/adding-custom-styles",
-    body: <p>Personaliza el framework para que coincida con tu marca y extiéndelo con tus propios estilos personalizados.</p>,
+    body: <p>Customize the framework to match your brand and extend it with your own custom styles.</p>,
     icon: {
       className: "dark:bg-pink-500 dark:highlight-white/30",
       // light: require("@/img/icons/home/customization.png").default.src,
@@ -101,16 +101,17 @@ export default function Page({ children }: { children: React.ReactNode }) {
             data-section="true"
             className="font-mono text-xs/6 font-medium tracking-widest text-gray-600 uppercase dark:text-gray-400"
           >
-            Instalación
+            Installation
           </p>
           <h1 className="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white">
-            Empieza con Tailwind CSS
+            Get started with Tailwind CSS
           </h1>
           <p data-description="true" className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
-            Tailwind CSS funciona escaneando todos tus archivos HTML, componentes de JavaScript y cualquier otra plantilla en busca de nombres de clases, generando los estilos correspondientes y luego escribiéndolos en un archivo CSS estático.
+            Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for
+            class names, generating the corresponding styles and then writing them to a static CSS file.
           </p>
           <p className="mt-4 text-base/7 text-gray-700 dark:text-gray-300">
-            Es rápido, flexible y confiable — sin tiempo de ejecución.
+            It's fast, flexible, and reliable — with zero-runtime.
           </p>
 
           <div className="mt-10" data-content="true">
@@ -120,7 +121,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
                   data-docsearch-ignore
                   className="mb-6 text-lg font-semibold tracking-tight text-gray-950 dark:text-white"
                 >
-                  Instalación
+                  Installation
                 </h2>
                 <TabBar
                   tabs={Object.entries(tabs).map(([title, url]) => ({

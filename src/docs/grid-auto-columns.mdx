@@ -2,7 +2,7 @@ import { ApiTable } from "@/components/api-table.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "grid-auto-columns";
-export const description = "Utilidades para controlar el tamaño de las columnas de cuadrícula creadas implícitamente.";
+export const description = "Utilities for controlling the size of implicitly-created grid columns.";
 
 <ApiTable
   rows={[
@@ -15,11 +15,11 @@ export const description = "Utilidades para controlar el tamaño de las columnas
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Utiliza utilidades como `auto-cols-min` y `auto-cols-max` para controlar el tamaño de las columnas de cuadrícula creadas implícitamente:
+Use utilities like `auto-cols-min` and `auto-cols-max` to control the size of implicitly-created grid columns:
 
 ```html
 <!-- [!code classes:auto-cols-max] -->
@@ -30,7 +30,7 @@ Utiliza utilidades como `auto-cols-min` y `auto-cols-max` para controlar el tama
 </div>
 ```
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="auto-cols" name="size of implicitly-created grid columns" value="minmax(0,2fr)" />
 

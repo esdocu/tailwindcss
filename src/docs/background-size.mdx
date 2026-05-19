@@ -5,7 +5,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "background-size";
-export const description = "Utilidades para controlar el tamaño de la imagen de fondo de un elemento.";
+export const description = "Utilities for controlling the background size of an element's background image.";
 
 <ApiTable
   rows={[
@@ -17,11 +17,11 @@ export const description = "Utilidades para controlar el tamaño de la imagen de
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Llenando el contenedor
+### Filling the container
 
-Usa la utilidad `bg-cover` para escalar la imagen de fondo hasta que llene la capa de fondo, recortando la imagen si es necesario:
+Use the `bg-cover` utility to scale the background image until it fills the background layer, cropping the image if needed:
 
 <Figure>
 
@@ -43,9 +43,9 @@ Usa la utilidad `bg-cover` para escalar la imagen de fondo hasta que llene la ca
 
 </Figure>
 
-### Llenando sin recortar
+### Filling without cropping
 
-Usa la utilidad `bg-contain` para escalar la imagen de fondo hasta los bordes exteriores sin recortarla ni estirarla:
+Use the `bg-contain` utility to scale the background image to the outer edges without cropping or stretching:
 
 <Figure>
 
@@ -67,9 +67,9 @@ Usa la utilidad `bg-contain` para escalar la imagen de fondo hasta los bordes ex
 
 </Figure>
 
-### Usando el tamaño predeterminado
+### Using the default size
 
-Usa la utilidad `bg-auto` para mostrar la imagen de fondo en su tamaño predeterminado:
+Use the `bg-auto` utility to display the background image at its default size:
 
 <Figure>
 
@@ -91,10 +91,10 @@ Usa la utilidad `bg-auto` para mostrar la imagen de fondo en su tamaño predeter
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="bg-size" value="auto_100px" name="background size" variable="image-size" />
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="background-size" defaultClass="bg-auto" featuredClass="bg-contain" />

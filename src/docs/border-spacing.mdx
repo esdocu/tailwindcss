@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "border-spacing";
-export const description = "Utilidades para controlar el espaciado entre los bordes de la tabla.";
+export const description = "Utilities for controlling the spacing between table borders.";
 
 <ApiTable
   rows={[
@@ -20,11 +20,11 @@ export const description = "Utilidades para controlar el espaciado entre los bor
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `border-spacing-<number>` como `border-spacing-2` y `border-spacing-x-3` para controlar el espacio entre los bordes de las celdas de la tabla con [bordes separados](/docs/border-collapse#separating-table-borders):
+Use `border-spacing-<number>` utilities like `border-spacing-2` and `border-spacing-x-3` to control the space between the borders of table cells with [separate borders](/docs/border-collapse#separating-table-borders):
 
 <Figure>
 
@@ -35,10 +35,10 @@ Usa utilidades `border-spacing-<number>` como `border-spacing-2` y `border-spaci
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
             <th className="w-1/2 border border-gray-300 p-4 text-left font-semibold text-gray-900 dark:border-gray-600 dark:text-gray-200">
-              Estado
+              State
             </th>
             <th className="w-1/2 border border-gray-300 p-4 text-left font-semibold text-gray-900 dark:border-gray-600 dark:text-gray-200">
-              Ciudad
+              City
             </th>
           </tr>
         </thead>
@@ -76,8 +76,8 @@ Usa utilidades `border-spacing-<number>` como `border-spacing-2` y `border-spaci
 <table class="border-separate border-spacing-2 border border-gray-400 dark:border-gray-500">
   <thead>
     <tr>
-      <th class="border border-gray-300 dark:border-gray-600">Estado</th>
-      <th class="border border-gray-300 dark:border-gray-600">Ciudad</th>
+      <th class="border border-gray-300 dark:border-gray-600">State</th>
+      <th class="border border-gray-300 dark:border-gray-600">City</th>
     </tr>
   </thead>
   <tbody>
@@ -99,11 +99,11 @@ Usa utilidades `border-spacing-<number>` como `border-spacing-2` y `border-spaci
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue element="table" utility="border-spacing" value="7px" name="border spacing" />
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign
   element="table"
@@ -112,6 +112,6 @@ Usa utilidades `border-spacing-<number>` como `border-spacing-2` y `border-spaci
   featuredClass="border-spacing-4"
 />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourSpacingScale utility="border-spacing" />

@@ -1,0 +1,137 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+import dedent from "dedent";
+
+export const title = "transition-property";
+export const description = "Utilidades para controlar qué propiedades CSS transicionan.";
+
+<ApiTable
+  rows={[
+    [
+      "transition",
+      dedent`
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to, opacity, box-shadow, transform, translate, scale, rotate, filter, -webkit-backdrop-filter, backdrop-filter;
+        transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+        transition-duration: var(--default-transition-duration); /* 150ms */
+      `,
+    ],
+    [
+      "transition-all",
+      dedent`
+        transition-property: all;
+        transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+        transition-duration: var(--default-transition-duration); /* 150ms */
+      `,
+    ],
+    [
+      "transition-colors",
+      dedent`
+        transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+        transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+        transition-duration: var(--default-transition-duration); /* 150ms */
+      `,
+    ],
+    [
+      "transition-opacity",
+      dedent`
+        transition-property: opacity;
+        transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+        transition-duration: var(--default-transition-duration); /* 150ms */
+      `,
+    ],
+    [
+      "transition-shadow",
+      dedent`
+        transition-property: box-shadow;
+        transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+        transition-duration: var(--default-transition-duration); /* 150ms */
+      `,
+    ],
+    [
+      "transition-transform",
+      dedent`
+        transition-property: transform, translate, scale, rotate;
+        transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+        transition-duration: var(--default-transition-duration); /* 150ms */
+      `,
+    ],
+    ["transition-none", "transition-property: none;"],
+    [
+      "transition-(<custom-property>)",
+      dedent`
+        transition-property: var(<custom-property>);
+        transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+        transition-duration: var(--default-transition-duration); /* 150ms */
+      `,
+    ],
+    [
+      "transition-[<value>]",
+      dedent`
+        transition-property: <value>;
+        transition-timing-function: var(--default-transition-timing-function); /* cubic-bezier(0.4, 0, 0.2, 1) */
+        transition-duration: var(--default-transition-duration); /* 150ms */
+      `,
+    ],
+  ]}
+/>
+
+## Ejemplos
+
+### Ejemplo básico
+
+Usa utilidades como `transition` y `transition-colors` para especificar qué propiedades deben transicionar cuando cambian:
+
+<Figure hint="Pasa el cursor sobre el botón para ver el comportamiento esperado">
+
+<Example>
+  {
+    <div className="flex justify-around text-sm leading-6 font-bold text-white">
+      <button className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500">
+        Guardar cambios
+      </button>
+    </div>
+  }
+</Example>
+
+{/* prettier-ignore */}
+```html
+<!-- [!code classes:transition] -->
+<button class="bg-blue-500 transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 ...">
+  Guardar cambios
+</button>
+```
+
+</Figure>
+
+### Soportando movimiento reducido
+
+Para situaciones en las que el usuario ha especificado que prefiere movimiento reducido, puedes aplicar animaciones y transiciones condicionalmente usando las variantes `motion-safe` y `motion-reduce`:
+
+```html
+<!-- [!code classes:motion-reduce:transition-none,motion-reduce:hover:transform-none] -->
+<!-- prettier-ignore -->
+<button class="transform transition hover:-translate-y-1 motion-reduce:transition-none motion-reduce:hover:transform-none ...">
+  <!-- ... -->
+</button>
+```
+
+### Usando un valor personalizado
+
+<UsingACustomValue
+  element="button"
+  utility="transition"
+  value="height"
+  name="transition properties"
+  variable="properties"
+/>
+
+### Responsive Design
+
+<ResponsiveDesign
+  element="button"
+  property="transition-property"
+  defaultClass="transition-none"
+  featuredClass="transition-all"
+/>

@@ -3,34 +3,34 @@ import Logo from "@/docs/img/guides/laravel.react.svg";
 
 export let tile: Tile = {
   title: "Laravel",
-  description: "Framework de aplicaciones web PHP con sintaxis expresiva y elegante.",
+  description: "PHP web application framework with expressive, elegant syntax.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Instalar Tailwind CSS con Laravel",
-  description: "Configurando Tailwind CSS en un proyecto Laravel.",
+  title: "Install Tailwind CSS with Laravel",
+  description: "Setting up Tailwind CSS in a Laravel project.",
 };
 
 export let tabs: Tab[] = [
   {
     slug: "vite",
-    title: "Usando Vite",
+    title: "Using Vite",
   },
   {
     slug: "mix",
-    title: "Usando Laravel Mix",
+    title: "Using Laravel Mix",
   },
 ];
 
 export let steps: Step[] = [
   {
     tabs: ["vite"],
-    title: "Crea tu proyecto",
+    title: "Create your project",
     body: (
       <p>
-        Comienza creando un nuevo proyecto Laravel si aún no tienes uno configurado. El enfoque más común es usar{" "}
-        <a href="https://laravel.com/docs#creating-an-application">el instalador de Laravel</a>.
+        Start by creating a new Laravel project if you don’t have one set up already. The most common approach is to use{" "}
+        <a href="https://laravel.com/docs#creating-an-application">the Laravel installer</a>.
       </p>
     ),
     code: {
@@ -45,10 +45,10 @@ export let steps: Step[] = [
 
   {
     tabs: ["vite"],
-    title: "Instala Tailwind CSS",
+    title: "Install Tailwind CSS",
     body: (
       <p>
-        Instala <code>@tailwindcss/vite</code> y sus dependencias peer a través de npm.
+        Install <code>@tailwindcss/vite</code> and its peer dependencies via npm.
       </p>
     ),
     code: {
@@ -61,10 +61,10 @@ export let steps: Step[] = [
   },
   {
     tabs: ["mix"],
-    title: "Instala Tailwind CSS",
+    title: "Install Tailwind CSS",
     body: (
       <p>
-        Instala <code>@tailwindcss/postcss</code> y sus dependencias peer a través de npm.
+        Install <code>@tailwindcss/postcss</code> and its peer dependencies via npm.
       </p>
     ),
     code: {
@@ -78,10 +78,10 @@ export let steps: Step[] = [
 
   {
     tabs: ["vite"],
-    title: "Configura el plugin de Vite",
+    title: "Configure Vite Plugin",
     body: (
       <p>
-        Añade el plugin <code>@tailwindcss/vite</code> a tu configuración de Vite.
+        Add the <code>@tailwindcss/vite</code> plugin to your Vite configuration.
       </p>
     ),
     code: {
@@ -105,10 +105,10 @@ export let steps: Step[] = [
 
   {
     tabs: ["mix"],
-    title: "Añade Tailwind a tu configuración de Laravel Mix",
+    title: "Add Tailwind to your Laravel Mix configuration",
     body: (
       <p>
-        En tu archivo <code>webpack.mix.js</code>, añade <code>tailwindcss</code> como un plugin de PostCSS.
+        In your <code>webpack.mix.js</code> file, add <code>tailwindcss</code> as a PostCSS plugin.
       </p>
     ),
     code: {
@@ -126,11 +126,11 @@ export let steps: Step[] = [
   },
 
   {
-    title: "Importa Tailwind CSS",
+    title: "Import Tailwind CSS",
     body: (
       <p>
-        Añade un <code>@import</code> a <code>./resources/css/app.css</code> que importe Tailwind CSS. Adicionalmente,
-        dile a Tailwind CSS que escanee tu directorio <code>resources/views</code> en busca de utilidades.
+        Add an <code>@import</code> to <code>./resources/css/app.css</code> that imports Tailwind CSS. Additionally,
+        tell Tailwind CSS to scan some directories for utilities.
       </p>
     ),
     code: {
@@ -138,17 +138,21 @@ export let steps: Step[] = [
       lang: "css",
       code: css`
         @import "tailwindcss";
-        @source "../views";
+
+        @source "../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php";
+        @source "../../storage/framework/views/*.php";
+        @source "../**/*.blade.php";
+        @source "../**/*.js";
       `,
     },
   },
 
   {
     tabs: ["vite"],
-    title: "Inicia tu proceso de build",
+    title: "Start your build process",
     body: (
       <p>
-        Ejecuta tu proceso de build con <code>npm run dev</code>.
+        Run your build process with <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -162,10 +166,10 @@ export let steps: Step[] = [
 
   {
     tabs: ["mix"],
-    title: "Inicia tu proceso de build",
+    title: "Start your build process",
     body: (
       <p>
-        Ejecuta tu proceso de build con <code>npm run watch</code>.
+        Run your build process with <code>npm run watch</code>.
       </p>
     ),
     code: {
@@ -179,11 +183,11 @@ export let steps: Step[] = [
 
   {
     tabs: ["vite"],
-    title: "Comienza a usar Tailwind en tu proyecto",
+    title: "Start using Tailwind in your project",
     body: (
       <p>
-        Asegúrate de que tu CSS compilado esté incluido en el <code>{"<head>"}</code> y luego comienza a usar las
-        clases de utilidad de Tailwind para estilizar tu contenido.
+        Make sure your compiled CSS is included in the <code>{"<head>"}</code> then start using Tailwind’s utility
+        classes to style your content.
       </p>
     ),
     code: {
@@ -211,11 +215,11 @@ export let steps: Step[] = [
   },
   {
     tabs: ["mix"],
-    title: "Comienza a usar Tailwind en tu proyecto",
+    title: "Start using Tailwind in your project",
     body: (
       <p>
-        Asegúrate de que tu CSS compilado esté incluido en el <code>{"<head>"}</code> y luego comienza a usar las
-        clases de utilidad de Tailwind para estilizar tu contenido.
+        Make sure your compiled CSS is included in the <code>{"<head>"}</code> then start using Tailwind’s utility
+        classes to style your content.
       </p>
     ),
     code: {

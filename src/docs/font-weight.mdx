@@ -2,9 +2,10 @@ import { ApiTable } from "@/components/api-table.tsx";
 import { CustomizingYourTheme, ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
+import { CodeExample } from "@/components/code-example.tsx";
 
 export const title = "font-weight";
-export const description = "Utilidades para controlar el grosor de la fuente de un elemento.";
+export const description = "Utilities for controlling the font weight of an element.";
 
 <ApiTable
   rows={[
@@ -22,11 +23,11 @@ export const description = "Utilidades para controlar el grosor de la fuente de 
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Utiliza utilidades como `font-thin` y `font-bold` para establecer el grosor de la fuente de un elemento:
+Use utilities like `font-thin` and `font-bold` to set the font weight of an element:
 
 <Figure>
 
@@ -36,31 +37,31 @@ Utiliza utilidades como `font-thin` y `font-bold` para establecer el grosor de l
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">font-light</span>
         <p className="text-lg font-light text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">font-normal</span>
         <p className="text-lg font-normal text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">font-medium</span>
         <p className="text-lg font-medium text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">font-semibold</span>
         <p className="text-lg font-semibold text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">font-bold</span>
         <p className="text-lg font-bold text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
     </div>
@@ -69,24 +70,31 @@ Utiliza utilidades como `font-thin` y `font-bold` para establecer el grosor de l
 
 ```html
 <!-- [!code classes:font-light,font-normal,font-medium,font-semibold,font-bold] -->
-<p class="font-light ...">El rápido zorro marrón ...</p>
-<p class="font-normal ...">El rápido zorro marrón ...</p>
-<p class="font-medium ...">El rápido zorro marrón ...</p>
-<p class="font-semibold ...">El rápido zorro marrón ...</p>
-<p class="font-bold ...">El rápido zorro marrón ...</p>
+<p class="font-light ...">The quick brown fox ...</p>
+<p class="font-normal ...">The quick brown fox ...</p>
+<p class="font-medium ...">The quick brown fox ...</p>
+<p class="font-semibold ...">The quick brown fox ...</p>
+<p class="font-bold ...">The quick brown fox ...</p>
 ```
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
-<UsingACustomValue element="p" utility="font" value="1000" name="font weight" variable="font-weight" />
+<UsingACustomValue
+  element="p"
+  utility="font"
+  value="1000"
+  name="font weight"
+  variable="font-weight"
+  dataType="weight"
+/>
 
 ### Responsive design
 
 <ResponsiveDesign element="p" property="font-weight" defaultClass="font-normal" featuredClass="font-bold" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourTheme
   utility="font"

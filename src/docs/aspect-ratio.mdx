@@ -4,26 +4,26 @@ import { Figure } from "@/components/figure.tsx";
 import { UsingACustomValue, ResponsiveDesign, CustomizingYourTheme } from "@/components/content.tsx";
 
 export const title = "aspect-ratio";
-export const description = "Utilidades para controlar la relación de aspecto de un elemento.";
+export const description = "Utilities for controlling the aspect ratio of an element.";
 
 <ApiTable
   rows={[
     ["aspect-<ratio>", "aspect-ratio: <ratio>;"],
     ["aspect-square", "aspect-ratio: 1 / 1;"],
-    ["aspect-video", "aspect-ratio: var(--aspect-ratio-video); /* 16 / 9 */"],
+    ["aspect-video", "aspect-ratio: var(--aspect-video); /* 16 / 9 */"],
     ["aspect-auto", "aspect-ratio: auto;"],
     ["aspect-(<custom-property>)", "aspect-ratio: var(<custom-property>);"],
     ["aspect-[<value>]", "aspect-ratio: <value>;"],
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades <code>aspect-<var>&lt;ratio&gt;</var></code> como `aspect-3/2` para darle a un elemento una relación de aspecto específica:
+Use <code>aspect-<var>&lt;ratio&gt;</var></code> utilities like `aspect-3/2` to give an element a specific aspect ratio:
 
-<Figure desktopHint="Redimensiona el ejemplo para ver el comportamiento esperado">
+<Figure desktopHint="Resize the example to see the expected behavior">
 
 <Example resizable>
   {
@@ -41,11 +41,11 @@ Usa utilidades <code>aspect-<var>&lt;ratio&gt;</var></code> como `aspect-3/2` pa
 
 </Figure>
 
-### Usando una relación de aspecto de video
+### Using a video aspect ratio
 
-Usa la utilidad `aspect-video` para darle a un elemento de video una relación de aspecto de 16 / 9:
+Use the `aspect-video` utility to give a video element a 16 / 9 aspect ratio:
 
-<Figure desktopHint="Redimensiona el ejemplo para ver el comportamiento esperado">
+<Figure desktopHint="Resize the example to see the expected behavior">
 
 <Example resizable>
   {
@@ -65,7 +65,7 @@ Usa la utilidad `aspect-video` para darle a un elemento de video una relación d
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue
   element="img"
@@ -76,7 +76,7 @@ Usa la utilidad `aspect-video` para darle a un elemento de video una relación d
   variable="aspect-ratio"
 />
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign
   element="iframe"
@@ -86,7 +86,7 @@ Usa la utilidad `aspect-video` para darle a un elemento de video una relación d
   featuredClass="aspect-square"
 />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourTheme
   element="iframe"

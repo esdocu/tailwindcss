@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "font-family";
-export const description = "Utilidades para controlar la familia de fuentes de un elemento.";
+export const description = "Utilities for controlling the font family of an element.";
 
 <ApiTable
   rows={[
@@ -22,11 +22,11 @@ export const description = "Utilidades para controlar la familia de fuentes de u
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Utiliza utilidades como `font-sans` y `font-mono` para establecer la familia de fuentes de un elemento:
+Use utilities like `font-sans` and `font-mono` to set the font family of an element:
 
 <Figure>
 
@@ -36,19 +36,19 @@ Utiliza utilidades como `font-sans` y `font-mono` para establecer la familia de 
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">font-sans</span>
         <p className="font-sans text-lg font-medium text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">font-serif</span>
         <p className="font-serif text-lg font-medium text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">font-mono</span>
         <p className="font-mono text-lg font-medium text-gray-900 dark:text-gray-200">
-          El rápido zorro marrón salta sobre el perro perezoso.
+          The quick brown fox jumps over the lazy dog.
         </p>
       </div>
     </div>
@@ -57,14 +57,14 @@ Utiliza utilidades como `font-sans` y `font-mono` para establecer la familia de 
 
 ```html
 <!-- [!code classes:font-sans,font-serif,font-mono] -->
-<p class="font-sans ...">El rápido zorro marrón ...</p>
-<p class="font-serif ...">El rápido zorro marrón ...</p>
-<p class="font-mono ...">El rápido zorro marrón ...</p>
+<p class="font-sans ...">The quick brown fox ...</p>
+<p class="font-serif ...">The quick brown fox ...</p>
+<p class="font-mono ...">The quick brown fox ...</p>
 ```
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="font" name="font family" value="Open_Sans" element="p" dataType="family-name" />
 
@@ -72,26 +72,26 @@ Utiliza utilidades como `font-sans` y `font-mono` para establecer la familia de 
 
 <ResponsiveDesign property="font-family" defaultClass="font-sans" featuredClass="font-serif" element="p" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourTheme
   utility="font"
   name="font family"
   customName="display"
-  customValue='"Oswald", "sans-serif"'
+  customValue='"Oswald", sans-serif'
 >
 
-También puedes proporcionar valores predeterminados de `font-feature-settings` y `font-variation-settings` para una familia de fuentes:
+You can also provide default `font-feature-settings` and `font-variation-settings` values for a font family:
 
 ```css
 @theme {
-  --font-display: "Oswald", "sans-serif";
+  --font-display: "Oswald", sans-serif;
   --font-display--font-feature-settings: "cv02", "cv03", "cv04", "cv11"; /* [!code highlight] */
   --font-display--font-variation-settings: "opsz" 32; /* [!code highlight] */
 }
 ```
 
-Si es necesario, utiliza la regla-at [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) para cargar fuentes personalizadas:
+If needed, use the [@font-face](https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face) at-rule to load custom fonts:
 
 ```css
 @font-face {
@@ -103,7 +103,7 @@ Si es necesario, utiliza la regla-at [@font-face](https://developer.mozilla.org/
 }
 ```
 
-Si estás cargando una fuente de un servicio como [Google Fonts](https://fonts.google.com/), asegúrate de poner el `@import` al principio de tu archivo CSS:
+If you're loading a font from a service like [Google Fonts](https://fonts.google.com/), make sure to put the `@import` at the very top of your CSS file:
 
 ```css
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap"); /* [!code highlight] */
@@ -114,6 +114,6 @@ Si estás cargando una fuente de un servicio como [Google Fonts](https://fonts.g
 }
 ```
 
-Los navegadores requieren que las declaraciones `@import` vengan antes de cualquier otra regla, por lo que las importaciones de URL deben estar por encima de importaciones como `@import "tailwindcss"` que se insertan en el CSS compilado.
+Browsers require that `@import` statements come before any other rules, so URL imports need to be above imports like `@import "tailwindcss"` which are inlined in the compiled CSS.
 
 </CustomizingYourTheme>

@@ -5,7 +5,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "min-width";
-export const description = "Utilidades para establecer el ancho mínimo de un elemento.";
+export const description = "Utilities for setting the minimum width of an element.";
 
 <ApiTable
   rows={[
@@ -42,11 +42,11 @@ export const description = "Utilidades para establecer el ancho mínimo de un el
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `min-w-<number>` como `min-w-24` y `min-w-64` para establecer un ancho mínimo fijo para un elemento basada en la escala de espaciado:
+Use `min-w-<number>` utilities like `min-w-24` and `min-w-64` to set an element to a fixed minimum width based on the spacing scale:
 
 <Figure>
 
@@ -78,9 +78,9 @@ Usa utilidades `min-w-<number>` como `min-w-24` y `min-w-64` para establecer un 
 
 </Figure>
 
-### Usando un porcentaje
+### Using a percentage
 
-Usa utilidades `min-w-full` o `min-w-<fraction>` como `min-w-1/2` y `min-w-2/5` para darle a un elemento un ancho mínimo basado en porcentajes:
+Use `min-w-full` or `min-w-<fraction>` utilities like `min-w-1/2` and `min-w-2/5` to give an element a percentage-based minimum width:
 
 <Figure>
 
@@ -88,7 +88,7 @@ Usa utilidades `min-w-full` o `min-w-<fraction>` como `min-w-1/2` y `min-w-2/5` 
   {
     <div className="relative mx-auto my-6 flex w-full justify-items-start gap-3 text-center font-mono text-xs font-bold text-white">
       <Stripes border className="absolute inset-x-0 -inset-y-3 rounded-lg" />
-      <div className="relative min-w-2/3 rounded-lg bg-indigo-500 px-4 py-2">min-w-1/3</div>
+      <div className="relative min-w-2/3 rounded-lg bg-indigo-500 px-4 py-2">min-w-3/4</div>
       <div className="relative w-full rounded-lg bg-indigo-300 px-4 py-2 dark:bg-indigo-800 dark:text-indigo-400">
         w-full
       </div>
@@ -106,9 +106,9 @@ Usa utilidades `min-w-full` o `min-w-<fraction>` como `min-w-1/2` y `min-w-2/5` 
 
 </Figure>
 
-### Usando la escala del contenedor
+### Using the container scale
 
-Usa utilidades como `min-w-sm` y `min-w-xl` para establecer un ancho mínimo fijo para un elemento basado en la escala del contenedor:
+Use utilities like `min-w-sm` and `min-w-xl` to set an element to a fixed minimum width based on the container scale:
 
 <Figure>
 
@@ -140,7 +140,7 @@ Usa utilidades como `min-w-sm` y `min-w-xl` para establecer un ancho mínimo fij
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="min-w" value="220px" name="minimum width" variable="min-width" />
 
@@ -148,6 +148,6 @@ Usa utilidades como `min-w-sm` y `min-w-xl` para establecer un ancho mínimo fij
 
 <ResponsiveDesign property="min-width" defaultClass="w-24 min-w-full" featuredClass="min-w-0" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourSpacingScale utility="min-w" />

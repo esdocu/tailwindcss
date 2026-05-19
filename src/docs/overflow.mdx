@@ -5,7 +5,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "overflow";
 export const description =
-  "Utilidades para controlar cómo un elemento maneja contenido que es demasiado grande para el contenedor.";
+  "Utilities for controlling how an element handles content that is too large for the container.";
 
 <ApiTable
   rows={[
@@ -27,11 +27,11 @@ export const description =
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Mostrando contenido que se desborda
+### Showing content that overflows
 
-Usa la utilidad `overflow-visible` para evitar que el contenido dentro de un elemento sea recortado:
+Use the `overflow-visible` utility to prevent content within an element from being clipped:
 
 <Figure>
 
@@ -59,11 +59,11 @@ Usa la utilidad `overflow-visible` para evitar que el contenido dentro de un ele
 
 </Figure>
 
-Ten en cuenta que cualquier contenido que desborde los límites del elemento será visible.
+Note that any content that overflows the bounds of the element will then be visible.
 
-### Ocultando contenido que se desborda
+### Hiding content that overflows
 
-Usa la utilidad `overflow-hidden` para recortar cualquier contenido dentro de un elemento que desborde los límites de ese elemento:
+Use the `overflow-hidden` utility to clip any content within an element that overflows the bounds of that element:
 
 <Figure>
 
@@ -91,11 +91,11 @@ Usa la utilidad `overflow-hidden` para recortar cualquier contenido dentro de un
 
 </Figure>
 
-### Desplazamiento si es necesario
+### Scrolling if needed
 
-Usa la utilidad `overflow-auto` para añadir barras de desplazamiento a un elemento en caso de que su contenido desborde los límites de ese elemento:
+Use the `overflow-auto` utility to add scrollbars to an element in the event that its content overflows the bounds of that element:
 
-<Figure hint="Desplázate verticalmente">
+<Figure hint="Scroll vertically">
 
 <Example>
   {
@@ -153,13 +153,13 @@ Usa la utilidad `overflow-auto` para añadir barras de desplazamiento a un eleme
 
 </Figure>
 
-A diferencia de `overflow-scroll`, que siempre muestra barras de desplazamiento, esta utilidad solo las mostrará si el desplazamiento es necesario.
+Unlike `overflow-scroll`, which always shows scrollbars, this utility will only show them if scrolling is necessary.
 
-### Desplazamiento horizontal si es necesario
+### Scrolling horizontally if needed
 
-Usa la utilidad `overflow-x-auto` para permitir el desplazamiento horizontal si es necesario:
+Use the `overflow-x-auto` utility to allow horizontal scrolling if needed:
 
-<Figure hint="Desplázate horizontalmente">
+<Figure hint="Scroll horizontally">
 
 <Example padding={false}>
   {
@@ -233,11 +233,11 @@ Usa la utilidad `overflow-x-auto` para permitir el desplazamiento horizontal si 
 
 </Figure>
 
-### Desplazamiento vertical si es necesario
+### Scrolling vertically if needed
 
-Usa la utilidad `overflow-y-auto` para permitir el desplazamiento vertical si es necesario:
+Use the `overflow-y-auto` utility to allow vertical scrolling if needed:
 
-<Figure hint="Desplázate verticalmente">
+<Figure hint="Scroll vertically">
 
 <Example>
   {
@@ -295,11 +295,11 @@ Usa la utilidad `overflow-y-auto` para permitir el desplazamiento vertical si es
 
 </Figure>
 
-### Desplazamiento horizontal siempre
+### Scrolling horizontally always
 
-Usa la utilidad `overflow-x-scroll` para permitir el desplazamiento horizontal y mostrar siempre las barras de desplazamiento a menos que las barras de desplazamiento siempre visibles estén deshabilitadas por el sistema operativo:
+Use the `overflow-x-scroll` utility to allow horizontal scrolling and always show scrollbars unless always-visible scrollbars are disabled by the operating system:
 
-<Figure hint="Desplázate horizontalmente">
+<Figure hint="Scroll horizontally">
 
 <Example padding={false}>
   {
@@ -373,11 +373,11 @@ Usa la utilidad `overflow-x-scroll` para permitir el desplazamiento horizontal y
 
 </Figure>
 
-### Desplazamiento vertical siempre
+### Scrolling vertically always
 
-Usa la utilidad `overflow-y-scroll` para permitir el desplazamiento vertical y mostrar siempre las barras de desplazamiento a menos que las barras de desplazamiento siempre visibles estén deshabilitadas por el sistema operativo:
+Use the `overflow-y-scroll` utility to allow vertical scrolling and always show scrollbars unless always-visible scrollbars are disabled by the operating system:
 
-<Figure hint="Desplázate verticalmente">
+<Figure hint="Scroll vertically">
 
 <Example>
   {
@@ -435,11 +435,11 @@ Usa la utilidad `overflow-y-scroll` para permitir el desplazamiento vertical y m
 
 </Figure>
 
-### Desplazamiento en todas las direcciones
+### Scrolling in all directions
 
-Usa la utilidad `overflow-scroll` para añadir barras de desplazamiento a un elemento:
+Use the `overflow-scroll` utility to add scrollbars to an element:
 
-<Figure hint="Desplázate vertical y horizontalmente">
+<Figure hint="Scroll vertically and horizontally">
 
 <Example padding={false}>
   {
@@ -623,7 +623,7 @@ Usa la utilidad `overflow-scroll` para añadir barras de desplazamiento a un ele
         </div>
         <div className="col-start-2 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
         <div className="col-start-3 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
-        <div className="col-start-4 row-start-17 border-r border-b border-gray-100 dark:border-gray-200/5"></div>
+        <div className="col-start-4 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
         <div className="col-start-5 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
         <div className="col-start-6 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
         <div className="col-start-7 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
@@ -658,8 +658,8 @@ Usa la utilidad `overflow-scroll` para añadir barras de desplazamiento a un ele
 
 </Figure>
 
-A diferencia de `overflow-auto`, que solo muestra barras de desplazamiento si son necesarias, esta utilidad siempre las muestra. Ten en cuenta que algunos sistemas operativos (como macOS) ocultan las barras de desplazamiento innecesarias independientemente de esta configuración.
+Unlike `overflow-auto`, which only shows scrollbars if they are necessary, this utility always shows them. Note that some operating systems (like macOS) hide unnecessary scrollbars regardless of this setting.
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="overflow" defaultClass="overflow-auto" featuredClass="overflow-scroll" />

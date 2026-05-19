@@ -108,11 +108,9 @@ export default async function DocPage(props: Props) {
           <GridContainer className="mt-16 px-4 py-4 sm:py-2 lg:px-2">
             <section>
               <h2 className="text-3xl font-medium tracking-tight text-slate-900 dark:text-white">
-                {/* Get all of our updates directly to your&nbsp;inbox. */}
-                Recibe todas nuestras actualizaciones directamente en tu&nbsp;bandeja de entrada.
+                Get all of our updates directly to your&nbsp;inbox.
                 <br />
-                {/* Sign up for our newsletter. */}
-                Suscríbete a nuestro boletín.
+                Sign up for our newsletter.
               </h2>
               <div className="mt-10 max-w-md">
                 <NewsletterForm action="https://app.convertkit.com/forms/3181881/subscriptions" />

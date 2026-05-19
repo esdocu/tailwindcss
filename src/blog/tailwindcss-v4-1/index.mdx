@@ -11,59 +11,59 @@ import { CodeExampleStack } from "@/components/code-example";
 import { Image, YouTubeVideo } from "@/components/media";
 
 export const meta = {
-  title: "Tailwind CSS v4.1: Sombras de texto, máscaras y muchísimo más",
+  title: "Tailwind CSS v4.1: Text shadows, masks, and tons more",
   description:
-    "No estaba seguro de que alguna vez sucedería, pero lo hicimos: lanzamos una versión de Tailwind CSS que incluye utilitarios de sombra de texto. Tailwind CSS v4.1 está aquí y está repleto de mejoras que te ayudarán (o a tu LLM, cobarde) a construir experiencias interactivas aún mejores.",
+    "I wasn't sure it would ever happen but we did it — we released a version of Tailwind CSS that includes text shadow utilities. Tailwind CSS v4.1 is here and it's packed with improvements that will help you (or your LLM, you coward) build even better interactive experiences.",
   date: "2025-04-03T20:00:00.000Z",
   authors: [adamwathan, danhollick],
   image: card,
   excerpt: (
     <>
-      No estaba seguro de que alguna vez sucedería, pero lo hicimos: lanzamos una versión de Tailwind CSS que incluye utilitarios de sombra
-      de texto. Tailwind CSS v4.1 está aquí y está repleto de mejoras que te ayudarán (o a tu LLM, 
-      cobarde) a construir experiencias interactivas aún mejores.
+      I wasn't sure it would ever happen but we did it — we released a version of Tailwind CSS that includes text shadow
+      utilities. Tailwind CSS v4.1 is here and it's packed with improvements that will help you (or your LLM, you
+      coward) build even better interactive experiences.
     </>
   ),
 };
 
 <YouTubeVideo id="HTFHoA12MJk" />
 
-No estaba seguro de que alguna vez sucedería, pero lo hicimos: lanzamos una versión de Tailwind CSS que incluye utilitarios de `text-shadow`.
+I wasn't sure it would ever happen but we did it — we released a version of Tailwind CSS that includes `text-shadow` utilities.
 
-Tailwind CSS v4.1 está aquí y está repleto de nuevos utilitarios, variantes y mejoras en la experiencia del desarrollador que te ayudarán _(o a tu LLM, cobarde)_ a construir experiencias interactivas aún mejores.
+Tailwind CSS v4.1 is here and it's packed with new utilities, variants, and developer experience improvements that will help you _(or your LLM, you coward)_ build even better interactive experiences.
 
-Aquí tienes todo lo mejor que incluimos en esta versión:
+Here's all the best stuff we got into this release:
 
-- [Nuevos utilitarios `text-shadow-*`](#new-text-shadow-utilities) — solo unos veinte años después de que fueran soportados por primera vez por un navegador.
-- [Enmascara elementos con los utilitarios `mask-*`](#mask-elements-with-the-mask-utilities) — usa imágenes y gradientes para enmascarar elementos con nuevas APIs ergonómicas.
-- [Compatibilidad mejorada con navegadores antiguos](#improved-compatibility-with-older-browsers) — hemos hecho que las cosas se degraden de forma mucho más elegante para los navegadores antiguos, sin dejar de aprovechar las características modernas en los navegadores que las soportan.
-- [Ajuste fino del texto con `overflow-wrap`](#fine-grained-text-wrapping-with-overflow-wrap) — defiende la integridad de tus diseños incluso de las palabras alemanas más largas que tus usuarios te lancen.
-- [Soporte para `drop-shadow` coloreados](#colored-drop-shadow-support) — no recuerdo muy bien por qué no los teníamos antes, pero ahora sí.
-- [Apunta a dispositivos de entrada con `pointer-*` y `any-pointer-*`](#target-input-devices-with-pointer-and-any-pointer) — ajusta tu diseño para dispositivos táctiles explícitamente en lugar de depender del tamaño del viewport.
-- [Alinea elementos a la última línea base](#align-items-to-the-last-baseline) — alinea elementos flex o grid a la línea base de la última línea de texto usando los nuevos utilitarios `items-baseline-last` y `self-baseline-last`.
-- [Mantén el contenido visible con alineación `safe`](#keep-content-visible-with-safe-alignment) — centra el contenido en diseños flex y grid sin que desaparezca cuando no hay suficiente espacio.
-- [Ignora rutas específicas con `@source not`](#ignore-specific-paths-with-source-not) — ignora explícitamente directorios grandes irrelevantes y acelera aún más tus builds.
-- [Incluye en lista segura utilitarios específicos con `@source inline(…)`](#safelist-specific-utilities-with-source-inline) — fuerza a Tailwind a incluir clases que no están en tus archivos fuente.
-- [Un montón de otras nuevas variantes](#a-bunch-of-other-new-variants) — incluyendo `noscript`, `user-valid`, `inverted-colors` y más.
+- [New `text-shadow-*` utilities](#new-text-shadow-utilities) — only about twenty years after they were first supported by a browser.
+- [Mask elements with the `mask-*` utilities](#mask-elements-with-the-mask-utilities) — use images and gradients to mask elements with new ergonomic APIs.
+- [Improved compatibility with older browsers](#improved-compatibility-with-older-browsers) — we've made things degrade way more gracefully for older browsers, while still taking advantage of modern features in browsers that support them.
+- [Fine-grained text wrapping with `overflow-wrap`](#fine-grained-text-wrapping-with-overflow-wrap) — defend the integrity of your layouts from even the longest German words your users will throw at you.
+- [Colored `drop-shadow` support](#colored-drop-shadow-support) — can't really remember why we didn't have these before but we do now.
+- [Target input devices with `pointer-*` and `any-pointer-*`](#target-input-devices-with-pointer-and-any-pointer-) — tweak your design for touch devices explicitly instead of relying on viewport size.
+- [Align items to the last baseline](#align-items-to-the-last-baseline) — align flex or grid items to the baseline of the last line of text using the new `items-baseline-last` and `self-baseline-last` utilities.
+- [Keep content visible with `safe` alignment](#keep-content-visible-with-safe-alignment) — center content in flex and grid layouts without it disappearing when there's not enough space.
+- [Ignore specific paths with `@source not`](#ignore-specific-paths-with-source-not) — explicitly ignore irrelevant large directories and speed up your builds even more.
+- [Safelist specific utilities with `@source inline(…)`](#safelist-specific-utilities-with-source-inline) — force Tailwind to include classes that aren't in your source files.
+- [A bunch of other new variants](#a-bunch-of-other-new-variants) — including `noscript`, `user-valid`, `inverted-colors`, and more.
 
-Eso es todo lo bueno, pero hay algunas otras pequeñas cosas escondidas en las [notas de la versión](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.0) que quizás quieras revisar también.
+That's all the cool stuff, but there's a few other little things hiding in the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.1.0) that you might want to check out too.
 
-Actualiza tus proyectos instalando la última versión de `tailwindcss` desde npm:
+Upgrade your projects by installing the latest version of `tailwindcss` from npm:
 
 <CodeExampleStack>
 
 ```sh
-# [!code filename:Usando la CLI de Tailwind]
+# [!code filename:Using the Tailwind CLI]
 npm install tailwindcss@latest @tailwindcss/cli@latest
 ```
 
 ```sh
-# [!code filename:Usando Vite]
+# [!code filename:Using Vite]
 npm install tailwindcss@latest @tailwindcss/vite@latest
 ```
 
 ```sh
-# [!code filename:Usando PostCSS]
+# [!code filename:Using PostCSS]
 npm install tailwindcss@latest @tailwindcss/postcss@latest
 ```
 
@@ -71,38 +71,38 @@ npm install tailwindcss@latest @tailwindcss/postcss@latest
 
 ---
 
-## Nuevos utilitarios `text-shadow-*`
+## New `text-shadow-*` utilities
 
-Llevamos amenazando con añadir sombras de texto durante al menos los últimos seis años y hoy finalmente están aquí.
+We've been threatening to add text shadows for at least the last six years and today they are finally here.
 
-Hemos añadido cinco sombras de texto al tema por defecto, desde `text-shadow-2xs` hasta `text-shadow-lg`. Son particularmente útiles para hacer que los encabezados destaquen sobre un fondo recargado:
+We've added five text shadows to the default theme, from `text-shadow-2xs` to `text-shadow-lg`. They are particularly useful for making headings stand out against a busy background:
 
 <Figure>
 
 <Example padding={false}>
   {
     <div className="relative grid items-center justify-around gap-4 bg-linear-45 from-indigo-400 via-purple-500 to-pink-500 px-6 py-14 text-center text-2xl font-semibold text-white">
-      <p className="relative text-shadow-2xs">El rápido zorro marrón salta sobre el perro perezoso.</p>
-      <p className="relative text-shadow-xs">El rápido zorro marrón salta sobre el perro perezoso.</p>
-      <p className="relative text-shadow-sm">El rápido zorro marrón salta sobre el perro perezoso.</p>
-      <p className="relative text-shadow-md">El rápido zorro marrón salta sobre el perro perezoso.</p>
-      <p className="relative text-shadow-lg">El rápido zorro marrón salta sobre el perro perezoso.</p>
+      <p className="relative text-shadow-2xs">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-xs">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-sm">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-md">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
     </div>
   }
 </Example>
 
 ```html
 <!-- [!code classes:text-shadow-2xs,text-shadow-xs,text-shadow-sm,text-shadow-md,text-shadow-lg,text-shadow-xl] -->
-<p class="text-shadow-2xs ...">El rápido zorro marrón...</p>
-<p class="text-shadow-xs ...">El rápido zorro marrón...</p>
-<p class="text-shadow-sm ...">El rápido zorro marrón...</p>
-<p class="text-shadow-md ...">El rápido zorro marrón...</p>
-<p class="text-shadow-lg ...">El rápido zorro marrón...</p>
+<p class="text-shadow-2xs ...">The quick brown fox...</p>
+<p class="text-shadow-xs ...">The quick brown fox...</p>
+<p class="text-shadow-sm ...">The quick brown fox...</p>
+<p class="text-shadow-md ...">The quick brown fox...</p>
+<p class="text-shadow-lg ...">The quick brown fox...</p>
 ```
 
 </Figure>
 
-Puedes cambiar el color de la sombra usando los utilitarios `text-shadow-<color>`. Por ejemplo, puedes crear una especie de efecto de relieve usando una pequeña sombra blanca sobre texto oscuro:
+You can change the color of the shadow using the `text-shadow-<color>` utilities. For instance, you can create a sort of embossed effect by using a small white shadow on dark text:
 
 <Figure>
 
@@ -111,15 +111,15 @@ Puedes cambiar el color de la sombra usando los utilitarios `text-shadow-<color>
     <div className="relative grid h-48 place-items-center">
       <div className="-mr-10 flex gap-4 max-sm:-mr-32">
         <button className="relative rounded-full bg-linear-to-b from-sky-300 to-sky-400 to-70% px-4 py-2 text-sm font-semibold text-sky-950 shadow-md ring inset-shadow-2xs ring-sky-500 inset-shadow-white/20 text-shadow-2xs text-shadow-sky-300 dark:ring-sky-500/50">
-          Reserva una demo
+          Book a demo
           <div className="absolute top-1/2 -left-6/5 size-42 -translate-y-1/2 overflow-hidden rounded-full bg-white/20 p-2 shadow-lg ring-2 ring-black/5 backdrop-blur-sm dark:ring-black/10">
             <div className="grid size-full items-center overflow-hidden rounded-full bg-linear-to-b from-sky-300 to-sky-400 to-50% px-5 pb-2 text-[70px] font-semibold whitespace-nowrap text-sky-900 inset-ring-2 inset-ring-black/10 text-shadow-[0px_5px_0px_var(--tw-text-shadow-color)] text-shadow-sky-300">
-              Reserva una demo
+              Book a demo
             </div>
           </div>
         </button>
         <button className="relative rounded-full bg-linear-to-b from-white/10 to-white/20 to-70% px-4 py-2 text-sm font-semibold text-gray-950 shadow-md ring inset-shadow-2xs ring-black/20 inset-shadow-white/10 dark:text-white dark:text-shadow-2xs">
-          Ver precios
+          See pricing
         </button>
       </div>
     </div>
@@ -128,44 +128,44 @@ Puedes cambiar el color de la sombra usando los utilitarios `text-shadow-<color>
 
 ```html
 <!-- [!code classes:text-shadow-sky-300] -->
-<button class="text-sky-950 text-shadow-2xs text-shadow-sky-300 ...">Reserva una demo</button>
-<button class="text-gray-950 dark:text-white dark:text-shadow-2xs ...">Ver precios</button>
+<button class="text-sky-950 text-shadow-2xs text-shadow-sky-300 ...">Book a demo</button>
+<button class="text-gray-950 dark:text-white dark:text-shadow-2xs ...">See pricing</button>
 ```
 
 </Figure>
 
-Si solo quieres ajustar la opacidad de una sombra de texto sin cambiar el color, puedes añadir un modificador de opacidad directamente en los utilitarios de tamaño de sombra de texto como `text-shadow-lg`.
+If you just want to adjust the opacity of a text shadow without changing the color, you can slap an opacity modifier directly on text shadow size utilities like `text-shadow-lg`.
 
-Por ejemplo, `text-shadow-lg/50` es lo mismo que establecer `text-shadow-lg` y `text-shadow-black/50` al mismo tiempo:
+For example, `text-shadow-lg/50` is the same as setting `text-shadow-lg` and `text-shadow-black/50` at the same time:
 
 <Figure>
 
 <Example padding={false}>
   {
     <div className="relative grid items-center justify-around gap-4 bg-linear-45 from-indigo-400 via-sky-400 to-emerald-400 px-6 py-14 text-center text-2xl font-semibold text-white">
-      <p className="relative text-shadow-lg">El rápido zorro marrón salta sobre el perro perezoso.</p>
-      <p className="relative text-shadow-lg/20">El rápido zorro marrón salta sobre el perro perezoso.</p>
-      <p className="relative text-shadow-lg/30">El rápido zorro marrón salta sobre el perro perezoso.</p>
+      <p className="relative text-shadow-lg">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-lg/20">The quick brown fox jumps over the lazy dog.</p>
+      <p className="relative text-shadow-lg/30">The quick brown fox jumps over the lazy dog.</p>
     </div>
   }
 </Example>
 
 ```html
 <!-- [!code classes:text-shadow-lg/20,text-shadow-lg/30] -->
-<p class="text-shadow-lg ...">El rápido zorro marrón...</p>
-<p class="text-shadow-lg/20 ...">El rápido zorro marrón...</p>
-<p class="text-shadow-lg/30 ...">El rápido zorro marrón...</p>
+<p class="text-shadow-lg ...">The quick brown fox...</p>
+<p class="text-shadow-lg/20 ...">The quick brown fox...</p>
+<p class="text-shadow-lg/30 ...">The quick brown fox...</p>
 ```
 
 </Figure>
 
-Consulta la documentación de [`text-shadow`](/docs/text-shadow) para más detalles.
+Check out the [`text-shadow`](/docs/text-shadow) docs for more details.
 
 ---
 
-## Enmascara elementos con los utilitarios `mask-*`
+## Mask elements with the `mask-*` utilities
 
-Una de las características más geniales del CSS moderno es la capacidad de usar imágenes y gradientes como máscaras, básicamente usando la opacidad de una imagen para ocultar ciertas partes de un elemento:
+One of the coolest features of modern CSS is the ability to use images and gradients as masks - basically using the opacity of an image to hide certain parts of an element:
 
 <Figure>
 
@@ -183,10 +183,10 @@ Una de las características más geniales del CSS moderno es la capacidad de usa
         alt=""
       />
       <div className="font-medium max-sm:-mx-3">
-        <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Velocidad</p>
-        <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Hecho para usuarios avanzados</p>
+        <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
+        <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Built for power users</p>
         <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
-          Trabaja más rápido que nunca con nuestros atajos de teclado
+          Work faster than ever with our keyboard shortcuts
         </p>
       </div>
     </div>
@@ -201,10 +201,10 @@ Una de las características más geniales del CSS moderno es la capacidad de usa
     class="mask-radial-from-transparent mask-radial-from-15% mask-radial-to-black mask-radial-to-55% mask-radial-at-right ..."
   />
   <div class="font-medium">
-    <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Velocidad</p>
-    <p class="mt-2 text-base text-gray-700 dark:text-gray-300">Hecho para usuarios avanzados</p>
+    <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
+    <p class="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
     <p class="mt-1 text-sm leading-relaxed text-balance text-gray-500">
-      Trabaja más rápido que nunca con nuestros atajos de teclado
+      Work faster than ever with our keyboard shortcuts
     </p>
   </div>
 </div>
@@ -212,9 +212,9 @@ Una de las características más geniales del CSS moderno es la capacidad de usa
 
 </Figure>
 
-Como puedes usar cualquier `background-image` como máscara, lo lógico era copiar los utilitarios `bg-*` para que compartieran la misma API. El problema con ese enfoque es que a menudo quieres combinar múltiples máscaras y los utilitarios `bg-*` no son componibles.
+Because you can use any `background-image` as a mask, the logical thing to do was to copy the `bg-*` utilities so they share the same API. The problem with that approach is you often want to combine multiple masks together and the `bg-*` utilities are not composable.
 
-Así que en su lugar, creamos un nuevo conjunto de utilitarios para trabajar con `mask-image` que son componibles y diseñados específicamente para el caso de uso del enmascaramiento. Por ejemplo, puedes usar utilitarios como `mask-b-from-<value>` y `mask-t-to-<value>` para añadir una máscara de gradiente lineal a un solo lado de un elemento:
+So instead, we created a new set of utilities to work with `mask-image` that are composable and purpose-built for the masking use case. For example, you can use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear gradient mask to a single side of an element:
 
 <Figure>
 
@@ -264,9 +264,9 @@ Así que en su lugar, creamos un nuevo conjunto de utilitarios para trabajar con
 
 </Figure>
 
-Es más natural pensar en qué lado quieres enmascarar, en lugar de intentar averiguar el gradiente exacto que necesitas usar.
+It's more natural to think about which side you want to mask, rather than trying to work out the exact gradient you need to use.
 
-Los utilitarios de máscara de gradiente también son componibles, por lo que puedes combinar gradientes radiales, cónicos y lineales para crear máscaras más complejas:
+The gradient mask utilities are also composable, so you can combine radial, conic and linear gradients together to create more complex masks:
 
 <Figure>
 
@@ -298,70 +298,70 @@ Los utilitarios de máscara de gradiente también son componibles, por lo que pu
 
 </Figure>
 
-El enmascaramiento es una técnica superpoderosa y hay mucho más en la API de lo que podemos cubrir aquí. Para un desglose completo de los nuevos utilitarios, consulta la [documentación](/docs/mask-image).
+Masking is a super powerful technique and there's a lot more to the API than we can cover here. For a full breakdown of the new utilities, check out the [documentation](/docs/mask-image).
 
 ---
 
-### Compatibilidad mejorada con navegadores antiguos
+### Improved compatibility with older browsers
 
-Nos volcamos de lleno en las características modernas de la plataforma con Tailwind CSS v4.0 para crear el mejor framework posible y darle a esta versión la mayor vida útil posible.
+We went all-in on modern platform features with Tailwind CSS v4.0 to make the best framework we could, and give this version the longest shelf-life possible.
 
-Desafortunadamente, algunas de esas características se degradan muy mal en navegadores antiguos, hasta el punto de que incluso cosas básicas como colores y sombras podrían no renderizarse en absoluto para alguien que visita desde un iPhone o iPad antiguo que está atascado en Safari 15.
+Unfortunately some of those features degrade really poorly in older browsers, to the point where even basic things like colors and shadows might not render at all for someone visiting from an old iPhone or iPad that's stuck on Safari 15.
 
-Para Tailwind CSS v4.1, pusimos mucho esfuerzo en idear y probar nuestros propios fallbacks específicos del framework para hacer que tus sitios se rendericen lo mejor posible en navegadores antiguos, incluso si algunas cosas supermodernas todavía no se comportan exactamente igual.
+For Tailwind CSS v4.1, we put a bunch of effort into coming up with and testing our own framework-specific fallbacks to make your sites render as best as possible in older browsers, even if some super modern things still don't behave quite the same.
 
 <Image
-  alt="Comparación entre cómo Tailwind CSS v4.0 (izquierda) y Tailwind CSS v4.1 (derecha) renderizan en Safari 15.5. Tailwind CSS v4.0 no logra renderizar algunos gradientes de fondo que ahora son visibles en Tailwind CSS v4.1"
+  alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
   src={SafariLight}
   className="dark:hidden"
 />
 
 <Image
-  alt="Comparación entre cómo Tailwind CSS v4.0 (izquierda) y Tailwind CSS v4.1 (derecha) renderizan en Safari 15.5. Tailwind CSS v4.0 no logra renderizar algunos gradientes de fondo que ahora son visibles en Tailwind CSS v4.1"
+  alt="Comparison between how Tailwind CSS v4.0 (left) and Tailwind CSS v4.1 (right) render in Safari 15.5. Tailwind CSS v4.0 fails to render some background gradients that are now visible in Tailwind CSS v4.1"
   src={SafariDark}
   className="hidden dark:block"
 />
 
-Aquí tienes una lista de las cosas que hemos logrado mejorar en esta versión:
+Here's a list of the things we've managed to improve in this release:
 
-- Los colores definidos en `oklab` ahora se renderizan en versiones antiguas de Safari
-- Las características que dependen de propiedades personalizadas definidas con `@property` (como sombras, transformaciones, gradientes y más) ahora funcionan en versiones antiguas de Safari y Firefox
-- Los colores que usan el modificador de opacidad ahora se renderizan con fallbacks incorporados en navegadores antiguos
-- Los gradientes que usan métodos de interpolación explícitos recurren al valor predeterminado del navegador cuando no son compatibles
+- Colors defined in `oklab` now render in older versions of Safari
+- Features that depend on custom properties defined with `@property` (like shadows, transforms, gradients and more) now work in older versions of Safari and Firefox
+- Colors using the opacity modifier now render with inlined fallbacks in older browsers
+- Gradients using explicit interpolation methods fall back to the browser default when not supported
 
-Tailwind CSS v4 todavía está _diseñado_ para navegadores modernos como Safari 16.4 y superiores y todavía depende de muchas características modernas para que todo funcione _perfectamente_, pero al menos ahora tus sitios se renderizarán y serán utilizables en navegadores antiguos, incluso si en ciertas situaciones específicas el color de alguna sombra es diferente.
+Tailwind CSS v4 is still _designed_ for modern browsers like Safari 16.4 and up and still depends on a lot of modern features for everything to work _perfectly_, but at least now your sites will render and be usable in older browsers, even if in certain specific situations the odd shadow color be different.
 
-Para aprender todo lo que necesitas saber sobre la compatibilidad con navegadores en Tailwind CSS v4, puedes leer la [documentación completa de compatibilidad con navegadores](/docs/compatibility).
+To learn everything you need to know about browser compatibility in Tailwind CSS v4, you can read the full [browser compatibility documentation](/docs/compatibility).
 
 ---
 
-## Ajuste fino del texto con `overflow-wrap`
+## Fine-grained text wrapping with `overflow-wrap`
 
-Los nuevos utilitarios `overflow-wrap` te permiten controlar cómo se ajusta el texto dentro de un elemento. El utilitario `wrap-break-word` es especialmente útil para palabras largas o URLs que de otro modo podrían romper tu diseño:
+The new `overflow-wrap` utilities let you control how text wraps within an element. The `wrap-break-word` utility is especially useful for long words or URLs that might otherwise break your layout:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 wrap-break-word text-gray-900 dark:text-gray-200">
-      La palabra más larga en cualquiera de los principales diccionarios del idioma inglés es{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> una palabra que se refiere a una enfermedad
-      pulmonar contraída por la inhalación de partículas de sílice muy finas, específicamente de un volcán; médicamente, es
-      lo mismo que la silicosis.
+      The longest word in any of the major English language dictionaries is{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
+      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
+      is the same as silicosis.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:wrap-break-word] -->
-<p class="wrap-break-word">La palabra más larga en cualquiera de los principales...</p>
+<p class="wrap-break-word">The longest word in any of the major...</p>
 ```
 
 </Figure>
 
-El único caso en el que esto no se comporta exactamente como esperarías es dentro de un contenedor flex y ahí es donde probablemente quieras usar el nuevo utilitario `wrap-anywhere` en su lugar.
+The one case where this doesn't quite behave like you'd expect is inside a flex container and that's where you probably want to use the new `wrap-anywhere` utility instead.
 
-Es similar a `wrap-break-word`, pero permite saltos de línea a mitad de palabra al calcular el tamaño intrínseco del elemento, reemplazando la necesidad de establecer `min-width: 0` en el elemento hijo:
+It's similar to `wrap-break-word`, but it allows mid-word line breaks when calculating the intrinsic size of the element, replacing the need to set `min-width: 0` on the child element:
 
 <Figure>
 
@@ -418,15 +418,15 @@ Es similar a `wrap-break-word`, pero permite saltos de línea a mitad de palabra
 
 </Figure>
 
-No hay mucho más que eso, pero aquí está la documentación de [`overflow-wrap`](/docs/overflow-wrap) si quieres leerla de nuevo con palabras ligeramente diferentes.
+There's not much more to it than that, but here's the [`overflow-wrap`](/docs/overflow-wrap) documentation if you want to read it again in slightly different words.
 
 ---
 
-## Soporte para `drop-shadow` coloreados
+## Colored `drop-shadow` support
 
-Mientras desarrollábamos el soporte para `text-shadow`, pensamos que también podríamos añadir otra característica que nunca llegamos a implementar: sombras paralelas coloreadas.
+While we were building out `text-shadow` support we thought we might as well add another feature we never got around to implementing: colored drop shadows.
 
-Ahora puedes usar utilitarios como `drop-shadow-indigo-500` y `drop-shadow-cyan-500/50` para cambiar el color de una sombra paralela:
+Now you can use utilities like `drop-shadow-indigo-500` and `drop-shadow-cyan-500/50` to change the color of a drop shadow:
 
 <Figure>
 
@@ -473,25 +473,25 @@ Ahora puedes usar utilitarios como `drop-shadow-indigo-500` y `drop-shadow-cyan-
 
 </Figure>
 
-No hay mucho más, pero aquí está la documentación de [`drop-shadow`](/docs/filter-drop-shadow) de todos modos.
+There isn't much more to it but here's the [`drop-shadow` documentation](/docs/filter-drop-shadow) anyway.
 
 ---
 
-## Apunta a dispositivos de entrada con `pointer-*` y `any-pointer-*`
+## Target input devices with `pointer-*` and `any-pointer-*`
 
-Las nuevas variantes `pointer-fine` y `pointer-coarse` te permiten estilizar algo de manera diferente dependiendo de si el usuario está usando un dispositivo con ratón o una pantalla táctil.
+The new `pointer-fine` and `pointer-coarse` variants let you style something differently depending on whether the user is using a device with a mouse or using a touchscreen.
 
-Usa `pointer-fine` para apuntar a dispositivos de puntero precisos como ratones y trackpads, y `pointer-coarse` para apuntar a dispositivos de menor precisión como pantallas táctiles:
+Use `pointer-fine` to target precise pointing devices like mouses and trackpads, and `pointer-coarse` to target devices lower precision like touchscreens:
 
-<Figure hint="Intenta emular un dispositivo táctil en tus herramientas de desarrollador para ver los cambios">
+<Figure hint="Try emulating a touch device in your developer tools to see the changes">
 
 <Example>
   {
-    <fieldset aria-label="Elige una opción de memoria" className="mx-auto max-w-md">
+    <fieldset aria-label="Choose a memory option" className="mx-auto max-w-md">
       <div className="flex items-center justify-between">
         <div className="text-sm/6 font-medium text-gray-900 dark:text-white">RAM</div>
         <a href="#" className="text-sm/6 font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400">
-          Ver especificaciones de rendimiento
+          See performance specs
         </a>
       </div>
       <div className="mt-4 grid grid-cols-6 gap-2 max-sm:grid-cols-3 pointer-coarse:mt-6 pointer-coarse:grid-cols-3 pointer-coarse:gap-4">
@@ -526,10 +526,10 @@ Usa `pointer-fine` para apuntar a dispositivos de puntero precisos como ratones 
 
 ```html
 <!-- [!code classes:pointer-coarse:mt-6,pointer-coarse:grid-cols-3,pointer-coarse:gap-4,pointer-coarse:p-4] -->
-<fieldset aria-label="Elige una opción de memoria">
+<fieldset aria-label="Choose a memory option">
   <div class="flex items-center justify-between">
     <div>RAM</div>
-    <a href="#"> Ver especificaciones de rendimiento </a>
+    <a href="#"> See performance specs </a>
   </div>
   <div class="mt-4 grid grid-cols-6 gap-2 pointer-coarse:mt-6 pointer-coarse:grid-cols-3 pointer-coarse:gap-4">
     <label class="p-2 pointer-coarse:p-4 ...">
@@ -543,17 +543,17 @@ Usa `pointer-fine` para apuntar a dispositivos de puntero precisos como ratones 
 
 </Figure>
 
-Si estás en tu teléfono, verás los estilos `pointer-coarse` aplicados, que hacen que los objetivos táctiles sean más grandes y fáciles de pulsar. Si estás en un escritorio, verás los estilos `pointer-fine` aplicados, que hacen que los objetivos táctiles sean más pequeños y precisos.
+If you're on your phone, you'll see the `pointer-coarse` styles applied, which make the touch targets larger and easier to hit. If you're on a desktop, you'll see the `pointer-fine` styles applied, which make the touch targets smaller and more precise.
 
-Las variantes `any-pointer-*` funcionan de la misma manera, pero en lugar de solo verificar el dispositivo de puntero _principal_ del usuario, verifican si _cualquier_ dispositivo de puntero coincide. Así que `any-pointer-coarse` coincidirá en una laptop con pantalla táctil, por ejemplo, incluso si el usuario también tiene un ratón conectado.
+The `any-pointer-*` variants work the same way but instead of just checking the user's _primary_ pointing device, they check if _any_ pointing device matches. So `any-pointer-coarse` will match on a laptop with a touchscreen for a example, even if the user also has a mouse connected.
 
 ---
 
-## Alinea elementos a la última línea base
+## Align items to the last baseline
 
-Al trabajar con diseños flex o grid, a veces necesitas alinear algo a la línea base de la última línea de texto en lugar del final del contenedor.
+When working with flex or grid layouts, sometimes you need to align something to the baseline of the last line of text rather than the end of the container.
 
-El nuevo utilitario `items-baseline-last` hace precisamente eso:
+The new `items-baseline-last` utility does just that:
 
 <Figure>
 
@@ -568,7 +568,7 @@ El nuevo utilitario `items-baseline-last` hace precisamente eso:
             alt=""
           />
           <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Spencer Sharp</div>
-          <p className="text-sm sm:col-start-2">Trabajando en el futuro del reclutamiento de astronautas en Space Recruit.</p>
+          <p className="text-sm sm:col-start-2">Working on the future of astronaut recruitment at Space Recruit.</p>
         </div>
         <a
           href="#"
@@ -585,7 +585,7 @@ El nuevo utilitario `items-baseline-last` hace precisamente eso:
             alt=""
           />
           <div className="font-semibold text-gray-900 sm:col-start-2 dark:text-white">Alex Reed</div>
-          <p className="text-sm sm:col-start-2">Un diseñador multidisciplinario.</p>
+          <p className="text-sm sm:col-start-2">A multidisciplinary designer.</p>
         </div>
         <a
           href="#"
@@ -604,7 +604,7 @@ El nuevo utilitario `items-baseline-last` hace precisamente eso:
   <div>
     <img src="img/spencer-sharp.jpg" />
     <h4>Spencer Sharp</h4>
-    <p>Trabajando en el futuro del reclutamiento de astronautas en Space Recruit.</p>
+    <p>Working on the future of astronaut recruitment at Space Recruit.</p>
   </div>
   <p>spacerecruit.com</p>
 </div>
@@ -612,17 +612,17 @@ El nuevo utilitario `items-baseline-last` hace precisamente eso:
 
 </Figure>
 
-También hemos añadido `self-baseline-last` para cuando necesites alinear solo un elemento individual, y no todos los elementos en el contenedor flex o grid.
+We've also added `self-baseline-last` for when you need to align just a single item, and not all items in the flex or grid container.
 
 ---
 
-## Mantén el contenido visible con alineación `safe`
+## Keep content visible with `safe` alignment
 
-¿Alguna vez has tenido contenido centrado que se desborda en ambas direcciones cuando el contenedor se hace demasiado pequeño? Ahora no tienes que usar una container query para cambiar la alineación en diferentes tamaños.
+Ever had center aligned content overflow in both directions when the container got too small? Now you don't have to use a container query to switch the alignment at different sizes.
 
-Los nuevos utilitarios de alineación `safe` cambiarán la alineación a `start` cuando el contenedor comience a desbordarse, para que solo se desborde en una dirección.
+The new `safe` alignment utilities will change the alignment to `start` when the container starts to overflow, so it only overflows in one direction.
 
-<Figure hint="Redimensiona el contenedor para ver el comportamiento de la alineación">
+<Figure hint="Resize the container to see the alignment behavior">
 
 <Example resizable>
   {
@@ -630,13 +630,13 @@ Los nuevos utilitarios de alineación `safe` cambiarán la alineación a `start`
       <div>
         <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">justify-center</p>
         <ul className="flex justify-center gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
-          <li>Ventas</li>
+          <li>Sales</li>
           <li>Marketing</li>
           <li>SEO</li>
-          <li>Analítica</li>
-          <li>Diseño</li>
-          <li>Estrategia</li>
-          <li>Crecimiento</li>
+          <li>Analytics</li>
+          <li>Design</li>
+          <li>Strategy</li>
+          <li>Growth</li>
           <li>UX/UI</li>
         </ul>
       </div>
@@ -645,13 +645,13 @@ Los nuevos utilitarios de alineación `safe` cambiarán la alineación a `start`
           justify-center-safe
         </p>
         <ul className="flex justify-center-safe gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
-          <li>Ventas</li>
+          <li>Sales</li>
           <li>Marketing</li>
           <li>SEO</li>
-          <li>Analítica</li>
-          <li>Diseño</li>
-          <li>Estrategia</li>
-          <li>Crecimiento</li>
+          <li>Analytics</li>
+          <li>Design</li>
+          <li>Strategy</li>
+          <li>Growth</li>
           <li>UX/UI</li>
         </ul>
       </div>
@@ -665,7 +665,7 @@ Los nuevos utilitarios de alineación `safe` cambiarán la alineación a `start`
 <!-- [!code filename:justify-center] -->
 <!-- [!code classes:justify-center] -->
 <ul class="flex justify-center gap-2 ...">
-  <li>Ventas</li>
+  <li>Sales</li>
   <li>Marketing</li>
   <li>SEO</li>
   <!-- ... -->
@@ -676,7 +676,7 @@ Los nuevos utilitarios de alineación `safe` cambiarán la alineación a `start`
 <!-- [!code filename:justify-center-safe] -->
 <!-- [!code classes:justify-center-safe] -->
 <ul class="flex justify-center-safe gap-2 ...">
-  <li>Ventas</li>
+  <li>Sales</li>
   <li>Marketing</li>
   <li>SEO</li>
   <!-- ... -->
@@ -687,13 +687,13 @@ Los nuevos utilitarios de alineación `safe` cambiarán la alineación a `start`
 
 </Figure>
 
-Estos utilitarios funcionan tanto con flexbox como con grid layouts, y están disponibles para todas las propiedades de alineación.
+These utilities work with both flexbox and grid layouts, and are available for all alignment properties.
 
 ---
 
-## Ignora rutas específicas con `@source not`
+## Ignore specific paths with `@source not`
 
-A veces necesitas excluir específicamente algunas partes de tu base de código para que no sean escaneadas por Tailwind. Ahora puedes usar `@source not` para ignorar rutas específicas al escanear en busca de nombres de clase:
+Sometimes you need to specifically exclude some parts of your code base from being scanned by Tailwind. Now you can use `@source not` to ignore specific paths when scanning for class names:
 
 ```css
 /* [!code filename:CSS] */
@@ -702,13 +702,13 @@ A veces necesitas excluir específicamente algunas partes de tu base de código 
 @source not "./src/components/legacy";
 ```
 
-Esto es útil cuando tienes un gran número de archivos en tu proyecto, pero solo quieres escanear un subconjunto específico de ellos.
+This is useful when you have a large number of files in your project, but only want to scan a specific subset of them.
 
 ---
 
-## Incluye en lista segura utilitarios específicos con `@source inline(…)`
+## Safelist specific utilities with `@source inline(…)`
 
-Si necesitas asegurarte de que Tailwind genere ciertos nombres de clase que no existen en tus archivos de contenido, puedes forzar su generación usando `@source inline()`:
+If you need to make sure Tailwind generates certain class names that don’t exist in your content files, you can force them to be generated by using `@source inline()`:
 
 <CodeExampleStack>
 
@@ -720,7 +720,7 @@ Si necesitas asegurarte de que Tailwind genere ciertos nombres de clase que no e
 ```
 
 ```css
-/* [!code filename:CSS generado] */
+/* [!code filename:Generated CSS] */
 .underline {
   text-decoration: underline;
 }
@@ -728,9 +728,9 @@ Si necesitas asegurarte de que Tailwind genere ciertos nombres de clase que no e
 
 </CodeExampleStack>
 
-Esto es el equivalente a la opción de configuración `safelist` en versiones anteriores de Tailwind, pero ahora puedes usarlo en tus archivos CSS en lugar de tu archivo de configuración.
+This is the equivalent of the `safelist` configuration option in previous versions of Tailwind, but now you can use it in your CSS files instead of your config file.
 
-La entrada de origen es [expandida por llaves](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html), por lo que puedes generar múltiples clases a la vez. Por ejemplo, para generar todos los tonos de rojo con variantes hover, puedes añadir un rango a la entrada de origen:
+The source input is [brace-expanded](https://www.gnu.org/software/bash/manual/html_node/Brace-Expansion.html), so you can generate multiple classes at once. For example, to generate all the red shades with hover variants, you can add a range to the source input:
 
 <CodeExampleStack>
 ```css
@@ -741,7 +741,7 @@ La entrada de origen es [expandida por llaves](https://www.gnu.org/software/bash
 ```
 
 ```css
-/* [!code filename:CSS generado] */
+/* [!code filename:Generated CSS] */
 .bg-red-50 {
   background-color: var(--color-red-50);
 }
@@ -777,9 +777,9 @@ La entrada de origen es [expandida por llaves](https://www.gnu.org/software/bash
 ```
 
 </CodeExampleStack>
-Esto generará tonos de rojo del 100 al 900 en incrementos de 100, así como los tonos 50 y 950. También añade la variante `hover:` para cada una de esas clases.
+This will generate shades of red from 100 to 900 in increments of 100, as well as the 50 and 950 shades. It also adds the `hover:` variant for each of those classes.
 
-También puedes usar `@source inline()` con el modificador `not` para excluir clases específicas de ser generadas:
+You can also use `@source inline()` with the `not` modifier to exclude specific classes from being generated:
 
 ```css
 /* [!code filename:CSS] */
@@ -788,19 +788,19 @@ También puedes usar `@source inline()` con el modificador `not` para excluir cl
 @source not inline("container");
 ```
 
-Esto evitará específicamente que se genere la clase `container`, incluso si la palabra `container` se detecta en tus archivos fuente.
+This will specifically prevent the `container` class from being generated, even if the word `container` is detected in your source files.
 
-Para más detalles, consulta la documentación de [detección de clases en archivos fuente](/docs/detecting-classes-in-source-files#safelisting-specific-utilities).
+For more details, check out the [detecting classes in source files](/docs/detecting-classes-in-source-files#safelisting-specific-utilities) documentation.
 
 ---
 
-## Un montón de otras nuevas variantes
+## A bunch of other new variants
 
-### Acordeones más bonitos con `details-content`
+### Prettier accordions with `details-content`
 
-Aunque siempre pudiste añadir estilos a los hijos de un elemento `<details>`, ha sido imposible estilizar el contenedor de contenido en sí mismo.
+While you could always add styles to the children of a `<details>` element, it's been impossible to style the content container itself.
 
-La nueva variante `details-content` apunta al contenedor de contenido, lo cual es útil para posicionar el contenedor de contenido en relación con el elemento `<summary>`:
+The new `details-content` variant targets the content container which is useful for positioning the content container relative to the `<summary>` element:
 
 <Figure>
   <Example>
@@ -808,12 +808,12 @@ La nueva variante `details-content` apunta al contenedor de contenido, lo cual e
     <div className="mx-auto max-w-lg">
       <details className="rounded-lg border border-transparent p-6 details-content:mt-3 details-content:-ml-0.5" open>
         <summary className="text-sm leading-6 font-semibold text-gray-900 select-none dark:text-white">
-          ¿Por qué lo llaman Ovaltine?
+          Why do they call it Ovaltine?
         </summary>
         <div
           className="list-inside list-disc rounded-lg border border-gray-200 bg-gray-50 py-3 pl-3 text-sm leading-6 text-gray-600 dark:border-white/10 dark:bg-gray-800/50 dark:text-gray-400"
         >
-          <p>La taza es redonda. El frasco es redondo. Deberían llamarlo Roundtine.</p>
+          <p>The mug is round. The jar is round. They should call it Roundtine.</p>
         </div>
       </details>
     </div>
@@ -824,10 +824,10 @@ La nueva variante `details-content` apunta al contenedor de contenido, lo cual e
 <!-- [!code classes:details-content:mt-3,details-content:-ml-0.5] -->
 <details class="rounded-lg border border-transparent p-6 details-content:mt-3 details-content:-ml-0.5" open>
   <summary class="text-sm leading-6 font-semibold text-gray-900 select-none dark:text-white">
-    ¿Por qué lo llaman Ovaltine?
+    Why do they call it Ovaltine?
   </summary>
   <div class="border-gray-200 bg-gray-50 py-3 pl-3 dark:border-white/10 dark:bg-gray-800/50 ...">
-    <p>La taza es redonda. El frasco es redondo. Deberían llamarlo Roundtine.</p>
+    <p>The mug is round. The jar is round. They should call it Roundtine.</p>
   </div>
 </details>
 ```
@@ -836,9 +836,9 @@ La nueva variante `details-content` apunta al contenedor de contenido, lo cual e
 
 ---
 
-## Apunta al modo `inverted-colors`
+## Target `inverted-colors` mode
 
-Usa la variante `inverted-colors` para añadir estilos condicionalmente cuando el usuario ha habilitado un esquema de colores invertidos en su SO:
+Use the `inverted-colors` variant to conditionally add styles when the user has enabled an inverted color scheme in their OS:
 
 ```html
 <!-- [!code classes:inverted-colors:shadow-none] -->
@@ -847,23 +847,23 @@ Usa la variante `inverted-colors` para añadir estilos condicionalmente cuando e
 </div>
 ```
 
-Esto es útil para cosas como evitar que las sombras negras se vuelvan blancas cuando se habilitan los colores invertidos.
+This is useful for things like preventing black shadows being turned white when inverted colors are enabled.
 
 ---
 
-## Nueva variante `noscript`
+## New `noscript` variant
 
-Sí, algunas personas desactivan JavaScript y ahora puedes decirles que tu aplicación no funciona sin él. La variante `noscript` te permite aplicar estilos condicionalmente cuando JS está desactivado:
+Yes, some people disable JavaScript and now you can tell them your app doesn't work without it. The `noscript` variant lets you conditionally apply styles when JS is disabled:
 
 ```html
-<div class="hidden noscript:block">Por favor, habilita JavaScript para usar esta aplicación.</div>
+<div class="hidden noscript:block">Please enable JavaScript to use this app.</div>
 ```
 
-Ya podías hacer esto con la etiqueta `<noscript>`, pero ahora también puedes hacerlo con CSS, que Tailwind te permite escribir en tu HTML, así que... sí.
+You could already do this with the `<noscript>` tag but now you can do it with CSS too, which Tailwind lets you write in your HTML, so… yeah.
 
 ---
 
-## Mejor validación de formularios con `user-valid` y `user-invalid`
+## Better form validation with `user-valid` and `user-invalid`
 
 Ever tried the `:invalid` pseudo-class only for the page to be full of red invalid states as soon as it loads, before the user has even touched your form?
 
@@ -877,25 +877,25 @@ The new `user-valid` and `user-invalid` variants try to solve this problem, by o
 
 ---
 
-¡Así que eso es todo, eso es Tailwind CSS v4.1! Actualiza a la última versión usando npm y empieza a jugar con ella hoy mismo:
+So that's it, that's Tailwind CSS v4.1! Update to the latest version using npm and start playing with it today:
 
 <CodeExampleStack>
 
 ```sh
-# [!code filename:Usando la CLI de Tailwind]
+# [!code filename:Using the Tailwind CLI]
 npm install tailwindcss@latest @tailwindcss/cli@latest
 ```
 
 ```sh
-# [!code filename:Usando Vite]
+# [!code filename:Using Vite]
 npm install tailwindcss@latest @tailwindcss/vite@latest
 ```
 
 ```sh
-# [!code filename:Usando PostCSS]
+# [!code filename:Using PostCSS]
 npm install tailwindcss@latest @tailwindcss/postcss@latest
 ```
 
 </CodeExampleStack>
 
-¡Esperamos ver lo que construyes con las nuevas características!
+Looking forward to seeing what you build with the new features!

@@ -8,7 +8,7 @@ export function FooterSitemap({ className }: { className?: string }) {
       <div className={clsx("flex gap-4 p-4 md:hidden", className)}>
         <div className="flex flex-1 flex-col gap-10">
           <div>
-            <Learn />
+            <TailwindCSS />
           </div>
           <div>
             <Resources />
@@ -30,7 +30,7 @@ export function FooterSitemap({ className }: { className?: string }) {
         )}
       >
         <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
-          <Learn />
+          <TailwindCSS />
         </div>
         <div className="border-x border-b border-gray-950/5 py-10 pl-2 not-md:border-0 md:border-b-0 dark:border-white/10">
           <TailwindPlus />
@@ -57,10 +57,10 @@ export function FooterMeta({ className }: { className?: string }) {
       >
         <ThemeToggle />
         <div className="flex flex-col gap-4 text-sm/6 text-gray-700 sm:flex-row sm:gap-2 sm:pr-4 dark:text-gray-400">
-          <span>Copyright ©&nbsp;2025&nbsp;Tailwind Labs Inc.</span>
+          <span>Copyright ©&nbsp;{new Date().getFullYear()}&nbsp;Tailwind Labs Inc.</span>
           <span className="max-sm:hidden">&middot;</span>
           <Link href="/brand" className="hover:underline">
-            Política de Marca Registrada
+            Trademark Policy
           </Link>
         </div>
       </div>
@@ -68,19 +68,19 @@ export function FooterMeta({ className }: { className?: string }) {
   );
 }
 
-function Learn() {
+function TailwindCSS() {
   return (
     <>
-      <h3 className="font-semibold">Aprende</h3>
+      <h3 className="font-semibold">Tailwind CSS</h3>
       <ul className="mt-4 grid gap-4">
         <li>
           <Link href="/docs" className="hover:underline">
-            Documentación
+            Documentation
           </Link>
         </li>
         <li>
-          <Link href="/showcase" className="hover:underline">
-            Showcase
+          <Link href="https://play.tailwindcss.com/" className="hover:underline">
+            Playground
           </Link>
         </li>
         <li>
@@ -89,8 +89,13 @@ function Learn() {
           </Link>
         </li>
         <li>
-          <Link href="https://play.tailwindcss.com/" className="hover:underline">
-            Playground
+          <Link href="/showcase" className="hover:underline">
+            Showcase
+          </Link>
+        </li>
+        <li>
+          <Link href="/partners" className="hover:underline">
+            Sponsor
           </Link>
         </li>
       </ul>
@@ -109,17 +114,17 @@ function TailwindPlus() {
       <ul className="mt-4 grid gap-4">
         <li>
           <a href="/plus/ui-blocks?ref=footer" className="hover:underline">
-            Bloques UI
+            UI Blocks
           </a>
         </li>
         <li>
           <a href="/plus/templates?ref=footer" className="hover:underline">
-            Plantillas
+            Templates
           </a>
         </li>
         <li>
           <a href="/plus/ui-kit?ref=footer" className="hover:underline">
-            Kit UI
+            UI Kit
           </a>
         </li>
       </ul>
@@ -130,7 +135,7 @@ function TailwindPlus() {
 function Resources() {
   return (
     <>
-      <h3 className="font-semibold">Recursos</h3>
+      <h3 className="font-semibold">Resources</h3>
       <ul className="mt-4 grid gap-4">
         <li>
           <Link href="https://www.refactoringui.com" className="hover:underline">
@@ -160,7 +165,7 @@ function Resources() {
 function Community() {
   return (
     <>
-      <h3 className="font-semibold">Comunidad</h3>
+      <h3 className="font-semibold">Community</h3>
       <ul className="mt-4 grid gap-4">
         <li>
           <Link href="https://github.com/tailwindlabs/tailwindcss" className="hover:underline">
@@ -168,7 +173,7 @@ function Community() {
           </Link>
         </li>
         <li>
-          <Link href="https://tailwindcss.com/discord" className="hover:underline">
+          <Link href="/partners#insiders" className="hover:underline">
             Discord
           </Link>
         </li>

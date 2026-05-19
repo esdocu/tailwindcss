@@ -5,7 +5,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "mask-type";
-export const description = "Utilidades para controlar cómo se interpreta una máscara SVG.";
+export const description = "Utilities for controlling how an SVG mask is interpreted.";
 
 <ApiTable
   rows={[
@@ -14,11 +14,11 @@ export const description = "Utilidades para controlar cómo se interpreta una m�
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa las utilidades `mask-type-alpha` y `mask-type-luminance` para controlar el tipo de una máscara SVG:
+Use the `mask-type-alpha` and `mask-type-luminance` utilities to control the type of an SVG mask:
 
 <Figure>
 
@@ -86,7 +86,7 @@ Usa las utilidades `mask-type-alpha` y `mask-type-luminance` para controlar el t
 
 </Figure>
 
-Al usar `mask-type-luminance`, el valor de luminancia de la máscara SVG determina la visibilidad, por lo que usar colores en escala de grises producirá los resultados más predecibles. Con `mask-alpha`, la opacidad de la máscara SVG determina la visibilidad del elemento enmascarado.
+When using `mask-type-luminance` the luminance value of the SVG mask determines visibility, so sticking with grayscale colors will produce the most predictable results. With `mask-alpha`, the opacity of the SVG mask determines the visibility of the masked element.
 
 ### Responsive design
 

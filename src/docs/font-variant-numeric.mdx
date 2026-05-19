@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "font-variant-numeric";
-export const description = "Utilidades para controlar la variante de los números.";
+export const description = "Utilities for controlling the variant of numbers.";
 
 <ApiTable
   rows={[
@@ -20,11 +20,11 @@ export const description = "Utilidades para controlar la variante de los número
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Usando glifos ordinales
+### Using ordinal glyphs
 
-Utiliza la utilidad `ordinal` para habilitar glifos especiales para los marcadores ordinales en fuentes que los admiten:
+Use the `ordinal` utility to enable special glyphs for the ordinal markers in fonts that support them:
 
 <Figure>
 
@@ -37,9 +37,9 @@ Utiliza la utilidad `ordinal` para habilitar glifos especiales para los marcador
 
 </Figure>
 
-### Usando ceros con barra
+### Using slashed zeroes
 
-Utiliza la utilidad `slashed-zero` para forzar un cero con una barra en fuentes que lo admiten:
+Use the `slashed-zero` utility to force a zero with a slash in fonts that support them:
 
 <Figure>
 
@@ -52,9 +52,9 @@ Utiliza la utilidad `slashed-zero` para forzar un cero con una barra en fuentes 
 
 </Figure>
 
-### Usando cifras alineadas
+### Using lining figures
 
-Utiliza la utilidad `lining-nums` para usar glifos numéricos que están alineados por su línea base en fuentes que los admiten:
+Use the `lining-nums` utility to use numeric glyphs that are aligned by their baseline in fonts that support them:
 
 <Figure>
 
@@ -69,9 +69,9 @@ Utiliza la utilidad `lining-nums` para usar glifos numéricos que están alinead
 
 </Figure>
 
-### Usando cifras de estilo antiguo
+### Using oldstyle figures
 
-Utiliza la utilidad `oldstyle-nums` para usar glifos numéricos donde algunos números tienen descendentes en fuentes que los admiten:
+Use the `oldstyle-nums` utility to use numeric glyphs where some numbers have descenders in fonts that support them:
 
 <Figure>
 
@@ -86,9 +86,9 @@ Utiliza la utilidad `oldstyle-nums` para usar glifos numéricos donde algunos n�
 
 </Figure>
 
-### Usando cifras proporcionales
+### Using proportional figures
 
-Utiliza la utilidad `proportional-nums` para usar glifos numéricos que tienen anchos proporcionales en fuentes que los admiten:
+Use the `proportional-nums` utility to use numeric glyphs that have proportional widths in fonts that support them:
 
 <Figure>
 
@@ -109,9 +109,9 @@ Utiliza la utilidad `proportional-nums` para usar glifos numéricos que tienen a
 
 </Figure>
 
-### Usando cifras tabulares
+### Using tabular figures
 
-Utiliza la utilidad `tabular-nums` para usar glifos numéricos que tienen anchos uniformes/tabulares en fuentes que los admiten:
+Use the `tabular-nums` utility to use numeric glyphs that have uniform/tabular widths in fonts that support them:
 
 <Figure>
 
@@ -132,9 +132,9 @@ Utiliza la utilidad `tabular-nums` para usar glifos numéricos que tienen anchos
 
 </Figure>
 
-### Usando fracciones diagonales
+### Using diagonal fractions
 
-Utiliza la utilidad `diagonal-fractions` para reemplazar números separados por una barra con fracciones diagonales comunes en fuentes que las admiten:
+Use the `diagonal-fractions` utility to replace numbers separated by a slash with common diagonal fractions in fonts that support them:
 
 <Figure>
 
@@ -149,9 +149,9 @@ Utiliza la utilidad `diagonal-fractions` para reemplazar números separados por 
 
 </Figure>
 
-### Usando fracciones apiladas
+### Using stacked fractions
 
-Utiliza la utilidad `stacked-fractions` para reemplazar números separados por una barra con fracciones apiladas comunes en fuentes que las admiten:
+Use the `stacked-fractions` utility to replace numbers separated by a slash with common stacked fractions in fonts that support them:
 
 <Figure>
 
@@ -170,9 +170,9 @@ Utiliza la utilidad `stacked-fractions` para reemplazar números separados por u
 
 </Figure>
 
-### Apilando múltiples utilidades
+### Stacking multiple utilities
 
-Las utilidades `font-variant-numeric` son componibles, por lo que puedes habilitar múltiples variantes combinándolas:
+The `font-variant-numeric` utilities are composable so you can enable multiple variants by combining them:
 
 <Figure>
 
@@ -183,12 +183,12 @@ Las utilidades `font-variant-numeric` son componibles, por lo que puedes habilit
       <dd className="border-b border-gray-200 py-2 text-right slashed-zero tabular-nums dark:border-white/10">
         $100.00
       </dd>
-      <dt className="border-b border-gray-200 py-2 dark:border-white/10">Impuesto</dt>
+      <dt className="border-b border-gray-200 py-2 dark:border-white/10">Tax</dt>
       <dd className="border-b border-gray-200 py-2 text-right slashed-zero tabular-nums dark:border-white/10">
         $14.50
       </dd>
-      <dt className="py-2">Total</dt>
-      <dd className="slashed-medium py-2 text-right tabular-nums">$114.50</dd>
+      <dt className="py-2 font-medium">Total</dt>
+      <dd className="py-2 text-right font-medium slashed-zero tabular-nums">$114.50</dd>
     </dl>
   }
 </Example>
@@ -198,7 +198,7 @@ Las utilidades `font-variant-numeric` son componibles, por lo que puedes habilit
 <dl class="...">
   <dt class="...">Subtotal</dt>
   <dd class="text-right slashed-zero tabular-nums ...">$100.00</dd>
-  <dt class="...">Impuesto</dt>
+  <dt class="...">Tax</dt>
   <dd class="text-right slashed-zero tabular-nums ...">$14.50</dd>
   <dt class="...">Total</dt>
   <dd class="text-right slashed-zero tabular-nums ...">$114.50</dd>
@@ -207,9 +207,9 @@ Las utilidades `font-variant-numeric` son componibles, por lo que puedes habilit
 
 </Figure>
 
-### Reiniciando variantes numéricas de fuente
+### Resetting numeric font variants
 
-Utiliza la propiedad `normal-nums` para reiniciar las variantes numéricas de fuente:
+Use the `normal-nums` property to reset numeric font variants:
 
 ```html
 <!-- [!code classes:slashed-zero,tabular-nums,normal-nums] -->

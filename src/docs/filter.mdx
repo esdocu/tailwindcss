@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, TargetingSpecificStates, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "filter";
-export const description = "Utilidades para aplicar filtros a un elemento.";
+export const description = "Utilities for applying filters to an element.";
 
 <ApiTable
   rows={[
@@ -14,11 +14,11 @@ export const description = "Utilidades para aplicar filtros a un elemento.";
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades como `blur-xs` y `grayscale` para aplicar filtros a un elemento:
+Use utilities like `blur-xs` and `grayscale` to apply filters to an element:
 
 <Figure>
 
@@ -72,18 +72,18 @@ Usa utilidades como `blur-xs` y `grayscale` para aplicar filtros a un elemento:
 
 </Figure>
 
-Puedes combinar las siguientes utilidades de filtro: [blur](/docs/filter-blur), [brightness](/docs/filter-brightness), [contrast](/docs/filter-contrast), [drop-shadow](/docs/filter-drop-shadow), [grayscale](/docs/filter-grayscale), [hue-rotate](/docs/filter-hue-rotate), [invert](/docs/filter-invert), [saturate](/docs/filter-saturate), and [sepia](/docs/filter-sepia).
+You can combine the following filter utilities: [blur](/docs/filter-blur), [brightness](/docs/filter-brightness), [contrast](/docs/filter-contrast), [drop-shadow](/docs/filter-drop-shadow), [grayscale](/docs/filter-grayscale), [hue-rotate](/docs/filter-hue-rotate), [invert](/docs/filter-invert), [saturate](/docs/filter-saturate), and [sepia](/docs/filter-sepia).
 
-### Quitando filtros
+### Removing filters
 
-Usa la utilidad `filter-none` para quitar todos los filtros aplicados a un elemento:
+Use the `filter-none` utility to remove all of the filters applied to an element:
 
 ```html
 <!-- [!code classes:md:filter-none] -->
 <img class="blur-md brightness-150 invert md:filter-none" src="/img/mountains.jpg" />
 ```
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue
   element="img"
@@ -92,7 +92,7 @@ Usa la utilidad `filter-none` para quitar todos los filtros aplicados a un eleme
   value="url('filters.svg#filter-id')"
 />
 
-### Aplicando en hover
+### Applying on hover
 
 <TargetingSpecificStates
   element="img"

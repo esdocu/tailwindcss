@@ -1,0 +1,100 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { CustomizingYourTheme, ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+
+export const title = "letter-spacing";
+export const description = "Utilidades para controlar el tracking, o espaciado entre letras, de un elemento.";
+
+<ApiTable
+  rows={[
+    ["tracking-tighter", "letter-spacing: var(--tracking-tighter); /* -0.05em */"],
+    ["tracking-tight", "letter-spacing: var(--tracking-tight); /* -0.025em */"],
+    ["tracking-normal", "letter-spacing: var(--tracking-normal); /* 0em */"],
+    ["tracking-wide", "letter-spacing: var(--tracking-wide); /* 0.025em */"],
+    ["tracking-wider", "letter-spacing: var(--tracking-wider); /* 0.05em */"],
+    ["tracking-widest", "letter-spacing: var(--tracking-widest); /* 0.1em */"],
+    ["tracking-(<custom-property>)", "letter-spacing: var(<custom-property>);"],
+    ["tracking-[<value>]", "letter-spacing: <value>;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Ejemplo básico
+
+Usa utilidades como `tracking-tight` y `tracking-wide` para establecer el espaciado entre letras de un elemento:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex flex-col gap-8">
+      <div>
+        <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">tracking-tight</span>
+        <p className="text-lg font-medium tracking-tight text-gray-900 dark:text-gray-200">
+          The quick brown fox jumps over the lazy dog.
+        </p>
+      </div>
+      <div>
+        <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">tracking-normal</span>
+        <p className="text-lg font-medium tracking-normal text-gray-900 dark:text-gray-200">
+          The quick brown fox jumps over the lazy dog.
+        </p>
+      </div>
+      <div>
+        <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">tracking-wide</span>
+        <p className="text-lg font-medium tracking-wide text-gray-900 dark:text-gray-200">
+          The quick brown fox jumps over the lazy dog.
+        </p>
+      </div>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:tracking-tight,tracking-normal,tracking-wide] -->
+<p class="tracking-tight ...">The quick brown fox ...</p>
+<p class="tracking-normal ...">The quick brown fox ...</p>
+<p class="tracking-wide ...">The quick brown fox ...</p>
+```
+
+</Figure>
+
+### Usando valores negativos
+
+Usar valores negativos no tiene mucho sentido con la escala de espaciado de letras con nombre que Tailwind incluye por defecto, pero si personalizaste tu escala para usar números, puede ser útil:
+
+```css
+@theme {
+  --tracking-1: 0em;
+  --tracking-2: 0.025em;
+  --tracking-3: 0.05em;
+  --tracking-4: 0.1em;
+}
+```
+
+Para usar un valor de espaciado de letras negativo, agrega un prefijo de guión al nombre de la clase para convertirlo en un valor negativo:
+
+```html
+<!-- [!code classes:-tracking-2] -->
+<p class="-tracking-2">The quick brown fox ...</p>
+```
+
+### Usando un valor personalizado
+
+<UsingACustomValue element="p" utility="tracking" name="letter spacing" value=".25em" />
+
+### Responsive design
+
+<ResponsiveDesign element="p" property="letter-spacing" defaultClass="tracking-tight" featuredClass="tracking-wide" />
+
+## Personalizando tu tema
+
+<CustomizingYourTheme
+  element="p"
+  utility="tracking"
+  name="letter spacing"
+  customValue="-0.075em"
+  customName="tightest"
+/>

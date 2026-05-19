@@ -4,12 +4,12 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "text-indent";
-export const description = "Utilidades para controlar la cantidad de espacio vacío mostrado antes del texto en un bloque.";
+export const description = "Utilities for controlling the amount of empty space shown before text in a block.";
 
 <ApiTable
   rows={[
-    ["indent-<number>", "text-indent: calc(var(--spacing) * <number>)"],
-    ["-indent-<number>", "text-indent: calc(var(--spacing) * -<number>)"],
+    ["indent-<number>", "text-indent: calc(var(--spacing) * <number>);"],
+    ["-indent-<number>", "text-indent: calc(var(--spacing) * -<number>);"],
     ["indent-px", "text-indent: 1px;"],
     ["-indent-px", "text-indent: -1px;"],
     ["indent-(<custom-property>)", "text-indent: var(<custom-property>);"],
@@ -17,51 +17,55 @@ export const description = "Utilidades para controlar la cantidad de espacio vac
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `indent-<number>` como `indent-2` e `indent-8` para establecer la cantidad de espacio vacío (sangría) que se muestra antes del texto en un bloque:
+Use `indent-<number>` utilities like `indent-2` and `indent-8` to set the amount of empty space (indentation) that's shown before text in a block:
 
 <Figure>
 
 <Example>
   {
     <p className="mx-auto max-w-sm indent-8 text-gray-900 dark:text-gray-200">
-      Así que empecé a caminar hacia el agua. No les mentiré chicos, estaba aterrado. Pero seguí adelante, y mientras pasaba las olas rompientes una extraña calma me invadió. No sé si fue intervención divina o la hermandad de todos los seres vivos, pero les digo Jerry en ese momento, <em>era</em> un biólogo marino.
+      So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my
+      way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of
+      all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:indent-8] -->
-<p class="indent-8">Así que empecé a caminar hacia el agua...</p>
+<p class="indent-8">So I started to walk into the water...</p>
 ```
 
 </Figure>
 
-### Usando valores negativos
+### Using negative values
 
-Para usar un valor de sangría de texto negativo, prefija el nombre de la clase con un guion para convertirlo en un valor negativo:
+To use a negative text indent value, prefix the class name with a dash to convert it to a negative value:
 
 <Figure>
 
 <Example>
   {
     <p className="mx-auto max-w-sm -indent-8 text-gray-900 dark:text-gray-200">
-      Así que empecé a caminar hacia el agua. No les mentiré chicos, estaba aterrado. Pero seguí adelante, y mientras pasaba las olas rompientes una extraña calma me invadió. No sé si fue intervención divina o la hermandad de todos los seres vivos, pero les digo Jerry en ese momento, <em>era</em> un biólogo marino.
+      So I started to walk into the water. I won't lie to you boys, I was terrified. But I pressed on, and as I made my
+      way past the breakers a strange calm came over me. I don't know if it was divine intervention or the kinship of
+      all living things but I tell you Jerry at that moment, I <em>was</em> a marine biologist.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:-indent-8] -->
-<p class="-indent-8">Así que empecé a caminar hacia el agua...</p>
+<p class="-indent-8">So I started to walk into the water...</p>
 ```
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue element="p" utility="indent" name="text indentation" value="50%" variable="indentation" />
 

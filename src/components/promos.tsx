@@ -29,14 +29,14 @@ export function BookPromo() {
         </div>
       </div>
       <p className="text-[0.815rem]/6 font-semibold text-sky-500 dark:text-sky-400">
-        De los creadores de Tailwind CSS
+        From the creators of Tailwind CSS
       </p>
       <p className="mt-1.5 text-[0.9375rem]/5 font-semibold text-gray-950 dark:text-white">
-        Haz que tus ideas se vean geniales, sin depender de un diseñador.
+        Make your ideas look awesome, without relying on a designer.
       </p>
       <blockquote className="mt-6 border-l border-black/5 pl-4 text-gray-600 dark:border-white/10 dark:text-gray-400">
         <p className="text-[0.8125rem]/5 [hanging-punctuation:first_last]">
-          “Este es el kit de supervivencia que desearía haber tenido cuando comencé a crear aplicaciones.”
+          “This is the survival kit I wish I had when I started building apps.”
         </p>
         <p className="mt-3 text-xs">Derrick Reimer, SavvyCal</p>
       </blockquote>
@@ -53,7 +53,7 @@ export function CoursePromo() {
           <div className="absolute top-0 left-4 h-full w-px bg-[linear-gradient(to_bottom,_transparent_0%,_var(--gradient-bg)_9.27%,_var(--gradient-bg)_90.7%,_transparent_100%)] [--gradient-bg:var(--color-black)]/15 dark:[--gradient-bg:var(--color-white)]/10"></div>
           <Image
             src={coursePromo}
-            alt="Crea interfaces de usuario que no apesten — minicurso de 5 días"
+            alt="Build UIs that don’t suck — 5-day mini-course"
             width={192}
             height={108}
             className="shadow-[-5px_10px_15px_-3px_var(--shadow-color),_-5px_4px_6px_-4px_var(--shadow-color)] duration-500 [--shadow-color:var(--color-black)]/10 dark:[--shadow-color:var(--color-black)]"
@@ -72,16 +72,16 @@ export function CoursePromo() {
           </div>
         </div>
       </div>
-      <p className="text-[0.8125rem]/6 font-semibold text-sky-500 dark:text-sky-400">Minicurso de 5 días</p>
-      <p className="mt-1.5 text-base/5 font-semibold text-gray-950 dark:text-white">Crea interfaces de usuario que no apesten.</p>
+      <p className="text-[0.8125rem]/6 font-semibold text-sky-500 dark:text-sky-400">5-day mini-course</p>
+      <p className="mt-1.5 text-base/5 font-semibold text-gray-950 dark:text-white">Build UIs that don’t suck.</p>
       <p className="mt-3 text-[0.8125rem]/5 text-gray-600 dark:text-gray-400">
-        Lecciones en video cortas y tácticas del creador de Tailwind CSS, entregadas directamente en tu bandeja de entrada todos los días durante una
-        semana.
+        Short, tactical video lessons from the creator of Tailwind CSS, delivered directly to your inbox every day for a
+        week.
       </p>
       <p className="mt-4">
         <LinkButton href="/build-uis-that-dont-suck">
           <span className="absolute inset-0" />
-          Obtén el curso gratis <span aria-hidden="true">&rarr;</span>
+          Get the free course <span aria-hidden="true">&rarr;</span>
         </LinkButton>
       </p>
     </div>

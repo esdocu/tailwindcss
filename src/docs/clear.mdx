@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "clear";
-export const description = "Utilidades para controlar el ajuste del contenido alrededor de un elemento.";
+export const description = "Utilities for controlling the wrapping of content around an element.";
 
 <ApiTable
   rows={[
@@ -17,11 +17,11 @@ export const description = "Utilidades para controlar el ajuste del contenido al
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Limpiando a la izquierda
+### Clearing left
 
-Usa la utilidad `clear-left` para posicionar un elemento debajo de cualquier elemento flotante izquierdo precedente:
+Use the `clear-left` utility to position an element below any preceding left-floated elements:
 
 <Figure>
 
@@ -37,7 +37,12 @@ Usa la utilidad `clear-left` para posicionar un elemento debajo de cualquier ele
         src="https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
       />
       <p className="clear-left text-justify">
-        Tal vez podamos vivir sin bibliotecas, gente como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, ahora mismo, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popis en El Gato en el Sombrero y Los Cinco Hermanos Chinos? ¿No se merece algo mejor? Mira. Si crees que esto se trata de multas por retraso y libros perdidos, será mejor que lo pienses de nuevo. ¡Se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te excite, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
+        Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but
+        what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding
+        drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve
+        better? Look. If you think this is about overdue fines and missing books, you'd better think again. This is
+        about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld;
+        maybe that's how y'get your kicks. You and your good-time buddies.
       </p>
     </>
   }
@@ -48,15 +53,15 @@ Usa la utilidad `clear-left` para posicionar un elemento debajo de cualquier ele
 <article>
   <img class="float-left ..." src="/img/snow-mountains.jpg" />
   <img class="float-right ..." src="/img/green-mountains.jpg" />
-  <p class="clear-left ...">Tal vez podamos vivir sin bibliotecas...</p>
+  <p class="clear-left ...">Maybe we can live without libraries...</p>
 </article>
 ```
 
 </Figure>
 
-### Limpiando a la derecha
+### Clearing right
 
-Usa la utilidad `clear-right` para posicionar un elemento debajo de cualquier elemento flotante derecho precedente:
+Use the `clear-right` utility to position an element below any preceding right-floated elements:
 
 <Figure>
 
@@ -72,7 +77,12 @@ Usa la utilidad `clear-right` para posicionar un elemento debajo de cualquier el
         src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=formathttps://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
       />
       <p className="clear-right text-justify">
-        Tal vez podamos vivir sin bibliotecas, gente como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, ahora mismo, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popis en El Gato en el Sombrero y Los Cinco Hermanos Chinos? ¿No se merece algo mejor? Mira. Si crees que esto se trata de multas por retraso y libros perdidos, será mejor que lo pienses de nuevo. ¡Se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te excite, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
+        Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but
+        what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding
+        drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve
+        better? Look. If you think this is about overdue fines and missing books, you'd better think again. This is
+        about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld;
+        maybe that's how y'get your kicks. You and your good-time buddies.
       </p>
     </>
   }
@@ -83,15 +93,15 @@ Usa la utilidad `clear-right` para posicionar un elemento debajo de cualquier el
 <article>
   <img class="float-left ..." src="/img/green-mountains.jpg" />
   <img class="float-right ..." src="/img/snow-mountains.jpg" />
-  <p class="clear-right ...">Tal vez podamos vivir sin bibliotecas...</p>
+  <p class="clear-right ...">Maybe we can live without libraries...</p>
 </article>
 ```
 
 </Figure>
 
-### Limpiando todo
+### Clearing all
 
-Usa la utilidad `clear-both` para posicionar un elemento debajo de todos los elementos flotantes precedentes:
+Use the `clear-both` utility to position an element below all preceding floated elements:
 
 <Figure>
 
@@ -107,7 +117,12 @@ Usa la utilidad `clear-both` para posicionar un elemento debajo de todos los ele
         src="https://images.unsplash.com/photo-1434394354979-a235cd36269d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
       />
       <p className="clear-both text-justify">
-        Tal vez podamos vivir sin bibliotecas, gente como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, ahora mismo, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popis en El Gato en el Sombrero y Los Cinco Hermanos Chinos? ¿No se merece algo mejor? Mira. Si crees que esto se trata de multas por retraso y libros perdidos, será mejor que lo pienses de nuevo. ¡Se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te excite, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
+        Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but
+        what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding
+        drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve
+        better? Look. If you think this is about overdue fines and missing books, you'd better think again. This is
+        about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld;
+        maybe that's how y'get your kicks. You and your good-time buddies.
       </p>
     </>
   }
@@ -118,15 +133,15 @@ Usa la utilidad `clear-both` para posicionar un elemento debajo de todos los ele
 <article>
   <img class="float-left ..." src="/img/snow-mountains.jpg" />
   <img class="float-right ..." src="/img/green-mountains.jpg" />
-  <p class="clear-both ...">Tal vez podamos vivir sin bibliotecas...</p>
+  <p class="clear-both ...">Maybe we can live without libraries...</p>
 </article>
 ```
 
 </Figure>
 
-### Usando propiedades lógicas
+### Using logical properties
 
-Usa las utilidades `clear-start` y `clear-end`, que usan [propiedades lógicas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) para mapear al lado izquierdo o derecho según la dirección del texto:
+Use the `clear-start` and `clear-end` utilities, which use [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) to map to either the left or right side based on the text direction:
 
 <Figure>
 
@@ -164,9 +179,9 @@ Usa las utilidades `clear-start` y `clear-end`, que usan [propiedades lógicas](
 
 </Figure>
 
-### Deshabilitando limpiezas
+### Disabling clears
 
-Usa la utilidad `clear-none` para restablecer cualquier limpieza que se aplique a un elemento:
+Use the `clear-none` utility to reset any clears that are applied to an element:
 
 <Figure>
 
@@ -182,7 +197,12 @@ Usa la utilidad `clear-none` para restablecer cualquier limpieza que se aplique 
         src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=formathttps://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&h=1000&q=90"
       />
       <p className="text-justify">
-        Tal vez podamos vivir sin bibliotecas, gente como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, ahora mismo, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popis en El Gato en el Sombrero y Los Cinco Hermanos Chinos? ¿No se merece algo mejor? Mira. Si crees que esto se trata de multas por retraso y libros perdidos, será mejor que lo pienses de nuevo. ¡Se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te excite, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
+        Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but
+        what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding
+        drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve
+        better? Look. If you think this is about overdue fines and missing books, you'd better think again. This is
+        about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld;
+        maybe that's how y'get your kicks. You and your good-time buddies.
       </p>
     </>
   }
@@ -193,12 +213,12 @@ Usa la utilidad `clear-none` para restablecer cualquier limpieza que se aplique 
 <article>
   <img class="float-left ..." src="/img/green-mountains.jpg" />
   <img class="float-right ..." src="/img/snow-mountains.jpg" />
-  <p class="clear-none ...">Tal vez podamos vivir sin bibliotecas...</p>
+  <p class="clear-none ...">Maybe we can live without libraries...</p>
 </article>
 ```
 
 </Figure>
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign element="p" property="clear" defaultClass="clear-left" featuredClass="clear-none" />

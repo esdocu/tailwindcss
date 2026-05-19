@@ -1,14 +1,3 @@
-if (typeof window === "undefined") {
-  (global as any).localStorage = {
-    getItem: () => null,
-    setItem: () => {},
-    removeItem: () => {},
-    clear: () => {},
-    key: () => null,
-    length: 0,
-  };
-}
-
 import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
@@ -16,7 +5,6 @@ import { SearchProvider } from "@/components/search";
 import { ThemeProvider } from "@/components/theme-toggle";
 import Fathom from "@/components/fathom";
 import Script from "next/script";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
 
 const inter = localFont({
   src: [
@@ -132,7 +120,7 @@ let darkModeScript = js`
 
     try {
       if (/(Mac|iPhone|iPod|iPad)/i.test(navigator.platform)) {
-        document.documentElement.classList.add(' os-macos')
+        document.documentElement.classList.add('os-macos')
       }
     } catch (_) {}
   }
@@ -141,11 +129,11 @@ let darkModeScript = js`
 export const metadata: Metadata = {
   metadataBase: new URL("https://tailwindcss.com"),
   title: {
-    default: "Tailwind CSS en Español - Construye rápidamente sitios web modernos sin tener que salir de tu HTML.",
-    template: "%s - Tailwind CSS en Español",
+    default: "Tailwind CSS - Rapidly build modern websites without ever leaving your HTML.",
+    template: "%s - Tailwind CSS",
   },
   description:
-    "Tailwind CSS es un framework CSS utility-first para construir rápidamente sitios web modernos sin tener que salir de tu HTML.",
+    "Tailwind CSS is a utility-first CSS framework for rapidly building modern websites without ever leaving your HTML.",
 };
 
 export default async function RootLayout({
@@ -155,7 +143,7 @@ export default async function RootLayout({
 }>) {
   return (
     <html
-      lang="es"
+      lang="en"
       className={`${inter.variable} ${plexMono.variable} ${source.variable} ${ubuntuMono.variable} antialiased dark:bg-gray-950`}
       suppressHydrationWarning
     >
@@ -169,17 +157,16 @@ export default async function RootLayout({
         <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feeds/feed.xml" />
         <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="/feeds/atom.xml" />
         <link rel="alternate" type="application/json" title="JSON Feed" href="/feeds/feed.json" />
-        <meta name="apple-mobile-web-app-title" content="Tailwind CSS en Español" />
-        <meta name="application-name" content="Tailwind CSS en Español" />
+        <meta name="apple-mobile-web-app-title" content="Tailwind CSS" />
+        <meta name="application-name" content="Tailwind CSS" />
         <meta name="msapplication-TileColor" content="#38bdf8" />
         <meta name="msapplication-config" content={v("/favicons/browserconfig.xml")} />
         <script type="text/javascript" dangerouslySetInnerHTML={{ __html: darkModeScript }}></script>
         {/*
-          Inyectamos el script de nuevo a través de la etiqueta <Script/>, ya que descubrimos que la etiqueta <script> regular
-          no se ejecuta al renderizar una página not-found.
+          We inject the script via the <Script/> tag again, since we found the regular `<script>`
+          tag to not execute when rendering a not-found page.
          */}
         <Script src={`data:text/javascript;base64,${btoa(darkModeScript)}`} />
-        <GoogleAnalytics measurementId="G-S4SJSSGE4G" />
       </head>
       <body>
         <Fathom />
@@ -188,10 +175,6 @@ export default async function RootLayout({
             <div className="isolate">{children}</div>
           </ThemeProvider>
         </SearchProvider>
-        <Script
-          src="https://static-ads.xeost.com/ads.js"
-          strategy="afterInteractive"
-        />
       </body>
     </html>
   );

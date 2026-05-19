@@ -10,7 +10,7 @@ import { Figure } from "@/components/figure.tsx";
 import colors from "./utils/colors";
 
 export const title = "background-color";
-export const description = "Utilidades para controlar el color de fondo de un elemento.";
+export const description = "Utilities for controlling an element's background color.";
 
 <ApiTable
   rows={[
@@ -26,11 +26,11 @@ export const description = "Utilidades para controlar el color de fondo de un el
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades como `bg-white`, `bg-indigo-500` y `bg-transparent` para controlar el color de fondo de un elemento:
+Use utilities like `bg-white`, `bg-indigo-500` and `bg-transparent` to control the background color of an element:
 
 <Figure>
 
@@ -44,7 +44,7 @@ Usa utilidades como `bg-white`, `bg-indigo-500` y `bg-transparent` para controla
           tabIndex="-1"
           className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white opacity-100 focus:outline-none"
         >
-          Botón A
+          Button A
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
@@ -54,7 +54,7 @@ Usa utilidades como `bg-white`, `bg-indigo-500` y `bg-transparent` para controla
           tabIndex="-1"
           className="rounded-md bg-cyan-500 px-4 py-2 text-sm font-semibold text-white opacity-100 focus:outline-none"
         >
-          Botón B
+          Button B
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
@@ -64,7 +64,7 @@ Usa utilidades como `bg-white`, `bg-indigo-500` y `bg-transparent` para controla
           tabIndex="-1"
           className="rounded-md bg-pink-500 px-4 py-2 text-sm font-semibold text-white opacity-100 focus:outline-none"
         >
-          Botón C
+          Button C
         </button>
       </div>
     </div>
@@ -73,16 +73,16 @@ Usa utilidades como `bg-white`, `bg-indigo-500` y `bg-transparent` para controla
 
 ```html
 <!-- [!code classes:bg-blue-500,bg-cyan-500,bg-pink-500] -->
-<button class="bg-blue-500 ...">Botón A</button>
-<button class="bg-cyan-500 ...">Botón B</button>
-<button class="bg-pink-500 ...">Botón C</button>
+<button class="bg-blue-500 ...">Button A</button>
+<button class="bg-cyan-500 ...">Button B</button>
+<button class="bg-pink-500 ...">Button C</button>
 ```
 
 </Figure>
 
-### Cambiando la opacidad
+### Changing the opacity
 
-Usa el modificador de opacidad de color para controlar la opacidad del color de fondo de un elemento:
+Use the color opacity modifier to control the opacity of an element's background color:
 
 <Figure>
 
@@ -98,7 +98,7 @@ Usa el modificador de opacidad de color para controlar la opacidad del color de 
           tabIndex="-1"
           className="rounded-md bg-sky-500/100 px-4 py-2 text-sm font-semibold text-white opacity-100 focus:outline-none"
         >
-          Botón A
+          Button A
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
@@ -108,7 +108,7 @@ Usa el modificador de opacidad de color para controlar la opacidad del color de 
           tabIndex="-1"
           className="rounded-md bg-sky-500/75 px-4 py-2 text-sm font-semibold text-white opacity-100 focus:outline-none"
         >
-          Botón B
+          Button B
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
@@ -118,7 +118,7 @@ Usa el modificador de opacidad de color para controlar la opacidad del color de 
           tabIndex="-1"
           className="rounded-md bg-sky-500/50 px-4 py-2 text-sm font-semibold text-white opacity-100 focus:outline-none"
         >
-          Botón C
+          Button C
         </button>
       </div>
     </div>
@@ -136,11 +136,11 @@ Usa el modificador de opacidad de color para controlar la opacidad del color de 
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="bg" value="#50d71e" name="background color" variable="color" />
 
-### Aplicando en hover
+### Applying on hover
 
 <TargetingSpecificStates property="background-color">
 
@@ -153,14 +153,14 @@ Usa el modificador de opacidad de color para controlar la opacidad del color de 
       tabIndex="-1"
       className="mx-auto block rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white hover:bg-fuchsia-500 focus:outline-none"
     >
-      Guardar cambios
+      Save changes
     </button>
   }
 </Example>
 
 ```html
 <!-- [!code classes:hover:bg-fuchsia-500] -->
-<button class="bg-indigo-500 hover:bg-fuchsia-500 ...">Guardar cambios</button>
+<button class="bg-indigo-500 hover:bg-fuchsia-500 ...">Save changes</button>
 ```
 
 </Figure>
@@ -171,6 +171,6 @@ Usa el modificador de opacidad de color para controlar la opacidad del color de 
 
 <ResponsiveDesign property="background-color" defaultClass="bg-blue-500" featuredClass="bg-green-500" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourThemeColors utility="bg" />

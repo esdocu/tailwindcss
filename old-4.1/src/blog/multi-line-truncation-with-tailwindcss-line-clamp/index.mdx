@@ -1,0 +1,70 @@
+import { adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import { YouTubeVideo } from "@/components/media";
+import Link from "next/link";
+import { CodeExample, CodeBlock } from "@/components/code-example";
+import Example from "@/components/example";
+
+export const meta = {
+  title: "Truncamiento multilínea con @tailwindcss/line-clamp",
+  description: `Hace unas semanas lanzamos @tailwindcss/line-clamp, un plugin oficial de Tailwind CSS para truncar texto a un número específico de líneas.`,
+  date: "2021-01-24T20:00:00Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Imagina que estás implementando un hermoso diseño que tú o alguien de tu equipo elaboró cuidadosamente en Figma. Has
+      clavado todos los diferentes layouts en cada breakpoint, perfeccionado el espacio en blanco y la tipografía, y la fotografía
+      que estás usando realmente está dando vida al diseño.
+      <br />
+      <br />
+      Se ve totalmente increíble — until you connect it your actual production content and realize that your beautiful
+      grid of blog cards falls apart because, of course, <em>real</em> article excerpts aren't all magically exactly
+      three lines long, and now each card is a different height.
+      <br />
+      <br />
+      ¿Te suena familiar? If so, the line-clamp plugin is here to save your bacon.
+    </>
+  ),
+};
+
+<YouTubeVideo id="klh-jMTm5PU" />
+
+Hace unas semanas lanzamos [`@tailwindcss/line-clamp`](https://github.com/tailwindlabs/tailwindcss-line-clamp), un plugin oficial de Tailwind CSS para truncar texto a un número específico de líneas.
+
+Imagina que estás implementando un hermoso diseño que tú o alguien de tu equipo elaboró cuidadosamente en Figma. Has clavado todos los diferentes layouts en cada breakpoint, perfeccionado el espacio en blanco y la tipografía, y la fotografía que estás usando realmente está dando vida al diseño.
+
+Se ve totalmente increíble — hasta que lo conectas a tu contenido de producción real y te das cuenta de que tu hermosa cuadrícula de tarjetas de blog se deshace porque, por supuesto, los extractos de artículos _reales_ no tienen mágicamente exactamente tres líneas de largo, y ahora cada tarjeta tiene una altura diferente.
+
+¿Te suena familiar? Si es así, el plugin line-clamp está aquí para salvarte el pellejo.
+
+Primero, instala el plugin y agrégalo a tu archivo `tailwind.config.js`:
+
+```sh
+npm install @tailwindcss/line-clamp
+```
+
+```js {{ filename: 'tailwind.config.js' }}
+module.exports = {
+  // ...
+  plugins: [
+    // ...
+    require("@tailwindcss/line-clamp"),
+  ],
+};
+```
+
+Luego, todo lo que necesitas hacer es agregar una utilidad `line-clamp-{n}` a cualquier bloque de texto para truncar automáticamente a _n_ líneas con puntos suspensivos al final:
+
+```html
+<p class="line-clamp-3">
+  Aquí tienes un bloque de texto de una publicación de blog que no tiene convenientemente tres líneas de largo como diseñaste originalmente.
+  Probablemente tenga como 6 líneas en móvil o incluso en escritorio dependiendo de cómo tengas las cosas dispuestas. Verdaderamente un gran dolor de cabeza,
+  y no el tipo de cosa con la que esperabas perder tu tiempo tratando de lidiar a las 4:45 pm de un viernes,
+  ¿verdad? Tienes boletos para SmackDown y escuchaste que habrá una lucha no televisada con ese tipo local de dos
+  pueblos más allá con el que tu primo fue a la preparatoria antes de que comience el show, y te lo vas a perder si no
+  llegas temprano.
+</p>
+```
+
+Para más detalles, [checa la documentación](https://github.com/tailwindlabs/tailwindcss-line-clamp/) en el repositorio de GitHub.

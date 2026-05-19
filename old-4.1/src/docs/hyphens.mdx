@@ -1,0 +1,112 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "hyphens";
+export const description = "Utilidades para controlar cómo deben dividirse las palabras.";
+
+<ApiTable
+  rows={[
+    ["hyphens-none", "hyphens: none;"],
+    ["hyphens-manual", "hyphens: manual;"],
+    ["hyphens-auto", "hyphens: auto;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Previniendo la división de palabras
+
+Usa la utilidad `hyphens-none` para prevenir que las palabras se dividan incluso si se usa la sugerencia de salto de línea `&shy;`:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-normal hyphens-none text-gray-900 dark:text-gray-200">
+      Oficialmente reconocida por el diccionario Duden como la palabra más larga en alemán,{" "}
+      <span className="font-bold" lang="de">
+        Kraftfahrzeug&shy;haftpflichtversicherung
+      </span>{" "}
+      es una palabra de 36 letras para seguro de responsabilidad civil de vehículos motorizados.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:hyphens-none] -->
+<!-- [!code word:&shy;] -->
+<!-- prettier-ignore -->
+<p class="hyphens-none">
+  ... Kraftfahrzeug&shy;haftpflichtversicherung es una ...
+</p>
+```
+
+</Figure>
+
+### División manual de palabras
+
+Usa la utilidad `hyphens-manual` para solo establecer puntos de división donde se usa la sugerencia de salto de línea `&shy;`:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-normal hyphens-manual text-gray-900 dark:text-gray-200">
+      Oficialmente reconocida por el diccionario Duden como la palabra más larga en alemán,{" "}
+      <span className="font-bold" lang="de">
+        Kraftfahrzeug&shy;haftpflichtversicherung
+      </span>{" "}
+      es una palabra de 36 letras para seguro de responsabilidad civil de vehículos motorizados.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:hyphens-manual] -->
+<!-- [!code word:&shy;] -->
+<!-- prettier-ignore -->
+<p class="hyphens-manual">
+  ... Kraftfahrzeug&shy;haftpflichtversicherung es una ...
+</p>
+```
+
+</Figure>
+
+Este es el comportamiento predeterminado del navegador.
+
+### División automática de palabras
+
+Usa la utilidad `hyphens-auto` para permitir que el navegador elija automáticamente los puntos de división basados en el idioma:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-normal hyphens-auto text-gray-900 dark:text-gray-200">
+      Oficialmente reconocida por el diccionario Duden como la palabra más larga en alemán,{" "}
+      <span className="font-bold" lang="de">
+        Kraftfahrzeughaftpflichtversicherung
+      </span>{" "}
+      es una palabra de 36 letras para seguro de responsabilidad civil de vehículos motorizados.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:hyphens-auto] -->
+<!-- [!code word:lang="de"] -->
+<!-- prettier-ignore -->
+<p class="hyphens-auto" lang="de">
+  ... Kraftfahrzeughaftpflichtversicherung es una ...
+</p>
+```
+
+</Figure>
+
+La sugerencia de salto de línea `&shy;` será preferida sobre los puntos de división automáticos.
+
+### Responsive design
+
+<ResponsiveDesign element="p" property="hyphens" defaultClass="hyphens-none" featuredClass="hyphens-auto" />

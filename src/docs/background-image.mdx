@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "background-image";
-export const description = "Utilidades para controlar la imagen de fondo de un elemento.";
+export const description = "Utilities for controlling an element's background image.";
 
 <svg className="hidden">
   <symbol id="gradient-color-stop" viewBox="0 0 32 34">
@@ -47,7 +47,7 @@ export const description = "Utilidades para controlar la imagen de fondo de un e
     ["bg-conic-<angle>", "background-image: conic-gradient(from <angle> in oklab, var(--tw-gradient-stops));"],
     ["-bg-conic-<angle>", "background-image: conic-gradient(from -<angle> in oklab, var(--tw-gradient-stops));"],
     ["bg-conic-(<custom-property>)", "background-image: var(<custom-property>);"],
-    ["bg-conic-[<value>]", "background-image: <image>;"],
+    ["bg-conic-[<value>]", "background-image: <value>;"],
     ["from-<color>", "--tw-gradient-from: <color>;"],
     ["from-<percentage>", "--tw-gradient-from-position: <percentage>;"],
     ["from-(<custom-property>)", "--tw-gradient-from: var(<custom-property>);"],
@@ -63,11 +63,11 @@ export const description = "Utilidades para controlar la imagen de fondo de un e
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa la sintaxis `bg-[<value>]` para establecer la imagen de fondo de un elemento:
+Use the `bg-[<value>]` syntax to set the background image of an element:
 
 <Figure>
 
@@ -86,9 +86,9 @@ Usa la sintaxis `bg-[<value>]` para establecer la imagen de fondo de un elemento
 
 </Figure>
 
-### Añadiendo un degradado lineal
+### Adding a linear gradient
 
-Usa utilidades como `bg-linear-to-r` y `bg-linear-<angle>` con las [utilidades de parada de color](#estableciendo-paradas-de-color-del-degradado) para añadir un degradado lineal a un elemento:
+Use utilities like `bg-linear-to-r` and `bg-linear-<angle>` with the [color stop utilities](#setting-gradient-color-stops) to add a linear gradient to an element:
 
 <Figure>
 
@@ -113,9 +113,9 @@ Usa utilidades como `bg-linear-to-r` y `bg-linear-<angle>` con las [utilidades d
 
 </Figure>
 
-### Añadiendo un degradado radial
+### Adding a radial gradient
 
-Usa las utilidades `bg-radial` y `bg-radial-[<position>]` con las [utilidades de parada de color](#estableciendo-paradas-de-color-del-degradado) para añadir un degradado radial a un elemento:
+Use the `bg-radial` and `bg-radial-[<position>]` utilities with the [color stop utilities](#setting-gradient-color-stops) to add a radial gradient to an element:
 
 <Figure>
 
@@ -138,9 +138,9 @@ Usa las utilidades `bg-radial` y `bg-radial-[<position>]` con las [utilidades de
 
 </Figure>
 
-### Añadiendo un degradado cónico
+### Adding a conic gradient
 
-Usa las utilidades `bg-conic` y `bg-conic-<angle>` con las [utilidades de parada de color](#estableciendo-paradas-de-color-del-degradado) para añadir un degradado cónico a un elemento:
+Use the `bg-conic` and `bg-conic-<angle>` utilities with the [color stop utilities](#setting-gradient-color-stops) to add a conic gradient to an element:
 
 <Figure>
 
@@ -163,9 +163,9 @@ Usa las utilidades `bg-conic` y `bg-conic-<angle>` con las [utilidades de parada
 
 </Figure>
 
-### Estableciendo paradas de color del degradado
+### Setting gradient color stops
 
-Usa utilidades como `from-indigo-500`, `via-purple-500`, y `to-pink-500` para establecer los colores de las paradas del degradado:
+Use utilities like `from-indigo-500`, `via-purple-500`, and `to-pink-500` to set the colors of the gradient stops:
 
 <Figure>
 
@@ -204,9 +204,9 @@ Usa utilidades como `from-indigo-500`, `via-purple-500`, y `to-pink-500` para es
 
 </Figure>
 
-### Estableciendo posiciones de parada del degradado
+### Setting gradient stop positions
 
-Usa utilidades como `from-10%`, `via-30%`, y `to-90%` para establecer posiciones más precisas para las paradas de color del degradado:
+Use utilities like `from-10%`, `via-30%`, and `to-90%` to set more precise positions for the gradient color stops:
 
 <Figure>
 
@@ -254,9 +254,9 @@ Usa utilidades como `from-10%`, `via-30%`, y `to-90%` para establecer posiciones
 
 </Figure>
 
-### Cambiando el modo de interpolación
+### Changing interpolation mode
 
-Usa el modificador de interpolación para controlar el modo de interpolación de un degradado:
+Use the interpolation modifier to control the interpolation mode of a gradient:
 
 <Figure>
 
@@ -320,18 +320,18 @@ Usa el modificador de interpolación para controlar el modo de interpolación de
 
 </Figure>
 
-Por defecto, los degradados se interpolan en el espacio de color `oklab`.
+By default gradients are interpolated in the `oklab` color space.
 
-### Eliminando imágenes de fondo
+### Removing background images
 
-Usa la utilidad `bg-none` para eliminar una imagen de fondo existente de un elemento:
+Use the `bg-none` utility to remove an existing background image from an element:
 
 ```html
 <!-- [!code classes:bg-none] -->
 <div class="bg-none"></div>
 ```
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue
   utilities={["bg-linear", "from"]}
@@ -344,6 +344,6 @@ Usa la utilidad `bg-none` para eliminar una imagen de fondo existente de un elem
 
 <ResponsiveDesign property="background-image" defaultClass="from-purple-400" featuredClass="from-yellow-500" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourThemeColors utilities={["from", "via", "to"]} />

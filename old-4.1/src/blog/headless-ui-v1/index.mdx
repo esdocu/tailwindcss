@@ -1,0 +1,214 @@
+import { adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import { Image } from "@/components/media";
+import Link from "next/link";
+import { Example } from "@/components/example";
+
+export const meta = {
+  title: "Headless UI v1.0",
+  description: `El otoño pasado anunciamos Headless UI, una librería de componentes de UI completamente sin estilo y totalmente accesibles, diseñada para combinar perfectamente con Tailwind CSS. Hoy estamos súper emocionados de lanzar Headless UI v1.0, que más que duplica la cantidad de componentes incluidos tanto para React como para Vue.`,
+  date: "2021-04-14T16:00:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      El otoño pasado anunciamos{" "}
+      <Link href="https://blog.tailwindcss.com/headless-ui-unstyled-accessible-ui-components">Headless UI</Link>, una
+      librería de componentes de UI completamente sin estilo y totalmente accesibles, diseñada para combinar perfectamente con Tailwind CSS.
+      Hoy estamos súper emocionados de lanzar <Link href="https://headlessui.dev">Headless UI v1.0</Link>, que más que
+      duplica la cantidad de componentes incluidos tanto para React como para Vue.
+    </>
+  ),
+};
+
+<Link href="https://headlessui.dev">
+  <Image alt="Headless UI" src={card} />
+</Link>
+
+El otoño pasado anunciamos <Link href="https://blog.tailwindcss.com/headless-ui-unstyled-accessible-ui-components">Headless UI</Link>, una librería de componentes de UI completamente sin estilo y totalmente accesibles, diseñada para combinar perfectamente con Tailwind CSS.
+
+Hoy estamos súper emocionados de lanzar <Link href="https://headlessui.dev">Headless UI v1.0</Link>, que más que duplica la cantidad de componentes incluidos tanto para React como para Vue.
+
+## Qué hay de nuevo
+
+Hemos agregado cuatro nuevos componentes a la librería de React y cinco nuevos componentes para Vue.
+
+### Dialog (modal)
+
+Headless UI ahora incluye una implementación robusta de diálogo que puedes usar para construir diálogos modales tradicionales, menús deslizables móviles o cualquier otra UI de estilo "take-over" que necesite capturar el foco de toda la página.
+
+```jsx
+import { useState } from "react";
+import { Dialog } from "@headlessui/react";
+
+function MyDialog() {
+  let [isOpen, setIsOpen] = useState(true);
+
+  return (
+    <Dialog open={isOpen} onClose={setIsOpen}>
+      <Dialog.Overlay />
+
+      <Dialog.Title>Deactivate account</Dialog.Title>
+      <Dialog.Description>This will permanently deactivate your account</Dialog.Description>
+
+      <p>
+        Are you sure you want to deactivate your account? All of your data will be permanently removed. This action
+        cannot be undone.
+      </p>
+
+      <button onClick={() => setIsOpen(false)}>Deactivate</button>
+      <button onClick={() => setIsOpen(false)}>Cancel</button>
+    </Dialog>
+  );
+}
+```
+
+### Disclosure
+
+Hemos agregado un nuevo componente \`Disclosure\` que facilita mostrar/ocultar contenido en línea de forma accesible. Esto es útil para cosas como preguntas frecuentes plegables, interfaces de "mostrar más" o incluso menús de hamburguesa que se abren y empujan el resto del contenido de la página.
+
+```html
+<template>
+  <Disclosure>
+    <DisclosureButton> Is team pricing available? </DisclosureButton>
+    <DisclosurePanel> Yes! You can purchase a license that you can share with your entire team. </DisclosurePanel>
+  </Disclosure>
+</template>
+
+<script>
+  import { Disclosure, DisclosureButton, DisclosurePanel } from "@headlessui/vue";
+
+  export default {
+    components: { Disclosure, DisclosureButton, DisclosurePanel },
+  };
+</script>
+```
+
+### Radio Group
+
+Ahora hay un componente \`RadioGroup\` que puedes usar para construir interfaces de usuario de botones de radio totalmente personalizadas, como cuando quieres usar tarjetas elegantes o algo así en lugar de un simple círculo de radio.
+
+```jsx
+import { useState } from "react";
+import { RadioGroup } from "@headlessui/react";
+
+function MyRadioGroup() {
+  let [plan, setPlan] = useState("startup");
+
+  return (
+    <RadioGroup value={plan} onChange={setPlan}>
+      <RadioGroup.Label>Plan</RadioGroup.Label>
+      <RadioGroup.Option value="startup">
+        {({ checked }) => <span className={checked ? "bg-blue-200" : ""}>Startup</span>}
+      </RadioGroup.Option>
+      <RadioGroup.Option value="business">
+        {({ checked }) => <span className={checked ? "bg-blue-200" : ""}>Business</span>}
+      </RadioGroup.Option>
+      <RadioGroup.Option value="enterprise">
+        {({ checked }) => <span className={checked ? "bg-blue-200" : ""}>Enterprise</span>}
+      </RadioGroup.Option>
+    </RadioGroup>
+  );
+}
+```
+
+### Popover
+
+El nuevo componente \`Popover\` te permite construir interfaces de usuario desplegables personalizadas que no tienen restricciones de contenido como las tendría un componente \`Menu\` regular. Genial para menús desplegables en sitios de marketing, desplegables que tienen campos de formulario y mucho más.
+
+```html
+<template>
+  <Popover class="relative">
+    <PopoverButton>Solutions</PopoverButton>
+
+    <PopoverPanel class="absolute z-10">
+      <div>
+        <a href="/analytics">Analytics</a>
+        <a href="/engagement">Engagement</a>
+        <a href="/security">Security</a>
+        <a href="/integrations">Integrations</a>
+      </div>
+
+      <img src="/solutions.jpg" alt="" />
+    </PopoverPanel>
+  </Popover>
+</template>
+
+<script>
+  import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+
+  export default {
+    components: { Popover, PopoverButton, PopoverPanel },
+  };
+</script>
+```
+
+### TransitionRoot y TransitionChild (para Vue)
+
+Headless UI ya tenía un componente \`Transition\` para React, pero siempre hemos recomendado la `\<transition\>` nativa que ya viene con Vue para los usuarios de Vue. Sin embargo, existen algunas limitaciones en la transición nativa, y las cosas pueden complicarse al intentar coordinar transiciones anidadas que se supone deben ejecutarse en paralelo.
+
+Headless UI v1.0 trae nuestro componente \`Transition\` de React a Vue también, lo que facilita mucho la transición de cosas como los diálogos modales.
+
+```html
+<template>
+  <!-- Esta prop `show` controla todos los componentes `Transition.Child` anidados. -->
+  <TransitionRoot :show="isOpen">
+    <!-- Superposición de fondo -->
+    <TransitionChild
+      enter="transition-opacity"
+      ease-linear
+      duration-300"
+      enter-from="opacity-0"
+      enter-to="opacity-100"
+      leave="transition-opacity"
+      ease-linear
+      duration-300"
+      leave-from="opacity-100"
+      leave-to="opacity-0"
+    >
+      <!-- … -->
+    </TransitionChild>
+
+    <!-- Barra lateral deslizante -->
+    <TransitionChild
+      enter="transition"
+      ease-in-out
+      duration-300
+      transform"
+      enter-from="-translate-x-full"
+      enter-to="translate-x-0"
+      leave="transition"
+      ease-in-out
+      duration-300
+      transform"
+      leave-from="translate-x-0"
+      leave-to="-translate-x-full"
+    >
+      <!-- … -->
+    </TransitionChild>
+  </TransitionRoot>
+</template>
+
+<script>
+import { ref } from "vue";
+import { Transition, TransitionChild } from "@headlessui/vue";
+
+export default {
+  components: { TransitionRoot: Transition, TransitionChild },
+
+  setup() {
+    const isShowing = ref(true);
+
+    return {
+      isShowing,
+    };
+  },
+};
+</script>
+```
+
+## Pruébalo
+
+¡Dirígete a nuestro <Link href="https://headlessui.dev">nuevo sitio web de documentación</Link> para incorporar Headless UI en tus proyectos y jugar con él! Tiene licencia MIT y es de código abierto, así que si quieres curiosear el código o necesitas reportar un problema, <Link href="https://github.com/tailwindlabs/headlessui">visita el repositorio de GitHub</Link>.
+
+¿Quieres probarlo? <Link href="https://headlessui.dev">Visita el sitio web de Headless UI →</Link>

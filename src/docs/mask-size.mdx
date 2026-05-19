@@ -6,7 +6,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "mask-size";
-export const description = "Utilidades para controlar el tamaño de la imagen de máscara de un elemento.";
+export const description = "Utilities for controlling the size of an element's mask image.";
 
 <ApiTable
   rows={[
@@ -18,11 +18,11 @@ export const description = "Utilidades para controlar el tamaño de la imagen de
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Llenar el contenedor
+### Filling the container
 
-Usa la utilidad `mask-cover` para escalar la imagen de máscara hasta que llene la capa de máscara, recortando la imagen si es necesario:
+Use the `mask-cover` utility to scale the mask image until it fills the mask layer, cropping the image if needed:
 
 <Figure>
 
@@ -45,9 +45,9 @@ Usa la utilidad `mask-cover` para escalar la imagen de máscara hasta que llene 
 
 </Figure>
 
-### Llenar sin recortar
+### Filling without cropping
 
-Usa la utilidad `mask-contain` para escalar la imagen de máscara hasta los bordes exteriores sin recortarla ni estirarla:
+Use the `mask-contain` utility to scale the mask image to the outer edges without cropping or stretching:
 
 <Figure>
 
@@ -70,9 +70,9 @@ Usa la utilidad `mask-contain` para escalar la imagen de máscara hasta los bord
 
 </Figure>
 
-### Usar el tamaño por defecto
+### Using the default size
 
-Usa la utilidad `mask-auto` para mostrar la imagen de máscara en su tamaño por defecto:
+Use the `mask-auto` utility to display the mask image at its default size:
 
 <Figure>
 
@@ -95,7 +95,7 @@ Usa la utilidad `mask-auto` para mostrar la imagen de máscara en su tamaño por
 
 </Figure>
 
-### Usar un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="mask-size" value="auto_100px" name="mask image size" variable="mask-size" />
 

@@ -1,0 +1,127 @@
+import { CodeExample, CodeBlock, Example, Figure } from "@/components/code-example";
+import Link from "next/link";
+import { Image } from "@/components/media";
+import card from "./card.jpg";
+import { adamwathan } from "@/app/blog/authors";
+
+export const meta = {
+  title: "Tailwind CSS v2.1",
+  description: `Acabamos de lanzar Tailwind CSS v2.1 que trae el nuevo motor JIT al core, agrega soporte de primera clase para filtros CSS, ¡y más!`,
+  date: "2021-04-05T19:00:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      ¡La primera actualización de características desde Tailwind CSS v2.0 está aquí y cargada de cosas geniales! Hemos fusionado el
+      nuevo motor JIT al core, agregado soporte de primera clase para filtros CSS componibles, agregado utilidades de modo de fusión y un
+      montón más.
+    </>
+  ),
+};
+
+¡La primera actualización de características desde Tailwind CSS v2.0 está aquí y cargada de cosas geniales! Hemos fusionado el nuevo motor JIT al core, agregado soporte de primera clase para filtros CSS componibles, agregado utilidades de modo de fusión y un montón más.
+
+Aquí están algunos de los aspectos más destacados:
+
+- [Motor JIT en el core](#jit-engine-in-core)
+- [API de filtros CSS componibles](#new-filter-and-backdrop-filter-utilities)
+- [Nuevas utilidades de modo de fusión](#new-blending-mode-utilities)
+- [Nuevas utilidades de aislamiento](#new-isolation-utilities)
+
+Para todos los detalles, <Link href="https://github.com/tailwindlabs/tailwindcss/releases/tag/v2.1.0">revisa las notas de la versión</Link> en GitHub.
+
+---
+
+<a name="jit-engine-in-core"></a>
+
+## Motor JIT en el core
+
+El <Link href="https://blog.tailwindcss.com/just-in-time-the-next-generation-of-tailwind-css">nuevo motor JIT que anunciamos en marzo</Link> ahora se ha fusionado al core y está disponible como una característica opcional usando una nueva opción `mode` en tu archivo `tailwind.config.js`:
+
+```js
+module.exports = {
+  mode: "jit",
+  purge: [
+    // ...
+  ],
+  // ...
+};
+```
+
+**Esta característica todavía está en vista previa** lo que significa que algunos detalles pueden cambiar a medida que resolvemos los problemas, y no está sujeta al versionado semántico.
+
+Si estabas usando `@tailwindcss/jit` antes, ahora puedes migrar a Tailwind CSS v2.1 en su lugar, ya que ahí es donde ocurrirá todo el nuevo desarrollo del motor.
+
+Lee la <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">documentación del Modo Just-in-Time</Link> para aprender más.
+
+<a name="new-filter-and-backdrop-filter-utilities"></a>
+
+## API de filtros CSS componibles
+
+¡Esto es enorme! Finalmente hemos agregado soporte de primera clase para filtros CSS.
+
+Funcionan de manera muy similar a nuestras utilidades `transform`, donde usas `filter` para habilitar filtros y lo combinas con utilidades como `grayscale`, `blur-lg` o `saturate-200` para componer filtros sobre la marcha.
+
+```html
+<div class="blur-md grayscale invert filter ...">
+  <!-- ... -->
+</div>
+```
+
+...y así es como se ve `backdrop-filter`:
+
+```html
+<div class="backdrop-blur backdrop-brightness-50 backdrop-filter ...">
+  <!-- ... -->
+</div>
+```
+
+Revisa la documentación de <Link href="https://v2.tailwindcss.com/docs/filter">filter</Link> y <Link href="https://v2.tailwindcss.com/docs/backdrop-filter">backdrop-filter</Link> para aprender más. ¡Pronto agregaremos un montón de ejemplos visuales útiles allí!
+
+<a name="new-blending-mode-utilities"></a>
+
+## Nuevas utilidades de modo de fusión
+
+Hemos agregado nuevas utilidades para `mix-blend-mode` y `background-blend-mode`:
+
+```html
+<div class="mix-blend-multiply ...">
+  <!-- ... -->
+</div>
+```
+
+Revisa <Link href="https://v2.tailwindcss.com/docs/mix-blend-mode">la documentación</Link> para aprender más.
+
+<a name="new-isolation-utilities"></a>
+
+## Nuevas utilidades de aislamiento
+
+Hemos agregado nuevas utilidades `isolate` y `isolation-auto` para trabajar con la propiedad `isolation`:
+
+```html
+<div class="isolate ...">
+  <!-- ... -->
+</div>
+```
+
+Esto puede ser muy útil para delimitar el alcance de las características del modo de fusión o los ajustes de z-index y es súper poderoso.
+
+Revisa <Link href="https://v2.tailwindcss.com/docs/isolation">la documentación</Link> para aprender más.
+
+También recomiendo encarecidamente <Link href="https://www.joshwcomeau.com/css/stacking-contexts/#airtight-abstractions-with-isolation">este gran artículo de Josh Comeau</Link> para verlo en acción.
+
+---
+
+## Actualizando
+
+Tailwind CSS v2.1 es una actualización incremental sin cambios disruptivos, así que para actualizar solo necesitas ejecutar:
+
+```bash
+npm install tailwindcss@latest
+```
+
+Si estabas usando `@tailwindcss/jit` previamente, ahora puedes volver a `tailwindcss` y actualizar tu configuración de PostCSS en consecuencia.
+
+¿Listo para actualizar? <Link href="https://npmjs.com/tailwindcss">Obtenlo de npm →</Link>
+
+Esta migración asegura que el contenido se adhiera al nuevo formato v4, utilizando los componentes y códigos especificados para ejemplos, extractos y bloques de código.

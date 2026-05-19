@@ -3,38 +3,39 @@ import { Iframe } from "@/components/iframe";
 import { Example } from "@/components/example";
 import { Figure } from "@/components/figure";
 
-export const title = "Diseño Responsive";
-export const description = "Usar variantes de utilidad responsive para construir interfaces de usuario adaptables.";
+export const title = "Responsive design";
+export const description = "Using responsive utility variants to build adaptive user interfaces.";
 
-## Resumen
+## Overview
 
-Cada clase de utilidad en Tailwind se puede aplicar condicionalmente en diferentes breakpoints, lo que hace que sea pan comido construir interfaces responsive complejas sin salir de tu HTML.
+Every utility class in Tailwind can be applied conditionally at different breakpoints, which makes it a piece of cake to build complex responsive interfaces without ever leaving your HTML.
 
-Primero, asegúrate de haber agregado la [etiqueta meta viewport](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag) al `<head>` de tu documento:
+First, make sure you've added the [viewport meta tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Viewport_meta_tag) to the `<head>` of your document:
 
 ```html
 <!-- [!code filename:index.html] -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 ```
 
-Luego, para agregar una utilidad pero que solo tenga efecto en un cierto breakpoint, todo lo que necesitas hacer es prefijar la utilidad con el nombre del breakpoint, seguido del carácter `:`:
+Then to add a utility but only have it take effect at a certain breakpoint, all you need to do is prefix the utility with the breakpoint name, followed by the `:` character:
 
 ```html
 <!-- [!code filename:HTML]  -->
 <!-- [!code word:md\:w-32] -->
 <!-- [!code word:lg\:w-48] -->
-<!-- Ancho de 16 por defecto, 32 en pantallas medianas y 48 en pantallas grandes -->
+<!-- Width of 16 by default, 32 on medium screens, and 48 on large screens -->
 <img class="w-16 md:w-32 lg:w-48" src="..." />
 ```
 
-Hay cinco breakpoints por defecto, inspirados en resoluciones de dispositivos comunes:
+There are five breakpoints by default, inspired by common device resolutions:
 
 {
+
 <table>
   <thead>
     <tr>
-      <th>Prefijo del breakpoint</th>
-      <th>Ancho mínimo</th>
+      <th>Breakpoint prefix</th>
+      <th>Minimum width</th>
       <th>CSS</th>
     </tr>
   </thead>
@@ -98,9 +99,9 @@ Hay cinco breakpoints por defecto, inspirados en resoluciones de dispositivos co
 </table>
 }
 
-Esto funciona para **cada clase de utilidad en el framework**, lo que significa que puedes cambiar literalmente cualquier cosa en un breakpoint dado, incluso cosas como el espaciado entre letras o los estilos del cursor.
+This works for **every utility class in the framework**, which means you can change literally anything at a given breakpoint — even things like letter spacing or cursor styles.
 
-Aquí tienes un ejemplo simple de un componente de página de marketing que usa un diseño apilado en pantallas pequeñas y un diseño lado a lado en pantallas más grandes:
+Here's a simple example of a marketing page component that uses a stacked layout on small screens, and a side-by-side layout on larger screens:
 
 <Figure>
 
@@ -116,17 +117,19 @@ Aquí tienes un ejemplo simple de un componente de página de marketing que usa 
                 src="https://images.unsplash.com/photo-1637734433731-621aca1c8cb6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=404&q=80"
                 width="202"
                 height="192"
-                alt="Hermoso edificio abstracto al sol"
+                alt="Beautiful abstract building in the sun"
               />
             </div>
             <div className="space-y-2 p-6 2xl:p-8">
-              <div className="text-sm leading-6 font-medium text-indigo-600">Retiros de empresa</div>
+              <div className="text-sm leading-6 font-medium text-indigo-600">Company retreats</div>
               <a href="#" className="block text-base leading-6 font-semibold text-gray-900 hover:underline">
-                Alojamiento increíble para tu equipo
+                Incredible accommodation for your team
               </a>
               <p
                 className="text-sm leading-6 text-gray-600"
-                children={`¿Buscas llevar a tu equipo a un retiro para disfrutar de comida increíble y tomar un poco de sol? Tenemos una lista de lugares para hacer precisamente eso.`}
+                children={`Looking to take your team away on a retreat to enjoy awesome food
+              and take in some sunshine? We have a list of places to do just
+              that.`}
               ></p>
             </div>
           </div>
@@ -148,17 +151,17 @@ Aquí tienes un ejemplo simple de un componente de página de marketing que usa 
       <img
         class="h-48 w-full object-cover md:h-full md:w-48"
         src="/img/building.jpg"
-        alt="Arquitectura de edificio moderno"
+        alt="Modern building architecture"
       />
     </div>
     <div class="p-8">
-      <div class="text-sm font-semibold tracking-wide text-indigo-500 uppercase">Retiros de empresa</div>
+      <div class="text-sm font-semibold tracking-wide text-indigo-500 uppercase">Company retreats</div>
       <a href="#" class="mt-1 block text-lg leading-tight font-medium text-black hover:underline">
-        Alojamiento increíble para tu equipo
+        Incredible accommodation for your team
       </a>
       <p class="mt-2 text-gray-500">
-        ¿Buscas llevar a tu equipo a un retiro para disfrutar de comida increíble y tomar un poco de sol? Tenemos una lista de
-        lugares para hacer precisamente eso.
+        Looking to take your team away on a retreat to enjoy awesome food and take in some sunshine? We have a list of
+        places to do just that.
       </p>
     </div>
   </div>
@@ -167,53 +170,53 @@ Aquí tienes un ejemplo simple de un componente de página de marketing que usa 
 
 </Figure>
 
-Así es como funciona el ejemplo anterior:
+Here's how the example above works:
 
-- Por defecto, el `div` exterior es `display: block`, pero al agregar la utilidad `md:flex`, se convierte en `display: flex` en pantallas medianas y más grandes.
-- Cuando el padre es un contenedor flex, queremos asegurarnos de que la imagen nunca se encoja, así que hemos agregado `md:shrink-0` para evitar que se encoja en pantallas medianas y más grandes. Técnicamente podríamos haber usado solo `shrink-0` ya que no haría nada en pantallas más pequeñas, pero como solo importa en pantallas `md`, es una buena idea dejarlo claro en el nombre de la clase.
-- En pantallas pequeñas, la imagen tiene automáticamente el ancho completo por defecto. En pantallas medianas y superiores, hemos restringido el ancho a un tamaño fijo y nos hemos asegurado de que la imagen tenga la altura completa usando `md:h-full md:w-48`.
+- By default, the outer `div` is `display: block`, but by adding the `md:flex` utility, it becomes `display: flex` on medium screens and larger.
+- When the parent is a flex container, we want to make sure the image never shrinks, so we've added `md:shrink-0` to prevent shrinking on medium screens and larger. Technically we could have just used `shrink-0` since it would do nothing on smaller screens, but since it only matters on `md` screens, it's a good idea to make that clear in the class name.
+- On small screens the image is automatically full width by default. On medium screens and up, we've constrained the width to a fixed size and ensured the image is full height using `md:h-full md:w-48`.
 
-Solo hemos usado un breakpoint en este ejemplo, pero podrías personalizar fácilmente este componente en otros tamaños usando también los prefijos responsive `sm`, `lg`, `xl` o `2xl`.
+We've only used one breakpoint in this example, but you could easily customize this component at other sizes using the `sm`, `lg`, `xl`, or `2xl` responsive prefixes as well.
 
-## Trabajando mobile-first
+## Working mobile-first
 
-Tailwind usa un sistema de breakpoints mobile-first, similar a lo que podrías estar acostumbrado en otros frameworks como Bootstrap.
+Tailwind uses a mobile-first breakpoint system, similar to what you might be used to in other frameworks like Bootstrap.
 
-Lo que esto significa es que las utilidades sin prefijo (como `uppercase`) tienen efecto en todos los tamaños de pantalla, mientras que las utilidades con prefijo (como `md:uppercase`) solo tienen efecto en el breakpoint especificado _y superiores_.
+What this means is that unprefixed utilities (like `uppercase`) take effect on all screen sizes, while prefixed utilities (like `md:uppercase`) only take effect at the specified breakpoint _and above_.
 
-### Apuntar a pantallas móviles
+### Targeting mobile screens
 
-Donde este enfoque sorprende más a la gente es que para diseñar algo para móviles, necesitas usar la versión sin prefijo de una utilidad, no la versión con prefijo `sm:`. No pienses en `sm:` como "en pantallas pequeñas", piensa en ello como "en el _breakpoint_ pequeño".
+Where this approach surprises people most often is that to style something for mobile, you need to use the unprefixed version of a utility, not the `sm:` prefixed version. Don't think of `sm:` as meaning "on small screens", think of it as "at the small _breakpoint_".
 
 <TipBad>
   {
     <>
-      No uses <code>sm:</code> para apuntar a dispositivos móviles
+      Don't use <code>sm:</code> to target mobile devices
     </>
   }
 </TipBad>
 
 ```html
 <!-- [!code filename:HTML]  -->
-<!-- Esto solo centrará el texto en pantallas de 640px y más anchas, no en pantallas pequeñas -->
+<!-- This will only center text on screens 640px and wider, not on small screens -->
 <div class="sm:text-center"></div>
 ```
 
-<TipGood>{<>Usa utilidades sin prefijo para apuntar a móviles y anúlalos en breakpoints más grandes</>}</TipGood>
+<TipGood>{<>Use unprefixed utilities to target mobile, and override them at larger breakpoints</>}</TipGood>
 
 ```html
 <!-- [!code filename:HTML]  -->
-<!-- Esto centrará el texto en móviles y lo alineará a la izquierda en pantallas de 640px y más anchas -->
+<!-- This will center text on mobile, and left align it on screens 640px and wider -->
 <div class="text-center sm:text-left"></div>
 ```
 
-Por esta razón, a menudo es una buena idea implementar primero el diseño móvil para un diseño, luego superponer los cambios que tengan sentido para las pantallas `sm`, seguido de las pantallas `md`, etc.
+For this reason, it's often a good idea to implement the mobile layout for a design first, then layer on any changes that make sense for `sm` screens, followed by `md` screens, etc.
 
-### Apuntar a un rango de breakpoints
+### Targeting a breakpoint range
 
-Por defecto, los estilos aplicados por reglas como `md:flex` se aplicarán en ese breakpoint y permanecerán aplicados en breakpoints más grandes.
+By default, styles applied by rules like `md:flex` will apply at that breakpoint and stay applied at larger breakpoints.
 
-Si deseas aplicar una utilidad _solo_ cuando un rango específico de breakpoints está activo, apila una variante responsive como `md` con una variante `max-*` para limitar ese estilo a un rango específico:
+If you'd like to apply a utility _only_ when a specific breakpoint range is active, stack a responsive variant like `md` with a `max-*` variant to limit that style to a specific range:
 
 ```html
 <!-- [!code filename:HTML]  -->
@@ -222,13 +225,14 @@ Si deseas aplicar una utilidad _solo_ cuando un rango específico de breakpoints
 </div>
 ```
 
-Tailwind genera una variante `max-*` correspondiente para cada breakpoint, por lo que de forma predeterminada están disponibles las siguientes variantes:
+Tailwind generates a corresponding `max-*` variant for each breakpoint, so out of the box the following variants are available:
 
 {
+
 <table>
   <thead>
     <tr>
-      <th>Variante</th>
+      <th>Variant</th>
       <th>Media query</th>
     </tr>
   </thead>
@@ -277,9 +281,9 @@ Tailwind genera una variante `max-*` correspondiente para cada breakpoint, por l
 </table>
 }
 
-### Apuntar a un solo breakpoint
+### Targeting a single breakpoint
 
-Para apuntar a un solo breakpoint, apunta al rango de ese breakpoint apilando una variante responsive como `md` con la variante `max-*` del siguiente breakpoint:
+To target a single breakpoint, target the range for that breakpoint by stacking a responsive variant like `md` with the `max-*` variant for the next breakpoint:
 
 ```html
 <!-- [!code filename:HTML]  -->
@@ -288,13 +292,13 @@ Para apuntar a un solo breakpoint, apunta al rango de ese breakpoint apilando un
 </div>
 ```
 
-Lee sobre [apuntar a rangos de breakpoints](#targeting-a-breakpoint-range) para aprender más.
+Read about [targeting breakpoint ranges](#targeting-a-breakpoint-range) to learn more.
 
-## Usar breakpoints personalizados
+## Using custom breakpoints
 
-### Personalizar tu tema
+### Customizing your theme
 
-Usa las variables de tema `--breakpoint-*` para personalizar tus breakpoints:
+Use the `--breakpoint-*` theme variables to customize your breakpoints:
 
 ```css
 /* [!code filename:app.css] */
@@ -308,7 +312,7 @@ Usa las variables de tema `--breakpoint-*` para personalizar tus breakpoints:
 }
 ```
 
-Esto actualiza el breakpoint `2xl` para usar `100rem` en lugar del predeterminado `96rem`, y crea nuevos breakpoints `xs` y `3xl` que se pueden usar en tu marcado:
+This updates the `2xl` breakpoint to use `100rem` instead of the default `96rem`, and creates new `xs` and `3xl` breakpoints that can be used in your markup:
 
 ```html
 <!-- [!code filename:HTML]  -->
@@ -320,15 +324,15 @@ Esto actualiza el breakpoint `2xl` para usar `100rem` en lugar del predeterminad
 </div>
 ```
 
-Ten en cuenta que es importante usar siempre la misma unidad para definir tus breakpoints o las utilidades generadas pueden ordenarse de forma inesperada, haciendo que las clases de breakpoint se anulen entre sí de formas inesperadas.
+Note that it's important to always use the same unit for defining your breakpoints or the generated utilities may be sorted in an unexpected order, causing breakpoint classes to override each other in unexpected ways.
 
-Tailwind usa `rem` para los breakpoints predeterminados, así que si estás agregando breakpoints adicionales a los predeterminados, asegúrate de usar `rem` también.
+Tailwind uses `rem` for the default breakpoints, so if you are adding additional breakpoints to the defaults, make sure you use `rem` as well.
 
-Obtén más información sobre cómo personalizar tu tema en la [documentación del tema](/docs/theme).
+Learn more about customizing your theme in the [theme documentation](/docs/theme).
 
-### Eliminar breakpoints predeterminados
+### Removing default breakpoints
 
-Para eliminar un breakpoint predeterminado, restablece su valor a la palabra clave `initial`:
+To remove a default breakpoint, reset its value to the `initial` keyword:
 
 ```css
 /* [!code filename:app.css] */
@@ -340,7 +344,7 @@ Para eliminar un breakpoint predeterminado, restablece su valor a la palabra cla
 }
 ```
 
-También puedes restablecer todos los breakpoints predeterminados usando `--breakpoint-*: initial`, luego define todos tus breakpoints desde cero:
+You can also reset all of the default breakpoints using `--breakpoint-*: initial`, then define all of your breakpoints from scratch:
 
 ```css
 /* [!code filename:app.css] */
@@ -355,11 +359,11 @@ También puedes restablecer todos los breakpoints predeterminados usando `--brea
 }
 ```
 
-Obtén más información sobre cómo eliminar valores de tema predeterminados en la [documentación del tema](/docs/theme).
+Learn more removing default theme values in the [theme documentation](/docs/theme).
 
-### Usar valores arbitrarios
+### Using arbitrary values
 
-Si necesitas usar un breakpoint único que no tiene sentido incluir en tu tema, usa las variantes `min` o `max` para generar un breakpoint personalizado sobre la marcha usando cualquier valor arbitrario.
+If you need to use a one-off breakpoint that doesn’t make sense to include in your theme, use the `min` or `max` variants to generate a custom breakpoint on the fly using any arbitrary value.
 
 ```html
 <!-- [!code word:min-\[320px\]\:text-center] -->
@@ -369,17 +373,17 @@ Si necesitas usar un breakpoint único que no tiene sentido incluir en tu tema, 
 </div>
 ```
 
-Obtén más información sobre el soporte de valores arbitrarios en la documentación de [valores arbitrarios](/docs/adding-custom-styles#using-arbitrary-values).
+Learn more about arbitrary value support in the [arbitrary values](/docs/adding-custom-styles#using-arbitrary-values) documentation.
 
 ## Container queries
 
-### ¿Qué son las container queries?
+### What are container queries?
 
-Las [Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries) son una característica moderna de CSS que te permite diseñar algo basado en el tamaño de un elemento padre en lugar del tamaño de todo el viewport. Te permiten construir componentes que son mucho más portátiles y reutilizables porque pueden cambiar según el espacio real disponible para ese componente.
+[Container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries) are a modern CSS feature that let you style something based on the size of a parent element instead of the size of the entire viewport. They let you build components that are a lot more portable and reusable because they can change based on the actual space available for that component.
 
-### Ejemplo básico
+### Basic example
 
-Usa la clase `@container` para marcar un elemento como contenedor, luego usa variantes como `@sm` y `@md` para diseñar elementos hijos según el tamaño del contenedor:
+Use the `@container` class to mark an element as an inline-size container, then use variants like `@sm` and `@md` to style child elements based on the size of the container:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -392,11 +396,11 @@ Usa la clase `@container` para marcar un elemento como contenedor, luego usa var
 </div>
 ```
 
-Al igual que las variantes de breakpoint, las container queries son mobile-first en Tailwind CSS y se aplican al tamaño del contenedor objetivo y superiores.
+Just like breakpoint variants, container queries are mobile-first in Tailwind CSS and apply at the target container size and up.
 
-### Container queries de ancho máximo
+### Max-width container queries
 
-Usa variantes como `@max-sm` y `@max-md` para aplicar un estilo por debajo de un tamaño de contenedor específico:
+Use variants like `@max-sm` and `@max-md` to apply a style below a specific container size:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -408,9 +412,9 @@ Usa variantes como `@max-sm` y `@max-md` para aplicar un estilo por debajo de un
 </div>
 ```
 
-### Rangos de container query
+### Container query ranges
 
-Apila una variante de container query regular con una variante de container query de ancho máximo para apuntar a un rango específico:
+Stack a regular container query variant with a max-width container query variant to target a specific range:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -422,9 +426,9 @@ Apila una variante de container query regular con una variante de container quer
 </div>
 ```
 
-### Contenedores nombrados
+### Named containers
 
-Para diseños complejos que usan múltiples contenedores anidados, puedes nombrar contenedores usando `@container/{name}` y apuntar a contenedores específicos con variantes como `@sm/{name}` y `@md/{name}`:
+For complex designs that use multiple nested containers, you can name containers using `@container/{name}` and target specific containers with variants like `@sm/{name}` and `@md/{name}`:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -438,11 +442,28 @@ Para diseños complejos que usan múltiples contenedores anidados, puedes nombra
 </div>
 ```
 
-Esto hace posible diseñar algo basado en el tamaño de un contenedor distante, en lugar de solo el contenedor más cercano.
+This makes it possible to style something based on the size of a distant container, rather than just the nearest container.
 
-### Usar tamaños de contenedor personalizados
+### Using size containers
 
-Usa las variables de tema `--container-*` para personalizar los tamaños de tu contenedor:
+Use `@container-size` to mark an element as a size container instead of an inline-size container when you need to use container query length units that depend on the block size, like `cqb`:
+
+```html
+<!-- [!code filename:HTML] -->
+<!-- [!code word:@container-size] -->
+<!-- [!code word:h-\[50cqb\]] -->
+<div class="@container-size">
+  <div class="h-[50cqb]">
+    <!-- ... -->
+  </div>
+</div>
+```
+
+You can also name size containers using `@container-size/{name}`.
+
+### Using custom container sizes
+
+Use the `--container-*` theme variables to customize your container sizes:
 
 ```css
 /* [!code filename:app.css] */
@@ -454,7 +475,7 @@ Usa las variables de tema `--container-*` para personalizar los tamaños de tu c
 }
 ```
 
-Esto agrega una nueva variante de container query `8xl` que se puede usar en tu marcado:
+This adds a new `8xl` container query variant that can be used in your markup:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -467,13 +488,13 @@ Esto agrega una nueva variante de container query `8xl` que se puede usar en tu 
 </div>
 ```
 
-Obtén más información sobre cómo personalizar tu tema en la [documentación del tema](/docs/theme).
+Learn more about customizing your theme in the [theme documentation](/docs/theme).
 
 <h3 id="using-arbitrary-container-query-values">
-  <a href="#using-arbitrary-container-query-values">Usar valores arbitrarios</a>
+  <a href="#using-arbitrary-container-query-values">Using arbitrary values</a>
 </h3>
 
-Usa variantes como `@min-[475px]` y `@max-[960px]` para tamaños de container query únicos que no deseas agregar a tu tema:
+Use variants like `@min-[475px]` and `@max-[960px]` for one-off container query sizes you don't want to add to your theme:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -485,13 +506,13 @@ Usa variantes como `@min-[475px]` y `@max-[960px]` para tamaños de container qu
 </div>
 ```
 
-### Usar unidades de container query
+### Using container query units
 
-Usa [unidades de longitud de container query](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units) como `cqw` como valores arbitrarios en otras clases de utilidad para hacer referencia al tamaño del contenedor:
+Use [container query length units](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries#container_query_length_units) like `cqw` and `cqi` as arbitrary values in other utility classes to reference the container size:
 
 ```html
 <!-- [!code filename:HTML] -->
-<!-- [!code word:w-\[50cqw\] -->
+<!-- [!code word:w-\[50cqw\]] -->
 <div class="@container">
   <div class="w-[50cqw]">
     <!-- ... -->
@@ -499,16 +520,19 @@ Usa [unidades de longitud de container query](https://developer.mozilla.org/en-U
 </div>
 ```
 
-### Referencia de tamaño de contenedor
+For units that need more than the inline size, like `cqb` and `cqh`, use `@container-size` to make the full size of the container available.
 
-Por defecto, Tailwind incluye tamaños de contenedor que van desde 16rem _(256px)_ hasta 80rem _(1280px)_:
+### Container size reference
+
+By default, Tailwind includes container sizes ranging from 16rem _(256px)_ to 80rem _(1280px)_:
 
 {
+
 <table>
   <thead>
     <tr>
-      <th>Variante</th>
-      <th>Ancho mínimo</th>
+      <th>Variant</th>
+      <th>Minimum width</th>
       <th>CSS</th>
     </tr>
   </thead>

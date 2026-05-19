@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "scroll-snap-align";
-export const description = "Utilidades para controlar la alineación del snap del scroll de un elemento.";
+export const description = "Utilities for controlling the scroll snap alignment of an element.";
 
 <ApiTable
   rows={[
@@ -15,20 +15,20 @@ export const description = "Utilidades para controlar la alineación del snap de
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ajustar al centro
+### Snapping to the center
 
-Usa la utilidad `snap-center` para ajustar un elemento a su centro cuando se desplaza dentro de un contenedor snap:
+Use the `snap-center` utility to snap an element to its center when being scrolled inside a snap container:
 
-<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
+<Figure hint="Scroll in the grid of images to see the expected behavior">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mb-6 ml-[50%] flex items-end justify-start pt-10">
         <div className="dark:highlight-white/10 ml-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          punto de snap
+          snap point
         </div>
         <div className="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
       </div>
@@ -106,18 +106,18 @@ Usa la utilidad `snap-center` para ajustar un elemento a su centro cuando se des
 
 </Figure>
 
-### Ajustar al inicio
+### Snapping to the start
 
-Usa la utilidad `snap-start` para ajustar un elemento a su inicio cuando se desplaza dentro de un contenedor snap:
+Use the `snap-start` utility to snap an element to its start when being scrolled inside a snap container:
 
-<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
+<Figure hint="Scroll in the grid of images to see the expected behavior">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mb-6 ml-6 flex items-end justify-start pt-10">
         <div className="dark:highlight-white/10 ml-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          punto de snap
+          snap point
         </div>
         <div className="absolute top-0 bottom-0 left-6 border-l border-indigo-500"></div>
       </div>
@@ -190,18 +190,18 @@ Usa la utilidad `snap-start` para ajustar un elemento a su inicio cuando se desp
 
 </Figure>
 
-### Ajustar al final
+### Snapping to the end
 
-Usa la utilidad `snap-end` para ajustar un elemento a su final cuando se desplaza dentro de un contenedor snap:
+Use the `snap-end` utility to snap an element to its end when being scrolled inside a snap container:
 
-<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
+<Figure hint="Scroll in the grid of images to see the expected behavior">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mr-6 mb-6 flex items-end justify-end pt-10">
         <div className="dark:highlight-white/10 mr-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          punto de snap
+          snap point
         </div>
         <div className="absolute top-0 right-6 bottom-0 border-l border-indigo-500"></div>
       </div>
@@ -276,6 +276,6 @@ Usa la utilidad `snap-end` para ajustar un elemento a su final cuando se desplaz
 
 </Figure>
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="scroll-snap-align" defaultClass="snap-center" featuredClass="snap-start" />

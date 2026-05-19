@@ -16,7 +16,6 @@ function highlight(input: string) {
           );
         } else if (part?.startsWith("/*") && part.endsWith("*/")) {
           // Comments
-          // Comentarios
           return (
             <span key={i} className="text-gray-400 italic">
               {part}
@@ -74,8 +73,8 @@ export function ApiTable({ rows }: { rows: [string, string][] }) {
         <table className="grid w-full grid-cols-[auto_auto] border-b border-gray-900/10 dark:border-white/10">
           <thead className="col-span-2 grid grid-cols-subgrid">
             <tr className="col-span-2 grid grid-cols-subgrid">
-              <th className="px-2 py-2.5 text-left text-sm/7 font-semibold text-gray-950 dark:text-white">Clase</th>
-              <th className="px-2 py-2.5 text-left text-sm/7 font-semibold text-gray-950 dark:text-white">Estilos</th>
+              <th className="px-2 py-2.5 text-left text-sm/7 font-semibold text-gray-950 dark:text-white">Class</th>
+              <th className="px-2 py-2.5 text-left text-sm/7 font-semibold text-gray-950 dark:text-white">Styles</th>
             </tr>
           </thead>
           <tbody className="col-span-2 grid grid-cols-subgrid border-t border-gray-900/10 dark:border-white/10">
@@ -103,7 +102,7 @@ export function ApiTable({ rows }: { rows: [string, string][] }) {
             className="rounded-full border border-gray-950 bg-gray-950 px-3 py-1 font-mono text-xs/7 font-medium tracking-widest text-white uppercase dark:border-gray-700 dark:bg-gray-700"
             onClick={() => setIsExpanded(!isExpanded)}
           >
-            {isExpanded ? "Mostrar menos" : "Mostrar más"}
+            {isExpanded ? "Show less" : "Show more"}
           </button>
         </div>
       )}
@@ -123,7 +122,7 @@ function ApiTableRow({
   return (
     <tr
       className={clsx(
-        "col-span-2 grid grid-cols-subgrid not-last:border-b not-last:border-gray-900/5 dark:not-last:border-white/5",
+        "col-span-2 grid grid-cols-subgrid not-last:border-b not-last:border-gray-950/5 dark:not-last:border-white/5",
         className,
       )}
     >

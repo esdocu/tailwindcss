@@ -1,0 +1,66 @@
+import { steveschoger } from "@/app/blog/authors";
+import card from "./card.jpg";
+import heroPatternsPreview from "./heropatterns-preview.jpg";
+import banner from "./banner.png";
+import iconStyles from "./icon-styles.png";
+import { Figure } from "@/components/figure.tsx";
+import { Image } from "@/components/media";
+import Link from "next/link";
+
+export const meta = {
+  title: "Presentando Heroicons.com",
+  description: `Hoy lanzamos la experiencia web oficial de Heroicons, que hace más fácil que nunca buscar íconos y copiarlos rápidamente a tu portapapeles como HTML o JSX listos para Tailwind.`,
+  date: "2020-08-25T13:00:00.000Z",
+  authors: [steveschoger],
+  image: card,
+  excerpt: (
+    <>
+      Hace unos meses lanzamos discretamente <Link href="https://www.heroicons.com/">Heroicons</Link>, un conjunto de íconos SVG gratuitos que diseñamos inicialmente para soportar los componentes en Tailwind UI. Hoy lanzamos la <Link href="https://www.heroicons.com/">experiencia web oficial de Heroicons</Link>, que hace más fácil que nunca buscar íconos y copiarlos rápidamente a tu portapapeles como HTML o JSX listos para Tailwind.
+    </>
+  ),
+};
+
+<Link href="https://heroicons.com">
+  <Image alt="heroicons.com" src={banner} />
+</Link>
+
+Hace unos meses lanzamos discretamente <Link href="https://www.heroicons.com/">Heroicons</Link>, un conjunto de íconos SVG gratuitos que diseñamos inicialmente para soportar los componentes en Tailwind UI. Hoy lanzamos la <Link href="https://www.heroicons.com/">experiencia web oficial de Heroicons</Link>, que hace más fácil que nunca buscar íconos y copiarlos rápidamente a tu portapapeles como HTML o JSX listos para Tailwind.
+
+Actualmente hay más de 220 íconos disponibles en tamaños mediano y pequeño, con cada tamaño diseñado para servir a un caso de uso diferente:
+
+- Los íconos medianos están diseñados para ser renderizados a 24x24, y funcionan bien para cosas como la navegación principal y las secciones de marketing.
+- Los íconos pequeños están diseñados para ser renderizados a 20x20, y funcionan bien para botones, elementos de formulario y para complementar texto.
+
+Todos los íconos están listos para Tailwind y son fáciles de estilizar con las utilidades de tamaño y color integradas de Tailwind.
+
+```html
+<svg
+  class="h-6 w-6 text-indigo-500"
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke="currentColor"
+>
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+</svg>
+```
+
+Para obtener los mejores resultados, usa <code>h-6 w-6</code> para los íconos medianos y <code>h-5 w-5</code> para los íconos pequeños.
+
+## Solo el comienzo
+
+Tenemos muchas ideas tanto para nuevos íconos como para nuevos estilos de íconos _(¿alguien dijo duotono?)_ que estamos emocionados de diseñar y lanzar en los próximos meses.
+
+<Image alt="Ejemplo de estilos de íconos" src={iconStyles} />
+
+Diseñar este sitio también me dio ganas de renovar el sitio de Hero Patterns, así que probablemente verás algo como esto aparecer en <Link href="http://www.heropatterns.com/">heropatterns.com</Link> muy pronto:
+
+<Image alt="Vista previa de Hero Patterns" src={heroPatternsPreview} />
+
+Tenemos un montón de <Link href="https://twitter.com/steveschoger/status/1266042614710767616?s=20">otros dominios “Hero”</Link> esperando ser utilizados también, y estoy emocionado de revelar en qué estamos trabajando para ellos pronto.
+
+## ¿Tienes alguna sugerencia?
+
+Si tienes alguna idea para nuevos íconos, ¡nos encantaría escucharlas! Dirígete al [repositorio de GitHub de Heroicons](https://github.com/tailwindlabs/heroicons) y abre un issue para hacer una sugerencia.
+
+¿Quieres hablar sobre esta publicación? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2238">Discútelo en GitHub →</a>

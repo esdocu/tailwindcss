@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "position";
-export const description = "Utilidades para controlar cómo se posiciona un elemento en el documento.";
+export const description = "Utilities for controlling how an element is positioned in the document.";
 
 <ApiTable
   rows={[
@@ -16,11 +16,11 @@ export const description = "Utilidades para controlar cómo se posiciona un elem
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Posicionar elementos estáticamente
+### Statically positioning elements
 
-Usa la utilidad `static` para posicionar un elemento según el flujo normal del documento:
+Use the `static` utility to position an element according to the normal flow of the document:
 
 <Figure>
 
@@ -29,9 +29,9 @@ Usa la utilidad `static` para posicionar un elemento según el flujo normal del 
     <div className="relative text-sm leading-6 font-medium">
       <div className="rounded-lg border border-purple-700/10 bg-purple-400/20 p-4 dark:border-0 dark:bg-sky-900/70">
         <div className="static h-32 border border-purple-700/10 bg-purple-400/20 p-4 dark:border-0 dark:bg-sky-400/20">
-          <p className="text-purple-700 dark:text-sky-200">Padre estático</p>
+          <p className="text-purple-700 dark:text-sky-200">Static parent</p>
           <div className="absolute bottom-0 left-0 rounded-lg bg-purple-500 p-4 text-white shadow-lg dark:bg-sky-500">
-            <p>Hijo absoluto</p>
+            <p>Absolute child</p>
           </div>
         </div>
       </div>
@@ -42,20 +42,20 @@ Usa la utilidad `static` para posicionar un elemento según el flujo normal del 
 ```html
 <!-- [!code classes:static] -->
 <div class="static ...">
-  <p>Padre estático</p>
+  <p>Static parent</p>
   <div class="absolute bottom-0 left-0 ...">
-    <p>Hijo absoluto</p>
+    <p>Absolute child</p>
   </div>
 </div>
 ```
 
 </Figure>
 
-Con elementos posicionados estáticamente, cualquier [offset](/docs/top-right-bottom-left) será ignorado y el elemento no actuará como referencia de posición para los hijos posicionados absolutamente.
+With statically positioned elements, any [offsets](/docs/top-right-bottom-left) will be ignored and the element will not act as a position reference for absolutely positioned children.
 
-### Posicionar elementos relativamente
+### Relatively positioning elements
 
-Usa la utilidad `relative` para posicionar un elemento según el flujo normal del documento:
+Use the `relative` utility to position an element according to the normal flow of the document:
 
 <Figure>
 
@@ -64,9 +64,9 @@ Usa la utilidad `relative` para posicionar un elemento según el flujo normal de
     <div className="relative text-sm leading-6 font-medium">
       <div className="rounded-lg border border-sky-700/10 bg-sky-400/20 p-4 dark:border-0 dark:bg-blue-900/70">
         <div className="relative h-32 border border-sky-700/10 bg-sky-400/20 p-4 dark:border-0 dark:bg-blue-400/20">
-          <p className="text-sky-700 dark:text-white">Padre relativo</p>
+          <p className="text-sky-700 dark:text-white">Relative parent</p>
           <div className="absolute bottom-0 left-0 rounded-lg bg-sky-500 p-4 text-white shadow-lg dark:bg-blue-500">
-            <p>Hijo absoluto</p>
+            <p>Absolute child</p>
           </div>
         </div>
       </div>
@@ -77,20 +77,20 @@ Usa la utilidad `relative` para posicionar un elemento según el flujo normal de
 ```html
 <!-- [!code classes:relative] -->
 <div class="relative ...">
-  <p>Padre relativo</p>
+  <p>Relative parent</p>
   <div class="absolute bottom-0 left-0 ...">
-    <p>Hijo absoluto</p>
+    <p>Absolute child</p>
   </div>
 </div>
 ```
 
 </Figure>
 
-Con elementos posicionados relativamente, cualquier [offset](/docs/top-right-bottom-left) se calcula en relación con la posición normal del elemento y el elemento actuará como referencia de posición para los hijos posicionados absolutamente.
+With relatively position elements, any [offsets](/docs/top-right-bottom-left) are calculated relative to the element's normal position and the element will act as a position reference for absolutely positioned children.
 
-### Posicionar elementos absolutamente
+### Absolutely positioning elements
 
-Usa la utilidad `absolute` para posicionar un elemento _fuera_ del flujo normal del documento, haciendo que los elementos vecinos actúen como si el elemento no existiera:
+Use the `absolute` utility to position an element _outside_ of the normal flow of the document, causing neighboring elements to act as if the element doesn't exist:
 
 <Figure>
 
@@ -98,18 +98,18 @@ Usa la utilidad `absolute` para posicionar un elemento _fuera_ del flujo normal 
   {
     <div className="space-y-8">
       <div>
-        <p className="mb-4 text-sm font-medium text-gray-500">Con posicionamiento estático</p>
+        <p className="mb-4 text-sm font-medium text-gray-500">With static positioning</p>
         <div className="relative text-sm leading-6 font-medium">
           <div className="relative rounded-lg border border-indigo-700/10 bg-indigo-400/20 p-4 dark:border-0 dark:bg-indigo-900/80">
-            <p className="-mt-2 mb-2 text-indigo-700 dark:text-indigo-200">Padre relativo</p>
+            <p className="-mt-2 mb-2 text-indigo-700 dark:text-indigo-200">Relative parent</p>
             <div className="static flex h-32 flex-col justify-between border border-indigo-700/10 bg-indigo-400/20 p-4 dark:border-0">
-              <p className="text-indigo-700 dark:text-indigo-200">Padre estático</p>
+              <p className="text-indigo-700 dark:text-indigo-200">Static parent</p>
               <div className="flex gap-4">
                 <div className="bottom-0 left-0 rounded-lg bg-indigo-500 p-4 text-white shadow-lg">
-                  <p>Hijo estático</p>
+                  <p>Static child?</p>
                 </div>
                 <div className="rounded-lg bg-indigo-100 p-4 text-indigo-600 shadow-lg">
-                  <p>Hermano estático</p>
+                  <p>Static sibling</p>
                 </div>
               </div>
             </div>
@@ -117,18 +117,18 @@ Usa la utilidad `absolute` para posicionar un elemento _fuera_ del flujo normal 
         </div>
       </div>
       <div>
-        <p className="mb-4 text-sm font-medium text-gray-500">Con posicionamiento absoluto</p>
+        <p className="mb-4 text-sm font-medium text-gray-500">With absolute positioning</p>
         <div className="relative text-sm leading-6 font-medium">
           <div className="relative rounded-lg border border-indigo-700/10 bg-indigo-400/20 p-4 dark:border-0 dark:bg-indigo-900/80">
-            <p className="-mt-2 mb-2 text-indigo-700 dark:text-indigo-200">Padre relativo</p>
+            <p className="-mt-2 mb-2 text-indigo-700 dark:text-indigo-200">Relative parent</p>
             <div className="static flex h-32 flex-col justify-between border border-indigo-700/10 bg-indigo-400/20 p-4 dark:border-0">
-              <p className="text-indigo-700 dark:text-indigo-200">Padre estático</p>
+              <p className="text-indigo-700 dark:text-indigo-200">Static parent</p>
               <div className="flex gap-4">
                 <div className="absolute top-0 right-0 rounded-lg bg-indigo-500 p-4 text-white shadow-lg">
-                  <p>Hijo absoluto</p>
+                  <p>Absolute child</p>
                 </div>
                 <div className="rounded-lg bg-indigo-100 p-4 text-indigo-600 shadow-lg">
-                  <p>Hermano estático</p>
+                  <p>Static sibling</p>
                 </div>
               </div>
             </div>
@@ -142,31 +142,31 @@ Usa la utilidad `absolute` para posicionar un elemento _fuera_ del flujo normal 
 ```html
 <!-- [!code classes:absolute] -->
 <div class="static ...">
-  <!-- Padre estático -->
-  <div class="static ..."><p>Hijo estático</p></div>
-  <div class="inline-block ..."><p>Hermano estático</p></div>
-  <!-- Padre estático -->
-  <div class="absolute ..."><p>Hijo absoluto</p></div>
-  <div class="inline-block ..."><p>Hermano estático</p></div>
+  <!-- Static parent -->
+  <div class="static ..."><p>Static child</p></div>
+  <div class="inline-block ..."><p>Static sibling</p></div>
+  <!-- Static parent -->
+  <div class="absolute ..."><p>Absolute child</p></div>
+  <div class="inline-block ..."><p>Static sibling</p></div>
 </div>
 ```
 
 </Figure>
 
-Con elementos posicionados absolutamente, cualquier [offset](/docs/top-right-bottom-left) se calcula en relación con el padre más cercano que tenga una posición distinta de `static`, y el elemento actuará como referencia de posición para otros hijos posicionados absolutamente.
+With absolutely positioned elements, any [offsets](/docs/top-right-bottom-left) are calculated relative to the nearest parent that has a position other than `static`, and the element will act as a position reference for other absolutely positioned children.
 
-### Posicionar elementos fijos
+### Fixed positioning elements
 
-Usa la utilidad `fixed` para posicionar un elemento en relación con la ventana del navegador:
+Use the `fixed` utility to position an element relative to the browser window:
 
-<Figure hint="Desplaza este elemento para ver el posicionamiento fijo en acción">
+<Figure hint="Scroll this element to see the fixed positioning in action">
 
 <Example padding={false}>
   {
     <div className="px-3">
       <div className="relative mx-auto h-80 max-w-md overflow-hidden bg-white shadow-lg ring-1 ring-gray-900/5 dark:bg-gray-800">
         <div className="absolute top-0 right-0 left-0 flex items-center bg-gray-50/90 px-4 py-3 text-sm font-semibold text-gray-900 ring-1 ring-gray-900/10 backdrop-blur-sm dark:bg-gray-700/90 dark:text-gray-200 dark:ring-black/10">
-          Contactos
+          Contacts
         </div>
         <div className="flex h-80 flex-col divide-y divide-gray-200 overflow-auto dark:divide-gray-200/5">
           <div className="flex items-center gap-4 p-4">
@@ -220,7 +220,7 @@ Usa la utilidad `fixed` para posicionar un elemento en relación con la ventana 
 ```html
 <!-- [!code classes:fixed] -->
 <div class="relative">
-  <div class="fixed top-0 right-0 left-0">Contactos</div>
+  <div class="fixed top-0 right-0 left-0">Contacts</div>
   <div>
     <div>
       <img src="/img/andrew.jpg" />
@@ -237,13 +237,13 @@ Usa la utilidad `fixed` para posicionar un elemento en relación con la ventana 
 
 </Figure>
 
-Con elementos posicionados fijos, cualquier [offset](/docs/top-right-bottom-left) se calcula en relación con el viewport y el elemento actuará como referencia de posición para los hijos posicionados absolutamente:
+With fixed positioned elements, any [offsets](/docs/top-right-bottom-left) are calculated relative to the viewport and the element will act as a position reference for absolutely positioned children:
 
-### Posicionar elementos sticky
+### Sticky positioning elements
 
-Usa la utilidad `sticky` para posicionar un elemento como `relative` hasta que cruce un umbral especificado, luego trátalo como `fixed` hasta que su padre esté fuera de la pantalla:
+Use the `sticky` utility to position an element as `relative` until it crosses a specified threshold, then treat it as `fixed` until its parent is off screen:
 
-<Figure hint="Desplaza este elemento para ver el posicionamiento sticky en acción">
+<Figure hint="Scroll this element to see the sticky positioning in action">
 
 <Example padding={false}>
   {
@@ -392,8 +392,8 @@ Usa la utilidad `sticky` para posicionar un elemento como `relative` hasta que c
 
 </Figure>
 
-Con elementos posicionados sticky, cualquier [offset](/docs/top-right-bottom-left) se calcula en relación con la posición normal del elemento y el elemento actuará como referencia de posición para los hijos posicionados absolutamente.
+With sticky positioned elements, any [offsets](/docs/top-right-bottom-left) are calculated relative to the element's normal position and the element will act as a position reference for absolutely positioned children.
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="position" defaultClass="relative" featuredClass="absolute" />

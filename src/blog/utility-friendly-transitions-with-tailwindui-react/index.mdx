@@ -6,26 +6,26 @@ import { robinmalfait } from "@/app/blog/authors";
 import image from "./card.jpg";
 
 export const meta = {
-  title: "Transiciones Amigables con Utilitarios con @tailwindui/react",
-  description: `Anunciamos la primera versión de @tailwindui/react, que introduce un componente <Transition> para transiciones de entrada/salida basadas en utilitarios.`,
+  title: "Utility-Friendly Transitions with @tailwindui/react",
+  description: `Announcing the first release of @tailwindui/react, which introduces a <Transition> component for utility-first enter/leave transitions.`,
   date: "2020-08-27T18:30:00.000Z",
   authors: [robinmalfait],
   image,
   excerpt: (
     <>
-      En febrero lanzamos <Link href="https://tailwindui.com">Tailwind UI</Link>, un directorio de ejemplos de componentes
-      HTML diseñados para que copies y pegues en tus proyectos de Tailwind como punto de partida para tus propios diseños.
+      Back in February we released <Link href="https://tailwindui.com">Tailwind UI</Link>, a directory of HTML component
+      examples designed for you to copy and paste into your Tailwind projects as a starting point for your own designs.
     </>
   ),
 };
 
-En febrero lanzamos [Tailwind UI](https://tailwindui.com), un directorio de ejemplos de componentes HTML diseñados para que copies y pegues en tus proyectos de Tailwind como punto de partida para tus propios diseños.
+Back in February we released [Tailwind UI](https://tailwindui.com), a directory of HTML component examples designed for you to copy and paste into your Tailwind projects as a starting point for your own designs.
 
-Construimos Tailwind UI como un producto solo de HTML, donde tú pones tu propio JS, para hacerlo lo más universal posible, pero muchos diseños son inherentemente interactivos y portar esos comportamientos interactivos entre frameworks de JavaScript desafortunadamente no siempre es muy fácil.
+We built Tailwind UI as an HTML-only, bring-your-own-JS product to make it as universal as possible, but many designs are inherently interactive and porting those interactive behaviors between JavaScript frameworks is unfortunately not always very easy.
 
-Un ejemplo de esto son las transiciones de entrada/salida, como cuando activas un menú desplegable y lo ves aparecer y desaparecer gradualmente.
+One example of this is enter/leave transitions, like when you toggle a dropdown menu and see it fade in and out.
 
-Vue.js tiene un componente `<transition>` muy bueno para transiciones de entrada/salida con una API muy amigable con los utilitarios:
+Vue.js has a really neat `<transition>` component for enter/leave transitions with a very utility-friendly API:
 
 ```html
 <transition
@@ -37,18 +37,18 @@ Vue.js tiene un componente `<transition>` muy bueno para transiciones de entrada
   leave-to-class="opacity-0"
 >
   <div v-show="isShowing">
-    <!-- Aparecerá y desaparecerá gradualmente -->
+    <!-- Will fade in and out -->
   </div>
 </transition>
 ```
 
-Pero replicar esto en React resulta ser mucho más difícil, porque hasta ahora no ha habido una librería diseñada para soportar el estilo de transiciones basado en utilitarios.
+But replicating this in React turns out to be much more difficult, because until now there hasn't been a library designed to support utility-driven transition styling.
 
-**Así que a principios de esta semana, lanzamos la primera versión de [@tailwindui/react](https://github.com/tailwindlabs/tailwindui-react), una librería que proporciona primitivas de bajo nivel para convertir HTML basado en utilitarios en interfaces de usuario totalmente interactivas.**
+**So earlier this week, we released the very first version of [@tailwindui/react](https://github.com/tailwindlabs/tailwindui-react), a library that provides low-level primitives for turning utility-first HTML into fully interactive UIs.**
 
-Estaremos añadiendo muchos más componentes en los próximos meses _(como menús desplegables, interruptores, modales y más, ¡y también para Vue!)_ pero pensamos en empezar con un componente `<Transition>` para al menos poner la experiencia actual de Tailwind UI para usuarios de React a la par con lo que es posible en Vue y Alpine.js.
+We'll be adding many more components in the coming months _(like dropdowns, toggles, modals, and more, and for Vue too!)_ but thought we'd start with a `<Transition>` component to at least get the current Tailwind UI experience for React users up to par with what's possible in Vue and Alpine.js.
 
-Así es como se ve al usarlo:
+Here's what it looks like to use:
 
 ```jsx
 import { Transition } from "@tailwindui/react";
@@ -69,23 +69,23 @@ function MyComponent() {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        {/* Aparecerá y desaparecerá gradualmente */}
+        {/* Will fade in and out */}
       </Transition>
     </div>
   );
 }
 ```
 
-[Lee la documentación](https://github.com/tailwindlabs/tailwindui-react) para aprender más sobre funcionalidades avanzadas, como:
+[Read the documentation](https://github.com/tailwindlabs/tailwindui-react) to learn more about advanced functionality, like:
 
-- Renderizar sin un elemento DOM extra
-- Coordinar transiciones relacionadas
-- Transicionar en el montaje inicial.
+- Rendering without an extra DOM element
+- Co-ordinating related transitions
+- Transitioning on initial mount.
 
-Míralo en acción en esta demostración de CodeSandbox:
+Check it out in action in this CodeSandbox demo:
 
 <Iframe src="https://codesandbox.io/embed/dreamy-villani-1lz49?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.js&view=preview" />
 
-Pruébalo en tus proyectos, y si encuentras algún problema, [reporta un issue en GitHub](https://github.com/tailwindlabs/tailwindui-react).
+Try it out on your projects, and if you run into any problems, [report an issue on GitHub](https://github.com/tailwindlabs/tailwindui-react).
 
-¿Quieres hablar sobre esta publicación? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2262">Discútelo en GitHub →</a>
+Want to talk about this post? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2262">Discuss this on GitHub →</a>

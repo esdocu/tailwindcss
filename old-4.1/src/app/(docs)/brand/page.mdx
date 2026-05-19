@@ -1,0 +1,79 @@
+import Image from "next/image";
+import tailwindcssLogoMark from "./img/tailwindcss-mark.svg";
+import tailwindcssLogoType from "./img/tailwindcss-logotype.svg";
+import tailwindcssLogoTypeWhite from "./img/tailwindcss-logotype-white.svg";
+
+export const title = "Marca";
+export const description = "Activos de marca y directrices de uso de Tailwind CSS.";
+
+## Acuerdo de uso de marca registrada
+
+El nombre y los logotipos de Tailwind son marcas registradas de Tailwind Labs Inc.
+
+No puedes usar el nombre o los logotipos de Tailwind de ninguna manera que pueda implicar erróneamente una conexión oficial o un respaldo de Tailwind Labs Inc. Cualquier uso del nombre o logotipos de Tailwind que pueda causar confusión a los clientes no está permitido.
+
+Esto incluye nombrar un producto o servicio de una manera que enfatice la marca Tailwind, como "Tailwind Themes" o "Tailwind Studio", así como en nombres de dominio como "tailwindkits.com".
+
+En cambio, debes usar tu propia marca de una manera que la distinga claramente de Tailwind CSS. Ejemplos que están permitidos incluyen "ComponentStudio para Tailwind CSS" o "UtilityThemes: Plantillas para Tailwind CSS".
+
+Además, no puedes usar nuestras marcas registradas para camisetas, pegatinas u otra mercancía sin consentimiento escrito explícito.
+
+## Activos
+
+Estos activos se proporcionan para su uso en situaciones como artículos y tutoriales en video. No deben usarse de ninguna manera que pueda ser confusa para los clientes o implicar alguna afiliación con Tailwind Labs Inc.
+
+### Mark
+
+<div className="pt-5 pb-8">
+  <a href={tailwindcssLogoMark.src} download>
+    <span className="sr-only">Download mark</span>
+    <div className="max-w-xl">
+      <div className="relative" style={{ paddingTop: `${(33 / 262) * 100}%` }}>
+        <Image
+          className="absolute inset-0 h-full w-full object-contain object-left"
+          src={tailwindcssLogoMark}
+          alt=""
+          width={54}
+          height={33}
+          style={{ margin: 0 }}
+        />
+      </div>
+    </div>
+  </a>
+</div>
+
+<a href={tailwindcssLogoMark.src} download>
+  Descargar marca
+</a>
+
+### Logotype
+
+<div className="pt-5 pb-8">
+  <a href={tailwindcssLogoType.src} download>
+    <span className="sr-only">Download logotype</span>
+    <div className="max-w-xl">
+      <div className="relative" style={{ paddingTop: `${(33 / 262) * 100}%` }}>
+        <Image
+          className="absolute inset-0 block h-full w-full dark:hidden"
+          src={tailwindcssLogoType}
+          alt=""
+          width={262}
+          height={33}
+          style={{ margin: 0 }}
+        />
+        <Image
+          className="absolute inset-0 hidden h-full w-full dark:block"
+          src={tailwindcssLogoTypeWhite}
+          alt=""
+          width={262}
+          height={33}
+          style={{ margin: 0 }}
+        />
+      </div>
+    </div>
+  </a>
+</div>
+
+<a href="/brand/tailwindcss-logotype.zip" download>
+  Descargar logotipo
+</a>

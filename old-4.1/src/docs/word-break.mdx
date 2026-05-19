@@ -1,0 +1,90 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "word-break";
+export const description = "Utilidades para controlar los saltos de palabra en un elemento.";
+
+<ApiTable
+  rows={[
+    ["break-normal", "word-break: normal;"],
+    ["break-all", "word-break: break-all;"],
+    ["break-keep", "word-break: keep-all;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Normal
+
+Usa la utilidad `break-normal` para agregar saltos de línea solo en los puntos normales de salto de palabra:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-normal text-gray-900 dark:text-gray-200">
+      La palabra más larga en cualquiera de los principales diccionarios del idioma inglés es{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> una palabra que se refiere a una enfermedad pulmonar contraída por la inhalación de partículas de sílice muy finas, específicamente de un volcán; médicamente, es lo mismo que la silicosis.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:break-normal] -->
+<p class="break-normal">La palabra más larga en cualquiera de los principales...</p>
+```
+
+</Figure>
+
+### Romper todo (Break All)
+
+Usa la utilidad `break-all` para agregar saltos de línea siempre que sea necesario, sin intentar preservar palabras completas:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-all text-gray-900 dark:text-gray-200">
+      La palabra más larga en cualquiera de los principales diccionarios del idioma inglés es{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> una palabra que se refiere a una enfermedad pulmonar contraída por la inhalación de partículas de sílice muy finas, específicamente de un volcán; médicamente, es lo mismo que la silicosis.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:break-all] -->
+<p class="break-all">La palabra más larga en cualquiera de los principales...</p>
+```
+
+</Figure>
+
+### Mantener juntas (Break Keep)
+
+Usa la utilidad `break-keep` para evitar que se apliquen saltos de línea al texto en chino/japonés/coreano (CJK):
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-keep text-gray-900 dark:text-gray-200">
+      抗衡不屈不挠 (kànghéng bùqū bùnáo) 这是一个长词，意思是不畏强暴，奋勇抗争，坚定不移，永不放弃。
+      <span className="font-bold">这个词通常用来描述那些在面对困难和挑战时坚持自己信念的人，</span>{" "}
+      他们克服一切困难，不屈不挠地追求自己的目标。无论遇到多大的挑战，他们都能够坚持到底，不放弃，最终获得胜利。
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:break-keep] -->
+<p class="break-keep">抗衡不屈不挠...</p>
+```
+
+</Figure>
+
+Para texto no CJK, la utilidad `break-keep` tiene el mismo comportamiento que la utilidad `break-normal`.
+
+### Responsive design
+
+<ResponsiveDesign element="p" property="word-break" defaultClass="break-normal" featuredClass="break-all" />

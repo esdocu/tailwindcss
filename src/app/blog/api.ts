@@ -23,7 +23,6 @@ export async function getBlogPostBySlug(slug: string): Promise<{
 } | null> {
   try {
     // Check if the file exists
-    // Verificar si el archivo existe
     if (!(await fs.stat(path.join(__dirname, `../../blog/${slug}/index.mdx`)).catch(() => null))) {
       return null;
     }

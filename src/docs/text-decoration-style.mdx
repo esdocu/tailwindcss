@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "text-decoration-style";
-export const description = "Utilidades para controlar el estilo de las decoraciones de texto.";
+export const description = "Utilities for controlling the style of text decorations.";
 
 <ApiTable
   rows={[
@@ -16,11 +16,11 @@ export const description = "Utilidades para controlar el estilo de las decoracio
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades como `decoration-dotted` y `decoration-dashed` para cambiar el estilo de [decoración de texto](/docs/text-decoration-line) de un elemento:
+Use utilities like `decoration-dotted` and `decoration-dashed` to change the [text decoration](/docs/text-decoration-line) style of an element:
 
 <Figure>
 
@@ -29,26 +29,26 @@ Usa utilidades como `decoration-dotted` y `decoration-dashed` para cambiar el es
     <div className="flex flex-col gap-8 text-gray-900 dark:text-gray-200">
       <div>
         <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">decoration-solid</div>
-        <p className="text-lg font-medium underline decoration-solid">El rápido zorro marrón salta sobre el perro perezoso.</p>
+        <p className="text-lg font-medium underline decoration-solid">The quick brown fox jumps over the lazy dog.</p>
       </div>
       <div>
         <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">decoration-double</div>
         <p
           className="text-lg font-medium underline decoration-double"
-          children="El rápido zorro marrón salta sobre el perro perezoso."
+          children="The quick brown fox jumps over the lazy dog."
         />
       </div>
       <div>
         <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">decoration-dotted</div>
-        <p className="text-lg font-medium underline decoration-dotted">El rápido zorro marrón salta sobre el perro perezoso.</p>
+        <p className="text-lg font-medium underline decoration-dotted">The quick brown fox jumps over the lazy dog.</p>
       </div>
       <div>
         <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">decoration-dashed</div>
-        <p className="text-lg font-medium underline decoration-dashed">El rápido zorro marrón salta sobre el perro perezoso.</p>
+        <p className="text-lg font-medium underline decoration-dashed">The quick brown fox jumps over the lazy dog.</p>
       </div>
       <div>
         <div className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">decoration-wavy</div>
-        <p className="text-lg font-medium underline decoration-wavy">El rápido zorro marrón salta sobre el perro perezoso.</p>
+        <p className="text-lg font-medium underline decoration-wavy">The quick brown fox jumps over the lazy dog.</p>
       </div>
     </div>
   }
@@ -56,11 +56,11 @@ Usa utilidades como `decoration-dotted` y `decoration-dashed` para cambiar el es
 
 ```html
 <!-- [!code classes:decoration-solid,decoration-double,decoration-dotted,decoration-dashed,decoration-wavy] -->
-<p class="underline decoration-solid">El rápido zorro marrón...</p>
-<p class="underline decoration-double">El rápido zorro marrón...</p>
-<p class="underline decoration-dotted">El rápido zorro marrón...</p>
-<p class="underline decoration-dashed">El rápido zorro marrón...</p>
-<p class="underline decoration-wavy">El rápido zorro marrón...</p>
+<p class="underline decoration-solid">The quick brown fox...</p>
+<p class="underline decoration-double">The quick brown fox...</p>
+<p class="underline decoration-dotted">The quick brown fox...</p>
+<p class="underline decoration-dashed">The quick brown fox...</p>
+<p class="underline decoration-wavy">The quick brown fox...</p>
 ```
 
 </Figure>

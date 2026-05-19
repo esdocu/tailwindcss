@@ -3,21 +3,22 @@ import Logo from "@/docs/img/guides/ember.react.svg";
 
 export let tile: Tile = {
   title: "Ember.js",
-  description: "Un framework JavaScript para desarrolladores web ambiciosos.",
+  description: "A JavaScript framework for ambitious web developers.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Instalar Tailwind CSS con Ember.js",
-  description: "Configurando Tailwind CSS en un proyecto Ember.js.",
+  title: "Install Tailwind CSS with Ember.js",
+  description: "Setting up Tailwind CSS in an Ember.js project.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Crea tu proyecto",
+    title: "Create your project",
     body: (
       <p>
-        Comienza creando un nuevo proyecto Ember.js si aún no tienes uno configurado. El enfoque más común es usar{" "}
+        Start by creating a new Ember.js project if you don't have one set up already. The most common approach is to
+        use{" "}
         <a href="https://guides.emberjs.com/release/getting-started/quick-start/#toc_create-a-new-application">
           Ember CLI
         </a>
@@ -34,10 +35,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Instala Tailwind CSS",
+    title: "Install Tailwind CSS",
     body: (
       <p>
-        Usando npm, instala <code>@tailwindcss/postcss</code> y sus dependencias peer, así como{" "}
+        Using npm, install <code>@tailwindcss/postcss</code> and its peer dependencies, as well as{" "}
         <code>postcss-loader</code>.
       </p>
     ),
@@ -50,10 +51,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Habilita el soporte para PostCSS",
+    title: "Enable PostCSS support",
     body: (
       <p>
-        En tu archivo <code>ember-cli-build.js</code>, configura PostCSS para procesar tus archivos CSS.
+        In your <code>ember-cli-build.js</code> file, configure PostCSS to process your CSS files.
       </p>
     ),
     code: {
@@ -95,11 +96,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configura los plugins de PostCSS",
+    title: "Configure PostCSS Plugins",
     body: (
       <p>
-        Crea un archivo <code>postcss.config.mjs</code> en la raíz de tu proyecto y añade el plugin{" "}
-        <code>@tailwindcss/postcss</code> a tu configuración de PostCSS.
+        Create a <code>postcss.config.mjs</code> file in the root of your project and add the{" "}
+        <code>@tailwindcss/postcss</code> plugin to your PostCSS configuration.
       </p>
     ),
     code: {
@@ -116,10 +117,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Importa Tailwind CSS",
+    title: "Import Tailwind CSS",
     body: (
       <p>
-        Crea un archivo <code>./app/app.css</code> y añade un <code>@import</code> para Tailwind CSS.
+        Create an <code>./app/app.css</code> file and add an <code>@import</code> for Tailwind CSS.
       </p>
     ),
     code: {
@@ -131,10 +132,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Importa el archivo CSS",
+    title: "Import the CSS file",
     body: (
       <p>
-        Importa el archivo <code>./app/app.css</code> recién creado en tu archivo <code>./app/app.js</code>.
+        Import the newly-created <code>./app/app.css</code> file in your <code>./app/app.js</code> file.
       </p>
     ),
     code: {
@@ -159,10 +160,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Inicia tu proceso de build",
+    title: "Start your build process",
     body: (
       <p>
-        Ejecuta tu proceso de build con <code>npm run start</code>.
+        Run your build process with <code>npm run start</code>.
       </p>
     ),
     code: {
@@ -174,8 +175,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Comienza a usar Tailwind en tu proyecto",
-    body: <p>Comienza a usar las clases de utilidad de Tailwind para estilizar tu contenido.</p>,
+    title: "Start using Tailwind in your project",
+    body: <p>Start using Tailwind's utility classes to style your content.</p>,
     code: {
       name: "application.hbs",
       lang: "hbs",

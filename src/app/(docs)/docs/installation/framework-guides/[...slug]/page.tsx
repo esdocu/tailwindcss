@@ -54,10 +54,10 @@ export default async function Page({ params }: Props) {
 
   let { page, steps, tabs } = guide;
 
-  // TODO: El manejo de pestañas podría ser mejor como algo del lado del cliente usando
-  // CSS o JS para mostrar/ocultar pasos en su lugar
+  // TODO: Tab handling might be better as a client-side thing using
+  // CSS or JS to show/hide steps instead
 
-  // Selecciona la primera pestaña si no se selecciona ninguna
+  // Select the first tab if none is selected
   if (tabs && !selectedTab) {
     return redirect(`/docs/installation/framework-guides/${slug}/${tabs[0].slug}`);
   }
@@ -68,7 +68,7 @@ export default async function Page({ params }: Props) {
     return step.tabs.includes(selectedTab);
   });
 
-  // Se seleccionó una pestaña inexistente
+  // Non-existent tab selected
   if (tabs && tabs.length > 0 && steps.length === 0) return notFound();
 
   return (
@@ -79,7 +79,7 @@ export default async function Page({ params }: Props) {
             className="font-mono text-xs/6 tracking-widest text-gray-600 uppercase dark:text-gray-400"
             data-section="true"
           >
-            Instalación
+            Installation
           </p>
           <h1 className="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white" data-title="true">
             {page.title}

@@ -1,0 +1,88 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { CustomizingYourTheme } from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+import { Stripes } from "@/components/stripes.tsx";
+import { UsingACustomValue } from "@/components/content.tsx";
+import { Image } from "@/components/media";
+import Link from "next/link";
+import { CodeExample, js, ts, CodeExampleGroup, CodeBlock } from "@/components/code-example";
+
+import { adamwathan } from "@/app/blog/authors";
+import image from "./card.jpg";
+
+export const meta = {
+  title: "CLI Standalone: Usa Tailwind CSS sin Node.js",
+  description: `Hoy anunciamos una nueva compilación de CLI standalone que te brinda todo el poder de Tailwind CLI en un ejecutable autónomo — no se requiere Node.js ni npm.`,
+  date: "2021-12-16T16:00:00.000Z",
+  authors: [adamwathan],
+  image,
+  excerpt: (
+    <>
+      Tailwind CSS está escrito en JavaScript y se distribuye como un paquete npm, lo que significa que siempre has tenido que tener Node.js y npm instalados para usarlo.
+
+      Hoy anunciamos una nueva <Link href="https://github.com/tailwindlabs/tailwindcss/releases/latest">compilación de CLI standalone</Link> que te brinda todo el poder de Tailwind CLI en un ejecutable autónomo — no se requiere Node.js ni npm.
+    </>
+
+),
+};
+
+Tailwind CSS está escrito en JavaScript y se distribuye como un paquete npm, lo que significa que siempre has tenido que tener Node.js y npm instalados para usarlo.
+
+Esto ha dificultado la integración en proyectos donde el uso de npm no siempre es común, y con herramientas como <Link href="https://world.hey.com/dhh/rails-7-will-have-three-great-answers-to-javascript-in-2021-8d68191b">Rails</Link> y <Link href="https://github.com/phoenixframework/phoenix/pull/4377">Phoenix</Link> alejándose de npm por defecto, necesitábamos encontrar una manera para que la gente usara Tailwind en estos proyectos sin obligarlos a adoptar un ecosistema de herramientas completamente separado.
+
+Hoy anunciamos una nueva <Link href="https://github.com/tailwindlabs/tailwindcss/releases/latest">compilación de CLI standalone</Link> que te brinda todo el poder de Tailwind CLI en un ejecutable autónomo — no se requiere Node.js ni npm.
+
+---
+
+## Empieza
+
+Para instalarlo, obtén el ejecutable para tu plataforma desde la <Link href="https://github.com/tailwindlabs/tailwindcss/releases/latest">última versión</Link> en GitHub, asegurándote de darle permisos de ejecución:
+
+```sh
+# Ejemplo para macOS arm64
+curl -sLO https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-macos-arm64
+chmod +x tailwindcss-macos-arm64
+mv tailwindcss-macos-arm64 tailwindcss
+```
+
+Ahora puedes usarlo igual que nuestra herramienta CLI distribuida por npm:
+
+```sh
+# Crea un archivo tailwind.config.js
+./tailwindcss init
+
+# Inicia un watcher
+./tailwindcss -i input.css -o output.css --watch
+
+# Compila y minimiza tu CSS para producción
+./tailwindcss -i input.css -o output.css --minify
+```
+
+Incluso hemos incluido las últimas versiones de todos nuestros plugins propios, así que si quieres usarlos en tu proyecto, simplemente haz `require` de ellos en tu archivo `tailwind.config.js` como lo harías en un proyecto basado en Node:
+
+```js
+module.exports = {
+  // ...
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
+};
+```
+
+Obtienes todo el poder de nuestro CLI estándar distribuido por npm en un paquete conveniente y portátil — no se requieren dependencias.
+
+---
+
+## ¿Cómo funciona?
+
+No reescribimos Tailwind en Rust ni nada (<Link href="https://twitter.com/malfaitrobin/status/1446905317825069063">todavía...</Link>) — en realidad estamos usando <Link href="https://github.com/vercel/pkg">pkg</Link>, un proyecto realmente genial de <Link href="https://vercel.com">Vercel</Link> que te permite convertir un proyecto de Node.js en un ejecutable que se puede ejecutar sin instalar Node.js al empaquetar todas las partes que tu proyecto necesita directamente en el propio ejecutable.
+
+Esto es lo que hace posible que todavía puedas usar un archivo `tailwind.config.js` con todo el poder de JavaScript, en lugar de un formato estático como JSON.
+
+---
+
+## ¿Qué CLI debo usar?
+
+Si ya estás usando npm en tu proyecto, usa la versión de nuestro CLI distribuida por npm que siempre hemos proporcionado. Es más simple de actualizar, el tamaño del archivo es menor y ya estás en el ecosistema de todos modos — no hay ningún beneficio en usar la compilación standalone.
+
+Si, por otro lado, estás trabajando en un proyecto donde no necesitas Node.js o npm para otras cosas, la compilación standalone puede ser una excelente opción. Si Tailwind was the only reason you had a `package.json` file, this is probably going to feel like a nicer solution.

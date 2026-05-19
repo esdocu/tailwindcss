@@ -1,0 +1,66 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { CustomizingYourThemeColors } from "@/components/content.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { UsingACustomValue } from "@/components/content.tsx";
+import colors from "./utils/colors";
+
+export const title = "caret-color";
+export const description = "Utilidades para controlar el color del cursor de entrada de texto.";
+
+<ApiTable
+  rows={[
+    ["caret-inherit", "caret-color: inherit;"],
+    ["caret-current", "caret-color: currentColor;"],
+    ["caret-transparent", "caret-color: transparent;"],
+    ...Object.entries(colors).map(([name, value]) => [
+      `caret-${name}`,
+      `caret-color: var(--color-${name}); /* ${value} */`,
+    ]),
+    ["caret-<custom-property>", "caret-color: var(<custom-property>);"],
+    ["caret-[<value>]", "caret-color: <value>;"],
+  ]}
+/>
+## Ejemplos
+
+### Ejemplo básico
+
+Usa utilidades como `caret-rose-500` y `caret-lime-600` para cambiar el color del cursor de entrada de texto:
+
+<Figure hint="Enfoca el textarea para ver el nuevo color del cursor">
+
+<Example>
+  {
+    <div className="flex w-full items-center justify-center">
+      <textarea
+        className="w-80 rounded-md p-2 text-sm caret-pink-500 ring-1 ring-gray-900/10 focus:ring-2 focus:ring-pink-500 focus:outline-none dark:bg-gray-950/25 dark:ring-1 dark:ring-white/5 dark:focus:bg-gray-950/10 dark:focus:ring-2 dark:focus:ring-pink-500"
+        rows="2"
+      />
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code classes:caret-pink-500] -->
+<textarea class="caret-pink-500 ..."></textarea>
+```
+
+</Figure>
+
+### Usando un valor personalizado
+
+<UsingACustomValue element="textarea" utility="caret" value="#50d71e" name="caret color" variable="caret-color" />
+
+### Diseño Responsive
+
+<ResponsiveDesign
+  element="textarea"
+  property="caret-color"
+  defaultClass="caret-rose-500"
+  featuredClass="caret-lime-600"
+/>
+
+## Personalizando tu tema
+
+<CustomizingYourThemeColors element="textarea" utility="caret" />

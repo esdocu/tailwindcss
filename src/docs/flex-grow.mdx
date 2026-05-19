@@ -5,7 +5,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "flex-grow";
-export const description = "Utilidades para controlar cómo crecen los elementos flex.";
+export const description = "Utilities for controlling how flex items grow.";
 
 <ApiTable
   rows={[
@@ -16,11 +16,11 @@ export const description = "Utilidades para controlar cómo crecen los elementos
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Permitir que los elementos crezcan
+### Allowing items to grow
 
-Usa `grow` para permitir que un elemento flex crezca para llenar cualquier espacio disponible:
+Use `grow` to allow a flex item to grow to fill any available space:
 
 <Figure>
 
@@ -52,9 +52,9 @@ Usa `grow` para permitir que un elemento flex crezca para llenar cualquier espac
 
 </Figure>
 
-### Elementos que crecen basados en factor
+### Growing items based on factor
 
-Usa utilidades `grow-<number>` como `grow-3` para hacer que los elementos flex crezcan proporcionalmente según su factor de crecimiento, permitiéndoles llenar el espacio disponible en relación entre sí:
+Use `grow-<number>` utilities like `grow-3` to make flex items grow proportionally based on their growth factor, allowing them to fill the available space relative to each other:
 
 <Figure>
 
@@ -86,9 +86,9 @@ Usa utilidades `grow-<number>` como `grow-3` para hacer que los elementos flex c
 
 </Figure>
 
-### Evitar que los elementos crezcan
+### Preventing items from growing
 
-Usa `grow-0` para evitar que un elemento flex crezca:
+Use `grow-0` to prevent a flex item from growing:
 
 <Figure>
 
@@ -120,7 +120,7 @@ Usa `grow-0` para evitar que un elemento flex crezca:
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="grow" name="flex grow factor" value="25vw" />
 

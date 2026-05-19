@@ -3,38 +3,38 @@ import Logo from "@/docs/img/guides/nuxtjs.react.svg";
 
 export let tile: Tile = {
   title: "Nuxt",
-  description: "Framework Vue intuitivo para construir aplicaciones universales.",
+  description: "Intuitive Vue framework for building universal applications.",
   Logo,
 };
 
 export let page: Page = {
-  title: "Instalar Tailwind CSS con Nuxt",
-  description: "Configurando Tailwind CSS en un proyecto Nuxt.",
+  title: "Install Tailwind CSS with Nuxt",
+  description: "Setting up Tailwind CSS in a Nuxt project.",
 };
 
 export let steps: Step[] = [
   {
-    title: "Crea tu proyecto",
+    title: "Create your project",
     body: (
       <p>
-        Comienza creando un nuevo proyecto Nuxt si aún no tienes uno configurado. El enfoque más común es usar la{" "}
-        <a href="https://nuxt.com/docs/getting-started/installation">Interfaz de línea de comandos de Nuxt</a>.
+        Start by creating a new Nuxt project if you don’t have one set up already. The most common approach is to use{" "}
+        <a href="https://nuxt.com/docs/4.x/getting-started/installation#new-project">Create Nuxt</a>.
       </p>
     ),
     code: {
       name: "Terminal",
       lang: "shell",
       code: shell`
-        npx nuxi init my-project
+        npm create nuxt my-project
         cd my-project
       `,
     },
   },
   {
-    title: "Instala Tailwind CSS",
+    title: "Install Tailwind CSS",
     body: (
       <p>
-        Instala <code>@tailwindcss/vite</code> y sus dependencias peer a través de npm.
+        Install <code>@tailwindcss/vite</code> and its peer dependencies via npm.
       </p>
     ),
     code: {
@@ -46,10 +46,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configura el plugin de Vite",
+    title: "Configure Vite Plugin",
     body: (
       <p>
-        Añade el plugin <code>@tailwindcss/vite</code> a tu configuración de Nuxt como un plugin de Vite.
+        Add the <code>@tailwindcss/vite</code> plugin to your Nuxt configuration as a Vite plugin.
       </p>
     ),
     code: {
@@ -60,7 +60,7 @@ export let steps: Step[] = [
         import tailwindcss from "@tailwindcss/vite";
 
         export default defineNuxtConfig({
-          compatibilityDate: "2024-11-01",
+          compatibilityDate: "2025-07-15",
           devtools: { enabled: true },
           vite: {
             plugins: [
@@ -73,10 +73,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Importa Tailwind CSS",
+    title: "Import Tailwind CSS",
     body: (
       <p>
-        Crea un archivo <code>./assets/css/main.css</code> y añade un <code>@import</code> que importe Tailwind CSS.
+        Create an <code>./app/assets/css/main.css</code> file and add an <code>@import</code> that imports Tailwind CSS.
       </p>
     ),
     code: {
@@ -88,11 +88,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Añade el archivo CSS globalmente",
+    title: "Add the CSS file globally",
     body: (
       <p>
-        Añade tu archivo <code>./assets/css/main.css</code> recién creado al array <code>css</code> en tu archivo{" "}
-        <code>nuxt.config.ts</code>.
+        Add your newly-created <code>./app/assets/css/main.css</code> to the <code>css</code> array in your{" "}
+        <code>nuxt.config.ts</code> file.
       </p>
     ),
     code: {
@@ -102,10 +102,10 @@ export let steps: Step[] = [
         import tailwindcss from "@tailwindcss/vite";
 
         export default defineNuxtConfig({
-          compatibilityDate: "2024-11-01",
+          compatibilityDate: "2025-07-15",
           devtools: { enabled: true },
           // [!code highlight:2]
-          css: ['~/assets/css/main.css'],
+          css: ['./app/assets/css/main.css'],
           vite: {
             plugins: [
               tailwindcss(),
@@ -116,10 +116,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Inicia tu proceso de build",
+    title: "Start your build process",
     body: (
       <p>
-        Ejecuta tu proceso de build con <code>npm run dev</code>.
+        Run your build process with <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -131,8 +131,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Comienza a usar Tailwind en tu proyecto",
-    body: <p>Comienza a usar las clases de utilidad de Tailwind para estilizar tu contenido.</p>,
+    title: "Start using Tailwind in your project",
+    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
     code: {
       name: "app.vue",
       lang: "vue",

@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, TargetingSpecificStates, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "outline-width";
-export const description = "Utilidades para controlar el ancho del contorno de un elemento.";
+export const description = "Utilities for controlling the width of an element's outline.";
 
 <ApiTable
   rows={[
@@ -15,11 +15,11 @@ export const description = "Utilidades para controlar el ancho del contorno de u
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `outline` u `outline-<number>` como `outline-2` y `outline-4` para establecer el ancho del contorno de un elemento:
+Use `outline` or `outline-<number>` utilities like `outline-2` and `outline-4` to set the width of an element's outline:
 
 <Figure>
 
@@ -57,11 +57,11 @@ Usa utilidades `outline` u `outline-<number>` como `outline-2` y `outline-4` par
 
 </Figure>
 
-### Aplicando en focus
+### Applying on focus
 
 <TargetingSpecificStates property="outline-width" variant="focus">
 
-<Figure hint="Enfoca el botón para ver el contorno añadido">
+<Figure hint="Focus the button to see the outline added">
 
 <Example>
   {
@@ -82,10 +82,10 @@ Usa utilidades `outline` u `outline-<number>` como `outline-2` y `outline-4` par
 
 </TargetingSpecificStates>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="outline" value="2vw" name="outline width" dataType="length" variable="outline-width" />
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="outline-width" defaultClass="outline" featuredClass="outline-2" />

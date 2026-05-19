@@ -1,9 +1,5 @@
 # Tailwind CSS Documentation
 
-Initial commit to init the translation:
-ef953abdbd69c56db9e74111593906200845ce6e
-https://github.com/tailwindlabs/tailwindcss.com/commit/ef953abdbd69c56db9e74111593906200845ce6e
-
 Tailwind CSS uses [Next.js](https://nextjs.org/) for its documentation.
 
 To run the project locally, first install the dependencies:

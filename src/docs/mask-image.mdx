@@ -9,7 +9,7 @@ import { Stripes } from "@/components/stripes.tsx";
 import dedent from "dedent";
 
 export const title = "mask-image";
-export const description = "Utilidades para controlar la imagen de máscara de un elemento.";
+export const description = "Utilities for controlling an element's mask image.";
 
 <svg className="sr-only">
   <defs>
@@ -52,7 +52,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ],
     [
       "mask-linear-from-<number>",
-      "mask-image: linear-gradient(var(--tw-mask-linear-position), black calc(var(--spacing * <number>)), transparent var(--tw-mask-linear-to));",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black calc(var(--spacing) * <number>), transparent var(--tw-mask-linear-to));",
     ],
     [
       "mask-linear-from-<percentage>",
@@ -72,7 +72,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ],
     [
       "mask-linear-to-<number>",
-      "mask-image: linear-gradient(var(--tw-mask-linear-position), black var(--tw-mask-linear-from), transparent calc(var(--spacing * <number>)));",
+      "mask-image: linear-gradient(var(--tw-mask-linear-position), black var(--tw-mask-linear-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-linear-to-<percentage>",
@@ -92,7 +92,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ],
     [
       "mask-t-from-<number>",
-      "mask-image: linear-gradient(to top, black calc(var(--spacing * <number>)), transparent var(--tw-mask-top-to));",
+      "mask-image: linear-gradient(to top, black calc(var(--spacing) * <number>), transparent var(--tw-mask-top-to));",
     ],
     [
       "mask-t-from-<percentage>",
@@ -109,7 +109,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ["mask-t-from-[<value>]", "mask-image: linear-gradient(to top, black <value>, transparent var(--tw-mask-top-to));"],
     [
       "mask-t-to-<number>",
-      "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent calc(var(--spacing * <number>));",
+      "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-t-to-<percentage>",
@@ -126,7 +126,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ["mask-t-to-[<value>]", "mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent <value>);"],
     [
       "mask-r-from-<number>",
-      "mask-image: linear-gradient(to right, black calc(var(--spacing * <number>)), transparent var(--tw-mask-right-to));",
+      "mask-image: linear-gradient(to right, black calc(var(--spacing) * <number>), transparent var(--tw-mask-right-to));",
     ],
     [
       "mask-r-from-<percentage>",
@@ -146,7 +146,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ],
     [
       "mask-r-to-<number>",
-      "mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent calc(var(--spacing * <number>));",
+      "mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-r-to-<percentage>",
@@ -166,7 +166,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ],
     [
       "mask-b-from-<number>",
-      "mask-image: linear-gradient(to bottom, black calc(var(--spacing * <number>)), transparent var(--tw-mask-bottom-to));",
+      "mask-image: linear-gradient(to bottom, black calc(var(--spacing) * <number>), transparent var(--tw-mask-bottom-to));",
     ],
     [
       "mask-b-from-<percentage>",
@@ -186,7 +186,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ],
     [
       "mask-b-to-<number>",
-      "mask-image: linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent calc(var(--spacing * <number>));",
+      "mask-image: linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-b-to-<percentage>",
@@ -206,7 +206,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ],
     [
       "mask-l-from-<number>",
-      "mask-image: linear-gradient(to left, black calc(var(--spacing * <number>)), transparent var(--tw-mask-left-to));",
+      "mask-image: linear-gradient(to left, black calc(var(--spacing) * <number>), transparent var(--tw-mask-left-to));",
     ],
     [
       "mask-l-from-<percentage>",
@@ -226,7 +226,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ],
     [
       "mask-l-to-<number>",
-      "mask-image: linear-gradient(to left, black var(--tw-mask-left-from), transparent calc(var(--spacing * <number>));",
+      "mask-image: linear-gradient(to left, black var(--tw-mask-left-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-l-to-<percentage>",
@@ -247,7 +247,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     [
       "mask-y-from-<number>",
       dedent`
-        mask-image: linear-gradient(to top, black calc(var(--spacing * <number>)), transparent var(--tw-mask-top-to)), linear-gradient(to bottom, black calc(var(--spacing * <number>)), transparent var(--tw-mask-bottom-to));
+        mask-image: linear-gradient(to top, black calc(var(--spacing) * <number>), transparent var(--tw-mask-top-to)), linear-gradient(to bottom, black calc(var(--spacing) * <number>), transparent var(--tw-mask-bottom-to));
         mask-composite: intersect;`,
     ],
     [
@@ -277,7 +277,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     [
       "mask-y-to-<number>",
       dedent`
-        mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent calc(var(--spacing * <number>)), linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent calc(var(--spacing * <number>));
+        mask-image: linear-gradient(to top, black var(--tw-mask-top-from), transparent calc(var(--spacing) * <number>)), linear-gradient(to bottom, black var(--tw-mask-bottom-from), transparent calc(var(--spacing) * <number>));
         mask-composite: intersect;`,
     ],
     [
@@ -307,7 +307,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     [
       "mask-x-from-<number>",
       dedent`
-        mask-image: linear-gradient(to right, black calc(var(--spacing * <number>)), transparent var(--tw-mask-right-to)), linear-gradient(to left, black calc(var(--spacing * <number>)), transparent var(--tw-mask-left-to));
+        mask-image: linear-gradient(to right, black calc(var(--spacing) * <number>), transparent var(--tw-mask-right-to)), linear-gradient(to left, black calc(var(--spacing) * <number>), transparent var(--tw-mask-left-to));
         mask-composite: intersect;`,
     ],
     [
@@ -337,7 +337,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     [
       "mask-x-to-<number>",
       dedent`
-        mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent calc(var(--spacing * <number>)), linear-gradient(to left, black var(--tw-mask-left-from), transparent calc(var(--spacing * <number>));
+        mask-image: linear-gradient(to right, black var(--tw-mask-right-from), transparent calc(var(--spacing) * <number>)), linear-gradient(to left, black var(--tw-mask-left-from), transparent calc(var(--spacing) * <number>));
         mask-composite: intersect;`,
     ],
     [
@@ -369,7 +369,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ["mask-radial-[<size>_<size>]", "--tw-mask-radial-size: <size> <size>;"],
     [
       "mask-radial-from-<number>",
-      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black calc(var(--spacing * <number>)), transparent var(--tw-mask-radial-to));",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black calc(var(--spacing) * <number>), transparent var(--tw-mask-radial-to));",
     ],
     [
       "mask-radial-from-<percentage>",
@@ -389,7 +389,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ],
     [
       "mask-radial-to-<number>",
-      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent calc(var(--spacing * <number>)));",
+      "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-radial-to-<percentage>",
@@ -407,8 +407,8 @@ export const description = "Utilidades para controlar la imagen de máscara de u
       "mask-radial-to-[<value>]",
       "mask-image: radial-gradient(var(--tw-mask-radial-shape) var(--tw-mask-radial-size) at var(--tw-mask-radial-position), black var(--tw-mask-radial-from), transparent <value>);",
     ],
-    ["mask-radial-circle", "--tw-mask-radial-shape: circle;"],
-    ["mask-radial-ellipse", "--tw-mask-radial-shape: ellipse;"],
+    ["mask-circle", "--tw-mask-radial-shape: circle;"],
+    ["mask-ellipse", "--tw-mask-radial-shape: ellipse;"],
     ["mask-radial-closest-corner", "--tw-mask-radial-size: closest-corner;"],
     ["mask-radial-closest-side", "--tw-mask-radial-size: closest-side;"],
     ["mask-radial-farthest-corner", "--tw-mask-radial-size: farthest-corner;"],
@@ -417,7 +417,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ["mask-radial-at-top", "--tw-mask-radial-position: top;"],
     ["mask-radial-at-top-right", "--tw-mask-radial-position: top right;"],
     ["mask-radial-at-left", "--tw-mask-radial-position: left;"],
-    ["mask-radial-at-center", "--tw-mask-radial-position:center;"],
+    ["mask-radial-at-center", "--tw-mask-radial-position: center;"],
     ["mask-radial-at-right", "--tw-mask-radial-position: right;"],
     ["mask-radial-at-bottom-left", "--tw-mask-radial-position: bottom left;"],
     ["mask-radial-at-bottom", "--tw-mask-radial-position: bottom;"],
@@ -432,7 +432,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ],
     [
       "mask-conic-from-<number>",
-      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black calc(var(--spacing * <number>)), transparent var(--tw-mask-conic-to));",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black calc(var(--spacing) * <number>), transparent var(--tw-mask-conic-to));",
     ],
     [
       "mask-conic-from-<percentage>",
@@ -452,7 +452,7 @@ export const description = "Utilidades para controlar la imagen de máscara de u
     ],
     [
       "mask-conic-to-<number>",
-      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent calc(var(--spacing * <number>));",
+      "mask-image: conic-gradient(from var(--tw-mask-conic-position), black var(--tw-mask-conic-from), transparent calc(var(--spacing) * <number>));",
     ],
     [
       "mask-conic-to-<percentage>",
@@ -473,11 +473,11 @@ export const description = "Utilidades para controlar la imagen de máscara de u
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Usar una máscara de imagen
+### Using an image mask
 
-Usa la sintaxis `mask-[<value>]` para establecer la imagen de máscara de un elemento:
+Use the `mask-[<value>]` syntax to set the mask image of an element:
 
 <Figure>
 
@@ -505,9 +505,9 @@ Usa la sintaxis `mask-[<value>]` para establecer la imagen de máscara de un ele
 
 </Figure>
 
-### Enmascarar bordes
+### Masking edges
 
-Usa utilidades como `mask-b-from-<value>` y `mask-t-to-<value>` para añadir una máscara de gradiente lineal a un solo lado de un elemento:
+Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear gradient mask to a single side of an element:
 
 <Figure>
 
@@ -557,7 +557,7 @@ Usa utilidades como `mask-b-from-<value>` y `mask-t-to-<value>` para añadir una
 
 </Figure>
 
-Además, usa utilidades como `mask-x-from-70%` y `mask-y-to-90%` para aplicar una máscara a dos lados de un elemento al mismo tiempo:
+Additionally, use utilities like `mask-x-from-70%` and `mask-y-to-90%` to apply a mask to two sides of an element at the same time:
 
 <Figure>
 
@@ -591,11 +591,11 @@ Además, usa utilidades como `mask-x-from-70%` y `mask-y-to-90%` para aplicar un
 
 </Figure>
 
-Por defecto, las máscaras de gradiente lineal hacen una transición de negro a transparente, pero puedes personalizar los colores del gradiente usando las utilidades `mask-<side>-from-<color>` y `mask-<side>-to-<color>`.
+By default, linear gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-<side>-from-<color>` and `mask-<side>-to-<color>` utilities.
 
-### Añadir una máscara lineal angulada
+### Adding an angled linear mask
 
-Usa utilidades como `mask-linear-<angle>`, `mask-linear-from-20` y `mask-linear-to-40` para añadir una máscara de gradiente lineal personalizada a un elemento:
+Use utilities like `mask-linear-<angle>`, `mask-linear-from-20`, and `mask-linear-to-40` to add a custom linear gradient mask to an element:
 
 <Figure>
 
@@ -629,9 +629,9 @@ Usa utilidades como `mask-linear-<angle>`, `mask-linear-from-20` y `mask-linear-
 
 </Figure>
 
-### Añadir una máscara radial
+### Adding a radial mask
 
-Usa las utilidades `mask-radial-from-<value>` y `mask-radial-to-<value>` para añadir una máscara de gradiente radial a un elemento:
+Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add a radial gradient mask to an element:
 
 <Figure>
 
@@ -649,10 +649,10 @@ Usa las utilidades `mask-radial-from-<value>` y `mask-radial-to-<value>` para a�
         alt=""
       />
       <div className="font-medium max-sm:-mx-3">
-        <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Velocidad</p>
-        <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Hecho para usuarios avanzados</p>
+        <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
+        <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Built for power users</p>
         <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
-          Trabaja más rápido que nunca con nuestros atajos de teclado
+          Work faster than ever with our keyboard shortcuts
         </p>
       </div>
     </div>
@@ -664,10 +664,10 @@ Usa las utilidades `mask-radial-from-<value>` y `mask-radial-to-<value>` para a�
 <div class="flex items-center gap-4">
   <img class="mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left ..." src="/img/keyboard.png" />
   <div class="font-medium">
-    <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Velocidad</p>
-    <p class="mt-2 text-base text-gray-700 dark:text-gray-300">Hecho para usuarios avanzados</p>
+    <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
+    <p class="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
     <p class="mt-1 text-sm leading-relaxed text-balance text-gray-500">
-      Trabaja más rápido que nunca con customizable keyboard shortcuts
+      Work faster than ever with customizable keyboard shortcuts
     </p>
   </div>
 </div>
@@ -675,11 +675,11 @@ Usa las utilidades `mask-radial-from-<value>` y `mask-radial-to-<value>` para a�
 
 </Figure>
 
-Por defecto, las máscaras de gradiente radial hacen una transición de negro a transparente, pero puedes personalizar los colores del gradiente usando las utilidades `mask-radial-from-<color>` y `mask-radial-to-<color>`.
+By default, radial gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-radial-from-<color>` and `mask-radial-to-<color>` utilities.
 
-#### Establecer la posición radial
+#### Setting the radial position
 
-Usa utilidades como `mask-radial-at-bottom-left` y `mask-radial-at-[35%_35%]` para establecer la posición del centro de la máscara de gradiente radial:
+Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` to set the position of the center of the radial gradient mask:
 
 <Figure>
 
@@ -769,11 +769,11 @@ Usa utilidades como `mask-radial-at-bottom-left` y `mask-radial-at-[35%_35%]` pa
 
 </Figure>
 
-Esto es diferente de [`mask-position`](/docs/mask-position), que establece la posición de la imagen de máscara en sí, no del gradiente radial.
+This is different from [`mask-position`](/docs/mask-position) which sets the position of the mask image itself, not the radial gradient.
 
-#### Establecer el tamaño radial
+#### Setting the radial size
 
-Usa utilidades como `mask-radial-closest-corner` y `mask-radial-farthest-side` para establecer el tamaño de la máscara de gradiente radial:
+Use utilities like `mask-radial-closest-corner` and `mask-radial-farthest-side` to set the size of the radial gradient mask:
 
 <Figure>
 
@@ -823,13 +823,13 @@ Usa utilidades como `mask-radial-closest-corner` y `mask-radial-farthest-side` p
 
 </Figure>
 
-Al establecer un tamaño de gradiente radial personalizado, las unidades que puedes usar dependen de la `<ending-shape>` del gradiente, que por defecto es `ellipse`.
+When setting a custom radial gradient size, the units you can use depend on the `<ending-shape>` of the gradient which is set to `ellipse` by default.
 
-Con `mask-circle`, solo puedes usar una única longitud fija, como `mask-radial-[5rem]`. Mientras que con `mask-ellipse`, puedes especificar cada eje como una longitud fija o porcentaje, como `mask-radial-[40%_80%]`.
+With `mask-circle`, you can only use a single fixed length, like `mask-radial-[5rem]`. Whereas with `mask-ellipse`, you can specify each axis as a fixed length or percentage, like `mask-radial-[40%_80%]`.
 
-### Añadir una máscara cónica
+### Adding a conic mask
 
-Usa las utilidades `mask-conic-from-<value>`, `mask-conic-to-<value>` y `mask-conic-<angle>` para añadir una máscara de gradiente cónico a un elemento:
+Use the `mask-conic-from-<value>`, `mask-conic-to-<value>` and `mask-conic-<angle>` utilities to add a conic gradient mask to an element:
 
 <Figure>
 
@@ -841,9 +841,9 @@ Usa las utilidades `mask-conic-from-<value>`, `mask-conic-to-<value>` y `mask-co
         <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-amber-500 mask-conic-from-75% mask-conic-to-75% dark:border-amber-400" />
       </div>
       <div className="w-0 flex-1 text-sm text-gray-950 dark:text-white">
-        <p className="font-medium">Almacenamiento usado: 75%</p>
+        <p className="font-medium">Storage used: 75%</p>
         <p className="mt-1 text-gray-500 dark:text-gray-400">
-          <span className="font-medium">0.48 GB</span> de 2 GB restantes
+          <span className="font-medium">0.48 GB</span> out of 2 GB remaining
         </p>
       </div>
     </div>
@@ -858,19 +858,19 @@ Usa las utilidades `mask-conic-from-<value>`, `mask-conic-to-<value>` y `mask-co
     <div class="border-4 border-amber-500 mask-conic-from-75% mask-conic-to-75% dark:border-amber-400 ..."></div>
   </div>
   <div class="w-0 flex-1 text-sm text-gray-950 dark:text-white">
-    <p class="font-medium">Almacenamiento usado: 75%</p>
-    <p class="mt-1 text-gray-500 dark:text-gray-400"><span class="font-medium">0.48 GB</span> de 2 GB restantes</p>
+    <p class="font-medium">Storage used: 75%</p>
+    <p class="mt-1 text-gray-500 dark:text-gray-400"><span class="font-medium">0.48 GB</span> out of 2 GB remaining</p>
   </div>
 </div>
 ```
 
 </Figure>
 
-Por defecto, las máscaras de gradiente cónico hacen una transición de negro a transparente, pero puedes personalizar los colores del gradiente usando las utilidades `mask-conic-from-<color>` y `mask-conic-to-<color>`.
+By default, conic gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-conic-from-<color>` and `mask-conic-to-<color>` utilities.
 
-### Combinar máscaras
+### Combining masks
 
-Las utilidades de máscara de gradiente, como `mask-radial-from-<value>`, `mask-conic-to-<value>` y `mask-l-from-<value>`, se pueden combinar para crear máscaras de gradiente más complejas:
+Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>`, and `mask-l-from-<value>` can be combined to create more complex gradient masks:
 
 <Figure>
 
@@ -902,11 +902,11 @@ Las utilidades de máscara de gradiente, como `mask-radial-from-<value>`, `mask-
 
 </Figure>
 
-Este comportamiento depende del hecho de que Tailwind establece la propiedad [`mask-composite`](/docs/mask-composite) en `intersect` por defecto. Cambiar esta propiedad afectará cómo se combinan las máscaras de gradiente.
+This behavior relies on the fact that Tailwind sets the [`mask-composite` property](/docs/mask-composite) to `intersect` by default. Changing this property will affect how the gradient masks are combined.
 
-### Eliminar imágenes de máscara
+### Removing mask images
 
-Usa la utilidad `mask-none` para eliminar una imagen de máscara existente de un elemento:
+Use the `mask-none` utility to remove an existing mask image from an element:
 
 ```html
 <!-- [!code classes:mask-none] -->
@@ -915,7 +915,7 @@ Usa la utilidad `mask-none` para eliminar una imagen de máscara existente de un
 </div>
 ```
 
-### Usar un valor personalizado
+### Using a custom value
 
 <UsingACustomValue
   utilities={["mask-linear", "mask-radial"]}
@@ -928,6 +928,6 @@ Usa la utilidad `mask-none` para eliminar una imagen de máscara existente de un
 
 <ResponsiveDesign property="mask-image" defaultClass="mask-radial-from-70%" featuredClass="mask-radial-from-50%" />
 
-## Personalizar tu tema
+## Customizing your theme
 
 <CustomizingYourThemeColors utilities={["mask-radial-from", "mask-conic-to", "mask-b-from"]} />

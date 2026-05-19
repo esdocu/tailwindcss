@@ -1,31 +1,31 @@
 import { TipGood, TipBad, TipCompat, TipInfo } from "@/components/tips";
 
-export const title = "Compatibilidad";
-export const description = "Aprende sobre el soporte de navegadores y la compatibilidad con otras herramientas.";
+export const title = "Compatibility";
+export const description = "Learn about browser support and compatibility with other tooling.";
 
-## Soporte de navegadores
+## Browser support
 
-Tailwind CSS v4.0 está diseñado y probado en navegadores modernos, y la funcionalidad principal del framework depende específicamente de estas versiones de navegador:
+Tailwind CSS v4.0 is designed for and tested on modern browsers, and the core functionality of the framework specifically depends on these browser versions:
 
 - **Chrome 111** _(released March 2023)_
 - **Safari 16.4** _(released March 2023)_
-- **Firefox 128** _(lanzado en julio de 2024)_
+- **Firefox 128** _(released July 2024)_
 
-Tailwind también incluye soporte para muchas características de plataforma de vanguardia como `field-sizing: content`, `@starting-style` y `text-wrap: balance` que tienen soporte limitado en navegadores. Depende de ti si quieres usar estas características modernas en tus proyectos; si los navegadores que utilizas no las soportan, simplemente no uses esas utilidades y variantes.
+Tailwind also includes support for many bleeding-edge platform features like `field-sizing: content`, `@starting-style`, and `text-wrap: balance` that have limited browser support. It's up to you if you want to use these modern features in your projects — if the browsers you're targeting don't support them, simply don't use those utilities and variants.
 
-Si no estás seguro sobre el soporte para una característica de plataforma moderna, la base de datos [Can I use](https://caniuse.com/mdn-css_at-rules_starting-style) es un gran recurso.
+If you're unsure about the support for a modern platform feature, the [Can I use](https://caniuse.com/mdn-css_at-rules_starting-style) database is a great resource.
 
-## Sass, Less y Stylus
+## Sass, Less, and Stylus
 
-Tailwind CSS v4.0 es una herramienta de compilación CSS con todas las funciones, diseñada para un flujo de trabajo específico, y no está diseñada para usarse con preprocesadores CSS como Sass, Less o Stylus.
+Tailwind CSS v4.0 is a full-featured CSS build tool designed for a specific workflow, and is not designed to be used with CSS preprocessors like Sass, Less, or Stylus.
 
-**Piensa en Tailwind CSS como tu preprocesador** — no deberías usar Tailwind con Sass por la misma razón que no usarías Sass con Stylus.
+**Think of Tailwind CSS itself as your preprocessor** — you shouldn't use Tailwind with Sass for the same reason you wouldn't use Sass with Stylus.
 
-Dado que Tailwind está diseñado para navegadores modernos, en realidad no necesitas un preprocesador para cosas como anidamiento o variables, y Tailwind mismo hará cosas como agrupar tus importaciones y agregar prefijos de proveedor.
+Since Tailwind is designed for modern browsers, you actually don't need a preprocessor for things like nesting or variables, and Tailwind itself will do things like bundle your imports and add vendor prefixes.
 
-### Importaciones en tiempo de compilación
+### Build-time imports
 
-Tailwind agrupará automáticamente otros archivos CSS que incluyas con `@import`, sin necesidad de una herramienta de preprocesamiento separada.
+Tailwind will automatically bundle other CSS files you include with `@import`, without the need for a separate preprocessing tool.
 
 ```css
 /* [!code filename:app.css] */
@@ -33,11 +33,11 @@ Tailwind agrupará automáticamente otros archivos CSS que incluyas con `@import
 @import "./typography.css";
 ```
 
-En este ejemplo, el archivo `typography.css` será agrupado en tu CSS compilado por Tailwind, sin ninguna otra herramienta como Sass o `postcss-import`.
+In this example, the `typography.css` file will be bundled into your compiled CSS for you by Tailwind, without any other tooling like Sass or `postcss-import`.
 
 ### Variables
 
-Todos los navegadores modernos soportan [variables CSS nativas](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) sin necesidad de ningún tipo de preprocesador:
+All modern browsers support [native CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) without the need for any sort of preprocessor:
 
 ```css
 /* [!code filename:typography.css] */
@@ -48,11 +48,11 @@ Todos los navegadores modernos soportan [variables CSS nativas](https://develope
 }
 ```
 
-Tailwind depende mucho de las variables CSS internamente, así que si puedes usar Tailwind en tu proyecto, puedes usar variables CSS nativas.
+Tailwind relies on CSS variables heavily internally, so if you can use Tailwind in your project, you can use native CSS variables.
 
-### Anidamiento
+### Nesting
 
-Bajo el capó, Tailwind usa [Lightning CSS](https://lightningcss.dev/) para procesar CSS anidado como este:
+Under the hood Tailwind uses [Lightning CSS](https://lightningcss.dev/) to process nested CSS like this:
 
 ```css
 /* [!code filename:typography.css] */
@@ -66,7 +66,7 @@ Bajo el capó, Tailwind usa [Lightning CSS](https://lightningcss.dev/) para proc
 }
 ```
 
-Tailwind aplana ese CSS anidado por ti para que pueda ser entendido por todos los navegadores modernos:
+Tailwind flattens that nested CSS for you so it can be understood by all modern browsers:
 
 ```css
 [!code filename:output.css]
@@ -80,19 +80,19 @@ Tailwind aplana ese CSS anidado por ti para que pueda ser entendido por todos lo
 }
 ```
 
-El soporte nativo de anidamiento CSS también es muy bueno hoy en día, así que realmente no necesitas un preprocesador para el anidamiento incluso si no estás usando Tailwind.
+Native CSS nesting support is also very good these days, so you don't really need a preprocessor for nesting even if you aren't using Tailwind.
 
-### Bucles
+### Loops
 
-En Tailwind, los tipos de clases para los que podrías haber usado bucles en el pasado (como `col-span-1`, `col-span-2`, etc.) son generados para ti bajo demanda por Tailwind cada vez que los usas, en lugar de tener que ser predefinidos.
+In Tailwind, the sorts of classes you may have used loops for in the past (like `col-span-1`, `col-span-2`, etc.) are generated for you on-demand by Tailwind whenever you use them instead of having to be predefined.
 
-Además de eso, cuando construyes cosas con Tailwind CSS, haces la gran mayoría de tu estilización en tu HTML, no en archivos CSS. Como no estás escribiendo toneladas de CSS en primer lugar, simplemente no necesitas características como los bucles que están diseñados para generar programáticamente muchas reglas CSS personalizadas.
+On top of that, when you're building things with Tailwind CSS, you do the vast majority of your styling in your HTML, not in CSS files. Since you're not writing tons of CSS in the first place, you just don't need features like loops that are designed for programmatically generating lots of custom CSS rules.
 
-### Funciones de color y matemáticas
+### Color and math functions
 
-Al usar preprocesadores como Sass o Less, es posible que hayas usado funciones como `darken` o `lighten` para ajustar colores.
+When using preprocessors like Sass or Less, you may have used functions like `darken` or `lighten` to adjust colors.
 
-Al usar Tailwind, el flujo de trabajo recomendado es usar una paleta de colores predefinida que incluya tonos claros y oscuros de cada color, como la [paleta de colores predeterminada](/docs/colors) diseñada por expertos e incluida con el framework.
+When using Tailwind, the recommended workflow is to use a predefined color palette that includes light and dark shades of each color, like the expertly designed [default color palette](/docs/colors) included with the framework.
 
 ```html
 <!-- [!code word:hover\:bg-indigo-600] -->
@@ -101,31 +101,31 @@ Al usar Tailwind, el flujo de trabajo recomendado es usar una paleta de colores 
 </button>
 ```
 
-También puedes usar características CSS modernas como [color-mix()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix) para ajustar colores en tiempo de ejecución directamente en el navegador. Esto incluso te permite ajustar colores definidos usando variables CSS o la palabra clave `currentcolor`, lo cual no es posible con preprocesadores.
+You can also use modern CSS features like [color-mix()](https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/color-mix) to adjust colors at run-time directly in the browser. This even lets you adjust colors defined using CSS variables or the `currentcolor` keyword, which isn't possible with preprocessors.
 
-De manera similar, los navegadores soportan funciones matemáticas como `min()`, `max()` y `round()` de forma nativa ahora, por lo que ya no hay necesidad de depender de un preprocesador para estas características tampoco.
+Similarly, browsers support math functions like `min()`, `max()`, and `round()` natively now, so there's no need to rely on a preprocessor for these features anymore either.
 
 ## CSS modules
 
-Tailwind es compatible con CSS modules y puede coexistir con ellos si estás introduciendo Tailwind en un proyecto que ya los usa, pero **no recomendamos usar CSS modules y Tailwind juntos** si puedes evitarlo.
+Tailwind is compatible with CSS modules and can co-exist with them if you are introducing Tailwind into a project that already uses them, but **we don't recommend using CSS modules and Tailwind together** if you can avoid it.
 
-### Consideraciones de alcance
+### Scoping concerns
 
-Los CSS modules están diseñados para resolver problemas de alcance que simplemente no existen al componer clases de utilidad en tu HTML en lugar de escribir CSS personalizado.
+CSS modules are designed to solve scoping problems that just don't exist when composing utility classes in your HTML instead of writing custom CSS.
 
-Los estilos tienen un alcance natural con Tailwind porque cada clase de utilidad siempre hace lo mismo, sin importar dónde se use — no hay riesgo de que agregar una clase de utilidad a una parte de tu UI cree algún efecto secundario inesperado en otro lugar.
+Styles are naturally scoped with Tailwind because each utility class always does the same thing, no matter where it's used — there's no risk that adding a utility class to one part of your UI creates some unexpected side effect somewhere else.
 
-### Rendimiento
+### Performance
 
-Al usar CSS modules, herramientas de compilación como Vite, Parcel y Turbopack procesan cada módulo CSS por separado. Eso significa que si tienes 50 módulos CSS en un proyecto, **Tailwind necesita ejecutarse 50 veces por separado**, lo que lleva a tiempos de compilación mucho más lentos y una peor experiencia de desarrollador.
+When using CSS modules, build tools like Vite, Parcel, and Turbopack process each CSS module separately. That means if you have 50 CSS modules in a project, **Tailwind needs to run 50 separate times**, which leads to much slower build times and a worse developer experience.
 
-### Compartición explícita de contexto
+### Explicit context sharing
 
-Dado que los módulos CSS se procesan por separado, no tienen `@theme` a menos que importes uno.
+Since CSS modules are each processed separately, they have no `@theme` unless you import one.
 
-Esto significa que características como `@apply` no funcionarán como esperas a menos que importes explícitamente tus estilos globales como referencia:
+This means features like `@apply` won't work the way you expect unless you explicitly import your global styles as reference:
 
-<TipInfo>{<>Importa tus estilos globales como referencia para asegurarte de que tus variables de tema estén definidas</>}</TipInfo>
+<TipInfo>{<>Import your global styles as reference to make sure your theme variables are defined</>}</TipInfo>
 
 ```css
 /* [!code filename:Button.module.css] */
@@ -137,7 +137,7 @@ button {
 }
 ```
 
-Alternativamente, también puedes usar variables CSS en lugar de `@apply`, lo que tiene el beneficio adicional de permitir que Tailwind omita el procesamiento de esos archivos y mejorará el rendimiento de tu compilación:
+Alternatively, you can also just use CSS variables instead of `@apply` which has the added benefit of letting Tailwind skip processing those files and will improve your build performance:
 
 ```css
 /* [!code filename:Button.module.css] */
@@ -147,17 +147,17 @@ button {
 }
 ```
 
-## Vue, Svelte y Astro
+## Vue, Svelte, and Astro
 
-Vue, Svelte y Astro soportan bloques `<style>` en archivos de componentes que se comportan de manera muy similar a los [CSS modules](#css-modules), lo que significa que cada uno es procesado por tus herramientas de compilación de forma totalmente separada y tienen todas las mismas desventajas.
+Vue, Svelte, and Astro support `<style>` blocks in component files that behave very much like [CSS modules](#css-modules), which means they are each processed by your build tooling totally separately and have all of the same drawbacks.
 
-Si estás usando Tailwind con estas herramientas, **recomendamos evitar los bloques `<style>` en tus componentes** y simplemente estilizar las cosas con clases de utilidad directamente en tu marcado, de la manera en que Tailwind está destinado a ser usado.
+If you're using Tailwind with these tools, **we recommend avoiding `<style>` blocks in your components** and just styling things with utility classes directly in your markup, the way Tailwind is meant to be used.
 
-Si usas bloques `<style>`, asegúrate de importar tus estilos globales como referencia si quieres que características como `@apply` funcionen como se espera:
+If you do use `<style>` blocks, make sure to import your global styles as reference if you want features like `@apply` to work as expected:
 
 <TipInfo
-  children={`Importa tus estilos globales como referencia para asegurarte de que tus variables de tema estén
-    definidas`}
+  children={`Import your global styles as reference to make sure your theme variables are
+    defined`}
 />
 
 ```html
@@ -176,7 +176,7 @@ Si usas bloques `<style>`, asegúrate de importar tus estilos globales como refe
 </style>
 ```
 
-O simplemente usa tus variables CSS definidas globalmente en lugar de características como `@apply`, que no requieren que Tailwind procese el CSS de tu componente en absoluto:
+Or just use your globally defined CSS variables instead of features like `@apply`, which don't require Tailwind to process your component CSS at all:
 
 ```html
 <!-- [!code filename:Button.vue] -->

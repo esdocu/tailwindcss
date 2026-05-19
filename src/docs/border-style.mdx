@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "border-style";
-export const description = "Utilidades para controlar el estilo de los bordes de un elemento.";
+export const description = "Utilities for controlling the style of an element's borders.";
 
 <ApiTable
   rows={[
@@ -23,11 +23,11 @@ export const description = "Utilidades para controlar el estilo de los bordes de
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades como `border-solid` y `border-dotted` para controlar el estilo del borde de un elemento:
+Use utilities like `border-solid` and `border-dotted` to control an element's border style:
 
 <Figure>
 
@@ -37,25 +37,25 @@ Usa utilidades como `border-solid` y `border-dotted` para controlar el estilo de
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">border-solid</p>
         <button className="rounded-md border-2 border-solid border-indigo-500 bg-white px-4 py-2 text-sm font-semibold text-gray-700 dark:border-sky-500 dark:bg-gray-700 dark:text-white">
-          Botón A
+          Button A
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">border-dashed</p>
         <button className="rounded-md border-2 border-dashed border-indigo-500 bg-white px-4 py-2 text-sm font-semibold text-gray-700 dark:border-sky-500 dark:bg-gray-700 dark:text-white">
-          Botón A
+          Button A
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">border-dotted</p>
         <button className="rounded-md border-2 border-dotted border-indigo-500 bg-white px-4 py-2 text-sm font-semibold text-gray-700 dark:border-sky-500 dark:bg-gray-700 dark:text-white">
-          Botón A
+          Button A
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">border-double</p>
         <button className="rounded-md border-4 border-double border-indigo-500 bg-white px-4 py-2 text-sm font-semibold text-gray-700 dark:border-sky-500 dark:bg-gray-700 dark:text-white">
-          Botón A
+          Button A
         </button>
       </div>
     </div>
@@ -72,9 +72,9 @@ Usa utilidades como `border-solid` y `border-dotted` para controlar el estilo de
 
 </Figure>
 
-### Eliminando un borde
+### Removing a border
 
-Usa la utilidad `border-none` para eliminar un borde existente de un elemento:
+Use the `border-none` utility to remove an existing border from an element:
 
 <Figure>
 
@@ -82,7 +82,7 @@ Usa la utilidad `border-none` para eliminar un borde existente de un elemento:
   {
     <div className="flex justify-center gap-4 text-center text-sm leading-6 font-bold text-white">
       <button className="rounded-md border-2 border-none border-indigo-500 bg-gray-100 px-4 py-2 text-sm font-semibold text-gray-700 dark:bg-gray-700 dark:text-white">
-        Guardar Cambios
+        Save Changes
       </button>
     </div>
   }
@@ -90,16 +90,16 @@ Usa la utilidad `border-none` para eliminar un borde existente de un elemento:
 
 ```html
 <!-- [!code classes:border-none] -->
-<button class="border-none ...">Guardar Cambios</button>
+<button class="border-none ...">Save Changes</button>
 ```
 
 </Figure>
 
-Esto se usa más comúnmente para eliminar un estilo de borde que se aplicó en un punto de quiebre más pequeño.
+This is most commonly used to remove a border style that was applied at a smaller breakpoint.
 
-### Estableciendo el estilo del divisor
+### Setting the divider style
 
-Usa utilidades como `divide-dashed` y `divide-dotted` para controlar el estilo del borde entre elementos hijos:
+Use utilities like `divide-dashed` and `divide-dotted` to control the border style between child elements:
 
 <Figure>
 
@@ -124,6 +124,6 @@ Usa utilidades como `divide-dashed` y `divide-dotted` para controlar el estilo d
 
 </Figure>
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="border-style" defaultClass="border-solid" featuredClass="border-dotted" />

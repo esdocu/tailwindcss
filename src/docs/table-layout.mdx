@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "table-layout";
-export const description = "Utilidades para controlar el algoritmo de diseño de tabla.";
+export const description = "Utilities for controlling the table layout algorithm.";
 
 <ApiTable
   rows={[
@@ -13,11 +13,11 @@ export const description = "Utilidades para controlar el algoritmo de diseño de
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Dimensionando columnas automáticamente
+### Sizing columns automatically
 
-Usa la utilidad `table-auto` para dimensionar automáticamente las columnas de la tabla para que se ajusten al contenido de sus celdas:
+Use the `table-auto` utility to automatically size table columns to fit the contents of its cells:
 
 <Figure>
 
@@ -28,13 +28,13 @@ Usa la utilidad `table-auto` para dimensionar automáticamente las columnas de l
         <thead>
           <tr>
             <th className="border-b border-gray-200 p-4 pt-0 pb-3 pl-8 text-left font-medium text-gray-400 dark:border-gray-600 dark:text-gray-200">
-              Canción
+              Song
             </th>
             <th className="border-b border-gray-200 p-4 pt-0 pb-3 text-left font-medium text-gray-400 dark:border-gray-600 dark:text-gray-200">
-              Artista
+              Artist
             </th>
             <th className="border-b border-gray-200 p-4 pt-0 pr-8 pb-3 text-left font-medium text-gray-400 dark:border-gray-600 dark:text-gray-200">
-              Año
+              Year
             </th>
           </tr>
         </thead>
@@ -83,9 +83,9 @@ Usa la utilidad `table-auto` para dimensionar automáticamente las columnas de l
 <table class="table-auto">
   <thead>
     <tr>
-      <th>Canción</th>
-      <th>Artista</th>
-      <th>Año</th>
+      <th>Song</th>
+      <th>Artist</th>
+      <th>Year</th>
     </tr>
   </thead>
   <tbody>
@@ -110,9 +110,9 @@ Usa la utilidad `table-auto` para dimensionar automáticamente las columnas de l
 
 </Figure>
 
-### Usando anchos de columna fijos
+### Using fixed column widths
 
-Usa la utilidad `table-fixed` para ignorar el contenido de las celdas de la tabla y usar anchos fijos para cada columna:
+Use the `table-fixed` utility to ignore the content of the table cells and use fixed widths for each column:
 
 <Figure>
 
@@ -123,13 +123,13 @@ Usa la utilidad `table-fixed` para ignorar el contenido de las celdas de la tabl
         <thead>
           <tr>
             <th className="border-b border-gray-200 p-4 pt-0 pb-3 pl-8 text-left font-medium text-gray-400 dark:border-gray-600 dark:text-gray-200">
-              Canción
+              Song
             </th>
             <th className="border-b border-gray-200 p-4 pt-0 pb-3 text-left font-medium text-gray-400 dark:border-gray-600 dark:text-gray-200">
-              Artista
+              Artist
             </th>
             <th className="border-b border-gray-200 p-4 pt-0 pr-8 pb-3 text-left font-medium text-gray-400 dark:border-gray-600 dark:text-gray-200">
-              Año
+              Year
             </th>
           </tr>
         </thead>
@@ -178,9 +178,9 @@ Usa la utilidad `table-fixed` para ignorar el contenido de las celdas de la tabl
 <table class="table-fixed">
   <thead>
     <tr>
-      <th>Canción</th>
-      <th>Artista</th>
-      <th>Año</th>
+      <th>Song</th>
+      <th>Artist</th>
+      <th>Year</th>
     </tr>
   </thead>
   <tbody>
@@ -205,8 +205,8 @@ Usa la utilidad `table-fixed` para ignorar el contenido de las celdas de la tabl
 
 </Figure>
 
-Puedes establecer manualmente los anchos para algunas columnas y el resto del ancho disponible se dividirá equitativamente entre las columnas sin un ancho explícito. Los anchos establecidos en la primera fila establecerán el ancho de columna para toda la tabla.
+You can manually set the widths for some columns and the rest of the available width will be divided evenly amongst columns without an explicit width. The widths set in the first row will set the column width for the whole table.
 
 ### Responsive design
 
-<ResponsiveDesign property="table-layout" defaultClass="table-none" featuredClass="table-fixed" />
+<ResponsiveDesign property="table-layout" defaultClass="table-auto" featuredClass="table-fixed" />

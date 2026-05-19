@@ -1,0 +1,903 @@
+import { adamwathan } from "@/app/blog/authors";
+import { CodeExample, js, css, CodeExampleGroup, CodeBlock } from "@/components/code-example";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure";
+import card from "./card.jpg";
+import discordMessage from "./discord-message.png";
+import { Image, YouTubeVideo } from "@/components/media";
+import Link from "next/link";
+
+export const meta = {
+  title: "Tailwind CSS v3.1: ¿Quieres volverte loco? ¡Vamos, volvámonos locos!",
+  description: `Ahora con tipos TypeScript de primera parte, variantes arbitrarias, DX de variables CSS mejorado y mucho más.`,
+  date: "2022-06-07T15:00:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Han pasado unos seis meses desde que lanzamos <Link href="/blog/tailwindcss-v3">Tailwind CSS v3.0</Link>, y aunque
+      hemos estado recopilando muchas pequeñas mejoras en el código base desde entonces, simplemente no teníamos{" "}
+      <em>esa característica única</em> que te hace decir
+      <em>"ok, es hora de lanzar la versión"</em>.
+    </>
+  ),
+};
+
+<YouTubeVideo id="nOQyWbPO2Ds" />
+
+Han pasado unos seis meses desde que lanzamos [Tailwind CSS v3.0](/blog/tailwindcss-v3), y aunque hemos estado recopilando muchas pequeñas mejoras en el código base desde entonces, simplemente no teníamos _esa característica única_ todavía que te hace decir _"ok, es hora de lanzar la versión"_.
+
+Luego, un sábado por la noche al azar hace un par de semanas, estaba hablando con Robin en nuestro Discord sobre cómo encontrar una manera de apuntar al elemento `html` usando `:has` y una clase más profunda en el documento, y expliqué cómo pensé que se vería si añadiéramos soporte para variantes arbitrarias — algo que he querido abordar durante más de un año:
+
+<Image
+  alt={`Adam Wathan: Creo que si hacemos variantes arbitrarias, la sintaxis debería ser exactamente eso, '[html:has(&)]:bg-blue-500'. Siento que eso es bastante flexible, como cualquier cosa que puedas hacer con una variante real también puedes hacerla con una variante arbitraria ya que son lo mismo. '[&>*:not(:first-child)]:pl-4'. Robin: Esto va a romperme el cerebro jaja porque '[html:has(&)]:bg-blue-500' se usaría como un literal dentro del '&'. Eso en combinación con otras variantes... 🤯. Adam Wathan: 😅 será un derrite-cerebros seguro. El CSS sería este lol 'html:has([html:has(&)]:bg-blue-500) { background: blue 500 }'. Robin: exacto jaja. ok, ahora quiero probar eso brb.`}
+  src={discordMessage}
+/>
+
+Veinte minutos después, Robin tenía una prueba de concepto funcional _(¡en seis líneas de código!)_, y después de otra hora más o menos de Jordan realizando milagros de regex en nuestro motor de detección de clases, nacieron las [variantes arbitrarias](https://github.com/tailwindlabs/tailwindcss/pull/8299) y tuvimos nuestra característica digna de lanzamiento.
+
+Así que aquí está — ¡Tailwind CSS v3.1! Para una lista completa de cada arreglo y mejora, consulta las [notas de la versión](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.1.0), pero aquí están los puntos destacados:
+
+- [Tipos TypeScript de primera parte](#first-party-type-script-types)
+- [Soporte integrado para importaciones CSS en la CLI](#built-in-support-for-css-imports-in-the-cli)
+- [Cambiar la opacidad del color al usar la función theme](#change-color-opacity-when-using-the-theme-function)
+- [Configuración de color de variable CSS más fácil](#easier-css-variable-color-configuration)
+- [Utilidades de espaciado de borde](#border-spacing-utilities)
+- [Variantes Enabled y optional](#enabled-and-optional-variants)
+- [Variantes Prefers-contrast](#prefers-contrast-variants)
+- [Estilizar backdrops de diálogo nativos](#style-native-dialog-backdrops)
+- [Valores arbitrarios pero para variantes](#arbitrary-values-but-for-variants)
+
+Actualiza tus proyectos instalando la última versión de `tailwindcss` desde npm:
+
+```sh
+npm install tailwindcss@latest
+```
+
+O abre un [Tailwind Play](https://play.tailwindcss.com) para jugar con todas las novedades directamente en el navegador.
+
+---
+
+## Tipos TypeScript de primera parte
+
+Ahora estamos enviando tipos para todas nuestras APIs JS con las que trabajas al usar Tailwind, especialmente el archivo `tailwind.config.js`. Esto significa que obtienes todo tipo de soporte útil del IDE, y hace que sea mucho más fácil hacer cambios en tu configuración sin consultar tanto la documentación.
+
+Para configurarlo, simplemente añade la anotación de tipo sobre la definición de tu configuración:
+
+```js
+// [!code filename:tailwind.config.js]
+/** @type {import('tailwindcss').Config} */ // [!code ++]
+module.exports = {
+  content: [
+    // ...
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+Si eres un gran nerd de TypeScript, podrías disfrutar husmeando en las [definiciones de tipos](https://github.com/tailwindlabs/tailwindcss/blob/4a745439f010aca2ea24bb7fd9ab0ac3e15a40c1/types/config.d.ts) reales — hay muchas cosas interesantes sucediendo allí para soportar un objeto potencialmente tan complejo.
+
+## Soporte integrado para importaciones CSS en la CLI
+
+Si estás usando nuestra herramienta CLI para compilar tu CSS, [`postcss-import`](https://github.com/postcss/postcss-import) ahora está integrado directamente para que puedas organizar tu CSS personalizado en múltiples archivos sin ninguna configuración adicional.
+
+<CodeExampleGroup filenames={["main.css", "select2-theme.css"]}>
+  <CodeBlock
+    example={css`
+      @import "tailwindcss/base";
+      /* [!code highlight:2] */
+      @import "./select2-theme.css";
+      @import "tailwindcss/components";
+      @import "tailwindcss/utilities";
+    `}
+  />
+  <CodeBlock
+    example={css`
+      .select2-dropdown {
+        @apply rounded-b-lg shadow-md;
+      }
+      .select2-search {
+        @apply rounded border border-gray-300;
+      }
+      .select2-results__group {
+        @apply text-lg font-bold text-gray-900;
+      }
+      /* ... */
+    `}
+  />
+</CodeExampleGroup>
+
+Si no estás usando nuestra herramienta CLI y en su lugar estás usando Tailwind como un plugin de PostCSS, todavía necesitarás instalar y configurar `postcss-import` tú mismo, tal como lo haces con `autoprefixer`, pero si _estás_ usando nuestra herramienta CLI, esto funcionará totalmente ahora.
+
+Esto es especialmente útil si estás usando nuestra [CLI independiente](/blog/standalone-cli) y no quieres instalar ninguna dependencia de node en absoluto.
+
+## Cambiar la opacidad del color al usar la función theme
+
+No creo que mucha gente sepa esto, pero Tailwind expone una [`función theme()`](https://v3.tailwindcss.com/docs/functions-and-directives#theme) a tus archivos CSS que te permite obtener valores de tu archivo de configuración — convirtiéndolos en una especie de variables que puedes reutilizar.
+
+```css
+/* [!code filename:select2-theme.css] */
+.select2-dropdown {
+  border-radius: theme(borderRadius.lg);
+  background-color: theme(colors.gray.100);
+  color: theme(colors.gray.900);
+}
+/* ... */
+```
+
+Una limitación, sin embargo, era que no podías ajustar el canal alfa de ningún color que obtuvieras de esta manera. Así que en v3.1 hemos añadido soporte para usar una sintaxis de barra inclinada para ajustar la opacidad, como puedes hacer con las funciones de color CSS modernas `rgb` y `hsl`:
+
+```css
+/* [!code filename:select2-theme.css] */
+.select2-dropdown {
+  border-radius: theme(borderRadius.lg);
+  /* [!code highlight:2] */
+  background-color: theme(colors.gray.100 / 50%);
+  color: theme(colors.gray.900);
+}
+/* ... */
+```
+
+Hemos hecho que esto funcione también con la función `theme` en tu archivo `tailwind.config.js`:
+
+```js
+// [!code filename:tailwind.config.js]
+module.exports = {
+  content: [
+    // ...
+  ],
+  theme: {
+    extend: {
+      colors: ({ theme }) => ({
+        primary: theme("colors.blue.500"),
+        // [!code highlight:2]
+        "primary-fade": theme("colors.blue.500 / 75%"),
+      }),
+    },
+  },
+  plugins: [],
+};
+```
+
+Incluso puedes usar estas cosas en valores arbitrarios, lo cual es bastante salvaje — honestamente sorprendentemente útil para gradientes personalizados extraños y cosas así:
+
+```html
+<div class="bg-[image:linear-gradient(to_right,theme(colors.red.500)_75%,theme(colors.red.500/25%))]">
+  <!-- ... -->
+</div>
+```
+
+Cualquier cosa para evitar editar un archivo CSS, ¿verdad?
+
+## Configuración de color de variable CSS más fácil
+
+Si te gusta definir y configurar tus colores como variables CSS, probablemente tengas algún boilerplate horrible como este en tu archivo `tailwind.config.js` ahora mismo:
+
+```js
+// [!code filename:tailwind.config.js]
+function withOpacityValue(variable) {
+  return ({ opacityValue }) => {
+    if (opacityValue === undefined) {
+      return `rgb(var(${variable}))`;
+    }
+    return `rgb(var(${variable}) / ${opacityValue})`;
+  };
+}
+
+module.exports = {
+  theme: {
+    colors: {
+      primary: withOpacityValue("--color-primary"),
+      secondary: withOpacityValue("--color-secondary"),
+      // ...
+    },
+  },
+};
+```
+
+Hemos hecho esto mucho menos horrible en v3.1 añadiendo soporte para definir tus colores con una cadena de formato en lugar de tener que usar una función:
+
+```js
+// [!code filename:tailwind.config.js]
+module.exports = {
+  theme: {
+    colors: {
+      primary: "rgb(var(--color-primary) / <alpha-value>)",
+      secondary: "rgb(var(--color-secondary) / <alpha-value>)",
+      // ...
+    },
+  },
+};
+```
+
+En lugar de escribir una función que recibe ese argumento `opacityValue`, puedes simplemente escribir una cadena con un marcador de posición `<alpha-value>`, y Tailwind reemplazará ese marcador de posición con el valor alfa correcto basado en la utilidad.
+
+Si no has visto nada de esto antes, consulta nuestra [documentación actualizada de Uso de variables CSS](https://v3.tailwindcss.com/docs/customizing-colors#using-css-variables) para obtener más detalles.
+
+## Utilidades de espaciado de borde
+
+Hemos añadido un nuevo conjunto de utilidades para la propiedad `border-spacing`, para que puedas controlar el espacio entre los bordes de la tabla al usar [bordes separados](https://v3.tailwindcss.com/docs/border-collapse#separate):
+
+<Figure>
+
+<Example>
+  {
+    <div className="px-4 py-8 sm:px-8">
+      <table className="w-full border-separate border-spacing-2 text-sm">
+        <thead className="bg-slate-100 dark:bg-slate-700">
+          <tr>
+            <th className="w-1/2 border border-slate-300 p-4 text-left font-semibold text-slate-900 dark:border-slate-600 dark:text-slate-200">
+              <>Estado</>
+            </th>
+            <th className="w-1/2 border border-slate-300 p-4 text-left font-semibold text-slate-900 dark:border-slate-600 dark:text-slate-200">
+              <>Ciudad</>
+            </th>
+          </tr>
+        </thead>
+        <tbody className="bg-white">
+          <tr>
+            <td className="border border-slate-300 p-4 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+              Indiana
+            </td>
+            <td className="border border-slate-300 p-4 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+              <>Indianápolis</>
+            </td>
+          </tr>
+          <tr>
+            <td className="border border-slate-300 p-4 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+              Ohio
+            </td>
+            <td className="border border-slate-300 p-4 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+              Columbus
+            </td>
+          </tr>
+          <tr>
+            <td className="border border-slate-300 p-4 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+              Michigan
+            </td>
+            <td className="border border-slate-300 p-4 text-slate-500 dark:border-slate-700 dark:text-slate-400">
+              Detroit
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:border-spacing-2] -->
+<table class="border-separate border-spacing-2 ...">
+  <thead>
+    <tr>
+      <th class="border border-slate-300 ...">Estado</th>
+      <th class="border border-slate-300 ...">Ciudad</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="border border-slate-300 ...">Indiana</td>
+      <td class="border border-slate-300 ...">Indianápolis</td>
+    </tr>
+    <!-- ... -->
+  </tbody>
+</table>
+```
+
+</Figure>
+
+Sé lo que estás pensando — _"Nunca en mi vida he querido construir una tabla que se vea así..."_ — ¡pero escucha por un segundo!
+
+Una situación en la que esto es realmente súper útil es al construir una tabla con una fila de encabezado fija (sticky) y quieres un borde inferior persistente debajo de los encabezados:
+
+<Figure hint="Desplázate por esta tabla para ver la fila de encabezado fija en acción">
+
+<Example padding={false}>
+  {
+    <div className="isolate h-72 overflow-auto rounded-xl">
+      <table className="min-w-full border-separate border-spacing-0">
+        <thead className="bg-gray-50">
+          <tr>
+            <th
+              scope="col"
+              className="bg-opacity-75 sticky top-0 z-10 border-b border-gray-300 bg-gray-50 py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8"
+            >
+              <>Nombre</>
+            </th>
+            <th
+              scope="col"
+              className="bg-opacity-75 sticky top-0 z-10 hidden border-b border-gray-300 bg-gray-50 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter lg:table-cell"
+            >
+              <>Email</>
+            </th>
+            <th
+              scope="col"
+              className="bg-opacity-75 sticky top-0 z-10 border-b border-gray-300 bg-gray-50 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter"
+            >
+              <>Rol</>
+            </th>
+          </tr>
+        </thead>
+        <tbody className="bg-white">
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Courtney Henry</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>courtney.henry@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Admin</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Tom Cook</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>tom.cook@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Whitney Francis</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>whitney.francis@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Admin</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Leonard Krasner</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>leonard.krasner@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Propietario</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Floyd Miles</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>floyd.miles@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Emily Selman</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>emily.selman@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Kristin Watson</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>kristin.watson@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Admin</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Emma Dorsey</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>emma.dorsey@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Alicia Bell</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>alicia.bell@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Admin</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Jenny Wilson</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>jenny.wilson@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Propietario</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Anna Roberts</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>anna.roberts@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Benjamin Russel</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>benjamin.russel@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Jeffrey Webb</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>jeffrey.webb@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Admin</td>
+          </tr>
+          <tr>
+            <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
+              <>Kathryn Murphy</>
+            </td>
+            <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
+              <>kathryn.murphy@example.com</>
+            </td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:border-separate] -->
+<!-- [!code word:border-spacing-0] -->
+<table class="border-separate border-spacing-0">
+  <thead class="bg-gray-50">
+    <tr>
+      <th class="sticky top-0 z-10 border-b border-gray-300 ...">Nombre</th>
+      <th class="sticky top-0 z-10 border-b border-gray-300 ...">Email</th>
+      <th class="sticky top-0 z-10 border-b border-gray-300 ...">Rol</th>
+    </tr>
+  </thead>
+  <tbody class="bg-white">
+    <tr>
+      <td class="border-b border-gray-200 ...">Courtney Henry</td>
+      <td class="border-b border-gray-200 ...">courtney.henry@example.com</td>
+      <td class="border-b border-gray-200 ...">Admin</td>
+    </tr>
+    <!-- ... -->
+  </tbody>
+</table>
+```
+
+</Figure>
+
+Pensarías que podrías usar `border-collapse` aquí, ya que en realidad no quieres ningún espacio entre los bordes, pero te equivocarías. Sin `border-separate` y `border-spacing-0`, el borde se desplazará en lugar de quedarse fijo debajo de los encabezados. CSS es divertido, ¿no?
+
+Consulta la [documentación de espaciado de borde](https://v3.tailwindcss.com/docs/border-spacing) para obtener más detalles.
+
+## Variantes Enabled y optional
+
+Hemos añadido nuevas variantes para las pseudo-clases `:enabled` y `:optional`, que apuntan a los elementos de formulario cuando están, bueno, habilitados y opcionales.
+
+_"Pero Adam, ¿por qué necesitaría esto alguna vez? Habilitado y opcional ni siquiera son estados, son los predeterminados. ¿Acaso haces sitios web?"_
+
+Ay, eso duele porque es verdad — prácticamente solo escribo correos electrónicos y respondo las mismas preguntas una y otra vez en GitHub ahora.
+
+Pero mira este ejemplo de botón deshabilitado:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex items-center justify-center">
+      <button
+        type="button"
+        className="inline-flex cursor-not-allowed items-center rounded-md bg-indigo-500 px-4 py-2 text-sm leading-6 font-semibold text-white shadow transition duration-150 ease-in-out hover:bg-indigo-400 disabled:opacity-75"
+        disabled
+      >
+        Procesando...
+      </button>
+    </div>
+  }
+</Example>
+
+```html
+<button type="button" class="bg-indigo-500 hover:bg-indigo-400 disabled:opacity-75 ..." disabled>Procesando...</button>
+```
+
+</Figure>
+
+¿Notas cómo cuando pasas el cursor sobre el botón, el fondo todavía cambia de color aunque esté deshabilitado? Antes de esta versión, normalmente arreglarías eso así:
+
+```html
+<!-- [!code word:disabled\:hover\:bg-indigo-500] -->
+<button
+  type="button"
+  class="bg-indigo-500 hover:bg-indigo-400 disabled:opacity-75 disabled:hover:bg-indigo-500 ..."
+  disabled
+>
+  Procesando...
+</button>
+```
+
+Pero con el nuevo modificador `enabled`, puedes escribirlo así en su lugar:
+
+<Figure>
+
+<Example>
+  {
+    <div className="flex items-center justify-center">
+      <button
+        type="button"
+        className="inline-flex cursor-not-allowed items-center rounded-md bg-indigo-500 px-4 py-2 text-sm leading-6 font-semibold text-white shadow transition duration-150 ease-in-out hover:enabled:bg-indigo-400 disabled:opacity-75"
+        disabled
+      >
+        Procesando...
+      </button>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:hover\:enabled\:bg-indigo-400] -->
+<button type="button" class="bg-indigo-500 hover:enabled:bg-indigo-400 disabled:opacity-75 ..." disabled>
+  Procesando...
+</button>
+```
+
+</Figure>
+
+En lugar de anular el color de hover volviendo al color predeterminado cuando el botón está deshabilitado, combinamos las variantes `hover` y `enabled` para simplemente no aplicar los estilos de hover cuando el botón está deshabilitado en primer lugar. ¡Creo que eso es mejor!
+
+Aquí hay un ejemplo que combina el nuevo modificador `optional` con nuestras [características de estado de hermano](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-sibling-state) para ocultar un pequeño aviso "Requerido" para los campos que no son requeridos:
+
+<Figure>
+
+<Example padding={false}>
+  {
+    <div className="mx-auto max-w-sm bg-white px-6 py-5 shadow">
+      <form>
+        <div>
+          <label htmlFor="optional-email" className="block text-sm font-medium text-slate-700">
+            <>Email</>
+          </label>
+          <div className="relative mt-1">
+            <input
+              required
+              type="text"
+              name="email"
+              id="optional-email"
+              className="peer block w-full rounded-md border border-slate-300 bg-white px-3 py-2 placeholder-slate-400 shadow-sm focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:outline-none sm:text-sm"
+            />
+            <div className="absolute inset-y-0 right-0 border-y border-transparent py-2 pr-3 text-sm text-slate-400 peer-optional:hidden">
+              <>Requerido</>
+            </div>
+          </div>
+        </div>
+        <div className="mt-6">
+          <label htmlFor="optional-name" className="block text-sm font-medium text-slate-700">
+            <>Nombre</>
+          </label>
+          <div className="relative mt-1">
+            <input
+              type="text"
+              name="name"
+              id="optional-name"
+              className="peer block w-full rounded-md border border-slate-300 bg-white px-3 py-2 placeholder-slate-400 shadow-sm focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:outline-none sm:text-sm"
+            />
+            <div className="absolute inset-y-0 right-0 border-y border-transparent py-2 pr-3 text-sm text-slate-400 peer-optional:hidden">
+              <>Requerido</>
+            </div>
+          </div>
+        </div>
+        <div className="mt-6 text-right">
+          <button className="rounded-md bg-sky-500 px-5 py-2.5 text-sm leading-5 font-semibold text-white hover:bg-sky-700">
+            <>Enviar</>
+          </button>
+        </div>
+      </form>
+    </div>
+  }
+</Example>
+
+```html
+<form>
+  <div>
+    <label for="email" ...>Email</label>
+    <div>
+      <input required class="peer ..." id="email" />
+      <!-- [!code word:peer-optional\:hidden] -->
+      <div class="peer-optional:hidden ...">Requerido</div>
+    </div>
+  </div>
+  <div>
+    <label for="name" ...>Nombre</label>
+    <div>
+      <input class="peer ..." id="name" />
+      <div class="peer-optional:hidden ...">Requerido</div>
+    </div>
+  </div>
+  <!-- ... -->
+</form>
+```
+
+</Figure>
+
+Esto te permite usar el mismo marcado para todos tus grupos de formularios y dejar que CSS maneje todo el renderizado condicional por ti en lugar de manejarlo tú mismo. ¡Bastante ingenioso!
+
+## Variantes Prefers-contrast
+
+¿Sabías que hay una media query `prefers-contrast`? Bueno, existe, y ahora Tailwind la soporta de forma predeterminada.
+
+Usa las nuevas variantes `contrast-more` y `contrast-less` para modificar tu diseño cuando el usuario ha solicitado más o menos contraste, generalmente a través de una preferencia de accesibilidad del sistema operativo como "Aumentar contraste" en macOS.
+
+<Figure hint="Intenta emular `prefers-contrast: more` en tus herramientas de desarrollador para ver los cambios">
+
+<Example padding={false}>
+  {
+    <div className="mx-auto max-w-sm bg-white px-6 pt-6 pb-4 shadow">
+      <form>
+        <div>
+          <label htmlFor="contrast-example" className="block text-sm font-medium text-slate-700">
+            Número de Seguro Social
+          </label>
+          <div className="mt-1">
+            <input
+              type="text"
+              name="contrast-example"
+              id="contrast-example"
+              className="block w-full rounded-md border border-slate-200 bg-white px-3 py-2 placeholder-slate-400 shadow-sm focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:outline-none contrast-more:border-slate-400 contrast-more:placeholder-slate-500 sm:text-sm"
+              placeholder="000-00-0000"
+            />
+            <p className="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">
+              <>Necesitamos esto para robar tu identidad.</>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  }
+</Example>
+
+```html
+<form>
+  <label class="block">
+    <span class="block text-sm font-medium text-slate-700">Número de Seguro Social</span>
+    <!-- [!code word:contrast-more\:border-slate-400] -->
+    <!-- [!code word:contrast-more\:placeholder-slate-500] -->
+    <!-- [!code word:contrast-more\:opacity-100] -->
+    <input
+      class="border-slate-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"
+    />
+    <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">Necesitamos esto para robar tu identidad.</p>
+  </label>
+</form>
+```
+
+</Figure>
+
+Escribí [alguna documentación](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#prefers-contrast) para esto, pero honestamente escribí más aquí que allí.
+
+## Estilizar backdrops de diálogo nativos
+
+Hay un elemento HTML `<dialog>` bastante nuevo](https://developer.mozilla.org/es/docs/Web/HTML/Element/dialog) con un [soporte de navegador](https://caniuse.com/dialog) sorprendentemente decente con el que vale la pena jugar si te gusta vivir al límite.
+
+Los diálogos tienen este nuevo pseudo-elemento `::backdrop` que se renderiza mientras el diálogo está abierto, y Tailwind CSS v3.1 añade un nuevo modificador `backdrop` que puedes usar para estilizar a este bebé:
+
+```html
+<dialog class="backdrop:bg-slate-900/50 ...">
+  <form method="dialog">
+    <!-- ... -->
+    <button value="cancel">Cancelar</button>
+    <button>Enviar</button>
+  </form>
+</dialog>
+```
+
+Recomiendo leer la [documentación de MDN sobre Dialog](https://developer.mozilla.org/es/docs/Web/HTML/Element/dialog) si quieres profundizar más en esto — es algo emocionante pero hay mucho que saber.
+
+## Valores arbitrarios pero para variantes
+
+Ok, así que este es el verdadero punto culminante para mí — ¿sabes cómo te damos la [API `addVariant`](https://v3.tailwindcss.com/docs/plugins#adding-variants) para crear tus propias variantes personalizadas?
+
+```js
+// [!code filename:tailwind.config.js]
+const plugin = require("tailwindcss/plugin");
+
+module.exports = {
+  // ...
+  plugins: [
+    plugin(function ({ addVariant }) {
+      // [!code highlight:2]
+      addVariant("third", "&:nth-child(3)");
+    }),
+  ],
+};
+```
+
+...¿y sabes cómo tenemos [valores arbitrarios](https://v3.tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values) para usar cualquier valor que quieras con una utilidad directamente en tu HTML?
+
+```html
+<!-- [!code word:top-[117px]] -->
+<div class="top-[117px]">
+  <!-- ... -->
+</div>
+```
+
+Bueno, Tailwind CSS v3.1 introduce [variantes arbitrarias](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#using-arbitrary-variants), permitiéndote crear tus propias variantes ad hoc directamente en tu HTML:
+
+```html
+<!-- [!code word:[&\:nth-child(3)\]] -->
+<div class="[&:nth-child(3)]:py-0">
+  <!-- ... -->
+</div>
+```
+
+Esto es súper útil para variantes que de alguna manera parecen necesitar ser parametrizadas, por ejemplo, añadir un estilo si el navegador soporta una característica CSS específica usando una consulta `@supports`:
+
+```html
+<!-- [!code word:@supports(backdrop-filter\:blur(0))\]\:bg-white/50] -->
+<!-- [!code word:[@supports(backdrop-filter\:blur(0))\]\:backdrop-blur] -->
+<div
+  class="bg-white [@supports(backdrop-filter:blur(0))]:bg-white/50 [@supports(backdrop-filter:blur(0))]:backdrop-blur"
+>
+  <!-- ... -->
+</div>
+```
+
+Incluso puedes usar esta característica para apuntar a elementos hijos con variantes arbitrarias como `[&>*]`:
+
+<Figure>
+
+<Example>
+  {
+    <div className="mx-auto max-w-md">
+      <ul role="list" className="space-y-4 [&>*]:rounded-lg [&>*]:bg-white [&>*]:p-4 [&>*]:shadow">
+        <li className="flex">
+          <img
+            className="h-10 w-10 rounded-full"
+            src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <div className="ml-3 overflow-hidden">
+            <p className="text-sm font-medium text-slate-900">Kristen Ramos</p>
+            <p className="truncate text-sm text-slate-500">kristen.ramos@example.com</p>
+          </div>
+        </li>
+        <li className="flex">
+          <img
+            className="h-10 w-10 rounded-full"
+            src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <div className="ml-3 overflow-hidden">
+            <p className="text-sm font-medium text-slate-900">Floyd Miles</p>
+            <p className="truncate text-sm text-slate-500">floyd.miles@example.com</p>
+          </div>
+        </li>
+        <li className="flex">
+          <img
+            className="h-10 w-10 rounded-full"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <div className="ml-3 overflow-hidden">
+            <p className="text-sm font-medium text-slate-900">Courtney Henry</p>
+            <p className="truncate text-sm text-slate-500">courtney.henry@example.com</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:[&>*\]\:p-4] -->
+<!-- [!code word:[&>*\]\:bg-white] -->
+<!-- [!code word:[&>*\]\:rounded-lg] -->
+<!-- [!code word:[&>*\]\:shadow] -->
+<ul role="list" class="space-y-4 [&>*]:rounded-lg [&>*]:bg-white [&>*]:p-4 [&>*]:shadow">
+  <li class="flex">
+    <img class="h-10 w-10 rounded-full" src="..." alt="" />
+    <div class="ml-3 overflow-hidden">
+      <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
+      <p class="truncate text-sm text-slate-500">kristen.ramos@example.com</p>
+</div>
+  </li>
+  <!-- ... -->
+</ul>
+```
+
+</Figure>
+
+Incluso puedes estilizar el primer `p` dentro del `div` en el segundo `li` hijo pero solo en `hover`:
+
+<Figure hint="Intenta pasar el cursor sobre el texto 'Floyd Miles'">
+
+<Example>
+  {
+    <div className="mx-auto max-w-md">
+      <ul
+        role="list"
+        className="space-y-4 [&>*]:rounded-lg [&>*]:bg-white [&>*]:p-4 [&>*]:shadow hover:[&>li:nth-child(2)>div>p:first-child]:text-indigo-500"
+      >
+        <li className="flex">
+          <img
+            className="h-10 w-10 rounded-full"
+            src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <div className="ml-3 overflow-hidden">
+            <p className="text-sm font-medium text-slate-900">Kristen Ramos</p>
+            <p className="truncate text-sm text-slate-500">kristen.ramos@example.com</p>
+          </div>
+        </li>
+        <li className="flex">
+          <img
+            className="h-10 w-10 rounded-full"
+            src="https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <div className="ml-3 overflow-hidden">
+            <p className="text-sm font-medium text-slate-900">Floyd Miles</p>
+            <p className="truncate text-sm text-slate-500">floyd.miles@example.com</p>
+          </div>
+        </li>
+        <li className="flex">
+          <img
+            className="h-10 w-10 rounded-full"
+            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+            alt=""
+          />
+          <div className="ml-3 overflow-hidden">
+            <p className="text-sm font-medium text-slate-900">Courtney Henry</p>
+            <p className="truncate text-sm text-slate-500">courtney.henry@example.com</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  }
+</Example>
+
+```html
+<!-- [!code word:hover\:[&>li\:nth-child(2)>div>p\:first-child\]\:text-indigo-500] -->
+<ul
+  role="list"
+  class="space-y-4 [&>*]:rounded-lg [&>*]:bg-white [&>*]:p-4 [&>*]:shadow hover:[&>li:nth-child(2)>div>p:first-child]:text-indigo-500"
+>
+  <!-- ... -->
+  <li class="flex">
+    <img class="h-10 w-10 rounded-full" src="..." alt="" />
+    <div class="ml-3 overflow-hidden">
+      <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
+      <p class="truncate text-sm text-slate-500">floyd.miles@example.com</p>
+</div>
+  </li>
+  <!-- ... -->
+</ul>
+```
+
+</Figure>
+
+Ahora, _deberías_ hacer esto? Probablemente no muy a menudo, pero honestamente puede ser una vía de escape bastante útil cuando intentas estilizar HTML que no puedes cambiar directamente. Es un cuchillo afilado, pero los mejores chefs no preparan comida con tijeras de seguridad.
+
+Juega un poco con ellas y apuesto a que encontrarás que son una gran herramienta cuando la situación lo requiere. Las estamos usando en un par de puntos complicados en estas nuevas plantillas de sitio web en las que estamos trabajando y la experiencia es mucho más agradable que crear una clase personalizada.
+
+---
+
+¡Así que eso es Tailwind CSS v3.1! Es solo un cambio de versión menor, así que no hay cambios que rompan la compatibilidad y deberías poder actualizar tu proyecto simplemente instalando la última versión:
+
+```sh
+npm install tailwindcss@latest
+```
+
+Para la lista completa de cambios, incluyendo correcciones de errores y algunas mejoras menores de las que no hablé aquí, profundiza en las [notas de la versión](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.1.0) en GitHub.
+
+Ya tengo un montón de ideas para Tailwind CSS v3.2 _(¡quizás incluso sombras de texto finalmente?!)_, pero ahora mismo estamos trabajando duro para llevar estas nuevas [plantillas de sitio web](/blog/2022-05-23-headless-ui-v1-6-tailwind-ui-team-management#tailwind-css-templates-are-coming-soon) a la línea de meta. ¡Busca otra actualización sobre ese tema en la próxima semana o dos!

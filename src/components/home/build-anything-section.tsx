@@ -31,12 +31,12 @@ export default function BuildAnythingSection() {
       </div>
 
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
-        <CategoryHeader className="text-fuchsia-500 dark:text-fuchsia-400">Tailwind en Acción</CategoryHeader>
+        <CategoryHeader className="text-fuchsia-500 dark:text-fuchsia-400">Tailwind in the wild</CategoryHeader>
       </GridContainer>
 
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4">
-          Construye lo que quieras, sin tocar tu archivo CSS.
+          Build whatever you want, without touching your CSS file.
         </h2>
       </GridContainer>
 
@@ -47,8 +47,8 @@ export default function BuildAnythingSection() {
 
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
-          Debido a que Tailwind es de tan bajo nivel, nunca te anima a diseñar el mismo sitio dos veces. Algunos de tus sitios
-          favoritos están construidos con Tailwind, y probablemente no tenías ni idea.
+          Because Tailwind is so low-level, it never encourages you to design the same site twice. Some of your favorite
+          sites are built with Tailwind, and you probably had no idea.
         </p>
       </GridContainer>
 
@@ -191,13 +191,13 @@ export default function BuildAnythingSection() {
                 <Image src={midjourney} alt="Midjourney" width={293} />
               </a>
               <a
-                href="https://nasa.gov/"
+                href="https://www.jpl.nasa.gov/"
                 rel="noreferrer"
                 target="_blank"
                 className="group relative opacity-75 transition-opacity hover:opacity-100"
               >
-                <ExternalLinkLabel>nasa.gov</ExternalLinkLabel>
-                <Image src={nasa} alt="NASA" width={293} />
+                <ExternalLinkLabel>jpl.nasa.gov</ExternalLinkLabel>
+                <Image src={nasa} alt="NASA/JPL" width={293} />
               </a>
             </div>
           </BentoItem>

@@ -6,7 +6,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "max-width";
-export const description = "Utilidades para establecer el ancho máximo de un elemento.";
+export const description = "Utilities for setting the maximum width of an element.";
 
 <ApiTable
   rows={[
@@ -54,13 +54,13 @@ export const description = "Utilidades para establecer el ancho máximo de un el
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `max-w-<number>` como `max-w-24` y `max-w-64` para establecer un ancho máximo fijo para un elemento basada en la escala de espaciado:
+Use `max-w-<number>` utilities like `max-w-24` and `max-w-64` to set an element to a fixed maximum width based on the spacing scale:
 
-<Figure hint="Redimensiona el ejemplo para ver el comportamiento esperado">
+<Figure hint="Resize the example to see the expected behavior">
 
 <Example resizable>
   {
@@ -110,11 +110,11 @@ Usa utilidades `max-w-<number>` como `max-w-24` y `max-w-64` para establecer un 
 
 </Figure>
 
-### Usando un porcentaje
+### Using a percentage
 
-Usa utilidades `max-w-full` o `max-w-<fraction>` como `max-w-1/2` y `max-w-2/5` para darle a un elemento un ancho máximo basado en porcentajes:
+Use `max-w-full` or `max-w-<fraction>` utilities like `max-w-1/2` and `max-w-2/5` to give an element a percentage-based maximum width:
 
-<Figure hint="Redimensiona el ejemplo para ver el comportamiento esperado">
+<Figure hint="Resize the example to see the expected behavior">
 
 <Example resizable>
   {
@@ -149,11 +149,11 @@ Usa utilidades `max-w-full` o `max-w-<fraction>` como `max-w-1/2` y `max-w-2/5` 
 
 </Figure>
 
-### Usando la escala del contenedor
+### Using the container scale
 
-Usa utilidades como `max-w-sm` y `max-w-xl` para establecer un ancho máximo fijo para un elemento basado en la escala del contenedor:
+Use utilities like `max-w-sm` and `max-w-xl` to set an element to a fixed maximum width based on the container scale:
 
-<Figure hint="Redimensiona el ejemplo para ver el comportamiento esperado">
+<Figure hint="Resize the example to see the expected behavior">
 
 <Example resizable>
   {
@@ -181,9 +181,9 @@ Usa utilidades como `max-w-sm` y `max-w-xl` para establecer un ancho máximo fij
 
 </Figure>
 
-### Usando el contenedor de breakpoints
+### Using breakpoints container
 
-Usa la utilidad `container` para establecer el ancho máximo de un elemento para que coincida con el `min-width` del breakpoint actual. Esto es útil si prefieres diseñar para un conjunto fijo de tamaños de pantalla en lugar de intentar acomodar un viewport completamente fluido:
+Use the `container` utility to set the maximum width of an element to match the `min-width` of the current breakpoint. This is useful if you'd prefer to design for a fixed set of screen sizes instead of trying to accommodate a fully fluid viewport:
 
 ```html
 <!-- [!code classes:container] -->
@@ -192,7 +192,7 @@ Usa la utilidad `container` para establecer el ancho máximo de un elemento para
 </div>
 ```
 
-Ten en cuenta que, a diferencia de los contenedores que puedes haber usado en otros frameworks, el contenedor de Tailwind no se centra automáticamente y no tiene ningún padding horizontal incorporado. Usa `mx-auto` y las utilidades `px-<number>` para agregarlos:
+Note that unlike containers you might have used in other frameworks, Tailwind's container does not center itself automatically and does not have any built-in horizontal padding. Use `mx-auto` and the `px-<number>` utilities to add these:
 
 ```html
 <!-- [!code classes:mx-auto,px-4] -->
@@ -201,7 +201,7 @@ Ten en cuenta que, a diferencia de los contenedores que puedes haber usado en ot
 </div>
 ```
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="max-w" value="220px" name="maximum width" variable="max-width" />
 
@@ -209,6 +209,6 @@ Ten en cuenta que, a diferencia de los contenedores que puedes haber usado en ot
 
 <ResponsiveDesign property="max-width" defaultClass="max-w-sm" featuredClass="max-w-lg" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourSpacingScale utility="max-w" />

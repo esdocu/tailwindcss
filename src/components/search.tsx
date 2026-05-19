@@ -74,7 +74,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
 
   useEffect(() => {
     // Prepend "Components" to Tailwind UI results that are shown in the "recent" view
-    if (!isOpen && typeof window !== "undefined" && window.localStorage) {
+    if (!isOpen) {
       let key = `__DOCSEARCH_RECENT_SEARCHES__${INDEX_NAME}`;
       try {
         let data = JSON.parse(localStorage.getItem(key) as any);
@@ -136,7 +136,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                   "product_category",
                 ],
               }}
-              placeholder="Buscar documentación"
+              placeholder="Search documentation"
               onClose={onClose}
               indexName={INDEX_NAME}
               apiKey={API_KEY}
@@ -194,11 +194,11 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
 
                   if (isTailwindUI && item.hierarchy.lvl0 === "UI Blocks") {
                     if (item.hierarchy?.lvl0) {
-                      item.hierarchy.lvl0 = "Componentes";
+                      item.hierarchy.lvl0 = "Components";
                     }
 
                     if (item._highlightResult?.hierarchy?.lvl0?.value) {
-                      item._highlightResult.hierarchy.lvl0.value = "Componentes";
+                      item._highlightResult.hierarchy.lvl0.value = "Components";
                     }
                   }
 
@@ -232,6 +232,24 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
 }
 
 function Hit({ hit, children }: { hit: any; children: React.ReactNode }) {
+  if (isTailwindPlusURL(hit.url)) {
+    return (
+      <a
+        href={hit.url}
+        className={clsx({
+          "DocSearch-Hit--Result": hit.__is_result?.(),
+          "DocSearch-Hit--Parent": hit.__is_parent?.(),
+          "DocSearch-Hit--FirstChild": hit.__is_first?.(),
+          "DocSearch-Hit--LastChild": hit.__is_last?.(),
+          "DocSearch-Hit--Child": hit.__is_child?.(),
+          "DocSearch-Hit--TailwindUI": hit.__is_tailwindui?.(),
+        })}
+      >
+        {children}
+      </a>
+    );
+  }
+
   return (
     <Link
       href={hit.url}

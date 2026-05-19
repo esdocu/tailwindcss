@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "line-height";
-export const description = "Utilidades para controlar el leading, o altura de línea, de un elemento.";
+export const description = "Utilities for controlling the leading, or line height, of an element.";
 
 <ApiTable
   rows={[
@@ -12,17 +12,17 @@ export const description = "Utilidades para controlar el leading, o altura de l�
     ["text-<size>/(<custom-property>)", "font-size: <size>;\nline-height: var(<custom-property>);"],
     ["text-<size>/[<value>]", "font-size: <size>;\nline-height: <value>;"],
     ["leading-none", "line-height: 1;"],
-    ["leading-<number>", "line-height: calc(var(--spacing) * <number>)"],
+    ["leading-<number>", "line-height: calc(var(--spacing) * <number>);"],
     ["leading-(<custom-property>)", "line-height: var(<custom-property>);"],
     ["leading-[<value>]", "line-height: <value>;"],
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades de tamaño de fuente como `text-sm/6` y `text-lg/7` para establecer el tamaño de fuente y la altura de línea de un elemento al mismo tiempo:
+Use font size utilities like `text-sm/6` and `text-lg/7` to set the font size and line-height of an element at the same time:
 
 <Figure>
 
@@ -65,11 +65,11 @@ Usa utilidades de tamaño de fuente como `text-sm/6` y `text-lg/7` para establec
 
 </Figure>
 
-Cada utilidad de tamaño de fuente también establece una altura de línea predeterminada cuando no se proporciona una. Puedes obtener más información sobre estos valores y cómo personalizarlos en la [documentación de font-size](/docs/font-size).
+Each font size utility also sets a default line height when one isn't provided. You can learn more about these values and how to customize them in the [font-size documentation](/docs/font-size).
 
-### Estableciendo independientemente
+### Setting independently
 
-Usa utilidades `leading-<number>` como `leading-6` y `leading-7` para establecer la altura de línea de un elemento independientemente del tamaño de fuente:
+Use `leading-<number>` utilities like `leading-6` and `leading-7` to set the line height of an element independent of the font-size:
 
 <Figure>
 
@@ -113,9 +113,9 @@ Usa utilidades `leading-<number>` como `leading-6` y `leading-7` para establecer
 
 </Figure>
 
-### Eliminando el leading
+### Removing the leading
 
-Usa la utilidad `leading-none` para establecer la altura de línea de un elemento igual a su tamaño de fuente:
+Use the `leading-none` utility to set the line height of an element equal to its font size:
 
 <Figure>
 
@@ -134,7 +134,7 @@ Usa la utilidad `leading-none` para establecer la altura de línea de un element
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue element="p" utility="leading" name="line height" variable="line-height" value="1.5" />
 
@@ -142,6 +142,6 @@ Usa la utilidad `leading-none` para establecer la altura de línea de un element
 
 <ResponsiveDesign element="p" property="line-height" defaultClass="leading-5" featuredClass="leading-6" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourSpacingScale utility="leading" />

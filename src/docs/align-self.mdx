@@ -6,7 +6,7 @@ import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "align-self";
 export const description =
-  "Utilidades para controlar cómo se posiciona un ítem flex o grid individual a lo largo del eje transversal de su contenedor.";
+  "Utilities for controlling how an individual flex or grid item is positioned along its container's cross axis.";
 
 <ApiTable
   rows={[
@@ -18,15 +18,15 @@ export const description =
     ["self-center-safe", "align-self: safe center;"],
     ["self-stretch", "align-self: stretch;"],
     ["self-baseline", "align-self: baseline;"],
-    ["self-baseline", "align-self: last baseline;"],
+    ["self-baseline-last", "align-self: last baseline;"],
   ]}
 />
 
-## Ejemplos
+## Examples
 
 ### Auto
 
-Usa la utilidad `self-auto` para alinear un ítem basándose en el valor de la propiedad `align-items` del contenedor:
+Use the `self-auto` utility to align an item based on the value of the container's `align-items` property:
 
 <Figure>
 
@@ -60,7 +60,7 @@ Usa la utilidad `self-auto` para alinear un ítem basándose en el valor de la p
 
 ### Start
 
-Usa la utilidad `self-start` para alinear un ítem al inicio del eje transversal del contenedor, a pesar del valor `align-items` del contenedor:
+Use the `self-start` utility to align an item to the start of the container's cross axis, despite the container's `align-items` value:
 
 <Figure>
 
@@ -94,7 +94,7 @@ Usa la utilidad `self-start` para alinear un ítem al inicio del eje transversal
 
 ### Center
 
-Usa la utilidad `self-center` para alinear un ítem a lo largo del centro del eje transversal del contenedor, a pesar del valor `align-items` del contenedor:
+Use the `self-center` utility to align an item along the center of the container's cross axis, despite the container's `align-items` value:
 
 <Figure>
 
@@ -128,7 +128,7 @@ Usa la utilidad `self-center` para alinear un ítem a lo largo del centro del ej
 
 ### End
 
-Usa la utilidad `self-end` para alinear un ítem al final del eje transversal del contenedor, a pesar del valor `align-items` del contenedor:
+Use the `self-end` utility to align an item to the end of the container's cross axis, despite the container's `align-items` value:
 
 <Figure>
 
@@ -162,7 +162,7 @@ Usa la utilidad `self-end` para alinear un ítem al final del eje transversal de
 
 ### Stretch
 
-Usa la utilidad `self-stretch` para estirar un ítem para que llene el eje transversal del contenedor, a pesar del valor `align-items` del contenedor:
+Use the `self-stretch` utility to stretch an item to fill the container's cross axis, despite the container's `align-items` value:
 
 <Figure>
 
@@ -196,7 +196,7 @@ Usa la utilidad `self-stretch` para estirar un ítem para que llene el eje trans
 
 ### Baseline
 
-Usa la utilidad `self-baseline` para alinear un ítem de modo que su línea base se alinee con la línea base del eje transversal del contenedor flex:
+Use the `self-baseline` utility to align an item such that its baseline aligns with the baseline of the flex container's cross axis:
 
 <Figure>
 
@@ -230,7 +230,7 @@ Usa la utilidad `self-baseline` para alinear un ítem de modo que su línea base
 
 ### Last baseline
 
-Usa la utilidad `self-baseline-last` para alinear un ítem a lo largo del eje transversal del contenedor de modo que su línea base se alinee con la última línea base del contenedor:
+Use the `self-baseline-last` utility to align an item along the container's cross axis such that its baseline aligns with the last baseline in the container:
 
 <Figure>
 
@@ -287,7 +287,7 @@ Usa la utilidad `self-baseline-last` para alinear un ítem a lo largo del eje tr
 
 </Figure>
 
-Esto es útil para asegurar que los ítems de texto se alineen entre sí, incluso si tienen diferentes alturas.
+This is useful for ensuring that text items align with each other, even if they have different heights.
 
 ### Responsive design
 

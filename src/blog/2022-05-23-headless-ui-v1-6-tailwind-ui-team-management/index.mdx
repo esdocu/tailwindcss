@@ -11,38 +11,38 @@ import tailwindcssLanguageMode from "./tailwindcss-language-mode.png";
 import documentationTemplateTeaser from "./documentation-template-teaser.jpg";
 
 export const meta = {
-  title: "Headless UI v1.6, gestión de equipos de Tailwind UI, mejoras de Tailwind Play y más",
-  description: `¡Ha pasado un tiempo desde que escribí sobre en qué hemos estado trabajando, así que tengo mucho que compartir! Demasiado, honestamente — así que ponte tu traje de baño, siéntate en tu sillón y prepárate para absorber un poco de vitamina CSS.`,
+  title: "Headless UI v1.6, Tailwind UI team management, Tailwind Play improvements, and more",
+  description: `It's been a while since I've written about what we've been working on so I have a lot to share! Too much honestly — so put your swim suit on, sit back in your lounge chair, and prepare to soak up some vitamin CSS.`,
   date: "2022-05-27T15:00:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      ¡Ha pasado un tiempo desde que escribí sobre en qué hemos estado trabajando, así que tengo mucho que compartir! Demasiado, honestamente
-      — mi principal motivación para sacar esta actualización es que tenemos aún más cosas la próxima semana, y siento
-      que no puedo compartir esas cosas hasta que comparta todo lo que ya hemos lanzado. Así que ponte tu traje de baño,
-      siéntate en tu sillón y prepárate para absorber un poco de vitamina CSS.
+      It's been a while since I've written about what we've been working on so I have a lot to share! Too much honestly
+      — my main motivator for even getting this update out is that we've got even more stuff coming next week, and I
+      feel like I'm not allowed to share that stuff until I share all of the stuff we've already shipped. So put your
+      swim suit on, sit back in your lounge chair, and prepare to soak up some vitamin CSS.
     </>
   ),
 };
 
-¡Ha pasado un tiempo desde que escribí sobre en qué hemos estado trabajando, así que tengo mucho que compartir! Demasiado, honestamente — mi principal motivación para sacar esta actualización es que tenemos aún más cosas la próxima semana, y siento que no puedo compartir esas cosas hasta que comparta todo lo que ya hemos lanzado.
+It's been a while since I've written about what we've been working on so I have a lot to share! Too much honestly — my main motivator for even getting this update out is that we've got even more stuff coming next week, and I feel like I'm not allowed to share that stuff until I share all of the stuff we've already shipped.
 
-Así que ponte tu traje de baño, siéntate en tu sillón y prepárate para absorber un poco de vitamina CSS.
+So put your swim suit on, sit back in your lounge chair, and prepare to soak up some vitamin CSS.
 
 ---
 
-## Headless UI v1.6 está disponible
+## Headless UI v1.6 is out
 
-Hace unas semanas lanzamos una nueva versión menor de <Link href="https://headlessui.dev/">Headless UI</Link>, la librería de UI sin estilos que construimos para hacer posible agregar soporte de React y Vue a Tailwind UI.
+A few weeks ago we released a new minor version of <Link href="https://headlessui.dev/">Headless UI</Link>, the unstyled UI library we built to make it possible to add React and Vue support to Tailwind UI.
 
-Consulta <Link href="https://github.com/tailwindlabs/headlessui/releases/tag/%40headlessui%2Freact%40v1.6.0">las notas de la versión</Link> para todos los detalles, pero aquí tienes algunos de los puntos destacados.
+Check out <Link href="https://github.com/tailwindlabs/headlessui/releases/tag/%40headlessui%2Freact%40v1.6.0">the release notes</Link> for all of the details, but here are some of the highlights.
 
-### Soporte multiselección
+### Multiselect support
 
-Hemos agregado una nueva prop `multiple` a los componentes `Combobox` y `Listbox` para que la gente pueda seleccionar más de una opción.
+We've added a new `multiple` prop to both the `Combobox` and `Listbox` components so people can select more than one option.
 
-Simplemente agrega la prop `multiple` y vincula un array como tu `value` y ¡listo!:
+Just add the `multiple` prop and bind an array as your `value` and you are ready to go:
 
 ```jsx
 function MyCombobox({ items }) {
@@ -72,13 +72,13 @@ function MyCombobox({ items }) {
 }
 ```
 
-Consulta <Link href="https://headlessui.dev/react/combobox#selecting-multiple-values">la documentación del combobox</Link> y <Link href="https://headlessui.dev/react/listbox">la documentación del listbox</Link> para obtener más información.
+Check out <Link href="https://headlessui.dev/react/combobox#selecting-multiple-values">the combobox documentation</Link> and <Link href="https://headlessui.dev/react/listbox">listbox documentation</Link> for more.
 
-### Comboboxes anulables
+### Nullable comboboxes
 
-Antes de la v1.6, si eliminabas el contenido de un combobox y te movías con tabulación, restauraba la opción previamente seleccionada. Esto tiene sentido muchas veces, pero a veces realmente quieres borrar el valor de un combobox.
+Prior to v1.6, if you deleted the contents of a combobox and tabbed away, it would restore the previously selected option. This makes sense a lot of the time, but sometimes you really do want to clear the value of a combobox.
 
-Hemos agregado una nueva prop `nullable` que lo hace posible — simplemente agrega la prop y ahora puedes eliminar el valor sin que se restaure el valor anterior:
+We've added a new `nullable` prop that makes this possible — just add the prop and now you can delete the value without the previous value being restored:
 
 ```jsx
 function MyCombobox({ items }) {
@@ -100,11 +100,11 @@ function MyCombobox({ items }) {
 }
 ```
 
-### Soporte fácil para formularios HTML
+### Easy HTML form support
 
-Ahora, si agregas una prop `name` a los componentes de formulario como `Listbox`, `Combobox`, `Switch` y `RadioGroup`, crearemos automáticamente un input oculto que se sincroniza con el valor del componente.
+Now if you add a `name` prop to form components like `Listbox`, `Combobox`, `Switch`, and `RadioGroup`, we'll automatically create a hidden input that syncs with the component's value.
 
-Esto hace que sea súper fácil enviar esos datos al servidor con un envío de formulario regular, o con algo como el componente `<Form>` en <Link href="https://remix.run/docs/en/v1/guides/data-writes#graduate-to-form-and-add-pending-ui">Remix</Link>.
+This makes it super easy to send that data to the server with a regular form submission, or with something like the `<Form>` component in <Link href="https://remix.run/docs/en/v1/guides/data-writes#graduate-to-form-and-add-pending-ui">Remix</Link>.
 
 ```jsx
 <form action="/projects/1/assignee" method="post">
@@ -120,24 +120,24 @@ Esto hace que sea súper fácil enviar esos datos al servidor con un envío de f
 </form>
 ```
 
-Esto funciona con valores simples como números y cadenas, pero también con objetos — los serializamos automáticamente en múltiples campos usando esa notación de corchetes de 1996:
+This works with simple values like numbers and string, but also with objects — we automatically serialize them into multiple fields using that square bracket notation from 1996:
 
 ```html
 <input type="hidden" name="assignee[id]" value="1" />
 <input type="hidden" name="assignee[name]" value="Durward Reynolds" />
 ```
 
-Consulta <Link href="https://headlessui.dev/react/listbox#using-with-html-forms">la documentación</Link> si quieres leer exactamente lo que acabo de escribir de nuevo pero en un dominio diferente.
+Check out <Link href="https://headlessui.dev/react/listbox#using-with-html-forms">the documentation</Link> if you want to read exactly what I just wrote all over again but on a different domain.
 
-### Mejoras en diálogos desplazables
+### Scrollable dialog improvements
 
-Los diálogos son literalmente lo más difícil de construir del planeta. Hemos estado lidiando con complicados <Link href="https://github.com/tailwindlabs/headlessui/issues/1132">problemas</Link> de <Link href="https://github.com/tailwindlabs/headlessui/issues/1056">desplazamiento</Link> durante un tiempo, y creemos que finalmente lo hemos solucionado todo en la v1.6.
+Dialogs are literally the hardest thing to build on the planet. We've been wrestling with gnarly <Link href="https://github.com/tailwindlabs/headlessui/issues/1132">scrolling</Link> <Link href="https://github.com/tailwindlabs/headlessui/issues/1056">issues</Link> for a while now, and think we've finally got it all sorted out in v1.6.
 
-El quid de la cuestión es que hemos cambiado cómo funciona el "clic fuera para cerrar". Solíamos usar este componente `Dialog.Overlay` que pones detrás de tu diálogo real, y teníamos un controlador de clics en él que cerraría el diálogo al hacer clic. Realmente me encanta la simplicidad de esto en principio — es mucho menos peculiar detectar cuándo se hace clic en un elemento específico que detectar cuándo se hace clic en cualquier cosa _que no sea_ un elemento específico, especialmente cuando tienes cosas renderizadas dentro de tu diálogo que a su vez renderizan otras cosas en portales y demás.
+The crux of it is that we've changed how "click outside to close" works. We used to use this `Dialog.Overlay` component that you put behind your actual dialog, and we had a click handler on that that would close the dialog on click. I actually really love the simplicity of this in principle — it's a lot less quirky to detect when a specific element is clicked than it is to detect when anything _other than_ a specific element is clicked, especially when you have things rendered inside your dialog that themselves are rendering other things in portals and stuff.
 
-El problema con este enfoque es que si tenías un diálogo largo que requería desplazamiento, tu overlay se colocaría _encima_ de tu barra de desplazamiento, e intentar hacer clic en la barra de desplazamiento cerraría el diálogo. ¡No es lo que quieres!
+The problem with this approach is that if you had a long dialog that required scrolling, your overlay would sit _on top_ of your scrollbar, and trying to click the scrollbar would close the dialog. Not what you want!
 
-Así que para arreglar esto de una manera no disruptiva, hemos agregado un nuevo componente `Dialog.Panel` que puedes usar en su lugar, y ahora cerramos el diálogo cada vez que haces clic fuera de ese componente, en lugar de cerrarlo específicamente cuando se hace clic en el overlay:
+So to fix this in a non-breaking way, we've added a new `Dialog.Panel` component you can use instead, and now we close the dialog any time you click outside of that component, rather than closing it specifically when the overlay is clicked:
 
 {/* prettier-ignore */}
 ```jsx
@@ -151,58 +151,58 @@ Así que para arreglar esto de una manera no disruptiva, hemos agregado un nuevo
 
    <div className="bg-white shadow-xl rounded-2xl ..."> /* [!code --] */
    <Dialog.Panel className="bg-white shadow-xl rounded-2xl ..."> /* [!code ++] */
-    <Dialog.Title>Pago exitoso</Dialog.Title>
+    <Dialog.Title>Payment successful</Dialog.Title>
     {/* ... */}
   </div> /* [!code --] */
   </Dialog.Panel> /* [!code ++] */
 </Dialog>
 ```
 
-Consulta <Link href="https://headlessui.dev/react/dialog">la documentación actualizada del diálogo</Link> para ejemplos más completos usando el nuevo componente panel en lugar del overlay.
+Check out <Link href="https://headlessui.dev/react/dialog">the updated dialog documentation</Link> for more complete examples using the new panel component instead of the overlay.
 
-### Mejor captura de foco
+### Better focus trapping
 
-Una de las muchas razones por las que los diálogos son lo más difícil de construir del planeta es por la captura de foco. Nuestro primer intento de esto implicó secuestrar la tecla tab y enfocar manually el elemento siguiente/anterior, para que pudiéramos volver al primer elemento en la trampa de foco cuando llegaras al final.
+One of the many reasons dialogs are the hardest thing to build on the planet is because of focus trapping. Our first attempt at this involved hijacking the tab key and manually focusing the next/previous element, so that we could circle back to the first item in the focus trap when you get to the end.
 
-Esto funciona bien hasta que la gente empieza a usar portales dentro de la trampa de foco. Ahora es básicamente imposible de manejar porque podrías tabular a un selector de fechas o algo que está conceptualmente dentro del diálogo, pero no lo está _realmente_ porque se renderiza en un portal por razones de estilo.
+This works okay until people start using portals inside the focus trap. Now it's basically impossible to manage because you could tab to a datepicker or something that is conceptually inside the dialog, but isn't _actually_ because it's rendered in a portal for styling reasons.
 
-[Robin](https://twitter.com/malfaitrobin) encontró una [solución realmente genial](https://github.com/tailwindlabs/headlessui/pull/1432) para esto que es súper simple — en lugar de intentar controlar manualmente cómo funciona la tabulación, simplemente coloca un elemento enfocable invisible al principio de la trampa de foco y otro al final. Ahora, cada vez que uno de estos elementos centinela recibe el foco, simplemente mueves el foco a donde debería estar realmente, basándote en si estás en el primer elemento o en el último y si el usuario estaba tabulando hacia adelante o hacia atrás.
+[Robin](https://twitter.com/malfaitrobin) came up with a [really cool solution](https://github.com/tailwindlabs/headlessui/pull/1432) for this that is super simple — instead of trying to manually control how tabbing works, just throw an invisible focusable element at the beginning of the focus trap and another one at the end. Now whenever one of these sentinel elements receives focus you just move focus to where it actually should be, based on whether you're at the first element or the last element and whether the user was tabbing forwards or backwards.
 
-Con este enfoque, no tienes que secuestrar la tecla tab en absoluto — simplemente dejas que el navegador haga todo el trabajo y solo mueves el foco manualmente cuando uno de tus elementos centinela recibe el foco.
+With this approach, you don't have to hijack the tab key at all — you just let the browser do all of the work and only move focus manually when one of your sentinel elements receives focus.
 
-Después de descubrir esto, notamos que un par de otras librerías ya estaban haciendo lo mismo, así que no es nada revolucionario ni nuevo, pero pensé que era bastante ingenioso y valía la pena compartirlo para cualquiera que no hubiera pensado en esta técnica.
-
----
-
-## Funcionalidades de gestión de equipos para Tailwind UI
-
-Cuando lanzamos <Link href="https://tailwindui.com">Tailwind UI</Link> por primera vez, el "equipo" éramos solo yo y <Link href="https://twitter.com/steveschoger">Steve</Link>, así que tuvimos que mantener muchas cosas simples si queríamos tener alguna posibilidad de sacar el producto con solo nosotros dos trabajando en él.
-
-Una de esas cosas era la licencia de equipo. No lanzamos con ningún flujo sofisticado de invitación de miembros del equipo ni nada, simplemente le pedimos a la gente que compartiera sus credenciales de Tailwind UI con su equipo. Esto fue suficiente para nosotros para sacar las cosas adelante, porque Tailwind UI realmente no hace nada de manera específica del usuario, y cada miembro de tu equipo obtiene la misma experiencia de todos modos.
-
-Además, para nosotros, tener que obtener las direcciones de correo electrónico de todos en tu equipo, ingresarlas en algún formulario, enviar a cada persona un correo electrónico de invitación y hacer que acepten la invitación se sentía como un infierno administrativo, especialmente cuando cada persona obtiene la misma experiencia después de iniciar sesión.
-
-Sin embargo, al mismo tiempo, compartir credenciales para cualquier cosa es bastante básico, y no es una decisión de diseño de la que estuviéramos muy orgullosos. Uso la misma contraseña (`slayerfan1234`) para Tailwind UI que para mi cuenta bancaria — ¡no quiero compartir eso con nadie!
-
-Así que hace un par de semanas decidimos resolverlo y construir algo.
-
-<Image alt="Interfaz con una URL de invitación copiable y lista de miembros del equipo" src={teamManagement} />
-
-Lo que decidimos fue un sistema de invitación puramente basado en enlaces, donde simplemente podías copiar tu enlace de invitación, compartirlo con tu equipo en Slack/Discord/lo que sea, y restablecer tu enlace si era necesario. También puedes dar a las personas permisos de "Miembro" u "Propietario", que controlan si pueden administrar miembros del equipo o ver el historial de facturación.
-
-Esto hace que sea súper fácil invitar a tu equipo sin un montón de tediosa entrada de datos, y revocar el acceso si alguien se va directamente en la UI en lugar de cambiar tu contraseña compartida.
-
-Esto está disponible ahora para cualquiera con una cuenta de equipo de Tailwind UI — simplemente abre el menú desplegable y haz clic en "Mi Equipo" para nombrar a tu equipo y comenzar a invitar a tus compañeros de trabajo.
-
-Puedes <Link href="https://tailwindui.com/pricing">comprar una licencia para tu equipo</Link> en el sitio web de Tailwind UI, o <Link href="https://tailwindui.com/upgrade-team">actualizar a una licencia de equipo</Link> si tienes una licencia personal y quieres empezar a usar Tailwind UI con tu equipo.
+After figuring this out we noticed a couple of other libraries already doing the same thing so it's nothing groundbreaking or new, but I thought it was pretty damn clever and worth sharing for anyone who hadn't thought of this technique.
 
 ---
 
-## Actualización de los ejemplos de Vue en Tailwind UI a `<script setup>`
+## Team management features for Tailwind UI
 
-Desde el lanzamiento del soporte de Vue para Tailwind UI, la nueva sintaxis `<script setup>` en Vue 3 se ha convertido en la forma recomendada de escribir tus componentes de archivo único.
+When we first released <Link href="https://tailwindui.com">Tailwind UI</Link>, the "team" was just me and <Link href="https://twitter.com/steveschoger">Steve</Link>, so we had to keep a lot of things simple if we wanted any chance of actually getting the thing out the door with just the two of us working on it.
 
-Hemos actualizado todos los ejemplos de Vue en Tailwind UI para usar este nuevo formato, que elimina una _tonelada_ de código repetitivo:
+One of those things was team licensing. We didn't ship with any fancy team member invitation flow or anything, we just asked people to share their Tailwind UI credentials with their team. This was good enough for us to get things out the door, because Tailwind UI doesn't really do anything in a user-specific way, and every member of your team gets the same experience anyways.
+
+Plus to us, having to get the email addresses of everyone on your team, enter them into some form, send each person an invitation email, and have them accept the invitation felt like administrative hell, especially when every single person gets the same experience after they sign in.
+
+At the same time though, sharing credentials for anything is pretty low-end, and it's not a design decision we took a lot of pride in. I use the same password (`slayerfan1234`) for Tailwind UI as I do for my bank account — I don't want to share that with anyone!
+
+So a couple of weeks ago we decided to figure it out and build something.
+
+<Image alt="Interface with a copyable invite URL and list of team members" src={teamManagement} />
+
+What we landed on was a purely link-based invitation system, where you could just copy your invite link, share it with your team in Slack/Discord/whatever, and reset your link if needed. You can also give people either "Member" or "Owner" permissions, which control whether they can manage team members or view billing history.
+
+This makes it super easy to invite your team without a bunch of tedious data entry, and revoke access if someone leaves right in the UI instead of by changing your shared password.
+
+This is available now for anyone with a Tailwind UI team account — just open the dropdown menu and click "My Team" to name your team and start inviting your co-workers.
+
+You can <Link href="https://tailwindui.com/pricing">purchase a license for your team</Link> on the Tailwind UI website, or <Link href="https://tailwindui.com/upgrade-team">upgrade to a team license</Link> if you have a personal license and want to start using Tailwind UI with your team.
+
+---
+
+## Updating the Vue examples in Tailwind UI to `<script setup>`
+
+Since releasing Vue support for Tailwind UI, the new `<script setup>` syntax in Vue 3 has become the recommended way to write your single-file components.
+
+We've updated all of the Vue examples in Tailwind UI to use this new format, which cuts out a _ton_ of boilerplate:
 
 ```html
 <template>
@@ -225,75 +225,75 @@ Hemos actualizado todos los ejemplos de Vue en Tailwind UI para usar este nuevo 
 </script>
 ```
 
-Para mí, la mejor parte absoluta es que ya no tienes que registrar explícitamente nada bajo `components` — cualquier componente que esté en el ámbito está automáticamente disponible para la plantilla.
+To me, the absolute best part is that you don't have to explicitly register anything under `components` anymore — any components that are in scope are automatically available to the template.
 
-Usar `<script setup>` también te permite usar <Link href="https://vuejs.org/api/sfc-script-setup.html#using-components">componentes con espacio de nombres</Link> como `Listbox.Button` como lo hacemos en la versión React de Headless UI. Aún no hemos actualizado Headless UI para exponer los componentes de esta manera, pero probablemente lo haremos pronto, lo que te permitirá eliminar un montón de importaciones.
+Using `<script setup>` also lets you use <Link href="https://vuejs.org/api/sfc-script-setup.html#using-components">namespaced components</Link> like `Listbox.Button` like we do in the React flavor of Headless UI. We haven't updated Headless UI to expose the components this way yet, but we're probably going to do it soon, which will let you shave off a ton of imports.
 
 ---
 
-## Nuevo modo de lenguaje Tailwind CSS para VS Code
+## New Tailwind CSS language mode for VS Code
 
-Tailwind usa un montón de reglas at no estándar como `@tailwind` y `@apply`, por lo que obtienes advertencias de lint en VS Code si usas el modo de lenguaje CSS regular.
+Tailwind uses a bunch of non-standard at-rules like `@tailwind` and `@apply`, so you get lint warnings in VS Code if you use the regular CSS language mode.
 
-Para evitar esto, siempre hemos recomendado a la gente que use el plugin <Link href="https://marketplace.visualstudio.com/items?itemName=csstools.postcss">PostCSS Language Support</Link>, que elimina esas advertencias pero también elimina todo el soporte de IntelliSense para CSS.
+To get around this, we've always recommended people use the <Link href="https://marketplace.visualstudio.com/items?itemName=csstools.postcss">PostCSS Language Support</Link> plugin, which gets rid of those warnings but also removes all of the other CSS IntelliSense support.
 
-Así que hace unas semanas, lanzamos un modo de lenguaje Tailwind CSS propio como parte de nuestra extensión <Link href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">Tailwind CSS IntelliSense</Link>, que se basa en el modo de lenguaje CSS incorporado para agregar resaltado de sintaxis específico de Tailwind y corregir las advertencias de lint que normalmente verías, sin perder ninguna de las características de IntelliSense de CSS que _sí_ quieres conservar.
+So a few weeks ago, we released a first-party Tailwind CSS language mode as part of our <Link href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">Tailwind CSS IntelliSense</Link> extension, which builds on the built-in CSS language mode to add Tailwind-specific syntax highlighting and fix the lint warnings you'd usually see, without losing any of CSS IntelliSense features you _do_ want to keep.
 
 <Image
-  alt="Código CSS de ejemplo que se muestra con advertencias de lint al usar un modo de lenguaje CSS incorporado, y sin advertencias de lint al usar el modo de lenguaje Tailwind CSS."
+  alt="Sample CSS code shown with lint warnings when using a built-in CSS language mode, and no lint warnings when using the Tailwind CSS language mode."
   src={tailwindcssLanguageMode}
 />
 
-Pruébalo descargando la última versión de Tailwind CSS IntelliSense y eligiendo "Tailwind CSS" como modo de lenguaje para tus archivos CSS.
+Try it out by downloading the latest version of Tailwind CSS IntelliSense and choosing "Tailwind CSS" as the language mode for your CSS files.
 
 ---
 
-## Panel "Generated CSS" en Tailwind Play
+## “Generated CSS” panel in Tailwind Play
 
-Hemos realizado un montón de pequeñas mejoras en <Link href="https://play.tailwindcss.com">Tailwind Play</Link> durante los últimos meses, siendo mi favorita el nuevo panel "Generated CSS".
+We've made a bunch of little improvements to <Link href="https://play.tailwindcss.com">Tailwind Play</Link> over the last couple of months, with my favorite being the new "Generated CSS" panel.
 
 <Image
-  alt="Interfaz de Tailwind Play con un panel que muestra el CSS generado para ese playground."
+  alt="Tailwind Play interface with a panel showing the CSS generated for that playground."
   src={playGeneratedCss}
 />
 
-Te muestra todo el CSS que se generó a partir de tu HTML y te permite filtrar por capa, lo cual es increíblemente útil para la solución de problemas. Internamente, usamos esto _todo el tiempo_ para depurar problemas extraños relacionados con clases que no se detectan para poder realizar cualquier <Link href="https://github.com/tailwindlabs/tailwindcss/blob/c4e443acc093d8980bf476f14255b793c5065b9a/src/lib/defaultExtractor.js#L22-L95">cirugía horrible de regex</Link> que sea necesaria para que funcione.
+It shows you all of the CSS that was generated from your HTML and lets you filter by layer, which is incredibly useful for troubleshooting. Internally, we are using this _all the time_ to debug weird issues around classes not being detected so we can perform whatever <Link href="https://github.com/tailwindlabs/tailwindcss/blob/c4e443acc093d8980bf476f14255b793c5065b9a/src/lib/defaultExtractor.js#L22-L95">horrific regex surgery</Link> is necessary to make it work.
 
-También agregamos un botón "Tidy" (<kbd>Cmd</kbd> + <kbd>S</kbd>) a cada panel que formateará automáticamente tu código (¡y ordenará tus clases!) y un botón "Copy" (<kbd>Cmd</kbd> + <kbd>A</kbd> <kbd>Cmd</kbd> + <kbd>C</kbd>, pero eso ya lo sabes) también.
-
----
-
-## Rediseñando el sitio web de Refactoring UI
-
-Cuando lanzamos <Link href="https://refactoringui.com">Refactoring UI</Link> en diciembre de 2018, Steve y yo literalmente diseñamos y construimos la página de destino final la noche antes del lanzamiento como a la 1 de la madrugada.
-
-Lo que pasó es que teníamos diseñada toda esta página de destino sexy, luego estaba escribiendo el correo electrónico de anuncio para enviar a todos en nuestra lista de correo y ambos pensamos "hombre, el contenido de este correo electrónico es genial y mucho más convincente que lo que tenemos en este diseño de página de destino".
-
-Pero ese contenido realmente no encajaba en lo que habíamos diseñado, así que a última hora desechamos todo lo que habíamos diseñado y preparamos rápidamente una página mucho más simple basada en el nuevo contenido. Se veía _bien_ pero no era la experiencia súper hermosa que realmente queríamos que fuera.
-
-Así que hace unas semanas, decidimos finalmente diseñar <Link href="https://refactoringui.com">algo nuevo</Link>.
-
-<Image alt="Sección de encabezado del sitio web rediseñado de Refactoring UI." src={refactoringUiHomepage} />
-
-Todavía estoy extremadamente orgulloso de este libro — probablemente más que de cualquier cosa que hayamos hecho. Tiene una calificación de 4.68 en <Link href="https://www.goodreads.com/en/book/show/43190966-refactoring-ui">Goodreads</Link> con más de 1100 calificaciones y casi 200 reseñas, lo que me parece bastante increíble para un ebook autopublicado.
-
-¡Esperando hacer una segunda edición algún día con todo lo que hemos aprendido desde entonces!
+We also added a "Tidy" button (<kbd>Cmd</kbd> + <kbd>S</kbd>) to each pane that will automatically format your code (and sort your classes!) and a "Copy" button (<kbd>Cmd</kbd> + <kbd>A</kbd> <kbd>Cmd</kbd> + <kbd>C</kbd>, but you already know that) too.
 
 ---
 
-## Las plantillas de Tailwind CSS llegarán pronto
+## Redesigning the Refactoring UI website
 
-Hemos insinuado esto un poco <Link href="https://twitter.com/adamwathan/status/1526925883625328641">en Twitter</Link>, pero durante los últimos meses hemos estado trabajando muy duro en un montón de plantillas de sitios web completas de Tailwind CSS.
+When we released <Link href="https://refactoringui.com">Refactoring UI</Link> back in December 2018, Steve and I literally designed and built the final landing page the night before launch at like 1am.
 
-Aquí tienes un adelanto de una de ellas — una plantilla de sitio de documentación construida con <Link href="https://nextjs.org/">Next.js</Link> y la nueva librería <Link href="https://markdoc.io/">Markdoc</Link> de Stripe:
+What happened is we had this whole sexy landing page designed, then I was writing up the announcement email to send to everyone on our mailing list and we both thought "man the content in this email is great and a lot more compelling than what we have in this landing page design".
+
+But that content didn't really fit into what we had designed, so at the eleventh hour we scrapped everything we had designed and whipped together a much simpler page based on the new content. It looked _fine_ but it wasn't the super beautiful experience we really wanted it to be.
+
+So a few weeks ago, we decided to finally design <Link href="https://refactoringui.com">something new</Link>.
+
+<Image alt="Header section of redesigned Refactoring UI website." src={refactoringUiHomepage} />
+
+I'm still extremely proud of this book — probably more so than anything we've ever made. It's got a 4.68 rating on <Link href="https://www.goodreads.com/en/book/show/43190966-refactoring-ui">Goodreads</Link> with over 1100 ratings and almost 200 reviews, which feels pretty incredible to me for a self-published ebook.
+
+Looking forward to doing a second edition one day with everything we've learned since!
+
+---
+
+## Tailwind CSS templates are coming soon
+
+We've teased this a bit <Link href="https://twitter.com/adamwathan/status/1526925883625328641">on Twitter</Link>, but for the last couple of months we've been working really hard on a bunch of full-fledged Tailwind CSS website templates.
+
+Here's a sneak peek at one of them — a documentation site template built with <Link href="https://nextjs.org/">Next.js</Link> and Stripe's new <Link href="https://markdoc.io/">Markdoc</Link> library:
 
 <Image
-  alt="Mesas de trabajo para el diseño de un sitio de documentación que incluye diseños para dispositivos móviles y de escritorio, y esquemas de color claro y oscuro."
+  alt="Artboards for a documentation site design that includes mobile and desktop layouts, and light and dark color schemes."
   src={documentationTemplateTeaser}
 />
 
-Estoy irrazonablemente emocionado por sacar esto. Estoy realmente orgulloso de Tailwind UI como producto, pero una de las limitaciones del formato de _fragmento-de-código-copiable-y-pegable_ es que no tenemos la oportunidad de mostrarte realmente cómo componer cosas, minimizar la duplicación y arquitectar las cosas como un sitio web completo y listo para producción.
+I'm unreasonably excited about getting these out. I'm really proud of Tailwind UI as a product, but one of the limitations of the _copy-and-pasteable-code-snippet_ format is that we don't get an opportunity to really show you how to componentize things, minimize duplication, and architect things as a complete, production-ready website.
 
-Las plantillas en las que estamos trabajando ahora van a ser increíbles para llenar ese vacío. Además de obtener hermosas plantillas para usar como punto de partida para tus propios proyectos, podrás explorar el código y estudiar exactamente cómo construimos sitios web con Tailwind CSS nosotros mismos.
+The templates we're working on now are going to be amazing at filling that gap. On top of just getting beautiful templates to use as a starting point for your own projects, you'll be able to dig through the code and study exactly how we build websites with Tailwind CSS ourselves.
 
-Todavía no hemos fijado una fecha de lanzamiento exacta para esto, pero esperamos tener algo el próximo mes. ¡Compartiré más a medida que avancemos!
+We haven't set an exact release date on these yet but we're hoping to have something out next month. Will share more as we make more progress!

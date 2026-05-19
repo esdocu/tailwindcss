@@ -4,22 +4,22 @@ import { Figure } from "@/components/figure.tsx";
 import { UsingACustomValue, ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "filter: invert()";
-export const description = "Utilidades para aplicar filtros invert a un elemento.";
+export const description = "Utilities for applying invert filters to an element.";
 
 <ApiTable
   rows={[
     ["invert", "filter: invert(100%);"],
     ["invert-<number>", "filter: invert(<number>%);"],
-    ["invert-(<custom-property>)", "filter: invert(var(<custom-property>))"],
+    ["invert-(<custom-property>)", "filter: invert(var(<custom-property>));"],
     ["invert-[<value>]", "filter: invert(<value>);"],
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades como `invert` e `invert-20` para controlar la inversión de color de un elemento:
+Use utilities like `invert` and `invert-20` to control the color inversion of an element:
 
 <Figure>
 
@@ -71,7 +71,7 @@ Usa utilidades como `invert` e `invert-20` para controlar la inversión de color
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue
   element="img"

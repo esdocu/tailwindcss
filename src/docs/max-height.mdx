@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "max-height";
-export const description = "Utilidades para establecer la altura máxima de un elemento.";
+export const description = "Utilities for setting the maximum height of an element.";
 
 <ApiTable
   rows={[
@@ -24,16 +24,17 @@ export const description = "Utilidades para establecer la altura máxima de un e
     ["max-h-min", "max-height: min-content;"],
     ["max-h-max", "max-height: max-content;"],
     ["max-h-fit", "max-height: fit-content;"],
+    ["max-h-lh", "max-height: 1lh;"],
     ["max-h-(<custom-property>)", "max-height: var(<custom-property>);"],
     ["max-h-[<value>]", "max-height: <value>;"],
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `max-h-<number>` como `max-h-24` y `max-h-64` para establecer una altura máxima fija para un elemento basada en la escala de espaciado:
+Use `max-h-<number>` utilities like `max-h-24` and `max-h-64` to set an element to a fixed maximum height based on the spacing scale:
 
 <Figure>
 
@@ -94,9 +95,9 @@ Usa utilidades `max-h-<number>` como `max-h-24` y `max-h-64` para establecer una
 
 </Figure>
 
-### Usando un porcentaje
+### Using a percentage
 
-Usa utilidades `max-h-full` o `max-h-<fraction>` como `max-h-1/2` y `max-h-2/5` para darle a un elemento una altura máxima basada en porcentajes:
+Use `max-h-full` or `max-h-<fraction>` utilities like `max-h-1/2` and `max-h-2/5` to give an element a percentage-based maximum height:
 
 <Figure>
 
@@ -150,7 +151,7 @@ Usa utilidades `max-h-full` o `max-h-<fraction>` como `max-h-1/2` y `max-h-2/5` 
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="max-h" value="220px" name="maximum height" variable="max-height" />
 
@@ -158,6 +159,6 @@ Usa utilidades `max-h-full` o `max-h-<fraction>` como `max-h-1/2` y `max-h-2/5` 
 
 <ResponsiveDesign property="max-height" defaultClass="h-48 max-h-full" featuredClass="max-h-screen" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourSpacingScale utility="max-h" />

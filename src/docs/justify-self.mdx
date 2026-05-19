@@ -6,7 +6,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "justify-self";
-export const description = "Utilidades para controlar cómo se alinea un elemento de grid individual a lo largo de su eje en línea.";
+export const description = "Utilities for controlling how an individual grid item is aligned along its inline axis.";
 
 <ApiTable
   rows={[
@@ -20,11 +20,11 @@ export const description = "Utilidades para controlar cómo se alinea un element
   ]}
 />
 
-## Ejemplos
+## Examples
 
 ### Auto
 
-Usa la utilidad `justify-self-auto` para alinear un elemento basándose en el valor de la propiedad `justify-items` del grid:
+Use the `justify-self-auto` utility to align an item based on the value of the grid's `justify-items` property:
 
 <Figure>
 
@@ -55,9 +55,9 @@ Usa la utilidad `justify-self-auto` para alinear un elemento basándose en el va
 
 </Figure>
 
-### Inicio
+### Start
 
-Usa la utilidad `justify-self-start` para alinear un elemento de grid al inicio de su eje en línea:
+Use the `justify-self-start` utility to align a grid item to the start of its inline axis:
 
 <Figure>
 
@@ -88,17 +88,19 @@ Usa la utilidad `justify-self-start` para alinear un elemento de grid al inicio 
 
 </Figure>
 
-### Centro
+### Center
 
-Usa las utilidades `justify-self-center` o `justify-self-center-safe` para alinear un elemento de grid a lo largo del centro de su eje en línea:
+Use the `justify-self-center` or `justify-self-center-safe` utilities to align a grid item along the center of its inline axis:
 
-<Figure hint="Redimensiona el contenedor para ver el comportamiento de la alineación">
+<Figure hint="Resize the container to see the alignment behavior">
 
 <Example resizable>
   {
     <div className="grid grid-cols-1 gap-8">
       <div>
-        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">justify-self-center</p>
+        <p className="text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">
+          justify-self-center
+        </p>
         <div className="mt-4 grid auto-rows-fr grid-cols-3 justify-items-stretch gap-10 text-center font-mono text-sm leading-6 font-bold text-white">
           <div className="rounded-lg bg-indigo-300 p-4 dark:bg-indigo-800 dark:text-indigo-500">01</div>
           <div className="grid grid-cols-1">
@@ -151,13 +153,13 @@ Usa las utilidades `justify-self-center` o `justify-self-center-safe` para aline
 
 </Figure>
 
-Cuando no hay suficiente espacio disponible, la utilidad `justify-self-center-safe` alineará el elemento al inicio del contenedor en lugar del final.
+When there is not enough space available, the `justify-self-center-safe` utility will align the item to the start of the container instead of the end.
 
-### Fin
+### End
 
-Usa las utilidades `justify-self-end` o `justify-self-end-safe` para alinear un elemento de grid al final de su eje en línea:
+Use the `justify-self-end` or `justify-self-end-safe` utilities to align a grid item to the end of its inline axis:
 
-<Figure hint="Redimensiona el contenedor para ver el comportamiento de la alineación">
+<Figure hint="Resize the container to see the alignment behavior">
 
 <Example resizable>
   {
@@ -216,11 +218,11 @@ Usa las utilidades `justify-self-end` o `justify-self-end-safe` para alinear un 
 
 </Figure>
 
-Cuando no hay suficiente espacio disponible, la utilidad `justify-self-end-safe` alineará el elemento al inicio del contenedor en lugar del final.
+When there is not enough space available, the `justify-self-end-safe` utility will align the item to the start of the container instead of the end.
 
 ### Stretch
 
-Usa la utilidad `justify-self-stretch` para estirar un elemento de grid para llenar el área del grid en su eje en línea:
+Use the `justify-self-stretch` utility to stretch a grid item to fill the grid area on its inline axis:
 
 <Figure>
 

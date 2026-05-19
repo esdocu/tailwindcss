@@ -1,0 +1,62 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { Figure } from "@/components/figure.tsx";
+import { ResponsiveDesign } from "@/components/content.tsx";
+
+export const title = "font-style";
+export const description = "Utilidades para controlar el estilo del texto.";
+
+<ApiTable
+  rows={[
+    ["italic", "font-style: italic;"],
+    ["not-italic", "font-style: normal;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Poner texto en cursiva
+
+Utiliza la utilidad `italic` para poner el texto en cursiva:
+
+<Figure>
+
+<Example>
+  {
+    <p className="text-center text-lg font-medium text-gray-900 italic dark:text-gray-200">
+      El rápido zorro marrón salta sobre el perro perezoso.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:italic] -->
+<p class="italic ...">El rápido zorro marrón ...</p>
+```
+
+</Figure>
+
+### Mostrando texto normalmente
+
+Utiliza la utilidad `not-italic` para mostrar el texto normalmente:
+
+<Figure>
+
+<Example>
+  {
+    <p className="text-center text-lg font-medium text-gray-900 not-italic dark:text-gray-200">
+      El rápido zorro marrón salta sobre el perro perezoso.
+    </p>
+  }
+</Example>
+
+```html
+<!-- [!code classes:not-italic] -->
+<p class="not-italic ...">El rápido zorro marrón ...</p>
+```
+
+</Figure>
+
+### Responsive design
+
+<ResponsiveDesign property="font-style" defaultClass="italic" featuredClass="not-italic" element="p" />

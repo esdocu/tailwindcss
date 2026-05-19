@@ -6,15 +6,17 @@ import { CustomizingYourSpacingScale } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "top / right / bottom / left";
-export const description = "Utilidades para controlar la ubicación de elementos posicionados.";
+export const description = "Utilities for controlling the placement of positioned elements.";
 
 <ApiTable
   rows={[
     { prefix: "inset", property: "inset" },
     { prefix: "inset-x", property: "inset-inline" },
     { prefix: "inset-y", property: "inset-block" },
-    { prefix: "start", property: "inset-inline-start" },
-    { prefix: "end", property: "inset-inline-end" },
+    { prefix: "inset-s", property: "inset-inline-start" },
+    { prefix: "inset-e", property: "inset-inline-end" },
+    { prefix: "inset-bs", property: "inset-block-start" },
+    { prefix: "inset-be", property: "inset-block-end" },
     { prefix: "top", property: "top" },
     { prefix: "right", property: "right" },
     { prefix: "bottom", property: "bottom" },
@@ -36,11 +38,11 @@ export const description = "Utilidades para controlar la ubicación de elementos
   )}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa las utilidades `top-<number>`, `right-<number>`, `bottom-<number>`, `left-<number>`, e `inset-<number>` como `top-0` y `bottom-4` para establecer la posición horizontal o vertical de un [elemento posicionado](/docs/position):
+Use `top-<number>`, `right-<number>`, `bottom-<number>`, `left-<number>`, and `inset-<number>` utilities like `top-0` and `bottom-4` to set the horizontal or vertical position of a [positioned element](/docs/position):
 
 <Figure>
 
@@ -123,47 +125,47 @@ Usa las utilidades `top-<number>`, `right-<number>`, `bottom-<number>`, `left-<n
 
 ```html
 <!-- [!code classes:inset-x-0,inset-y-0,inset-0,right-0,left-0,top-0,bottom-0] -->
-<!-- Fijar a la esquina superior izquierda -->
+<!-- Pin to top left corner -->
 <div class="relative size-32 ...">
   <div class="absolute top-0 left-0 size-16 ...">01</div>
 </div>
 
-<!-- Abarcar borde superior -->
+<!-- Span top edge -->
 <div class="relative size-32 ...">
   <div class="absolute inset-x-0 top-0 h-16 ...">02</div>
 </div>
 
-<!-- Fijar a la esquina superior derecha -->
+<!-- Pin to top right corner -->
 <div class="relative size-32 ...">
   <div class="absolute top-0 right-0 size-16 ...">03</div>
 </div>
 
-<!-- Abarcar borde izquierdo -->
+<!-- Span left edge -->
 <div class="relative size-32 ...">
   <div class="absolute inset-y-0 left-0 w-16 ...">04</div>
 </div>
 
-<!-- Llenar todo el padre -->
+<!-- Fill entire parent -->
 <div class="relative size-32 ...">
   <div class="absolute inset-0 ...">05</div>
 </div>
 
-<!-- Abarcar borde derecho -->
+<!-- Span right edge -->
 <div class="relative size-32 ...">
   <div class="absolute inset-y-0 right-0 w-16 ...">06</div>
 </div>
 
-<!-- Fijar a la esquina inferior izquierda -->
+<!-- Pin to bottom left corner -->
 <div class="relative size-32 ...">
   <div class="absolute bottom-0 left-0 size-16 ...">07</div>
 </div>
 
-<!-- Abarcar borde inferior -->
+<!-- Span bottom edge -->
 <div class="relative size-32 ...">
   <div class="absolute inset-x-0 bottom-0 h-16 ...">08</div>
 </div>
 
-<!-- Fijar a la esquina inferior derecha -->
+<!-- Pin to bottom right corner -->
 <div class="relative size-32 ...">
   <div class="absolute right-0 bottom-0 size-16 ...">09</div>
 </div>
@@ -171,9 +173,9 @@ Usa las utilidades `top-<number>`, `right-<number>`, `bottom-<number>`, `left-<n
 
 </Figure>
 
-### Usando valores negativos
+### Using negative values
 
-Para usar un valor negativo de top/right/bottom/left, antepone un guion al nombre de la clase para convertirlo en un valor negativo:
+To use a negative top/right/bottom/left value, prefix the class name with a dash to convert it to a negative value:
 
 <Figure>
 
@@ -199,9 +201,9 @@ Para usar un valor negativo de top/right/bottom/left, antepone un guion al nombr
 
 </Figure>
 
-### Usando propiedades lógicas
+### Using logical properties
 
-Usa utilidades `start-<number>` o `end-<number>` como `start-0` y `end-4` para establecer las [propiedades lógicas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) `inset-inline-start` y `inset-inline-end`, que se asignan al lado izquierdo o derecho según la dirección del texto:
+Use `inset-s-<number>` or `inset-e-<number>` utilities like `inset-s-0` and `inset-e-4` to set the `inset-inline-start` and `inset-inline-end` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right side based on the text direction:
 
 <Figure>
 
@@ -209,7 +211,7 @@ Usa utilidades `start-<number>` o `end-<number>` como `start-0` y `end-4` para e
   {
     <div className="grid grid-cols-2 place-items-center gap-x-4">
       <div className="flex flex-col items-start gap-y-4">
-        <p className="text-sm font-medium">De izquierda a derecha</p>
+        <p className="text-sm font-medium">Left-to-right</p>
         <div className="relative size-18 rounded-lg sm:size-32">
           <div className="absolute inset-0">
             <Stripes border className="h-full rounded-lg" />
@@ -218,7 +220,7 @@ Usa utilidades `start-<number>` o `end-<number>` como `start-0` y `end-4` para e
         </div>
       </div>
       <div className="flex flex-col items-end gap-y-4">
-        <p className="text-sm font-medium">De derecha a izquierda</p>
+        <p className="text-sm font-medium">Right-to-left</p>
         <div className="relative size-18 rounded-lg sm:size-32">
           <div className="absolute inset-0">
             <Stripes border className="h-full rounded-lg" />
@@ -231,15 +233,15 @@ Usa utilidades `start-<number>` o `end-<number>` como `start-0` y `end-4` para e
 </Example>
 
 ```html
-<!-- [!code classes:start-0] -->
+<!-- [!code classes:inset-s-0] -->
 <div dir="ltr">
   <div class="relative size-32 ...">
-    <div class="absolute start-0 top-0 size-14 ..."></div>
+    <div class="absolute inset-s-0 top-0 size-14 ..."></div>
   </div>
   <div>
     <div dir="rtl">
       <div class="relative size-32 ...">
-        <div class="absolute start-0 top-0 size-14 ..."></div>
+        <div class="absolute inset-s-0 top-0 size-14 ..."></div>
       </div>
       <div></div>
     </div>
@@ -249,22 +251,46 @@ Usa utilidades `start-<number>` o `end-<number>` como `start-0` y `end-4` para e
 
 </Figure>
 
-Para mayor control, también puedes usar los [modificadores LTR y RTL](/docs/hover-focus-and-other-states#rtl-support) para aplicar estilos específicos condicionalmente según la dirección actual del texto.
+For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utilities={["inset", "top"]} name="position" value="3px" variable="position" />
 
-### Responsive Design
+### Responsive design
 
 <ResponsiveDesign
-  properties={["inset", "inset-x", "inset-y", "start", "end", "top", "left", "bottom", "right"]}
+  properties={[
+    "inset",
+    "inset-x",
+    "inset-y",
+    "inset-s",
+    "inset-e",
+    "inset-bs",
+    "inset-be",
+    "top",
+    "left",
+    "bottom",
+    "right",
+  ]}
   defaultClass="top-4"
   featuredClass="top-6"
 />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourSpacingScale
-  utilities={["inset", "inset-x", "inset-y", "start", "end", "top", "left", "bottom", "right"]}
+  utilities={[
+    "inset",
+    "inset-x",
+    "inset-y",
+    "inset-s",
+    "inset-e",
+    "inset-bs",
+    "inset-be",
+    "top",
+    "left",
+    "bottom",
+    "right",
+  ]}
 />

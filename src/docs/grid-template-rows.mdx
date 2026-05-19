@@ -5,7 +5,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "grid-template-rows";
-export const description = "Utilidades para especificar las filas en un diseño de cuadrícula.";
+export const description = "Utilities for specifying the rows in a grid layout.";
 
 <ApiTable
   rows={[
@@ -17,11 +17,11 @@ export const description = "Utilidades para especificar las filas en un diseño 
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Especificando las filas de la cuadrícula
+### Specifying the grid rows
 
-Usa utilidades `grid-rows-<number>` como `grid-rows-2` y `grid-rows-4` para crear cuadrículas con _n_ filas de igual tamaño:
+Use `grid-rows-<number>` utilities like `grid-rows-2` and `grid-rows-4` to create grids with _n_ equally sized rows:
 
 <Figure>
 
@@ -55,9 +55,9 @@ Usa utilidades `grid-rows-<number>` como `grid-rows-2` y `grid-rows-4` para crea
 
 </Figure>
 
-### Implementando una subcuadrícula
+### Implementing a subgrid
 
-Usa la utilidad `grid-rows-subgrid` para adoptar las pistas de fila definidas por el padre del elemento:
+Use the `grid-rows-subgrid` utility to adopt the row tracks defined by the item's parent:
 
 <Figure>
 
@@ -99,7 +99,7 @@ Usa la utilidad `grid-rows-subgrid` para adoptar las pistas de fila definidas po
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="grid-rows" name="rows" value="200px_minmax(900px,1fr)_100px" />
 

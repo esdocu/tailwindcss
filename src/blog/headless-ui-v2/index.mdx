@@ -12,56 +12,56 @@ import clsx from "clsx";
 import { StateAttributesExample } from "./examples/StateAttributesExample";
 
 export const meta = {
-  title: "Headless UI v2.0 para React",
+  title: "Headless UI v2.0 for React",
   description:
-    "Acabamos de lanzar Headless UI v2.0 para React, que incluye un montón de cosas nuevas, como posicionamiento de anclaje incorporado, un nuevo componente checkbox headless, componentes de formulario HTML ¡y más!",
+    "We just released Headless UI v2.0 for React which includes a ton of new stuff including built-in anchor positioning, a new headless checkbox component, HTML form components and more!",
   date: "2024-05-07T16:00:00.000Z",
   authors: [adamwathan, reinink],
   image: card,
   excerpt: (
     <>
-      Nada supera construir algo real con tus propias herramientas cuando se trata de encontrar formas de mejorar las
-      cosas. Mientras hemos estado trabajando en <Link href="/blog/introducing-catalyst">Catalyst</Link> estos últimos
-      meses, hemos realizado docenas de mejoras en Headless UI que te permiten escribir aún menos código y mejorar aún más la
-      experiencia del desarrollador.
+      Nothing beats actually building something real with your own tools when it comes to finding ways to make things
+      better. As we've been working on <Link href="/blog/introducing-catalyst">Catalyst</Link> these last several
+      months, we've been making dozens of improvements to Headless UI that let you write even less code, and make the
+      developer experience even better.
     </>
   ),
 };
 
 <Image alt="Headless UI v2.0" src={card} />
 
-Nada supera construir algo real con tus propias herramientas cuando se trata de encontrar formas de mejorar las cosas.
+Nothing beats actually building something real with your own tools when it comes to finding ways to make things better.
 
-Mientras hemos estado trabajando en [Catalyst](/blog/introducing-catalyst) estos últimos meses, hemos realizado docenas de mejoras en Headless UI que te permiten escribir aún menos código y mejorar aún más la experiencia del desarrollador.
+As we've been working on [Catalyst](/blog/introducing-catalyst) these last several months, we've been making dozens of improvements to Headless UI that let you write even less code, and make the developer experience even better.
 
-Acabamos de lanzar Headless UI v2.0 para React, que es la culminación de todo este trabajo.
+We just released Headless UI v2.0 for React, which is the culmination of all this work.
 
-Aquí están todas las mejores novedades:
+Here's all the best new stuff:
 
-- [Posicionamiento de anclaje incorporado](#built-in-anchor-positioning)
-- [Nuevo componente checkbox](#new-checkbox-component)
-- [Componentes de formulario HTML](#html-form-components)
-- [Detección mejorada de estado hover, focus y active](#improved-hover-focus-and-active-state-detection)
-- [Virtualización de listas Combobox](#combobox-list-virtualization)
-- [Nuevo sitio web y documentación mejorada](#new-website-and-improved-docs)
+- [Built-in anchor positioning](#built-in-anchor-positioning)
+- [New checkbox component](#new-checkbox-component)
+- [HTML form components](#html-form-components)
+- [Improved hover, focus and active state detection](#improved-hover-focus-and-active-state-detection)
+- [Combobox list virtualization](#combobox-list-virtualization)
+- [New website and improved docs](#new-website-and-improved-docs)
 
-Agrégalo a tu proyecto instalando la última versión de `@headlessui/react` desde npm:
+Add it to your project by installing the latest version of `@headlessui/react` from npm:
 
 ```sh
 npm install @headlessui/react@latest
 ```
 
-Si estás actualizando desde v1.x, consulta la [guía de actualización](https://github.com/tailwindlabs/headlessui/releases/tag/%40headlessui%2Freact%40v2.0.0#user-content-upgrading-from-v1) para saber más sobre lo que ha cambiado.
+If you're upgrading from v1.x, check out the [upgrade guide](https://github.com/tailwindlabs/headlessui/releases/tag/%40headlessui%2Freact%40v2.0.0#user-content-upgrading-from-v1) to learn more about what's changed.
 
 ---
 
-## Posicionamiento de anclaje incorporado
+## Built-in anchor positioning
 
-Hemos integrado [Floating UI](https://floating-ui.com/) directamente en Headless UI, para que nunca tengas que preocuparte de que los menús desplegables se salgan de la vista o queden ocultos por otros elementos en la pantalla.
+We've integrated [Floating UI](https://floating-ui.com/) directly into Headless UI, so you never have to worry about dropdowns going out of view or being obscured by other elements on the screen.
 
-Usa la nueva prop `anchor` en los componentes `Menu`, `Popover`, `Combobox` y `Listbox` para especificar el posicionamiento del anclaje, luego ajusta la ubicación con variables CSS como `--anchor-gap` y `--anchor-padding`:
+Use the new `anchor` prop on the `Menu`, `Popover`, `Combobox`, and `Listbox` components to specify the anchor positioning, then fine-tune the placement with CSS variables like `--anchor-gap` and `--anchor-padding`:
 
-<Figure hint="Desplázate hacia arriba y hacia abajo para ver cómo cambia la posición del menú desplegable">
+<Figure hint="Scroll up and down to see the dropdown position change">
 
 <Iframe className="h-[400px] w-full overflow-x-scroll">
   <AnchorPositioningExample />
@@ -100,15 +100,15 @@ function Example() {
 
 </Figure>
 
-Lo que hace que esta API sea realmente agradable es que puedes ajustar los estilos en diferentes puntos de interrupción cambiando las variables CSS usando clases de utilidad como `sm:[--anchor-gap:4px]`.
+What makes this API really nice is that you can tweak the styles at different breakpoints by changing the CSS variables using utility classes like `sm:[--anchor-gap:4px]`.
 
-Consulta la [documentación de posicionamiento de anclaje](https://headlessui.com/react/menu#positioning-the-dropdown) para cada componente para conocer todos los detalles.
+Check out the [anchor positioning documentation](https://headlessui.com/react/menu#positioning-the-dropdown) for each component for all of the details.
 
 ---
 
-## Nuevo componente checkbox
+## New checkbox component
 
-Hemos añadido un nuevo componente `Checkbox` headless para complementar nuestro componente existente `RadioGroup`, facilitando la construcción de controles checkbox totalmente personalizados:
+We've added a new headless `Checkbox` component to complement our existing `RadioGroup` component, making it easy to build totally custom checkbox controls:
 
 <Figure>
 
@@ -144,17 +144,17 @@ function Example() {
 
 </Figure>
 
-Los Checkboxes pueden ser controlados o no controlados, y pueden sincronizar automáticamente su estado con un input oculto para funcionar bien con formularios HTML.
+Checkboxes can be controlled or uncontrolled, and can automatically sync their state with a hidden input to play nicely with HTML forms.
 
-Echa un vistazo a la [documentación de Checkbox](https://headlessui.com/react/checkbox) para saber más.
+Take a look at the [Checkbox documentation](https://headlessui.com/react/checkbox) to learn more.
 
 ---
 
-## Componentes de formulario HTML
+## HTML form components
 
-Hemos añadido un conjunto completamente nuevo de componentes que simplemente envuelven controles de formulario nativos, pero hacen todo el trabajo tedioso de conectar IDs y atributos `aria-*` por ti automáticamente.
+We've added a whole new set of components that just wrap native form controls, but do all of the tedious work of wiring up IDs and `aria-*` attributes for you automatically.
 
-Así es como se veía construir un campo simple `<input>` con un `<label>` y una descripción asociados correctamente antes:
+Here's what it looked like to build a simple `<input>` field with a properly associated `<label>` and description before:
 
 ```jsx
 <div>
@@ -166,7 +166,7 @@ Así es como se veía construir un campo simple `<input>` con un `<label>` y una
 </div>
 ```
 
-Y así es como se ve con estos nuevos componentes en Headless UI v2.0:
+And here's what it looks like with these new components in Headless UI v2.0:
 
 ```jsx
 import { Description, Field, Input, Label } from "@headlessui/react";
@@ -176,15 +176,15 @@ function Example() {
     <Field>
       <Label>Name</Label>
       <Input name="your_name" />
-      <Description>Usa tu nombre real para que la gente te reconozca.</Description>
+      <Description>Use your real name so people will recognize you.</Description>
     </Field>
   );
 }
 ```
 
-Los nuevos componentes `Field` y `Fieldset` también propagan los estados deshabilitados como el elemento nativo `<fieldset>`, por lo que puedes deshabilitar fácilmente un grupo entero de controles a la vez:
+The new `Field` and `Fieldset` components also cascade disabled states like the native `<fieldset>` element, so you can easily disable an entire group of controls at once:
 
-<Figure hint="Selecciona un país para ver cómo se habilita el campo de región">
+<Figure hint="Select a country to see the region field become enabled">
 
 <FormExample />
 
@@ -198,24 +198,24 @@ export function Example() {
   return (
     <form action="/shipping">
       <Fieldset>
-        <Legend>Detalles de envío</Legend>
+        <Legend>Shipping details</Legend>
         <Field>
-          <Label>Dirección</Label>
+          <Label>Street address</Label>
           <Input name="address" />
         </Field>
         <Field>
-          <Label>País</Label>
-          <Description>Actualmente solo enviamos a América del Norte.</Description>
+          <Label>Country</Label>
+          <Description>We currently only ship to North America.</Description>
           <Select name="country" value={country} onChange={(event) => setCountry(event.target.value)}>
             <option></option>
-            <option>Canadá</option>
-            <option>México</option>
-            <option>Estados Unidos</option>
+            <option>Canada</option>
+            <option>Mexico</option>
+            <option>United States</option>
           </Select>
         </Field>
         // [!code highlight:4]
         <Field disabled={!country}>
-          <Label className="data-[disabled]:opacity-40">Estado/provincia</Label>
+          <Label className="data-[disabled]:opacity-40">State/province</Label>
           <Select name="region" className="data-[disabled]:opacity-50">
             <option></option>
             {country && regions[country].map((region) => <option>{region}</option>)}
@@ -230,41 +230,41 @@ export function Example() {
 
 </Figure>
 
-Exponemos el estado deshabilitado usando un atributo `data-disabled` en el HTML renderizado. Esto nos permite exponerlo incluso en elementos que no admiten el atributo nativo `disabled` como el elemento `<label>` asociado, lo que facilita mucho el ajuste fino de los estilos deshabilitados para cada elemento.
+We expose the disabled state using a `data-disabled` attribute in the rendered HTML. This lets us expose it even on elements that don't support the native `disabled` attribute like the associated `<label>` element, making it really easy to fine-tune the disabled styles for each element.
 
-En total, hemos añadido 8 nuevos componentes aquí — `Fieldset`, `Legend`, `Field`, `Label`, `Description`, `Input`, `Select` y `Textarea`.
+All in all we've added 8 new components here — `Fieldset`, `Legend`, `Field`, `Label`, `Description`, `Input`, `Select`, and `Textarea`.
 
-Para más detalles, empieza con la [documentación de Fieldset](https://headlessui.com/react/fieldset) y continúa con el resto.
+For more details, start with the [Fieldset documentation](https://headlessui.com/react/fieldset) and work your way through the rest.
 
 ---
 
-## Detección mejorada de estado hover, focus y active
+## Improved hover, focus and active state detection
 
-Usando hooks de la increíble librería [React Aria](https://react-spectrum.adobe.com/react-aria/hooks.html) internamente, Headless UI ahora añade atributos de estado `data-*` más inteligentes a tus controles que se comportan de manera más consistente en diferentes dispositivos que las pseudoclases CSS nativas:
+Using hooks from the awesome [React Aria](https://react-spectrum.adobe.com/react-aria/hooks.html) library under the hood, Headless UI now adds smarter `data-*` state attributes to your controls that behave more consistently across different devices than the native CSS pseudo-classes:
 
-- `data-active` — como `:active`, pero se elimina al arrastrar fuera del elemento.
-- `data-hover` — como `:hover`, pero se ignora en dispositivos táctiles para evitar estados hover pegajosos.
-- # `data-focus` — como `:focus-visible`, sin falsos positivos por enfoque imperativo.
+- `data-active` — like `:active`, but is removed when dragging off of the element.
+- `data-hover` — like `:hover`, but is ignored on touch devices to avoid sticky hover states.
+- # `data-focus` — like `:focus-visible`, without false positives from imperative focusing.
 
 <StateAttributesExample />
 
-Para saber más sobre por qué aplicar estos estilos usando JavaScript es importante, te recomiendo encarecidamente leer la excelente serie de blogs de Devon Govett sobre este tema:
+To learn more about why applying these styles using JavaScript is important, I highly recommend reading through Devon Govett's excellent blog series on this topic:
 
 - [Building a Button Part 1: Press Events](https://react-spectrum.adobe.com/blog/building-a-button-part-1.html)
 - [Building a Button Part 2: Hover Interactions](https://react-spectrum.adobe.com/blog/building-a-button-part-2.html)
 - [Building a Button Part 3: Keyboard Focus Behavior](https://react-spectrum.adobe.com/blog/building-a-button-part-3.html)
 
-La web nunca deja de sorprenderme con la cantidad de esfuerzo que se necesita para hacer cosas bonitas de verdad.
+The web never ceases to surprise me with the amount of effort it takes to actually make nice things.
 
 ---
 
-## Virtualización de listas Combobox
+## Combobox list virtualization
 
-Hemos integrado [TanStack Virtual](https://tanstack.com/virtual/latest) en Headless UI para soportar la virtualización de listas cuando necesitas poner cien mil elementos en tu combobox porque, oye, eso es lo que te dijo el jefe que hicieras.
+We've integrated [TanStack Virtual](https://tanstack.com/virtual/latest) into Headless UI to support list virtualization when you need to put a hundred thousand items in your combobox because, hey, that's what the boss told you to do.
 
-Usa la nueva prop `virtual` para pasar todos tus elementos, y usa la render prop `ComboboxOptions` para proporcionar la plantilla para una opción individual:
+Use the new `virtual` prop to pass in all of your items, and use the `ComboboxOptions` render prop to provide the template for an individual option:
 
-<Figure hint="Abre el combobox y desplázate por las 1,000 opciones">
+<Figure hint="Open the combobox and scroll through the 1,000 options">
 
 <ComboboxExample />
 
@@ -279,7 +279,7 @@ const people = [
   { id: 3, name: "Leonel Abshire" },
   { id: 4, name: "Llewellyn Abshire" },
   { id: 5, name: "Ramon Abshire" },
-  // ...hasta 1000 personas
+  // ...up to 1000 people
 ];
 
 function Example() {
@@ -322,16 +322,16 @@ function Example() {
 
 </Figure>
 
-Consulta la nueva [documentación de virtual scrolling](https://headlessui.com/react/combobox#virtual-scrolling) para saber más.
+Check out the new [virtual scrolling documentation](https://headlessui.com/react/combobox#virtual-scrolling) to learn more.
 
 ---
 
-## Nuevo sitio web y documentación mejorada
+## New website and improved docs
 
-Para acompañar este importante lanzamiento, también hemos renovado significativamente la documentación y le hemos dado una nueva capa de pintura al sitio web:
+To go along with this major release, we've also significantly revamped the documentation and given the website a fresh coat of paint:
 
 <Link href="https://headlessui.com/">
-  <Image alt="Nuevo sitio web de Headless UI v2.0" src={newWebsite} />
+  <Image alt="New Headless UI v2.0 website" src={newWebsite} />
 </Link>
 
-¡Pásate por el nuevo [headlessui.com](https://headlessui.com) para echarle un vistazo!
+Head over to the new [headlessui.com](https://headlessui.com) to check it out!

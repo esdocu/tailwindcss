@@ -5,7 +5,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "grid-column";
-export const description = "Utilidades para controlar cómo se dimensionan y colocan los elementos en las columnas de la cuadrícula.";
+export const description = "Utilities for controlling how elements are sized and placed across grid columns.";
 
 <ApiTable
   rows={[
@@ -31,11 +31,11 @@ export const description = "Utilidades para controlar cómo se dimensionan y col
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Expandiendo columnas
+### Spanning columns
 
-Usa utilidades `col-span-<number>` como `col-span-2` y `col-span-4` para hacer que un elemento ocupe _n_ columnas:
+Use `col-span-<number>` utilities like `col-span-2` and `col-span-4` to make an element span _n_ columns:
 
 <Figure>
 
@@ -71,9 +71,9 @@ Usa utilidades `col-span-<number>` como `col-span-2` y `col-span-4` para hacer q
 
 </Figure>
 
-### Líneas de inicio y fin
+### Starting and ending lines
 
-Usa las utilidades `col-start-<number>` o `col-end-<number>` como `col-start-2` y `col-end-3` para hacer que un elemento comience o termine en la _n-ésima_ línea de la cuadrícula:
+Use `col-start-<number>` or `col-end-<number>` utilities like `col-start-2` and `col-end-3` to make an element start or end at the _nth_ grid line:
 
 <Figure>
 
@@ -104,9 +104,9 @@ Usa las utilidades `col-start-<number>` o `col-end-<number>` como `col-start-2` 
 
 </Figure>
 
-Estas también se pueden combinar con las utilidades `col-span-<number>` para abarcar un número específico de columnas.
+These can also be combined with the `col-span-<number>` utilities to span a specific number of columns.
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue
   utilities={["col", "col-span", "col-start", "col-end"]}

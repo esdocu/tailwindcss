@@ -31,15 +31,11 @@ export default async function Blog() {
         <Keyboard />
       </div>
       <GridContainer>
-        <h1 className="mx-2 text-6xl tracking-tighter text-balance sm:text-7xl lg:text-8xl">
-          Últimas Actualizaciones
-        </h1>
+        <h1 className="mx-2 text-6xl tracking-tighter text-balance sm:text-7xl lg:text-8xl">Latest Updates</h1>
       </GridContainer>
 
       <GridContainer className="mt-10">
-        <p className="mx-2 text-lg">
-          Todas las últimas noticias de Tailwind CSS, directamente del equipo.
-        </p>
+        <p className="mx-2 text-lg">All the latest Tailwind CSS news, straight from the team.</p>
       </GridContainer>
 
       <GridContainer className="mt-10">
@@ -70,7 +66,7 @@ export default async function Blog() {
                     href={`/blog/${slug}`}
                     className="mt-4 inline-block text-sm font-semibold text-sky-500 hover:text-sky-600 dark:text-sky-400"
                   >
-                    Leer más
+                    Read more
                   </Link>
                 </div>
               </div>

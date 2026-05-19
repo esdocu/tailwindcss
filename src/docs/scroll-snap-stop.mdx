@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "scroll-snap-stop";
-export const description = "Utilidades para controlar si puedes saltarte posibles posiciones de snap.";
+export const description = "Utilities for controlling whether you can skip past possible snap positions.";
 
 <ApiTable
   rows={[
@@ -13,13 +13,13 @@ export const description = "Utilidades para controlar si puedes saltarte posible
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Forzar detenciones de posición de snap
+### Forcing snap position stops
 
-Usa la utilidad `snap-always` junto con la utilidad [snap-mandatory](/docs/scroll-snap-type#mandatory-scroll-snapping) para forzar que un contenedor de snap siempre se detenga en un elemento antes de que el usuario pueda continuar desplazándose al siguiente elemento:
+Use the `snap-always` utility together with the [snap-mandatory](/docs/scroll-snap-type#mandatory-scroll-snapping) utility to force a snap container to always stop on an element before the user can continue scrolling to the next item:
 
-<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
+<Figure hint="Scroll in the grid of images to see the expected behavior">
 
 <Example padding={false}>
   {
@@ -104,11 +104,11 @@ Usa la utilidad `snap-always` junto con la utilidad [snap-mandatory](/docs/scrol
 
 </Figure>
 
-### Omitir detenciones de posición de snap
+### Skipping snap position stops
 
-Usa la utilidad `snap-normal` para permitir que un contenedor de snap se salte posibles posiciones de snap del scroll:
+Use the `snap-normal` utility to allow a snap container to skip past possible scroll snap positions:
 
-<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
+<Figure hint="Scroll in the grid of images to see the expected behavior">
 
 <Example padding={false}>
   {
@@ -193,6 +193,6 @@ Usa la utilidad `snap-normal` para permitir que un contenedor de snap se salte p
 
 </Figure>
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="scroll-snap-stop" defaultClass="snap-always" featuredClass="snap-normal" />

@@ -7,12 +7,12 @@ import { MultiCursorAnimation, MultiCursorPreview } from "@/components/multi-cur
 import { MultiCursorCode } from "@/components/multi-cursor/example.tsx";
 import erinLindford from "./img/erin-lindford.jpg";
 
-export const title = "Estilizando con clases de utilidad";
-export const description = "Construyendo componentes complejos a partir de un conjunto restringido de utilidades primitivas.";
+export const title = "Styling with utility classes";
+export const description = "Building complex components from a constrained set of primitive utilities.";
 
-## Resumen
+## Overview
 
-Estilizas elementos con Tailwind combinando muchas clases de presentación de un solo propósito _(clases de utilidad)_ directamente en tu marcado:
+You style things with Tailwind by combining many single-purpose presentational classes _(utility classes)_ directly in your markup:
 
 <Figure>
 
@@ -49,7 +49,7 @@ Estilizas elementos con Tailwind combinando muchas clases de presentación de un
       </svg>
       <div>
         <div className="text-xl font-medium text-black dark:text-white">ChitChat</div>
-        <p className="text-gray-500 dark:text-gray-400">¡Tienes un mensaje nuevo!</p>
+        <p className="text-gray-500 dark:text-gray-400">You have a new message!</p>
       </div>
     </div>
   }
@@ -58,46 +58,46 @@ Estilizas elementos con Tailwind combinando muchas clases de presentación de un
 ```html
 <!-- prettier-ignore -->
 <div class="mx-auto flex max-w-sm items-center gap-x-4 rounded-xl bg-white p-6 shadow-lg outline outline-black/5 dark:bg-slate-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10">
-  <img class="size-12 shrink-0" src="/img/logo.svg" alt="Logo de ChitChat" />
+  <img class="size-12 shrink-0" src="/img/logo.svg" alt="ChitChat Logo" />
   <div>
     <div class="text-xl font-medium text-black dark:text-white">ChitChat</div>
-    <p class="text-gray-500 dark:text-gray-400">¡Tienes un mensaje nuevo!</p>
+    <p class="text-gray-500 dark:text-gray-400">You have a new message!</p>
   </div>
 </div>
 ```
 
 </Figure>
 
-Por ejemplo, en la interfaz de usuario anterior hemos utilizado:
+For example, in the UI above we've used:
 
-- Las utilidades de [display](/docs/display#flex) y [padding](/docs/padding) (`flex`, `shrink-0` y `p-6`) para controlar el diseño general
-- Las utilidades de [max-width](/docs/max-width) y [margin](/docs/margin) (`max-w-sm` y `mx-auto`) para restringir el ancho de la tarjeta y centrarla horizontalmente
-- Las utilidades de [background-color](/docs/background-color), [border-radius](/docs/border-radius) y [box-shadow](/docs/box-shadow) (`bg-white`, `rounded-xl` y `shadow-lg`) para estilizar la apariencia de la tarjeta
-- Las utilidades de [width](/docs/width) y [height](/docs/height) (`size-12`) para establecer el ancho y alto de la imagen del logo
-- Las utilidades de [gap](/docs/gap) (`gap-x-4`) para manejar el espaciado entre el logo y el texto
-- Las utilidades de [font-size](/docs/font-size), [color](/docs/text-color) y [font-weight](/docs/font-weight) (`text-xl`, `text-black`, `font-medium`, etc.) para estilizar el texto de la tarjeta
+- The [display](/docs/display#flex) and [padding](/docs/padding) utilities (`flex`, `shrink-0`, and `p-6`) to control the overall layout
+- The [max-width](/docs/max-width) and [margin](/docs/margin) utilities (`max-w-sm` and `mx-auto`) to constrain the card width and center it horizontally
+- The [background-color](/docs/background-color), [border-radius](/docs/border-radius), and [box-shadow](/docs/box-shadow) utilities (`bg-white`, `rounded-xl`, and `shadow-lg`) to style the card's appearance
+- The [width](/docs/width) and [height](/docs/height) utilities (`size-12`) to set the width and height of the logo image
+- The [gap](/docs/gap) utilities (`gap-x-4`) to handle the spacing between the logo and the text
+- The [font-size](/docs/font-size), [color](/docs/text-color), and [font-weight](/docs/font-weight) utilities (`text-xl`, `text-black`, `font-medium`, etc.) to style the card text
 
-Estilizar las cosas de esta manera contradice muchas de las mejores prácticas tradicionales, pero una vez que lo intentes notarás rápidamente algunos beneficios realmente importantes:
+Styling things this way contradicts a lot of traditional best practices, but once you try it you'll quickly notice some really important benefits:
 
-- **Terminas las cosas más rápido** — no pierdes tiempo inventando nombres de clases, tomando decisiones sobre selectores o cambiando entre archivos HTML y CSS, por lo que tus diseños se concretan muy rápido.
-- **Hacer cambios se siente más seguro** — agregar o eliminar una clase de utilidad a un elemento solo afecta a ese elemento, por lo que nunca tienes que preocuparte por romper accidentalmente algo en otra página que esté usando el mismo CSS.
-- **Mantener proyectos antiguos es más fácil** — cambiar algo simplemente significa encontrar ese elemento en tu proyecto y cambiar las clases, no tratar de recordar cómo funciona todo ese CSS personalizado que no has tocado en seis meses.
-- **Tu código es más portable** — dado que tanto la estructura como el estilo viven en el mismo lugar, puedes copiar y pegar fácilmente fragmentos enteros de UI, incluso entre diferentes proyectos.
-- **Tu CSS deja de crecer** — dado que las clases de utilidad son tan reutilizables, tu CSS no continúa creciendo linealmente con cada nueva característica que agregas a un proyecto.
+- **You get things done faster** — you don't spend any time coming up with class names, making decisions about selectors, or switching between HTML and CSS files, so your designs come together very fast.
+- **Making changes feels safer** — adding or removing a utility class to an element only ever affects that element, so you never have to worry about accidentally breaking something another page that's using the same CSS.
+- **Maintaining old projects is easier** — changing something just means finding that element in your project and changing the classes, not trying to remember how all of that custom CSS works that you haven't touched in six months.
+- **Your code is more portable** — since both the structure and styling live in the same place, you can easily copy and paste entire chunks of UI around, even between different projects.
+- **Your CSS stops growing** — since utility classes are so reusable, your CSS doesn't continue to grow linearly with every new feature you add to a project.
 
-Estos beneficios marcan una gran diferencia en proyectos pequeños, pero son aún más valiosos para equipos que trabajan en proyectos a largo plazo a escala.
+These benefits make a big difference on small projects, but they are even more valuable for teams working on long-running projects at scale.
 
-### ¿Por qué no usar simplemente estilos inline?
+### Why not just use inline styles?
 
-Una reacción común a este enfoque es preguntarse, "¿no son solo estilos inline?" y, en cierto modo, lo son — estás aplicando estilos directamente a los elementos en lugar de asignarles un nombre de clase y luego estilizar esa clase.
+A common reaction to this approach is wondering, “isn’t this just inline styles?” and in some ways it is — you’re applying styles directly to elements instead of assigning them a class name and then styling that class.
 
-Pero usar clases de utilidad tiene muchas ventajas importantes sobre los estilos inline, por ejemplo:
+But using utility classes has many important advantages over inline styles, for example:
 
-- **Diseñar con restricciones** — usando estilos inline, cada valor es un número mágico. Con las utilidades, estás eligiendo estilos de un [sistema de diseño predefinido](/docs/theme), lo que facilita mucho la construcción de interfaces de usuario visualmente consistentes.
-- **Hover, focus y otros estados** — los estilos inline no pueden apuntar a estados como hover o focus, pero las [variantes de estado](/docs/hover-focus-and-other-states) de Tailwind facilitan el estilizar esos estados con clases de utilidad.
-- **Media queries** — no puedes usar media queries en estilos inline, pero puedes usar las [variantes responsive](/docs/responsive-design) de Tailwind para construir interfaces completamente responsive fácilmente.
+- **Designing with constraints** — using inline styles, every value is a magic number. With utilities, you’re choosing styles from a [predefined design system](/docs/theme), which makes it much easier to build visually consistent UIs.
+- **Hover, focus, and other states** — inline styles can’t target states like hover or focus, but Tailwind’s [state variants](/docs/hover-focus-and-other-states) make it easy to style those states with utility classes.
+- **Media queries** — you can’t use media queries in inline styles, but you can use Tailwind’s [responsive variants](/docs/responsive-design) to build fully responsive interfaces easily.
 
-Este componente es completamente responsive e incluye un botón con estilos hover y active, y está construido completamente con clases de utilidad:
+This component is fully responsive and includes a button with hover and active styles, and is built entirely with utility classes:
 
 <Figure>
 
@@ -107,15 +107,15 @@ Este componente es completamente responsive e incluye un botón con estilos hove
       <img
         className="mx-auto block h-24 rounded-full @sm:mx-0 @sm:shrink-0"
         src={erinLindford.src}
-        alt="Rostro de Mujer"
+        alt="Woman's Face"
       />
       <div className="space-y-2 text-center @sm:text-left">
         <div className="space-y-0.5">
           <p className="text-lg font-semibold text-black">Erin Lindford</p>
-          <p className="font-medium text-gray-500">Ingeniera de Producto</p>
+          <p className="font-medium text-gray-500">Product Engineer</p>
         </div>
         <button className="rounded-full border border-purple-200 px-4 py-1 text-sm font-semibold text-purple-600 hover:border-transparent hover:bg-purple-600 hover:text-white active:bg-purple-700">
-          Mensaje
+          Message
         </button>
       </div>
     </div>
@@ -130,11 +130,11 @@ Este componente es completamente responsive e incluye un botón con estilos hove
   <div class="space-y-2 text-center sm:text-left">
     <div class="space-y-0.5">
       <p class="text-lg font-semibold text-black">Erin Lindford</p>
-      <p class="font-medium text-gray-500">Ingeniera de Producto</p>
+      <p class="font-medium text-gray-500">Product Engineer</p>
     </div>
     <!-- prettier-ignore -->
     <button class="border-purple-200 text-purple-600 hover:border-transparent hover:bg-purple-600 hover:text-white active:bg-purple-700 ...">
-      Mensaje
+      Message
     </button>
   </div>
 </div>
@@ -142,19 +142,19 @@ Este componente es completamente responsive e incluye un botón con estilos hove
 
 </Figure>
 
-## Pensando en clases de utilidad
+## Thinking in utility classes
 
-### Estilizando estados hover y focus
+### Styling hover and focus states
 
-Para estilizar un elemento en estados como hover o focus, prefija cualquier utilidad con el estado al que deseas apuntar, por ejemplo `hover:bg-sky-700`:
+To style an element on states like hover or focus, prefix any utility with the state you want to target, for example `hover:bg-sky-700`:
 
-<Figure hint="Pasa el cursor sobre este botón para ver el cambio de color de fondo">
+<Figure hint="Hover over this button to see the background color change">
 
 <Example>
   {
     <div className="grid place-items-center">
       <button className="rounded-full bg-sky-500 px-5 py-2 text-sm leading-5 font-semibold text-white hover:bg-sky-700">
-        Guardar cambios
+        Save changes
       </button>
     </div>
   }
@@ -162,17 +162,17 @@ Para estilizar un elemento en estados como hover o focus, prefija cualquier util
 
 ```html
 <!-- [!code word:hover\:bg-sky-700] -->
-<button class="bg-sky-500 hover:bg-sky-700 ...">Guardar cambios</button>
+<button class="bg-sky-500 hover:bg-sky-700 ...">Save changes</button>
 ```
 
 </Figure>
 
-Estos prefijos se llaman [variantes](/docs/hover-focus-and-other-states) en Tailwind, y solo aplican los estilos de una clase de utilidad cuando la condición para esa variante coincide.
+These prefixes are called [variants](/docs/hover-focus-and-other-states) in Tailwind, and they only apply the styles from a utility class when the condition for that variant matches.
 
-Así es como se ve el CSS generado para la clase `hover:bg-sky-700`:
+Here's what the generated CSS looks like for the `hover:bg-sky-700` class:
 
 ```css
-/* [!code filename: CSS Generado] */
+/* [!code filename: Generated CSS] */
 .hover\:bg-sky-700 {
   &:hover {
     background-color: var(--color-sky-700);
@@ -180,13 +180,13 @@ Así es como se ve el CSS generado para la clase `hover:bg-sky-700`:
 }
 ```
 
-¿Notas cómo esta clase no hace nada _a menos que_ el elemento esté en hover? Su _único_ trabajo es proporcionar estilos hover — nada más.
+Notice how this class does nothing _unless_ the element is hovered? Its _only_ job is to provide hover styles — nothing else.
 
-Esto es diferente de cómo escribirías CSS tradicional, donde una sola clase usualmente proporcionaría los estilos para muchos estados:
+This is different from how you'd write traditional CSS, where a single class would usually provide the styles for many states:
 
 ```html
 /* [!code filename:HTML] */
-<button class="btn">Guardar cambios</button>
+<button class="btn">Save changes</button>
 
 <style>
   .btn {
@@ -198,20 +198,20 @@ Esto es diferente de cómo escribirías CSS tradicional, donde una sola clase us
 </style>
 ```
 
-Incluso puedes apilar variantes en Tailwind para aplicar una utilidad cuando coinciden múltiples condiciones, como combinar `hover:` y `disabled:`
+You can even stack variants in Tailwind to apply a utility when multiple conditions match, like combining `hover:` and `disabled:`
 
 ```html
 <!-- [!code classes:disabled:hover:bg-sky-500] -->
-<button class="bg-sky-500 disabled:hover:bg-sky-500 ...">Guardar cambios</button>
+<button class="bg-sky-500 disabled:hover:bg-sky-500 ...">Save changes</button>
 ```
 
-Aprende más en la documentación sobre estilizar elementos en [hover, focus y otros estados](/docs/hover-focus-and-other-states).
+Learn more in the documentation styling elements on [hover, focus, and other states](/docs/hover-focus-and-other-states).
 
-### Media queries y breakpoints
+### Media queries and breakpoints
 
-Al igual que los estados hover y focus, puedes estilizar elementos en diferentes breakpoints prefijando cualquier utilidad con el breakpoint donde quieres que se aplique ese estilo:
+Just like hover and focus states, you can style elements at different breakpoints by prefixing any utility with the breakpoint where you want that style to apply:
 
-<Figure hint="Redimensiona este ejemplo para ver el cambio de diseño">
+<Figure hint="Resize this example to see the layout change">
 
 <Example className="@container" resizable>
   {
@@ -238,7 +238,7 @@ Al igual que los estados hover y focus, puedes estilizar elementos en diferentes
 In the example above, the `sm:` prefix makes sure that `grid-cols-3` only triggers at the `sm` breakpoint and above, which is 40rem out of the box:
 
 ```css
-/* [!code filename: CSS Generado] */
+/* [!code filename: Generated CSS] */
 .sm\:grid-cols-3 {
   @media (width >= 40rem) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -246,11 +246,11 @@ In the example above, the `sm:` prefix makes sure that `grid-cols-3` only trigge
 }
 ```
 
-Aprende más en la documentación de [responsive design](/docs/responsive-design).
+Learn more in the [responsive design](/docs/responsive-design) documentation.
 
-### Apuntando al modo oscuro
+### Targeting dark mode
 
-Estilizar un elemento en modo oscuro es solo cuestión de agregar el prefijo `dark:` a cualquier utilidad que quieras aplicar cuando el modo oscuro esté activo:
+Styling an element in dark mode is just a matter of adding the `dark:` prefix to any utility you want to apply when dark mode is active:
 
 <Figure>
 
@@ -258,7 +258,7 @@ Estilizar un elemento en modo oscuro es solo cuestión de agregar el prefijo `da
   {
     <div className="grid grid-cols-1 sm:grid-cols-2">
       <div className="p-8 pt-7">
-        <p className="mb-2 text-sm font-medium text-gray-500">Modo claro</p>
+        <p className="mb-2 text-sm font-medium text-gray-500">Light mode</p>
         <div className="rounded-lg bg-white px-6 py-8 shadow-xl ring ring-gray-900/5">
           <div>
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
@@ -278,15 +278,16 @@ Estilizar un elemento en modo oscuro es solo cuestión de agregar el prefijo `da
               </svg>
             </span>
           </div>
-          <p className="mt-5 text-base font-medium tracking-tight text-gray-900">Escribe al revés</p>
+          <p className="mt-5 text-base font-medium tracking-tight text-gray-900">Writes upside-down</p>
           <p
             className="mt-2 text-sm text-gray-500"
-            children={`El Zero Gravity Pen se puede usar para escribir en cualquier orientación, incluso al revés. Incluso funciona en el espacio exterior.`}
+            children={`The Zero Gravity Pen can be used to write in any orientation,
+          including upside-down. It even works in outer space.`}
           />
         </div>
       </div>
       <div className="bg-gray-900 p-8 pt-7">
-        <p className="mb-2 text-sm font-medium text-gray-400">Modo oscuro</p>
+        <p className="mb-2 text-sm font-medium text-gray-400">Dark mode</p>
         <div className="rounded-lg bg-gray-800 px-6 py-8 shadow-xl ring ring-gray-900/5">
           <div>
             <span className="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
@@ -306,10 +307,11 @@ Estilizar un elemento en modo oscuro es solo cuestión de agregar el prefijo `da
               </svg>
             </span>
           </div>
-          <p className="mt-5 text-base font-medium tracking-tight text-white">Escribe al revés</p>
+          <p className="mt-5 text-base font-medium tracking-tight text-white">Writes upside-down</p>
           <p
             className="mt-2 text-sm text-gray-400"
-            children={`El Zero Gravity Pen se puede usar para escribir en cualquier orientación, incluso al revés. Incluso funciona en el espacio exterior.`}
+            children={`The Zero Gravity Pen can be used to write in any orientation,
+          including upside-down. It even works in outer space.`}
           />
         </div>
       </div>
@@ -325,6 +327,7 @@ Estilizar un elemento en modo oscuro es solo cuestión de agregar el prefijo `da
     <span class="inline-flex items-center justify-center rounded-md bg-indigo-500 p-2 shadow-lg">
       <svg
         class="h-6 w-6 text-white"
+
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -336,21 +339,21 @@ Estilizar un elemento en modo oscuro es solo cuestión de agregar el prefijo `da
   </div>
   <!-- prettier-ignore -->
   <!-- [!code word:dark\:text-white] -->
-  <h3 class="text-gray-900 dark:text-white mt-5 text-base font-medium tracking-tight ">Escribe al revés</h3>
+  <h3 class="text-gray-900 dark:text-white mt-5 text-base font-medium tracking-tight ">Writes upside-down</h3>
   <!-- prettier-ignore -->
   <!-- [!code word:dark\:text-gray-400] -->
   <p class="text-gray-500 dark:text-gray-400 mt-2 text-sm ">
-    El Zero Gravity Pen se puede usar para escribir en cualquier orientación, incluso al revés. Incluso funciona en el espacio exterior.
+    The Zero Gravity Pen can be used to write in any orientation, including upside-down. It even works in outer space.
   </p>
 </div>
 ```
 
 </Figure>
 
-Al igual que con los estados hover o las media queries, lo importante a entender es que una sola clase de utilidad nunca incluirá _ambos_ estilos, claro y oscuro — estilizas cosas en modo oscuro usando múltiples clases, una para los estilos del modo claro y otra para los estilos del modo oscuro.
+Just like with hover states or media queries, the important thing to understand is that a single utility class will never include _both_ the light and dark styles — you style things in dark mode by using multiple classes, one for the light mode styles and another for the dark mode styles.
 
 ```css
-/* [!code filename: CSS Generado] */
+/* [!code filename: Generated CSS] */
 .dark\:bg-gray-800 {
   @media (prefers-color-scheme: dark) {
     background-color: var(--color-gray-800);
@@ -358,11 +361,11 @@ Al igual que con los estados hover o las media queries, lo importante a entender
 }
 ```
 
-Aprende más en la documentación del [modo oscuro](/docs/dark-mode).
+Learn more in the [dark mode](/docs/dark-mode) documentation.
 
-### Usando composición de clases
+### Using class composition
 
-Muchas veces con Tailwind incluso usarás múltiples clases para construir el valor de una sola propiedad CSS, por ejemplo, agregando múltiples filtros a un elemento:
+A lot of the time with Tailwind you'll even use multiple classes to build up the value for a single CSS property, for example adding multiple filters to an element:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -372,10 +375,10 @@ Muchas veces con Tailwind incluso usarás múltiples clases para construir el va
 </div>
 ```
 
-Ambos efectos dependen de la propiedad `filter` en CSS, por lo que Tailwind usa variables CSS para hacer posible componer estos efectos juntos:
+Both of these effects rely on the `filter` property in CSS, so Tailwind uses CSS variables to make it possible to compose these effects together:
 
 ```css
-/* [!code filename:CSS Generado] */
+/* [!code filename:Generated CSS] */
 .blur-sm {
   --tw-blur: blur(var(--blur-sm));
   filter: var(--tw-blur,) var(--tw-brightness,) var(--tw-grayscale,);
@@ -386,26 +389,26 @@ Ambos efectos dependen de la propiedad `filter` en CSS, por lo que Tailwind usa 
 }
 ```
 
-El CSS generado arriba está ligeramente simplificado, pero el truco aquí es que cada utilidad establece una variable CSS solo para el efecto que se supone que debe aplicar. Luego, la propiedad `filter` mira todas estas variables, recurriendo a nada si la variable no ha sido establecida.
+The generated CSS above is slightly simplified, but the trick here is that each utility sets a CSS variable just for the effect it's meant to apply. Then the `filter` property looks at all of these variables, falling back to nothing if the variable hasn't been set.
 
-Tailwind usa este mismo enfoque para [gradientes](/docs/background-image#adding-a-linear-gradient), [colores de sombra](/docs/box-shadow#setting-the-shadow-color), [transformaciones](/docs/translate), y más.
+Tailwind uses this same approach for [gradients](/docs/background-image#adding-a-linear-gradient), [shadow colors](/docs/box-shadow#setting-the-shadow-color), [transforms](/docs/translate), and more.
 
-### Usando valores arbitrarios
+### Using arbitrary values
 
-Muchas utilidades en Tailwind son impulsadas por [variables de tema](/docs/theme), como `bg-blue-500`, `text-xl` y `shadow-md`, que mapean a tu paleta de colores subyacente, escala tipográfica y sombras.
+Many utilities in Tailwind are driven by [theme variables](/docs/theme), like `bg-blue-500`, `text-xl`, and `shadow-md`, which map to your underlying color palette, type scale, and shadows.
 
-Cuando necesites usar un valor único fuera de tu tema, usa la sintaxis especial de corchetes para especificar valores arbitrarios:
+When you need to use a one-off value outside of your theme, use the special square bracket syntax for specifying arbitrary values:
 
 ```html
 <!-- [!code filename:HTML] -->
 <!-- [!code classes:bg-[#316ff6]] -->
 <!-- prettier-ignore -->
 <button class="bg-[#316ff6] ...">
-  Iniciar sesión con Facebook
+  Sign in with Facebook
 </button>
 ```
 
-Esto puede ser útil para colores únicos fuera de tu paleta de colores _(como el azul de Facebook anterior)_, pero también cuando necesitas un valor personalizado complejo como una cuadrícula muy específica:
+This can be useful for one-off colors outside of your color palette _(like the Facebook blue above)_, but also when you need a complex custom value like a very specific grid:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -415,17 +418,17 @@ Esto puede ser útil para colores únicos fuera de tu paleta de colores _(como e
 </div>
 ```
 
-También es útil cuando necesitas usar características de CSS como `calc()`, incluso si estás usando los valores de tu tema:
+It's also useful when you need to use CSS features like `calc()`, even if you are using your theme values:
 
 ```html
 <!-- [!code filename:HTML] -->
-<!-- [!code classes:max-h-[calc(100dvh-(--spacing(6))]] -->
-<div class="max-h-[calc(100dvh-(--spacing(6))]">
+<!-- [!code classes:max-h-[calc(100dvh-(--spacing(6)))]] -->
+<div class="max-h-[calc(100dvh-(--spacing(6)))]">
   <!-- ... -->
 </div>
 ```
 
-Incluso hay una sintaxis para generar CSS completamente arbitrario incluyendo un nombre de propiedad arbitrario, lo cual puede ser útil para establecer variables CSS:
+There's even a syntax for generating completely arbitrary CSS including an arbitrary property name, which can be useful for setting CSS variables:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -435,13 +438,13 @@ Incluso hay una sintaxis para generar CSS completamente arbitrario incluyendo un
 </div>
 ```
 
-Aprende más en la documentación sobre [usar valores arbitrarios](/docs/adding-custom-styles#using-arbitrary-values).
+Learn more in the documentation on [using arbitrary values](/docs/adding-custom-styles#using-arbitrary-values).
 
-#### ¿Cómo funciona esto siquiera?
+#### How does this even work?
 
-Tailwind CSS no es una gran hoja de estilos estática como podrías estar acostumbrado con otros frameworks CSS — genera el CSS necesario basado en las clases que realmente estás usando cuando compilas tu CSS.
+Tailwind CSS isn't one big static stylesheet like you might be used to with other CSS frameworks — it generates the CSS needed based on the classes you're actually using when you compile your CSS.
 
-Lo hace escaneando todos los archivos en tu proyecto buscando cualquier símbolo que parezca que podría ser un nombre de clase:
+It does this by scanning all of the files in your project looking for any symbol that looks like it could be a class name:
 
 ```jsx
 // [!code filename:Button.jsx]
@@ -468,17 +471,17 @@ export default function Button({ size, children }) {
 }
 ```
 
-Después de encontrar todas las clases potenciales, Tailwind genera el CSS para cada una y lo compila todo en una sola hoja de estilos con solo los estilos que realmente necesitas.
+After it's found all of the potential classes, Tailwind generates the CSS for each one and compiles it all into one stylesheet of just the styles you actually need.
 
-Dado que el CSS se genera basándose en el nombre de la clase, Tailwind puede reconocer clases que usan valores arbitrarios como `bg-[#316ff6]` y generar el CSS necesario, incluso cuando el valor no es parte de tu tema.
+Since the CSS is generated based on the class name, Tailwind can recognize classes using arbitrary values like `bg-[#316ff6]` and generate the necessary CSS, even when the value isn't part of your theme.
 
-Aprende más sobre cómo funciona esto en [detectar clases en archivos fuente](/docs/detecting-classes-in-source-files).
+Learn more about how this works in [detecting classes in source files](/docs/detecting-classes-in-source-files).
 
-### Selectores complejos
+### Complex selectors
 
-A veces necesitas estilizar un elemento bajo una combinación de condiciones, por ejemplo en modo oscuro, en un breakpoint específico, cuando está en hover, y cuando el elemento tiene un atributo de datos específico.
+Sometimes you need to style an element under a combination of conditions, for example in dark mode, at a specific breakpoint, when hovered, and when the element has a specific data attribute.
 
-Aquí tienes un ejemplo de cómo se ve eso con Tailwind:
+Here's an example of what that looks like with Tailwind:
 
 <CodeExampleStack>
 
@@ -491,7 +494,7 @@ Aquí tienes un ejemplo de cómo se ve eso con Tailwind:
 ```
 
 ```css
-/* [!code filename:CSS Simplificado] */
+/* [!code filename:Simplified CSS] */
 @media (prefers-color-scheme: dark) and (width >= 64rem) {
   button[data-current]:hover {
     background-color: var(--color-indigo-600);
@@ -501,7 +504,7 @@ Aquí tienes un ejemplo de cómo se ve eso con Tailwind:
 
 </CodeExampleStack>
 
-Tailwind también soporta cosas como `group-hover`, que te permiten estilizar un elemento cuando un padre específico está en hover:
+Tailwind also supports things like `group-hover`, which let you style an element when a specific parent is hovered:
 
 <CodeExampleStack>
 
@@ -510,12 +513,12 @@ Tailwind también soporta cosas como `group-hover`, que te permiten estilizar un
 <!-- [!code classes:group,group-hover:underline] -->
 <a href="#" class="group rounded-lg p-8">
   <!-- ... -->
-  <span class="group-hover:underline">Leer más…</span>
+  <span class="group-hover:underline">Read more…</span>
 </a>
 ```
 
 ```css
-/* [!code filename:CSS Simplificado] */
+/* [!code filename:Simplified CSS] */
 @media (hover: hover) {
   a:hover span {
     text-decoration-line: underline;
@@ -525,9 +528,9 @@ Tailwind también soporta cosas como `group-hover`, que te permiten estilizar un
 
 </CodeExampleStack>
 
-Esta sintaxis `group-*` también funciona con otras variantes, como `group-focus`, `group-active`, y [muchas más](/docs/hover-focus-and-other-states#styling-based-on-parent-state).
+This `group-*` syntax works with other variants too, like `group-focus`, `group-active`, and [many more](/docs/hover-focus-and-other-states#styling-based-on-parent-state).
 
-Para escenarios realmente complejos _(especialmente al estilizar HTML que no controlas)_, Tailwind soporta [variantes arbitrarias](/docs/adding-custom-styles#arbitrary-variants) que te permiten escribir cualquier selector que quieras, directamente en un nombre de clase:
+For really complex scenarios _(especially when styling HTML you don't control)_, Tailwind supports [arbitrary variants](/docs/adding-custom-styles#arbitrary-variants) which let you write any selector you want, directly in a class name:
 
 <CodeExampleStack>
 
@@ -537,12 +540,12 @@ Para escenarios realmente complejos _(especialmente al estilizar HTML que no con
 <div class="[&>[data-active]+span]:text-blue-600 ...">
   <span data-active><!-- ... --></span>
   <!-- [!code highlight:2] -->
-  <span>Este texto será azul</span>
+  <span>This text will be blue</span>
 </div>
 ```
 
 ```css
-/* [!code filename:CSS Simplificado] */
+/* [!code filename:Simplified CSS] */
 div > [data-active] + span {
   color: var(--color-blue-600);
 }
@@ -550,9 +553,9 @@ div > [data-active] + span {
 
 </CodeExampleStack>
 
-### Cuándo usar estilos inline
+### When to use inline styles
 
-Los estilos inline siguen siendo muy útiles en proyectos de Tailwind CSS, particularmente cuando un valor proviene de una fuente dinámica como una base de datos o API:
+Inline styles are still very useful in Tailwind CSS projects, particularly when a value is coming from a dynamic source like a database or API:
 
 ```jsx
 // [!code filename:branded-button.jsx]
@@ -572,7 +575,7 @@ export function BrandedButton({ buttonColor, textColor, children }) {
 }
 ```
 
-También podrías optar por un estilo inline para valores arbitrarios muy complicados que son difíciles de leer cuando se formatean como un nombre de clase:
+You might also reach for an inline style for very complicated arbitrary values that are difficult to read when formatted as a class name:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -584,7 +587,7 @@ También podrías optar por un estilo inline para valores arbitrarios muy compli
 </div>
 ```
 
-Otro patrón útil es establecer variables CSS basadas en fuentes dinámicas usando estilos inline, y luego hacer referencia a esas variables con clases de utilidad:
+Another useful pattern is setting CSS variables based on dynamic sources using inline styles, then referencing those variables with utility classes:
 
 ```jsx
 // [!code filename:branded-button.jsx]
@@ -606,11 +609,11 @@ export function BrandedButton({ buttonColor, buttonColorHover, textColor, childr
 }
 ```
 
-## Manejando la duplicación
+## Managing duplication
 
-Cuando construyes proyectos enteros solo con clases de utilidad, inevitablemente te encontrarás repitiendo ciertos patrones para recrear el mismo diseño en diferentes lugares.
+When you build entire projects with just utility classes, you'll inevitably find yourself repeating certain patterns to recreate the same design in different places.
 
-Por ejemplo, aquí las clases de utilidad para cada imagen de avatar se repiten cinco veces separadas:
+For example, here the utility classes for each avatar image are repeated five separate times:
 
 <Figure>
 
@@ -618,7 +621,7 @@ Por ejemplo, aquí las clases de utilidad para cada imagen de avatar se repiten 
   <div className="bg-white">
     <div className="mx-auto w-72 px-8 py-6 sm:w-96 sm:px-12 sm:py-8">
       <div className="flex items-center space-x-2 text-base">
-        <h4 className="text-base font-semibold text-slate-900">Colaboradores</h4>
+        <h4 className="text-base font-semibold text-slate-900">Contributors</h4>
         <span className="rounded-full bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700">204</span>
       </div>
       <div className="mt-3 flex -space-x-2 overflow-hidden">
@@ -650,7 +653,7 @@ Por ejemplo, aquí las clases de utilidad para cada imagen de avatar se repiten 
       </div>
       <div className="mt-3 text-sm font-medium">
         <a href="#" className="text-blue-500">
-          + otros 198
+          + 198 others
         </a>
       </div>
     </div>
@@ -661,7 +664,7 @@ Por ejemplo, aquí las clases de utilidad para cada imagen de avatar se repiten 
 <!-- [!code classes:inline-block,h-12,w-12,rounded-full,ring-2,ring-white] -->
 <div>
   <div class="flex items-center space-x-2 text-base">
-    <h4 class="font-semibold text-slate-900">Colaboradores</h4>
+    <h4 class="font-semibold text-slate-900">Contributors</h4>
     <span class="bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700 ...">204</span>
   </div>
   <div class="mt-3 flex -space-x-2 overflow-hidden">
@@ -677,20 +680,20 @@ Por ejemplo, aquí las clases de utilidad para cada imagen de avatar se repiten 
     <img class="inline-block h-12 w-12 rounded-full ring-2 ring-white" src="https://images.unsplash.com/photo-1517365830460-955ce3ccd263?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" />
   </div>
   <div class="mt-3 text-sm font-medium">
-    <a href="#" class="text-blue-500">+ otros 198</a>
+    <a href="#" class="text-blue-500">+ 198 others</a>
   </div>
 </div>
 ```
 
 </Figure>
 
-¡No entres en pánico! En la práctica, este no es el problema que te podría preocupar, y las estrategias para manejarlo son cosas que ya haces todos los días.
+Don't panic! In practice this isn't the problem you might be worried it is, and the strategies for dealing with it are things you already do every day.
 
-### Usando bucles
+### Using loops
 
-Muchas veces, un elemento de diseño que aparece más de una vez en la página renderizada solo se crea una vez porque el marcado real se renderiza en un bucle.
+A lot of the time a design element that shows up more than once in the rendered page is only actually authored once because the actual markup is rendered in a loop.
 
-Por ejemplo, los avatares duplicados al principio de esta guía casi con seguridad se renderizarían en un bucle en un proyecto real:
+For example, the duplicate avatars at the beginning of this guide would almost certainly be rendered in a loop in a real project:
 
 <Figure>
 
@@ -698,7 +701,7 @@ Por ejemplo, los avatares duplicados al principio de esta guía casi con segurid
   <div className="bg-white">
     <div className="mx-auto w-72 px-8 py-6 sm:w-96 sm:px-12 sm:py-8">
       <div className="flex items-center space-x-2 text-base">
-        <h4 className="text-base font-semibold text-slate-900">Colaboradores</h4>
+        <h4 className="text-base font-semibold text-slate-900">Contributors</h4>
         <span className="rounded-full bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700">204</span>
       </div>
       <div className="mt-3 flex -space-x-2 overflow-hidden">
@@ -730,7 +733,7 @@ Por ejemplo, los avatares duplicados al principio de esta guía casi con segurid
       </div>
       <div className="mt-3 text-sm font-medium">
         <a href="#" className="text-blue-500">
-          + otros 198
+          + 198 others
         </a>
       </div>
     </div>
@@ -740,7 +743,7 @@ Por ejemplo, los avatares duplicados al principio de esta guía casi con segurid
 ```svelte
 <div>
   <div class="flex items-center space-x-2 text-base">
-    <h4 class="font-semibold text-slate-900">Colaboradores</h4>
+    <h4 class="font-semibold text-slate-900">Contributors</h4>
     <span class="bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-700 ...">204</span>
   </div>
   <div class="mt-3 flex -space-x-2 overflow-hidden">
@@ -751,20 +754,18 @@ Por ejemplo, los avatares duplicados al principio de esta guía casi con segurid
     {/each}
   </div>
   <div class="mt-3 text-sm font-medium">
-    <a href="#" class="text-blue-500">+ otros 198</a>
+    <a href="#" class="text-blue-500">+ 198 others</a>
   </div>
 </div>
 ```
 
 </Figure>
 
-Cuando los elementos se renderizan en un bucle como este, la lista de clases real solo se escribe una vez, por lo que no hay un problema de duplicación real que resolver.
+When elements are rendered in a loop like this, the actual class list is only written once so there's no actual duplication problem to solve.
 
-### Usando edición multi-cursor
+### Using multi-cursor editing
 
-Cuando la duplicación se localiza en un grupo de elementos en un solo archivo, la forma más fácil de manejarla es usar [edición multi-cursor](https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor) para seleccionar y editar rápidamente la lista de clases para cada elemento a la vez:
-
-Te sorprendería la frecuencia con la que esta termina siendo la mejor solución. Si puedes editar rápidamente todas las listas de clases duplicadas simultáneamente, no hay beneficio en introducir ninguna abstracción adicional.
+When duplication is localized to a group of elements in a single file, the easiest way to deal with it is to use [multi-cursor editing](https://code.visualstudio.com/docs/editor/codebasics#_multiple-selections-multicursor) to quickly select and edit the class list for each element at once:
 
 <MultiCursorAnimation>
   <Figure>
@@ -777,9 +778,11 @@ Te sorprendería la frecuencia con la que esta termina siendo la mejor solución
   </Figure>
 </MultiCursorAnimation>
 
-### Usando componentes
+You'd be surprised at how often this ends up being the best solution. If you can quickly edit all of the duplicated class lists simultaneously, there's no benefit to introducing any additional abstraction.
 
-Si necesitas reutilizar algunos estilos en múltiples archivos, la mejor estrategia es crear un _componente_ si estás usando un framework front-end como React, Svelte o Vue, o un _template partial_ si estás usando un lenguaje de plantillas como Blade, ERB, Twig o Nunjucks.
+### Using components
+
+If you need to reuse some styles across multiple files, the best strategy is to create a _component_ if you're using a front-end framework like React, Svelte, or Vue, or a _template partial_ if you're using a templating language like Blade, ERB, Twig, or Nunjucks.
 
 <Figure>
 
@@ -792,14 +795,14 @@ Si necesitas reutilizar algunos estilos en múltiples archivos, la mejor estrate
         src="https://images.unsplash.com/photo-1452784444945-3f422708fe5e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=512&q=80"
         width="512"
         height="341"
-        alt="Playa"
+        alt="Beach"
       />
       <div className="mt-4">
-          <div className="text-xs font-bold text-sky-500">Villa Privada</div>
+          <div className="text-xs font-bold text-sky-500">Private Villa</div>
           <div className="mt-1 font-bold text-gray-700">
-            <a href="#" className="hover:underline">Resort Todo Incluido Relajante en Cancún</a>
+            <a href="#" className="hover:underline">Relaxing All-Inclusive Resort in Cancun</a>
           </div>
-          <div className="mt-2 text-sm text-gray-600">$299 USD por noche</div>
+          <div className="mt-2 text-sm text-gray-600">$299 USD per night</div>
       </div>
     </div>
   </div>
@@ -828,15 +831,15 @@ export function VacationCard({ img, imgAlt, eyebrow, title, pricing, url }) {
 
 </Figure>
 
-Ahora puedes usar este componente en tantos lugares como quieras, mientras sigues teniendo una única fuente de verdad para los estilos para que puedan actualizarse fácilmente juntos en un solo lugar.
+Now you can use this component in as many places as you like, while still having a single source of truth for the styles so they can easily be updated together in one place.
 
-### Usando CSS personalizado
+### Using custom CSS
 
-Si estás usando un lenguaje de plantillas como ERB o Twig en lugar de algo como React o Vue, crear un template partial para algo tan pequeño como un botón puede parecer excesivo en comparación con una simple clase CSS como `btn`.
+If you're using a templating language like ERB or Twig instead of something like React or Vue, creating a template partial for something as small as a button can feel like overkill compared to a simple CSS class like `btn`.
 
-Si bien es muy recomendable que crees template partials adecuados para componentes más complejos, escribir algo de CSS personalizado está totalmente bien cuando un template partial parece excesivo.
+While it's highly recommended that you create proper template partials for more complex components, writing some custom CSS is totally fine when a template partial feels heavy-handed.
 
-Así es como podría verse una clase `btn-primary`, usando [variables de tema](/docs/theme#with-custom-css) para mantener el diseño consistente:
+Here's what a `btn-primary` class might look like, using [theme variables](/docs/theme#with-custom-css) to keep the design consistent:
 
 <Figure>
 
@@ -847,7 +850,7 @@ Así es como podría verse una clase `btn-primary`, usando [variables de tema](/
     type="button"
     className="rounded-full bg-violet-500 px-5 py-2 font-semibold text-white shadow-md hover:bg-violet-700"
   >
-    Guardar cambios
+    Save changes
   </button>
 </div>
 
@@ -857,7 +860,7 @@ Así es como podría verse una clase `btn-primary`, usando [variables de tema](/
 
 ```html
 <!-- [!code filename:HTML] -->
-<button class="btn-primary">Guardar cambios</button>
+<button class="btn-primary">Save changes</button>
 ```
 
 ```css
@@ -886,13 +889,13 @@ Así es como podría verse una clase `btn-primary`, usando [variables de tema](/
 
 </Figure>
 
-De nuevo, para cualquier cosa que sea más complicada que un solo elemento HTML, recomendamos encarecidamente usar parciales de plantilla para que los estilos y la estructura puedan encapsularse en un solo lugar.
+Again though, for anything that's more complicated than just a single HTML element, we highly recommend using template partials so the styles and structure can be encapsulated in one place.
 
-## Manejando conflictos de estilo
+## Managing style conflicts
 
-### Clases de utilidad en conflicto
+### Conflicting utility classes
 
-Cuando agregas dos clases que apuntan a la misma propiedad CSS, la clase que aparece más tarde en la hoja de estilos gana. Así que en este ejemplo, el elemento recibirá `display: grid` aunque `flex` viene al final en el atributo `class` real:
+When you add two classes that target the same CSS property, the class that appears later in the stylesheet wins. So in this example, the element will receive `display: grid` even though `flex` comes last in the actual `class` attribute:
 
 <CodeExampleStack>
 
@@ -916,7 +919,7 @@ Cuando agregas dos clases que apuntan a la misma propiedad CSS, la clase que apa
 
 </CodeExampleStack>
 
-En general, nunca deberías añadir dos clases conflictivas al mismo elemento — añade solo la que realmente quieres que tenga efecto:
+In general, you should just never add two conflicting classes to the same element — only ever add the one you actually want to take effect:
 
 ```jsx
 // [!code filename:example.jsx]
@@ -926,11 +929,11 @@ export function Example({ gridLayout }) {
 }
 ```
 
-Usando bibliotecas basadas en componentes como React o Vue, esto a menudo significa exponer props específicos para personalizaciones de estilo en lugar de permitir que los consumidores agreguen clases adicionales desde fuera de un componente, ya que esos estilos a menudo entrarán en conflicto.
+Using component-based libraries like React or Vue, this often means exposing specific props for styling customizations instead of letting consumers add extra classes from outside of a component, since those styles will often conflict.
 
-### Usando el modificador important
+### Using the important modifier
 
-Cuando realmente necesitas forzar que una clase de utilidad específica tenga efecto y no tienes otra forma de gestionar la especificidad, puedes añadir `!` al final del nombre de la clase para hacer que todas las declaraciones sean `!important`:
+When you really need to force a specific utility class to take effect and have no other means of managing the specificity, you can add `!` to the end of the class name to make all of the declarations `!important`:
 
 <CodeExampleStack>
 
@@ -944,7 +947,7 @@ Cuando realmente necesitas forzar que una clase de utilidad específica tenga ef
 ```
 
 ```css
-/* [!code filename: CSS Generado] */
+/* [!code filename: Generated CSS] */
 /* [!code word:!important] */
 .bg-red-500\! {
   background-color: var(--color-red-500) !important;
@@ -956,9 +959,9 @@ Cuando realmente necesitas forzar que una clase de utilidad específica tenga ef
 
 </CodeExampleStack>
 
-### Usando la bandera important
+### Using the important flag
 
-Si estás añadiendo Tailwind a un proyecto que tiene CSS complejo existente con reglas de alta especificidad, puedes usar la bandera `important` al importar Tailwind para marcar _todas_ las utilidades como `!important`:
+If you're adding Tailwind to a project that has existing complex CSS with high specificity rules, you can use the `important` flag when importing Tailwind to mark _all_ utilities as `!important`:
 
 <CodeExampleStack>
 
@@ -986,9 +989,9 @@ Si estás añadiendo Tailwind a un proyecto que tiene CSS complejo existente con
 
 </CodeExampleStack>
 
-### Usando la opción prefix
+### Using the prefix option
 
-Si tu proyecto tiene nombres de clase que entran en conflicto con las utilidades de Tailwind CSS, puedes prefijar todas las clases y variables CSS generadas por Tailwind usando la opción `prefix`:
+If your project has class names that conflict with Tailwind CSS utilities, you can prefix all Tailwind-generated classes and CSS variables using the `prefix` option:
 
 <CodeExampleStack>
 

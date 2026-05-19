@@ -8,11 +8,11 @@ import card from "./card.jpg";
 
 export const metadata: Metadata = {
   title: "Build UIs that don't suck",
-  description: "Una serie de videos gratuitos del creador de Tailwind CSS.",
+  description: "A free videos series from the creator of Tailwind CSS.",
   openGraph: {
     type: "website",
     title: "Build UIs that don't suck",
-    description: "Una serie de videos gratuitos del creador de Tailwind CSS.",
+    description: "A free video series from the creator of Tailwind CSS.",
     images: card.src,
     url: "https://tailwindcss.com/build-uis-that-dont-suck",
   },
@@ -28,40 +28,40 @@ export default async function Course() {
         <GridContainer>
           <div className="max-w-xl space-y-8 text-base/7 text-gray-400 marker:text-white/60 **:[li]:pl-2 **:[strong]:font-medium **:[strong]:text-white **:[ul]:list-[square] **:[ul]:space-y-4 **:[ul]:pl-8">
             <p>
-              Cuando construyes componentes de UI que son usados por <strong>decenas de miles de desarrolladores</strong>, aprendes
-              a preocuparte realmente por los detalles, como:
+              When you build UI components that are used by <strong>tens of thousands of developers</strong>, you learn
+              to really care about the details, like:
             </p>
             <ul>
               <li>
-                <strong>Construir layouts que no se rompan</strong> cuando el contenido es más largo de lo que planeaste en
+                <strong>Building layouts that don't break</strong> when the content is longer than you planned for in
                 Figma
               </li>
               <li>
-                Hacer que una tabla sea desplazable, <strong>sin que el contenido se recorte</strong> por el padding de la página
+                Making a table scrollable, <strong>without the content getting cropped</strong> by the page padding
               </li>
               <li>
-                <strong>Alinear iconos automáticamente</strong> en menús desplegables, incluso cuando algunos elementos son solo texto
+                <strong>Automatically aligning icons</strong> in dropdown menus, even when some items are just text
               </li>
               <li>
-                Hacer que una tarjeta completa sea cliqueable, <strong>sin destruir la experiencia</strong> para lectores de pantalla
+                Making an entire card clickable, <strong>without destroying the experience</strong> for screen readers
               </li>
               <li>
-                <strong>Ajustar finamente los objetivos de clic para móviles</strong>, sin hacer que todo lo demás sea más difícil de mantener
+                <strong>Fine-tuning click targets for mobile</strong>, without making everything else harder to maintain
               </li>
               <li>
-                Obtener el border radius <strong>matemáticamente perfecto</strong> en elementos anidados, sin
-                hardcodear números mágicos
+                Getting the border radius <strong>mathematically perfect</strong> on nested elements, without
+                hard-coding magic numbers
               </li>
             </ul>
             <p>
-              <strong>“Build UIs that don’t suck”</strong> es un curso intensivo sobre algunos de los trucos más geniales que he aprendido
-              a lo largo de los años construyendo cosas que necesitan ser tanto hermosas como a prueba de balas.
+              <strong>“Build UIs that don’t suck”</strong> is a crash course in some of the coolest tricks I've picked
+              up over the years building things that need to be both beautiful and bullet-proof.
             </p>
 
             <p>
-              <strong>Cada día durante una semana te enviaré una lección corta en video</strong> explicándote un
-              problema interesante de UI, <strong>así como el código</strong> para que puedas jugar con él tú mismo y adaptarlo
-              para tus propios proyectos.
+              <strong>Every day for a week I'll send you a short video lesson</strong> walking you through an
+              interesting UI problem, <strong>as well as the code</strong> so you can play with it yourself and adapt it
+              for your own projects.
             </p>
           </div>
           <div className="mt-8">

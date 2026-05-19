@@ -5,25 +5,25 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "flex";
-export const description = "Utilidades para controlar cómo los elementos flex crecen y se encogen.";
+export const description = "Utilities for controlling how flex items both grow and shrink.";
 
 <ApiTable
   rows={[
     ["flex-<number>", "flex: <number>;"],
     ["flex-<fraction>", "flex: calc(<fraction> * 100%);"],
-    ["flex-auto", "flex: 1 1 auto;"],
-    ["flex-initial", "flex: 0 1 auto;"],
+    ["flex-auto", "flex: auto;"],
+    ["flex-initial", "flex: 0 auto;"],
     ["flex-none", "flex: none;"],
     ["flex-(<custom-property>)", "flex: var(<custom-property>);"],
     ["flex-[<value>]", "flex: <value>;"],
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `flex-<number>` como `flex-1` para permitir que un elemento flex crezca y se encoja según sea necesario, ignorando su tamaño inicial:
+Use `flex-<number>` utilities like `flex-1` to allow a flex item to grow and shrink as needed, ignoring its initial size:
 
 <Figure>
 
@@ -53,9 +53,9 @@ Usa utilidades `flex-<number>` como `flex-1` para permitir que un elemento flex 
 
 </Figure>
 
-### Inicial
+### Initial
 
-Usa `flex-initial` para permitir que un elemento flex se encoja pero no crezca, teniendo en cuenta su tamaño inicial:
+Use `flex-initial` to allow a flex item to shrink but not grow, taking into account its initial size:
 
 <Figure>
 
@@ -87,7 +87,7 @@ Usa `flex-initial` para permitir que un elemento flex se encoja pero no crezca, 
 
 ### Auto
 
-Usa `flex-auto` para permitir que un elemento flex crezca y se encoja, teniendo en cuenta su tamaño inicial:
+Use `flex-auto` to allow a flex item to grow and shrink, taking into account its initial size:
 
 <Figure>
 
@@ -117,9 +117,9 @@ Usa `flex-auto` para permitir que un elemento flex crezca y se encoja, teniendo 
 
 </Figure>
 
-### Ninguno
+### None
 
-Usa `flex-none` para evitar que un elemento flex crezca o se encoja:
+Use `flex-none` to prevent a flex item from growing or shrinking:
 
 <Figure>
 
@@ -155,7 +155,7 @@ Usa `flex-none` para evitar que un elemento flex crezca o se encoja:
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="flex" name="flex shorthand property" value="3_1_auto" />
 

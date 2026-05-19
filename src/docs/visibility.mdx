@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "visibility";
-export const description = "Utilidades para controlar la visibilidad de un elemento.";
+export const description = "Utilities for controlling the visibility of an element.";
 
 <ApiTable
   rows={[
@@ -15,11 +15,11 @@ export const description = "Utilidades para controlar la visibilidad de un eleme
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Haciendo elementos invisibles
+### Making elements invisible
 
-Usa la utilidad `invisible` para ocultar un elemento, pero manteniendo su lugar en el documento, afectando el diseño de otros elementos:
+Use the `invisible` utility to hide an element, but still maintain its place in the document, affecting the layout of other elements:
 
 <Figure>
 
@@ -47,29 +47,29 @@ Usa la utilidad `invisible` para ocultar un elemento, pero manteniendo su lugar 
 
 </Figure>
 
-Para eliminar completamente un elemento del documento, usa la propiedad [display](/docs/display#hidden) en su lugar.
+To completely remove an element from the document, use the [display](/docs/display#hidden) property instead.
 
-### Colapsando elementos
+### Collapsing elements
 
-Usa la utilidad `collapse` para ocultar filas de tabla, grupos de filas, columnas y grupos de columnas como si estuvieran configurados en `display: none`, pero sin afectar el tamaño de otras filas y columnas:
+Use the `collapse` utility to hide table rows, row groups, columns, and column groups as if they were set to `display: none`, but without impacting the size of other rows and columns:
 
 <Figure>
 
 <Example padding={false}>
   {
     <div className="py-8">
-      <div className="mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">Mostrando todas las filas</div>
+      <div className="mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">Showing all rows</div>
       <table className="w-full border-collapse border-y border-gray-400 bg-white text-sm dark:border-gray-500 dark:bg-gray-800">
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Factura #
+              Invoice #
             </th>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Cliente
+              Client
             </th>
             <th className="border border-gray-300 px-4 py-3 text-right font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Monto
+              Amount
             </th>
           </tr>
         </thead>
@@ -110,19 +110,19 @@ Usa la utilidad `collapse` para ocultar filas de tabla, grupos de filas, columna
         </tbody>
       </table>
       <div className="mt-10 mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">
-        Ocultando una fila usando <code className="text-xs text-gray-700 dark:text-gray-300">`collapse`</code>
+        Hiding a row using <code className="text-xs text-gray-700 dark:text-gray-300">`collapse`</code>
       </div>
       <table className="w-full border-collapse border-y border-gray-400 bg-white text-sm dark:border-gray-500 dark:bg-gray-800">
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Factura #
+              Invoice #
             </th>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Cliente
+              Client
             </th>
             <th className="border border-gray-300 px-4 py-3 text-right font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Monto
+              Amount
             </th>
           </tr>
         </thead>
@@ -163,19 +163,19 @@ Usa la utilidad `collapse` para ocultar filas de tabla, grupos de filas, columna
         </tbody>
       </table>
       <div className="mt-10 mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">
-        Ocultando una fila usando <code className="text-xs text-gray-700 dark:text-gray-300">`hidden`</code>
+        Hiding a row using <code className="text-xs text-gray-700 dark:text-gray-300">`hidden`</code>
       </div>
       <table className="w-full border-collapse border-y border-gray-400 bg-white text-sm dark:border-gray-500 dark:bg-gray-800">
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Factura #
+              Invoice #
             </th>
             <th className="border border-gray-300 px-4 py-3 text-left font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Cliente
+              Client
             </th>
             <th className="border border-gray-300 px-4 py-3 text-right font-semibold text-gray-900 first:border-l-0 last:border-r-0 dark:border-gray-600 dark:text-gray-200">
-              Monto
+              Amount
             </th>
           </tr>
         </thead>
@@ -224,9 +224,9 @@ Usa la utilidad `collapse` para ocultar filas de tabla, grupos de filas, columna
 <table>
   <thead>
     <tr>
-      <th>Factura #</th> <!-- Invoice # -->
-      <th>Cliente</th> <!-- Client -->
-      <th>Monto</th> <!-- Amount -->
+      <th>Invoice #</th>
+      <th>Client</th>
+      <th>Amount</th>
     </tr>
   </thead>
   <tbody>
@@ -251,11 +251,11 @@ Usa la utilidad `collapse` para ocultar filas de tabla, grupos de filas, columna
 
 </Figure>
 
-Esto hace posible alternar dinámicamente filas y columnas sin afectar el diseño de la tabla.
+This makes it possible to dynamically toggle rows and columns without affecting the table layout.
 
-### Haciendo elementos visibles
+### Making elements visible
 
-Usa la utilidad `visible` para hacer visible un elemento:
+Use the `visible` utility to make an element visible:
 
 <Figure>
 
@@ -280,7 +280,7 @@ Usa la utilidad `visible` para hacer visible un elemento:
 
 </Figure>
 
-Esto es útil principalmente para deshacer la utilidad `invisible` en diferentes tamaños de pantalla.
+This is mostly useful for undoing the `invisible` utility at different screen sizes.
 
 ### Responsive design
 

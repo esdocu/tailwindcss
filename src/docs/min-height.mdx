@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "min-height";
-export const description = "Utilidades para establecer la altura mínima de un elemento.";
+export const description = "Utilities for setting the minimum height of an element.";
 
 <ApiTable
   rows={[
@@ -24,16 +24,17 @@ export const description = "Utilidades para establecer la altura mínima de un e
     ["min-h-min", "min-height: min-content;"],
     ["min-h-max", "min-height: max-content;"],
     ["min-h-fit", "min-height: fit-content;"],
+    ["min-h-lh", "min-height: 1lh;"],
     ["min-h-(<custom-property>)", "min-height: var(<custom-property>);"],
     ["min-h-[<value>]", "min-height: <value>;"],
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `min-h-<number>` como `min-h-24` y `min-h-64` para establecer una altura mínima fija para un elemento basada en la escala de espaciado:
+Use `min-h-<number>` utilities like `min-h-24` and `min-h-64` to set an element to a fixed minimum height based on the spacing scale:
 
 <Figure>
 
@@ -82,9 +83,9 @@ Usa utilidades `min-h-<number>` como `min-h-24` y `min-h-64` para establecer una
 
 </Figure>
 
-### Usando un porcentaje
+### Using a percentage
 
-Usa utilidades `min-h-full` o `min-h-<fraction>` como `min-h-1/2`, y `min-h-2/5` para darle a un elemento una altura mínima basada en porcentajes:
+Use `min-h-full` or `min-h-<fraction>` utilities like `min-h-1/2`, and `min-h-2/5` to give an element a percentage-based minimum height:
 
 <Figure>
 
@@ -136,7 +137,7 @@ Usa utilidades `min-h-full` o `min-h-<fraction>` como `min-h-1/2`, y `min-h-2/5`
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="min-h" value="220px" name="minimum height" variable="min-height" />
 
@@ -144,6 +145,6 @@ Usa utilidades `min-h-full` o `min-h-<fraction>` como `min-h-1/2`, y `min-h-2/5`
 
 <ResponsiveDesign property="min-height" defaultClass="h-24 min-h-0" featuredClass="min-h-full" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourSpacingScale utility="min-h" />

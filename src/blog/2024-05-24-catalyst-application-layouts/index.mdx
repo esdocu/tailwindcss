@@ -9,41 +9,41 @@ import { Example } from "@/components/example";
 import { Figure } from "@/components/figure";
 
 export const meta = {
-  title: "Catalyst: Diseños de aplicación, menús de navegación, listas de descripción y más",
+  title: "Catalyst: Application layouts, navigation menus, description lists, and more",
   description:
-    "Acabamos de publicar la primera actualización importante de Catalyst desde el lanzamiento de la vista previa de desarrollo, con dos nuevos diseños de aplicación, componentes navbar y sidebar, listas de descripción y más.",
+    "We just published the first major update to Catalyst since releasing the development preview, with two new application layouts, navbar and sidebar components, description lists, and more.",
   date: "2024-05-24T20:00:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      Acabamos de publicar la primera actualización importante de Catalyst desde el lanzamiento de la vista previa de desarrollo, con dos nuevos
-      diseños de aplicación, componentes navbar y sidebar, listas de descripción y más.
+      We just published the first major update to Catalyst since releasing the development preview, with two new
+      application layouts, navbar and sidebar components, description lists, and more.
     </>
   ),
 };
 
-<Image alt="Vista previa del diseño de la aplicación Catalyst" src={catalystHeader} />
+<Image alt="Catalyst application layout preview" src={catalystHeader} />
 
-Acabamos de publicar la primera actualización importante de [Catalyst](https://tailwindui.com/templates/catalyst) desde el lanzamiento de la vista previa de desarrollo, con dos nuevos diseños de aplicación, componentes navbar y sidebar, listas de descripción y más.
+We just published the first major update to [Catalyst](https://tailwindui.com/templates/catalyst) since releasing the development preview, with two new application layouts, navbar and sidebar components, description lists, and more.
 
-También estamos emocionados de compartir que con el lanzamiento de [Headless UI v2.0 para React](/blog/headless-ui-v2), Catalyst ya no está en vista previa de desarrollo — **es oficialmente estable** y puedes empezar a usarlo en producción hoy mismo sin preocuparte por cambios disruptivos en las dependencias subyacentes.
+We're also pumped to share that with the release of [Headless UI v2.0 for React](/blog/headless-ui-v2), Catalyst is no longer in development preview — **it's officially stable** and you can start using it in production today without worrying about breaking changes in the underlying dependencies.
 
-Echa un vistazo a nuestro nuevo [sitio de demostración en vivo](https://catalyst-demo.tailwindui.com) para ver por ti mismo cómo se ve y se siente un proyecto completo de Catalyst después de estas actualizaciones.
+Check out our brand new [live demo site](https://catalyst-demo.tailwindui.com) to see what a full Catalyst project looks and feels like after these updates for yourself.
 
 ---
 
-## Nuevos componentes de diseño de aplicación
+## New application layout components
 
-Una de las cosas más difíciles al intentar empezar una nueva idea de proyecto es superar el lienzo en blanco para poder empezar a construir algo realmente.
+One of the hardest things about trying to get started on a new project idea is getting past the blank canvas so you can actually start building something.
 
-En esta actualización hemos añadido dos nuevos componentes de diseño de aplicación para facilitar dar forma y estructura a tu proyecto, de modo que tengas algo con lo que empezar a construir.
+In this update we've added two new application layout components to make it easy to give your project a shape and structure so you have something you can start building with.
 
-El primer diseño es un clásico [diseño de barra lateral](https://catalyst.tailwindui.com/docs/sidebar-layout), que mueve la barra lateral a un menú móvil plegable en pantallas más pequeñas:
+The first layout is a classic [sidebar layout](https://catalyst.tailwindui.com/docs/sidebar-layout), that moves the sidebar into a collapsible mobile menu on smaller screens:
 
 <div className="mb-0">
 
-<Image alt="Ejemplo de diseño de barra lateral" src={sidebarLayout} />
+<Image alt="Sidebar layout example" src={sidebarLayout} />
 
 </div>
 
@@ -55,20 +55,20 @@ import { Sidebar } from "@/components/sidebar";
 function Example({ children }) {
   return (
     <SidebarLayout
-      sidebar={<Sidebar>{/* Menú de la barra lateral */}</Sidebar>}
-      navbar={<Navbar>{/* Navbar para pantallas móviles */}</Navbar>}
+      sidebar={<Sidebar>{/* Sidebar menu */}</Sidebar>}
+      navbar={<Navbar>{/* Navbar for mobile screens */}</Navbar>}
     >
-      {/* Contenido de tu página */}
+      {/* Your page content */}
     </SidebarLayout>
   );
 }
 ```
 
-El segundo es un [diseño apilado](https://catalyst.tailwindui.com/docs/stacked-layout) más simple con un menú de navegación horizontal, que a menudo es una gran opción para aplicaciones con menos páginas:
+The second is a simpler [stacked layout](https://catalyst.tailwindui.com/docs/stacked-layout) with a horizontal navigation menu, which is often a great fit for apps with fewer pages:
 
 <div className="mb-0">
 
-<Image alt="Ejemplo de diseño apilado" src={stackedLayout} />
+<Image alt="Stacked layout example" src={stackedLayout} />
 
 </div>
 
@@ -80,30 +80,30 @@ import { Sidebar } from "@/components/sidebar";
 function Example({ children }) {
   return (
     <StackedLayout
-      navbar={<Navbar>{/* Menú de navegación superior */}</Navbar>}
-      sidebar={<Sidebar>{/* Contenido de la barra lateral para menú móvil */}</Sidebar>}
+      navbar={<Navbar>{/* Top navigation menu */}</Navbar>}
+      sidebar={<Sidebar>{/* Sidebar content for mobile menu */}</Sidebar>}
     >
-      {/* Contenido de tu página */}
+      {/* Your page content */}
     </StackedLayout>
   );
 }
 ```
 
-Y ambos soportan el modo oscuro también, por supuesto:
+And they both support dark mode too, of course:
 
-<Image alt="Diseño de barra lateral en modo oscuro" src={layoutDarkMode} />
+<Image alt="Sidebar layout in dark mode" src={layoutDarkMode} />
 
-Trabajamos muy duro para acertar con las APIs de todos estos componentes, facilitando la colocación de las cosas donde necesitas que estén, incluir iconos opcionalmente, incorporar menús desplegables y más.
+We worked really hard to get the APIs for all of these components right, making it easy to position things where you need them to be, optionally include icons, incorporate dropdown menus, and more.
 
-El resultado final resultó sentirse realmente simple, que es exactamente lo que buscábamos, y creo que encontrarás que son un verdadero placer para construir.
+The final result turned out feeling really simple which is exactly what we were going for, and I think you'll find they are a real delight to build with.
 
-Consulta la [documentación del diseño de barra lateral](https://catalyst.tailwindui.com/docs/sidebar-layout) y la [documentación del diseño apilado](https://catalyst.tailwindui.com/docs/stacked-layout) para empezar, luego profundiza en los componentes [Navbar](https://catalyst.tailwindui.com/docs/navbar) y [Sidebar](https://catalyst.tailwindui.com/docs/sidebar) para aprender cómo estructurar todos los elementos de navegación.
+Check out the [Sidebar layout documentation](https://catalyst.tailwindui.com/docs/sidebar-layout) and [Stacked layout documentation](https://catalyst.tailwindui.com/docs/stacked-layout) to get started, then dig into the [Navbar](https://catalyst.tailwindui.com/docs/navbar) and [Sidebar](https://catalyst.tailwindui.com/docs/sidebar) components to learn how to structure all of the navigation items.
 
 ---
 
-## Listas de descripción
+## Description lists
 
-Cuando estábamos trabajando en los diseños de la aplicación nos dimos cuenta de que no teníamos ningún gran contenido para demostrarlos, así que preparamos un componente `DescriptionList` para llenar ese gran espacio vacío.
+When we were working on the application layouts we realized we didn't have any great content to demo them with, so we cooked up a `DescriptionList` component to fill in that big empty space.
 
 <Figure>
 
@@ -112,37 +112,37 @@ Cuando estábamos trabajando en los diseños de la aplicación nos dimos cuenta 
     <div className="bg-white dark:bg-slate-900">
       <dl className="grid grid-cols-1 text-base/6 sm:grid-cols-[min(50%,theme(spacing.80))_auto] sm:text-sm/6">
         <dt className="col-start-1 border-t border-zinc-950/5 pt-3 text-zinc-500 first:border-none sm:border-t sm:border-zinc-950/5 sm:py-3 dark:border-white/5 dark:text-zinc-400 sm:dark:border-white/5">
-          Cliente
+          Customer
         </dt>
         <dd className="pt-1 pb-3 text-zinc-950 sm:border-t sm:border-zinc-950/5 sm:py-3 dark:text-white sm:dark:border-white/5 sm:[&:nth-child(2)]:border-none">
           Michael Foster
         </dd>
         <dt className="col-start-1 border-t border-zinc-950/5 pt-3 text-zinc-500 first:border-none sm:border-t sm:border-zinc-950/5 sm:py-3 dark:border-white/5 dark:text-zinc-400 sm:dark:border-white/5">
-          Evento
+          Event
         </dt>
         <dd className="pt-1 pb-3 text-zinc-950 sm:border-t sm:border-zinc-950/5 sm:py-3 dark:text-white sm:dark:border-white/5 sm:[&:nth-child(2)]:border-none">
           Bear Hug: Live in Concert
         </dd>
         <dt className="col-start-1 border-t border-zinc-950/5 pt-3 text-zinc-500 first:border-none sm:border-t sm:border-zinc-950/5 sm:py-3 dark:border-white/5 dark:text-zinc-400 sm:dark:border-white/5">
-          Monto
+          Amount
         </dt>
         <dd className="pt-1 pb-3 text-zinc-950 sm:border-t sm:border-zinc-950/5 sm:py-3 dark:text-white sm:dark:border-white/5 sm:[&:nth-child(2)]:border-none">
           $150.00 USD
         </dd>
         <dt className="col-start-1 border-t border-zinc-950/5 pt-3 text-zinc-500 first:border-none sm:border-t sm:border-zinc-950/5 sm:py-3 dark:border-white/5 dark:text-zinc-400 sm:dark:border-white/5">
-          Monto después del tipo de cambio
+          Amount after exchange rate
         </dt>
         <dd className="pt-1 pb-3 text-zinc-950 sm:border-t sm:border-zinc-950/5 sm:py-3 dark:text-white sm:dark:border-white/5 sm:[&:nth-child(2)]:border-none">
           US$150.00 → CA$199.79
         </dd>
         <dt className="col-start-1 border-t border-zinc-950/5 pt-3 text-zinc-500 first:border-none sm:border-t sm:border-zinc-950/5 sm:py-3 dark:border-white/5 dark:text-zinc-400 sm:dark:border-white/5">
-          Comisión
+          Fee
         </dt>
         <dd className="pt-1 pb-3 text-zinc-950 sm:border-t sm:border-zinc-950/5 sm:py-3 dark:text-white sm:dark:border-white/5 sm:[&:nth-child(2)]:border-none">
           $4.79 USD
         </dd>
         <dt className="col-start-1 border-t border-zinc-950/5 pt-3 text-zinc-500 first:border-none sm:border-t sm:border-zinc-950/5 sm:py-3 dark:border-white/5 dark:text-zinc-400 sm:dark:border-white/5">
-          Neto
+          Net
         </dt>
         <dd className="pt-1 pb-3 text-zinc-950 sm:border-t sm:border-zinc-950/5 sm:py-3 dark:text-white sm:dark:border-white/5 sm:[&:nth-child(2)]:border-none">
           $1,955.00
@@ -158,10 +158,10 @@ import { DescriptionDetails, DescriptionList, DescriptionTerm } from "@/componen
 function Example() {
   return (
     <DescriptionList>
-      <DescriptionTerm>Cliente</DescriptionTerm>
+      <DescriptionTerm>Customer</DescriptionTerm>
       <DescriptionDetails>Michael Foster</DescriptionDetails>
 
-      <DescriptionTerm>Evento</DescriptionTerm>
+      <DescriptionTerm>Event</DescriptionTerm>
       <DescriptionDetails>Bear Hug: Live in Concert</DescriptionDetails>
 
       {/* ... */}
@@ -172,15 +172,15 @@ function Example() {
 
 </Figure>
 
-Es una API realmente simple que funciona igual que el elemento HTML `<dl>`, pero está bien estilizada, es Responsive y con soporte para modo oscuro, por supuesto.
+It's a really simple API that works just like the HTML `<dl>` element, but is nicely styled, responsive, and with dark mode support of course.
 
-Consulta la documentación de [Lista de descripción](https://catalyst.tailwindui.com/docs/description-list) para más detalles.
+Check out the [Description list](https://catalyst.tailwindui.com/docs/description-list) documentation for more details.
 
 ---
 
-## Encabezados de página
+## Page headings
 
-¡Más componentes que necesitábamos para que la demo se viera bien! Hemos añadido componentes `Heading` y `Subheading` que puedes usar para titular cosas de forma rápida y consistente en tu UI.
+More components we needed to make the demo look good! We've added `Heading` and `Subheading` components you can use to quickly and consistently title things in your UI.
 
 <Figure>
 
@@ -188,10 +188,10 @@ Consulta la documentación de [Lista de descripción](https://catalyst.tailwindu
   {
     <div className="bg-white dark:bg-zinc-900">
       <div>
-        <h1 className="text-2xl/8 font-semibold text-zinc-950 sm:text-xl/8 dark:text-white">Encabezado</h1>
+        <h1 className="text-2xl/8 font-semibold text-zinc-950 sm:text-xl/8 dark:text-white">Heading</h1>
       </div>
       <div className="mt-4">
-        <h2 className="text-base/7 font-semibold text-zinc-950 sm:text-sm/6 dark:text-white">Subencabezado</h2>
+        <h2 className="text-base/7 font-semibold text-zinc-950 sm:text-sm/6 dark:text-white">Subheading</h2>
       </div>
     </div>
   }
@@ -203,8 +203,8 @@ import { Heading, Subheading } from "@/components/heading";
 function Example() {
   return (
     <div>
-      <Heading>Encabezado</Heading>
-      <Subheading>Subencabezado</Subheading>
+      <Heading>Heading</Heading>
+      <Subheading>Subheading</Subheading>
     </div>
   );
 }
@@ -212,15 +212,15 @@ function Example() {
 
 </Figure>
 
-Puedes controlar qué elemento de encabezado HTML se renderiza usando la prop `level`, y como todo lo demás, son Responsive con soporte incorporado para modo oscuro.
+You can control which HTML heading element is rendered using the `level` prop, and like everything else, they're responsive with built-in dark mode support.
 
-Consulta la documentación de [Encabezado](https://catalyst.tailwindui.com/docs/heading) para más ejemplos.
+See the [Heading](https://catalyst.tailwindui.com/docs/heading) documentation for more examples.
 
 ---
 
-## Divisores
+## Dividers
 
-Guardamos lo mejor para el final — Catalyst ahora incluye una línea gris que puedes poner entre cosas.
+Saved the best for last — Catalyst now includes a gray line you can put in between things.
 
 <Figure>
 
@@ -242,12 +242,12 @@ function Example() {
 
 </Figure>
 
-Trabajamos incansablemente en este, y estamos muy orgullosos de facilitar esta parte de tu proceso de desarrollo de aplicaciones.
+We worked tirelessly on this one, and are so proud to make this part of your application development process easier.
 
-Consulta la documentación de [Divisor](https://catalyst.tailwindui.com/docs/divider) — tiene al menos una prop.
+Check out the [Divider](https://catalyst.tailwindui.com/docs/divider) documentation — it does have one prop at least.
 
 ---
 
-Catalyst está incluido con tu licencia de acceso total a Tailwind UI sin costo adicional, así que si tienes una licencia, inicia sesión y [descarga la última versión](https://tailwindui.com/templates/catalyst) para empezar a construir.
+Catalyst is included with your Tailwind UI all-access license at no additional cost, so if you've got a license, log in and [download the latest version](https://tailwindui.com/templates/catalyst) to start building.
 
-¡Esperamos ver lo que haces con él!
+Looking forward to seeing what you do with it!

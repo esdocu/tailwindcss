@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "white-space";
-export const description = "Utilidades para controlar la propiedad white-space de un elemento.";
+export const description = "Utilities for controlling an element's white-space property.";
 
 <ApiTable
   rows={[
@@ -17,11 +17,11 @@ export const description = "Utilidades para controlar la propiedad white-space d
   ]}
 />
 
-## Ejemplos
+## Examples
 
 ### Normal
 
-Usa la utilidad `whitespace-normal` para hacer que el texto se ajuste normally dentro de un elemento. Las líneas nuevas y los espacios se colapsarán:
+Use the `whitespace-normal` utility to cause text to wrap normally within an element. Newlines and spaces will be collapsed:
 
 <Figure>
 
@@ -31,7 +31,7 @@ Usa la utilidad `whitespace-normal` para hacer que el texto se ajuste normally d
       <p
         className="whitespace-normal"
         children={
-          "¡Hola a todos!\n\nYa casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.\n\nNunca lo sabrás."
+          "Hey everyone!\n\nIt’s almost 2022       and we still don’t know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.\n\nYou will never know."
         }
       />
     </div>
@@ -41,18 +41,18 @@ Usa la utilidad `whitespace-normal` para hacer que el texto se ajuste normally d
 ```html
 <!-- [!code classes:whitespace-normal] -->
 <!-- prettier-ignore -->
-<p class="whitespace-normal">¡Hola a todos!
+<p class="whitespace-normal">Hey everyone!
 
-Ya casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.
+It's almost 2022       and we still don't know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.
 
-Nunca lo sabrás.</p>
+You will never know.</p>
 ```
 
 </Figure>
 
-### Sin ajuste (No Wrap)
+### No Wrap
 
-Usa la utilidad `whitespace-nowrap` para evitar que el texto se ajuste dentro de un elemento. Las líneas nuevas y los espacios se colapsarán:
+Use the `whitespace-nowrap` utility to prevent text from wrapping within an element. Newlines and spaces will be collapsed:
 
 <Figure>
 
@@ -62,7 +62,7 @@ Usa la utilidad `whitespace-nowrap` para evitar que el texto se ajuste dentro de
       <p
         className="whitespace-nowrap"
         children={
-          "¡Hola a todos!\n\nYa casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.\n\nNunca lo sabrás."
+          "Hey everyone!\n\nIt’s almost 2022       and we still don’t know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.\n\nYou will never know."
         }
       />
     </div>
@@ -72,18 +72,18 @@ Usa la utilidad `whitespace-nowrap` para evitar que el texto se ajuste dentro de
 ```html
 <!-- [!code classes:whitespace-nowrap] -->
 <!-- prettier-ignore -->
-<p class="overflow-auto whitespace-nowrap">¡Hola a todos!
+<p class="overflow-auto whitespace-nowrap">Hey everyone!
 
-Ya casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.
+It's almost 2022       and we still don't know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.
 
-Nunca lo sabrás.</p>
+You will never know.</p>
 ```
 
 </Figure>
 
-### Preformateado (Pre)
+### Pre
 
-Usa la utilidad `whitespace-pre` para preservar las líneas nuevas y los espacios dentro de un elemento. El texto no se ajustará:
+Use the `whitespace-pre` utility to preserve newlines and spaces within an element. Text will not be wrapped:
 
 <Figure>
 
@@ -93,7 +93,7 @@ Usa la utilidad `whitespace-pre` para preservar las líneas nuevas y los espacio
       <p
         className="whitespace-pre"
         children={
-          "¡Hola a todos!\n\nYa casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.\n\nNunca lo sabrás."
+          "Hey everyone!\n\nIt’s almost 2022       and we still don’t know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.\n\nYou will never know."
         }
       />
     </div>
@@ -103,18 +103,18 @@ Usa la utilidad `whitespace-pre` para preservar las líneas nuevas y los espacio
 ```html
 <!-- [!code classes:whitespace-pre] -->
 <!-- prettier-ignore -->
-<p class="overflow-auto whitespace-pre">¡Hola a todos!
+<p class="overflow-auto whitespace-pre">Hey everyone!
 
-Ya casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.
+It's almost 2022       and we still don't know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.
 
-Nunca lo sabrás.</p>
+You will never know.</p>
 ```
 
 </Figure>
 
-### Línea preformateada (Pre Line)
+### Pre Line
 
-Usa la utilidad `whitespace-pre-line` para preservar las líneas nuevas pero no los espacios dentro de un elemento. El texto se ajustará normally:
+Use the `whitespace-pre-line` utility to preserve newlines but not spaces within an element. Text will be wrapped normally:
 
 <Figure>
 
@@ -124,7 +124,7 @@ Usa la utilidad `whitespace-pre-line` para preservar las líneas nuevas pero no 
       <p
         className="whitespace-pre-line"
         children={
-          "¡Hola a todos!\n\nYa casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.\n\nNunca lo sabrás."
+          "Hey everyone!\n\nIt’s almost 2022       and we still don’t know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.\n\nYou will never know."
         }
       />
     </div>
@@ -134,18 +134,18 @@ Usa la utilidad `whitespace-pre-line` para preservar las líneas nuevas pero no 
 ```html
 <!-- [!code classes:whitespace-pre-line] -->
 <!-- prettier-ignore -->
-<p class="whitespace-pre-line">¡Hola a todos!
+<p class="whitespace-pre-line">Hey everyone!
 
-Ya casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.
+It's almost 2022       and we still don't know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.
 
-Nunca lo sabrás.</p>
+You will never know.</p>
 ```
 
 </Figure>
 
-### Ajuste preformateado (Pre Wrap)
+### Pre Wrap
 
-Usa la utilidad `whitespace-pre-wrap` para preservar las líneas nuevas y los espacios dentro de un elemento. El texto se ajustará normally:
+Use the `whitespace-pre-wrap` utility to preserve newlines and spaces within an element. Text will be wrapped normally:
 
 <Figure>
 
@@ -155,7 +155,7 @@ Usa la utilidad `whitespace-pre-wrap` para preservar las líneas nuevas y los es
       <p
         className="whitespace-pre-wrap"
         children={
-          "¡Hola a todos!\n\nYa casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.\n\nNunca lo sabrás."
+          "Hey everyone!\n\nIt’s almost 2022       and we still don’t know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.\n\nYou will never know."
         }
       />
     </div>
@@ -166,18 +166,18 @@ Usa la utilidad `whitespace-pre-wrap` para preservar las líneas nuevas y los es
 ```html
 <!-- [!code classes:whitespace-pre-wrap] -->
 <!-- prettier-ignore -->
-<p class="whitespace-pre-wrap">¡Hola a todos!
+<p class="whitespace-pre-wrap">Hey everyone!
 
-Ya casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.
+It's almost 2022       and we still don't know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.
 
-Nunca lo sabrás.</p>
+You will never know.</p>
 ```
 
 </Figure>
 
-### Romper espacios (Break Spaces)
+### Break Spaces
 
-Usa la utilidad `whitespace-break-spaces` para preservar las líneas nuevas y los espacios dentro de un elemento. El espacio en blanco al final de las líneas no colgará, sino que se ajustará a la siguiente línea:
+Use the `whitespace-break-spaces` utility to preserve newlines and spaces within an element. White space at the end of lines will not hang, but will wrap to the next line:
 
 <Figure>
 
@@ -187,7 +187,7 @@ Usa la utilidad `whitespace-break-spaces` para preservar las líneas nuevas y lo
       <p
         className="whitespace-break-spaces"
         children={
-          "¡Hola a todos!\n\nYa casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.\n\nNunca lo sabrás."
+          "Hey everyone!\n\nIt’s almost 2022       and we still don’t know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.\n\nYou will never know."
         }
       />
     </div>
@@ -197,11 +197,11 @@ Usa la utilidad `whitespace-break-spaces` para preservar las líneas nuevas y lo
 ```html
 <!-- [!code classes:whitespace-break-spaces] -->
 <!-- prettier-ignore -->
-<p class="whitespace-break-spaces">¡Hola a todos!
+<p class="whitespace-break-spaces">Hey everyone!
 
-Ya casi es 2022       y todavía no sabemos si hay             extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre.
+It's almost 2022       and we still don't know if there             are aliens living among us, or do we? Maybe the person writing this is an alien.
 
-Nunca lo sabrás.</p>
+You will never know.</p>
 ```
 
 </Figure>

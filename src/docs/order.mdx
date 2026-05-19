@@ -4,25 +4,25 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "order";
-export const description = "Utilidades para controlar el orden de los ítems flex y grid.";
+export const description = "Utilities for controlling the order of flex and grid items.";
 
 <ApiTable
   rows={[
     ["order-<number>", "order: <number>;"],
     ["-order-<number>", "order: calc(<number> * -1);"],
-    ["order-first", "order: calc(-infinity);"],
-    ["order-last", "order: calc(infinity);"],
+    ["order-first", "order: -9999;"],
+    ["order-last", "order: 9999;"],
     ["order-none", "order: 0;"],
     ["order-(<custom-property>)", "order: var(<custom-property>);"],
     ["order-[<value>]", "order: <value>;"],
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Estableciendo explícitamente un orden de clasificación
+### Explicitly setting a sort order
 
-Usa utilidades `order-<number>` como `order-1` y `order-3` para renderizar ítems flex y grid en un orden diferente al que aparecen en el documento:
+Use `order-<number>` utilities like `order-1` and `order-3` to render flex and grid items in a different order than they appear in the document:
 
 <Figure>
 
@@ -47,9 +47,9 @@ Usa utilidades `order-<number>` como `order-1` y `order-3` para renderizar ítem
 
 </Figure>
 
-### Ordenando ítems primero o último
+### Ordering items first or last
 
-Usa las utilidades `order-first` y `order-last` para renderizar ítems flex y grid primero o último:
+Use the `order-first` and `order-last` utilities to render flex and grid items first or last:
 
 <Figure>
 
@@ -74,9 +74,9 @@ Usa las utilidades `order-first` y `order-last` para renderizar ítems flex y gr
 
 </Figure>
 
-### Usando valores negativos
+### Using negative values
 
-Para usar un valor de orden negativo, prefija el nombre de la clase con un guion para convertirlo en un valor negativo:
+To use a negative order value, prefix the class name with a dash to convert it to a negative value:
 
 ```html
 <!-- [!code classes:-order-1] -->
@@ -85,7 +85,7 @@ Para usar un valor de orden negativo, prefija el nombre de la clase con un guion
 </div>
 ```
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="order" value="min(var(--total-items),10)" />
 

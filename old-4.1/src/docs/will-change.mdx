@@ -1,0 +1,47 @@
+import { ApiTable } from "@/components/api-table.tsx";
+import { Example } from "@/components/example.tsx";
+import { UsingACustomValue } from "@/components/content.tsx";
+
+export const title = "will-change";
+export const description = "Utilidades para optimizar futuras animaciones de elementos que se espera que cambien.";
+
+<ApiTable
+  rows={[
+    ["will-change-auto", "will-change: auto;"],
+    ["will-change-scroll", "will-change: scroll-position;"],
+    ["will-change-contents", "will-change: contents;"],
+    ["will-change-transform", "will-change: transform;"],
+    ["will-change-<custom-property>", "will-change: var(<custom-property>);"],
+    ["will-change-[<value>]", "will-change: <value>;"],
+  ]}
+/>
+
+## Ejemplos
+
+### Optimizando con will change
+
+Usa las utilidades `will-change-scroll`, `will-change-contents` y `will-change-transform` para optimizar un elemento que se espera que cambie en un futuro cercano, instruyendo al navegador para preparar la animación necesaria antes de que realmente comience:
+
+```html
+<!-- [!code classes:will-change-scroll] -->
+<div class="overflow-auto will-change-scroll">
+  <!-- ... -->
+</div>
+```
+
+Se recomienda que apliques estas utilidades justo antes de que un elemento cambie, y luego las elimines poco después de que termine usando `will-change-auto`.
+
+La propiedad `will-change` está pensada para ser utilizada como último recurso cuando se trata de **problemas de rendimiento conocidos**. Evita usar estas utilidades en exceso, o simplemente en anticipación a problemas de rendimiento, ya que en realidad podría hacer que la página sea menos eficiente.
+
+### Usando un valor personalizado
+
+<UsingACustomValue
+  utility="will-change"
+  name={
+    <>
+      propiedad <code>will-change</code>
+    </>
+  }
+  value="top,left"
+  variable="properties"
+/>

@@ -6,7 +6,7 @@ import { DynamicViewportExample } from "@/components/dynamic-viewport-example.ts
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "height";
-export const description = "Utilidades para establecer la altura de un elemento.";
+export const description = "Utilities for setting the height of an element.";
 
 <ApiTable
   rows={[
@@ -25,6 +25,7 @@ export const description = "Utilidades para establecer la altura de un elemento.
     ["h-min", "height: min-content;"],
     ["h-max", "height: max-content;"],
     ["h-fit", "height: fit-content;"],
+    ["h-lh", "height: 1lh;"],
     ["h-(<custom-property>)", "height: var(<custom-property>);"],
     ["h-[<value>]", "height: <value>;"],
     ["size-<number>", "width: calc(var(--spacing) * <number>);\nheight: calc(var(--spacing) * <number>);"],
@@ -46,11 +47,11 @@ export const description = "Utilidades para establecer la altura de un elemento.
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades `h-<number>` como `h-24` y `h-64` para establecer una altura fija a un elemento basada en la escala de espaciado:
+Use `h-<number>` utilities like `h-24` and `h-64` to set an element to a fixed height based on the spacing scale:
 
 <Figure>
 
@@ -95,9 +96,9 @@ Usa utilidades `h-<number>` como `h-24` y `h-64` para establecer una altura fija
 
 </Figure>
 
-### Usando un porcentaje
+### Using a percentage
 
-Usa utilidades `h-full` o `h-<fraction>` como `h-1/2` y `h-2/5` para darle a un elemento una altura basada en porcentaje:
+Use `h-full` or `h-<fraction>` utilities like `h-1/2` and `h-2/5` to give an element a percentage-based height:
 
 <Figure>
 
@@ -149,9 +150,9 @@ Usa utilidades `h-full` o `h-<fraction>` como `h-1/2` y `h-2/5` para darle a un 
 
 </Figure>
 
-### Coincidiendo con el viewport
+### Matching viewport
 
-Usa la utilidad `h-screen` para hacer que un elemento ocupe toda la altura del viewport:
+Use the `h-screen` utility to make an element span the entire height of the viewport:
 
 ```html
 <!-- [!code classes:h-screen] -->
@@ -160,11 +161,11 @@ Usa la utilidad `h-screen` para hacer que un elemento ocupe toda la altura del v
 </div>
 ```
 
-### Coincidiendo con el viewport dinámico
+### Matching dynamic viewport
 
-Usa la utilidad `h-dvh` para hacer que un elemento ocupe toda la altura del viewport, que cambia a medida que la interfaz de usuario del navegador se expande o contrae:
+Use the `h-dvh` utility to make an element span the entire height of the viewport, which changes as the browser UI expands or contracts:
 
-<Figure hint="Desplázate por el viewport para ver cómo cambia la altura del viewport">
+<Figure hint="Scroll the viewport to see the viewport height change">
 
 <Example padding={false}>
   {<DynamicViewportExample unit="dvh" colorStyles="dark:bg-pink-500 bg-pink-500 border border-pink-400" />}
@@ -179,11 +180,11 @@ Usa la utilidad `h-dvh` para hacer que un elemento ocupe toda la altura del view
 
 </Figure>
 
-### Coincidiendo con el viewport grande
+### Matching large viewport
 
-Usa la utilidad `h-lvh` para establecer la altura de un elemento a la mayor altura posible del viewport:
+Use the `h-lvh` utility to set an element's height to the largest possible height of the viewport:
 
-<Figure hint="Desplázate por el viewport para ver cómo cambia la altura del viewport">
+<Figure hint="Scroll the viewport to see the viewport height change">
 
 <Example padding={false}>
   {<DynamicViewportExample unit="lvh" colorStyles="dark:bg-indigo-500 bg-indigo-500 border border-indigo-400" />}
@@ -198,11 +199,11 @@ Usa la utilidad `h-lvh` para establecer la altura de un elemento a la mayor altu
 
 </Figure>
 
-### Coincidiendo con el viewport pequeño
+### Matching small viewport
 
-Usa la utilidad `h-svh` para establecer la altura de un elemento a la menor altura posible del viewport:
+Use the `h-svh` utility to set an element's height to the smallest possible height of the viewport:
 
-<Figure hint="Desplázate por el viewport para ver cómo cambia la altura del viewport">
+<Figure hint="Scroll the viewport to see the viewport height change">
 
 <Example padding={false}>
   {<DynamicViewportExample unit="svh" colorStyles="dark:bg-purple-500 bg-purple-500 border border-purple-400" />}
@@ -217,9 +218,9 @@ Usa la utilidad `h-svh` para establecer la altura de un elemento a la menor altu
 
 </Figure>
 
-### Estableciendo tanto ancho como altura
+### Setting both width and height
 
-Usa utilidades como `size-px`, `size-4` y `size-full` para establecer tanto el ancho como la altura de un elemento al mismo tiempo:
+Use utilities like `size-px`, `size-4`, and `size-full` to set both the width and height of an element at the same time:
 
 <Figure>
 
@@ -246,7 +247,7 @@ Usa utilidades como `size-px`, `size-4` y `size-full` para establecer tanto el a
 
 </Figure>
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="h" value="32rem" name="height" variable="height" />
 
@@ -254,6 +255,6 @@ Usa utilidades como `size-px`, `size-4` y `size-full` para establecer tanto el a
 
 <ResponsiveDesign property="height" defaultClass="h-1/2" featuredClass="h-full" />
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourSpacingScale utilities={["h", "size"]} />

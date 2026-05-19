@@ -1,0 +1,85 @@
+import { adamwathan } from "@/app/blog/authors";
+import card from "./card.jpg";
+import allAccess from "./all-access.jpg";
+import codeStructure from "./code-structure.jpg";
+import templates from "./templates.jpg";
+import { Image } from "@/components/media";
+import Link from "next/link";
+
+export const meta = {
+  title: "Tailwind UI: Plantillas de sitio y acceso total",
+  description: `Hoy lanzamos nuestro primer lote de plantillas oficiales de sitios web de Tailwind CSS — hermosos diseños diseñados en bases de código de calidad de producción, impulsados por Tailwind CSS y Next.js.`,
+  date: "2022-06-23T19:40:00.000Z",
+  authors: [adamwathan],
+  image: card,
+  excerpt: (
+    <>
+      Cuando estaba empezando mi carrera de programación, me encantaba seguir a{" "}
+      <Link href="https://thoughtbot.com/">thoughtbot</Link>. Siempre estaban escribiendo artículos de programación interesantes
+      y produciendo screencasts fantásticos.
+    </>
+  ),
+};
+
+<Image alt="Plantillas Tailwind CSS" src={templates} />
+
+Cuando estaba empezando mi carrera de programación, me encantaba seguir a <Link href="https://thoughtbot.com/">thoughtbot</Link>. Siempre estaban escribiendo artículos de programación interesantes, produciendo screencasts fantásticos y publicando libros increíbles. Podía notar que realmente se preocupaban por su oficio y eso me inspiró muchísimo.
+
+Pero cuando lanzaron <Link href="https://thoughtbot.com/upcase">Upcase</Link>, lo que más me emocionaba no eran los cursos ni los videos semanales. Lo que más me emocionaba era el código fuente de Upcase mismo — la base de código Rails _real-en-producción_ a la que te daban acceso cuando te suscribías.
+
+Había aprendido un montón de publicaciones de blog, libros y screencasts, pero todavía anhelaba la oportunidad de sumergirme en una base de código del mundo real creada por personas en las que confío y estudiar cómo juntaron todo ese conocimiento para construir una aplicación lista para producción.
+
+Esa experiencia fue transformadora para mí, y durante mucho tiempo he querido darle a la gente algo así para aprender cómo se construyen sitios web reales con Tailwind CSS.
+
+Cómo se descompone un diseño en componentes, qué tipo de APIs exponen esos componentes, cómo se ha personalizado la configuración — todas las decisiones interesantes que no puedes ver cuando simplemente haces clic en _ver código fuente_ en el navegador.
+
+Así que hoy lanzamos nuestro primer lote de plantillas oficiales de sitios web de Tailwind CSS <Link href="https://tailwindui.com/templates"> </Link> — hermosos diseños diseñados en bases de código de calidad de producción, impulsados por Tailwind CSS y Next.js.
+
+Empezamos a diseñar estos allá por marzo y estoy muy emocionado de sacar estos primeros cinco para que puedas echarles un vistazo y empezar a jugar con ellos:
+
+- <Link href="https://syntax.tailwindui.com/">Syntax</Link> — una plantilla de sitio de documentación impulsada por la nueva librería <Link href="https://markdoc.io/"> Markdoc </Link> de Stripe que es perfecta para cosas como proyectos de código abierto o documentación de productos.
+- <Link href="https://primer.tailwindui.com/">Primer</Link> — una plantilla de página de destino para ebooks y cursos que incorpora muchas de las mejores prácticas que hemos aprendido al lanzar nuestros propios productos de información.
+- <Link href="https://salient.tailwindui.com/">Salient</Link> — un sitio web de marketing SaaS impresionante pero simple que puedes adaptar rápidamente para tu próxima idea sin quemar tiempo que desearías estar dedicando al producto real.
+- <Link href="https://keynote.tailwindui.com/">Keynote</Link> — un hermoso diseño de sitio web para conferencias que funciona igual de bien para pequeñas reuniones locales que para eventos internacionales.
+- <Link href="https://transmit.tailwindui.com/">Transmit</Link> — una plantilla de podcasting increíble con un reproductor de audio persistente personalizado que puedes conectar a tu propio feed RSS en poco tiempo.
+
+Hemos puesto mucho tiempo y atención tanto en el diseño como en el código, y todo está estructurado exactamente como lo haríamos en un proyecto de producción real. Son el punto de partida perfecto cuando no quieres empezar desde un lienzo en blanco, y la mejor manera de aprender cómo los expertos construyen sitios web modernos con Tailwind CSS.
+
+<Image alt="Estructura del Código" src={codeStructure} />
+
+Cada plantilla se puede comprar por separado por **$99**, o puedes obtenerlas todas con <Link href="https://tailwindui.com/all-access">acceso total</Link> — el nuevo paquete _obtén-todo-lo-que-agreguemos-para-siempre_ que lanzamos hoy.
+
+---
+
+## Apostando todo por el acceso total
+
+Cuando empezamos a trabajar en las plantillas, una de las cosas de las que estaba realmente seguro es que quería que fuera fácil obtener acceso a _todas_ ellas.
+
+Esto era importante para mí por dos razones:
+
+1.  **Quiero que la gente piense en nuestras plantillas más como recursos educativos que como temas de sitios web tradicionales**. Cada plantilla que construimos tiene sus propios momentos de aprendizaje únicos, y no quiero que la gente tenga que ser selectiva sobre lo que puede aprender.
+2.  **No quiero preocuparme por el ROI por plantilla**. Nada arruinaría más la diversión de diseñar y construir plantillas que tener que asegurarse de que cada una tuviera un atractivo masivo. Quiero que tengamos la libertad de hacer cosas de nicho, interesantes, con ideas geniales para estudiar, no solo plantillas que puedan vender suficientes copias por sí solas para justificar el trabajo que les dedicamos.
+
+Cuando era niño fui a este <Link href="https://en.concerts-metal.com/concert_-_Hellfest_2008-3308.html">festival de música</Link> en Francia donde actuaron casi cien bandas. Había un par de bandas en el cartel que absolutamente _amaba_, conocía cada canción y compraría una entrada para ver cualquier día de la semana.
+
+Sin embargo, la mayoría eran bandas que realmente me _gustaban_, pero no habría hecho el viaje de 90 minutos para ir a un concierto. Pero ponerlas todas juntas en un cartel me hizo comprar un billete de avión a París y tener una de las mejores experiencias de mi vida.
+
+Quiero que Tailwind UI se sienta como un festival de música, donde puedes pasear de escenario en escenario, disfrutar de una canción o dos de una banda que nunca has oído hablar, y de vez en cuando quedarte impresionado por una actuación que de otro modo nunca te habrías molestado en ver.
+
+Así que estamos lanzando un nuevo paquete de <Link href="https://tailwindui.com/all-access">acceso total</Link> para Tailwind UI que incluye acceso a cada plantilla y paquete de componentes que existe hoy y cualquier contenido nuevo que agreguemos en el futuro.
+
+<Image alt="Obtén acceso total a Tailwind UI" src={allAccess} />
+
+Es una compra única de **$299**. Sin suscripción, sin costos de actualización — si agregamos algo nuevo a Tailwind UI, es tuyo, para siempre.
+
+ Y si ya posees todo en Tailwind UI, **te hemos actualizado a acceso total gratis**.
+
+---
+
+¡Así que ahí lo tienes — eso es todo en lo que hemos estado trabajando durante los últimos meses!
+
+Ya tenemos un montón de nuevas plantillas en proceso, y estamos trabajando activamente en extraer muchas de las ideas de componentes de estas plantillas en nuevos ejemplos para incluir en las categorías de componentes de Marketing, Application UI y Ecommerce.
+
+Esa es una de mis cosas favoritas de trabajar en estas plantillas de sitio — construir cosas del mundo real con Tailwind es la mejor manera para nosotros de encontrar nuevas ideas de componentes, y de encontrar formas de mejorar tanto Tailwind CSS como Headless UI también.
+
+¡Espera muchas cosas nuevas de Tailwind UI en los próximos meses!

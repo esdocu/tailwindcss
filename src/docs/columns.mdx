@@ -7,7 +7,7 @@ import { Stripes } from "@/components/stripes.tsx";
 import { UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "columns";
-export const description = "Utilidades para controlar el número de columnas dentro de un elemento.";
+export const description = "Utilities for controlling the number of columns within an element.";
 
 <ApiTable
   rows={[
@@ -31,11 +31,11 @@ export const description = "Utilidades para controlar el número de columnas den
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Establecer por número
+### Setting by number
 
-Usa utilidades `columns-<number>` como `columns-3` para establecer el número de columnas que se deben crear para el contenido dentro de un elemento:
+Use `columns-<number>` utilities like `columns-3` to set the number of columns that should be created for the content within an element:
 
 <Figure>
 
@@ -101,13 +101,13 @@ Usa utilidades `columns-<number>` como `columns-3` para establecer el número de
 
 </Figure>
 
-El ancho de la columna se ajustará automáticamente para adaptarse al número especificado de columnas.
+The column width will automatically adjust to accommodate the specified number of columns.
 
-### Establecer por ancho
+### Setting by width
 
-Usa utilidades como `columns-xs` y `columns-sm` para establecer el ancho de columna ideal para el contenido dentro de un elemento:
+Use utilities like `columns-xs` and `columns-sm` to set the ideal column width for the content within an element:
 
-<Figure desktopHint="Redimensiona el ejemplo para ver el comportamiento esperado">
+<Figure desktopHint="Resize the example to see the expected behavior">
 
 <Example resizable>
   {
@@ -151,11 +151,11 @@ Usa utilidades como `columns-xs` y `columns-sm` para establecer el ancho de colu
 
 </Figure>
 
-Al establecer el ancho de la columna, el número de columnas se ajusta automáticamente para garantizar que no se estrechen demasiado.
+When setting the column width, the number of columns automatically adjusts to ensure they don't get too narrow.
 
-### Estableciendo el espaciado entre columnas
+### Setting the column gap
 
-Usa las utilidades `gap-<width>` para especificar el ancho entre columnas:
+Use the `gap-<width>` utilities to specify the width between columns:
 
 <Figure>
 
@@ -223,9 +223,9 @@ Usa las utilidades `gap-<width>` para especificar el ancho entre columnas:
 
 </Figure>
 
-Obtén más información sobre las utilidades de gap en la [documentación de gap](/docs/gap).
+Learn more about the gap utilities in the [gap documentation](/docs/gap).
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue utility="columns" value="30vw" />
 
@@ -233,7 +233,7 @@ Obtén más información sobre las utilidades de gap en la [documentación de ga
 
 <ResponsiveDesign property="columns" breakpoint="sm" featuredClass="aspect-square">
 
-<Figure desktopHint="Redimensiona el ejemplo para ver el comportamiento esperado">
+<Figure desktopHint="Resize the example to see the expected behavior">
 
 <Example resizable>
   {
@@ -299,7 +299,7 @@ Obtén más información sobre las utilidades de gap en la [documentación de ga
 
 </ResponsiveDesign>
 
-## Personalizando tu tema
+## Customizing your theme
 
 <CustomizingYourTheme
   utility="columns"

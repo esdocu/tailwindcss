@@ -2,7 +2,7 @@ import { ApiTable } from "@/components/api-table.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "break-after";
-export const description = "Utilidades para controlar cómo una columna o página debe romperse después de un elemento.";
+export const description = "Utilities for controlling how a column or page should break after an element.";
 
 <ApiTable
   rows={[
@@ -17,22 +17,22 @@ export const description = "Utilidades para controlar cómo una columna o págin
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Ejemplo básico
+### Basic example
 
-Usa utilidades como `break-after-column` y `break-after-page` para controlar cómo un salto de columna o página debe comportarse después de un elemento:
+Use utilities like `break-after-column` and `break-after-page` to control how a column or page break should behave after an element:
 
 ```html
 <!-- [!code classes:break-after-column] -->
 <div class="columns-2">
-  <p>Bueno, déjame decirte algo, ...</p>
-  <p class="break-after-column">Claro, adelante, ríete...</p>
-  <p>Tal vez podamos vivir sin...</p>
-  <p>Mira. Si crees que esto es...</p>
+  <p>Well, let me tell you something, ...</p>
+  <p class="break-after-column">Sure, go ahead, laugh...</p>
+  <p>Maybe we can live without...</p>
+  <p>Look. If you think this is...</p>
 </div>
 ```
 
-### Diseño Responsive
+### Responsive design
 
 <ResponsiveDesign property="break-after" defaultClass="break-after-column" featuredClass="break-after-auto" />

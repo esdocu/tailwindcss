@@ -3,7 +3,7 @@ import { Example } from "@/components/example.tsx";
 import { UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "will-change";
-export const description = "Utilidades para optimizar futuras animaciones de elementos que se espera que cambien.";
+export const description = "Utilities for optimizing upcoming animations of elements that are expected to change.";
 
 <ApiTable
   rows={[
@@ -16,11 +16,11 @@ export const description = "Utilidades para optimizar futuras animaciones de ele
   ]}
 />
 
-## Ejemplos
+## Examples
 
-### Optimizando con will change
+### Optimizing with will change
 
-Usa las utilidades `will-change-scroll`, `will-change-contents` y `will-change-transform` para optimizar un elemento que se espera que cambie en un futuro cercano, instruyendo al navegador para preparar la animación necesaria antes de que realmente comience:
+Use the `will-change-scroll`, `will-change-contents` and `will-change-transform` utilities to optimize an element that's expected to change in the near future by instructing the browser to prepare the necessary animation before it actually begins:
 
 ```html
 <!-- [!code classes:will-change-scroll] -->
@@ -29,17 +29,17 @@ Usa las utilidades `will-change-scroll`, `will-change-contents` y `will-change-t
 </div>
 ```
 
-Se recomienda que apliques estas utilidades justo antes de que un elemento cambie, y luego las elimines poco después de que termine usando `will-change-auto`.
+It's recommended that you apply these utilities just before an element changes, and then remove it shortly after it finishes using `will-change-auto`.
 
-La propiedad `will-change` está pensada para ser utilizada como último recurso cuando se trata de **problemas de rendimiento conocidos**. Evita usar estas utilidades en exceso, o simplemente en anticipación a problemas de rendimiento, ya que en realidad podría hacer que la página sea menos eficiente.
+The `will-change` property is intended to be used as a last resort when dealing with **known performance problems**. Avoid using these utilities too much, or simply in anticipation of performance issues, as it could actually cause the page to be less performant.
 
-### Usando un valor personalizado
+### Using a custom value
 
 <UsingACustomValue
   utility="will-change"
   name={
     <>
-      propiedad <code>will-change</code>
+      <code>will-change</code> property
     </>
   }
   value="top,left"
