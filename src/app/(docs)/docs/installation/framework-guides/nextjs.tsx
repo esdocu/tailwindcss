@@ -2,19 +2,19 @@ import { css, js, shell, Page, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/nextjs.react.svg";
 import LogoDark from "@/docs/img/guides/nextjs-white.react.svg";
 
-export let tile: Tile = {
+export const tile: Tile = {
   title: "Next.js",
   description: "Framework de React completo con una excelente experiencia de desarrollador.",
   Logo,
   LogoDark,
 };
 
-export let page: Page = {
+export const page: Page = {
   title: "Instalar Tailwind CSS con Next.js",
   description: "Configuración de Tailwind CSS en un proyecto Next.js.",
 };
 
-export let steps: Step[] = [
+export const steps: Step[] = [
   {
     title: "Crear tu proyecto",
     body: (

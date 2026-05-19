@@ -1,23 +1,23 @@
-import { astro, css, js, Page, shell, Step, Tile } from "./utils";
+import { css, js, Page, shell, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/gatsby.react.svg";
 
-export let tile: Tile = {
+export const tile: Tile = {
   title: "Gatsby",
-  description: "Framework for building static sites with React and GraphQL.",
+  description: "Framework para crear sitios estáticos con React y GraphQL.",
   Logo,
 };
 
-export let page: Page = {
-  title: "Install Tailwind CSS with Gatsby",
-  description: "Setting up Tailwind CSS in a Gatsby project.",
+export const page: Page = {
+  title: "Instalar Tailwind CSS con Gatsby",
+  description: "Configuración de Tailwind CSS en un proyecto Gatsby.",
 };
 
-export let steps: Step[] = [
+export const steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Crear tu proyecto",
     body: (
       <p>
-        Start by creating a new Gatsby project if you don’t have one set up already. The most common approach is to use{" "}
+        Comienza creando un nuevo proyecto Gatsby si aún no tienes uno configurado. El enfoque más común es utilizar{" "}
         <a href="https://www.gatsbyjs.com/docs/reference/gatsby-cli/#how-to-use-gatsby-cli">Gatsby CLI</a>.
       </p>
     ),
@@ -31,10 +31,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Instalar Tailwind CSS",
     body: (
       <p>
-        Using npm, install <code>@tailwindcss/postcss</code>, its peer dependencies, and{" "}
+        Usando npm, instala <code>@tailwindcss/postcss</code>, sus dependencias directas y{" "}
         <code>gatsby-plugin-postcss</code>.
       </p>
     ),
@@ -47,12 +47,12 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Enable the Gatsby PostCSS plugin",
+    title: "Habilitar el plugin PostCSS de Gatsby",
     body: (
       <p>
-        In your <code>gatsby-config.js</code> file, enable <code>gatsby-plugin-postcss</code>. See{" "}
-        <a href="https://www.gatsbyjs.com/plugins/gatsby-plugin-postcss/">the plugin's documentation</a> for more
-        information.
+        En tu archivo <code>gatsby-config.js</code>, habilita <code>gatsby-plugin-postcss</code>. Consulta{" "}
+        <a href="https://www.gatsbyjs.com/plugins/gatsby-plugin-postcss/">la documentación del plugin</a> para obtener
+        más información.
       </p>
     ),
     code: {
@@ -70,11 +70,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure PostCSS Plugins",
+    title: "Configurar los plugins de PostCSS",
     body: (
       <p>
-        Create a <code>postcss.config.js</code> file in the root of your project and add the{" "}
-        <code>@tailwindcss/postcss</code> plugin to your PostCSS configuration.
+        Crea un archivo <code>postcss.config.js</code> en la raíz de tu proyecto y añade el plugin{" "}
+        <code>@tailwindcss/postcss</code> a tu configuración de PostCSS.
       </p>
     ),
     code: {
@@ -91,10 +91,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Importar Tailwind CSS",
     body: (
       <p>
-        Create a <code>./src/styles/global.css</code> file and add an <code>@import</code> for Tailwind CSS.
+        Crea un archivo <code>./src/styles/global.css</code> y añade un <code>@import</code> que importe Tailwind CSS.
       </p>
     ),
     code: {
@@ -106,11 +106,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import the CSS file",
+    title: "Importar el archivo CSS",
     body: (
       <p>
-        Create a <code>gatsby-browser.js</code> file at the root of your project if it doesn’t already exist, and import
-        your newly-created <code>./src/styles/global.css</code> file.
+        Crea un archivo <code>gatsby-browser.js</code> en la raíz de tu proyecto si aún no existe, e importa
+        tu archivo <code>./src/styles/global.css</code> recién creado.
       </p>
     ),
     code: {
@@ -122,10 +122,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Iniciar tu proceso de compilación",
     body: (
       <p>
-        Run your build process with <code>gatsby develop</code>.
+        Ejecuta tu proceso de compilación con <code>gatsby develop</code>.
       </p>
     ),
     code: {
@@ -137,8 +137,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Comenzar a usar Tailwind en tu proyecto",
+    body: <p>Comienza a usar las clases de utilidad de Tailwind para dar estilo a tu contenido.</p>,
     code: {
       name: "index.js",
       lang: "js",

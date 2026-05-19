@@ -11,15 +11,15 @@ type Props = {
 };
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
-  let parts = (await props.params).slug;
+  const parts = (await props.params).slug;
   if (!parts) return notFound();
 
-  let [slug] = parts.filter((part) => part.trim() !== "");
+  const [slug] = parts.filter((part) => part.trim() !== "");
 
-  let guide = await loadGuide(slug);
+  const guide = await loadGuide(slug);
   if (!guide) return notFound();
 
-  let { page } = guide;
+  const { page } = guide;
 
   return {
     metadataBase: new URL("https://tailwindcss.com"),
@@ -44,15 +44,16 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 }
 
 export default async function Page({ params }: Props) {
-  let parts = (await params).slug;
+  const parts = (await params).slug;
   if (!parts) return notFound();
 
-  let [slug, selectedTab] = parts.filter((part) => part.trim() !== "");
+  const [slug, selectedTab] = parts.filter((part) => part.trim() !== "");
 
-  let guide = await loadGuide(slug);
+  const guide = await loadGuide(slug);
   if (!guide) return notFound();
 
-  let { page, steps, tabs } = guide;
+  const { page, tabs } = guide;
+  let steps = guide.steps;
 
   // TODO: Tab handling might be better as a client-side thing using
   // CSS or JS to show/hide steps instead
@@ -116,7 +117,7 @@ export default async function Page({ params }: Props) {
 }
 
 export async function generateStaticParams() {
-  let guides = await loadGuides();
+  const guides = await loadGuides();
   return guides.flatMap(({ slug, tabs = [] }) => [
     // examples:
     // - /docs/installation/framework-guides/nextjs

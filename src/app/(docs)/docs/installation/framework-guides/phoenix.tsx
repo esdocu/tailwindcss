@@ -1,24 +1,24 @@
 import { css, elixir, html, js, Page, shell, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/phoenix.react.svg";
 
-export let tile: Tile = {
+export const tile: Tile = {
   title: "Phoenix",
-  description: "A framework to build rich, interactive applications with Elixir.",
+  description: "Un framework para crear aplicaciones enriquecidas e interactivas con Elixir.",
   Logo,
 };
 
-export let page: Page = {
-  title: "Install Tailwind CSS with Phoenix",
-  description: "Setting up Tailwind CSS in a Phoenix project.",
+export const page: Page = {
+  title: "Instalar Tailwind CSS con Phoenix",
+  description: "Configuración de Tailwind CSS en un proyecto Phoenix.",
 };
 
-export let steps: Step[] = [
+export const steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Crear tu proyecto",
     body: (
       <p>
-        Start by creating a new Phoenix project if you don't have one set up already. You can follow their{" "}
-        <a href="https://hexdocs.pm/phoenix/installation.html">installation guide</a> to get up and running.
+        Comienza creando un nuevo proyecto Phoenix si aún no tienes uno configurado. Puedes seguir su{" "}
+        <a href="https://hexdocs.pm/phoenix/installation.html">guía de instalación</a> para ponerte en marcha.
       </p>
     ),
     code: {
@@ -31,10 +31,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install the Tailwind plugin",
+    title: "Instalar el plugin de Tailwind",
     body: (
       <p>
-        Add the Tailwind plugin to your dependencies and run <code>mix deps.get</code> to install it.
+        Añade el plugin de Tailwind a tus dependencias y ejecuta <code>mix deps.get</code> para instalarlo.
       </p>
     ),
     code: {
@@ -52,11 +52,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure the Tailwind plugin",
+    title: "Configurar el plugin de Tailwind",
     body: (
       <p>
-        In your <code>config/config.exs</code> file you can set which version of Tailwind CSS you want to use and
-        customize your asset paths.
+        En tu archivo <code>config/config.exs</code> puedes establecer qué versión de Tailwind CSS deseas utilizar y
+        personalizar tus rutas de recursos.
       </p>
     ),
     code: {
@@ -79,10 +79,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Update your deployment script",
+    title: "Actualizar tu script de implementación",
     body: (
       <p>
-        Configure your <code>assets.deploy</code> alias to build your CSS on deployment.
+        Configura tu alias <code>assets.deploy</code> para compilar tu CSS al implementar.
       </p>
     ),
     code: {
@@ -104,10 +104,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Enable watcher in development",
+    title: "Habilitar el observador en desarrollo",
     body: (
       <p>
-        Add Tailwind to your list of watchers in your <code>./config/dev.exs</code> file.
+        Añade Tailwind a tu lista de observadores (watchers) en tu archivo <code>./config/dev.exs</code>.
       </p>
     ),
     code: {
@@ -124,8 +124,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
-    body: <p>Run the install command to download the standalone Tailwind CLI.</p>,
+    title: "Instalar Tailwind CSS",
+    body: <p>Ejecuta el comando de instalación para descargar la CLI de Tailwind independiente.</p>,
     code: {
       name: "Terminal",
       lang: "shell",
@@ -135,10 +135,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Importar Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./assets/css/app.css</code> that imports Tailwind CSS.
+        Añade un <code>@import</code> a <code>./assets/css/app.css</code> que importe Tailwind CSS.
       </p>
     ),
     code: {
@@ -150,10 +150,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Remove the default CSS import",
+    title: "Eliminar la importación de CSS por defecto",
     body: (
       <p>
-        Remove the CSS import from <code>./assets/js/app.js</code>, as Tailwind is now handling this for you.
+        Elimina la importación de CSS de <code>./assets/js/app.js</code>, ya que Tailwind ahora se encarga de esto por ti.
       </p>
     ),
     code: {
@@ -167,10 +167,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Iniciar tu proceso de compilación",
     body: (
       <p>
-        Run your build process with <code>mix phx.server</code>.
+        Ejecuta tu proceso de compilación con <code>mix phx.server</code>.
       </p>
     ),
     code: {
@@ -182,8 +182,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Comenzar a usar Tailwind en tu proyecto",
+    body: <p>Comienza a usar las clases de utilidad de Tailwind para dar estilo a tu contenido.</p>,
     code: {
       name: "index.html.heex",
       lang: "html",

@@ -2,24 +2,24 @@ import { css, html, js, shell, Page, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/angular.react.svg";
 import LogoDark from "@/docs/img/guides/angular-white.react.svg";
 
-export let tile: Tile = {
+export const tile: Tile = {
   title: "Angular",
-  description: "Platform for building mobile and desktop web applications.",
+  description: "Plataforma para crear aplicaciones web móviles y de escritorio.",
   Logo,
   LogoDark,
 };
 
-export let page: Page = {
-  title: "Install Tailwind CSS with Angular",
-  description: "Setting up Tailwind CSS in an Angular project.",
+export const page: Page = {
+  title: "Instalar Tailwind CSS con Angular",
+  description: "Configuración de Tailwind CSS en un proyecto Angular.",
 };
 
-export let steps: Step[] = [
+export const steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Crear tu proyecto",
     body: (
       <p>
-        Start by creating a new Angular project if you don’t have one set up already. The most common approach is to use{" "}
+        Comienza creando un nuevo proyecto Angular si aún no tienes uno configurado. El enfoque más común es utilizar{" "}
         <a href="https://angular.dev/tools/cli/setup-local">Angular CLI</a>.
       </p>
     ),
@@ -33,10 +33,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Instalar Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/postcss</code> and its peer dependencies via npm.
+        Instala <code>@tailwindcss/postcss</code> y sus dependencias directas a través de npm.
       </p>
     ),
 
@@ -50,11 +50,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure PostCSS Plugins",
+    title: "Configurar los plugins de PostCSS",
     body: (
       <p>
-        Create a <code>.postcssrc.json</code> file in the root of your project and add the{" "}
-        <code>@tailwindcss/postcss</code> plugin to your PostCSS configuration.
+        Crea un archivo <code>.postcssrc.json</code> en la raíz de tu proyecto y añade el plugin{" "}
+        <code>@tailwindcss/postcss</code> a tu configuración de PostCSS.
       </p>
     ),
     code: {
@@ -71,10 +71,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Importar Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./src/styles.css</code> that imports Tailwind CSS.
+        Añade un <code>@import</code> a <code>./src/styles.css</code> que importe Tailwind CSS.
       </p>
     ),
     code: {
@@ -86,10 +86,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Iniciar tu proceso de compilación",
     body: (
       <p>
-        Run your build process with <code>ng serve</code>.
+        Ejecuta tu proceso de compilación con <code>ng serve</code>.
       </p>
     ),
     code: {
@@ -101,8 +101,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Comenzar a usar Tailwind en tu proyecto",
+    body: <p>Comienza a usar las clases de utilidad de Tailwind para dar estilo a tu contenido.</p>,
     code: {
       name: "app.component.html",
       lang: "html",

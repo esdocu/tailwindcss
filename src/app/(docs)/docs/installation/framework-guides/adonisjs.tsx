@@ -2,26 +2,26 @@ import { css, js, shell, html, type Page, type Step, type Tile } from "./utils";
 import Logo from "@/docs/img/guides/adonis.react.svg";
 import LogoDark from "@/docs/img/guides/adonis-white.react.svg";
 
-export let tile: Tile = {
+export const tile: Tile = {
   title: "AdonisJS",
-  description: "A fully featured web framework for Node.js.",
+  description: "Un framework web completo para Node.js.",
 
   Logo,
   LogoDark,
 };
 
-export let page: Page = {
-  title: "Install Tailwind CSS with AdonisJS",
-  description: "Setting up Tailwind CSS in an AdonisJS project.",
+export const page: Page = {
+  title: "Instalar Tailwind CSS con AdonisJS",
+  description: "Configuración de Tailwind CSS en un proyecto AdonisJS.",
 };
 
-export let steps: Step[] = [
+export const steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Crear tu proyecto",
     body: (
       <p>
-        Start by creating a new AdonisJS project if you don’t have one set up already. The most common approach is to
-        use <a href="https://docs.adonisjs.com/guides/getting-started/installation">Create AdonisJS</a>.
+        Comienza creando un nuevo proyecto AdonisJS si aún no tienes uno configurado. El enfoque más común es
+        utilizar <a href="https://docs.adonisjs.com/guides/getting-started/installation">Create AdonisJS</a>.
       </p>
     ),
     code: {
@@ -34,10 +34,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Instalar Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/vite</code> and its peer dependencies via npm.
+        Instala <code>@tailwindcss/vite</code> y sus dependencias directas a través de npm.
       </p>
     ),
     code: {
@@ -49,10 +49,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure Vite Plugin",
+    title: "Configurar el plugin de Vite",
     body: (
       <p>
-        Add the <code>@tailwindcss/vite</code> plugin to your Vite configuration.
+        Añade el plugin <code>@tailwindcss/vite</code> a tu configuración de Vite.
       </p>
     ),
     code: {
@@ -77,11 +77,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Importar Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./resources/css/app.css</code> that imports Tailwind CSS's styles.
-        Additionally, tell Tailwind CSS to scan your <code>resources/views</code> directory for utilities.
+        Añade un <code>@import</code> a <code>./resources/css/app.css</code> que importe los estilos de Tailwind CSS.
+        Además, indícale a Tailwind CSS que escanee tu directorio <code>resources/views</code> en busca de utilidades.
       </p>
     ),
     code: {
@@ -94,10 +94,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Iniciar tu proceso de compilación",
     body: (
       <p>
-        Run your build process with <code>npm run dev</code>.
+        Ejecuta tu proceso de compilación con <code>npm run dev</code>.
       </p>
     ),
     code: {
@@ -107,11 +107,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
+    title: "Comenzar a usar Tailwind en tu proyecto",
     body: (
       <p>
-        Make sure your compiled CSS is included in the <code>{"<head>"}</code> then start using Tailwind’s utility
-        classes to style your content.
+        Asegúrate de que tu CSS compilado esté incluido en el <code>{"<head>"}</code> y luego comienza a usar las clases
+        de utilidad de Tailwind para dar estilo a tu contenido.
       </p>
     ),
     code: {

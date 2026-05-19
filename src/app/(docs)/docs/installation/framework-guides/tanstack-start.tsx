@@ -2,25 +2,25 @@ import { css, js, Page, shell, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/tanstack.react.svg";
 import LogoDark from "@/docs/img/guides/tanstack-white.react.svg";
 
-export let tile: Tile = {
+export const tile: Tile = {
   title: "TanStack Start",
-  description: "Full-stack Framework powered by TanStack Router for React and Solid.",
+  description: "Framework full-stack impulsado por TanStack Router para React y Solid.",
   Logo,
   LogoDark,
 };
 
-export let page: Page = {
-  title: "Install Tailwind CSS with TanStack Start",
-  description: "Setting up Tailwind CSS in a TanStack Start project.",
+export const page: Page = {
+  title: "Instalar Tailwind CSS con TanStack Start",
+  description: "Configuración de Tailwind CSS en un proyecto TanStack Start.",
 };
 
-export let steps: Step[] = [
+export const steps: Step[] = [
   {
-    title: "Create project",
+    title: "Crear tu proyecto",
     body: (
       <p>
-        Start by creating a new TanStack Start project if you don’t have one set up already. The most common approach is
-        to use <a href="https://tanstack.com/start/latest/docs/framework/react/overview">Create Start App</a>.
+        Comienza creando un nuevo proyecto TanStack Start si aún no tienes uno configurado. El enfoque más común es
+        utilizar <a href="https://tanstack.com/start/latest/docs/framework/react/overview">Create Start App</a>.
       </p>
     ),
     code: {
@@ -33,10 +33,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Instalar Tailwind CSS",
     body: (
       <p>
-        Install <code>@tailwindcss/vite</code> and its peer dependencies via npm.
+        Instala <code>@tailwindcss/vite</code> y sus dependencias directas a través de npm.
       </p>
     ),
     code: {
@@ -48,10 +48,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure Vite Plugin",
+    title: "Configurar el plugin de Vite",
     body: (
       <p>
-        Add the <code>@tailwindcss/vite</code> plugin to your Vite configuration.
+        Añade el plugin <code>@tailwindcss/vite</code> a tu configuración de Vite.
       </p>
     ),
     code: {
@@ -76,10 +76,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Importar Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./src/styles.css</code> that imports Tailwind CSS.
+        Añade un <code>@import</code> a <code>./src/styles.css</code> que importe Tailwind CSS.
       </p>
     ),
     code: {
@@ -91,10 +91,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import the CSS file in your root route",
+    title: "Importar el archivo CSS en tu ruta raíz",
     body: (
       <p>
-        Import the CSS file in your <code>__root.tsx</code> file with the <code>?url</code> query.
+        Importa el archivo CSS en tu archivo <code>__root.tsx</code> con la consulta <code>?url</code>.
       </p>
     ),
     code: {
@@ -121,8 +121,8 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
-    body: <p>Start using Tailwind’s utility classes to style your content.</p>,
+    title: "Comenzar a usar Tailwind en tu proyecto",
+    body: <p>Comienza a usar las clases de utilidad de Tailwind para dar estilo a tu contenido.</p>,
     code: {
       name: "src/routes/index.tsx",
       lang: "tsx",

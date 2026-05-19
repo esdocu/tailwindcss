@@ -1,26 +1,26 @@
-import { css, html, js, Page, shell, Step, Tile, twig } from "./utils";
+import { css, js, Page, shell, Step, Tile, twig } from "./utils";
 import Logo from "@/docs/img/guides/symfony.react.svg";
 import LogoDark from "@/docs/img/guides/symfony-white.react.svg";
 
-export let tile: Tile = {
+export const tile: Tile = {
   title: "Symfony",
-  description: "A PHP framework to create websites and web applications.",
+  description: "Un framework de PHP para crear sitios web y aplicaciones web.",
   Logo,
   LogoDark,
 };
 
-export let page: Page = {
-  title: "Install Tailwind CSS with Symfony",
-  description: "Setting up Tailwind CSS in a Symfony project.",
+export const page: Page = {
+  title: "Instalar Tailwind CSS con Symfony",
+  description: "Configuración de Tailwind CSS en un proyecto Symfony.",
 };
 
-export let steps: Step[] = [
+export const steps: Step[] = [
   {
-    title: "Create your project",
+    title: "Crear tu proyecto",
     body: (
       <p>
-        Start by creating a new Symfony project if you don’t have one set up already. The most common approach is to use{" "}
-        <a href="https://symfony.com/download">the Symfony Installer</a>.
+        Comienza creando un nuevo proyecto Symfony si aún no tienes uno configurado. El enfoque más común es utilizar{" "}
+        <a href="https://symfony.com/download">el instalador de Symfony</a>.
       </p>
     ),
     code: {
@@ -33,11 +33,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Webpack Encore",
+    title: "Instalar Webpack Encore",
     body: (
       <p>
-        Install Webpack Encore, which handles building your assets. See{" "}
-        <a href="https://symfony.com/doc/current/frontend.html">the documentation</a> for more information.
+        Instala Webpack Encore, que se encarga de compilar tus recursos. Consulta{" "}
+        <a href="https://symfony.com/doc/current/frontend.html">la documentación</a> para obtener más información.
       </p>
     ),
     code: {
@@ -50,10 +50,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Install Tailwind CSS",
+    title: "Instalar Tailwind CSS",
     body: (
       <p>
-        Using npm, install <code>@tailwindcss/postcss</code> and its peer dependencies, as well as{" "}
+        Usando npm, instala <code>@tailwindcss/postcss</code> y sus dependencias directas, así como{" "}
         <code>postcss-loader</code>.
       </p>
     ),
@@ -66,12 +66,12 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Enable PostCSS support",
+    title: "Habilitar el soporte para PostCSS",
     body: (
       <p>
-        In your <code>webpack.config.js</code> file, enable the PostCSS Loader. See{" "}
-        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">the documentation</a> for more
-        information.
+        En tu archivo <code>webpack.config.js</code>, habilita el cargador de PostCSS. Consulta{" "}
+        <a href="https://symfony.com/doc/current/frontend/encore/postcss.html">la documentación</a> para obtener más
+        información.
       </p>
     ),
     code: {
@@ -85,11 +85,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Configure PostCSS Plugins",
+    title: "Configurar los plugins de PostCSS",
     body: (
       <p>
-        Create a <code>postcss.config.mjs</code> file in the root of your project and add the{" "}
-        <code>@tailwindcss/postcss</code> plugin to your PostCSS configuration.
+        Crea un archivo <code>postcss.config.mjs</code> en la raíz de tu proyecto y añade el plugin{" "}
+        <code>@tailwindcss/postcss</code> a tu configuración de PostCSS.
       </p>
     ),
     code: {
@@ -106,11 +106,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Importar Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to <code>./assets/styles/app.css</code> that imports Tailwind CSS and an{" "}
-        <code>@source</code> that ignores the public dir to prevent recompile loops in watch mode.
+        Añade un <code>@import</code> a <code>./assets/styles/app.css</code> que importe Tailwind CSS y un{" "}
+        <code>@source</code> que ignore el directorio public para evitar bucles de recompilación en el modo de observación (watch mode).
       </p>
     ),
     code: {
@@ -123,10 +123,10 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Iniciar tu proceso de compilación",
     body: (
       <p>
-        Run your build process with <code>npm run watch</code>.
+        Ejecuta tu proceso de compilación con <code>npm run watch</code>.
       </p>
     ),
     code: {
@@ -138,11 +138,11 @@ export let steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your project",
+    title: "Comenzar a usar Tailwind en tu proyecto",
     body: (
       <p>
-        Make sure your compiled CSS is included in the <code>{"<head>"}</code> then start using Tailwind’s utility
-        classes to style your content.
+        Asegúrate de que tu CSS compilado esté incluido en el <code>{"<head>"}</code> y luego comienza a usar las clases
+        de utilidad de Tailwind para dar estilo a tu contenido.
       </p>
     ),
     code: {

@@ -1,18 +1,18 @@
 import { css, js, html, shell, Page, Step, Tile } from "./utils";
 import Logo from "@/docs/img/guides/svelte.react.svg";
 
-export let tile: Tile = {
+export const tile: Tile = {
   title: "SvelteKit",
   description: "La forma más rápida de crear aplicaciones de todos los tamaños con Svelte.js.",
   Logo,
 };
 
-export let page: Page = {
+export const page: Page = {
   title: "Instalar Tailwind CSS con SvelteKit",
   description: "Configuración de Tailwind CSS en un proyecto SvelteKit.",
 };
 
-export let steps: Step[] = [
+export const steps: Step[] = [
   {
     title: "Crear tu proyecto",
     body: (

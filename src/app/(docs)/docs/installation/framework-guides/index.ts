@@ -30,6 +30,7 @@ const guides: Guide[] = await create({
   rspack: () => import("./rspack"),
 });
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function create(list: Record<string, () => Promise<any>>): Promise<Guide[]> {
   return await Promise.all(
     Object.entries(list).map(async ([slug, mod]) => {
