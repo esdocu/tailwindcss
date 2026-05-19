@@ -3,7 +3,6 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { SearchProvider } from "@/components/search";
 import { ThemeProvider } from "@/components/theme-toggle";
-import Fathom from "@/components/fathom";
 import Script from "next/script";
 
 const inter = localFont({
@@ -129,8 +128,8 @@ let darkModeScript = js`
 export const metadata: Metadata = {
   metadataBase: new URL("https://tailwindcss.com"),
   title: {
-    default: "Tailwind CSS - Construye rápidamente sitios web modernos sin salir de tu HTML.",
-    template: "%s - Tailwind CSS",
+    default: "Tailwind CSS en Español - Construye rápidamente sitios web modernos sin salir de tu HTML.",
+    template: "%s - Tailwind CSS en Español",
   },
   description:
     "Tailwind CSS es un framework CSS basado en utilidades para construir rápidamente sitios web modernos sin salir de tu HTML.",
@@ -169,7 +168,6 @@ export default async function RootLayout({
         <Script src={`data:text/javascript;base64,${btoa(darkModeScript)}`} />
       </head>
       <body>
-        <Fathom />
         <SearchProvider>
           <ThemeProvider>
             <div className="isolate">{children}</div>
