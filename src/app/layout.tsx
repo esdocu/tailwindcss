@@ -173,6 +173,11 @@ export default async function RootLayout({
             <div className="isolate">{children}</div>
           </ThemeProvider>
         </SearchProvider>
+        {process.env.NODE_ENV === "development" ? (
+          <Script src="http://localhost:8787/ads.js" strategy="afterInteractive" />
+        ) : (
+          <Script src="https://static-ads.xeost.com/ads.js" strategy="afterInteractive" />
+        )}
       </body>
     </html>
   );

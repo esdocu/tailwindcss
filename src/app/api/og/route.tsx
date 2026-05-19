@@ -1,3 +1,4 @@
+export const runtime = "edge";
 import { ImageResponse } from "next/og";
 import { NextRequest, NextResponse } from "next/server";
 import openGraphScraper from "open-graph-scraper-lite";
