@@ -1,0 +1,36 @@
+diff --git a/dist/index.js b/dist/index.js
+index 5ee7d946e53665c918fe27abc3d6d86417ae9d9b..7feae9e7e48264f094ca185612daf77bac81fa97 100644
+--- a/dist/index.js
++++ b/dist/index.js
+@@ -6910,6 +6910,15 @@ async function writeBuildInfo({ outputDir, functionsDir: functionsDir2 }, static
+   const prerenderedPaths = new Set(
+     [...prerenderedFunctions.values()].map((v) => v.route?.path)
+   );
++  const cleanConfig = (config) => {
++    if (!config) return config;
++    const { filePathMap, ...rest } = config;
++    return rest;
++  };
++  const cleanFnInfo = (v) => {
++    if (!v) return v;
++    return { ...v, config: cleanConfig(v.config) };
++  };
+   const buildLogObject = {
+     timestamp: Date.now(),
+     outputDir: (0, import_node_path3.relative)(currentDir, outputDir),
+@@ -6918,11 +6927,11 @@ async function writeBuildInfo({ outputDir, functionsDir: functionsDir2 }, static
+     },
+     buildFiles: {
+       functions: {
+-        invalid: [...invalidFunctions.values()],
++        invalid: [...invalidFunctions.values()].map(cleanFnInfo),
+         middleware: [...vercelOutput].filter(([, { type }]) => type === "middleware").map(([path2]) => path2),
+-        edge: [...edgeFunctions.values()],
+-        prerendered: [...prerenderedFunctions.values()],
+-        ignored: [...ignoredFunctions.values()]
++        edge: [...edgeFunctions.values()].map(cleanFnInfo),
++        prerendered: [...prerenderedFunctions.values()].map(cleanFnInfo),
++        ignored: [...ignoredFunctions.values()].map(cleanFnInfo)
+       },
+       staticAssets: staticAssets.filter((path2) => !prerenderedPaths.has(path2)),
+       identifiers: {
