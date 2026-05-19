@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, TargetingSpecificStates, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "backdrop-filter";
-export const description = "Utilities for applying backdrop filters to an element.";
+export const description = "Utilidades para aplicar filtros de fondo a un elemento.";
 
 <ApiTable
   rows={[
@@ -14,11 +14,11 @@ export const description = "Utilities for applying backdrop filters to an elemen
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `backdrop-blur-xs` and `backdrop-grayscale` to apply filters to an element's backdrop:
+Utiliza utilidades como `backdrop-blur-xs` y `backdrop-grayscale` para aplicar filtros al fondo de un elemento:
 
 <Figure>
 
@@ -54,7 +54,7 @@ Use utilities like `backdrop-blur-xs` and `backdrop-grayscale` to apply filters 
         </div>
         <div className="flex shrink-0 flex-col items-center">
           <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 italic dark:text-gray-400">
-            combined
+            combinado
           </p>
           <div className="relative">
             <div className="absolute inset-6 size-20 bg-white/30 backdrop-blur-xs backdrop-grayscale"></div>
@@ -85,22 +85,22 @@ Use utilities like `backdrop-blur-xs` and `backdrop-grayscale` to apply filters 
 
 </Figure>
 
-You can combine the following backdrop filter utilities: [blur](/docs/backdrop-filter-blur), [brightness](/docs/backdrop-filter-brightness), [contrast](/docs/backdrop-filter-contrast), [grayscale](/docs/backdrop-filter-grayscale), [hue-rotate](/docs/backdrop-filter-hue-rotate), [invert](/docs/backdrop-filter-invert), [opacity](/docs/backdrop-filter-opacity), [saturate](/docs/backdrop-filter-saturate), and [sepia](/docs/backdrop-filter-sepia).
+Puedes combinar las siguientes utilidades de filtro de fondo: [desenfoque](/docs/backdrop-filter-blur), [brillo](/docs/backdrop-filter-brightness), [contraste](/docs/backdrop-filter-contrast), [escala de grises](/docs/backdrop-filter-grayscale), [rotación de matiz](/docs/backdrop-filter-hue-rotate), [inversión](/docs/backdrop-filter-invert), [opacidad](/docs/backdrop-filter-opacity), [saturación](/docs/backdrop-filter-saturate) y [sepia](/docs/backdrop-filter-sepia).
 
-### Removing filters
+### Eliminar filtros
 
-Use the `backdrop-filter-none` utility to remove all of the backdrop filters applied to an element:
+Utiliza la utilidad `backdrop-filter-none` para eliminar todos los filtros de fondo aplicados a un elemento:
 
 ```html
 <!-- [!code classes:md:backdrop-filter-none] -->
 <div class="backdrop-blur-md backdrop-brightness-150 md:backdrop-filter-none"></div>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="backdrop-filter" value="url('filters.svg#filter-id')" name="backdrop filter" />
+<UsingACustomValue utility="backdrop-filter" value="url('filters.svg#filter-id')" name="filtro de fondo" />
 
-### Applying on hover
+### Aplicar en hover
 
 <TargetingSpecificStates
   property="backdrop-filter"
@@ -108,6 +108,6 @@ Use the `backdrop-filter-none` utility to remove all of the backdrop filters app
   featuredClass="backdrop-filter-none"
 />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="backdrop-filter" defaultClass="backdrop-blur-sm" featuredClass="backdrop-filter-none" />

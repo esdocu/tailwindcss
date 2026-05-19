@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import colors from "./utils/colors";
 
 export const title = "scrollbar-color";
-export const description = "Utilities for controlling the color of an element's scrollbar.";
+export const description = "Utilidades para controlar el color de la barra de desplazamiento (scrollbar) de un elemento.";
 
 <ApiTable
   rows={[
@@ -60,33 +60,29 @@ export const description = "Utilities for controlling the color of an element's 
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Setting the scrollbar color
+### Establecer el color de la barra de desplazamiento
 
-Use utilities like `scrollbar-thumb-sky-700` and `scrollbar-track-sky-100` to control the colors of a scrollbar:
+Utiliza utilidades como `scrollbar-thumb-sky-700` y `scrollbar-track-sky-100` para controlar los colores de una barra de desplazamiento:
 
-<Figure hint="Scroll vertically">
+<Figure hint="Desplázate verticalmente">
 
 <Example>
   {
     <div className="mx-auto h-72 max-w-sm scrollbar-thumb-sky-700 scrollbar-track-sky-100 overflow-auto rounded-xl bg-white p-6 text-sm/6 text-gray-600 shadow-lg ring-1 ring-black/5 dark:scrollbar-thumb-sky-400 dark:scrollbar-track-gray-700 dark:bg-gray-800 dark:text-gray-300">
       <div className="space-y-4">
         <p>
-          The Cerulean Archives occupy three narrow floors above the old observatory, each lined with drawers of star
-          maps, expedition notes, and brass instruments cataloged by hand.
+          Los Archivos Cerúleos ocupan tres plantas estrechas sobre el antiguo observatorio, cada una de ellas repleta de cajones con mapas estelares, notas de expediciones e instrumentos de latón catalogados a mano.
         </p>
         <p>
-          On winter mornings, the staff rolls ladders between the shelves while pale light cuts through the roof windows
-          and settles on the reading tables.
+          En las mañanas de invierno, el personal desplaza escaleras de mano entre las estanterías mientras la luz pálida atraviesa las ventanas del tejado y se posa sobre las mesas de lectura.
         </p>
         <p>
-          Visitors can request anything from the collection, but most come for the atlases that chart coastlines no
-          longer found on modern maps.
+          Los visitantes pueden solicitar cualquier objeto de la colección, pero la mayoría viene por los atlas que cartografían líneas de costa que ya no se encuentran en los mapas modernos.
         </p>
         <p>
-          Every returned volume is inspected, dusted, and wrapped before being carried back into the stacks for the next
-          researcher.
+          Cada volumen devuelto es inspeccionado, desempolvado y envuelto antes de ser llevado de vuelta a las estanterías para el siguiente investigador.
         </p>
       </div>
     </div>
@@ -102,33 +98,29 @@ Use utilities like `scrollbar-thumb-sky-700` and `scrollbar-track-sky-100` to co
 
 </Figure>
 
-You can set the thumb and track colors independently. If you set one without the other, the unset color defaults to transparent.
+Puedes establecer los colores de la barra (thumb) y de la pista (track) de forma independiente. Si estableces uno sin el otro, el color no configurado tiene como valor predeterminado `transparent`.
 
-### Changing the opacity
+### Cambiar la opacidad
 
-Use the color opacity modifier to control the opacity of an element's scrollbar colors:
+Utiliza el modificador de opacidad de color para controlar la opacidad de los colores de la barra de desplazamiento de un elemento:
 
-<Figure hint="Scroll vertically">
+<Figure hint="Desplázate verticalmente">
 
 <Example>
   {
     <div className="mx-auto h-72 max-w-sm scrollbar-thumb-slate-900/60 scrollbar-track-slate-900/10 overflow-auto rounded-xl bg-white p-6 text-sm/6 text-gray-600 shadow-lg ring-1 ring-black/5 dark:scrollbar-thumb-white/40 dark:scrollbar-track-white/10 dark:bg-gray-800 dark:text-gray-300">
       <div className="space-y-4">
         <p>
-          The Cerulean Archives occupy three narrow floors above the old observatory, each lined with drawers of star
-          maps, expedition notes, and brass instruments cataloged by hand.
+          Los Archivos Cerúleos ocupan tres plantas estrechas sobre el antiguo observatorio, cada una de ellas repleta de cajones con mapas estelares, notas de expediciones e instrumentos de latón catalogados a mano.
         </p>
         <p>
-          On winter mornings, the staff rolls ladders between the shelves while pale light cuts through the roof windows
-          and settles on the reading tables.
+          En las mañanas de invierno, el personal desplaza escaleras de mano entre las estanterías mientras la luz pálida atraviesa las ventanas del tejado y se posa sobre las mesas de lectura.
         </p>
         <p>
-          Visitors can request anything from the collection, but most come for the atlases that chart coastlines no
-          longer found on modern maps.
+          Los visitantes pueden solicitar cualquier objeto de la colección, pero la mayoría viene por los atlas que cartografían líneas de costa que ya no se encuentran en los mapas modernos.
         </p>
         <p>
-          Every returned volume is inspected, dusted, and wrapped before being carried back into the stacks for the next
-          researcher.
+          Cada volumen devuelto es inspeccionado, desempolvado y envuelto antes de ser llevado de vuelta a las estanterías para el siguiente investigador.
         </p>
       </div>
     </div>
@@ -145,10 +137,9 @@ Use the color opacity modifier to control the opacity of an element's scrollbar 
 
 </Figure>
 
-### Using a custom value
+### Uso de un valor personalizado
 
-Use utilities like `scrollbar-thumb-[<value>]` and `scrollbar-track-[<value>]` to set scrollbar colors based on
-completely custom values:
+Utiliza utilidades como `scrollbar-thumb-[<value>]` y `scrollbar-track-[<value>]` para establecer los colores de la barra de desplazamiento basándote en valores completamente personalizados:
 
 ```html
 <!-- [!code classes:scrollbar-thumb-[#0f766e],scrollbar-track-[#ccfbf1]] -->
@@ -157,8 +148,7 @@ completely custom values:
 </div>
 ```
 
-For CSS variables, you can also use the `scrollbar-thumb-(<custom-property>)` and
-`scrollbar-track-(<custom-property>)` syntax:
+Para variables CSS, también puedes utilizar la sintaxis `scrollbar-thumb-(<custom-property>)` y `scrollbar-track-(<custom-property>)`:
 
 ```html
 <!-- [!code classes:scrollbar-thumb-(--my-scrollbar-thumb),scrollbar-track-(--my-scrollbar-track)] -->
@@ -167,7 +157,7 @@ For CSS variables, you can also use the `scrollbar-thumb-(<custom-property>)` an
 </div>
 ```
 
-### Applying on hover
+### Aplicar al pasar el cursor (hover)
 
 <TargetingSpecificStates property="scrollbar-color">
 
@@ -180,7 +170,7 @@ For CSS variables, you can also use the `scrollbar-thumb-(<custom-property>)` an
 
 </TargetingSpecificStates>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   property="scrollbar-color"
@@ -188,6 +178,6 @@ For CSS variables, you can also use the `scrollbar-thumb-(<custom-property>)` an
   featuredClass="scrollbar-thumb-sky-700"
 />
 
-## Customizing your theme
+## Personalizar el tema
 
 <CustomizingYourThemeColors utilities={["scrollbar-thumb", "scrollbar-track"]} />

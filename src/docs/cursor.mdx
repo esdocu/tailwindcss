@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "cursor";
-export const description = "Utilities for controlling the cursor style when hovering over an element.";
+export const description = "Utilidades para controlar el estilo del cursor al pasar el mouse sobre un elemento.";
 
 <ApiTable
   rows={[
@@ -49,13 +49,13 @@ export const description = "Utilities for controlling the cursor style when hove
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `cursor-pointer` and `cursor-grab` to control which cursor is displayed when hovering over an element:
+Utiliza utilidades como `cursor-pointer` y `cursor-grab` para controlar qué cursor se muestra al pasar el mouse sobre un elemento:
 
-<Figure hint="Hover over each button to see the cursor change">
+<Figure hint="Pasa el mouse sobre cada botón para ver el cambio de cursor">
 
 <Example>
   {
@@ -65,14 +65,14 @@ Use utilities like `cursor-pointer` and `cursor-grab` to control which cursor is
         className="w-full cursor-pointer rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus:outline-none disabled:bg-indigo-300 sm:w-auto dark:disabled:bg-indigo-800 dark:disabled:text-indigo-400"
         tabIndex="-1"
       >
-        Submit
+        Enviar
       </button>
       <button
         type="button"
         className="w-full cursor-progress rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus:outline-none disabled:bg-indigo-300 sm:w-auto dark:disabled:bg-indigo-800 dark:disabled:text-indigo-400"
         tabIndex="-1"
       >
-        Saving...
+        Guardando...
       </button>
       <button
         type="button"
@@ -80,7 +80,7 @@ Use utilities like `cursor-pointer` and `cursor-grab` to control which cursor is
         className="w-full cursor-not-allowed rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white hover:bg-indigo-700 focus:outline-none disabled:bg-indigo-300 sm:w-auto dark:disabled:bg-indigo-800 dark:disabled:text-indigo-400"
         tabIndex="-1"
       >
-        Confirm
+        Confirmar
       </button>
     </div>
   }
@@ -88,17 +88,17 @@ Use utilities like `cursor-pointer` and `cursor-grab` to control which cursor is
 
 ```html
 <!-- [!code classes:cursor-pointer,cursor-progress,cursor-not-allowed] -->
-<button class="cursor-pointer ...">Submit</button>
-<button class="cursor-progress ...">Saving...</button>
-<button class="cursor-not-allowed ..." disabled>Confirm</button>
+<button class="cursor-pointer ...">Enviar</button>
+<button class="cursor-progress ...">Guardando...</button>
+<button class="cursor-not-allowed ..." disabled>Confirmar</button>
 ```
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue element="button" utility="cursor" value="url(hand.cur),_pointer" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign element="button" property="cursor" defaultClass="cursor-not-allowed" featuredClass="cursor-auto" />

@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "float";
-export const description = "Utilities for controlling the wrapping of content around an element.";
+export const description = "Utilidades para controlar cómo se envuelve el contenido alrededor de un elemento.";
 
 <ApiTable
   rows={[
@@ -16,11 +16,11 @@ export const description = "Utilities for controlling the wrapping of content ar
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Floating elements to the right
+### Flotar elementos a la derecha
 
-Use the `float-right` utility to float an element to the right of its container:
+Utiliza la utilidad `float-right` para flotar un elemento a la derecha de su contenedor:
 
 <Figure>
 
@@ -32,12 +32,7 @@ Use the `float-right` utility to float an element to the right of its container:
         src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
       />
       <p className="text-justify">
-        Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but
-        what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding
-        drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve
-        better? Look. If you think this is about overdue fines and missing books, you'd better think again. This is
-        about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld;
-        maybe that's how y'get your kicks. You and your good-time buddies.
+        Tal vez podamos vivir sin bibliotecas, personas como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, justo ahora, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popós en El gato con sombrero y Los cinco hermanos chinos? ¿Acaso ÉL no merece algo mejor? Mira. Si piensas que esto se trata de multas por retraso y libros perdidos, mejor piénsalo de nuevo. ¡Esto se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te encienda, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
       </p>
     </>
   }
@@ -53,9 +48,9 @@ Use the `float-right` utility to float an element to the right of its container:
 
 </Figure>
 
-### Floating elements to the left
+### Flotar elementos a la izquierda
 
-Use the `float-left` utility to float an element to the left of its container:
+Utiliza la utilidad `float-left` para flotar un elemento a la izquierda de su contenedor:
 
 <Figure>
 
@@ -67,12 +62,7 @@ Use the `float-left` utility to float an element to the left of its container:
         src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
       />
       <p className="text-justify">
-        Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but
-        what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding
-        drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve
-        better? Look. If you think this is about overdue fines and missing books, you'd better think again. This is
-        about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld;
-        maybe that's how y'get your kicks. You and your good-time buddies.
+        Tal vez podamos vivir sin bibliotecas, personas como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, justo ahora, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popós en El gato con sombrero y Los cinco hermanos chinos? ¿Acaso ÉL no merece algo mejor? Mira. Si piensas que esto se trata de multas por retraso y libros perdidos, mejor piénsalo de nuevo. ¡Esto se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te encienda, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
       </p>
     </>
   }
@@ -88,9 +78,9 @@ Use the `float-left` utility to float an element to the left of its container:
 
 </Figure>
 
-### Using logical properties
+### Usar propiedades lógicas
 
-Use the `float-start` and `float-end` utilities, which use [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) to map to either the left or right side based on the text direction:
+Utiliza las utilidades `float-start` y `float-end`, las cuales usan [propiedades lógicas](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts) para mapear al lado izquierdo o derecho según la dirección del texto:
 
 <Figure>
 
@@ -98,24 +88,19 @@ Use the `float-start` and `float-end` utilities, which use [logical properties](
   {
     <>
       <div dir="ltr">
-        <p className="mb-4 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">left-to-right</p>
+        <p className="mb-4 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">de izquierda a derecha</p>
         <div>
           <img
             className="float-start me-6 aspect-16/9 w-2/5 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
             src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
           />
           <p className="text-justify">
-            Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world,
-            but what about that kid, sitting down, opening a book, right now, in a branch at the local library and
-            finding drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE
-            deserve better? Look. If you think this is about overdue fines and missing books, you'd better think again.
-            This is about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on,
-            Seinfeld; maybe that's how y'get your kicks. You and your good-time buddies.
+            Tal vez podamos vivir sin bibliotecas, personas como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, justo ahora, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popós en El gato con sombrero y Los cinco hermanos chinos? ¿Acaso ÉL no merece algo mejor? Mira. Si piensas que esto se trata de multas por retraso y libros perdidos, mejor piénsalo de nuevo. ¡Esto se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te encienda, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
           </p>
         </div>
       </div>
       <div dir="rtl" className="mt-6">
-        <p className="mb-4 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">right-to-left</p>
+        <p className="mb-4 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">de derecha a izquierda</p>
         <div>
           <img
             className="float-start me-6 aspect-16/9 w-2/5 rounded-lg object-cover outline -outline-offset-1 outline-black/10"
@@ -141,7 +126,7 @@ Use the `float-start` and `float-end` utilities, which use [logical properties](
   <img class="float-start ..." src="/img/mountains.jpg" />
   <p>Maybe we can live without libraries, people like you and me. ...</p>
 </article>
-
+ 
 <article dir="rtl">
   <img class="float-start ..." src="/img/mountains.jpg" />
   <p>... ربما يمكننا العيش بدون مكتبات، أشخاص مثلي ومثلك. ربما. بالتأكيد</p>
@@ -150,9 +135,9 @@ Use the `float-start` and `float-end` utilities, which use [logical properties](
 
 </Figure>
 
-### Disabling a float
+### Desactivar un flotado
 
-Use the `float-none` utility to reset any floats that are applied to an element:
+Utiliza la utilidad `float-none` para restablecer cualquier flotado aplicado a un elemento:
 
 <Figure>
 
@@ -164,12 +149,7 @@ Use the `float-none` utility to reset any floats that are applied to an element:
         src="https://images.unsplash.com/photo-1554629947-334ff61d85dc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=90"
       />
       <p className="text-justify">
-        Maybe we can live without libraries, people like you and me. Maybe. Sure, we're too old to change the world, but
-        what about that kid, sitting down, opening a book, right now, in a branch at the local library and finding
-        drawings of pee-pees and wee-wees on the Cat in the Hat and the Five Chinese Brothers? Doesn't HE deserve
-        better? Look. If you think this is about overdue fines and missing books, you'd better think again. This is
-        about that kid's right to read a book without getting his mind warped! Or: maybe that turns you on, Seinfeld;
-        maybe that's how y'get your kicks. You and your good-time buddies.
+        Tal vez podamos vivir sin bibliotecas, personas como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, justo ahora, en una sucursal de la biblioteca local y encontrando dibujos de pipís y popós en El gato con sombrero y Los cinco hermanos chinos? ¿Acaso ÉL no merece algo mejor? Mira. Si piensas que esto se trata de multas por retraso y libros perdidos, mejor piénsalo de nuevo. ¡Esto se trata del derecho de ese niño a leer un libro sin que le deformen la mente! O: tal vez eso te encienda, Seinfeld; tal vez así es como te diviertes. Tú y tus amigos de la buena vida.
       </p>
     </>
   }
@@ -185,7 +165,7 @@ Use the `float-none` utility to reset any floats that are applied to an element:
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="float">
 

@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "order";
-export const description = "Utilities for controlling the order of flex and grid items.";
+export const description = "Utilidades para controlar el orden de los elementos flex y grid.";
 
 <ApiTable
   rows={[
@@ -18,11 +18,11 @@ export const description = "Utilities for controlling the order of flex and grid
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Explicitly setting a sort order
+### Establecer un orden de clasificación explícito
 
-Use `order-<number>` utilities like `order-1` and `order-3` to render flex and grid items in a different order than they appear in the document:
+Utiliza utilidades `order-<number>` como `order-1` y `order-3` para renderizar elementos flex y grid en un orden diferente al que aparecen en el documento:
 
 <Figure>
 
@@ -47,9 +47,9 @@ Use `order-<number>` utilities like `order-1` and `order-3` to render flex and g
 
 </Figure>
 
-### Ordering items first or last
+### Ordenar elementos al principio o al final
 
-Use the `order-first` and `order-last` utilities to render flex and grid items first or last:
+Utiliza las utilidades `order-first` y `order-last` para renderizar elementos flex y grid al principio o al final:
 
 <Figure>
 
@@ -74,9 +74,9 @@ Use the `order-first` and `order-last` utilities to render flex and grid items f
 
 </Figure>
 
-### Using negative values
+### Usar valores negativos
 
-To use a negative order value, prefix the class name with a dash to convert it to a negative value:
+Para usar un valor de orden negativo, antepón un guión al nombre de la clase para convertirlo en un valor negativo:
 
 ```html
 <!-- [!code classes:-order-1] -->
@@ -85,10 +85,10 @@ To use a negative order value, prefix the class name with a dash to convert it t
 </div>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue utility="order" value="min(var(--total-items),10)" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="order" defaultClass="order-first" featuredClass="order-last" />

@@ -7,7 +7,7 @@ import { Stripes } from "@/components/stripes.tsx";
 import { UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "padding";
-export const description = "Utilities for controlling an element's padding.";
+export const description = "Utilidades para controlar el padding de un elemento.";
 
 <ApiTable
   rows={[
@@ -30,11 +30,11 @@ export const description = "Utilities for controlling an element's padding.";
   ])}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use `p-<number>` utilities like `p-4` and `p-8` to control the padding on all sides of an element:
+Utiliza las utilidades `p-<number>` como `p-4` y `p-8` para controlar el padding en todos los lados de un elemento:
 
 <Figure>
 
@@ -56,9 +56,9 @@ Use `p-<number>` utilities like `p-4` and `p-8` to control the padding on all si
 
 </Figure>
 
-### Adding padding to one side
+### Agregar padding a un solo lado
 
-Use `pt-<number>`, `pr-<number>`, `pb-<number>`, and `pl-<number>` utilities like `pt-6` and `pr-4` to control the padding on one side of an element:
+Utiliza las utilidades `pt-<number>`, `pr-<number>`, `pb-<number>` y `pl-<number>` como `pt-6` y `pr-4` para controlar el padding en un solo lado de un elemento:
 
 <Figure>
 
@@ -107,9 +107,9 @@ Use `pt-<number>`, `pr-<number>`, `pb-<number>`, and `pl-<number>` utilities lik
 
 </Figure>
 
-### Adding horizontal padding
+### Agregar padding horizontal
 
-Use `px-<number>` utilities like `px-4` and `px-8` to control the horizontal padding of an element:
+Utiliza las utilidades `px-<number>` como `px-4` y `px-8` para controlar el padding horizontal de un elemento:
 
 <Figure>
 
@@ -132,9 +132,9 @@ Use `px-<number>` utilities like `px-4` and `px-8` to control the horizontal pad
 
 </Figure>
 
-### Adding vertical padding
+### Agregar padding vertical
 
-Use `py-<number>` utilities like `py-4` and `py-8` to control the vertical padding of an element:
+Utiliza las utilidades `py-<number>` como `py-4` y `py-8` para controlar el padding vertical de un elemento:
 
 <Figure>
 
@@ -157,9 +157,9 @@ Use `py-<number>` utilities like `py-4` and `py-8` to control the vertical paddi
 
 </Figure>
 
-### Using logical properties
+### Usar propiedades lógicas
 
-Use `ps-<number>` or `pe-<number>` utilities like `ps-4` and `pe-8` to set the `padding-inline-start` and `padding-inline-end` logical properties, which map to either the left or right side based on the text direction:
+Utiliza las utilidades `ps-<number>` o `pe-<number>` como `ps-4` y `pe-8` para establecer las propiedades lógicas `padding-inline-start` y `padding-inline-end`, que se asignan al lado izquierdo o derecho según la dirección del texto:
 
 <Figure>
 
@@ -167,7 +167,7 @@ Use `ps-<number>` or `pe-<number>` utilities like `ps-4` and `pe-8` to set the `
   {
     <div className="grid grid-cols-2 place-items-center gap-x-4">
       <div className="flex flex-col items-start gap-y-4">
-        <p className="text-sm font-medium">Left-to-right</p>
+        <p className="text-sm font-medium">Izquierda a derecha</p>
         <div className="flex overflow-hidden rounded-lg bg-indigo-500 font-mono text-sm leading-6 font-bold text-white">
           <Stripes noColor className="min-h-full w-8 rounded-s-lg text-white/50" />
           <div className="p-4">ps-8</div>
@@ -178,7 +178,7 @@ Use `ps-<number>` or `pe-<number>` utilities like `ps-4` and `pe-8` to set the `
         </div>
       </div>
       <div className="flex flex-col items-end gap-y-4">
-        <p className="text-sm font-medium">Right-to-left</p>
+        <p className="text-sm font-medium">Derecha a izquierda</p>
         <div className="flex overflow-hidden rounded-lg bg-indigo-500 font-mono text-sm leading-6 font-bold text-white">
           <div className="p-4">ps-8</div>
           <Stripes noColor className="min-h-full w-8 rounded-e-lg text-white/50" />
@@ -210,23 +210,23 @@ Use `ps-<number>` or `pe-<number>` utilities like `ps-4` and `pe-8` to set the `
 
 </Figure>
 
-For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
+Para un mayor control, también puedes utilizar los [modificadores LTR y RTL](/docs/hover-focus-and-other-states#rtl-support) para aplicar estilos específicos de forma condicional según la dirección actual del texto.
 
-Use the `pbs-<number>` and `pbe-<number>` utilities to set the `padding-block-start` and `padding-block-end` logical properties, which map to either the top or bottom side based on the writing mode:
+Utiliza las utilidades `pbs-<number>` y `pbe-<number>` para establecer las propiedades lógicas `padding-block-start` y `padding-block-end`, que se asignan al lado superior o inferior según el modo de escritura:
 
 ```html
 <!-- [!code classes:pbs-8] -->
 <div class="pbs-8 ...">pbs-8</div>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue utilities={["p", "px", "pb"]} name="padding" variable="padding" value="5px" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="padding" defaultClass="py-4" featuredClass="py-8" />
 
-## Customizing your theme
+## Personalizar el tema
 
 <CustomizingYourSpacingScale utilities={["p", "px", "py", "ps", "pe", "pbs", "pbe", "pt", "pr", "pb", "pl"]} />

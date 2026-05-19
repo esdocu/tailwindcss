@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "inline-size";
-export const description = "Utilities for setting the inline size of an element.";
+export const description = "Utilidades para establecer el tamaño en línea (inline-size) de un elemento.";
 
 <ApiTable
   rows={[
@@ -41,11 +41,11 @@ export const description = "Utilities for setting the inline size of an element.
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use `inline-<number>` utilities like `inline-24` and `inline-64` to set an element to a fixed inline size based on the spacing scale:
+Utiliza utilidades `inline-<number>` como `inline-24` y `inline-64` para establecer un tamaño en línea fijo en un elemento basada en la escala de espaciado:
 
 <Figure>
 
@@ -76,9 +76,9 @@ Use `inline-<number>` utilities like `inline-24` and `inline-64` to set an eleme
 
 </Figure>
 
-### Using a percentage
+### Usar un porcentaje
 
-Use `inline-full` or `inline-<fraction>` utilities like `inline-1/2` and `inline-2/5` to give an element a percentage-based inline size:
+Utiliza utilidades `inline-full` o `inline-<fraction>` como `inline-1/2` y `inline-2/5` para dar a un elemento un tamaño en línea basado en porcentaje:
 
 <Figure>
 
@@ -121,9 +121,9 @@ Use `inline-full` or `inline-<fraction>` utilities like `inline-1/2` and `inline
 
 </Figure>
 
-### Using the container scale
+### Usar la escala de contenedores
 
-Use utilities like `inline-sm` and `inline-xl` to set an element to a fixed inline size based on the container scale:
+Utiliza utilidades como `inline-sm` e `inline-xl` para establecer un tamaño en línea fijo en un elemento basado en la escala de contenedores:
 
 <Figure>
 
@@ -156,9 +156,9 @@ Use utilities like `inline-sm` and `inline-xl` to set an element to a fixed inli
 
 </Figure>
 
-### Matching the viewport
+### Ajustar al viewport
 
-Use the `inline-screen` utility to make an element span the entire inline size of the viewport:
+Utiliza la utilidad `inline-screen` para hacer que un elemento ocupe todo el tamaño en línea del viewport:
 
 ```html
 <!-- [!code classes:inline-screen] -->
@@ -167,9 +167,9 @@ Use the `inline-screen` utility to make an element span the entire inline size o
 </div>
 ```
 
-### Resetting the inline size
+### Restablecer el tamaño en línea
 
-Use the `inline-auto` utility to remove an element's assigned inline size under a specific condition, like at a particular breakpoint:
+Utiliza la utilidad `inline-auto` para eliminar el tamaño en línea asignado a un elemento bajo una condición específica, como en un punto de interrupción (breakpoint) particular:
 
 ```html
 <!-- [!code classes:inline-full,inline-auto] -->
@@ -178,14 +178,14 @@ Use the `inline-auto` utility to remove an element's assigned inline size under 
 </div>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="inline" value="5px" name="inline size" variable="inline-size" />
+<UsingACustomValue utility="inline" value="5px" name="tamaño en línea" variable="inline-size" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="inline-size" defaultClass="inline-1/2" featuredClass="inline-full" />
 
-## Customizing your theme
+## Personalizar tu tema
 
 <CustomizingYourSpacingScale utility="inline" />

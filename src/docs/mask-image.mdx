@@ -9,7 +9,7 @@ import { Stripes } from "@/components/stripes.tsx";
 import dedent from "dedent";
 
 export const title = "mask-image";
-export const description = "Utilities for controlling an element's mask image.";
+export const description = "Utilidades para controlar la imagen de máscara de un elemento.";
 
 <svg className="sr-only">
   <defs>
@@ -473,11 +473,11 @@ export const description = "Utilities for controlling an element's mask image.";
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Using an image mask
+### Usar una máscara de imagen
 
-Use the `mask-[<value>]` syntax to set the mask image of an element:
+Utiliza la sintaxis `mask-[<value>]` para establecer la imagen de máscara de un elemento:
 
 <Figure>
 
@@ -505,9 +505,9 @@ Use the `mask-[<value>]` syntax to set the mask image of an element:
 
 </Figure>
 
-### Masking edges
+### Enmascarar bordes
 
-Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear gradient mask to a single side of an element:
+Utiliza utilidades como `mask-b-from-<value>` y `mask-t-to-<value>` para añadir una máscara de degradado lineal a un solo lado de un elemento:
 
 <Figure>
 
@@ -557,7 +557,7 @@ Use utilities like `mask-b-from-<value>` and `mask-t-to-<value>` to add a linear
 
 </Figure>
 
-Additionally, use utilities like `mask-x-from-70%` and `mask-y-to-90%` to apply a mask to two sides of an element at the same time:
+Además, utiliza utilidades como `mask-x-from-70%` y `mask-y-to-90%` para aplicar una máscara a dos lados de un elemento al mismo tiempo:
 
 <Figure>
 
@@ -591,11 +591,11 @@ Additionally, use utilities like `mask-x-from-70%` and `mask-y-to-90%` to apply 
 
 </Figure>
 
-By default, linear gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-<side>-from-<color>` and `mask-<side>-to-<color>` utilities.
+Por defecto, las máscaras de degradado lineal cambian de negro a transparente, pero puedes personalizar los colores del degradado utilizando las utilidades `mask-<side>-from-<color>` y `mask-<side>-to-<color>`.
 
-### Adding an angled linear mask
+### Añadir una máscara lineal angulada
 
-Use utilities like `mask-linear-<angle>`, `mask-linear-from-20`, and `mask-linear-to-40` to add a custom linear gradient mask to an element:
+Utiliza utilidades como `mask-linear-<angle>`, `mask-linear-from-20` y `mask-linear-to-40` para añadir una máscara de degradado lineal personalizada a un elemento:
 
 <Figure>
 
@@ -629,9 +629,9 @@ Use utilities like `mask-linear-<angle>`, `mask-linear-from-20`, and `mask-linea
 
 </Figure>
 
-### Adding a radial mask
+### Añadir una máscara radial
 
-Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add a radial gradient mask to an element:
+Utiliza las utilidades `mask-radial-from-<value>` y `mask-radial-to-<value>` para añadir una máscara de degradado radial a un elemento:
 
 <Figure>
 
@@ -649,10 +649,10 @@ Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add
         alt=""
       />
       <div className="font-medium max-sm:-mx-3">
-        <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
-        <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Built for power users</p>
+        <p className="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Velocidad</p>
+        <p className="mt-2 text-base whitespace-nowrap text-gray-700 dark:text-gray-300">Diseñado para usuarios avanzados</p>
         <p className="mt-1 text-sm leading-relaxed text-balance text-gray-500">
-          Work faster than ever with our keyboard shortcuts
+          Trabaja más rápido que nunca con nuestros atajos de teclado
         </p>
       </div>
     </div>
@@ -664,10 +664,10 @@ Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add
 <div class="flex items-center gap-4">
   <img class="mask-radial-[100%_100%] mask-radial-from-75% mask-radial-at-left ..." src="/img/keyboard.png" />
   <div class="font-medium">
-    <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Speed</p>
-    <p class="mt-2 text-base text-gray-700 dark:text-gray-300">Built for power users</p>
+    <p class="font-mono text-xs text-blue-500 uppercase dark:text-blue-400">Velocidad</p>
+    <p class="mt-2 text-base text-gray-700 dark:text-gray-300">Diseñado para usuarios avanzados</p>
     <p class="mt-1 text-sm leading-relaxed text-balance text-gray-500">
-      Work faster than ever with customizable keyboard shortcuts
+      Trabaja más rápido que nunca con atajos de teclado personalizables
     </p>
   </div>
 </div>
@@ -675,11 +675,11 @@ Use the `mask-radial-from-<value>` and `mask-radial-to-<value>` utilities to add
 
 </Figure>
 
-By default, radial gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-radial-from-<color>` and `mask-radial-to-<color>` utilities.
+Por defecto, las máscaras de degradado radial cambian de negro a transparente, pero puedes personalizar los colores del degradado utilizando las utilidades `mask-radial-from-<color>` y `mask-radial-to-<color>`.
 
-#### Setting the radial position
+#### Establecer la posición radial
 
-Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` to set the position of the center of the radial gradient mask:
+Utiliza utilidades como `mask-radial-at-bottom-left` y `mask-radial-at-[35%_35%]` para establecer la posición del centro de la máscara de degradado radial:
 
 <Figure>
 
@@ -769,11 +769,11 @@ Use utilities like `mask-radial-at-bottom-left` and `mask-radial-at-[35%_35%]` t
 
 </Figure>
 
-This is different from [`mask-position`](/docs/mask-position) which sets the position of the mask image itself, not the radial gradient.
+Esto es diferente de [`mask-position`](/docs/mask-position), que establece la posición de la propia imagen de máscara, no del degradado radial.
 
-#### Setting the radial size
+#### Establecer el tamaño radial
 
-Use utilities like `mask-radial-closest-corner` and `mask-radial-farthest-side` to set the size of the radial gradient mask:
+Utiliza utilidades como `mask-radial-closest-corner` y `mask-radial-farthest-side` para establecer el tamaño de la máscara de degradado radial:
 
 <Figure>
 
@@ -823,13 +823,13 @@ Use utilities like `mask-radial-closest-corner` and `mask-radial-farthest-side` 
 
 </Figure>
 
-When setting a custom radial gradient size, the units you can use depend on the `<ending-shape>` of the gradient which is set to `ellipse` by default.
+Al establecer un tamaño de degradado radial personalizado, las unidades que puedes usar dependen de la forma de finalización (`<ending-shape>`) del degradado, que está establecida en `ellipse` por defecto.
 
-With `mask-circle`, you can only use a single fixed length, like `mask-radial-[5rem]`. Whereas with `mask-ellipse`, you can specify each axis as a fixed length or percentage, like `mask-radial-[40%_80%]`.
+Con `mask-circle`, solo puedes usar una longitud fija única, como `mask-radial-[5rem]`. Mientras que con `mask-ellipse`, puedes especificar cada eje como una longitud fija o porcentaje, como `mask-radial-[40%_80%]`.
 
-### Adding a conic mask
+### Añadir una máscara cónica
 
-Use the `mask-conic-from-<value>`, `mask-conic-to-<value>` and `mask-conic-<angle>` utilities to add a conic gradient mask to an element:
+Utiliza las utilidades `mask-conic-from-<value>`, `mask-conic-to-<value>` y `mask-conic-<angle>` para añadir una máscara de degradado cónico a un elemento:
 
 <Figure>
 
@@ -841,9 +841,9 @@ Use the `mask-conic-from-<value>`, `mask-conic-to-<value>` and `mask-conic-<angl
         <div className="col-start-1 row-start-1 size-12 rounded-full border-4 border-amber-500 mask-conic-from-75% mask-conic-to-75% dark:border-amber-400" />
       </div>
       <div className="w-0 flex-1 text-sm text-gray-950 dark:text-white">
-        <p className="font-medium">Storage used: 75%</p>
+        <p className="font-medium">Almacenamiento usado: 75%</p>
         <p className="mt-1 text-gray-500 dark:text-gray-400">
-          <span className="font-medium">0.48 GB</span> out of 2 GB remaining
+          <span className="font-medium">0.48 GB</span> de 2 GB restantes
         </p>
       </div>
     </div>
@@ -858,19 +858,19 @@ Use the `mask-conic-from-<value>`, `mask-conic-to-<value>` and `mask-conic-<angl
     <div class="border-4 border-amber-500 mask-conic-from-75% mask-conic-to-75% dark:border-amber-400 ..."></div>
   </div>
   <div class="w-0 flex-1 text-sm text-gray-950 dark:text-white">
-    <p class="font-medium">Storage used: 75%</p>
-    <p class="mt-1 text-gray-500 dark:text-gray-400"><span class="font-medium">0.48 GB</span> out of 2 GB remaining</p>
+    <p class="font-medium">Almacenamiento usado: 75%</p>
+    <p class="mt-1 text-gray-500 dark:text-gray-400"><span class="font-medium">0.48 GB</span> de 2 GB restantes</p>
   </div>
 </div>
 ```
 
 </Figure>
 
-By default, conic gradient masks transition from black to transparent, but you can customize the gradient colors using the `mask-conic-from-<color>` and `mask-conic-to-<color>` utilities.
+Por defecto, las máscaras de degradado cónico cambian de negro a transparente, pero puedes personalizar los colores del degradado utilizando las utilidades `mask-conic-from-<color>` y `mask-conic-to-<color>`.
 
-### Combining masks
+### Combinar máscaras
 
-Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>`, and `mask-l-from-<value>` can be combined to create more complex gradient masks:
+Las utilidades de máscara de degradado, como `mask-radial-from-<value>`, `mask-conic-to-<value>` y `mask-l-from-<value>` se pueden combinar para crear máscaras de degradado más complejas:
 
 <Figure>
 
@@ -902,11 +902,11 @@ Gradient mask utilities, like `mask-radial-from-<value>`, `mask-conic-to-<value>
 
 </Figure>
 
-This behavior relies on the fact that Tailwind sets the [`mask-composite` property](/docs/mask-composite) to `intersect` by default. Changing this property will affect how the gradient masks are combined.
+Este comportamiento se basa en el hecho de que Tailwind establece la [propiedad `mask-composite`](/docs/mask-composite) en `intersect` por defecto. Cambiar esta propiedad afectará a cómo se combinan las máscaras de degradado.
 
-### Removing mask images
+### Eliminar imágenes de máscara
 
-Use the `mask-none` utility to remove an existing mask image from an element:
+Utiliza la utilidad `mask-none` para eliminar una imagen de máscara existente de un elemento:
 
 ```html
 <!-- [!code classes:mask-none] -->
@@ -915,19 +915,19 @@ Use the `mask-none` utility to remove an existing mask image from an element:
 </div>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue
   utilities={["mask-linear", "mask-radial"]}
-  name="mask image"
+  name="imagen de máscara"
   value="70deg,transparent_10%,black,transparent_80%"
   variable="mask"
 />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="mask-image" defaultClass="mask-radial-from-70%" featuredClass="mask-radial-from-50%" />
 
-## Customizing your theme
+## Personalizar tu tema
 
 <CustomizingYourThemeColors utilities={["mask-radial-from", "mask-conic-to", "mask-b-from"]} />

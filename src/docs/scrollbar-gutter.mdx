@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "scrollbar-gutter";
-export const description = "Utilities for controlling the gutter space reserved for an element's scrollbar.";
+export const description = "Utilidades para controlar el espacio del canal (gutter) reservado para la barra de desplazamiento de un elemento.";
 
 <ApiTable
   rows={[
@@ -14,11 +14,11 @@ export const description = "Utilities for controlling the gutter space reserved 
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Reserving space for the scrollbar
+### Reservar espacio para la barra de desplazamiento
 
-Use the `scrollbar-gutter-stable` utility to reserve space for the scrollbar even when an element isn't overflowing:
+Utiliza la utilidad `scrollbar-gutter-stable` para reservar espacio para la barra de desplazamiento incluso cuando un elemento no esté desbordado:
 
 <Figure>
 
@@ -29,8 +29,8 @@ Use the `scrollbar-gutter-stable` utility to reserve space for the scrollbar eve
         <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">scrollbar-gutter-auto</p>
         <div className="h-40 overflow-auto rounded-lg bg-gray-50 py-4 scrollbar-gutter-auto dark:bg-white/5">
           <p className="text-justify">
-            Hey everyone! It’s almost 2027 and we still don’t know if there are aliens living among us, or do we? Maybe
-            the person writing this is an alien. You will never know.
+            ¡Hola a todos! Es casi 2027 y todavía no sabemos si hay extraterrestres viviendo entre nosotros, ¿o sí? Tal vez
+            la persona que escribe esto sea un extraterrestre. Nunca lo sabrás.
           </p>
         </div>
       </div>
@@ -38,8 +38,8 @@ Use the `scrollbar-gutter-stable` utility to reserve space for the scrollbar eve
         <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">scrollbar-gutter-stable</p>
         <div className="relative h-40 rounded-lg bg-gray-50 py-4 pr-4 scrollbar-gutter-stable dark:bg-white/5">
           <p className="text-justify">
-            Hey everyone! It’s almost 2027 and we still don’t know if there are aliens living among us, or do we? Maybe
-            the person writing this is an alien. You will never know.
+            ¡Hola a todos! Es casi 2027 y todavía no sabemos si hay extraterrestres viviendo entre nosotros, ¿o sí? Tal vez
+            la persona que escribe esto sea un extraterrestre. Nunca lo sabrás.
           </p>
           <div className="absolute top-0 right-0 bottom-0 w-4 rounded-r-lg border bg-[image:repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,transparent_0,transparent_50%)] bg-[size:8px_8px] bg-top-left text-black/10 dark:text-white/12.5"></div>
         </div>
@@ -57,9 +57,9 @@ Use the `scrollbar-gutter-stable` utility to reserve space for the scrollbar eve
 
 </Figure>
 
-### Reserving space on both sides
+### Reservar espacio en ambos lados
 
-Use the `scrollbar-gutter-both` utility to reserve matching gutter space on both sides of the element:
+Utiliza la utilidad `scrollbar-gutter-both` para reservar un espacio de canal coincidente en ambos lados del elemento:
 
 ```html
 <!-- [!code classes:scrollbar-gutter-both] -->
@@ -68,9 +68,9 @@ Use the `scrollbar-gutter-both` utility to reserve matching gutter space on both
 </div>
 ```
 
-### Using the default gutter
+### Uso del canal predeterminado
 
-Use the `scrollbar-gutter-auto` utility to only reserve gutter space when the browser would normally show a scrollbar:
+Utiliza la utilidad `scrollbar-gutter-auto` para reservar espacio de canal únicamente cuando el navegador mostraría normalmente una barra de desplazamiento:
 
 ```html
 <!-- [!code classes:scrollbar-gutter-auto] -->
@@ -79,7 +79,7 @@ Use the `scrollbar-gutter-auto` utility to only reserve gutter space when the br
 </div>
 ```
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   property="scrollbar-gutter"

@@ -5,7 +5,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "overscroll-behavior";
 export const description =
-  "Utilities for controlling how the browser behaves when reaching the boundary of a scrolling area.";
+  "Utilidades para controlar cómo se comporta el navegador al llegar al límite de un área de desplazamiento.";
 
 <ApiTable
   rows={[
@@ -21,37 +21,28 @@ export const description =
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Preventing parent overscrolling
+### Prevenir el desplazamiento del elemento padre
 
-Use the `overscroll-contain` utility to prevent scrolling in the target area from triggering scrolling in the parent element, but preserve "bounce" effects when scrolling past the end of the container in operating systems that support it:
+Utiliza la utilidad `overscroll-contain` para evitar que el desplazamiento en el área objetivo active el desplazamiento en el elemento padre, pero conservando los efectos de "rebote" al desplazarse más allá del final del contenedor en sistemas operativos que lo admitan:
 
-<Figure hint="Scroll to see behavior">
+<Figure hint="Desplázate para ver el comportamiento">
 
 <Example padding={false}>
   {
     <div className="h-48 space-y-4 overflow-auto overscroll-contain p-8 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
       <p
         children={`
-      Well, let me tell you something, funny boy. Y'know that little stamp, the
-      one that says "New York Public Library"? Well that may not mean anything
-      to you, but that means a lot to me. One whole hell of a lot.`}
+      Bueno, déjame decirte algo, chico gracioso. ¿Sabes ese pequeño sello, el que dice "Biblioteca Pública de Nueva York"? Bueno, eso puede no significar nada para ti, pero significa mucho para mí. Muchísimo.`}
       />
       <p
         children={`
-      Sure, go ahead, laugh if you want to. I've seen your type before: Flashy,
-      making the scene, flaunting convention. Yeah, I know what you're thinking.
-      What's this guy making such a big stink about old library books? Well, let
-      me give you a hint, junior.`}
+      Claro, adelante, ríete si quieres. He visto a tipos de tu clase antes: llamativos, llamando la atención, desafiando las normas. Sí, sé lo que estás pensando. ¿Por qué este tipo hace tanto alboroto por unos viejos libros de biblioteca? Bueno, déjame darte una pista, jovencito.`}
       />
       <p
         children={`
-      Maybe we can live without libraries, people like you and me. Maybe. Sure,
-      we're too old to change the world, but what about that kid, sitting down,
-      opening a book, right now, in a branch at the local library and finding
-      drawings of pee-pees and wee-wees on the Cat in the Hat and the Five
-      Chinese Brothers? Doesn't HE deserve better?`}
+      Tal vez podamos vivir sin bibliotecas, gente como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, justo ahora, en una sucursal de la biblioteca local y encontrando dibujos obscenos en "El gato en el sombrero" y "Los cinco hermanos chinos"? ¿No merece ÉL algo mejor?`}
       />
     </div>
   }
@@ -59,40 +50,31 @@ Use the `overscroll-contain` utility to prevent scrolling in the target area fro
 
 ```html
 <!-- [!code classes:overscroll-contain] -->
-<div class="overscroll-contain ...">Well, let me tell you something, ...</div>
+<div class="overscroll-contain ...">Bueno, déjame decirte algo, ...</div>
 ```
 
 </Figure>
 
-### Preventing overscroll bouncing
+### Prevenir el rebote de sobredesplazamiento
 
-Use the `overscroll-none` utility to prevent scrolling in the target area from triggering scrolling in the parent element, and also prevent "bounce" effects when scrolling past the end of the container:
+Utiliza la utilidad `overscroll-none` para evitar que el desplazamiento en el área objetivo active el desplazamiento en el elemento padre, y también evitar los efectos de "rebote" al desplazarse más allá del final del contenedor:
 
-<Figure hint="Scroll to see behavior">
+<Figure hint="Desplázate para ver el comportamiento">
 
 <Example padding={false}>
   {
     <div className="h-48 space-y-4 overflow-auto overscroll-none p-8 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
       <p
         children={`
-      Well, let me tell you something, funny boy. Y'know that little stamp, the
-      one that says "New York Public Library"? Well that may not mean anything
-      to you, but that means a lot to me. One whole hell of a lot.`}
+      Bueno, déjame decirte algo, chico gracioso. ¿Sabes ese pequeño sello, el que dice "Biblioteca Pública de Nueva York"? Bueno, eso puede no significar nada para ti, pero significa mucho para mí. Muchísimo.`}
       />
       <p
         children={`
-      Sure, go ahead, laugh if you want to. I've seen your type before: Flashy,
-      making the scene, flaunting convention. Yeah, I know what you're thinking.
-      What's this guy making such a big stink about old library books? Well, let
-      me give you a hint, junior.`}
+      Claro, adelante, ríete si quieres. He visto a tipos de tu clase antes: llamativos, llamando la atención, desafiando las normas. Sí, sé lo que estás pensando. ¿Por qué este tipo hace tanto alboroto por unos viejos libros de biblioteca? Bueno, déjame darte una pista, jovencito.`}
       />
       <p
         children={`
-      Maybe we can live without libraries, people like you and me. Maybe. Sure,
-      we're too old to change the world, but what about that kid, sitting down,
-      opening a book, right now, in a branch at the local library and finding
-      drawings of pee-pees and wee-wees on the Cat in the Hat and the Five
-      Chinese Brothers? Doesn't HE deserve better?`}
+      Tal vez podamos vivir sin bibliotecas, gente como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, justo ahora, en una sucursal de la biblioteca local y encontrando dibujos obscenos en "El gato en el sombrero" y "Los cinco hermanos chinos"? ¿No merece ÉL algo mejor?`}
       />
     </div>
   }
@@ -100,40 +82,31 @@ Use the `overscroll-none` utility to prevent scrolling in the target area from t
 
 ```html
 <!-- [!code classes:overscroll-none] -->
-<div class="overscroll-none ...">Well, let me tell you something, ...</div>
+<div class="overscroll-none ...">Bueno, déjame decirte algo, ...</div>
 ```
 
 </Figure>
 
-### Using the default overscroll behavior
+### Usar el comportamiento de sobredesplazamiento predeterminado
 
-Use the `overscroll-auto` utility to make it possible for the user to continue scrolling a parent scroll area when they reach the boundary of the primary scroll area:
+Utiliza la utilidad `overscroll-auto` para permitir al usuario continuar desplazándose por un área de desplazamiento padre al llegar al límite del área de desplazamiento principal:
 
-<Figure hint="Scroll to see behavior">
+<Figure hint="Desplázate para ver el comportamiento">
 
 <Example padding={false}>
   {
     <div className="h-48 space-y-4 overflow-auto overscroll-auto p-8 text-gray-600 dark:bg-gray-800 dark:text-gray-400">
       <p
         children={`
-      Well, let me tell you something, funny boy. Y'know that little stamp, the
-      one that says "New York Public Library"? Well that may not mean anything
-      to you, but that means a lot to me. One whole hell of a lot.`}
+      Bueno, déjame decirte algo, chico gracioso. ¿Sabes ese pequeño sello, el que dice "Biblioteca Pública de Nueva York"? Bueno, eso puede no significar nada para ti, pero significa mucho para mí. Muchísimo.`}
       />
       <p
         children={`
-      Sure, go ahead, laugh if you want to. I've seen your type before: Flashy,
-      making the scene, flaunting convention. Yeah, I know what you're thinking.
-      What's this guy making such a big stink about old library books? Well, let
-      me give you a hint, junior.`}
+      Claro, adelante, ríete si quieres. He visto a tipos de tu clase antes: llamativos, llamando la atención, desafiando las normas. Sí, sé lo que estás pensando. ¿Por qué este tipo hace tanto alboroto por unos viejos libros de biblioteca? Bueno, déjame darte una pista, jovencito.`}
       />
       <p
         children={`
-      Maybe we can live without libraries, people like you and me. Maybe. Sure,
-      we're too old to change the world, but what about that kid, sitting down,
-      opening a book, right now, in a branch at the local library and finding
-      drawings of pee-pees and wee-wees on the Cat in the Hat and the Five
-      Chinese Brothers? Doesn't HE deserve better?`}
+      Tal vez podamos vivir sin bibliotecas, gente como tú y yo. Tal vez. Claro, somos demasiado viejos para cambiar el mundo, pero ¿qué pasa con ese niño, sentado, abriendo un libro, justo ahora, en una sucursal de la biblioteca local y encontrando dibujos obscenos en "El gato en el sombrero" y "Los cinco hermanos chinos"? ¿No merece ÉL algo mejor?`}
       />
     </div>
   }
@@ -141,11 +114,11 @@ Use the `overscroll-auto` utility to make it possible for the user to continue s
 
 ```html
 <!-- [!code classes:overscroll-auto] -->
-<div class="overscroll-auto ...">Well, let me tell you something, ...</div>
+<div class="overscroll-auto ...">Bueno, déjame decirte algo, ...</div>
 ```
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="overscroll-behavior" defaultClass="overscroll-auto" featuredClass="overscroll-contain" />

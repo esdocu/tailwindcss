@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, TargetingSpecificStates, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "filter";
-export const description = "Utilities for applying filters to an element.";
+export const description = "Utilidades para aplicar filtros a un elemento.";
 
 <ApiTable
   rows={[
@@ -14,11 +14,11 @@ export const description = "Utilities for applying filters to an element.";
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `blur-xs` and `grayscale` to apply filters to an element:
+Utiliza utilidades como `blur-xs` y `grayscale` para aplicar filtros a un elemento:
 
 <Figure>
 
@@ -48,7 +48,7 @@ Use utilities like `blur-xs` and `grayscale` to apply filters to an element:
         </div>
         <div className="flex shrink-0 flex-col items-center">
           <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 italic dark:text-gray-400">
-            combined
+            combinado
           </p>
           <div className="relative blur-xs grayscale">
             <img
@@ -72,27 +72,28 @@ Use utilities like `blur-xs` and `grayscale` to apply filters to an element:
 
 </Figure>
 
-You can combine the following filter utilities: [blur](/docs/filter-blur), [brightness](/docs/filter-brightness), [contrast](/docs/filter-contrast), [drop-shadow](/docs/filter-drop-shadow), [grayscale](/docs/filter-grayscale), [hue-rotate](/docs/filter-hue-rotate), [invert](/docs/filter-invert), [saturate](/docs/filter-saturate), and [sepia](/docs/filter-sepia).
+Puedes combinar las siguientes utilidades de filtro: [blur](/docs/filter-blur), [brightness](/docs/filter-brightness), [contrast](/docs/filter-contrast), [drop-shadow](/docs/filter-drop-shadow), [grayscale](/docs/filter-grayscale), [hue-rotate](/docs/filter-hue-rotate), [invert](/docs/filter-invert), [saturate](/docs/filter-saturate) y [sepia](/docs/filter-sepia).
 
-### Removing filters
+### Eliminar filtros
 
-Use the `filter-none` utility to remove all of the filters applied to an element:
+Utiliza la utilidad `filter-none` para eliminar todos los filtros aplicados a un elemento:
 
 ```html
 <!-- [!code classes:md:filter-none] -->
 <img class="blur-md brightness-150 invert md:filter-none" src="/img/mountains.jpg" />
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue
   element="img"
   elementAttributes={{ src: "/img/mountains.jpg" }}
   utility="filter"
+  name="filtro"
   value="url('filters.svg#filter-id')"
 />
 
-### Applying on hover
+### Aplicar al pasar el mouse
 
 <TargetingSpecificStates
   element="img"
@@ -102,7 +103,7 @@ Use the `filter-none` utility to remove all of the filters applied to an element
   featuredClass="filter-none"
 />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   element="img"

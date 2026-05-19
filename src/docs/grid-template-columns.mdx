@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "grid-template-columns";
-export const description = "Utilities for specifying the columns in a grid layout.";
+export const description = "Utilidades para especificar las columnas en un diseño de cuadrícula.";
 
 <ApiTable
   rows={[
@@ -17,11 +17,11 @@ export const description = "Utilities for specifying the columns in a grid layou
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Specifying the grid columns
+### Especificar las columnas de cuadrícula
 
-Use `grid-cols-<number>` utilities like `grid-cols-2` and `grid-cols-4` to create grids with _n_ equally sized columns:
+Utiliza utilidades `grid-cols-<number>` como `grid-cols-2` y `grid-cols-4` para crear cuadrículas con _n_ columnas de igual tamaño:
 
 <Figure>
 
@@ -55,9 +55,9 @@ Use `grid-cols-<number>` utilities like `grid-cols-2` and `grid-cols-4` to creat
 
 </Figure>
 
-### Implementing a subgrid
+### Implementar una subcuadrícula (subgrid)
 
-Use the `grid-cols-subgrid` utility to adopt the column tracks defined by the item's parent:
+Utiliza la utilidad `grid-cols-subgrid` para adoptar las pistas de columnas definidas por el elemento padre:
 
 <Figure>
 
@@ -92,10 +92,10 @@ Use the `grid-cols-subgrid` utility to adopt the column tracks defined by the it
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="grid-cols" name="columns" value="200px_minmax(900px,_1fr)_100px" />
+<UsingACustomValue utility="grid-cols" name="columnas" value="200px_minmax(900px,_1fr)_100px" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="grid-template-columns" defaultClass="grid grid-cols-1" featuredClass="grid-cols-6" />

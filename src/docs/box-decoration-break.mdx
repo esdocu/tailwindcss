@@ -5,7 +5,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "box-decoration-break";
 export const description =
-  "Utilities for controlling how element fragments should be rendered across multiple lines, columns, or pages.";
+  "Utilidades para controlar cómo se deben renderizar los fragmentos de un elemento en varias líneas, columnas o páginas.";
 
 <ApiTable
   rows={[
@@ -14,11 +14,11 @@ export const description =
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use the `box-decoration-slice` and `box-decoration-clone` utilities to control whether properties like background, border, border-image, box-shadow, clip-path, margin, and padding should be rendered as if the element were one continuous fragment, or distinct blocks:
+Utiliza las utilidades `box-decoration-slice` y `box-decoration-clone` para controlar si las propiedades como background, border, border-image, box-shadow, clip-path, margin y padding se deben renderizar como si el elemento fuera un fragmento continuo o bloques distintos:
 
 <Figure>
 
@@ -29,9 +29,9 @@ Use the `box-decoration-slice` and `box-decoration-clone` utilities to control w
         <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">box-decoration-slice</p>
         <div className="font-sans text-5xl leading-none font-extrabold tracking-tight">
           <span className="bg-linear-to-r from-indigo-600 to-pink-500 box-decoration-slice px-2 leading-[3.5rem] text-white">
-            Hello
+            Hola
             <br />
-            World
+            Mundo
           </span>
         </div>
       </div>
@@ -39,9 +39,9 @@ Use the `box-decoration-slice` and `box-decoration-clone` utilities to control w
         <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">box-decoration-clone</p>
         <div className="font-sans text-5xl leading-none font-extrabold tracking-tight">
           <span className="bg-linear-to-r from-indigo-600 to-pink-500 box-decoration-clone px-2 leading-[3.5rem] text-white">
-            Hello
+            Hola
             <br />
-            World
+            Mundo
           </span>
         </div>
       </div>
@@ -53,16 +53,16 @@ Use the `box-decoration-slice` and `box-decoration-clone` utilities to control w
 ```html
 <!-- [!code classes:box-decoration-slice,box-decoration-clone] -->
 <span class="box-decoration-slice bg-linear-to-r from-indigo-600 to-pink-500 px-2 text-white ...">
-  Hello<br />World
+  Hola<br />Mundo
 </span>
 <span class="box-decoration-clone bg-linear-to-r from-indigo-600 to-pink-500 px-2 text-white ...">
-  Hello<br />World
+  Hola<br />Mundo
 </span>
 ```
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   property="box-decoration-break"

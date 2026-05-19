@@ -1,34 +1,34 @@
-export const title = "Upgrade guide";
-export const description = "Upgrading your Tailwind CSS projects from v3 to v4.";
+export const title = "Guía de migración";
+export const description = "Migración de tus proyectos de Tailwind CSS de v3 a v4.";
 
-Tailwind CSS v4.0 is a new major version of the framework, so while we've worked really hard to minimize breaking changes, some updates are necessary. This guide outlines all the steps required to upgrade your projects from v3 to v4.
+Tailwind CSS v4.0 es una nueva versión principal del framework, por lo que aunque hemos trabajado muy duro para minimizar los cambios disruptivos, algunas actualizaciones son necesarias. Esta guía describe todos los pasos necesarios para actualizar tus proyectos de v3 a v4.
 
-**Tailwind CSS v4.0 is designed for Safari 16.4+, Chrome 111+, and Firefox 128+.** If you need to support older browsers, stick with v3.4 until your browser support requirements change.
+**Tailwind CSS v4.0 está diseñado para Safari 16.4+, Chrome 111+ y Firefox 128+.** Si necesitas dar soporte a navegadores más antiguos, quédate con v3.4 hasta que cambien tus requisitos de soporte de navegador.
 
-## Using the upgrade tool
+## Usar la herramienta de actualización
 
-If you'd like to upgrade a project from v3 to v4, you can use our upgrade tool to do the vast majority of the heavy lifting for you:
+Si deseas actualizar un proyecto de v3 a v4, puedes utilizar nuestra herramienta de actualización para realizar la gran mayoría del trabajo pesado por ti:
 
 ```sh
   # [!code filename:Terminal]
 $ npx @tailwindcss/upgrade
 ```
 
-For most projects, the upgrade tool will automate the entire migration process including updating your dependencies, migrating your configuration file to CSS, and handling any changes to your template files.
+Para la mayoría de los proyectos, la herramienta de actualización automatizará todo el proceso de migración, incluyendo la actualización de tus dependencias, la migración de tu archivo de configuración a CSS y el manejo de cualquier cambio en tus archivos de plantilla.
 
-The upgrade tool requires Node.js 20 or higher, so ensure your environment is updated before running it.
+La herramienta de actualización requiere Node.js 20 o superior, así que asegúrate de que tu entorno esté actualizado antes de ejecutarla.
 
-**We recommend running the upgrade tool in a new branch**, then carefully reviewing the diff and testing your project in the browser to make sure all of the changes look correct. You may need to tweak a few things by hand in complex projects, but the tool will save you a ton of time either way.
+**Recomendamos ejecutar la herramienta de actualización en una nueva rama**, luego revisar cuidadosamente el diff y probar tu proyecto en el navegador para asegurarte de que todos los cambios se vean correctos. Es posible que debas ajustar algunas cosas a mano en proyectos complejos, pero la herramienta te ahorrará mucho tiempo de todos modos.
 
-It's also a good idea to go over all of the [breaking changes](#changes-from-v3) in v4 and get a good understanding of what's changed, in case there are other things you need to update in your project that the upgrade tool doesn't catch.
+También es una buena idea revisar todos los [cambios disruptivos](#changes-from-v3) en v4 y obtener una buena comprensión de lo que ha cambiado, en caso de que haya otras cosas que debas actualizar en tu proyecto que la herramienta de actualización no detecte.
 
-## Upgrading manually
+## Actualizar manualmente
 
-### Using PostCSS
+### Usar PostCSS
 
-In v3, the `tailwindcss` package was a PostCSS plugin, but in v4 the PostCSS plugin lives in a dedicated `@tailwindcss/postcss` package.
+En v3, el paquete `tailwindcss` era un plugin de PostCSS, pero en v4 el plugin de PostCSS vive en un paquete dedicado `@tailwindcss/postcss`.
 
-Additionally, in v4 imports and vendor prefixing is now handled for you automatically, so you can remove `postcss-import` and `autoprefixer` if they are in your project:
+Además, en v4 las importaciones y el prefijado del proveedor ahora se manejan automáticamente por ti, por lo que puedes eliminar `postcss-import` y `autoprefixer` si están en tu proyecto:
 
 ```js
 // [!code filename:postcss.config.mjs]
@@ -44,9 +44,9 @@ export default {
 };
 ```
 
-### Using Vite
+### Usar Vite
 
-If you're using Vite, we recommend migrating from the PostCSS plugin to our new dedicated Vite plugin for improved performance and the best developer experience:
+Si estás usando Vite, te recomendamos migrar del plugin de PostCSS a nuestro nuevo plugin de Vite dedicado para mejorar el rendimiento y obtener la mejor experiencia de desarrollo:
 
 ```ts
 // [!code filename:vite.config.ts]
@@ -62,9 +62,9 @@ export default defineConfig({
 });
 ```
 
-### Using Tailwind CLI
+### Usar Tailwind CLI
 
-In v4, Tailwind CLI lives in a dedicated `@tailwindcss/cli` package. Update any of your build commands to use the new package instead:
+En v4, Tailwind CLI vive en un paquete dedicado `@tailwindcss/cli`. Actualiza cualquiera de tus comandos de construcción para usar el nuevo paquete en su lugar:
 
 ```sh
 /* [!code filename:Terminal] */
@@ -74,21 +74,21 @@ npx tailwindcss -i input.css -o output.css
 npx @tailwindcss/cli -i input.css -o output.css
 ```
 
-## Changes from v3
+## Cambios desde v3
 
-Here's a comprehensive list of all the breaking changes in Tailwind CSS v4.0.
+Aquí tienes una lista completa de todos los cambios disruptivos en Tailwind CSS v4.0.
 
-Our [upgrade tool](#using-the-upgrade-tool) will handle most of these changes for you automatically, so we highly recommend using it if you can.
+Nuestra [herramienta de actualización](#usar-la-herramienta-de-actualizacion) manejará la mayoría de estos cambios por ti automáticamente, por lo que te recomendamos encarecidamente que la uses si puedes.
 
-### Browser requirements
+### Requisitos del navegador
 
-Tailwind CSS v4.0 is designed for modern browsers and targets Safari 16.4, Chrome 111, and Firefox 128. We depend on modern CSS features like `@property` and `color-mix()` for core framework features, and Tailwind CSS v4.0 will not work in older browsers.
+Tailwind CSS v4.0 está diseñado para navegadores modernos y apunta a Safari 16.4, Chrome 111 y Firefox 128. Dependemos de características modernas de CSS como `@property` y `color-mix()` para las características principales del framework, y Tailwind CSS v4.0 no funcionará en navegadores antiguos.
 
-If you need to support older browsers, we recommend sticking with v3.4 for now. We're actively exploring a compatibility mode to help people upgrade sooner that we hope to share more news on in the future.
+Si necesitas dar soporte a navegadores antiguos, te recomendamos seguir con v3.4 por ahora. Estamos explorando activamente un modo de compatibilidad para ayudar a las personas a actualizar antes, del cual esperamos compartir más noticias en el futuro.
 
-### Removed @tailwind directives
+### Directivas @tailwind eliminadas
 
-In v4 you import Tailwind using a regular CSS `@import` statement, not using the `@tailwind` directives you used in v3:
+En v4 importas Tailwind usando una declaración `@import` de CSS normal, no usando las directivas `@tailwind` que usabas en v3:
 
 ```css
 /* [!code filename:CSS] */
@@ -100,17 +100,17 @@ In v4 you import Tailwind using a regular CSS `@import` statement, not using the
 @import "tailwindcss";
 ```
 
-### Removed deprecated utilities
+### Utilidades obsoletas eliminadas
 
-We've removed any utilities that were deprecated in v3 and have been undocumented for several years. Here's a list of what's been removed along with the modern alternative:
+Hemos eliminado cualquier utilidad que estuviera obsoleta en v3 y que no haya estado documentada durante varios años. Aquí hay una lista de lo que se ha eliminado junto con la alternativa moderna:
 
 {
 
 <table>
   <thead>
     <tr>
-      <th>Deprecated</th>
-      <th>Replacement</th>
+      <th>Obsoleta</th>
+      <th>Reemplazo</th>
     </tr>
   </thead>
   <tbody>
@@ -119,7 +119,7 @@ We've removed any utilities that were deprecated in v3 and have been undocumente
         <code className="whitespace-nowrap">bg-opacity-*</code>
       </td>
       <td>
-        Use opacity modifiers like <code className="whitespace-nowrap">bg-black/50</code>
+        Usa modificadores de opacidad como <code className="whitespace-nowrap">bg-black/50</code>
       </td>
     </tr>
     <tr>
@@ -127,7 +127,7 @@ We've removed any utilities that were deprecated in v3 and have been undocumente
         <code className="whitespace-nowrap">text-opacity-*</code>
       </td>
       <td>
-        Use opacity modifiers like <code className="whitespace-nowrap">text-black/50</code>
+        Usa modificadores de opacidad como <code className="whitespace-nowrap">text-black/50</code>
       </td>
     </tr>
     <tr>
@@ -135,7 +135,7 @@ We've removed any utilities that were deprecated in v3 and have been undocumente
         <code className="whitespace-nowrap">border-opacity-*</code>
       </td>
       <td>
-        Use opacity modifiers like <code className="whitespace-nowrap">border-black/50</code>
+        Usa modificadores de opacidad como <code className="whitespace-nowrap">border-black/50</code>
       </td>
     </tr>
     <tr>
@@ -143,7 +143,7 @@ We've removed any utilities that were deprecated in v3 and have been undocumente
         <code className="whitespace-nowrap">divide-opacity-*</code>
       </td>
       <td>
-        Use opacity modifiers like <code className="whitespace-nowrap">divide-black/50</code>
+        Usa modificadores de opacidad como <code className="whitespace-nowrap">divide-black/50</code>
       </td>
     </tr>
     <tr>
@@ -151,7 +151,7 @@ We've removed any utilities that were deprecated in v3 and have been undocumente
         <code className="whitespace-nowrap">ring-opacity-*</code>
       </td>
       <td>
-        Use opacity modifiers like <code className="whitespace-nowrap">ring-black/50</code>
+        Usa modificadores de opacidad como <code className="whitespace-nowrap">ring-black/50</code>
       </td>
     </tr>
     <tr>
@@ -159,7 +159,7 @@ We've removed any utilities that were deprecated in v3 and have been undocumente
         <code className="whitespace-nowrap">placeholder-opacity-*</code>
       </td>
       <td>
-        Use opacity modifiers like <code className="whitespace-nowrap">placeholder-black/50</code>
+        Usa modificadores de opacidad como <code className="whitespace-nowrap">placeholder-black/50</code>
       </td>
     </tr>
     <tr>
@@ -207,9 +207,9 @@ We've removed any utilities that were deprecated in v3 and have been undocumente
 
 }
 
-### Renamed utilities
+### Utilidades renombradas
 
-We've renamed the following utilities in v4 to make them more consistent and predictable:
+Hemos renombrado las siguientes utilidades en v4 para hacerlas más consistentes y predecibles:
 
 {
 
@@ -322,11 +322,11 @@ We've renamed the following utilities in v4 to make them more consistent and pre
 
 }
 
-#### Updated shadow, radius, and blur scales
+#### Escalas de sombra, radio y desenfoque actualizadas
 
-We've renamed the default shadow, radius and blur scales to make sure every utility has a named value. The "bare" versions still work for backward compatibility, but the <code><em>{'<utility>'}</em>-sm</code> utilities will look different unless updated to their respective <code><em>{'<utility>'}</em>-xs</code> versions.
+Hemos renombrado las escalas predeterminadas de sombra, radio y desenfoque para asegurarnos de que cada utilidad tenga un valor con nombre. Las versiones "simples" todavía funcionan por compatibilidad con versiones anteriores, pero las utilidades <code><em>{'<utility>'}</em>-sm</code> se verán diferentes a menos que se actualicen a sus respectivas versiones <code><em>{'<utility>'}</em>-xs</code>.
 
-To update your project for these changes, replace all the v3 utilities with their v4 versions:
+Para actualizar tu proyecto para estos cambios, reemplaza todas las utilidades de v3 con sus versiones de v4:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -341,9 +341,9 @@ To update your project for these changes, replace all the v3 utilities with thei
 <input class="shadow-sm" />
 ```
 
-#### Renamed outline utility
+#### Utilidad de contorno renombrada
 
-The `outline` utility now sets `outline-width: 1px` by default to be more consistent with border and ring utilities. Furthermore all `outline-<number>` utilities default `outline-style` to `solid`, omitting the need to combine them with `outline`:
+La utilidad `outline` ahora establece `outline-width: 1px` de forma predeterminada para ser más consistente con las utilidades de borde y anillo. Además, todas las utilidades `outline-<number>` establecen `outline-style` a `solid` de forma predeterminada, omitiendo la necesidad de combinarlas con `outline`:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -353,11 +353,11 @@ The `outline` utility now sets `outline-width: 1px` by default to be more consis
 <input class="outline-2" />
 ```
 
-The `outline-none` utility previously didn't actually set `outline-style: none`, and instead set an invisible outline that would still show up in forced colors mode for accessibility reasons.
+La utilidad `outline-none` anteriormente no establecía realmente `outline-style: none`, sino que establecía un contorno invisible que aún se mostraría en el modo de colores forzados por razones de accesibilidad.
 
-To make this more clear we've renamed this utility to `outline-hidden` and added a new `outline-none` utility that actually sets `outline-style: none`.
+Para hacer esto más claro, hemos renombrado esta utilidad a `outline-hidden` y hemos añadido una nueva utilidad `outline-none` que realmente establece `outline-style: none`.
 
-To update your project for this change, replace any usage of `outline-none` with `outline-hidden`:
+Para actualizar tu proyecto para este cambio, reemplaza cualquier uso de `outline-none` con `outline-hidden`:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -367,11 +367,11 @@ To update your project for this change, replace any usage of `outline-none` with
 <input class="focus:outline-hidden" />
 ```
 
-#### Default ring width change
+#### Cambio en el ancho predeterminado del anillo
 
-In v3, the `ring` utility added a `3px` ring. We've changed this in v4 to be `1px` to make it consistent with borders and outlines.
+En v3, la utilidad `ring` añadía un anillo de `3px`. Hemos cambiado esto en v4 a `1px` para que sea consistente con los bordes y contornos.
 
-To update your project for this change, replace any usage of `ring` with `ring-3`:
+Para actualizar tu proyecto para este cambio, reemplaza cualquier uso de `ring` con `ring-3`:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -381,26 +381,26 @@ To update your project for this change, replace any usage of `ring` with `ring-3
 <input class="ring-3 ring-blue-500" />
 ```
 
-### Space-between selector
+### Selector space-between
 
-We've changed the selector used by the [`space-x-*` and `space-y-*` utilities](/docs/margin#adding-space-between-children) to address serious performance issues on large pages:
+Hemos cambiado el selector utilizado por las [utilidades `space-x-*` y `space-y-*`](/docs/margin#adding-space-between-children) para abordar problemas graves de rendimiento en páginas grandes:
 
 ```css
 /* [!code filename:CSS] */
-/* Before */
+/* Antes */
 .space-y-4 > :not([hidden]) ~ :not([hidden]) {
   margin-top: 1rem;
 }
 
-/* Now */
+/* Ahora */
 .space-y-4 > :not(:last-child) {
   margin-bottom: 1rem;
 }
 ```
 
-You might see changes in your project if you were ever using these utilities with inline elements, or if you were adding other margins to child elements to tweak their spacing.
+Es posible que veas cambios en tu proyecto si alguna vez estuviste usando estas utilidades con elementos en línea, o si estuviste agregando otros márgenes a los elementos hijos para ajustar su espaciado.
 
-If this change causes any issues in your project, we recommend migrating to a flex or grid layout and using `gap` instead:
+Si este cambio causa algún problema en tu proyecto, te recomendamos migrar a un diseño flex o grid y usar `gap` en su lugar:
 
 {/* prettier-ignore */}
 ```html
@@ -412,28 +412,28 @@ If this change causes any issues in your project, we recommend migrating to a fl
 </div>
 ```
 
-### Divide selector
+### Selector divide
 
-We've changed the selector used by the [`divide-x-*` and `divide-y-*` utilities](/docs/border-width#between-children) to address serious performance issues on large pages:
+Hemos cambiado el selector utilizado por las [utilidades `divide-x-*` y `divide-y-*`](/docs/border-width#between-children) para abordar problemas graves de rendimiento en páginas grandes:
 
 ```css
 /* [!code filename:CSS] */
-/* Before */
+/* Antes */
 .divide-y-4 > :not([hidden]) ~ :not([hidden]) {
   border-top-width: 4px;
 }
 
-/* Now */
+/* Ahora */
 .divide-y-4 > :not(:last-child) {
   border-bottom-width: 4px;
 }
 ```
 
-You might see changes in your project if you were ever using these utilities with inline elements, if you were adding other margins/padding to child elements to tweak their spacing, or adjusting the borders of specific child elements.
+Es posible que veas cambios en tu proyecto si alguna vez estuviste usando estas utilidades con elementos en línea, si estuviste agregando otros márgenes/rellenos a los elementos hijos para ajustar su espaciado, o ajustando los bordes de elementos hijos específicos.
 
-### Using variants with gradients
+### Usar variantes con gradientes
 
-In v3, overriding part of a gradient with a variant would "reset" the entire gradient, so in this example the `to-*` color would be transparent in dark mode instead of yellow:
+En v3, anular parte de un gradiente con una variante "reiniciaba" todo el gradiente, por lo que en este ejemplo el color `to-*` sería transparente en modo oscuro en lugar de amarillo:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -443,9 +443,9 @@ In v3, overriding part of a gradient with a variant would "reset" the entire gra
 </div>
 ```
 
-In v4, these values are preserved which is more consistent with how other utilities in Tailwind work.
+En v4, estos valores se conservan, lo que es más consistente con el funcionamiento de otras utilidades en Tailwind.
 
-This means you may need to explicitly use `via-none` if you want to "unset" a three-stop gradient back to a two-stop gradient in a specific state:
+Esto significa que es posible que debas usar explícitamente `via-none` si deseas "desactivar" un gradiente de tres paradas para volver a un gradiente de dos paradas en un estado específico:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -455,11 +455,11 @@ This means you may need to explicitly use `via-none` if you want to "unset" a th
 </div>
 ```
 
-### Container configuration
+### Configuración del contenedor
 
-In v3, the `container` utility had several configuration options like `center` and `padding` that no longer exist in v4.
+En v3, la utilidad `container` tenía varias opciones de configuración como `center` y `padding` que ya no existen en v4.
 
-To customize the `container` utility in v4, extend it using the `@utility` directive:
+Para personalizar la utilidad `container` en v4, extiéndela usando la directiva `@utility`:
 
 ```css
 /* [!code filename:CSS] */
@@ -469,11 +469,11 @@ To customize the `container` utility in v4, extend it using the `@utility` direc
 }
 ```
 
-### Default border color
+### Color de borde predeterminado
 
-In v3, the `border-*` and `divide-*` utilities used your configured `gray-200` color by default. We've changed this to `currentColor` in v4 to make Tailwind less opinionated and match browser defaults.
+En v3, las utilidades `border-*` y `divide-*` usaban de forma predeterminada el color `gray-200` configurado. Hemos cambiado esto a `currentColor` en v4 para que Tailwind sea menos opinativo y coincida con los valores predeterminados del navegador.
 
-To update your project for this change, make sure you specify a color anywhere you're using a `border-*` or `divide-*` utility:
+Para actualizar tu proyecto para este cambio, asegúrate de especificar un color en cualquier lugar donde estés usando una utilidad `border-*` o `divide-*`:
 
 ```html
 <!-- [!code classes:border-gray-200] -->
@@ -482,7 +482,7 @@ To update your project for this change, make sure you specify a color anywhere y
 </div>
 ```
 
-Alternatively, add these base styles to your project to preserve the v3 behavior:
+Como alternativa, añade estos estilos base a tu proyecto para conservar el comportamiento de v3:
 
 ```css
 /* [!code filename:CSS] */
@@ -497,11 +497,11 @@ Alternatively, add these base styles to your project to preserve the v3 behavior
 }
 ```
 
-### Default ring width and color
+### Ancho y color de anillo predeterminados
 
-We've changed the width of the `ring` utility from 3px to 1px and changed the default color from `blue-500` to `currentColor` to make things more consistent the `border-*`, `divide-*`, and `outline-*` utilities.
+Hemos cambiado el ancho de la utilidad `ring` de 3px a 1px y hemos cambiado el color predeterminado de `blue-500` a `currentColor` para que las cosas sean más consistentes con las utilidades `border-*`, `divide-*` y `outline-*`.
 
-To update your project for these changes, replace any use of `ring` with `ring-3`:
+Para actualizar tu proyecto para estos cambios, reemplaza cualquier uso de `ring` con `ring-3`:
 
 ```html
 <!-- prettier-ignore -->
@@ -511,7 +511,7 @@ To update your project for these changes, replace any use of `ring` with `ring-3
 </button>
 ```
 
-Then make sure to add `ring-blue-500` anywhere you were depending on the default ring color:
+Luego, asegúrate de añadir `ring-blue-500` en cualquier lugar donde dependieras del color de anillo predeterminado:
 
 ```html
 <!-- [!code classes:focus:ring-blue-500] -->
@@ -520,7 +520,7 @@ Then make sure to add `ring-blue-500` anywhere you were depending on the default
 </button>
 ```
 
-Alternatively, add these theme variables to your CSS to preserve the v3 behavior:
+Como alternativa, añade estas variables de tema a tu CSS para conservar el comportamiento de v3:
 
 ```css
 /* [!code filename:CSS] */
@@ -530,17 +530,17 @@ Alternatively, add these theme variables to your CSS to preserve the v3 behavior
 }
 ```
 
-Note though that these variables are only supported for compatibility reasons, and are not considered idiomatic usage of Tailwind CSS v4.0.
+Ten en cuenta que estas variables solo se admiten por razones de compatibilidad y no se consideran un uso idiomático de Tailwind CSS v4.0.
 
-### Preflight changes
+### Cambios en Preflight
 
-We've made a couple small changes to the base styles in Preflight in v4:
+Hemos realizado algunos pequeños cambios en los estilos base de Preflight en v4:
 
-#### New default placeholder color
+#### Nuevo color de marcador de posición predeterminado
 
-In v3, placeholder text used your configured `gray-400` color by default. We've simplified this in v4 to just use the current text color at 50% opacity.
+En v3, el texto del marcador de posición usaba de forma predeterminada el color `gray-400` configurado. Hemos simplificado esto en v4 para usar simplemente el color del texto actual con un 50% de opacidad.
 
-You probably won't even notice this change (it might even make your project look better), but if you want to preserve the v3 behavior, add this CSS to your project:
+Es probable que ni siquiera notes este cambio (incluso podría hacer que tu proyecto se vea mejor), pero si deseas conservar el comportamiento de v3, añade este CSS a tu proyecto:
 
 ```css
 /* [!code filename:CSS] */
@@ -552,11 +552,11 @@ You probably won't even notice this change (it might even make your project look
 }
 ```
 
-#### Buttons use the default cursor
+#### Los botones usan el cursor predeterminado
 
-Buttons now use `cursor: default` instead of `cursor: pointer` to match the default browser behavior.
+Los botones ahora usan `cursor: default` en lugar de `cursor: pointer` para coincidir con el comportamiento predeterminado del navegador.
 
-If you'd like to continue using `cursor: pointer` by default, add these base styles to your CSS:
+Si deseas seguir usando `cursor: pointer` de forma predeterminada, añade estos estilos base a tu CSS:
 
 ```css
 /* [!code filename:CSS] */
@@ -568,11 +568,11 @@ If you'd like to continue using `cursor: pointer` by default, add these base sty
 }
 ```
 
-#### Dialog margins removed
+#### Márgenes de diálogo eliminados
 
-Preflight now resets margins on `<dialog>` elements to be consistent with how other elements are reset.
+Preflight ahora restablece los márgenes en los elementos `<dialog>` para ser consistente con cómo se restablecen otros elementos.
 
-If you still want dialogs to be centered by default, add this CSS to your project:
+Si aún deseas que los diálogos estén centrados de forma predeterminada, añade este CSS a tu proyecto:
 
 ```css
 /* [!code filename:CSS] */
@@ -583,13 +583,13 @@ If you still want dialogs to be centered by default, add this CSS to your projec
 }
 ```
 
-#### Hidden attribute takes priority
+#### El atributo hidden tiene prioridad
 
-Display classes like `block` or `flex` no longer take priority over the `hidden` attribute on an element. Remove the `hidden` attribute if you want an element to be visible to the user. Note that this does not apply to `hidden="until-found"`.
+Las clases de visualización como `block` o `flex` ya no tienen prioridad sobre el atributo `hidden` en un elemento. Elimina el atributo `hidden` si deseas que un elemento sea visible para el usuario. Ten en cuenta que esto no se aplica a `hidden="until-found"`.
 
-### Using a prefix
+### Usar un prefijo
 
-Prefixes now look like variants and are always at the beginning of the class name:
+Los prefijos ahora se ven como variantes y siempre están al principio del nombre de la clase:
 
 ```html
 <!-- [!code classes:tw:bg-red-500,tw:flex,tw:hover:bg-red-600] -->
@@ -598,7 +598,7 @@ Prefixes now look like variants and are always at the beginning of the class nam
 </div>
 ```
 
-When using a prefix, you should still configure your theme variables as if you aren't using a prefix:
+Al usar un prefijo, aún debes configurar las variables de tu tema como si no estuvieras usando un prefijo:
 
 ```css {{ filename: "app.css" }}
 @import "tailwindcss" prefix(tw);
@@ -616,7 +616,7 @@ When using a prefix, you should still configure your theme variables as if you a
 }
 ```
 
-The generated CSS variables _will_ include a prefix to avoid conflicts with any existing variables in your project:
+Las variables CSS generadas _sí_ incluirán un prefijo para evitar conflictos con las variables existentes en tu proyecto:
 
 ```css {{ filename: "dist.css" }}
 :root {
@@ -632,9 +632,9 @@ The generated CSS variables _will_ include a prefix to avoid conflicts with any 
 }
 ```
 
-### The important modifier
+### El modificador important
 
-In v3 you could mark a utility as important by placing an `!` at the beginning of the utility name (but after any variants). In v4 you should place the `!` at the very end of the class name instead:
+En v3 podías marcar una utilidad como importante colocando un `!` al principio del nombre de la utilidad (pero después de cualquier variante). En v4 debes colocar el `!` al final del nombre de la clase en su lugar:
 
 ```html
 <!-- [!code classes:bg-red-500!,flex!,hover:bg-red-600/50!] -->
@@ -643,13 +643,13 @@ In v3 you could mark a utility as important by placing an `!` at the beginning o
 </div>
 ```
 
-The old way is still supported for compatibility but is deprecated.
+La forma antigua todavía se admite por compatibilidad, pero está obsoleta.
 
-### Adding custom utilities
+### Añadir utilidades personalizadas
 
-In v3, any custom classes you defined within `@layer utilities` or `@layer components` would get picked up by Tailwind as a true utility class and would automatically work with variants like `hover`, `focus`, or `lg` with the difference being that `@layer components` would always come first in the generated stylesheet.
+En v3, cualquier clase personalizada que definieras dentro de `@layer utilities` o `@layer components` sería detectada por Tailwind como una clase de utilidad real y funcionaría automáticamente con variantes como `hover`, `focus` o `lg`, con la diferencia de que `@layer components` siempre vendría primero en la hoja de estilos generada.
 
-In v4 we are using native cascade layers and no longer hijacking the `@layer` at-rule, so we've introduced the `@utility` API as a replacement:
+En v4 estamos usando capas de cascada nativas y ya no secuestramos la regla-at `@layer`, por lo que hemos introducido la API `@utility` como reemplazo:
 
 ```css
 /* [!code filename:CSS] */
@@ -665,7 +665,7 @@ In v4 we are using native cascade layers and no longer hijacking the `@layer` at
 }
 ```
 
-Custom utilities are now also sorted based on the amount of properties they define. This means that component utilities like this `.btn` can be overwritten by other Tailwind utilities without additional configuration:
+Las utilidades personalizadas ahora también se ordenan en función de la cantidad de propiedades que definen. Esto significa que las utilidades de componentes como esta `.btn` pueden ser sobrescritas por otras utilidades de Tailwind sin configuración adicional:
 
 ```css
 /* [!code filename:CSS] */
@@ -685,13 +685,13 @@ Custom utilities are now also sorted based on the amount of properties they defi
 }
 ```
 
-Learn more about registering custom utilities in the [adding custom utilities documentation](/docs/adding-custom-styles#adding-custom-utilities).
+Obtén más información sobre el registro de utilidades personalizadas en la [documentación para añadir utilidades personalizadas](/docs/adding-custom-styles#adding-custom-utilities).
 
-### Variant stacking order
+### Orden de apilamiento de variantes
 
-In v3, stacked variants were applied from right to left, but in v4 we've updated them to apply left to right to look more like CSS syntax.
+En v3, las variantes apiladas se aplicaban de derecha a izquierda, pero en v4 las hemos actualizado para que se apliquen de izquierda a derecha para parecerse más a la sintaxis CSS.
 
-To update your project for this change, reverse the order of any order-sensitive stacked variants in your project:
+Para actualizar tu proyecto para este cambio, invierte el orden de cualquier variante apilada sensible al orden en tu proyecto:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -706,13 +706,13 @@ To update your project for this change, reverse the order of any order-sensitive
 </ul>
 ```
 
-You likely have very few of these if any—the direct child variant (`*`) and any typography plugin variants (`prose-headings`) are the most likely ones you might be using, and even then it's only if you've stacked them with other variants.
+Es probable que tengas muy pocas de estas, si es que tienes alguna; la variante de hijo directo (`*`) y cualquier variante del plugin de tipografía (`prose-headings`) son las más probables que estés usando, e incluso entonces solo es si las has apilado con otras variantes.
 
-### Variables in arbitrary values
+### Variables en valores arbitrarios
 
-In v3 you were able to use CSS variables as arbitrary values without `var()`, but recent updates to CSS mean that this can often be ambiguous, so we've changed the syntax for this in v4 to use parentheses instead of square brackets.
+En v3 podías usar variables CSS como valores arbitrarios sin `var()`, pero las actualizaciones recientes de CSS significan que esto a menudo puede ser ambiguo, por lo que hemos cambiado la sintaxis para esto en v4 para usar paréntesis en lugar de corchetes.
 
-To update your project for this change, replace usage of the old variable shorthand syntax with the new variable shorthand syntax:
+Para actualizar tu proyecto para este cambio, reemplaza el uso de la antigua sintaxis abreviada de variables con la nueva sintaxis abreviada de variables:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -722,11 +722,11 @@ To update your project for this change, replace usage of the old variable shorth
 <div class="bg-(--brand-color)"></div>
 ```
 
-### Arbitrary values in grid and object-position utilities
+### Valores arbitrarios en utilidades grid y object-position
 
-Commas were previously replaced with spaces in the `grid-cols-*`, `grid-rows-*`, and `object-*` utilities inside arbitrary values. This special behavior existed in Tailwind CSS v3 for compatibility with v2. This compatibility no longer exists in v4.0 and underscores must be used to represent spaces.
+Las comas se reemplazaban previamente con espacios en las utilidades `grid-cols-*`, `grid-rows-*` y `object-*` dentro de valores arbitrarios. Este comportamiento especial existía en Tailwind CSS v3 por compatibilidad con v2. Este comportamiento ya no existe en v4.0 y se deben usar guiones bajos para representar espacios.
 
-To update your project for this change, replace usage of commas that were intended to be spaces with underscores:
+Para actualizar tu proyecto para este cambio, reemplaza el uso de comas que debían ser espacios con guiones bajos:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -736,9 +736,9 @@ To update your project for this change, replace usage of commas that were intend
 <div class="grid-cols-[max-content_auto]"></div>
 ```
 
-### Hover styles on mobile
+### Estilos hover en móviles
 
-In v4 we've updated the `hover` variant to only apply when the primary input device supports hover:
+En v4 hemos actualizado la variante `hover` para que solo se aplique cuando el dispositivo de entrada principal admita hover:
 
 ```css
 /* [!code filename:CSS] */
@@ -749,20 +749,20 @@ In v4 we've updated the `hover` variant to only apply when the primary input dev
 }
 ```
 
-This can create problems if you've built your site in a way that depends on touch devices triggering hover on tap. If this is an issue for you, you can override the `hover` variant with your own variant that uses the old implementation:
+Esto puede crear problemas si has creado tu sitio de una manera que dependa de que los dispositivos táctiles activen el hover al tocar. Si esto es un problema para ti, puedes anular la variante `hover` con tu propia variante que use la implementación antigua:
 
 ```css
 /* [!code filename:CSS] */
 @custom-variant hover (&:hover);
 ```
 
-Generally though we recommend treating hover functionality as an enhancement, and not depending on it for your site to work since touch devices don't truly have the ability to hover.
+Por lo general, recomendamos tratar la funcionalidad hover como una mejora y no depender de ella para que tu sitio funcione, ya que los dispositivos táctiles realmente no tienen la capacidad de hacer hover.
 
-### Transitioning outline-color
+### Transición de outline-color
 
-The `transition` and `transition-colors` utilities now include the `outline-color` property.
+Las utilidades `transition` y `transition-colors` ahora incluyen la propiedad `outline-color`.
 
-This means if you were adding an outline with a custom color on focus, you will see the color transition from the default color. To avoid this, make sure you set the outline color unconditionally, or explicitly set it for both states:
+Esto significa que si estabas añadiendo un contorno con un color personalizado en el foco, verás la transición de color desde el color predeterminado. Para evitar esto, asegúrate de establecer el color del contorno incondicionalmente, o establécelo explícitamente para ambos estados:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -772,13 +772,13 @@ This means if you were adding an outline with a custom color on focus, you will 
 <button class="outline-cyan-500 transition hover:outline-2"></button>
 ```
 
-### Individual transform properties
+### Propiedades de transformación individuales
 
-The `rotate-*`, `scale-*`, and `translate-*` utilities are now based on the individual `rotate`, `scale`, and `translate` properties in CSS. Normally this shouldn't affect the behavior but there's a couple of cases to look out for:
+Las utilidades `rotate-*`, `scale-*` y `translate-*` ahora se basan en las propiedades individuales `rotate`, `scale` y `translate` en CSS. Normalmente esto no debería afectar el comportamiento, pero hay un par de casos a tener en cuenta:
 
-#### Resetting Transforms
+#### Restablecer transformaciones
 
-You previously would've been able to "reset" your rotate, scale, and translate utilities via `transform-none`. This no longer works and you will need to reset the individual properties instead:
+Anteriormente habrías podido "restablecer" tus utilidades de rotación, escala y traslación a través de `transform-none`. Esto ya no funciona y tendrás que restablecer las propiedades individuales en su lugar:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -788,9 +788,9 @@ You previously would've been able to "reset" your rotate, scale, and translate u
 <button class="scale-150 focus:scale-none"></button>
 ```
 
-#### Transitions
+#### Transiciones
 
-If you customize the list of transitioned properties and include `transform` (e.g. by writing `transition-[opacity,transform]`) then these utilities will no longer transition. To fix this, include the individual properties in the list. For example, if you want to transition changes when using `opacity-*` and `scale-*` utilities you should use `transition-[opacity,scale]` instead.
+Si personalizas la lista de propiedades con transición e incluyes `transform` (por ejemplo, escribiendo `transition-[opacity,transform]`), estas utilidades ya no tendrán transiciones. Para solucionar esto, incluye las propiedades individuales en la lista. Por ejemplo, si deseas aplicar transiciones a los cambios al usar las utilidades `opacity-*` y `scale-*`, debes usar `transition-[opacity,scale]` en su lugar.
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -800,13 +800,13 @@ If you customize the list of transitioned properties and include `transform` (e.
 <button class="transition-[opacity,scale] hover:scale-150"></button>
 ```
 
-### Disabling core plugins
+### Desactivar plugins principales
 
-In v3 there was a `corePlugins` option you could use to completely disable certain utilities in the framework. This is no longer supported in v4.
+En v3 había una opción `corePlugins` que podías usar para desactivar por completo ciertas utilidades en el framework. Esto ya no se admite en v4.
 
-### Using the theme() function
+### Usar la función theme()
 
-Since v4 includes CSS variables for all of your theme values, we recommend using those variables instead of the `theme()` function whenever possible:
+Dado que v4 incluye variables CSS para todos los valores de tu tema, recomendamos usar esas variables en lugar de la función `theme()` siempre que sea posible:
 
 ```css
 /* [!code filename:CSS] */
@@ -818,7 +818,7 @@ Since v4 includes CSS variables for all of your theme values, we recommend using
 }
 ```
 
-For cases where you still need to use the `theme()` function (like in media queries where CSS variables aren't supported), you should use the CSS variable name instead of the old dot notation:
+Para los casos en los que aún necesites usar la función `theme()` (como en consultas de medios donde no se admiten variables CSS), debes usar el nombre de la variable CSS en lugar de la antigua notación de puntos:
 
 ```css
 /* [!code filename:CSS] */
@@ -828,26 +828,26 @@ For cases where you still need to use the `theme()` function (like in media quer
 }
 ```
 
-### Using a JavaScript config file
+### Usar un archivo de configuración de JavaScript
 
-JavaScript config files are still supported for backward compatibility, but they are no longer detected automatically in v4.
+Los archivos de configuración de JavaScript todavía se admiten por compatibilidad con versiones anteriores, pero ya no se detectan automáticamente en v4.
 
-If you still need to use a JavaScript config file, you can load it explicitly using the `@config` directive:
+Si aún necesitas usar un archivo de configuración de JavaScript, puedes cargarlo explícitamente usando la directiva `@config`:
 
 ```css
 /* [!code filename:CSS] */
 @config "../../tailwind.config.js";
 ```
 
-The `corePlugins`, `safelist`, and `separator` options from the JavaScript-based config are not supported in v4.0. To safelist utilities in v4 use [`@source inline()`](/docs/detecting-classes-in-source-files#safelisting-specific-utilities).
+Las opciones `corePlugins`, `safelist` y `separator` de la configuración basada en JavaScript no se admiten en v4.0. Para incluir utilidades en la lista de permitidas en v4, usa [`@source inline()`](/docs/detecting-classes-in-source-files#safelisting-specific-utilities).
 
-### Theme values in JavaScript
+### Valores del tema en JavaScript
 
-In v3 we exported a `resolveConfig` function that you could use to turn your JavaScript-based config into a flat object that you could use in your other JavaScript.
+En v3 exportamos una función `resolveConfig` que podías usar para convertir tu configuración basada en JavaScript en un objeto plano que pudieras usar en tu otro JavaScript.
 
-We've removed this in v4 in hopes that people can use the CSS variables we generate directly instead, which is much simpler and will significantly reduce your bundle size.
+Hemos eliminado esto en v4 con la esperanza de que la gente pueda usar directamente las variables CSS que generamos, lo cual es mucho más simple y reducirá significativamente el tamaño de tu paquete.
 
-For example, the popular [Motion](https://motion.dev/docs/react-quick-start) library for React lets you animate to and from CSS variable values:
+Por ejemplo, la popular biblioteca [Motion](https://motion.dev/docs/react-quick-start) para React te permite animar hacia y desde valores de variables CSS:
 
 ```jsx
 // [!code filename:JSX]
@@ -855,7 +855,7 @@ For example, the popular [Motion](https://motion.dev/docs/react-quick-start) lib
 <motion.div animate={{ backgroundColor: "var(--color-blue-500)" }} />
 ```
 
-If you need access to a resolved CSS variable value in JS, you can use `getComputedStyle` to get the value of a theme variable on the document root:
+Si necesitas acceder a un valor de variable CSS resuelto en JS, puedes usar `getComputedStyle` para obtener el valor de una variable de tema en la raíz del documento:
 
 ```js
 // [!code filename:spaghetti.js]
@@ -863,11 +863,11 @@ let styles = getComputedStyle(document.documentElement);
 let shadow = styles.getPropertyValue("--shadow-xl");
 ```
 
-### Using @apply with Vue, Svelte, or CSS modules
+### Usar @apply con Vue, Svelte o módulos CSS
 
-In v4, stylesheets that are bundled separately from your main CSS file (e.g. CSS modules files, `<style>` blocks in Vue, Svelte, or Astro, etc.) do not have access to theme variables, custom utilities, and custom variants defined in other files.
+En v4, las hojas de estilo que se empaquetan por separado de tu archivo CSS principal (por ejemplo, archivos de módulos CSS, bloques `<style>` en Vue, Svelte o Astro, etc.) no tienen acceso a las variables de tema, utilidades personalizadas y variantes personalizadas definidas en otros archivos.
 
-To make these definitions available in these contexts, use [`@reference`](/docs/functions-and-directives#reference-directive) to import them without duplicating any CSS in your bundle:
+Para que estas definiciones estén disponibles en estos contextos, usa [`@reference`](/docs/functions-and-directives#reference-directive) para importarlas sin duplicar ningún CSS en tu paquete:
 
 ```html
 <!-- [!code filename:Vue] -->
@@ -885,7 +885,7 @@ To make these definitions available in these contexts, use [`@reference`](/docs/
 </style>
 ```
 
-Alternatively, you can use your CSS theme variables directly instead of using `@apply` at all, which will also improve performance since Tailwind won't need to process these styles:
+Como alternativa, puedes usar tus variables de tema CSS directamente en lugar de usar `@apply`, lo que también mejorará el rendimiento ya que Tailwind no necesitará procesar estos estilos:
 
 ```html
 <!-- [!code filename:Vue] -->
@@ -901,10 +901,10 @@ Alternatively, you can use your CSS theme variables directly instead of using `@
 </style>
 ```
 
-You can find more documentation on [using Tailwind with CSS modules](/docs/compatibility#css-modules).
+Puedes encontrar más documentación sobre [el uso de Tailwind con módulos CSS](/docs/compatibility#css-modules).
 
-### Using Sass, Less, and Stylus
+### Usar Sass, Less y Stylus
 
-Tailwind CSS v4.0 is not designed to be used with CSS preprocessors like Sass, Less, or Stylus. Think of Tailwind CSS itself as your preprocessor — you shouldn't use Tailwind with Sass for the same reason you wouldn't use Sass with Stylus. Because of this it is not possible to use Sass, Less, or Stylus for your stylesheets or `<style>` blocks in Vue, Svelte, Astro, etc.
+Tailwind CSS v4.0 no está diseñado para ser utilizado con preprocesadores CSS como Sass, Less o Stylus. Piensa en Tailwind CSS en sí mismo como tu preprocesador: no deberías usar Tailwind con Sass por la misma razón por la que no usarías Sass con Stylus. Debido a esto, no es posible usar Sass, Less o Stylus para tus hojas de estilo o bloques `<style>` en Vue, Svelte, Astro, etc.
 
-Learn more in the [compatibility documentation](/docs/compatibility#sass-less-and-stylus).
+Obtén más información en la [documentación de compatibilidad](/docs/compatibility#sass-less-and-stylus).

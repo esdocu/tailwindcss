@@ -5,7 +5,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 import dedent from "dedent";
 
 export const title = "text-overflow";
-export const description = "Utilities for controlling how the text of an element overflows.";
+export const description = "Utilidades para controlar cómo desborda el texto de un elemento.";
 
 <ApiTable
   rows={[
@@ -22,82 +22,82 @@ export const description = "Utilities for controlling how the text of an element
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Truncating text
+### Truncar texto
 
-Use the `truncate` utility to prevent text from wrapping and truncate overflowing text with an ellipsis (…) if needed:
+Usa la utilidad `truncate` para evitar que el texto salte de línea y truncar el texto desbordado con puntos suspensivos (…) si es necesario:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs truncate border-x border-x-pink-400/30 py-8 text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      La palabra más larga en cualquiera de los diccionarios principales de la lengua inglesa es{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> una palabra que se refiere a una
+      enfermedad pulmonar contraída por la inhalación de partículas de sílice muy finas, específicamente de un volcán;
+      médicamente, es lo mismo que la silicosis.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:truncate] -->
-<p class="truncate">The longest word in any of the major...</p>
+<p class="truncate">La palabra más larga en cualquiera...</p>
 ```
 
 </Figure>
 
-### Adding an ellipsis
+### Añadir puntos suspensivos
 
-Use the `text-ellipsis` utility to truncate overflowing text with an ellipsis (…) if needed:
+Usa la utilidad `text-ellipsis` para truncar el texto desbordado con puntos suspensivos (…) si es necesario:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs overflow-hidden border-x border-x-pink-400/30 py-8 text-ellipsis text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      La palabra más larga en cualquiera de los diccionarios principales de la lengua inglesa es{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> una palabra que se refiere a una
+      enfermedad pulmonar contraída por la inhalación de partículas de sílice muy finas, específicamente de un volcán;
+      médicamente, es lo mismo que la silicosis.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:text-ellipsis] -->
-<p class="overflow-hidden text-ellipsis">The longest word in any of the major...</p>
+<p class="overflow-hidden text-ellipsis">La palabra más larga en cualquiera...</p>
 ```
 
 </Figure>
 
-### Clipping text
+### Recortar texto
 
-Use the `text-clip` utility to truncate the text at the limit of the content area:
+Usa la utilidad `text-clip` para truncar el texto en el límite del área de contenido:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs overflow-hidden border-x border-x-pink-400/30 py-8 text-clip text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      La palabra más larga en cualquiera de los diccionarios principales de la lengua inglesa es{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> una palabra que se refiere a una
+      enfermedad pulmonar contraída por la inhalación de partículas de sílice muy finas, específicamente de un volcán;
+      médicamente, es lo mismo que la silicosis.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:text-clip] -->
-<p class="overflow-hidden text-clip">The longest word in any of the major...</p>
+<p class="overflow-hidden text-clip">La palabra más larga en cualquiera...</p>
 ```
 
 </Figure>
 
-This is the default browser behavior.
+Este es el comportamiento predeterminado del navegador.
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign element="p" property="text-overflow" defaultClass="text-ellipsis" featuredClass="text-clip" />

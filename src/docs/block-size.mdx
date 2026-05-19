@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "block-size";
-export const description = "Utilities for setting the block size of an element.";
+export const description = "Utilidades para establecer el tamaño de bloque de un elemento.";
 
 <ApiTable
   rows={[
@@ -30,11 +30,11 @@ export const description = "Utilities for setting the block size of an element."
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use `block-<number>` utilities like `block-24` and `block-64` to set an element to a fixed block size based on the spacing scale:
+Utiliza utilidades `block-<number>` como `block-24` y `block-64` para establecer un tamaño de bloque fijo para un elemento basado en la escala de espaciado:
 
 <Figure>
 
@@ -79,9 +79,9 @@ Use `block-<number>` utilities like `block-24` and `block-64` to set an element 
 
 </Figure>
 
-### Using a percentage
+### Usar un porcentaje
 
-Use `block-full` or `block-<fraction>` utilities like `block-1/2` and `block-2/5` to give an element a percentage-based block size:
+Utiliza utilidades `block-full` o `block-<fraction>` como `block-1/2` y `block-2/5` para dar a un elemento un tamaño de bloque basado en un porcentaje:
 
 <Figure>
 
@@ -133,9 +133,9 @@ Use `block-full` or `block-<fraction>` utilities like `block-1/2` and `block-2/5
 
 </Figure>
 
-### Matching viewport
+### Coincidir con el viewport
 
-Use the `block-screen` utility to make an element span the entire block size of the viewport:
+Utiliza la utilidad `block-screen` para hacer que un elemento ocupe todo el tamaño de bloque del viewport:
 
 ```html
 <!-- [!code classes:block-screen] -->
@@ -144,9 +144,9 @@ Use the `block-screen` utility to make an element span the entire block size of 
 </div>
 ```
 
-### Matching dynamic viewport
+### Coincidir con el viewport dinámico
 
-Use the `block-dvh` utility to make an element span the entire block size of the viewport, which changes as the browser UI expands or contracts:
+Utiliza la utilidad `block-dvh` para hacer que un elemento ocupe todo el tamaño de bloque del viewport, el cual cambia a medida que la interfaz de usuario del navegador se expande o se contrae:
 
 ```html
 <!-- [!code classes:block-dvh] -->
@@ -155,9 +155,9 @@ Use the `block-dvh` utility to make an element span the entire block size of the
 </div>
 ```
 
-### Matching large viewport
+### Coincidir con el viewport grande
 
-Use the `block-lvh` utility to set an element's block size to the largest possible size of the viewport:
+Utiliza la utilidad `block-lvh` para establecer el tamaño de bloque de un elemento al tamaño más grande posible del viewport:
 
 ```html
 <!-- [!code classes:block-lvh] -->
@@ -166,9 +166,9 @@ Use the `block-lvh` utility to set an element's block size to the largest possib
 </div>
 ```
 
-### Matching small viewport
+### Coincidir con el viewport pequeño
 
-Use the `block-svh` utility to set an element's block size to the smallest possible size of the viewport:
+Utiliza la utilidad `block-svh` para establecer el tamaño de bloque de un elemento al tamaño más pequeño posible del viewport:
 
 ```html
 <!-- [!code classes:block-svh] -->
@@ -177,14 +177,14 @@ Use the `block-svh` utility to set an element's block size to the smallest possi
 </div>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="block" value="32rem" name="block size" variable="block-size" />
+<UsingACustomValue utility="block" value="32rem" name="tamaño de bloque" variable="block-size" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="block-size" defaultClass="block-1/2" featuredClass="block-full" />
 
-## Customizing your theme
+## Personalizar el tema
 
 <CustomizingYourSpacingScale utility="block" />

@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "font-smoothing";
-export const description = "Utilities for controlling the font smoothing of an element.";
+export const description = "Utilidades para controlar el suavizado de fuente (font-smoothing) de un elemento.";
 
 <ApiTable
   rows={[
@@ -13,51 +13,51 @@ export const description = "Utilities for controlling the font smoothing of an e
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Grayscale antialiasing
+### Suavizado por escala de grises
 
-Use the `antialiased` utility to render text using grayscale antialiasing:
+Utiliza la utilidad `antialiased` para renderizar texto usando suavizado por escala de grises:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 antialiased dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      El veloz zorro marrón salta sobre el perro perezoso.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:antialiased] -->
-<p class="antialiased ...">The quick brown fox ...</p>
+<p class="antialiased ...">El veloz zorro marrón ...</p>
 ```
 
 </Figure>
 
-### Subpixel antialiasing
+### Suavizado por subpíxeles
 
-Use the `subpixel-antialiased` utility to render text using subpixel antialiasing:
+Utiliza la utilidad `subpixel-antialiased` para renderizar texto usando suavizado por subpíxeles:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 subpixel-antialiased dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      El veloz zorro marrón salta sobre el perro perezoso.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:subpixel-antialiased] -->
-<p class="subpixel-antialiased ...">The quick brown fox ...</p>
+<p class="subpixel-antialiased ...">El veloz zorro marrón ...</p>
 ```
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   element="p"

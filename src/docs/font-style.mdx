@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "font-style";
-export const description = "Utilities for controlling the style of text.";
+export const description = "Utilidades para controlar el estilo del texto.";
 
 <ApiTable
   rows={[
@@ -13,50 +13,50 @@ export const description = "Utilities for controlling the style of text.";
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Italicizing text
+### Poner texto en cursiva
 
-Use the `italic` utility to make text italic:
+Utiliza la utilidad `italic` para poner el texto en cursiva:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 italic dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      El veloz zorro marrón salta sobre el perro perezoso.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:italic] -->
-<p class="italic ...">The quick brown fox ...</p>
+<p class="italic ...">El veloz zorro marrón ...</p>
 ```
 
 </Figure>
 
-### Displaying text normally
+### Mostrar texto normalmente
 
-Use the `not-italic` utility to display text normally:
+Utiliza la utilidad `not-italic` para mostrar el texto normalmente:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 not-italic dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      El veloz zorro marrón salta sobre el perro perezoso.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:not-italic] -->
-<p class="not-italic ...">The quick brown fox ...</p>
+<p class="not-italic ...">El veloz zorro marrón ...</p>
 ```
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="font-style" defaultClass="italic" featuredClass="not-italic" element="p" />

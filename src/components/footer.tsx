@@ -60,7 +60,7 @@ export function FooterMeta({ className }: { className?: string }) {
           <span>Copyright ©&nbsp;{new Date().getFullYear()}&nbsp;Tailwind Labs Inc.</span>
           <span className="max-sm:hidden">&middot;</span>
           <Link href="/brand" className="hover:underline">
-            Trademark Policy
+            Política de marcas registradas
           </Link>
         </div>
       </div>
@@ -75,7 +75,7 @@ function TailwindCSS() {
       <ul className="mt-4 grid gap-4">
         <li>
           <Link href="/docs" className="hover:underline">
-            Documentation
+            Documentación
           </Link>
         </li>
         <li>
@@ -90,12 +90,12 @@ function TailwindCSS() {
         </li>
         <li>
           <Link href="/showcase" className="hover:underline">
-            Showcase
+            Galería
           </Link>
         </li>
         <li>
           <Link href="/partners" className="hover:underline">
-            Sponsor
+            Patrocinar
           </Link>
         </li>
       </ul>
@@ -114,17 +114,17 @@ function TailwindPlus() {
       <ul className="mt-4 grid gap-4">
         <li>
           <a href="/plus/ui-blocks?ref=footer" className="hover:underline">
-            UI Blocks
+            Bloques UI
           </a>
         </li>
         <li>
           <a href="/plus/templates?ref=footer" className="hover:underline">
-            Templates
+            Plantillas
           </a>
         </li>
         <li>
           <a href="/plus/ui-kit?ref=footer" className="hover:underline">
-            UI Kit
+            Kit UI
           </a>
         </li>
       </ul>
@@ -135,7 +135,7 @@ function TailwindPlus() {
 function Resources() {
   return (
     <>
-      <h3 className="font-semibold">Resources</h3>
+      <h3 className="font-semibold">Recursos</h3>
       <ul className="mt-4 grid gap-4">
         <li>
           <Link href="https://www.refactoringui.com" className="hover:underline">
@@ -165,7 +165,7 @@ function Resources() {
 function Community() {
   return (
     <>
-      <h3 className="font-semibold">Community</h3>
+      <h3 className="font-semibold">Comunidad</h3>
       <ul className="mt-4 grid gap-4">
         <li>
           <Link href="https://github.com/tailwindlabs/tailwindcss" className="hover:underline">

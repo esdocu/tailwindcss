@@ -2,7 +2,7 @@ import { ApiTable } from "@/components/api-table.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "font-feature-settings";
-export const description = "Utilities for controlling advanced typographic features.";
+export const description = "Utilidades para controlar funciones tipográficas avanzadas.";
 
 <ApiTable
   rows={[
@@ -11,29 +11,29 @@ export const description = "Utilities for controlling advanced typographic featu
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use the `font-features-[<value>]` utility to enable OpenType features in fonts that support them:
+Utiliza la utilidad `font-features-[<value>]` para habilitar funciones OpenType en fuentes que las soporten:
 
 ```html
 <!-- [!code classes:font-features-["smcp"]] -->
-<p class="font-features-['smcp'] ...">This text uses small caps.</p>
+<p class="font-features-['smcp'] ...">Este texto usa versalitas.</p>
 ```
 
-### Enabling multiple features
+### Habilitar múltiples funciones
 
-You can enable multiple OpenType features by separating them with commas:
+Puedes habilitar múltiples funciones OpenType separándolas con comas:
 
 ```html
 <!-- [!code classes:font-features-["smcp","onum"]] -->
-<p class="font-features-['smcp','onum'] ...">This text uses small caps and oldstyle numbers.</p>
+<p class="font-features-['smcp','onum'] ...">Este texto usa versalitas y números de estilo antiguo.</p>
 ```
 
-### Using CSS variables
+### Usar variables CSS
 
-Use the `font-features-(<custom-property>)` syntax to apply font feature settings from a CSS variable:
+Utiliza la sintaxis `font-features-(<custom-property>)` para aplicar configuraciones de funciones tipográficas desde una variable CSS:
 
 ```html
 <!-- [!code classes:font-features-(--my-features)] -->
@@ -42,7 +42,7 @@ Use the `font-features-(<custom-property>)` syntax to apply font feature setting
 </p>
 ```
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   property="font-feature-settings"

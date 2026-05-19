@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "text-wrap";
-export const description = "Utilities for controlling how text wraps within an element.";
+export const description = "Utilidades para controlar cómo se ajusta el texto dentro de un elemento.";
 
 <ApiTable
   rows={[
@@ -15,21 +15,20 @@ export const description = "Utilities for controlling how text wraps within an e
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Allowing text to wrap
+### Permitir el ajuste de línea del texto
 
-Use the `text-wrap` utility to wrap overflowing text onto multiple lines at logical points in the text:
+Usa la utilidad `text-wrap` para ajustar el texto desbordado en múltiples líneas en puntos lógicos del texto:
 
 <Figure>
 
 <Example padding={false}>
   {
     <div className="mx-auto grid max-w-xs gap-4 border-x border-x-pink-400/30 py-8 text-gray-700 dark:text-gray-400">
-      <div className="text-xl font-semibold text-gray-900 dark:text-white">Beloved Manhattan soup stand closes</div>
+      <div className="text-xl font-semibold text-gray-900 dark:text-white">Cierra un querido puesto de sopa en Manhattan</div>
       <p className="text-sm/6">
-        New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand
-        unexpectedly shutters, following a series of events that have left the community puzzled.
+        Los neoyorquinos se enfrentan al frío invernal con menos calor este año, ya que el puesto de sopa más venerado de la ciudad cerró inesperadamente sus puertas, tras una serie de acontecimientos que han dejado a la comunidad desconcertada.
       </p>
     </div>
   }
@@ -38,16 +37,16 @@ Use the `text-wrap` utility to wrap overflowing text onto multiple lines at logi
 ```html
 <!-- [!code classes:text-wrap] -->
 <article class="text-wrap">
-  <h3>Beloved Manhattan soup stand closes</h3>
-  <p>New Yorkers are facing the winter chill...</p>
+  <h3>Cierra un querido puesto de sopa en Manhattan</h3>
+  <p>Los neoyorquinos se enfrentan al frío...</p>
 </article>
 ```
 
 </Figure>
 
-### Preventing text from wrapping
+### Evitar el ajuste de línea del texto
 
-Use the `text-nowrap` utility to prevent text from wrapping, allowing it to overflow if necessary:
+Usa la utilidad `text-nowrap` para evitar que el texto salte de línea, permitiendo que se desborde si es necesario:
 
 <Figure>
 
@@ -56,11 +55,10 @@ Use the `text-nowrap` utility to prevent text from wrapping, allowing it to over
     <div className="overflow-hidden">
       <div className="mx-auto grid max-w-xs gap-4 border-x border-x-pink-400/30 py-8 text-gray-700 dark:text-gray-400">
         <div className="text-xl font-semibold text-nowrap text-gray-900 dark:text-white">
-          Beloved Manhattan soup stand closes
+          Cierra un querido puesto de sopa en Manhattan
         </div>
         <p className="text-sm/6 text-nowrap">
-          New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand
-          unexpectedly shutters, following a series of events that have left the community puzzled.
+          Los neoyorquinos se enfrentan al frío invernal con menos calor este año, ya que el puesto de sopa más venerado de la ciudad cerró inesperadamente sus puertas, tras una serie de acontecimientos que han dejado a la comunidad desconcertada.
         </p>
       </div>
     </div>
@@ -70,16 +68,16 @@ Use the `text-nowrap` utility to prevent text from wrapping, allowing it to over
 ```html
 <!-- [!code classes:text-nowrap] -->
 <article class="text-nowrap">
-  <h3>Beloved Manhattan soup stand closes</h3>
-  <p>New Yorkers are facing the winter chill...</p>
+  <h3>Cierra un querido puesto de sopa en Manhattan</h3>
+  <p>Los neoyorquinos se enfrentan al frío...</p>
 </article>
 ```
 
 </Figure>
 
-### Balanced text wrapping
+### Ajuste de texto equilibrado
 
-Use the `text-balance` utility to distribute the text evenly across each line:
+Usa la utilidad `text-balance` para distribuir el texto de manera uniforme en cada línea:
 
 <Figure>
 
@@ -87,11 +85,10 @@ Use the `text-balance` utility to distribute the text evenly across each line:
   {
     <div className="mx-auto grid max-w-xs gap-4 border-x border-x-pink-400/30 py-8 text-gray-700 dark:text-gray-400">
       <div className="text-xl font-semibold text-balance text-gray-900 dark:text-white">
-        Beloved Manhattan soup stand closes
+        Cierra un querido puesto de sopa en Manhattan
       </div>
       <p className="text-sm/6">
-        New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand
-        unexpectedly shutters, following a series of events that have left the community puzzled.
+        Los neoyorquinos se enfrentan al frío invernal con menos calor este año, ya que el puesto de sopa más venerado de la ciudad cerró inesperadamente sus puertas, tras una serie de acontecimientos que han dejado a la comunidad desconcertada.
       </p>
     </div>
   }
@@ -100,18 +97,18 @@ Use the `text-balance` utility to distribute the text evenly across each line:
 ```html
 <!-- [!code classes:text-balance] -->
 <article>
-  <h3 class="text-balance">Beloved Manhattan soup stand closes</h3>
-  <p>New Yorkers are facing the winter chill...</p>
+  <h3 class="text-balance">Cierra un querido puesto de sopa en Manhattan</h3>
+  <p>Los neoyorquinos se enfrentan al frío...</p>
 </article>
 ```
 
 </Figure>
 
-For performance reasons browsers limit text balancing to blocks that are ~6 lines or less, making it best suited for headings.
+Por razones de rendimiento, los navegadores limitan el equilibrio de texto a bloques de aproximadamente 6 líneas o menos, lo que lo hace más adecuado para los encabezados.
 
-### Pretty text wrapping
+### Ajuste estético de texto
 
-Use the `text-pretty` utility to prefer better text wrapping and layout at the expense of speed. Behavior varies across browsers but often involves approaches like preventing orphans (a single word on its own line) at the end of a text block:
+Usa la utilidad `text-pretty` para priorizar un mejor ajuste y diseño del texto a expensas de la velocidad. El comportamiento varía según el navegador, pero a menudo incluye estrategias como evitar palabras huérfanas (una sola palabra en su propia línea) al final de un bloque de texto:
 
 <Figure>
 
@@ -119,11 +116,10 @@ Use the `text-pretty` utility to prefer better text wrapping and layout at the e
   {
     <div className="mx-auto grid max-w-xs gap-4 border-x border-x-pink-400/30 py-8 text-gray-700 dark:text-gray-400">
       <div className="text-xl font-semibold text-pretty text-gray-900 dark:text-white">
-        Beloved Manhattan soup stand closes
+        Cierra un querido puesto de sopa en Manhattan
       </div>
       <p className="text-sm/6">
-        New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand
-        unexpectedly shutters, following a series of events that have left the community puzzled.
+        Los neoyorquinos se enfrentan al frío invernal con menos calor este año, ya que el puesto de sopa más venerado de la ciudad cerró inesperadamente sus puertas, tras una serie de acontecimientos que han dejado a la comunidad desconcertada.
       </p>
     </div>
   }
@@ -132,13 +128,13 @@ Use the `text-pretty` utility to prefer better text wrapping and layout at the e
 ```html
 <!-- [!code classes:text-pretty] -->
 <article>
-  <h3 class="text-pretty">Beloved Manhattan soup stand closes</h3>
-  <p>New Yorkers are facing the winter chill...</p>
+  <h3 class="text-pretty">Cierra un querido puesto de sopa en Manhattan</h3>
+  <p>Los neoyorquinos se enfrentan al frío...</p>
 </article>
 ```
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign element="h1" property="text-wrap" defaultClass="text-pretty" featuredClass="text-balance" />

@@ -5,7 +5,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "grid-column";
-export const description = "Utilities for controlling how elements are sized and placed across grid columns.";
+export const description = "Utilidades para controlar cómo se dimensionan y colocan los elementos a lo largo de las columnas de la cuadrícula.";
 
 <ApiTable
   rows={[
@@ -31,11 +31,11 @@ export const description = "Utilities for controlling how elements are sized and
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Spanning columns
+### Expandir columnas
 
-Use `col-span-<number>` utilities like `col-span-2` and `col-span-4` to make an element span _n_ columns:
+Utiliza utilidades `col-span-<number>` como `col-span-2` y `col-span-4` para hacer que un elemento se expanda _n_ columnas:
 
 <Figure>
 
@@ -71,9 +71,9 @@ Use `col-span-<number>` utilities like `col-span-2` and `col-span-4` to make an 
 
 </Figure>
 
-### Starting and ending lines
+### Líneas de inicio y fin
 
-Use `col-start-<number>` or `col-end-<number>` utilities like `col-start-2` and `col-end-3` to make an element start or end at the _nth_ grid line:
+Utiliza utilidades `col-start-<number>` o `col-end-<number>` como `col-start-2` y `col-end-3` para hacer que un elemento comience o termine en la _n-ésima_ línea de la cuadrícula:
 
 <Figure>
 
@@ -104,18 +104,18 @@ Use `col-start-<number>` or `col-end-<number>` utilities like `col-start-2` and 
 
 </Figure>
 
-These can also be combined with the `col-span-<number>` utilities to span a specific number of columns.
+Estas también se pueden combinar con las utilidades `col-span-<number>` para expandir un número específico de columnas.
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue
   utilities={["col", "col-span", "col-start", "col-end"]}
   variable="columns"
-  name="grid column size and location"
+  name="el tamaño y ubicación de las columnas de cuadrícula"
   value="16_/_span_16"
 />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   properties={["grid-column", "grid-column-start", "grid-column-end"]}

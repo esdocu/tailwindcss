@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "filter: blur()";
-export const description = "Utilities for applying blur filters to an element.";
+export const description = "Utilidades para aplicar filtros de desenfoque (blur) a un elemento.";
 
 <ApiTable
   rows={[
@@ -21,11 +21,11 @@ export const description = "Utilities for applying blur filters to an element.";
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `blur-sm` and `blur-lg` to blur an element:
+Utiliza utilidades como `blur-sm` y `blur-lg` para desenfocar un elemento:
 
 <Figure>
 
@@ -88,11 +88,11 @@ Use utilities like `blur-sm` and `blur-lg` to blur an element:
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue element="img" elementAttributes={{ src: "/img/mountains.jpg" }} utility="blur" value="2px" />
+<UsingACustomValue element="img" elementAttributes={{ src: "/img/mountains.jpg" }} utility="blur" name="desenfoque" value="2px" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   element="img"
@@ -102,13 +102,13 @@ Use utilities like `blur-sm` and `blur-lg` to blur an element:
   featuredClass="blur-lg"
 />
 
-## Customizing your theme
+## Personalizar tu tema
 
 <CustomizingYourTheme
   element="img"
   elementAttributes={{ src: "/img/mountains.jpg" }}
   utility="blur"
-  name="blur"
+  name="desenfoque"
   customName="2xs"
   customValue="2px"
 />

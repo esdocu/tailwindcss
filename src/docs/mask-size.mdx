@@ -6,7 +6,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "mask-size";
-export const description = "Utilities for controlling the size of an element's mask image.";
+export const description = "Utilidades para controlar el tamaño de la imagen de máscara de un elemento.";
 
 <ApiTable
   rows={[
@@ -18,11 +18,11 @@ export const description = "Utilities for controlling the size of an element's m
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Filling the container
+### Rellenar el contenedor
 
-Use the `mask-cover` utility to scale the mask image until it fills the mask layer, cropping the image if needed:
+Utiliza la utilidad `mask-cover` para escalar la imagen de máscara hasta que llene la capa de máscara, recortando la imagen si es necesario:
 
 <Figure>
 
@@ -45,9 +45,9 @@ Use the `mask-cover` utility to scale the mask image until it fills the mask lay
 
 </Figure>
 
-### Filling without cropping
+### Rellenar sin recortar
 
-Use the `mask-contain` utility to scale the mask image to the outer edges without cropping or stretching:
+Utiliza la utilidad `mask-contain` para escalar la imagen de máscara a los bordes exteriores sin recortar ni estirar:
 
 <Figure>
 
@@ -70,9 +70,9 @@ Use the `mask-contain` utility to scale the mask image to the outer edges withou
 
 </Figure>
 
-### Using the default size
+### Usar el tamaño predeterminado
 
-Use the `mask-auto` utility to display the mask image at its default size:
+Utiliza la utilidad `mask-auto` para mostrar la imagen de máscara en su tamaño predeterminado:
 
 <Figure>
 
@@ -95,10 +95,10 @@ Use the `mask-auto` utility to display the mask image at its default size:
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="mask-size" value="auto_100px" name="mask image size" variable="mask-size" />
+<UsingACustomValue utility="mask-size" value="auto_100px" name="tamaño de la imagen de máscara" variable="mask-size" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="mask-size" defaultClass="mask-auto" featuredClass="mask-contain" />

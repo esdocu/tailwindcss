@@ -5,7 +5,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import dedent from "dedent";
 
 export const title = "border-width";
-export const description = "Utilities for controlling the width of an element's borders.";
+export const description = "Utilidades para controlar el ancho de los bordes de un elemento.";
 
 <ApiTable
   rows={[
@@ -130,11 +130,11 @@ export const description = "Utilities for controlling the width of an element's 
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use `border` or `border-<number>` utilities like `border-2` and `border-4` to set the border width for all sides of an element:
+Utiliza utilidades `border` o `border-<number>` como `border-2` y `border-4` para establecer el ancho del borde en todos los lados de un elemento:
 
 <Figure>
 
@@ -171,9 +171,9 @@ Use `border` or `border-<number>` utilities like `border-2` and `border-4` to se
 
 </Figure>
 
-### Individual sides
+### Lados individuales
 
-Use utilities like `border-r` and `border-t-4` to set the border width for one side of an element:
+Utiliza utilidades como `border-r` y `border-t-4` para establecer el ancho del borde en un lado de un elemento:
 
 <Figure>
 
@@ -210,9 +210,9 @@ Use utilities like `border-r` and `border-t-4` to set the border width for one s
 
 </Figure>
 
-### Horizontal and vertical sides
+### Lados horizontales y verticales
 
-Use utilities like `border-x` and `border-y-4` to set the border width on two sides of an element at the same time:
+Utiliza utilidades como `border-x` y `border-y-4` para establecer el ancho del borde en dos lados de un elemento al mismo tiempo:
 
 <Figure>
 
@@ -239,9 +239,9 @@ Use utilities like `border-x` and `border-y-4` to set the border width on two si
 
 </Figure>
 
-### Using logical properties
+### Usar propiedades lógicas
 
-Use utilities like `border-s` and `border-e-4` to set the `border-inline-start-width` and `border-inline-end-width` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right border based on the text direction:
+Utiliza utilidades como `border-s` y `border-e-4` para establecer las propiedades lógicas `border-inline-start-width` y `border-inline-end-width` [propiedades lógicas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), que se asignan al borde izquierdo o derecho según la dirección del texto:
 
 <Figure>
 
@@ -249,11 +249,11 @@ Use utilities like `border-s` and `border-e-4` to set the `border-inline-start-w
   {
     <div className="grid grid-cols-2 place-items-center gap-x-4">
       <div className="flex flex-col items-start gap-y-4" dir="ltr">
-        <p className="text-sm font-medium">Left-to-right</p>
+        <p className="text-sm font-medium">Izquierda a derecha</p>
         <div className="size-16 border-s-4 border-indigo-500 p-4 outline-1 -outline-offset-1 outline-gray-900/20 outline-dashed dark:outline-white/20"></div>
       </div>
       <div className="flex flex-col items-start gap-y-4" dir="rtl">
-        <p className="text-sm font-medium">Right-to-left</p>
+        <p className="text-sm font-medium">Derecha a izquierda</p>
         <div className="size-16 border-s-4 border-indigo-500 p-4 outline-1 -outline-offset-1 outline-gray-900/20 outline-dashed dark:outline-white/20"></div>
       </div>
     </div>
@@ -274,16 +274,16 @@ Use utilities like `border-s` and `border-e-4` to set the `border-inline-start-w
 
 </Figure>
 
-Use the `border-bs-<number>` and `border-be-<number>` utilities to set the `border-block-start-width` and `border-block-end-width` logical properties, which map to either the top or bottom border based on the writing mode:
+Utiliza las utilidades `border-bs-<number>` y `border-be-<number>` para establecer las propiedades lógicas `border-block-start-width` y `border-block-end-width`, que se asignan al borde superior o inferior según el modo de escritura:
 
 ```html
 <!-- [!code classes:border-bs-4] -->
 <div class="border-bs-4 ..."></div>
 ```
 
-### Between children
+### Entre elementos hijos
 
-Use utilities like `divide-x` and `divide-y-4` to add borders between child elements:
+Utiliza utilidades como `divide-x` y `divide-y-4` para añadir bordes entre elementos hijos:
 
 <Figure>
 
@@ -308,9 +308,9 @@ Use utilities like `divide-x` and `divide-y-4` to add borders between child elem
 
 </Figure>
 
-#### Reversing children order
+#### Invertir el orden de los elementos hijos
 
-If your elements are in reverse order (using say `flex-row-reverse` or `flex-col-reverse`), use the `divide-x-reverse` or `divide-y-reverse` utilities to ensure the border is added to the correct side of each element:
+Si tus elementos están en orden inverso (usando por ejemplo `flex-row-reverse` o `flex-col-reverse`), utiliza las utilidades `divide-x-reverse` o `divide-y-reverse` para asegurarte de que el borde se agregue al lado correcto de cada elemento:
 
 <Figure>
 
@@ -335,10 +335,10 @@ If your elements are in reverse order (using say `flex-row-reverse` or `flex-col
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="border" name="border width" value="2vw" dataType="length" variable="border-width" />
+<UsingACustomValue utility="border" name="ancho del borde" value="2vw" dataType="length" variable="border-width" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="border-width" defaultClass="border-2" featuredClass="border-t-4" />

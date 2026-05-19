@@ -3,9 +3,9 @@ import { Fragment } from "react";
 import { CodeExample } from "./code-example";
 
 const screens = {
-  sm: "small",
-  md: "medium",
-  lg: "large",
+  sm: "pequeño",
+  md: "mediano",
+  lg: "grande",
 };
 
 function startsWithVowel(string: string) {
@@ -78,10 +78,10 @@ export function UsingACustomValue({
       <p>
         {utilities ? (
           <>
-            Use utilities like{" "}
+            Usa utilidades como{" "}
             {utilities.map((name, index) => (
               <Fragment key={index}>
-                {utilities.length > 1 && index === utilities.length - 1 ? " and " : ""}
+                {utilities.length > 1 && index === utilities.length - 1 ? " y " : ""}
                 <code>
                   {name}-[<var>{"<value>"}</var>]
                 </code>
@@ -91,14 +91,13 @@ export function UsingACustomValue({
           </>
         ) : (
           <>
-            Use the{" "}
+            Usa la sintaxis{" "}
             <code>
               {utility}-[<var>{"<value>"}</var>]
             </code>{" "}
-            syntax
           </>
         )}{" "}
-        to set the {name || utility} based on a completely custom value:
+        para establecer el/la {name || utility} basándose en un valor completamente personalizado:
       </p>
       {children || (
         <div>
@@ -120,12 +119,12 @@ export function UsingACustomValue({
         </div>
       )}
       <p>
-        For CSS variables, you can also use the{" "}
+        Para variables CSS, también puedes usar la sintaxis{" "}
         <code>
           {utility}-({dataType ? `${dataType}:` : null}
           <var>{"<custom-property>"}</var>)
         </code>{" "}
-        syntax:
+        :
       </p>
       <div>
         <div className="not-prose">
@@ -145,11 +144,11 @@ export function UsingACustomValue({
         </div>
       </div>
       <p>
-        This is just a shorthand for{" "}
+        Esto es solo un atajo para{" "}
         <code>
           {utility}-[{dataType ? `${dataType}:` : null}var(<var>{"<custom-property>"}</var>)]
         </code>{" "}
-        that adds the <code>var()</code> function for you automatically.
+        que añade la función <code>var()</code> por ti automáticamente.
       </p>
     </>
   );
@@ -179,23 +178,21 @@ export function ResponsiveDesign({
       <p>
         {properties ? (
           <>
-            Prefix{" "}
+            Antepone a las utilidades{" "}
             {properties.map((name, index) => (
               <Fragment key={index}>
-                {properties.length > 1 && index === properties.length - 1 ? " and " : ""}
+                {properties.length > 1 && index === properties.length - 1 ? " y " : ""}
                 <code>{name}</code>
                 {index === properties.length - 1 || properties.length < 3 ? "" : ","}
               </Fragment>
             ))}{" "}
-            utilities{" "}
           </>
         ) : (
           <>
-            Prefix {startsWithVowel(property) ? "an" : "a"} <code>{property}</code> utility{" "}
+            Antepone a la utilidad <code>{property}</code>{" "}
           </>
         )}
-        with a breakpoint variant like <code>{breakpoint}:</code> to only apply the utility at {screens[breakpoint]}{" "}
-        screen sizes and above:
+        el prefijo de una variante de punto de ruptura como <code>{breakpoint}:</code> para aplicar la utilidad únicamente en tamaños de pantalla {screens[breakpoint]} y superiores:
       </p>
       {children || (
         <div>
@@ -217,7 +214,7 @@ export function ResponsiveDesign({
         </div>
       )}
       <p>
-        Learn more about using variants in the <a href="/docs/hover-focus-and-other-states">variants documentation</a>.
+        Obtén más información sobre el uso de variantes en la <a href="/docs/hover-focus-and-other-states">documentación de variantes</a>.
       </p>
     </>
   );
@@ -243,8 +240,8 @@ export function TargetingSpecificStates({
   return (
     <>
       <p>
-        Prefix {startsWithVowel(property) ? "an" : "a"} <code>{property}</code> utility with a variant like{" "}
-        <code>{variant}:*</code> to only apply the utility in that state:
+        Antepone a la utilidad <code>{property}</code> el prefijo de una variante como{" "}
+        <code>{variant}:*</code> para aplicar la utilidad únicamente en ese estado:
       </p>
       {children || (
         <div>
@@ -266,7 +263,7 @@ export function TargetingSpecificStates({
         </div>
       )}
       <p>
-        Learn more about using variants in the <a href="/docs/hover-focus-and-other-states">variants documentation</a>.
+        Obtén más información sobre el uso de variantes en la <a href="/docs/hover-focus-and-other-states">documentación de variantes</a>.
       </p>
     </>
   );
@@ -300,8 +297,8 @@ export function CustomizingYourTheme({
   return (
     <>
       <p>
-        Use the <code>--{themeKey || utility || utilities![0]}-*</code> theme variables to customize the {name}{" "}
-        utilities in your project:
+        Usa las variables de tema <code>--{themeKey || utility || utilities![0]}-*</code> para personalizar las utilidades de {name}{" "}
+        en tu proyecto:
       </p>
       <div>
         <div className="not-prose">
@@ -321,25 +318,25 @@ export function CustomizingYourTheme({
       </div>
       {utilities ? (
         <p>
-          Now utilities like{" "}
+          Ahora se pueden usar utilidades como{" "}
           {utilities.map((name, index) => (
             <Fragment key={index}>
-              {utilities.length > 1 && index === utilities.length - 1 ? " and " : ""}
+              {utilities.length > 1 && index === utilities.length - 1 ? " y " : ""}
               <code>
                 {name}-{customName}
               </code>
               {index === utilities.length - 1 || utilities.length < 3 ? "" : ","}
             </Fragment>
           ))}{" "}
-          can be used in your markup:
+          en tu marcado:
         </p>
       ) : (
         <p>
-          Now the{" "}
+          Ahora se puede usar la utilidad{" "}
           <code>
             {utility}-{customName}
           </code>{" "}
-          utility can be used in your markup:
+          en tu marcado:
         </p>
       )}
       <div>
@@ -362,11 +359,11 @@ export function CustomizingYourTheme({
       {includeSpacingNote && (
         <>
           <p>
-            The{" "}
+            Las utilidades{" "}
             <code>
               {utility}-<var>{"<number>"}</var>
             </code>{" "}
-            utilities are driven by the <code>--spacing</code> theme variable, which you can also customize:
+            se basan en la variable de tema <code>--spacing</code>, la cual también puedes personalizar:
           </p>
           <div>
             <div className="not-prose">
@@ -387,13 +384,13 @@ export function CustomizingYourTheme({
       {children}
       {includeSpacingNote ? (
         <p>
-          Learn more about customizing the spacing scale in the{" "}
-          <a href="/docs/theme#customizing-your-theme">theme documentation</a>.
+          Obtén más información sobre cómo personalizar la escala de espaciado en la{" "}
+          <a href="/docs/theme#customizing-your-theme">documentación del tema</a>.
         </p>
       ) : (
         <p>
-          Learn more about customizing your theme in the{" "}
-          <a href="/docs/theme#customizing-your-theme">theme documentation</a>.
+          Obtén más información sobre cómo personalizar tu tema en la{" "}
+          <a href="/docs/theme#customizing-your-theme">documentación del tema</a>.
         </p>
       )}
     </>
@@ -406,17 +403,17 @@ export function CustomizingYourSpacingScale({ utility, utilities }: { utility: s
   return (
     <>
       <p>
-        The{" "}
+        Las utilidades{" "}
         {utilities.map((name, index) => (
           <Fragment key={index}>
-            {utilities.length > 1 && index === utilities.length - 1 ? " and " : ""}
+            {utilities.length > 1 && index === utilities.length - 1 ? " y " : ""}
             <code>
               {name}-<var>{"<number>"}</var>
             </code>
             {index === utilities.length - 1 || utilities.length < 3 ? "" : ","}
           </Fragment>
         ))}{" "}
-        utilities are driven by the <code>--spacing</code> theme variable, which can be customized in your own theme:
+        se basan en la variable de tema <code>--spacing</code>, la cual se puede personalizar en tu propio tema:
       </p>
       <div>
         <div className="not-prose">
@@ -433,7 +430,7 @@ export function CustomizingYourSpacingScale({ utility, utilities }: { utility: s
         </div>
       </div>
       <p>
-        Learn more about customizing the spacing scale in the <a href="/docs/theme">theme variable documentation</a>.
+        Obtén más información sobre cómo personalizar la escala de espaciado en la <a href="/docs/theme">documentación de variables de tema</a>.
       </p>
     </>
   );

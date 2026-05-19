@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { UsingACustomValue, ResponsiveDesign, CustomizingYourTheme } from "@/components/content.tsx";
 
 export const title = "aspect-ratio";
-export const description = "Utilities for controlling the aspect ratio of an element.";
+export const description = "Utilidades para controlar la relación de aspecto de un elemento.";
 
 <ApiTable
   rows={[
@@ -17,13 +17,13 @@ export const description = "Utilities for controlling the aspect ratio of an ele
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use <code>aspect-<var>&lt;ratio&gt;</var></code> utilities like `aspect-3/2` to give an element a specific aspect ratio:
+Utiliza las utilidades <code>aspect-<var>&lt;ratio&gt;</var></code> como `aspect-3/2` para dar a un elemento una relación de aspecto específica:
 
-<Figure desktopHint="Resize the example to see the expected behavior">
+<Figure desktopHint="Redimensiona el ejemplo para ver el comportamiento esperado">
 
 <Example resizable>
   {
@@ -41,11 +41,11 @@ Use <code>aspect-<var>&lt;ratio&gt;</var></code> utilities like `aspect-3/2` to 
 
 </Figure>
 
-### Using a video aspect ratio
+### Utilizar una relación de aspecto de video
 
-Use the `aspect-video` utility to give a video element a 16 / 9 aspect ratio:
+Utiliza la utilidad `aspect-video` para dar a un elemento de video una relación de aspecto de 16 / 9:
 
-<Figure desktopHint="Resize the example to see the expected behavior">
+<Figure desktopHint="Redimensiona el ejemplo para ver el comportamiento esperado">
 
 <Example resizable>
   {
@@ -65,18 +65,18 @@ Use the `aspect-video` utility to give a video element a 16 / 9 aspect ratio:
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue
   element="img"
   elementAttributes={{ src: "/img/villas.jpg" }}
   utility="aspect"
-  name="aspect ratio"
+  name="relación de aspecto"
   value="calc(4*3+1)/3"
   variable="aspect-ratio"
 />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   element="iframe"
@@ -86,13 +86,13 @@ Use the `aspect-video` utility to give a video element a 16 / 9 aspect ratio:
   featuredClass="aspect-square"
 />
 
-## Customizing your theme
+## Personalizar el tema
 
 <CustomizingYourTheme
   element="iframe"
   elementAttributes={{ src: "https://www.youtube.com/embed/dQw4w9WgXcQ" }}
   utility="aspect"
-  name="aspect ratio"
+  name="relación de aspecto"
   customName="retro"
   customValue="4 / 3"
 />

@@ -6,7 +6,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "justify-self";
-export const description = "Utilities for controlling how an individual grid item is aligned along its inline axis.";
+export const description = "Utilidades para controlar cómo se alinea un elemento individual de la cuadrícula a lo largo de su eje en línea.";
 
 <ApiTable
   rows={[
@@ -20,11 +20,11 @@ export const description = "Utilities for controlling how an individual grid ite
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Auto
+### Automático (Auto)
 
-Use the `justify-self-auto` utility to align an item based on the value of the grid's `justify-items` property:
+Utiliza la utilidad `justify-self-auto` para alinear un elemento según el valor de la propiedad `justify-items` de la cuadrícula:
 
 <Figure>
 
@@ -55,9 +55,9 @@ Use the `justify-self-auto` utility to align an item based on the value of the g
 
 </Figure>
 
-### Start
+### Inicio (Start)
 
-Use the `justify-self-start` utility to align a grid item to the start of its inline axis:
+Utiliza la utilidad `justify-self-start` para alinear un elemento de la cuadrícula al inicio de su eje en línea:
 
 <Figure>
 
@@ -88,11 +88,11 @@ Use the `justify-self-start` utility to align a grid item to the start of its in
 
 </Figure>
 
-### Center
+### Centrado (Center)
 
-Use the `justify-self-center` or `justify-self-center-safe` utilities to align a grid item along the center of its inline axis:
+Utiliza las utilidades `justify-self-center` o `justify-self-center-safe` para alinear un elemento de la cuadrícula a lo largo del centro de su eje en línea:
 
-<Figure hint="Resize the container to see the alignment behavior">
+<Figure hint="Redimensiona el contenedor para ver el comportamiento de alineación">
 
 <Example resizable>
   {
@@ -153,13 +153,13 @@ Use the `justify-self-center` or `justify-self-center-safe` utilities to align a
 
 </Figure>
 
-When there is not enough space available, the `justify-self-center-safe` utility will align the item to the start of the container instead of the end.
+Cuando no haya suficiente espacio disponible, la utilidad `justify-self-center-safe` alineará el elemento al inicio del contenedor en lugar de al final.
 
-### End
+### Fin (End)
 
-Use the `justify-self-end` or `justify-self-end-safe` utilities to align a grid item to the end of its inline axis:
+Utiliza las utilidades `justify-self-end` o `justify-self-end-safe` para alinear un elemento de la cuadrícula al final de su eje en línea:
 
-<Figure hint="Resize the container to see the alignment behavior">
+<Figure hint="Redimensiona el contenedor para ver el comportamiento de alineación">
 
 <Example resizable>
   {
@@ -218,11 +218,11 @@ Use the `justify-self-end` or `justify-self-end-safe` utilities to align a grid 
 
 </Figure>
 
-When there is not enough space available, the `justify-self-end-safe` utility will align the item to the start of the container instead of the end.
+Cuando no haya suficiente espacio disponible, la utilidad `justify-self-end-safe` alineará el elemento al inicio del contenedor en lugar de al final.
 
-### Stretch
+### Estirar (Stretch)
 
-Use the `justify-self-stretch` utility to stretch a grid item to fill the grid area on its inline axis:
+Utiliza la utilidad `justify-self-stretch` para estirar un elemento de la cuadrícula hasta llenar el área de la cuadrícula en su eje en línea:
 
 <Figure>
 
@@ -277,6 +277,6 @@ Use the `justify-self-stretch` utility to stretch a grid item to fill the grid a
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="justify-self" defaultClass="justify-self-start" featuredClass="justify-self-end" />

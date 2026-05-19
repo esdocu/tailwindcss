@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "visibility";
-export const description = "Utilities for controlling the visibility of an element.";
+export const description = "Utilidades para controlar la visibilidad de un elemento.";
 
 <ApiTable
   rows={[
@@ -15,11 +15,11 @@ export const description = "Utilities for controlling the visibility of an eleme
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Making elements invisible
+### Ocultar elementos
 
-Use the `invisible` utility to hide an element, but still maintain its place in the document, affecting the layout of other elements:
+Usa la utilidad `invisible` para ocultar un elemento, pero manteniendo su lugar en el documento y afectando al diseño de otros elementos:
 
 <Figure>
 
@@ -47,18 +47,18 @@ Use the `invisible` utility to hide an element, but still maintain its place in 
 
 </Figure>
 
-To completely remove an element from the document, use the [display](/docs/display#hidden) property instead.
+Para eliminar completamente un elemento del documento, usa la propiedad [display](/docs/display#hidden) en su lugar.
 
-### Collapsing elements
+### Colapsar elementos
 
-Use the `collapse` utility to hide table rows, row groups, columns, and column groups as if they were set to `display: none`, but without impacting the size of other rows and columns:
+Usa la utilidad `collapse` para ocultar filas de tablas, grupos de filas, columnas y grupos de columnas como si estuvieran configurados en `display: none`, pero sin afectar el tamaño de otras filas y columnas:
 
 <Figure>
 
 <Example padding={false}>
   {
     <div className="py-8">
-      <div className="mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">Showing all rows</div>
+      <div className="mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">Mostrando todas las filas</div>
       <table className="w-full border-collapse border-y border-gray-400 bg-white text-sm dark:border-gray-500 dark:bg-gray-800">
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
@@ -110,7 +110,7 @@ Use the `collapse` utility to hide table rows, row groups, columns, and column g
         </tbody>
       </table>
       <div className="mt-10 mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">
-        Hiding a row using <code className="text-xs text-gray-700 dark:text-gray-300">`collapse`</code>
+        Ocultar una fila usando <code className="text-xs text-gray-700 dark:text-gray-300">`collapse`</code>
       </div>
       <table className="w-full border-collapse border-y border-gray-400 bg-white text-sm dark:border-gray-500 dark:bg-gray-800">
         <thead className="bg-gray-50 dark:bg-gray-700">
@@ -163,7 +163,7 @@ Use the `collapse` utility to hide table rows, row groups, columns, and column g
         </tbody>
       </table>
       <div className="mt-10 mb-3 pl-4 text-sm font-medium text-gray-500 dark:text-gray-400">
-        Hiding a row using <code className="text-xs text-gray-700 dark:text-gray-300">`hidden`</code>
+        Ocultar una fila usando <code className="text-xs text-gray-700 dark:text-gray-300">`hidden`</code>
       </div>
       <table className="w-full border-collapse border-y border-gray-400 bg-white text-sm dark:border-gray-500 dark:bg-gray-800">
         <thead className="bg-gray-50 dark:bg-gray-700">
@@ -251,11 +251,11 @@ Use the `collapse` utility to hide table rows, row groups, columns, and column g
 
 </Figure>
 
-This makes it possible to dynamically toggle rows and columns without affecting the table layout.
+Esto hace posible alternar dinámicamente filas y columnas sin afectar el diseño de la tabla.
 
-### Making elements visible
+### Mostrar elementos
 
-Use the `visible` utility to make an element visible:
+Usa la utilidad `visible` para hacer visible un elemento:
 
 <Figure>
 
@@ -280,8 +280,9 @@ Use the `visible` utility to make an element visible:
 
 </Figure>
 
-This is mostly useful for undoing the `invisible` utility at different screen sizes.
+Esto es muy útil para deshacer la utilidad `invisible` en diferentes tamaños de pantalla.
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="visibility" defaultClass="visible" featuredClass="invisible" />
+

@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "scrollbar-width";
-export const description = "Utilities for controlling the width of an element's scrollbar.";
+export const description = "Utilidades para controlar el ancho de la barra de desplazamiento (scrollbar) de un elemento.";
 
 <ApiTable
   rows={[
@@ -14,11 +14,11 @@ export const description = "Utilities for controlling the width of an element's 
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Using the default scrollbar width
+### Uso del ancho de barra de desplazamiento predeterminado
 
-Use the `scrollbar-auto` utility to use the browser's default scrollbar width:
+Utiliza la utilidad `scrollbar-auto` para usar el ancho de barra de desplazamiento predeterminado del navegador:
 
 ```html
 <!-- [!code classes:scrollbar-auto] -->
@@ -27,31 +27,27 @@ Use the `scrollbar-auto` utility to use the browser's default scrollbar width:
 </div>
 ```
 
-### Using a thin scrollbar
+### Uso de una barra de desplazamiento delgada (thin)
 
-Use the `scrollbar-thin` utility to use a thinner scrollbar:
+Utiliza la utilidad `scrollbar-thin` para usar una barra de desplazamiento más delgada:
 
-<Figure hint="Scroll vertically">
+<Figure hint="Desplázate verticalmente">
 
 <Example>
   {
     <div className="mx-auto h-72 max-w-sm scrollbar-thin overflow-auto rounded-xl bg-white p-6 text-sm/6 text-gray-600 shadow-lg ring-1 ring-black/5 dark:bg-gray-800 dark:text-gray-300">
       <div className="space-y-4">
         <p>
-          The Cerulean Archives occupy three narrow floors above the old observatory, each lined with drawers of star
-          maps, expedition notes, and brass instruments cataloged by hand.
+          Los Archivos Cerúleos ocupan tres plantas estrechas sobre el antiguo observatorio, cada una de ellas repleta de cajones con mapas estelares, notas de expediciones e instrumentos de latón catalogados a mano.
         </p>
         <p>
-          On winter mornings, the staff rolls ladders between the shelves while pale light cuts through the roof windows
-          and settles on the reading tables.
+          En las mañanas de invierno, el personal desplaza escaleras de mano entre las estanterías mientras la luz pálida atraviesa las ventanas del tejado y se posa sobre las mesas de lectura.
         </p>
         <p>
-          Visitors can request anything from the collection, but most come for the atlases that chart coastlines no
-          longer found on modern maps.
+          Los visitantes pueden solicitar cualquier objeto de la colección, pero la mayoría viene por los atlas que cartografían líneas de costa que ya no se encuentran en los mapas modernos.
         </p>
         <p>
-          Every returned volume is inspected, dusted, and wrapped before being carried back into the stacks for the next
-          researcher.
+          Cada volumen devuelto es inspeccionado, desempolvado y envuelto antes de ser llevado de vuelta a las estanterías para el siguiente investigador.
         </p>
       </div>
     </div>
@@ -67,9 +63,9 @@ Use the `scrollbar-thin` utility to use a thinner scrollbar:
 
 </Figure>
 
-### Hiding scrollbars
+### Ocultar las barras de desplazamiento
 
-Use the `scrollbar-none` utility to hide scrollbars while still allowing an element to scroll:
+Utiliza la utilidad `scrollbar-none` para ocultar las barras de desplazamiento sin dejar de permitir el desplazamiento del elemento:
 
 ```html
 <!-- [!code classes:scrollbar-none] -->
@@ -78,8 +74,8 @@ Use the `scrollbar-none` utility to hide scrollbars while still allowing an elem
 </div>
 ```
 
-These utilities only support the browser keywords `auto`, `thin`, and `none`.
+Estas utilidades solo admiten las palabras clave del navegador `auto`, `thin` y `none`.
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="scrollbar-width" defaultClass="scrollbar-none" featuredClass="scrollbar-auto" />

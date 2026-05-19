@@ -6,7 +6,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "max-width";
-export const description = "Utilities for setting the maximum width of an element.";
+export const description = "Utilidades para establecer el ancho máximo de un elemento.";
 
 <ApiTable
   rows={[
@@ -54,13 +54,13 @@ export const description = "Utilities for setting the maximum width of an elemen
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use `max-w-<number>` utilities like `max-w-24` and `max-w-64` to set an element to a fixed maximum width based on the spacing scale:
+Utiliza utilidades `max-w-<number>` como `max-w-24` y `max-w-64` para establecer un ancho máximo fijo para un elemento según la escala de espaciado:
 
-<Figure hint="Resize the example to see the expected behavior">
+<Figure hint="Cambia el tamaño del ejemplo para ver el comportamiento esperado">
 
 <Example resizable>
   {
@@ -110,11 +110,11 @@ Use `max-w-<number>` utilities like `max-w-24` and `max-w-64` to set an element 
 
 </Figure>
 
-### Using a percentage
+### Usar un porcentaje
 
-Use `max-w-full` or `max-w-<fraction>` utilities like `max-w-1/2` and `max-w-2/5` to give an element a percentage-based maximum width:
+Utiliza las utilidades `max-w-full` o `max-w-<fraction>` como `max-w-1/2` y `max-w-2/5` para dar a un elemento un ancho máximo basado en porcentaje:
 
-<Figure hint="Resize the example to see the expected behavior">
+<Figure hint="Cambia el tamaño del ejemplo para ver el comportamiento esperado">
 
 <Example resizable>
   {
@@ -149,11 +149,11 @@ Use `max-w-full` or `max-w-<fraction>` utilities like `max-w-1/2` and `max-w-2/5
 
 </Figure>
 
-### Using the container scale
+### Usar la escala de contenedores
 
-Use utilities like `max-w-sm` and `max-w-xl` to set an element to a fixed maximum width based on the container scale:
+Utiliza utilidades como `max-w-sm` y `max-w-xl` para establecer un ancho máximo fijo para un elemento según la escala de contenedores:
 
-<Figure hint="Resize the example to see the expected behavior">
+<Figure hint="Cambia el tamaño del ejemplo para ver el comportamiento esperado">
 
 <Example resizable>
   {
@@ -165,7 +165,7 @@ Use utilities like `max-w-sm` and `max-w-xl` to set an element to a fixed maximu
       <div className="min-w-0 py-5 pr-5 pl-28">
         <div className="truncate text-sm font-medium text-gray-900 sm:text-base dark:text-gray-200">Andrew Alfred</div>
         <div className="truncate text-sm leading-tight text-gray-500 sm:text-base dark:text-gray-400">
-          Assistant to the Traveling Secretary
+          Asistente del Secretario de Viajes
         </div>
       </div>
     </div>
@@ -181,9 +181,9 @@ Use utilities like `max-w-sm` and `max-w-xl` to set an element to a fixed maximu
 
 </Figure>
 
-### Using breakpoints container
+### Usar el contenedor de puntos de interrupción
 
-Use the `container` utility to set the maximum width of an element to match the `min-width` of the current breakpoint. This is useful if you'd prefer to design for a fixed set of screen sizes instead of trying to accommodate a fully fluid viewport:
+Utiliza la utilidad `container` para establecer el ancho máximo de un elemento de modo que coincida con el `min-width` del punto de interrupción actual. Esto es útil si prefieres diseñar para un conjunto fijo de tamaños de pantalla en lugar de intentar adaptarte a un viewport totalmente fluido:
 
 ```html
 <!-- [!code classes:container] -->
@@ -192,7 +192,7 @@ Use the `container` utility to set the maximum width of an element to match the 
 </div>
 ```
 
-Note that unlike containers you might have used in other frameworks, Tailwind's container does not center itself automatically and does not have any built-in horizontal padding. Use `mx-auto` and the `px-<number>` utilities to add these:
+Ten en cuenta que, a diferencia de los contenedores que habrás utilizado en otros frameworks, el contenedor de Tailwind no se centra automáticamente y no tiene ningún relleno horizontal integrado. Utiliza las utilidades `mx-auto` y `px-<number>` para añadirlos:
 
 ```html
 <!-- [!code classes:mx-auto,px-4] -->
@@ -201,14 +201,14 @@ Note that unlike containers you might have used in other frameworks, Tailwind's 
 </div>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="max-w" value="220px" name="maximum width" variable="max-width" />
+<UsingACustomValue utility="max-w" value="220px" name="ancho máximo" variable="max-width" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="max-width" defaultClass="max-w-sm" featuredClass="max-w-lg" />
 
-## Customizing your theme
+## Personalizar tu tema
 
 <CustomizingYourSpacingScale utility="max-w" />

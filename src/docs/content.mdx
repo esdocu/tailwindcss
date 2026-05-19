@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "content";
-export const description = "Utilities for controlling the content of the before and after pseudo-elements.";
+export const description = "Utilidades para controlar el contenido de los pseudo-elementos before y after.";
 
 <ApiTable
   rows={[
@@ -15,18 +15,18 @@ export const description = "Utilities for controlling the content of the before 
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use the `content-[<value>]` syntax, along with the `before` and `after` variants, to set the contents of the `::before` and `::after` pseudo-elements:
+Utiliza la sintaxis `content-[<value>]`, junto con las variantes `before` y `after`, para establecer el contenido de los pseudo-elementos `::before` y `::after`:
 
 <Figure>
 
 <Example>
   {
     <div className="mx-auto w-full max-w-md text-gray-500 dark:text-gray-400">
-      Higher resolution means more than just a better-quality image. With a Retina 6K display,{" "}
+      Una mayor resolución significa más que solo una imagen de mejor calidad. Con una pantalla Retina 6K,{" "}
       <a
         href="https://www.apple.com/pro-display-xdr/"
         className="font-medium text-blue-600 after:text-sm after:font-bold after:content-['_↗'] dark:text-sky-400"
@@ -34,7 +34,7 @@ Use the `content-[<value>]` syntax, along with the `before` and `after` variants
       >
         Pro Display XDR
       </a>{" "}
-      gives you nearly 40 percent more screen real estate than a 5K display.
+      te brinda casi un 40 por ciento más de espacio de pantalla que una pantalla 5K.
     </div>
   }
 </Example>
@@ -42,24 +42,23 @@ Use the `content-[<value>]` syntax, along with the `before` and `after` variants
 ```html
 <!-- [!code classes:after:content-['_↗']] -->
 <!-- prettier-ignore -->
-<p>Higher resolution means more than just a better-quality image. With a
-Retina 6K display, <a class="text-blue-600 after:content-['_↗']" href="...">
-Pro Display XDR</a> gives you nearly 40 percent more screen real estate than
-a 5K display.</p>
+<p>Una mayor resolución significa más que solo una imagen de mejor calidad. Con una pantalla Retina 6K,
+<a class="text-blue-600 after:content-['_↗']" href="...">Pro Display XDR</a> te brinda casi un 40 por ciento
+más de espacio de pantalla que una pantalla 5K.</p>
 ```
 
 </Figure>
 
-### Referencing an attribute value
+### Referenciar el valor de un atributo
 
-Use the `content-[attr(<name>)]` syntax to reference a value stored in an attribute using the `attr()` CSS function:
+Utiliza la sintaxis `content-[attr(<name>)]` para hacer referencia a un valor almacenado en un atributo utilizando la función CSS `attr()`:
 
 <Figure>
 
 <Example>
   {
     <p
-      before="Hello World"
+      before="Hola Mundo"
       className="text-center font-semibold text-gray-900 before:content-[attr(before)] dark:text-gray-200"
     />
   }
@@ -67,63 +66,63 @@ Use the `content-[attr(<name>)]` syntax to reference a value stored in an attrib
 
 ```html
 <!-- [!code classes:before:content-[attr(before)]] -->
-<p before="Hello World" class="before:content-[attr(before)] ...">
+<p before="Hola Mundo" class="before:content-[attr(before)] ...">
   <!-- ... -->
 </p>
 ```
 
 </Figure>
 
-### Using spaces and underscores
+### Usar espacios y guiones bajos
 
-Since whitespace denotes the end of a class in HTML, replace any spaces in an arbitrary value with an underscore:
-
-<Figure>
-
-<Example>
-  {<p className="text-center font-semibold text-gray-900 before:content-['Hello_World'] dark:text-gray-200" />}
-</Example>
-
-```html
-<!-- [!code classes:before:content-['Hello_World']] -->
-<p class="before:content-['Hello_World'] ..."></p>
-```
-
-</Figure>
-
-If you need to include an actual underscore, you can do this by escaping it with a backslash:
+Dado que el espacio en blanco denota el final de una clase en HTML, reemplaza cualquier espacio en un valor arbitrario con un guion bajo:
 
 <Figure>
 
 <Example>
-  {<p className="text-center font-semibold text-gray-900 before:content-['Hello\_World'] dark:text-gray-200" />}
+  {<p className="text-center font-semibold text-gray-900 before:content-['Hola_Mundo'] dark:text-gray-200" />}
 </Example>
 
 ```html
-<!-- [!code classes:before:content-['Hello\_World']] -->
-<p class="before:content-['Hello\_World']"></p>
+<!-- [!code classes:before:content-['Hola_Mundo']] -->
+<p class="before:content-['Hola_Mundo'] ..."></p>
 ```
 
 </Figure>
 
-### Using a CSS variable
+Si necesitas incluir un guion bajo real, puedes hacerlo escapándolo con una barra invertida:
 
-Use the <code>content-{'(<custom-property>)'}</code> syntax to control the contents of the `::before` and `::after` pseudo-elements using a CSS variable:
+<Figure>
+
+<Example>
+  {<p className="text-center font-semibold text-gray-900 before:content-['Hola\_Mundo'] dark:text-gray-200" />}
+</Example>
+
+```html
+<!-- [!code classes:before:content-['Hola\_Mundo']] -->
+<p class="before:content-['Hola\_Mundo']"></p>
+```
+
+</Figure>
+
+### Usar una variable CSS
+
+Utiliza la sintaxis `content-(<custom-property>)` para controlar el contenido de los pseudo-elementos `::before` y `::after` utilizando una variable CSS:
 
 ```html
 <!-- [!code classes:content-(--my-content)] -->
 <p class="content-(--my-content)"></p>
 ```
 
-This is just a shorthand for <code>content-{'[var(<custom-property>)]'}</code> that adds the `var()` function for you automatically.
+Esta es solo una abreviatura de `content-[var(<custom-property>)]` que agrega la función `var()` automáticamente por ti.
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="content">
 
 ```html
-<!-- [!code classes:md:before:content-['Desktop']] -->
-<p class="before:content-['Mobile'] md:before:content-['Desktop'] ..."></p>
+<!-- [!code classes:md:before:content-['Escritorio']] -->
+<p class="before:content-['Móvil'] md:before:content-['Escritorio'] ..."></p>
 ```
 
 </ResponsiveDesign>

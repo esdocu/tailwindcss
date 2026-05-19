@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "transition-delay";
-export const description = "Utilities for controlling the delay of CSS transitions.";
+export const description = "Utilidades para controlar el retardo de las transiciones CSS.";
 
 <ApiTable
   rows={[
@@ -14,13 +14,13 @@ export const description = "Utilities for controlling the delay of CSS transitio
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `delay-150` and `delay-700` to set the transition delay of an element in milliseconds:
+Usa utilidades como `delay-150` y `delay-700` para establecer el retardo de la transición de un elemento en milisegundos:
 
-<Figure hint="Hover each button to see the expected behavior">
+<Figure hint="Pasa el cursor sobre cada botón para ver el comportamiento esperado">
 
 <Example>
   {
@@ -28,19 +28,19 @@ Use utilities like `delay-150` and `delay-700` to set the transition delay of an
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">delay-150</p>
         <button className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white delay-150 duration-300 ease-in-out hover:scale-125">
-          Button A
+          Botón A
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">delay-300</p>
         <button className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white delay-300 duration-300 ease-in-out hover:scale-125">
-          Button B
+          Botón B
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">delay-700</p>
         <button className="rounded-md bg-blue-500 px-4 py-2 text-sm font-semibold text-white delay-700 duration-300 ease-in-out hover:scale-125">
-          Button C
+          Botón C
         </button>
       </div>
     </div>
@@ -49,16 +49,16 @@ Use utilities like `delay-150` and `delay-700` to set the transition delay of an
 
 ```html
 <!-- [!code classes:delay-150,delay-300,delay-700] -->
-<button class="transition delay-150 duration-300 ease-in-out ...">Button A</button>
-<button class="transition delay-300 duration-300 ease-in-out ...">Button B</button>
-<button class="transition delay-700 duration-300 ease-in-out ...">Button C</button>
+<button class="transition delay-150 duration-300 ease-in-out ...">Botón A</button>
+<button class="transition delay-300 duration-300 ease-in-out ...">Botón B</button>
+<button class="transition delay-700 duration-300 ease-in-out ...">Botón C</button>
 ```
 
 </Figure>
 
-### Supporting reduced motion
+### Soporte para movimiento reducido
 
-For situations where the user has specified that they prefer reduced motion, you can conditionally apply animations and transitions using the `motion-safe` and `motion-reduce` variants:
+Para situaciones en las que el usuario ha especificado que prefiere un movimiento reducido, puedes aplicar de forma condicional animaciones y transiciones usando las variantes `motion-safe` y `motion-reduce`:
 
 ```html
 <!-- [!code classes:motion-reduce:delay-0] -->
@@ -67,10 +67,10 @@ For situations where the user has specified that they prefer reduced motion, you
 </button>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue element="button" utility="delay" value="1s,250ms" name="transition delay" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign element="button" property="transition-delay" defaultClass="delay-150" featuredClass="delay-300" />

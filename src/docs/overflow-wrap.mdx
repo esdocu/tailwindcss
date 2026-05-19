@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "overflow-wrap";
-export const description = "Utilities for controlling line breaks within words in an overflowing element.";
+export const description = "Utilidades para controlar los saltos de línea dentro de palabras en un elemento que se desborda.";
 
 <ApiTable
   rows={[
@@ -14,35 +14,35 @@ export const description = "Utilities for controlling line breaks within words i
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Wrapping mid-word
+### Ajustar a mitad de palabra
 
-Use the `wrap-break-word` utility to allow line breaks between letters in a word if needed:
+Utiliza la utilidad `wrap-break-word` para permitir saltos de línea entre letras de una palabra si es necesario:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 wrap-break-word text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      La palabra más larga en cualquiera de los principales diccionarios de la lengua inglesa es{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> una palabra que se refiere a una
+      enfermedad pulmonar contraída por la inhalación de partículas de sílice muy finas, específicamente de un volcán;
+      médicamente, es lo mismo que la silicosis.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:wrap-break-word] -->
-<p class="wrap-break-word">The longest word in any of the major...</p>
+<p class="wrap-break-word">La palabra más larga en cualquiera de los principales...</p>
 ```
 
 </Figure>
 
-### Wrapping anywhere
+### Ajustar en cualquier lugar
 
-The `wrap-anywhere` utility behaves similarly to `wrap-break-word`, except that the browser factors in mid-word line breaks when calculating the intrinsic size of the element:
+La utilidad `wrap-anywhere` se comporta de manera similar a `wrap-break-word`, excepto que el navegador tiene en cuenta los saltos de línea a mitad de palabra al calcular el tamaño intrínseco del elemento:
 
 <Figure>
 
@@ -99,32 +99,32 @@ The `wrap-anywhere` utility behaves similarly to `wrap-break-word`, except that 
 
 </Figure>
 
-This is useful for wrapping text inside of `flex` containers, where you would usually need to set `min-width: 0` on the child element to allow it to shrink below its content size.
+Esto es útil para ajustar texto dentro de contenedores `flex`, donde normalmente necesitarías establecer `min-width: 0` en el elemento hijo para permitir que se encoja por debajo del tamaño de su contenido.
 
-### Wrapping normally
+### Ajustar normalmente
 
-Use the `wrap-normal` utility to only allow line breaks at natural wrapping points, like spaces, hyphens, and punctuation:
+Utiliza la utilidad `wrap-normal` para permitir únicamente saltos de línea en puntos de ajuste naturales, como espacios, guiones y signos de puntuación:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 wrap-normal text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      La palabra más larga en cualquiera de los principales diccionarios de la lengua inglesa es{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> una palabra que se refiere a una
+      enfermedad pulmonar contraída por la inhalación de partículas de sílice muy finas, específicamente de un volcán;
+      médicamente, es lo mismo que la silicosis.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:wrap-normal] -->
-<p class="wrap-normal">The longest word in any of the major...</p>
+<p class="wrap-normal">La palabra más larga en cualquiera de los principales...</p>
 ```
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign element="p" property="overflow-wrap" defaultClass="wrap-normal" featuredClass="wrap-break-word" />

@@ -3,7 +3,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "pointer-events";
-export const description = "Utilities for controlling whether an element responds to pointer events.";
+export const description = "Utilidades para controlar si un elemento responde a eventos del puntero.";
 
 <ApiTable
   rows={[
@@ -12,13 +12,13 @@ export const description = "Utilities for controlling whether an element respond
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Ignoring pointer events
+### Ignorar eventos del puntero
 
-Use the `pointer-events-none` utility to make an element ignore pointer events, like `:hover` and `click` events:
+Utiliza la utilidad `pointer-events-none` para hacer que un elemento ignore los eventos del puntero, como los eventos `:hover` y `click`:
 
-<Figure hint="Click the search icons to see the expected behavior">
+<Figure hint="Haz clic en los iconos de búsqueda para ver el comportamiento esperado">
 
 <Example>
   {
@@ -37,7 +37,7 @@ Use the `pointer-events-none` utility to make an element ignore pointer events, 
           </div>
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Buscar"
             className="dark:highlight-white/5 block w-full rounded-lg px-3 py-2 pl-10 font-sans text-sm text-gray-500 ring-1 ring-gray-900/10 dark:bg-gray-800 dark:text-gray-400 dark:ring-0"
           />
         </div>
@@ -56,7 +56,7 @@ Use the `pointer-events-none` utility to make an element ignore pointer events, 
           </div>
           <input
             type="text"
-            placeholder="Search"
+            placeholder="Buscar"
             className="dark:highlight-white/5 block w-full rounded-lg px-3 py-2 pl-10 font-sans text-sm text-gray-500 ring-1 ring-gray-900/10 dark:bg-gray-800 dark:text-gray-400 dark:ring-0"
           />
         </div>
@@ -73,7 +73,7 @@ Use the `pointer-events-none` utility to make an element ignore pointer events, 
       <!-- ... -->
     </svg>
   </div>
-  <input type="text" placeholder="Search" class="..." />
+  <input type="text" placeholder="Buscar" class="..." />
 </div>
 
 <div class="relative ...">
@@ -82,17 +82,17 @@ Use the `pointer-events-none` utility to make an element ignore pointer events, 
       <!-- ... -->
     </svg>
   </div>
-  <input type="text" placeholder="Search" class="..." />
+  <input type="text" placeholder="Buscar" class="..." />
 </div>
 ```
 
 </Figure>
 
-The pointer events will still trigger on child elements and pass-through to elements that are "beneath" the target.
+Los eventos del puntero aún se activarán en los elementos secundarios y se transmitirán a los elementos que están "debajo" del objetivo.
 
-### Restoring pointer events
+### Restaurar eventos del puntero
 
-Use the `pointer-events-auto` utility to revert to the default browser behavior for pointer events:
+Utiliza la utilidad `pointer-events-auto` para volver al comportamiento predeterminado del navegador para los eventos del puntero:
 
 ```html
 <div class="pointer-events-none md:pointer-events-auto ...">

@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "field-sizing";
-export const description = "Utilities for controlling the sizing of form controls.";
+export const description = "Utilidades para controlar el tamaño de los controles de formulario.";
 
 <ApiTable
   rows={[
@@ -13,19 +13,19 @@ export const description = "Utilities for controlling the sizing of form control
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Sizing based on content
+### Tamaño basado en el contenido
 
-Use the `field-sizing-content` utility to allow a form control to adjust its size based on the content:
+Utiliza la utilidad `field-sizing-content` para permitir que un control de formulario ajuste su tamaño en función del contenido:
 
-<Figure hint="Type in the input below to see the size change">
+<Figure hint="Escribe en la entrada a continuación para ver el cambio de tamaño">
 
 <Example>
   {
     <textarea
       rows="2"
-      defaultValue="Latex Salesman, Vanderlay Industries"
+      defaultValue="Vendedor de látex, Vandelay Industries"
       className="mx-auto block field-sizing-content rounded-md p-2 text-sm text-gray-950 outline-1 outline-gray-900/10 focus:outline-2 focus:outline-gray-900 dark:bg-gray-950/25 dark:text-white dark:outline-1 dark:outline-white/5 dark:focus:outline-white/20"
     />
   }
@@ -34,23 +34,23 @@ Use the `field-sizing-content` utility to allow a form control to adjust its siz
 ```html
 <!-- [!code classes:field-sizing-content] -->
 <textarea class="field-sizing-content ..." rows="2">
-  Latex Salesman, Vanderlay Industries
+  Vendedor de látex, Vandelay Industries
 </textarea>
 ```
 
 </Figure>
 
-### Using a fixed size
+### Usar un tamaño fijo
 
-Use the `field-sizing-fixed` utility to make a form control use a fixed size:
+Utiliza la utilidad `field-sizing-fixed` para hacer que un control de formulario use un tamaño fijo:
 
-<Figure hint="Type in the input below to see the size remain the same">
+<Figure hint="Escribe en la entrada a continuación para ver que el tamaño se mantiene igual">
 
 <Example>
   {
     <textarea
       rows="2"
-      defaultValue="Latex Salesman, Vanderlay Industries"
+      defaultValue="Vendedor de látex, Vandelay Industries"
       className="mx-auto block field-sizing-fixed w-80 rounded-md p-2 text-sm text-gray-950 outline-1 outline-gray-900/10 focus:outline-2 focus:outline-gray-900 dark:bg-gray-950/25 dark:text-white dark:outline-1 dark:outline-white/5 dark:focus:outline-white/20"
     />
   }
@@ -59,13 +59,13 @@ Use the `field-sizing-fixed` utility to make a form control use a fixed size:
 ```html
 <!-- [!code classes:field-sizing-fixed] -->
 <textarea class="field-sizing-fixed w-80 ..." rows="2">
-  Latex Salesman, Vanderlay Industries
+  Vendedor de látex, Vandelay Industries
 </textarea>
 ```
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   element="input"

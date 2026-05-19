@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "line-clamp";
-export const description = "Utilities for clamping text to a specific number of lines.";
+export const description = "Utilidades para limitar el texto a un número específico de líneas.";
 
 <ApiTable
   rows={[
@@ -27,11 +27,11 @@ export const description = "Utilities for clamping text to a specific number of 
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use `line-clamp-<number>` utilities like `line-clamp-2` and `line-clamp-3` to truncate multi-line text after a specific number of lines:
+Utiliza utilidades `line-clamp-<number>` como `line-clamp-2` y `line-clamp-3` para truncar texto multilínea después de un número específico de líneas:
 
 <Figure>
 
@@ -42,7 +42,7 @@ Use `line-clamp-<number>` utilities like `line-clamp-2` and `line-clamp-3` to tr
         <time dateTime="2020-03-16" className="block text-sm leading-6 text-gray-500 dark:text-gray-400">
           Mar 10, 2020
         </time>
-        <div className="mt-2 text-lg font-semibold text-gray-900 dark:text-gray-200">Boost your conversion rate</div>
+        <div className="mt-2 text-lg font-semibold text-gray-900 dark:text-gray-200">Aumenta tu tasa de conversión</div>
         <p className="mt-4 line-clamp-3 text-sm leading-6 text-gray-500 dark:text-gray-400">
           Nulla dolor velit adipisicing duis excepteur esse in duis nostrud occaecat mollit incididunt deserunt sunt. Ut
           ut sunt laborum ex occaecat eu tempor labore enim adipisicing minim ad. Est in quis eu dolore occaecat
@@ -67,7 +67,7 @@ Use `line-clamp-<number>` utilities like `line-clamp-2` and `line-clamp-3` to tr
 <!-- [!code classes:line-clamp-3] -->
 <article>
   <time>Mar 10, 2020</time>
-  <h2>Boost your conversion rate</h2>
+  <h2>Aumenta tu tasa de conversión</h2>
   <p class="line-clamp-3">
     Nulla dolor velit adipisicing duis excepteur esse in duis nostrud occaecat mollit incididunt deserunt sunt. Ut ut
     sunt laborum ex occaecat eu tempor labore enim adipisicing minim ad. Est in quis eu dolore occaecat excepteur fugiat
@@ -84,9 +84,9 @@ Use `line-clamp-<number>` utilities like `line-clamp-2` and `line-clamp-3` to tr
 
 </Figure>
 
-### Undoing line clamping
+### Deshacer el límite de líneas
 
-Use `line-clamp-none` to undo a previously applied line clamp utility:
+Utiliza `line-clamp-none` para deshacer una utilidad de límite de líneas aplicada anteriormente:
 
 ```html
 <!-- [!code classes:lg:line-clamp-none] -->
@@ -95,16 +95,16 @@ Use `line-clamp-none` to undo a previously applied line clamp utility:
 </p>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue
   element="p"
   utility="line-clamp"
-  name="number of lines"
+  name="número de líneas"
   variable="line-count"
   value="calc(var(--characters)/100)"
 />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="line-clamp" defaultClass="line-clamp-3" featuredClass="line-clamp-4" />

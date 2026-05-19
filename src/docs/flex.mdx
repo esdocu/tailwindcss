@@ -5,7 +5,7 @@ import { ResponsiveDesign, UsingACustomValue } from "@/components/content.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "flex";
-export const description = "Utilities for controlling how flex items both grow and shrink.";
+export const description = "Utilidades para controlar cómo crecen y se encogen los elementos flex.";
 
 <ApiTable
   rows={[
@@ -19,11 +19,11 @@ export const description = "Utilities for controlling how flex items both grow a
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use `flex-<number>` utilities like `flex-1` to allow a flex item to grow and shrink as needed, ignoring its initial size:
+Utiliza utilidades `flex-<number>` como `flex-1` para permitir que un elemento flex crezca y se encoja según sea necesario, ignorando su tamaño inicial:
 
 <Figure>
 
@@ -53,9 +53,9 @@ Use `flex-<number>` utilities like `flex-1` to allow a flex item to grow and shr
 
 </Figure>
 
-### Initial
+### Inicial
 
-Use `flex-initial` to allow a flex item to shrink but not grow, taking into account its initial size:
+Utiliza `flex-initial` para permitir que un elemento flex se encoja pero no crezca, teniendo en cuenta su tamaño inicial:
 
 <Figure>
 
@@ -85,9 +85,9 @@ Use `flex-initial` to allow a flex item to shrink but not grow, taking into acco
 
 </Figure>
 
-### Auto
+### Automático
 
-Use `flex-auto` to allow a flex item to grow and shrink, taking into account its initial size:
+Utiliza `flex-auto` para permitir que un elemento flex crezca y se encoja, teniendo en cuenta su tamaño inicial:
 
 <Figure>
 
@@ -117,9 +117,9 @@ Use `flex-auto` to allow a flex item to grow and shrink, taking into account its
 
 </Figure>
 
-### None
+### Ninguno
 
-Use `flex-none` to prevent a flex item from growing or shrinking:
+Utiliza `flex-none` para evitar que un elemento flex crezca o se encoja:
 
 <Figure>
 
@@ -136,7 +136,7 @@ Use `flex-none` to prevent a flex item from growing or shrinking:
         </div>
         <div className="flex-1 last:pr-8 sm:last:pr-0">
           <div className="flex items-center justify-center rounded-lg bg-indigo-300 p-4 dark:bg-indigo-800 dark:text-indigo-400">
-            03
+             03
           </div>
         </div>
       </div>
@@ -155,10 +155,10 @@ Use `flex-none` to prevent a flex item from growing or shrinking:
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="flex" name="flex shorthand property" value="3_1_auto" />
+<UsingACustomValue utility="flex" name="propiedad abreviada flex" value="3_1_auto" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="flex" defaultClass="flex-none" featuredClass="flex-1" />

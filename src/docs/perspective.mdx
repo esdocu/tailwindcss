@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "perspective";
-export const description = "Utilities for controlling an element's perspective when placed in 3D space.";
+export const description = "Utilidades para controlar la perspectiva de un elemento al colocarlo en un espacio 3D.";
 
 <ApiTable
   rows={[
@@ -19,11 +19,11 @@ export const description = "Utilities for controlling an element's perspective w
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `perspective-normal` and `perspective-distant` to control how close or how far away the z-plane is from the screen:
+Utiliza utilidades como `perspective-normal` y `perspective-distant` para controlar qué tan cerca o qué tan lejos está el plano z de la pantalla:
 
 <Figure>
 
@@ -111,11 +111,11 @@ Use utilities like `perspective-normal` and `perspective-distant` to control how
 
 </Figure>
 
-This is like moving a camera closer to or further away from an object.
+Esto es como acercar o alejar una cámara de un objeto.
 
-### Removing a perspective
+### Eliminar una perspectiva
 
-Use the `perspective-none` utility to remove a perspective transform from an element:
+Utiliza la utilidad `perspective-none` para eliminar una transformación de perspectiva de un elemento:
 
 ```html
 <!-- [!code classes:perspective-none] -->
@@ -124,14 +124,14 @@ Use the `perspective-none` utility to remove a perspective transform from an ele
 </div>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue utility="perspective" value="750px" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="perspective" defaultClass="perspective-midrange" featuredClass="perspective-dramatic" />
 
-## Customizing your theme
+## Personalizar el tema
 
 <CustomizingYourTheme utility="perspective" name="perspective" customName="remote" customValue="1800px" />

@@ -1,11 +1,11 @@
 export const title = "Preflight";
-export const description = "An opinionated set of base styles for Tailwind projects.";
+export const description = "Un conjunto de estilos base predeterminados y opinados para proyectos de Tailwind.";
 
-## Overview
+## Descripción general
 
-Built on top of [modern-normalize](https://github.com/sindresorhus/modern-normalize), Preflight is a set of base styles for Tailwind projects that are designed to smooth over cross-browser inconsistencies and make it easier for you to work within the constraints of your design system.
+Construido sobre [modern-normalize](https://github.com/sindresorhus/modern-normalize), Preflight es un conjunto de estilos base para proyectos de Tailwind que están diseñados para suavizar las inconsistencias entre navegadores y facilitarte el trabajo dentro de las restricciones de tu sistema de diseño.
 
-When you import `tailwindcss` into your project, Preflight is automatically injected into the `base` layer:
+Cuando importas `tailwindcss` en tu proyecto, Preflight se inyecta automáticamente en la capa `base`:
 
 ```css
 /* [!code filename:CSS] */
@@ -17,13 +17,13 @@ When you import `tailwindcss` into your project, Preflight is automatically inje
 @import "tailwindcss/utilities.css" layer(utilities);
 ```
 
-While most of the styles in Preflight are meant to go unnoticed—they simply make things behave more like you'd expect them to—some are more opinionated and can be surprising when you first encounter them.
+Aunque la mayoría de los estilos en Preflight están pensados para pasar desapercibidos (simplemente hacen que las cosas se comporten más como esperarías), algunos son más de opinión y pueden resultar sorprendentes la primera vez que los encuentras.
 
-For a complete reference of all the styles applied by Preflight, [see the stylesheet](https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/preflight.css).
+Para obtener una referencia completa de todos los estilos aplicados por Preflight, [consulta la hoja de estilos](https://github.com/tailwindlabs/tailwindcss/blob/main/packages/tailwindcss/preflight.css).
 
-### Margins are removed
+### Se eliminan los márgenes
 
-Preflight removes all of the default margins from all elements including headings, blockquotes, paragraphs, etc:
+Preflight elimina todos los márgenes predeterminados de todos los elementos, incluyendo encabezados, citas en bloque (blockquotes), párrafos, etc:
 
 ```css
 /* [!code filename:CSS] */
@@ -37,11 +37,11 @@ Preflight removes all of the default margins from all elements including heading
 }
 ```
 
-This makes it harder to accidentally rely on margin values applied by the user-agent stylesheet that are not part of your spacing scale.
+Esto hace que sea más difícil depender accidentalmente de los valores de margen aplicados por la hoja de estilos del agente de usuario que no forman parte de tu escala de espaciado.
 
-### Border styles are reset
+### Los estilos de borde se restablecen
 
-In order to make it easy to add a border by simply adding the `border` class, Tailwind overrides the default border styles for all elements with the following rules:
+Para facilitar la adición de un borde simplemente agregando la clase `border`, Tailwind sobrescribe los estilos de borde predeterminados para todos los elementos con las siguientes reglas:
 
 ```css
 /* [!code filename:CSS] */
@@ -55,11 +55,11 @@ In order to make it easy to add a border by simply adding the `border` class, Ta
 }
 ```
 
-Since the `border` class only sets the `border-width` property, this reset ensures that adding that class always adds a solid `1px` border that uses `currentColor`.
+Dado que la clase `border` solo establece la propiedad `border-width`, este restablecimiento garantiza que agregar esa clase siempre agregue un borde sólido de `1px` que utiliza `currentColor`.
 
-This can cause some unexpected results when integrating certain third-party libraries, like [Google maps](https://github.com/tailwindlabs/tailwindcss/issues/484) for example.
+Esto puede causar algunos resultados inesperados al integrar ciertas librerías de terceros, como [Google Maps](https://github.com/tailwindlabs/tailwindcss/issues/484), por ejemplo.
 
-When you run into situations like this, you can work around them by overriding the Preflight styles with your own custom CSS:
+Cuando te encuentres con situaciones como esta, puedes solucionarlas sobrescribiendo los estilos de Preflight con tu propio CSS personalizado:
 
 ```css
 /* [!code filename:CSS] */
@@ -70,9 +70,9 @@ When you run into situations like this, you can work around them by overriding t
 }
 ```
 
-### Headings are unstyled
+### Los encabezados no tienen estilo
 
-All heading elements are completely unstyled by default, and have the same font size and weight as normal text:
+Todos los elementos de encabezado no tienen ningún estilo por defecto y tienen el mismo tamaño de fuente y peso que el texto normal:
 
 ```css
 /* [!code filename:CSS] */
@@ -87,16 +87,16 @@ h6 {
 }
 ```
 
-The reason for this is two-fold:
+La razón de esto es doble:
 
-- **It helps you avoid accidentally deviating from your type scale**. By default, browsers assign sizes to headings that don't exist in Tailwind's default type scale, and aren't guaranteed to exist in your own type scale.
-- **In UI development, headings should often be visually de-emphasized**. Making headings unstyled by default means any styling you apply to headings happens consciously and deliberately.
+- **Te ayuda a evitar desviarte accidentalmente de tu escala tipográfica**. De forma predeterminada, los navegadores asignan tamaños a los encabezados que no existen en la escala tipográfica predeterminada de Tailwind, y no está garantizado que existan en tu propia escala.
+- **En el desarrollo de interfaces de usuario, los encabezados a menudo deben perder énfasis visual**. Hacer que los encabezados no tengan estilo por defecto significa que cualquier estilo que les apliques se hace de forma consciente y deliberada.
 
-You can always add default header styles to your project by [adding your own base styles](/docs/adding-custom-styles#adding-base-styles).
+Siempre puedes agregar estilos de encabezado predeterminados a tu proyecto [añadiendo tus propios estilos base](/docs/adding-custom-styles#adding-base-styles).
 
-### Lists are unstyled
+### Las listas no tienen estilo
 
-Ordered and unordered lists are unstyled by default, with no bullets or numbers:
+Las listas ordenadas y desordenadas no tienen estilo por defecto, sin viñetas ni números:
 
 ```css
 /* [!code filename:CSS] */
@@ -107,35 +107,35 @@ menu {
 }
 ```
 
-If you'd like to style a list, you can do so using the [list-style-type](/docs/list-style-type) and [list-style-position](/docs/list-style-position) utilities:
+Si deseas dar estilo a una lista, puedes hacerlo usando las utilidades [list-style-type](/docs/list-style-type) y [list-style-position](/docs/list-style-position):
 
 ```html
 <!-- [!code filename:HTML] -->
 <ul class="list-inside list-disc">
-  <li>One</li>
-  <li>Two</li>
-  <li>Three</li>
+  <li>Uno</li>
+  <li>Dos</li>
+  <li>Tres</li>
 </ul>
 ```
 
-You can always add default list styles to your project by [adding your own base styles](/docs/adding-custom-styles#adding-base-styles).
+Siempre puedes agregar estilos de lista predeterminados a tu proyecto [añadiendo tus propios estilos base](/docs/adding-custom-styles#adding-base-styles).
 
-#### Accessibility considerations
+#### Consideraciones de accesibilidad
 
-Unstyled lists are [not announced as lists by VoiceOver](https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/). If your content is truly a list but you would like to keep it unstyled, [add a "list" role](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) to the element:
+Las listas sin estilo [no son anunciadas como listas por VoiceOver](https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/). Si tu contenido es verdaderamente una lista pero deseas mantenerla sin estilo, [agrega un rol "list"](https://www.scottohara.me/blog/2019/01/12/lists-and-safari.html) al elemento:
 
 ```html
 <!-- [!code filename:HTML] -->
 <ul role="list">
-  <li>One</li>
-  <li>Two</li>
-  <li>Three</li>
+  <li>Uno</li>
+  <li>Dos</li>
+  <li>Tres</li>
 </ul>
 ```
 
-### Images are block-level
+### Las imágenes son elementos a nivel de bloque
 
-Images and other replaced elements (like `svg`, `video`, `canvas`, and others) are `display: block` by default:
+Las imágenes y otros elementos reemplazados (como `svg`, `video`, `canvas` y otros) son `display: block` por defecto:
 
 ```css
 /* [!code filename:CSS] */
@@ -152,18 +152,18 @@ object {
 }
 ```
 
-This helps to avoid unexpected alignment issues that you often run into using the browser default of `display: inline`.
+Esto ayuda a evitar problemas inesperados de alineación con los que a menudo te encuentras al usar el valor predeterminado del navegador de `display: inline`.
 
-If you ever need to make one of these elements `inline` instead of `block`, simply use the `inline` utility:
+Si alguna vez necesitas hacer que uno de estos elementos sea `inline` en lugar de `block`, simplemente usa la utilidad `inline`:
 
 ```html
 <!-- [!code filename:HTML] -->
 <img class="inline" src="..." alt="..." />
 ```
 
-### Images are constrained
+### Las imágenes están limitadas
 
-Images and videos are constrained to the parent width in a way that preserves their intrinsic aspect ratio:
+Las imágenes y los videos están limitados al ancho del padre de una manera que preserva su relación de aspecto intrínseca:
 
 ```css
 /* [!code filename:CSS] */
@@ -174,14 +174,14 @@ video {
 }
 ```
 
-This prevents them from overflowing their containers and makes them responsive by default. If you ever need to override this behavior, use the `max-w-none` utility:
+Esto evita que se desborden de sus contenedores y los hace responsivos por defecto. Si alguna vez necesitas sobrescribir este comportamiento, utiliza la utilidad `max-w-none`:
 
 ```html
 <!-- [!code filename:HTML] -->
 <img class="max-w-none" src="..." alt="..." />
 ```
 
-#### Elements with a `hidden` attribute stay hidden
+#### Los elementos con un atributo `hidden` permanecen ocultos
 
 ```css
 /* [!code filename:CSS] */
@@ -190,11 +190,11 @@ This prevents them from overflowing their containers and makes them responsive b
 }
 ```
 
-This enforces that elements with a `hidden` attribute stay invisible unless using `hidden="until-found"`. Remove the `hidden` attribute if you want an element to be visible to the user.
+Esto obliga a que los elementos con un atributo `hidden` permanezcan invisibles a menos que se use `hidden="until-found"`. Elimina el atributo `hidden` si deseas que un elemento sea visible para el usuario.
 
-## Extending Preflight
+## Extender Preflight
 
-If you'd like to add your own base styles on top of Preflight, add them to the `base` CSS layer in your CSS using `@layer base`:
+Si deseas agregar tus propios estilos base sobre Preflight, agrégalos a la capa CSS `base` en tu CSS usando `@layer base`:
 
 ```css
 /* [!code filename:CSS] */
@@ -215,13 +215,13 @@ If you'd like to add your own base styles on top of Preflight, add them to the `
 }
 ```
 
-Learn more in the [adding base styles documentation](/docs/adding-custom-styles#adding-base-styles).
+Obtén más información en la [documentación para añadir estilos base](/docs/adding-custom-styles#adding-base-styles).
 
-## Disabling Preflight
+## Deshabilitar Preflight
 
-If you'd like to completely disable Preflight—perhaps because you're integrating Tailwind into an existing project or you'd prefer to define your own base styles—you can do so by importing only the parts of Tailwind that you need.
+Si deseas deshabilitar Preflight por completo —tal vez porque estás integrando Tailwind en un proyecto existente o prefieres definir tus propios estilos base— puedes hacerlo importando solo las partes de Tailwind que necesitas.
 
-By default, this is what `@import "tailwindcss";` injects:
+Por defecto, esto es lo que inyecta `@import "tailwindcss";`:
 
 ```css
 /* [!code filename:CSS] */
@@ -232,7 +232,7 @@ By default, this is what `@import "tailwindcss";` injects:
 @import "tailwindcss/utilities.css" layer(utilities);
 ```
 
-To disable Preflight, simply omit its import while keeping everything else:
+Para deshabilitar Preflight, simplemente omite su importación manteniendo todo lo demás:
 
 ```css
 /* [!code filename:CSS] */
@@ -243,9 +243,9 @@ To disable Preflight, simply omit its import while keeping everything else:
 @import "tailwindcss/utilities.css" layer(utilities);
 ```
 
-When importing Tailwind CSS' files individually, features like `source()`, `theme()`, and `prefix()` should go on their respective imports.
+Al importar los archivos de Tailwind CSS individualmente, las funciones como `source()`, `theme()` y `prefix()` deben ir en sus importaciones respectivas.
 
-For example, source detection affects generated utilities, so `source(…)` should be added to the `utilities.css` import:
+Por ejemplo, la detección de origen afecta a las utilidades generadas, por lo que se debe agregar `source(…)` a la importación de `utilities.css`:
 
 ```css
 /* [!code filename:CSS] */
@@ -256,7 +256,7 @@ For example, source detection affects generated utilities, so `source(…)` shou
 @import "tailwindcss/utilities.css" layer(utilities) source(none); /* [!code ++] */
 ```
 
-The same goes for `important`, which also affects utilities:
+Lo mismo ocurre con `important`, que también afecta a las utilidades:
 
 ```css
 /* [!code filename:CSS] */
@@ -267,7 +267,7 @@ The same goes for `important`, which also affects utilities:
 @import "tailwindcss/utilities.css" layer(utilities) important; /* [!code ++] */
 ```
 
-Similarly, `theme(static)` and `theme(inline)` affect the generated theme variables and should be placed on the `theme.css` import:
+De manera similar, `theme(static)` y `theme(inline)` afectan a las variables de tema generadas y deben colocarse en la importación de `theme.css`:
 
 ```css
 /* [!code filename:CSS] */
@@ -278,7 +278,7 @@ Similarly, `theme(static)` and `theme(inline)` affect the generated theme variab
 @import "tailwindcss/utilities.css" layer(utilities);
 ```
 
-Finally, using a prefix with `prefix(tw)` affects the utilities and variables, so it should go on both imports:
+Finalmente, usar un prefijo con `prefix(tw)` afecta a las utilidades y variables, por lo que debe ir en ambas importaciones:
 
 ```css
 /* [!code filename:CSS] */

@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import colors from "./utils/colors";
 
 export const title = "fill";
-export const description = "Utilities for styling the fill of SVG elements.";
+export const description = "Utilidades para estilizar el relleno (fill) de elementos SVG.";
 
 <ApiTable
   rows={[
@@ -19,11 +19,11 @@ export const description = "Utilities for styling the fill of SVG elements.";
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `fill-indigo-500` and `fill-lime-600` to change the fill color of an SVG:
+Utiliza utilidades como `fill-indigo-500` y `fill-lime-600` para cambiar el color de relleno de un SVG:
 
 <Figure>
 
@@ -50,13 +50,13 @@ Use utilities like `fill-indigo-500` and `fill-lime-600` to change the fill colo
 
 </Figure>
 
-This can be useful for styling icon sets like [Heroicons](https://heroicons.com).
+Esto puede ser útil para dar estilo a conjuntos de iconos como [Heroicons](https://heroicons.com).
 
-### Using the current color
+### Usar el color actual
 
-Use the `fill-current` utility to set the fill color to the current text color:
+Utiliza la utilidad `fill-current` para establecer el color de relleno al color de texto actual:
 
-<Figure hint="Hover over the button to see the fill color change">
+<Figure hint="Pasa el mouse sobre el botón para ver cambiar el color de relleno">
 
 <Example>
   {
@@ -69,7 +69,7 @@ Use the `fill-current` utility to set the fill color to the current text color:
             clipRule="evenodd"
           />
         </svg>
-        Check for updates
+        Buscar actualizaciones
       </button>
     </div>
   }
@@ -81,20 +81,20 @@ Use the `fill-current` utility to set the fill color to the current text color:
   <svg class="size-5 fill-current ...">
     <!-- ... -->
   </svg>
-  Check for updates
+  Buscar actualizaciones
 </button>
 ```
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue element="svg" utility="fill" name="fill color" value="#243c5a" variable="fill-color" />
+<UsingACustomValue element="svg" utility="fill" name="color de relleno" value="#243c5a" variable="fill-color" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign element="svg" property="fill" defaultClass="fill-cyan-500" featuredClass="fill-cyan-700" />
 
-## Customizing your theme
+## Personalizar tu tema
 
 <CustomizingYourThemeColors element="svg" utility="fill" />

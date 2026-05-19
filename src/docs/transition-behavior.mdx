@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "transition-behavior";
-export const description = "Utilities to control the behavior of CSS transitions.";
+export const description = "Utilidades para controlar el comportamiento de las transiciones CSS.";
 
 <ApiTable
   rows={[
@@ -13,13 +13,13 @@ export const description = "Utilities to control the behavior of CSS transitions
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use the `transition-discrete` utility to start transitions when changing properties with a discrete set of values, such as elements that change from `hidden` to `block`:
+Usa la utilidad `transition-discrete` para iniciar transiciones al cambiar propiedades con un conjunto discreto de valores, como elementos que cambian de `hidden` a `block`:
 
-<Figure hint="Interact with the checkboxes to see the expected behavior">
+<Figure hint="Interactúa con las casillas de verificación para ver el comportamiento esperado">
 
 <Example>
   {
@@ -30,7 +30,7 @@ Use the `transition-discrete` utility to start transitions when changing propert
           transition-normal
         </label>
         <button className="hidden rounded-md bg-violet-500 px-4 py-2 text-sm font-semibold text-white transition-all transition-normal duration-300 not-peer-has-checked:opacity-0 peer-has-checked:block">
-          I hide
+          Me oculto
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center sm:w-1/2">
@@ -39,7 +39,7 @@ Use the `transition-discrete` utility to start transitions when changing propert
           transition-discrete
         </label>
         <button className="hidden rounded-md bg-violet-500 px-4 py-2 text-sm font-semibold text-white transition-all transition-discrete duration-300 not-peer-has-checked:opacity-0 peer-has-checked:block">
-          I fade out
+          Me desvanezco
         </button>
       </div>
     </div>
@@ -53,20 +53,20 @@ Use the `transition-discrete` utility to start transitions when changing propert
 </label>
 <button class="hidden transition-all not-peer-has-checked:opacity-0 peer-has-checked:block ...">
   <!-- prettier-ignore -->
-  I hide
+  Me oculto
 </button>
 
 <label class="peer ...">
   <input type="checkbox" checked />
 </label>
 <button class="hidden transition-all transition-discrete not-peer-has-checked:opacity-0 peer-has-checked:block ...">
-  I fade out
+  Me desvanezco
 </button>
 ```
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   element="button"

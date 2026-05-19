@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "border-collapse";
-export const description = "Utilities for controlling whether table borders should collapse or be separated.";
+export const description = "Utilidades para controlar si los bordes de la tabla deben colapsar o separarse.";
 
 <ApiTable
   rows={[
@@ -13,11 +13,11 @@ export const description = "Utilities for controlling whether table borders shou
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Collapsing table borders
+### Colapsar bordes de tabla
 
-Use the `border-collapse` utility to combine adjacent cell borders into a single border when possible:
+Utiliza la utilidad `border-collapse` para combinar bordes de celdas adyacentes en un solo borde cuando sea posible:
 
 <Figure>
 
@@ -28,10 +28,10 @@ Use the `border-collapse` utility to combine adjacent cell borders into a single
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
             <th className="w-1/2 border border-gray-300 p-4 text-left font-semibold text-gray-900 dark:border-gray-600 dark:text-gray-200">
-              State
+              Estado
             </th>
             <th className="w-1/2 border border-gray-300 p-4 text-left font-semibold text-gray-900 dark:border-gray-600 dark:text-gray-200">
-              City
+              Ciudad
             </th>
           </tr>
         </thead>
@@ -69,8 +69,8 @@ Use the `border-collapse` utility to combine adjacent cell borders into a single
 <table class="border-collapse border border-gray-400 ...">
   <thead>
     <tr>
-      <th class="border border-gray-300 ...">State</th>
-      <th class="border border-gray-300 ...">City</th>
+      <th class="border border-gray-300 ...">Estado</th>
+      <th class="border border-gray-300 ...">Ciudad</th>
     </tr>
   </thead>
   <tbody>
@@ -92,11 +92,11 @@ Use the `border-collapse` utility to combine adjacent cell borders into a single
 
 </Figure>
 
-Note that this includes collapsing borders on the top-level `<table>` tag.
+Ten en cuenta que esto incluye colapsar los bordes en la etiqueta `<table>` de nivel superior.
 
-### Separating table borders
+### Separar bordes de tabla
 
-Use the `border-separate` utility to force each cell to display its own separate borders:
+Utiliza la utilidad `border-separate` para forzar a cada celda a mostrar sus propios bordes separados:
 
 <Figure>
 
@@ -107,10 +107,10 @@ Use the `border-separate` utility to force each cell to display its own separate
         <thead className="bg-gray-50 dark:bg-gray-700">
           <tr>
             <th className="w-1/2 border border-gray-300 p-4 text-left font-semibold text-gray-900 dark:border-gray-600 dark:text-gray-200">
-              State
+              Estado
             </th>
             <th className="w-1/2 border border-gray-300 p-4 text-left font-semibold text-gray-900 dark:border-gray-600 dark:text-gray-200">
-              City
+              Ciudad
             </th>
           </tr>
         </thead>
@@ -148,8 +148,8 @@ Use the `border-separate` utility to force each cell to display its own separate
 <table class="border-separate border border-gray-400 ...">
   <thead>
     <tr>
-      <th class="border border-gray-300 ...">State</th>
-      <th class="border border-gray-300 ...">City</th>
+      <th class="border border-gray-300 ...">Estado</th>
+      <th class="border border-gray-300 ...">Ciudad</th>
     </tr>
   </thead>
   <tbody>
@@ -171,7 +171,7 @@ Use the `border-separate` utility to force each cell to display its own separate
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   element="table"

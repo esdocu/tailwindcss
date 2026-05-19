@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "scroll-snap-stop";
-export const description = "Utilities for controlling whether you can skip past possible snap positions.";
+export const description = "Utilidades para controlar si puedes omitir o pasar de largo posibles posiciones de ajuste de scroll.";
 
 <ApiTable
   rows={[
@@ -13,20 +13,20 @@ export const description = "Utilities for controlling whether you can skip past 
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Forcing snap position stops
+### Forzar paradas en posiciones de ajuste
 
-Use the `snap-always` utility together with the [snap-mandatory](/docs/scroll-snap-type#mandatory-scroll-snapping) utility to force a snap container to always stop on an element before the user can continue scrolling to the next item:
+Utiliza la utilidad `snap-always` junto con la utilidad [snap-mandatory](/docs/scroll-snap-type#mandatory-scroll-snapping) para obligar a un contenedor snap a detenerse siempre en un elemento antes de que el usuario pueda continuar desplazándose al siguiente elemento:
 
-<Figure hint="Scroll in the grid of images to see the expected behavior">
+<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mb-6 ml-[50%] flex items-end justify-start pt-10">
         <div className="dark:highlight-white/10 ml-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          snap point
+          punto de ajuste
         </div>
         <div className="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
       </div>
@@ -104,18 +104,18 @@ Use the `snap-always` utility together with the [snap-mandatory](/docs/scroll-sn
 
 </Figure>
 
-### Skipping snap position stops
+### Omitir paradas en posiciones de ajuste
 
-Use the `snap-normal` utility to allow a snap container to skip past possible scroll snap positions:
+Utiliza la utilidad `snap-normal` para permitir que un contenedor snap omita posibles posiciones de ajuste de scroll:
 
-<Figure hint="Scroll in the grid of images to see the expected behavior">
+<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mb-6 ml-[50%] flex items-end justify-start pt-10">
         <div className="dark:highlight-white/10 ml-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          snap point
+          punto de ajuste
         </div>
         <div className="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
       </div>
@@ -193,6 +193,6 @@ Use the `snap-normal` utility to allow a snap container to skip past possible sc
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="scroll-snap-stop" defaultClass="snap-always" featuredClass="snap-normal" />

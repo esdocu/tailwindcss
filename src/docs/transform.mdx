@@ -2,7 +2,7 @@ import { ApiTable } from "@/components/api-table.tsx";
 import { UsingACustomValue } from "@/components/content.tsx";
 
 export const title = "transform";
-export const description = "Utilities for transforming elements.";
+export const description = "Utilidades para transformar elementos.";
 
 <ApiTable
   rows={[
@@ -20,11 +20,11 @@ export const description = "Utilities for transforming elements.";
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Hardware acceleration
+### Aceleración por hardware
 
-If your transition performs better when rendered by the GPU instead of the CPU, you can force hardware acceleration by adding the `transform-gpu` utility:
+Si tu transición funciona mejor cuando se renderiza con la GPU en lugar de la CPU, puedes forzar la aceleración por hardware agregando la utilidad `transform-gpu`:
 
 ```html
 <!-- [!code classes:transform-gpu] -->
@@ -33,11 +33,11 @@ If your transition performs better when rendered by the GPU instead of the CPU, 
 </div>
 ```
 
-Use the `transform-cpu` utility to force things back to the CPU if you need to undo this conditionally.
+Usa la utilidad `transform-cpu` para forzar el procesamiento de vuelta a la CPU si necesitas deshacer esto de forma condicional.
 
-### Removing transforms
+### Eliminar transformaciones
 
-Use the `transform-none` utility to remove all of the transforms on an element at once:
+Usa la utilidad `transform-none` para eliminar todas las transformaciones de un elemento a la vez:
 
 ```html
 <!-- [!code classes:transform-none] -->
@@ -46,6 +46,6 @@ Use the `transform-none` utility to remove all of the transforms on an element a
 </div>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue utility="transform" value="matrix(1,2,3,4,5,6)" />

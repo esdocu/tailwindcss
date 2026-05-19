@@ -5,7 +5,7 @@ import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "overflow";
 export const description =
-  "Utilities for controlling how an element handles content that is too large for the container.";
+  "Utilidades para controlar cómo maneja un elemento el contenido que es demasiado grande para el contenedor.";
 
 <ApiTable
   rows={[
@@ -27,11 +27,11 @@ export const description =
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Showing content that overflows
+### Mostrar contenido que se desborda
 
-Use the `overflow-visible` utility to prevent content within an element from being clipped:
+Utiliza la utilidad `overflow-visible` para evitar que se recorte el contenido dentro de un elemento:
 
 <Figure>
 
@@ -44,7 +44,7 @@ Use the `overflow-visible` utility to prevent content within an element from bei
       />
       <div className="flex flex-col py-5 pl-24">
         <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Andrew Alfred</strong>
-        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Technical advisor</span>
+        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Asesor técnico</span>
       </div>
     </div>
   }
@@ -59,11 +59,11 @@ Use the `overflow-visible` utility to prevent content within an element from bei
 
 </Figure>
 
-Note that any content that overflows the bounds of the element will then be visible.
+Ten en cuenta que cualquier contenido que se desborde de los límites del elemento será visible.
 
-### Hiding content that overflows
+### Ocultar contenido que se desborda
 
-Use the `overflow-hidden` utility to clip any content within an element that overflows the bounds of that element:
+Utiliza la utilidad `overflow-hidden` para recortar cualquier contenido dentro de un elemento que se desborde de los límites de ese elemento:
 
 <Figure>
 
@@ -76,7 +76,7 @@ Use the `overflow-hidden` utility to clip any content within an element that ove
       />
       <div className="flex flex-col py-5 pl-24">
         <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Andrew Alfred</strong>
-        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Technical advisor</span>
+        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Asesor técnico</span>
       </div>
     </div>
   }
@@ -91,11 +91,11 @@ Use the `overflow-hidden` utility to clip any content within an element that ove
 
 </Figure>
 
-### Scrolling if needed
+### Desplazarse si es necesario
 
-Use the `overflow-auto` utility to add scrollbars to an element in the event that its content overflows the bounds of that element:
+Utiliza la utilidad `overflow-auto` para agregar barras de desplazamiento a un elemento en caso de que su contenido se desborde de los límites de ese elemento:
 
-<Figure hint="Scroll vertically">
+<Figure hint="Desplázate verticalmente">
 
 <Example>
   {
@@ -107,7 +107,7 @@ Use the `overflow-auto` utility to add scrollbars to an element in the event tha
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Andrew Alfred</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Technical advisor</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Asesor técnico</span>
         </div>
       </div>
       <div className="flex items-center gap-4 p-4">
@@ -117,7 +117,7 @@ Use the `overflow-auto` utility to add scrollbars to an element in the event tha
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Debra Houston</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Analyst</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Analista</span>
         </div>
       </div>
       <div className="flex items-center gap-4 p-4">
@@ -127,7 +127,7 @@ Use the `overflow-auto` utility to add scrollbars to an element in the event tha
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Jane White</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Director, Marketing</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Director de marketing</span>
         </div>
       </div>
       <div className="flex items-center gap-4 p-4">
@@ -137,7 +137,7 @@ Use the `overflow-auto` utility to add scrollbars to an element in the event tha
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Ray Flint</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Technical Advisor</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Asesor técnico</span>
         </div>
       </div>
     </div>
@@ -153,13 +153,13 @@ Use the `overflow-auto` utility to add scrollbars to an element in the event tha
 
 </Figure>
 
-Unlike `overflow-scroll`, which always shows scrollbars, this utility will only show them if scrolling is necessary.
+A diferencia de `overflow-scroll`, que siempre muestra barras de desplazamiento, esta utilidad solo las mostrará si el desplazamiento es necesario.
 
-### Scrolling horizontally if needed
+### Desplazarse horizontalmente si es necesario
 
-Use the `overflow-x-auto` utility to allow horizontal scrolling if needed:
+Utiliza la utilidad `overflow-x-auto` para permitir el desplazamiento horizontal si es necesario:
 
-<Figure hint="Scroll horizontally">
+<Figure hint="Desplázate horizontalmente">
 
 <Example padding={false}>
   {
@@ -233,11 +233,11 @@ Use the `overflow-x-auto` utility to allow horizontal scrolling if needed:
 
 </Figure>
 
-### Scrolling vertically if needed
+### Desplazarse verticalmente si es necesario
 
-Use the `overflow-y-auto` utility to allow vertical scrolling if needed:
+Utiliza la utilidad `overflow-y-auto` para permitir el desplazamiento vertical si es necesario:
 
-<Figure hint="Scroll vertically">
+<Figure hint="Desplázate verticalmente">
 
 <Example>
   {
@@ -249,7 +249,7 @@ Use the `overflow-y-auto` utility to allow vertical scrolling if needed:
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Andrew Alfred</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Technical advisor</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Asesor técnico</span>
         </div>
       </div>
       <div className="flex items-center gap-4 p-4">
@@ -259,7 +259,7 @@ Use the `overflow-y-auto` utility to allow vertical scrolling if needed:
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Debra Houston</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Analyst</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Analista</span>
         </div>
       </div>
       <div className="flex items-center gap-4 p-4">
@@ -269,7 +269,7 @@ Use the `overflow-y-auto` utility to allow vertical scrolling if needed:
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Jane White</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Director, Marketing</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Director de marketing</span>
         </div>
       </div>
       <div className="flex items-center gap-4 p-4">
@@ -279,7 +279,7 @@ Use the `overflow-y-auto` utility to allow vertical scrolling if needed:
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Ray Flint</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Technical Advisor</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Asesor técnico</span>
         </div>
       </div>
     </div>
@@ -295,11 +295,11 @@ Use the `overflow-y-auto` utility to allow vertical scrolling if needed:
 
 </Figure>
 
-### Scrolling horizontally always
+### Desplazarse siempre horizontalmente
 
-Use the `overflow-x-scroll` utility to allow horizontal scrolling and always show scrollbars unless always-visible scrollbars are disabled by the operating system:
+Utiliza la utilidad `overflow-x-scroll` para permitir el desplazamiento horizontal y mostrar siempre barras de desplazamiento, a menos que el sistema operativo deshabilite las barras de desplazamiento siempre visibles:
 
-<Figure hint="Scroll horizontally">
+<Figure hint="Desplázate horizontalmente">
 
 <Example padding={false}>
   {
@@ -373,11 +373,11 @@ Use the `overflow-x-scroll` utility to allow horizontal scrolling and always sho
 
 </Figure>
 
-### Scrolling vertically always
+### Desplazarse siempre verticalmente
 
-Use the `overflow-y-scroll` utility to allow vertical scrolling and always show scrollbars unless always-visible scrollbars are disabled by the operating system:
+Utiliza la utilidad `overflow-y-scroll` para permitir el desplazamiento vertical y mostrar siempre barras de desplazamiento, a menos que el sistema operativo deshabilite las barras de desplazamiento siempre visibles:
 
-<Figure hint="Scroll vertically">
+<Figure hint="Desplázate verticalmente">
 
 <Example>
   {
@@ -389,7 +389,7 @@ Use the `overflow-y-scroll` utility to allow vertical scrolling and always show 
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Andrew Alfred</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Technical advisor</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Asesor técnico</span>
         </div>
       </div>
       <div className="flex items-center gap-4 p-4">
@@ -399,7 +399,7 @@ Use the `overflow-y-scroll` utility to allow vertical scrolling and always show 
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Debra Houston</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Analyst</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Analista</span>
         </div>
       </div>
       <div className="flex items-center gap-4 p-4">
@@ -409,7 +409,7 @@ Use the `overflow-y-scroll` utility to allow vertical scrolling and always show 
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Jane White</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Director, Marketing</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Director de marketing</span>
         </div>
       </div>
       <div className="flex items-center gap-4 p-4">
@@ -419,7 +419,7 @@ Use the `overflow-y-scroll` utility to allow vertical scrolling and always show 
         />
         <div className="flex flex-col">
           <strong className="text-sm font-medium text-gray-900 dark:text-gray-200">Ray Flint</strong>
-          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Technical Advisor</span>
+          <span className="text-sm font-medium text-gray-500 dark:text-gray-400">Asesor técnico</span>
         </div>
       </div>
     </div>
@@ -435,11 +435,11 @@ Use the `overflow-y-scroll` utility to allow vertical scrolling and always show 
 
 </Figure>
 
-### Scrolling in all directions
+### Desplazarse en todas las direcciones
 
-Use the `overflow-scroll` utility to add scrollbars to an element:
+Utiliza la utilidad `overflow-scroll` para agregar barras de desplazamiento a un elemento:
 
-<Figure hint="Scroll vertically and horizontally">
+<Figure hint="Desplázate vertical e horizontalmente">
 
 <Example padding={false}>
   {
@@ -448,25 +448,25 @@ Use the `overflow-scroll` utility to add scrollbars to an element:
         {/* Calendar frame */}
         <div className="sticky top-0 z-10 col-start-1 row-start-1 border-b border-gray-100 bg-white bg-clip-padding py-2 text-sm font-medium text-gray-900 dark:border-black/10 dark:bg-gradient-to-b dark:from-gray-600 dark:to-gray-700 dark:text-gray-200"></div>
         <div className="sticky top-0 z-10 col-start-2 row-start-1 border-b border-gray-100 bg-white bg-clip-padding py-2 text-center text-sm font-medium text-gray-900 dark:border-black/10 dark:bg-gradient-to-b dark:from-gray-600 dark:to-gray-700 dark:text-gray-200">
-          Sun
+          Dom
         </div>
         <div className="sticky top-0 z-10 col-start-3 row-start-1 border-b border-gray-100 bg-white bg-clip-padding py-2 text-center text-sm font-medium text-gray-900 dark:border-black/10 dark:bg-gradient-to-b dark:from-gray-600 dark:to-gray-700 dark:text-gray-200">
-          Mon
+          Lun
         </div>
         <div className="sticky top-0 z-10 col-start-4 row-start-1 border-b border-gray-100 bg-white bg-clip-padding py-2 text-center text-sm font-medium text-gray-900 dark:border-black/10 dark:bg-gradient-to-b dark:from-gray-600 dark:to-gray-700 dark:text-gray-200">
-          Tue
+          Mar
         </div>
         <div className="sticky top-0 z-10 col-start-5 row-start-1 border-b border-gray-100 bg-white bg-clip-padding py-2 text-center text-sm font-medium text-gray-900 dark:border-black/10 dark:bg-gradient-to-b dark:from-gray-600 dark:to-gray-700 dark:text-gray-200">
-          Wed
+          Mié
         </div>
         <div className="sticky top-0 z-10 col-start-6 row-start-1 border-b border-gray-100 bg-white bg-clip-padding py-2 text-center text-sm font-medium text-gray-900 dark:border-black/10 dark:bg-gradient-to-b dark:from-gray-600 dark:to-gray-700 dark:text-gray-200">
-          Thu
+          Jue
         </div>
         <div className="sticky top-0 z-10 col-start-7 row-start-1 border-b border-gray-100 bg-white bg-clip-padding py-2 text-center text-sm font-medium text-gray-900 dark:border-black/10 dark:bg-gradient-to-b dark:from-gray-600 dark:to-gray-700 dark:text-gray-200">
-          Fri
+          Vie
         </div>
         <div className="sticky top-0 z-10 col-start-8 row-start-1 border-b border-gray-100 bg-white bg-clip-padding py-2 text-center text-sm font-medium text-gray-900 dark:border-black/10 dark:bg-gradient-to-b dark:from-gray-600 dark:to-gray-700 dark:text-gray-200">
-          Sat
+          Sáb
         </div>
         <div className="sticky left-0 col-start-1 row-start-2 border-r border-gray-100 bg-white p-1.5 text-right text-xs font-medium text-gray-400 uppercase dark:border-gray-200/5 dark:bg-gray-800">
           5 AM
@@ -623,26 +623,26 @@ Use the `overflow-scroll` utility to add scrollbars to an element:
         </div>
         <div className="col-start-2 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
         <div className="col-start-3 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
-        <div className="col-start-4 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
-        <div className="col-start-5 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
-        <div className="col-start-6 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
+        <div className="col-start-4 row-start-17 border-r border-b border-gray-100 dark:border-gray-200/5"></div>
+        <div className="col-start-5 row-start-17 border-r border-b border-gray-100 dark:border-gray-200/5"></div>
+        <div className="col-start-6 row-start-17 border-r border-b border-gray-100 dark:border-gray-200/5"></div>
         <div className="col-start-7 row-start-17 border-r border-gray-100 dark:border-gray-200/5"></div>
         <div className="col-start-8 row-start-17"></div>
         {/* Calendar contents */}
         <div className="col-start-3 row-span-4 row-start-2 m-1 flex flex-col rounded-lg border border-blue-700/10 bg-blue-400/20 p-1 dark:border-sky-500 dark:bg-sky-600/50">
           <span className="text-xs text-blue-600 dark:text-sky-100">5 AM</span>
-          <span className="text-xs font-medium text-blue-600 dark:text-sky-100">Flight to Vancouver</span>
+          <span className="text-xs font-medium text-blue-600 dark:text-sky-100">Vuelo a Vancouver</span>
           <span className="text-xs text-blue-600 dark:text-sky-100">Toronto YYZ</span>
         </div>
         <div className="col-start-4 row-span-4 row-start-3 m-1 flex flex-col rounded-lg border border-purple-700/10 bg-purple-400/20 p-1 dark:border-fuchsia-500 dark:bg-fuchsia-600/50">
           <span className="text-xs text-purple-600 dark:text-fuchsia-100">6 AM</span>
-          <span className="text-xs font-medium text-purple-600 dark:text-fuchsia-100">Breakfast</span>
+          <span className="text-xs font-medium text-purple-600 dark:text-fuchsia-100">Desayuno</span>
           <span className="text-xs text-purple-600 dark:text-fuchsia-100">Mel's Diner</span>
         </div>
         <div className="col-start-7 row-span-3 row-start-14 m-1 flex flex-col rounded-lg border border-pink-700/10 bg-pink-400/20 p-1 dark:border-indigo-500 dark:bg-indigo-600/50">
           <span className="text-xs text-pink-600 dark:text-indigo-100">5 PM</span>
-          <span className="text-xs font-medium text-pink-600 dark:text-indigo-100">🎉 Party party 🎉</span>
-          <span className="text-xs text-pink-600 dark:text-indigo-100">We like to party!</span>
+          <span className="text-xs font-medium text-pink-600 dark:text-indigo-100">🎉 Fiesta fiesta 🎉</span>
+          <span className="text-xs text-pink-600 dark:text-indigo-100">¡Nos gusta la fiesta!</span>
         </div>
       </div>
     </div>
@@ -658,8 +658,8 @@ Use the `overflow-scroll` utility to add scrollbars to an element:
 
 </Figure>
 
-Unlike `overflow-auto`, which only shows scrollbars if they are necessary, this utility always shows them. Note that some operating systems (like macOS) hide unnecessary scrollbars regardless of this setting.
+A diferencia de `overflow-auto`, que solo muestra barras de desplazamiento si son necesarias, esta utilidad siempre las muestra. Ten en cuenta que algunos sistemas operativos (como macOS) ocultan las barras de desplazamiento innecesarias independientemente de esta configuración.
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="overflow" defaultClass="overflow-auto" featuredClass="overflow-scroll" />

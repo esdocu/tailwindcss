@@ -7,7 +7,7 @@ import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "justify-content";
 export const description =
-  "Utilities for controlling how flex and grid items are positioned along a container's main axis.";
+  "Utilidades para controlar cómo se posicionan los elementos flex y grid a lo largo del eje principal de un contenedor.";
 
 <ApiTable
   rows={[
@@ -25,11 +25,11 @@ export const description =
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Start
+### Inicio (Start)
 
-Use the `justify-start` utility to justify items against the start of the container's main axis:
+Utiliza la utilidad `justify-start` para alinear los elementos contra el inicio del eje principal del contenedor:
 
 <Figure>
 
@@ -57,11 +57,11 @@ Use the `justify-start` utility to justify items against the start of the contai
 
 </Figure>
 
-### Center
+### Centrado (Center)
 
-Use the `justify-center` or `justify-center-safe` utilities to justify items along the center of the container's main axis:
+Utiliza las utilidades `justify-center` o `justify-center-safe` para alinear los elementos a lo largo del centro del eje principal del contenedor:
 
-<Figure hint="Resize the container to see the alignment behavior">
+<Figure hint="Redimensiona el contenedor para ver el comportamiento de alineación">
 
 <Example resizable>
   {
@@ -124,13 +124,13 @@ Use the `justify-center` or `justify-center-safe` utilities to justify items alo
 
 </Figure>
 
-When there is not enough space available, the `justify-center-safe` utility will align items to the start of the container instead of the center.
+Cuando no haya suficiente espacio disponible, la utilidad `justify-center-safe` alineará los elementos al inicio del contenedor en lugar de al centro.
 
-### End
+### Fin (End)
 
-Use the `justify-end` or `justify-end-safe` utilities to justify items against the end of the container's main axis:
+Utiliza las utilidades `justify-end` o `justify-end-safe` para alinear los elementos contra el final del eje principal del contenedor:
 
-<Figure hint="Resize the container to see the alignment behavior">
+<Figure hint="Redimensiona el contenedor para ver el comportamiento de alineación">
 
 <Example resizable>
   {
@@ -191,11 +191,11 @@ Use the `justify-end` or `justify-end-safe` utilities to justify items against t
 
 </Figure>
 
-When there is not enough space available, the `justify-end-safe` utility will align items to the start of the container instead of the end.
+Cuando no haya suficiente espacio disponible, la utilidad `justify-end-safe` alineará los elementos al inicio del contenedor en lugar de al final.
 
-### Space between
+### Espacio entre (Space between)
 
-Use the `justify-between` utility to justify items along the container's main axis such that there is an equal amount of space between each item:
+Utiliza la utilidad `justify-between` para alinear los elementos a lo largo del eje principal del contenedor de modo que haya la misma cantidad de espacio entre cada elemento:
 
 <Figure>
 
@@ -223,9 +223,9 @@ Use the `justify-between` utility to justify items along the container's main ax
 
 </Figure>
 
-### Space around
+### Espacio alrededor (Space around)
 
-Use the `justify-around` utility to justify items along the container's main axis such that there is an equal amount of space on each side of each item:
+Utiliza la utilidad `justify-around` para alinear los elementos a lo largo del eje principal del contenedor de modo que haya la misma cantidad de espacio a cada lado de cada elemento:
 
 <Figure>
 
@@ -253,9 +253,9 @@ Use the `justify-around` utility to justify items along the container's main axi
 
 </Figure>
 
-### Space evenly
+### Espacio uniforme (Space evenly)
 
-Use the `justify-evenly` utility to justify items along the container's main axis such that there is an equal amount of space around each item, but also accounting for the doubling of space you would normally see between each item when using `justify-around`:
+Utiliza la utilidad `justify-evenly` para alinear los elementos a lo largo del eje principal del contenedor de modo que haya la misma cantidad de espacio alrededor de cada elemento, pero también teniendo en cuenta la duplicación de espacio que normalmente verías entre cada elemento al usar `justify-around`:
 
 <Figure>
 
@@ -283,9 +283,9 @@ Use the `justify-evenly` utility to justify items along the container's main axi
 
 </Figure>
 
-### Stretch
+### Estirar (Stretch)
 
-Use the `justify-stretch` utility to allow auto-sized content items to fill the available space along the container's main axis:
+Utiliza la utilidad `justify-stretch` para permitir que los elementos de contenido con tamaño automático llenen el espacio disponible a lo largo del eje principal del contenedor:
 
 <Figure>
 
@@ -315,7 +315,7 @@ Use the `justify-stretch` utility to allow auto-sized content items to fill the 
 
 ### Normal
 
-Use the `justify-normal` utility to pack content items in their default position as if no `justify-content` value was set:
+Utiliza la utilidad `justify-normal` para agrupar los elementos de contenido en su posición predeterminada como si no se hubiera establecido ningún valor de `justify-content`:
 
 <Figure>
 
@@ -343,6 +343,6 @@ Use the `justify-normal` utility to pack content items in their default position
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="justify-content" defaultClass="flex justify-start" featuredClass="justify-between" />

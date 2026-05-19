@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "border-radius";
-export const description = "Utilities for controlling the border radius of an element.";
+export const description = "Utilidades para controlar el radio de borde de un elemento.";
 
 <ApiTable
   rows={[
@@ -45,11 +45,11 @@ export const description = "Utilities for controlling the border radius of an el
   ])}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `rounded-sm` and `rounded-md` to apply different border radius sizes to an element:
+Utiliza utilidades como `rounded-sm` y `rounded-md` para aplicar diferentes tamaños de radio de borde a un elemento:
 
 <Figure>
 
@@ -86,9 +86,9 @@ Use utilities like `rounded-sm` and `rounded-md` to apply different border radiu
 
 </Figure>
 
-### Rounding sides separately
+### Redondear lados por separado
 
-Use utilities like `rounded-t-md` and `rounded-r-lg` to only round one side of an element:
+Utiliza utilidades como `rounded-t-md` y `rounded-r-lg` para redondear solo un lado de un elemento:
 
 <Figure>
 
@@ -125,9 +125,9 @@ Use utilities like `rounded-t-md` and `rounded-r-lg` to only round one side of a
 
 </Figure>
 
-### Rounding corners separately
+### Redondear esquinas por separado
 
-Use utilities like `rounded-tr-md` and `rounded-tl-lg` utilities to only round one corner of an element:
+Utiliza utilidades como `rounded-tr-md` y `rounded-tl-lg` para redondear solo una esquina de un elemento:
 
 <Figure>
 
@@ -164,9 +164,9 @@ Use utilities like `rounded-tr-md` and `rounded-tl-lg` utilities to only round o
 
 </Figure>
 
-### Using logical properties
+### Usar propiedades lógicas
 
-Use utilities like `rounded-s-md` and `rounded-se-xl` to set the border radius using [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to the appropriate corners based on the text direction:
+Utiliza utilidades como `rounded-s-md` y `rounded-se-xl` para establecer el radio del borde utilizando propiedades lógicas, que se asignan a las esquinas correspondientes según la dirección del texto:
 
 <Figure>
 
@@ -174,11 +174,11 @@ Use utilities like `rounded-s-md` and `rounded-se-xl` to set the border radius u
   {
     <div className="grid grid-cols-2 place-items-center gap-x-4">
       <div className="flex flex-col items-start gap-y-4" dir="ltr">
-        <p className="text-sm font-medium">Left-to-right</p>
+        <p className="text-sm font-medium">Izquierda a derecha</p>
         <div className="size-16 rounded-s-lg bg-blue-500 p-4"></div>
       </div>
       <div className="flex flex-col items-start gap-y-4" dir="rtl">
-        <p className="text-sm font-medium">Right-to-left</p>
+        <p className="text-sm font-medium">Derecha a izquierda</p>
         <div className="size-16 rounded-s-lg bg-blue-500 p-4"></div>
       </div>
     </div>
@@ -200,16 +200,16 @@ Use utilities like `rounded-s-md` and `rounded-se-xl` to set the border radius u
 
 </Figure>
 
-Here are all the available border radius logical property utilities and their physical property equivalents in both LTR and RTL modes.
+Aquí están todas las utilidades de propiedades lógicas de radio de borde disponibles y sus equivalentes de propiedades físicas en los modos LTR y RTL.
 
 {
 
 <table>
   <thead>
     <tr>
-      <th>Class</th>
-      <th>Left-to-right</th>
-      <th>Right-to-left</th>
+      <th>Clase</th>
+      <th>Izquierda a derecha</th>
+      <th>Derecha a izquierda</th>
     </tr>
   </thead>
   <tbody>
@@ -284,11 +284,11 @@ Here are all the available border radius logical property utilities and their ph
 
 }
 
-For more control, you can also use the [LTR and RTL modifiers](/docs/hover-focus-and-other-states#rtl-support) to conditionally apply specific styles depending on the current text direction.
+Para un mayor control, también puedes usar los [modificadores LTR y RTL](/docs/hover-focus-and-other-states#rtl-support) para aplicar condicionalmente estilos específicos según la dirección actual del texto.
 
-### Creating pill buttons
+### Crear botones tipo píldora
 
-Use the `rounded-full` utility to create pill buttons:
+Utiliza la utilidad `rounded-full` para crear botones tipo píldora:
 
 <Figure>
 
@@ -297,7 +297,7 @@ Use the `rounded-full` utility to create pill buttons:
     <div className="flex justify-center gap-4 text-center text-sm leading-6 font-bold text-white">
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-full</p>
-        <button className="rounded-full bg-cyan-500 px-4 py-2 text-sm font-semibold text-white">Save Changes</button>
+        <button className="rounded-full bg-cyan-500 px-4 py-2 text-sm font-semibold text-white">Guardar cambios</button>
       </div>
     </div>
   }
@@ -305,14 +305,14 @@ Use the `rounded-full` utility to create pill buttons:
 
 ```html
 <!-- [!code classes:rounded-full] -->
-<button class="rounded-full ...">Save Changes</button>
+<button class="rounded-full ...">Guardar cambios</button>
 ```
 
 </Figure>
 
-### Removing the border radius
+### Eliminar el radio de borde
 
-Use the `rounded-none` utility to remove an existing border radius from an element:
+Utiliza la utilidad `rounded-none` para eliminar un radio de borde existente de un elemento:
 
 <Figure>
 
@@ -321,7 +321,7 @@ Use the `rounded-none` utility to remove an existing border radius from an eleme
     <div className="flex justify-center gap-4 text-center text-sm leading-6 font-bold text-white">
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">rounded-none</p>
-        <button className="rounded-none bg-sky-500 px-4 py-2 text-sm font-semibold text-white">Save Changes</button>
+        <button className="rounded-none bg-sky-500 px-4 py-2 text-sm font-semibold text-white">Guardar cambios</button>
       </div>
     </div>
   }
@@ -329,19 +329,19 @@ Use the `rounded-none` utility to remove an existing border radius from an eleme
 
 ```html
 <!-- [!code classes:rounded-none] -->
-<button class="rounded-none ...">Save Changes</button>
+<button class="rounded-none ...">Guardar cambios</button>
 ```
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="rounded" name="border radius" value="2vw" variable="radius" />
+<UsingACustomValue utility="rounded" name="radio de borde" value="2vw" variable="radius" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="border-radius" defaultClass="rounded" featuredClass="rounded-lg" />
 
-## Customizing your theme
+## Personalizar el tema
 
-<CustomizingYourTheme utility="rounded" themeKey="radius" name="border radius" customName="5xl" customValue="3rem" />
+<CustomizingYourTheme utility="rounded" themeKey="radius" name="radio de borde" customName="5xl" customValue="3rem" />

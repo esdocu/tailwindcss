@@ -52,7 +52,7 @@ export default function ThemeToggle() {
       onChange={(value) => onChange(value, setTheme)}
       className="relative z-0 inline-grid grid-cols-3 gap-0.5 rounded-full bg-gray-950/5 p-0.75 text-gray-950 dark:bg-white/10 dark:text-white"
     >
-      <ThemeToggleButton aria-label="System theme" value="system">
+      <ThemeToggleButton aria-label="Tema del sistema" value="system">
         <svg viewBox="0 0 28 28" fill="none">
           <path
             d="M7.5 8.5C7.5 7.94772 7.94772 7.5 8.5 7.5H19.5C20.0523 7.5 20.5 7.94772 20.5 8.5V16.5C20.5 17.0523 20.0523 17.5 19.5 17.5H8.5C7.94772 17.5 7.5 17.0523 7.5 16.5V8.5Z"
@@ -70,7 +70,7 @@ export default function ThemeToggle() {
         </svg>
       </ThemeToggleButton>
 
-      <ThemeToggleButton aria-label="Light theme" value="light">
+      <ThemeToggleButton aria-label="Tema claro" value="light">
         <svg viewBox="0 0 28 28" fill="none">
           <circle cx="14" cy="14" r="3.5" stroke="currentColor" />
           <path d="M14 8.5V6.5" stroke="currentColor" strokeLinecap="round" />
@@ -84,7 +84,7 @@ export default function ThemeToggle() {
         </svg>
       </ThemeToggleButton>
 
-      <ThemeToggleButton aria-label="Dark theme" value="dark">
+      <ThemeToggleButton aria-label="Tema oscuro" value="dark">
         <svg viewBox="0 0 28 28" fill="none">
           <path
             d="M10.5 9.99914C10.5 14.1413 13.8579 17.4991 18 17.4991C19.0332 17.4991 20.0176 17.2902 20.9132 16.9123C19.7761 19.6075 17.109 21.4991 14 21.4991C9.85786 21.4991 6.5 18.1413 6.5 13.9991C6.5 10.8902 8.39167 8.22304 11.0868 7.08594C10.7089 7.98159 10.5 8.96597 10.5 9.99914Z"

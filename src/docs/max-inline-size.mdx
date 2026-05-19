@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "max-inline-size";
-export const description = "Utilities for setting the maximum inline size of an element.";
+export const description = "Utilidades para establecer el tamaño en línea máximo de un elemento.";
 
 <ApiTable
   rows={[
@@ -42,13 +42,13 @@ export const description = "Utilities for setting the maximum inline size of an 
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use `max-inline-<number>` utilities like `max-inline-24` and `max-inline-64` to set an element to a fixed maximum inline size based on the spacing scale:
+Utiliza utilidades `max-inline-<number>` como `max-inline-24` y `max-inline-64` para establecer un tamaño en línea máximo fijo para un elemento según la escala de espaciado:
 
-<Figure hint="Resize the example to see the expected behavior">
+<Figure hint="Cambia el tamaño del ejemplo para ver el comportamiento esperado">
 
 <Example resizable>
   {
@@ -93,11 +93,11 @@ Use `max-inline-<number>` utilities like `max-inline-24` and `max-inline-64` to 
 
 </Figure>
 
-### Using a percentage
+### Usar un porcentaje
 
-Use `max-inline-full` or `max-inline-<fraction>` utilities like `max-inline-1/2` and `max-inline-2/5` to give an element a percentage-based maximum inline size:
+Utiliza las utilidades `max-inline-full` o `max-inline-<fraction>` como `max-inline-1/2` y `max-inline-2/5` para dar a un elemento un tamaño en línea máximo basado en porcentaje:
 
-<Figure hint="Resize the example to see the expected behavior">
+<Figure hint="Cambia el tamaño del ejemplo para ver el comportamiento esperado">
 
 <Example resizable>
   {
@@ -140,11 +140,11 @@ Use `max-inline-full` or `max-inline-<fraction>` utilities like `max-inline-1/2`
 
 </Figure>
 
-### Using the container scale
+### Usar la escala de contenedores
 
-Use utilities like `max-inline-sm` and `max-inline-xl` to set an element to a fixed maximum inline size based on the container scale:
+Utiliza utilidades como `max-inline-sm` y `max-inline-xl` para establecer un tamaño en línea máximo fijo para un elemento según la escala de contenedores:
 
-<Figure hint="Resize the example to see the expected behavior">
+<Figure hint="Cambia el tamaño del ejemplo para ver el comportamiento esperado">
 
 <Example resizable>
   {
@@ -156,7 +156,7 @@ Use utilities like `max-inline-sm` and `max-inline-xl` to set an element to a fi
       <div className="min-w-0 py-5 pr-5 pl-28">
         <div className="truncate text-sm font-medium text-gray-900 sm:text-base dark:text-gray-200">Andrew Alfred</div>
         <div className="truncate text-sm leading-tight text-gray-500 sm:text-base dark:text-gray-400">
-          Assistant to the Traveling Secretary
+          Asistente del Secretario de Viajes
         </div>
       </div>
     </div>
@@ -172,14 +172,14 @@ Use utilities like `max-inline-sm` and `max-inline-xl` to set an element to a fi
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="max-inline" value="220px" name="maximum inline size" variable="max-inline-size" />
+<UsingACustomValue utility="max-inline" value="220px" name="tamaño en línea máximo" variable="max-inline-size" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="max-inline-size" defaultClass="max-inline-sm" featuredClass="max-inline-lg" />
 
-## Customizing your theme
+## Personalizar tu tema
 
 <CustomizingYourSpacingScale utility="max-inline" />

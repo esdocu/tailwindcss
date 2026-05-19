@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import { Stripes } from "@/components/stripes.tsx";
 
 export const title = "scroll-padding";
-export const description = "Utilities for controlling an element's scroll offset within a snap container.";
+export const description = "Utilidades para controlar el desplazamiento de scroll de un elemento dentro de un contenedor snap.";
 
 <ApiTable
   rows={[
@@ -28,13 +28,13 @@ export const description = "Utilities for controlling an element's scroll offset
   ])}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use the `scroll-pt-<number>`, `scroll-pr-<number>`, `scroll-pb-<number>`, and `scroll-pl-<number>` utilities like `scroll-pl-4` and `scroll-pt-6` to set the scroll offset of an element within a snap container:
+Utiliza utilidades `scroll-pt-<number>`, `scroll-pr-<number>`, `scroll-pb-<number>` y `scroll-pl-<number>` como `scroll-pl-4` y `scroll-pt-6` para establecer el desplazamiento de scroll de un elemento dentro de un contenedor snap:
 
-<Figure hint="Scroll in the grid of images to see the expected behavior">
+<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
 
 <Example padding={false}>
   {
@@ -99,16 +99,16 @@ Use the `scroll-pt-<number>`, `scroll-pr-<number>`, `scroll-pb-<number>`, and `s
 
 </Figure>
 
-### Using logical properties
+### Uso de propiedades lógicas
 
-Use the `scroll-ps-<number>` and `scroll-pe-<number>` utilities to set the `scroll-padding-inline-start` and `scroll-padding-inline-end` logical properties, which map to either the left or right side based on the text direction:
+Utiliza las utilidades `scroll-ps-<number>` y `scroll-pe-<number>` para establecer las propiedades lógicas `scroll-padding-inline-start` y `scroll-padding-inline-end`, que se mapean al lado izquierdo o derecho según la dirección del texto:
 
-<Figure hint="Scroll in the grid of images to see the expected behavior">
+<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
 
 <Example padding={false}>
   {
     <>
-      <p className="mb-4 pt-8 pl-6 text-sm font-medium">Left-to-right</p>
+      <p className="mb-4 pt-8 pl-6 text-sm font-medium">De izquierda a derecha</p>
       <div className="relative" dir="ltr">
         <Stripes border className="absolute start-0 top-0 bottom-10 w-6" />
         <div className="flex w-full snap-x scroll-ps-6 gap-8 overflow-x-auto pb-10">
@@ -144,7 +144,7 @@ Use the `scroll-ps-<number>` and `scroll-pe-<number>` utilities to set the `scro
           </div>
         </div>
       </div>
-      <p className="mt-4 mb-4 pl-6 text-sm font-medium">Right-to-left</p>
+      <p className="mt-4 mb-4 pl-6 text-sm font-medium">De derecha a izquierda</p>
       <div className="relative" dir="rtl">
         <Stripes border className="absolute start-0 top-0 bottom-10 w-6" />
         <div className="flex w-full snap-x scroll-ps-6 gap-8 overflow-x-auto pb-10">
@@ -203,7 +203,7 @@ Use the `scroll-ps-<number>` and `scroll-pe-<number>` utilities to set the `scro
 
 </Figure>
 
-Use the `scroll-pbs-<number>` and `scroll-pbe-<number>` utilities to set the `scroll-padding-block-start` and `scroll-padding-block-end` logical properties, which map to either the top or bottom side based on the writing mode:
+Utiliza las utilidades `scroll-pbs-<number>` y `scroll-pbe-<number>` para establecer las propiedades lógicas `scroll-padding-block-start` y `scroll-padding-block-end`, que se mapean al lado superior o inferior según el modo de escritura:
 
 ```html
 <!-- [!code classes:scroll-pbs-6] -->
@@ -212,9 +212,9 @@ Use the `scroll-pbs-<number>` and `scroll-pbe-<number>` utilities to set the `sc
 </div>
 ```
 
-### Using negative values
+### Uso de valores negativos
 
-To use a negative scroll padding value, prefix the class name with a dash to convert it to a negative value:
+Para usar un valor de scroll padding negativo, antepón un guion al nombre de la clase para convertirlo en un valor negativo:
 
 ```html
 <!-- [!code classes:-scroll-ps-6] -->
@@ -223,7 +223,7 @@ To use a negative scroll padding value, prefix the class name with a dash to con
 </div>
 ```
 
-### Using a custom value
+### Uso de un valor personalizado
 
 <UsingACustomValue
   utilities={["scroll-pl", "scroll-pe"]}
@@ -232,11 +232,11 @@ To use a negative scroll padding value, prefix the class name with a dash to con
   variable="scroll-padding"
 />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="scroll-padding" defaultClass="scroll-p-8" featuredClass="scroll-p-0" />
 
-## Customizing your theme
+## Personalizar el tema
 
 <CustomizingYourSpacingScale
   utilities={[

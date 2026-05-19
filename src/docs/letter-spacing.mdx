@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "letter-spacing";
-export const description = "Utilities for controlling the tracking, or letter spacing, of an element.";
+export const description = "Utilidades para controlar el tracking (espaciado entre letras) de un elemento.";
 
 <ApiTable
   rows={[
@@ -19,11 +19,11 @@ export const description = "Utilities for controlling the tracking, or letter sp
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `tracking-tight` and `tracking-wide` to set the letter spacing of an element:
+Utiliza utilidades como `tracking-tight` y `tracking-wide` para establecer el espaciado entre letras de un elemento:
 
 <Figure>
 
@@ -33,19 +33,19 @@ Use utilities like `tracking-tight` and `tracking-wide` to set the letter spacin
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">tracking-tight</span>
         <p className="text-lg font-medium tracking-tight text-gray-900 dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
+          El veloz zorro marrón salta sobre el perro perezoso.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">tracking-normal</span>
         <p className="text-lg font-medium tracking-normal text-gray-900 dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
+          El veloz zorro marrón salta sobre el perro perezoso.
         </p>
       </div>
       <div>
         <span className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">tracking-wide</span>
         <p className="text-lg font-medium tracking-wide text-gray-900 dark:text-gray-200">
-          The quick brown fox jumps over the lazy dog.
+          El veloz zorro marrón salta sobre el perro perezoso.
         </p>
       </div>
     </div>
@@ -54,16 +54,16 @@ Use utilities like `tracking-tight` and `tracking-wide` to set the letter spacin
 
 ```html
 <!-- [!code classes:tracking-tight,tracking-normal,tracking-wide] -->
-<p class="tracking-tight ...">The quick brown fox ...</p>
-<p class="tracking-normal ...">The quick brown fox ...</p>
-<p class="tracking-wide ...">The quick brown fox ...</p>
+<p class="tracking-tight ...">El veloz zorro marrón salta ...</p>
+<p class="tracking-normal ...">El veloz zorro marrón salta ...</p>
+<p class="tracking-wide ...">El veloz zorro marrón salta ...</p>
 ```
 
 </Figure>
 
-### Using negative values
+### Usar valores negativos
 
-Using negative values doesn't make a ton of sense with the named letter spacing scale Tailwind includes out of the box, but if you've customized your scale to use numbers it can be useful:
+El uso de valores negativos no tiene mucho sentido con la escala con nombre para el espaciado entre letras que Tailwind incluye por defecto, pero si has personalizado tu escala para usar números puede ser útil:
 
 ```css
 @theme {
@@ -74,27 +74,27 @@ Using negative values doesn't make a ton of sense with the named letter spacing 
 }
 ```
 
-To use a negative letter spacing value, prefix the class name with a dash to convert it to a negative value:
+Para usar un valor de espaciado entre letras negativo, antepón un guion al nombre de la clase para convertirlo en un valor negativo:
 
 ```html
 <!-- [!code classes:-tracking-2] -->
-<p class="-tracking-2">The quick brown fox ...</p>
+<p class="-tracking-2">El veloz zorro marrón salta ...</p>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue element="p" utility="tracking" name="letter spacing" value=".25em" />
+<UsingACustomValue element="p" utility="tracking" name="el espaciado entre letras" value=".25em" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign element="p" property="letter-spacing" defaultClass="tracking-tight" featuredClass="tracking-wide" />
 
-## Customizing your theme
+## Personalizar tu tema
 
 <CustomizingYourTheme
   element="p"
   utility="tracking"
-  name="letter spacing"
+  name="el espaciado entre letras"
   customValue="-0.075em"
   customName="tightest"
 />

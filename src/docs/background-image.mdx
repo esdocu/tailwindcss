@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "background-image";
-export const description = "Utilities for controlling an element's background image.";
+export const description = "Utilidades para controlar la imagen de fondo de un elemento.";
 
 <svg className="hidden">
   <symbol id="gradient-color-stop" viewBox="0 0 32 34">
@@ -63,11 +63,11 @@ export const description = "Utilities for controlling an element's background im
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use the `bg-[<value>]` syntax to set the background image of an element:
+Utiliza la sintaxis `bg-[<value>]` para establecer la imagen de fondo de un elemento:
 
 <Figure>
 
@@ -86,9 +86,9 @@ Use the `bg-[<value>]` syntax to set the background image of an element:
 
 </Figure>
 
-### Adding a linear gradient
+### Añadir un gradiente lineal
 
-Use utilities like `bg-linear-to-r` and `bg-linear-<angle>` with the [color stop utilities](#setting-gradient-color-stops) to add a linear gradient to an element:
+Utiliza utilidades como `bg-linear-to-r` y `bg-linear-<angle>` con las [utilidades de paradas de color](#configurar-las-paradas-de-color-del-gradiente) para añadir un gradiente lineal a un elemento:
 
 <Figure>
 
@@ -113,9 +113,9 @@ Use utilities like `bg-linear-to-r` and `bg-linear-<angle>` with the [color stop
 
 </Figure>
 
-### Adding a radial gradient
+### Añadir un gradiente radial
 
-Use the `bg-radial` and `bg-radial-[<position>]` utilities with the [color stop utilities](#setting-gradient-color-stops) to add a radial gradient to an element:
+Utiliza las utilidades `bg-radial` y `bg-radial-[<position>]` con las [utilidades de paradas de color](#configurar-las-paradas-de-color-del-gradiente) para añadir un gradiente radial a un elemento:
 
 <Figure>
 
@@ -138,9 +138,9 @@ Use the `bg-radial` and `bg-radial-[<position>]` utilities with the [color stop 
 
 </Figure>
 
-### Adding a conic gradient
+### Añadir un gradiente cónico
 
-Use the `bg-conic` and `bg-conic-<angle>` utilities with the [color stop utilities](#setting-gradient-color-stops) to add a conic gradient to an element:
+Utiliza las utilidades `bg-conic` y `bg-conic-<angle>` con las [utilidades de paradas de color](#configurar-las-paradas-de-color-del-gradiente) para añadir un gradiente cónico a un elemento:
 
 <Figure>
 
@@ -163,9 +163,9 @@ Use the `bg-conic` and `bg-conic-<angle>` utilities with the [color stop utiliti
 
 </Figure>
 
-### Setting gradient color stops
+### Configurar las paradas de color del gradiente
 
-Use utilities like `from-indigo-500`, `via-purple-500`, and `to-pink-500` to set the colors of the gradient stops:
+Utiliza utilidades como `from-indigo-500`, `via-purple-500` y `to-pink-500` para configurar los colores de las paradas de gradiente:
 
 <Figure>
 
@@ -204,9 +204,9 @@ Use utilities like `from-indigo-500`, `via-purple-500`, and `to-pink-500` to set
 
 </Figure>
 
-### Setting gradient stop positions
+### Configurar las posiciones de parada del gradiente
 
-Use utilities like `from-10%`, `via-30%`, and `to-90%` to set more precise positions for the gradient color stops:
+Utiliza utilidades como `from-10%`, `via-30%` y `to-90%` para establecer posiciones más precisas para las paradas de color del gradiente:
 
 <Figure>
 
@@ -254,9 +254,9 @@ Use utilities like `from-10%`, `via-30%`, and `to-90%` to set more precise posit
 
 </Figure>
 
-### Changing interpolation mode
+### Cambiar el modo de interpolación
 
-Use the interpolation modifier to control the interpolation mode of a gradient:
+Utiliza el modificador de interpolación para controlar el modo de interpolación de un gradiente:
 
 <Figure>
 
@@ -320,30 +320,30 @@ Use the interpolation modifier to control the interpolation mode of a gradient:
 
 </Figure>
 
-By default gradients are interpolated in the `oklab` color space.
+Por defecto, los gradientes se interpolan en el espacio de color `oklab`.
 
-### Removing background images
+### Eliminar imágenes de fondo
 
-Use the `bg-none` utility to remove an existing background image from an element:
+Utiliza la utilidad `bg-none` para eliminar una imagen de fondo existente de un elemento:
 
 ```html
 <!-- [!code classes:bg-none] -->
 <div class="bg-none"></div>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue
   utilities={["bg-linear", "from"]}
-  name="gradient"
+  name="gradiente"
   value="25deg,red_5%,yellow_60%,lime_90%,teal"
   variable="gradient"
 />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="background-image" defaultClass="from-purple-400" featuredClass="from-yellow-500" />
 
-## Customizing your theme
+## Personalizar el tema
 
 <CustomizingYourThemeColors utilities={["from", "via", "to"]} />

@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "list-style-position";
-export const description = "Utilities for controlling the position of bullets and numbers in lists.";
+export const description = "Utilidades para controlar la posición de las viñetas y números en las listas.";
 
 <ApiTable
   rows={[
@@ -13,11 +13,11 @@ export const description = "Utilities for controlling the position of bullets an
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `list-inside` and `list-outside` to control the position of the markers and text indentation in a list:
+Utiliza utilidades como `list-inside` y `list-outside` para controlar la posición de los marcadores y la sangría del texto en una lista:
 
 <Figure>
 
@@ -28,18 +28,18 @@ Use utilities like `list-inside` and `list-outside` to control the position of t
         <div className="absolute -top-8 -bottom-8 left-8 w-px bg-pink-400/40 dark:bg-pink-400/30"></div>
         <p className="mb-3 ml-8 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">list-inside</p>
         <ul className="list-inside list-disc rounded-xl p-4 pl-8 text-gray-900 dark:text-gray-200">
-          <li>5 cups chopped Porcini mushrooms</li>
-          <li>1/2 cup of olive oil</li>
-          <li>3lb of celery</li>
+          <li>5 tazas de champiñones Porcini picados</li>
+          <li>1/2 taza de aceite de oliva</li>
+          <li>3 libras de apio</li>
         </ul>
       </div>
       <div className="relative">
         <div className="absolute -top-0 -bottom-8 left-8 w-px bg-pink-400/40 sm:-top-8 dark:bg-pink-400/30"></div>
         <p className="mb-3 ml-8 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">list-outside</p>
         <ul className="list-outside list-disc rounded-xl p-4 pl-8 text-gray-900 dark:text-gray-200">
-          <li>5 cups chopped Porcini mushrooms</li>
-          <li>1/2 cup of olive oil</li>
-          <li>3lb of celery</li>
+          <li>5 tazas de champiñones Porcini picados</li>
+          <li>1/2 taza de aceite de oliva</li>
+          <li>3 libras de apio</li>
         </ul>
       </div>
     </div>
@@ -49,19 +49,19 @@ Use utilities like `list-inside` and `list-outside` to control the position of t
 ```html
 <!-- [!code classes:list-inside] -->
 <ul class="list-inside">
-  <li>5 cups chopped Porcini mushrooms</li>
+  <li>5 tazas de champiñones Porcini picados</li>
   <!-- ... -->
 </ul>
 
 <!-- [!code classes:list-outside] -->
 <ul class="list-outside">
-  <li>5 cups chopped Porcini mushrooms</li>
+  <li>5 tazas de champiñones Porcini picados</li>
   <!-- ... -->
 </ul>
 ```
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign element="ul" property="list-style-position" defaultClass="list-outside" featuredClass="list-inside" />

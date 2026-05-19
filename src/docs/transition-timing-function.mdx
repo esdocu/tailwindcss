@@ -4,7 +4,7 @@ import { Example } from "@/components/example.tsx";
 import { Figure } from "@/components/figure.tsx";
 
 export const title = "transition-timing-function";
-export const description = "Utilities for controlling the easing of CSS transitions.";
+export const description = "Utilidades para controlar la curva de aceleración de las transiciones CSS.";
 
 <ApiTable
   rows={[
@@ -18,13 +18,13 @@ export const description = "Utilities for controlling the easing of CSS transiti
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `ease-in` and `ease-out` to control the easing curve of an element's transition:
+Usa utilidades como `ease-in` y `ease-out` para controlar la curva de aceleración de la transición de un elemento:
 
-<Figure hint="Hover each button to see the expected behavior">
+<Figure hint="Pasa el cursor sobre cada botón para ver el comportamiento esperado">
 
 <Example>
   {
@@ -32,19 +32,19 @@ Use utilities like `ease-in` and `ease-out` to control the easing curve of an el
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">ease-in</p>
         <button className="rounded-md bg-sky-500 px-4 py-2 text-sm font-semibold text-white duration-300 ease-in hover:scale-125">
-          Button A
+          Botón A
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">ease-out</p>
         <button className="rounded-md bg-sky-500 px-4 py-2 text-sm font-semibold text-white duration-300 ease-out hover:scale-125">
-          Button B
+          Botón B
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
         <p className="mb-3 text-center font-mono text-xs font-medium text-gray-500 dark:text-gray-400">ease-in-out</p>
         <button className="rounded-md bg-sky-500 px-4 py-2 text-sm font-semibold text-white duration-300 ease-in-out hover:scale-125">
-          Button C
+          Botón C
         </button>
       </div>
     </div>
@@ -53,14 +53,14 @@ Use utilities like `ease-in` and `ease-out` to control the easing curve of an el
 
 ```html
 <!-- [!code classes:ease-in,ease-out,ease-in-out] -->
-<button class="duration-300 ease-in ...">Button A</button>
-<button class="duration-300 ease-out ...">Button B</button>
-<button class="duration-300 ease-in-out ...">Button C</button>
+<button class="duration-300 ease-in ...">Botón A</button>
+<button class="duration-300 ease-out ...">Botón B</button>
+<button class="duration-300 ease-in-out ...">Botón C</button>
 ```
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
 <UsingACustomValue
   element="button"
@@ -69,7 +69,7 @@ Use utilities like `ease-in` and `ease-out` to control the easing curve of an el
   name="transition timing function"
 />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign
   element="button"
@@ -78,7 +78,7 @@ Use utilities like `ease-in` and `ease-out` to control the easing curve of an el
   featuredClass="ease-in"
 />
 
-## Customizing your theme
+## Personalizar el tema
 
 <CustomizingYourTheme
   element="button"

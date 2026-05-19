@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "hyphens";
-export const description = "Utilities for controlling how words should be hyphenated.";
+export const description = "Utilidades para controlar cómo se deben dividir las palabras con guiones.";
 
 <ApiTable
   rows={[
@@ -14,22 +14,22 @@ export const description = "Utilities for controlling how words should be hyphen
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Preventing hyphenation
+### Prevenir la división por guiones
 
-Use the `hyphens-none` utility to prevent words from being hyphenated even if the line break suggestion `&shy;` is used:
+Utiliza la utilidad `hyphens-none` para evitar que las palabras se dividan por guiones incluso si se utiliza la sugerencia de salto de línea `&shy;`:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-normal hyphens-none text-gray-900 dark:text-gray-200">
-      Officially recognized by the Duden dictionary as the longest word in German,{" "}
+      Reconocida oficialmente por el diccionario Duden como la palabra más larga en alemán,{" "}
       <span className="font-bold" lang="de">
         Kraftfahrzeug&shy;haftpflichtversicherung
       </span>{" "}
-      is a 36 letter word for motor vehicle liability insurance.
+      es una palabra de 36 letras para referirse al seguro de responsabilidad civil de vehículos motorizados.
     </p>
   }
 </Example>
@@ -39,26 +39,26 @@ Use the `hyphens-none` utility to prevent words from being hyphenated even if th
 <!-- [!code word:&shy;] -->
 <!-- prettier-ignore -->
 <p class="hyphens-none">
-  ... Kraftfahrzeug&shy;haftpflichtversicherung is a ...
+  ... Kraftfahrzeug&shy;haftpflichtversicherung es un ...
 </p>
 ```
 
 </Figure>
 
-### Manual hyphenation
+### División manual por guiones
 
-Use the `hyphens-manual` utility to only set hyphenation points where the line break suggestion `&shy;` is used:
+Utiliza la utilidad `hyphens-manual` para establecer puntos de división con guiones solo donde se utiliza la sugerencia de salto de línea `&shy;`:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-normal hyphens-manual text-gray-900 dark:text-gray-200">
-      Officially recognized by the Duden dictionary as the longest word in German,{" "}
+      Reconocida oficialmente por el diccionario Duden como la palabra más larga en alemán,{" "}
       <span className="font-bold" lang="de">
         Kraftfahrzeug&shy;haftpflichtversicherung
       </span>{" "}
-      is a 36 letter word for motor vehicle liability insurance.
+      es una palabra de 36 letras para referirse al seguro de responsabilidad civil de vehículos motorizados.
     </p>
   }
 </Example>
@@ -68,28 +68,28 @@ Use the `hyphens-manual` utility to only set hyphenation points where the line b
 <!-- [!code word:&shy;] -->
 <!-- prettier-ignore -->
 <p class="hyphens-manual">
-  ... Kraftfahrzeug&shy;haftpflichtversicherung is a ...
+  ... Kraftfahrzeug&shy;haftpflichtversicherung es un ...
 </p>
 ```
 
 </Figure>
 
-This is the default browser behavior.
+Este es el comportamiento por defecto del navegador.
 
-### Automatic hyphenation
+### División automática por guiones
 
-Use the `hyphens-auto` utility to allow the browser to automatically choose hyphenation points based on the language:
+Utiliza la utilidad `hyphens-auto` para permitir que el navegador elija automáticamente los puntos de división con guiones en función del idioma:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-normal hyphens-auto text-gray-900 dark:text-gray-200">
-      Officially recognized by the Duden dictionary as the longest word in German,{" "}
+      Reconocida oficialmente por el diccionario Duden como la palabra más larga en alemán,{" "}
       <span className="font-bold" lang="de">
         Kraftfahrzeughaftpflichtversicherung
       </span>{" "}
-      is a 36 letter word for motor vehicle liability insurance.
+      es una palabra de 36 letras para referirse al seguro de responsabilidad civil de vehículos motorizados.
     </p>
   }
 </Example>
@@ -99,13 +99,13 @@ Use the `hyphens-auto` utility to allow the browser to automatically choose hyph
 <!-- [!code word:lang="de"] -->
 <!-- prettier-ignore -->
 <p class="hyphens-auto" lang="de">
-  ... Kraftfahrzeughaftpflichtversicherung is a ...
+  ... Kraftfahrzeughaftpflichtversicherung es un ...
 </p>
 ```
 
 </Figure>
 
-The line break suggestion `&shy;` will be preferred over automatic hyphenation points.
+La sugerencia de salto de línea `&shy;` se preferirá sobre los puntos de división automática por guiones.
 
 ### Responsive design
 

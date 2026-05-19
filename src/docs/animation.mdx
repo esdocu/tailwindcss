@@ -5,7 +5,7 @@ import { Figure } from "@/components/figure.tsx";
 import dedent from "dedent";
 
 export const title = "animation";
-export const description = "Utilities for animating elements with CSS animations.";
+export const description = "Utilidades para animar elementos con animaciones CSS.";
 
 <ApiTable
   rows={[
@@ -70,11 +70,11 @@ export const description = "Utilities for animating elements with CSS animations
 ]}
 />
 
-## Examples
+## Ejemplos
 
-### Adding a spin animation
+### Añadir una animación de rotación
 
-Use the `animate-spin` utility to add a linear spin animation to elements like loading indicators:
+Utiliza la utilidad `animate-spin` para añadir una animación de rotación lineal a elementos como indicadores de carga:
 
 <Figure>
 
@@ -99,7 +99,7 @@ Use the `animate-spin` utility to add a linear spin animation to elements like l
             d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
           ></path>
         </svg>
-        Processing…
+        Procesando…
       </button>
     </div>
   }
@@ -111,15 +111,15 @@ Use the `animate-spin` utility to add a linear spin animation to elements like l
   <svg class="mr-3 size-5 animate-spin ..." viewBox="0 0 24 24">
     <!-- ... -->
   </svg>
-  Processing…
+  Procesando…
 </button>
 ```
 
 </Figure>
 
-### Adding a ping animation
+### Añadir una animación de ping
 
-Use the `animate-ping` utility to make an element scale and fade like a radar ping or ripple of water—useful for things like notification badges:
+Utiliza la utilidad `animate-ping` para hacer que un elemento se escale y se desvanezca como un pulso de radar o una onda de agua; útil para cosas como insignias de notificación:
 
 <Figure>
 
@@ -132,7 +132,7 @@ Use the `animate-ping` utility to make an element scale and fade like a radar pi
           className="inline-flex cursor-not-allowed items-center rounded-md bg-white px-4 py-2 text-sm leading-6 font-semibold text-sky-500 ring-1 ring-gray-900/10 transition duration-150 ease-in-out dark:bg-white/5 dark:ring-white/20"
           disabled
         >
-          Transactions
+          Transacciones
         </button>
         <span className="absolute top-0 right-0 -mt-1 -mr-1 flex size-3">
           <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
@@ -153,9 +153,9 @@ Use the `animate-ping` utility to make an element scale and fade like a radar pi
 
 </Figure>
 
-### Adding a pulse animation
+### Añadir una animación de pulsación
 
-Use the `animate-pulse` utility to make an element gently fade in and out—useful for things like skeleton loaders:
+Utiliza la utilidad `animate-pulse` para hacer que un elemento se desvanezca suavemente hacia adentro y hacia afuera; útil para cosas como cargadores de esqueleto:
 
 <Figure>
 
@@ -202,9 +202,9 @@ Use the `animate-pulse` utility to make an element gently fade in and out—usef
 
 </Figure>
 
-### Adding a bounce animation
+### Añadir una animación de rebote
 
-Use the `animate-bounce` utility to make an element bounce up and down—useful for things like "scroll down" indicators:
+Utiliza la utilidad `animate-bounce` para hacer que un elemento rebote hacia arriba y hacia abajo; útil para cosas como indicadores de "desplazarse hacia abajo":
 
 <Figure>
 
@@ -237,9 +237,9 @@ Use the `animate-bounce` utility to make an element bounce up and down—useful 
 
 </Figure>
 
-### Supporting reduced motion
+### Soportar movimiento reducido
 
-For situations where the user has specified that they prefer reduced motion, you can conditionally apply animations and transitions using the `motion-safe` and `motion-reduce` variants:
+Para situaciones en las que el usuario ha especificado que prefiere un movimiento reducido, puedes aplicar animaciones y transiciones condicionalmente utilizando las variantes `motion-safe` y `motion-reduce`:
 
 ```html
 <!-- [!code classes:motion-safe:animate-spin] -->
@@ -247,23 +247,23 @@ For situations where the user has specified that they prefer reduced motion, you
   <svg class="mr-3 size-5 motion-safe:animate-spin ..." viewBox="0 0 24 24">
     <!-- ... -->
   </svg>
-  Processing
+  Procesando
 </button>
 ```
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="animate" name="animation" value="wiggle_1s_ease-in-out_infinite" variable="animation" />
+<UsingACustomValue utility="animate" name="animación" value="wiggle_1s_ease-in-out_infinite" variable="animation" />
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="animation" defaultClass="animate-none" featuredClass="animate-spin" />
 
-## Customizing your theme
+## Personalizar el tema
 
 <CustomizingYourTheme
   utility="animate"
-  name="animation"
+  name="animación"
   customName="wiggle"
   customCSS={
     dedent`

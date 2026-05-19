@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "text-transform";
-export const description = "Utilities for controlling the capitalization of text.";
+export const description = "Utilidades para controlar las mayúsculas y minúsculas del texto.";
 
 <ApiTable
   rows={[
@@ -15,92 +15,92 @@ export const description = "Utilities for controlling the capitalization of text
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Uppercasing text
+### Texto en mayúsculas
 
-Use the `uppercase` utility to uppercase the text of an element:
+Usa la utilidad `uppercase` para convertir el texto de un elemento en mayúsculas:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 uppercase dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      El veloz zorro marrón salta sobre el perro perezoso.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:uppercase] -->
-<p class="uppercase">The quick brown fox ...</p>
+<p class="uppercase">El veloz zorro marrón ...</p>
 ```
 
 </Figure>
 
-### Lowercasing text
+### Texto en minúsculas
 
-Use the `lowercase` utility to lowercase the text of an element:
+Usa la utilidad `lowercase` para convertir el texto de un elemento en minúsculas:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 lowercase dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      El veloz zorro marrón salta sobre el perro perezoso.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:lowercase] -->
-<p class="lowercase">The quick brown fox ...</p>
+<p class="lowercase">El veloz zorro marrón ...</p>
 ```
 
 </Figure>
 
-### Capitalizing text
+### Capitalizar texto
 
-Use the `capitalize` utility to capitalize text of an element:
+Usa la utilidad `capitalize` para poner en mayúscula la primera letra de cada palabra en el texto de un elemento:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 capitalize dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      El veloz zorro marrón salta sobre el perro perezoso.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:capitalize] -->
-<p class="capitalize">The quick brown fox ...</p>
+<p class="capitalize">El veloz zorro marrón ...</p>
 ```
 
 </Figure>
 
-### Resetting text casing
+### Restablecer mayúsculas y minúsculas
 
-Use the `normal-case` utility to preserve the original text casing of an element—typically used to reset capitalization at different breakpoints:
+Usa la utilidad `normal-case` para conservar las mayúsculas y minúsculas originales del texto de un elemento, típicamente usada para restablecer la capitalización en diferentes breakpoints:
 
 <Figure>
 
 <Example>
   {
     <p className="text-center text-lg font-medium text-gray-900 normal-case dark:text-gray-200">
-      The quick brown fox jumps over the lazy dog.
+      El veloz zorro marrón salta sobre el perro perezoso.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:normal-case] -->
-<p class="normal-case">The quick brown fox ...</p>
+<p class="normal-case">El veloz zorro marrón ...</p>
 ```
 
 </Figure>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign element="p" property="text-transform" defaultClass="capitalize" featuredClass="uppercase" />

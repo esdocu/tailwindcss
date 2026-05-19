@@ -11,7 +11,7 @@ import colors from "./utils/colors";
 import dedent from "dedent";
 
 export const title = "border-color";
-export const description = "Utilities for controlling the color of an element's borders.";
+export const description = "Utilidades para controlar el color de los bordes de un elemento.";
 
 <ApiTable
   rows={[
@@ -42,11 +42,11 @@ export const description = "Utilities for controlling the color of an element's 
   ]}
 />
 
-## Examples
+## Ejemplos
 
-### Basic example
+### Ejemplo básico
 
-Use utilities like `border-rose-500` and `border-lime-100` to control the border color of an element:
+Utiliza utilidades como `border-rose-500` y `border-lime-100` para controlar el color del borde de un elemento:
 
 <Figure>
 
@@ -84,9 +84,9 @@ Use utilities like `border-rose-500` and `border-lime-100` to control the border
 
 </Figure>
 
-### Changing the opacity
+### Cambiar la opacidad
 
-Use the color opacity modifier to control the opacity of an element's border color:
+Utiliza el modificador de opacidad de color para controlar la opacidad del color del borde de un elemento:
 
 <Figure>
 
@@ -126,9 +126,9 @@ Use the color opacity modifier to control the opacity of an element's border col
 
 </Figure>
 
-### Individual sides
+### Lados individuales
 
-Use utilities like `border-t-indigo-500` and `border-r-lime-100` to set the border color for one side of an element:
+Utiliza utilidades como `border-t-indigo-500` y `border-r-lime-100` para establecer el color del borde de un lado de un elemento:
 
 <Figure>
 
@@ -173,9 +173,9 @@ Use utilities like `border-t-indigo-500` and `border-r-lime-100` to set the bord
 
 </Figure>
 
-### Horizontal and vertical sides
+### Lados horizontales y verticales
 
-Use utilities like `border-x-indigo-500` and `border-y-lime-100` to set the border color on two sides of an element at the same time:
+Utiliza utilidades como `border-x-indigo-500` y `border-y-lime-100` para establecer el color del borde en dos lados de un elemento al mismo tiempo:
 
 <Figure>
 
@@ -206,9 +206,9 @@ Use utilities like `border-x-indigo-500` and `border-y-lime-100` to set the bord
 
 </Figure>
 
-### Using logical properties
+### Usar propiedades lógicas
 
-Use utilities like `border-s-indigo-500` and `border-e-lime-100` to set the `border-inline-start-color` and `border-inline-end-color` [logical properties](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), which map to either the left or right border based on the text direction:
+Utiliza utilidades como `border-s-indigo-500` y `border-e-lime-100` para establecer las propiedades lógicas `border-inline-start-color` y `border-inline-end-color` [propiedades lógicas](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts), que se asignan al borde izquierdo o derecho según la dirección del texto:
 
 <Figure>
 
@@ -216,11 +216,11 @@ Use utilities like `border-s-indigo-500` and `border-e-lime-100` to set the `bor
   {
     <div className="grid grid-cols-2 place-items-center gap-x-4">
       <div className="flex flex-col items-start gap-y-4" dir="ltr">
-        <p className="text-sm font-medium">Left-to-right</p>
+        <p className="text-sm font-medium">Izquierda a derecha</p>
         <div className="size-16 border-4 border-indigo-200 border-s-indigo-500 bg-white p-4 ring-1 ring-gray-900/5 dark:border-indigo-600/20 dark:border-s-indigo-500 dark:bg-gray-900"></div>
       </div>
       <div className="flex flex-col items-start gap-y-4" dir="rtl">
-        <p className="text-sm font-medium">Right-to-left</p>
+        <p className="text-sm font-medium">Derecha a izquierda</p>
         <div className="size-16 border-4 border-indigo-200 border-s-indigo-500 bg-white p-4 ring-1 ring-gray-900/5 dark:border-indigo-600/20 dark:border-s-indigo-500 dark:bg-gray-900"></div>
       </div>
     </div>
@@ -241,16 +241,16 @@ Use utilities like `border-s-indigo-500` and `border-e-lime-100` to set the `bor
 
 </Figure>
 
-Use the `border-bs-*` and `border-be-*` utilities to set the `border-block-start-color` and `border-block-end-color` logical properties, which map to either the top or bottom border based on the writing mode:
+Utiliza las utilidades `border-bs-*` y `border-be-*` para establecer las propiedades lógicas `border-block-start-color` y `border-block-end-color`, que se asignan al borde superior o inferior según el modo de escritura:
 
 ```html
 <!-- [!code classes:border-bs-indigo-500] -->
 <div class="border-bs-indigo-500 ..."></div>
 ```
 
-### Divider between children
+### Divisor entre elementos hijos
 
-Use utilities like `divide-indigo-500` and `divide-lime-100` to control the border color between child elements:
+Utiliza utilidades como `divide-indigo-500` y `divide-lime-100` para controlar el color del borde entre los elementos hijos:
 
 <Figure>
 
@@ -275,11 +275,11 @@ Use utilities like `divide-indigo-500` and `divide-lime-100` to control the bord
 
 </Figure>
 
-### Using a custom value
+### Usar un valor personalizado
 
-<UsingACustomValue utility="border" name="border color" value="#243c5a" />
+<UsingACustomValue utility="border" name="color del borde" value="#243c5a" />
 
-### Applying on focus
+### Aplicar en focus
 
 <TargetingSpecificStates property="border-color" variant="focus">
 
@@ -288,7 +288,7 @@ Use utilities like `divide-indigo-500` and `divide-lime-100` to control the bord
 <Example>
   {
     <label className="mx-auto block max-w-xs">
-      <span className="text-sm font-medium text-gray-900 dark:text-gray-200">Email address</span>
+      <span className="text-sm font-medium text-gray-900 dark:text-gray-200">Dirección de correo electrónico</span>
       <input
         type="text"
         placeholder="jane@example.com"
@@ -307,10 +307,10 @@ Use utilities like `divide-indigo-500` and `divide-lime-100` to control the bord
 
 </TargetingSpecificStates>
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign property="border-color" defaultClass="border-blue-500" featuredClass="border-green-500" />
 
-## Customizing your theme
+## Personalizar el tema
 
 <CustomizingYourThemeColors utility="border" />

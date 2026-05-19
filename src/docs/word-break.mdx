@@ -4,7 +4,7 @@ import { Figure } from "@/components/figure.tsx";
 import { ResponsiveDesign } from "@/components/content.tsx";
 
 export const title = "word-break";
-export const description = "Utilities for controlling word breaks in an element.";
+export const description = "Utilidades para controlar los saltos de línea de las palabras en un elemento.";
 
 <ApiTable
   rows={[
@@ -14,59 +14,59 @@ export const description = "Utilities for controlling word breaks in an element.
   ]}
 />
 
-## Examples
+## Ejemplos
 
 ### Normal
 
-Use the `break-normal` utility to only add line breaks at normal word break points:
+Usa la utilidad `break-normal` para añadir saltos de línea solo en los puntos normales de separación de palabras:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-normal text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      La palabra más larga en cualquiera de los principales diccionarios de la lengua inglesa es{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> una palabra que se refiere a una enfermedad pulmonar
+      contraída por la inhalación de partículas de sílice muy finas, específicamente de un volcán; médicamente,
+      es lo mismo que la silicosis.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:break-normal] -->
-<p class="break-normal">The longest word in any of the major...</p>
+<p class="break-normal">La palabra más larga en cualquiera de los principales...</p>
 ```
 
 </Figure>
 
-### Break All
+### Romper todo
 
-Use the `break-all` utility to add line breaks whenever necessary, without trying to preserve whole words:
+Usa la utilidad `break-all` para añadir saltos de línea siempre que sea necesario, sin intentar preservar palabras completas:
 
 <Figure>
 
 <Example padding={false}>
   {
     <p className="mx-auto max-w-xs border-x border-x-pink-400/30 py-8 break-all text-gray-900 dark:text-gray-200">
-      The longest word in any of the major English language dictionaries is{" "}
-      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> a word that refers to a lung
-      disease contracted from the inhalation of very fine silica particles, specifically from a volcano; medically, it
-      is the same as silicosis.
+      La palabra más larga en cualquiera de los principales diccionarios de la lengua inglesa es{" "}
+      <span className="font-bold">pneumonoultramicroscopicsilicovolcanoconiosis,</span> una palabra que se refiere a una enfermedad pulmonar
+      contraída por la inhalación de partículas de sílice muy finas, específicamente de un volcán; médicamente,
+      es lo mismo que la silicosis.
     </p>
   }
 </Example>
 
 ```html
 <!-- [!code classes:break-all] -->
-<p class="break-all">The longest word in any of the major...</p>
+<p class="break-all">La palabra más larga en cualquiera de los principales...</p>
 ```
 
 </Figure>
 
-### Break Keep
+### break-keep
 
-Use the `break-keep` utility to prevent line breaks from being applied to Chinese/Japanese/Korean (CJK) text:
+Usa la utilidad `break-keep` para evitar que se apliquen saltos de línea al texto en chino, japonés y coreano (CJK):
 
 <Figure>
 
@@ -87,8 +87,8 @@ Use the `break-keep` utility to prevent line breaks from being applied to Chines
 
 </Figure>
 
-For non-CJK text the `break-keep` utility has the same behavior as the `break-normal` utility.
+Para texto que no es CJK, la utilidad `break-keep` tiene el mismo comportamiento que la utilidad `break-normal`.
 
-### Responsive design
+### Diseño responsivo
 
 <ResponsiveDesign element="p" property="word-break" defaultClass="break-normal" featuredClass="break-all" />

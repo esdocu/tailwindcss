@@ -136,7 +136,7 @@ export function SearchProvider({ children }: React.PropsWithChildren) {
                   "product_category",
                 ],
               }}
-              placeholder="Search documentation"
+              placeholder="Buscar documentación"
               onClose={onClose}
               indexName={INDEX_NAME}
               apiKey={API_KEY}

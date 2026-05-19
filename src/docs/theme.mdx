@@ -4,20 +4,20 @@ import { Iframe } from "@/components/iframe";
 import { Example } from "@/components/example";
 import { Figure } from "@/components/figure";
 
-export const title = "Theme variables";
-export const description = "Using utility classes as an API for your design tokens.";
+export const title = "Variables de tema";
+export const description = "Uso de clases de utilidad como API para tus design tokens.";
 
-## Overview
+## Información general
 
-Tailwind is a framework for building custom designs, and different designs need different typography, colors, shadows, breakpoints, and more.
+Tailwind es un framework para crear diseños personalizados, y diferentes diseños necesitan diferentes tipografías, colores, sombras, breakpoints y más.
 
-These low-level design decisions are often called _design tokens_, and in Tailwind projects you store those values in _theme variables_.
+Estas decisiones de diseño de bajo nivel a menudo se denominan _design tokens_, y en los proyectos de Tailwind guardas esos valores en _variables de tema_.
 
-### What are theme variables?
+### ¿Qué son las variables de tema?
 
-Theme variables are special CSS variables defined using the `@theme` directive that influence which utility classes exist in your project.
+Las variables de tema son variables CSS especiales definidas mediante la directiva `@theme` que influyen en qué clases de utilidad existen en tu proyecto.
 
-For example, you can add a new color to your project by defining a theme variable like `--color-mint-500`:
+Por ejemplo, puedes añadir un nuevo color a tu proyecto definiendo una variable de tema como `--color-mint-500`:
 
 ```css
 /* [!code filename:app.css] */
@@ -29,7 +29,7 @@ For example, you can add a new color to your project by defining a theme variabl
 }
 ```
 
-Now you can use utility classes like `bg-mint-500`, `text-mint-500`, or `fill-mint-500` in your HTML:
+Ahora puedes usar clases de utilidad como `bg-mint-500`, `text-mint-500` o `fill-mint-500` en tu HTML:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -39,7 +39,7 @@ Now you can use utility classes like `bg-mint-500`, `text-mint-500`, or `fill-mi
 </div>
 ```
 
-Tailwind also generates regular CSS variables for your theme variables so you can reference your design tokens in arbitrary values or inline styles:
+Tailwind también genera variables CSS normales para tus variables de tema, por lo que puedes hacer referencia a tus design tokens en valores arbitrarios o estilos inline:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -49,21 +49,21 @@ Tailwind also generates regular CSS variables for your theme variables so you ca
 </div>
 ```
 
-Learn more about how theme variables map to different utility classes in the [theme variable namespaces](#theme-variable-namespaces) documentation.
+Obtén más información sobre cómo se asignan las variables de tema a diferentes clases de utilidad en la documentación de [namespaces de variables de tema](#namespaces-de-variables-de-tema).
 
-#### Why `@theme` instead of `:root`?
+#### ¿Por qué `@theme` en lugar de `:root`?
 
-Theme variables aren't _just_ CSS variables — they also instruct Tailwind to create new utility classes that you can use in your HTML.
+Las variables de tema no son _solo_ variables CSS; también le indican a Tailwind que cree nuevas clases de utilidad que puedes usar en tu HTML.
 
-Since they do more than regular CSS variables, Tailwind uses special syntax so that defining theme variables is always explicit. Theme variables are also required to be defined top-level and not nested under other selectors or media queries, and using a special syntax makes it possible to enforce that.
+Dado que hacen más que las variables CSS normales, Tailwind utiliza una sintaxis especial para que la definición de las variables de tema sea siempre explícita. Las variables de tema también deben definirse en el nivel superior y no anidarse bajo otros selectores o media queries, y el uso de una sintaxis especial permite hacer cumplir eso.
 
-Defining regular CSS variables with `:root` can still be useful in Tailwind projects when you want to define a variable that isn't meant to be connected to a utility class. Use `@theme` when you want a design token to map directly to a utility class, and use `:root` for defining regular CSS variables that shouldn't have corresponding utility classes.
+Definir variables CSS normales con `:root` todavía puede ser útil en proyectos de Tailwind cuando quieres definir una variable que no está destinada a conectarse con una clase de utilidad. Usa `@theme` cuando quieras que un design token se asigne directamente a una clase de utilidad, y usa `:root` para definir variables CSS normales que no deban tener clases de utilidad correspondientes.
 
-### Relationship to utility classes
+### Relación con las clases de utilidad
 
-Some utility classes in Tailwind like `flex` and `object-cover` are static, and are always the same from project to project. But many others are driven by theme variables, and only exist because of the theme variables you've defined.
+Algunas clases de utilidad en Tailwind como `flex` y `object-cover` son estáticas, y siempre son las mismas de un proyecto a otro. Pero muchas otras están impulsadas por variables de tema, y solo existen debido a las variables de tema que has definido.
 
-For example, theme variables defined in the `--font-*` namespace determine all of the `font-family` utilities that exist in a project:
+Por ejemplo, las variables de tema definidas en el namespace `--font-*` determinan todas las utilidades de `font-family` que existen en un proyecto:
 
 ```css
 /* [!code filename:./node_modules/tailwindcss/theme.css] */
@@ -78,9 +78,9 @@ For example, theme variables defined in the `--font-*` namespace determine all o
 }
 ```
 
-The `font-sans`, `font-serif`, and `font-mono` utilities only exist by default because Tailwind's default theme defines the `--font-sans`, `--font-serif`, and `--font-mono` theme variables.
+Las utilidades `font-sans`, `font-serif` y `font-mono` solo existen por defecto porque el tema predeterminado de Tailwind define las variables de tema `--font-sans`, `--font-serif` y `--font-mono`.
 
-If another theme variable like `--font-poppins` were defined, a `font-poppins` utility class would become available to go with it:
+Si se definiera otra variable de tema como `--font-poppins`, una clase de utilidad `font-poppins` estaría disponible para acompañarla:
 
 ```css
 /* [!code filename:app.css] */
@@ -95,14 +95,14 @@ If another theme variable like `--font-poppins` were defined, a `font-poppins` u
 ```html
 <!-- [!code filename:HTML] -->
 <!-- [!code word:font-poppins] -->
-<h1 class="font-poppins">This headline will use Poppins.</h1>
+<h1 class="font-poppins">Este titular utilizará Poppins.</h1>
 ```
 
-You can name your theme variables whatever you want within these namespaces, and a corresponding utility with the same name will become available to use in your HTML.
+Puedes nombrar tus variables de tema como quieras dentro de estos namespaces, y una utilidad correspondiente con el mismo nombre estará disponible para usar en tu HTML.
 
-#### Relationship to variants
+#### Relación con las variantes
 
-Some theme variables are used to define variants rather than utilities. For example theme variables in the `--breakpoint-*` namespace determine which responsive breakpoint variants exist in your project:
+Algunas variables de tema se utilizan para definir variantes en lugar de utilidades. Por ejemplo, las variables de tema en el namespace `--breakpoint-*` determinan qué variantes de breakpoint responsivas existen en tu proyecto:
 
 ```css
 /* [!code filename:app.css] */
@@ -114,7 +114,7 @@ Some theme variables are used to define variants rather than utilities. For exam
 }
 ```
 
-Now you can use the `3xl:*` variant to only trigger a utility when the viewport is 120rem or wider:
+Ahora puedes usar la variante `3xl:*` para activar una utilidad solo cuando el viewport sea de 120rem o más ancho:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -124,13 +124,13 @@ Now you can use the `3xl:*` variant to only trigger a utility when the viewport 
 </div>
 ```
 
-Learn more about how theme variables map to different utility classes and variants in the [theme variable namespaces](#theme-variable-namespaces) documentation.
+Obtén más información sobre cómo se asignan las variables de tema a diferentes clases de utilidad y variantes en la documentación de [namespaces de variables de tema](#namespaces-de-variables-de-tema).
 
-### Theme variable namespaces
+### Namespaces de variables de tema
 
-Theme variables are defined in _namespaces_ and each namespace corresponds to one or more utility class or variant APIs.
+Las variables de tema se definen en _namespaces_ y cada namespace corresponde a uno o más APIs de clase de utilidad o variante.
 
-Defining new theme variables in these namespaces will make new corresponding utilities and variants available in your project:
+Definir nuevas variables de tema en estos namespaces hará que nuevas utilidades y variantes correspondientes estén disponibles en tu proyecto:
 
 {
 
@@ -138,7 +138,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
   <thead>
     <tr>
       <th>Namespace</th>
-      <th>Utility classes</th>
+      <th>Clases de utilidad</th>
     </tr>
   </thead>
   <tbody>
@@ -147,7 +147,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--color-*</code>
       </td>
       <td>
-        Color utilities like <code>bg-red-500</code>, <code>text-sky-300</code>, and many more
+        Utilidades de color como <code>bg-red-500</code>, <code>text-sky-300</code> y muchas más
       </td>
     </tr>
     <tr>
@@ -155,7 +155,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--font-*</code>
       </td>
       <td>
-        Font family utilities like <code>font-sans</code>
+        Utilidades de familia tipográfica como <code>font-sans</code>
       </td>
     </tr>
     <tr>
@@ -163,7 +163,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--text-*</code>
       </td>
       <td>
-        Font size utilities like <code>text-xl</code>
+        Utilidades de tamaño de fuente como <code>text-xl</code>
       </td>
     </tr>
     <tr>
@@ -171,7 +171,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--font-weight-*</code>
       </td>
       <td>
-        Font weight utilities like <code>font-bold</code>
+        Utilidades de grosor de fuente como <code>font-bold</code>
       </td>
     </tr>
     <tr>
@@ -179,7 +179,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--tracking-*</code>
       </td>
       <td>
-        Letter spacing utilities like <code>tracking-wide</code>
+        Utilidades de espaciado de letras como <code>tracking-wide</code>
       </td>
     </tr>
     <tr>
@@ -187,7 +187,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--leading-*</code>
       </td>
       <td>
-        Line height utilities like <code>leading-tight</code>
+        Utilidades de altura de línea como <code>leading-tight</code>
       </td>
     </tr>
     <tr>
@@ -195,7 +195,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--tab-size-*</code>
       </td>
       <td>
-        Tab size utilities like <code>tab-github</code>
+        Utilidades de tamaño de tabulación como <code>tab-github</code>
       </td>
     </tr>
     <tr>
@@ -203,7 +203,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--breakpoint-*</code>
       </td>
       <td>
-        Responsive breakpoint variants like <code>sm:*</code>
+        Variantes de breakpoints responsivos como <code>sm:*</code>
       </td>
     </tr>
     <tr>
@@ -211,7 +211,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--container-*</code>
       </td>
       <td>
-        Container query variants like <code>@sm:*</code> and size utilities like <code>max-w-md</code>
+        Variantes de container queries como <code>@sm:*</code> y utilidades de tamaño como <code>max-w-md</code>
       </td>
     </tr>
     <tr>
@@ -219,7 +219,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--spacing-*</code>
       </td>
       <td>
-        Spacing and sizing utilities like <code>px-4</code>, <code>max-h-16</code>, and many more
+        Utilidades de espaciado y tamaño como <code>px-4</code>, <code>max-h-16</code> y muchas más
       </td>
     </tr>
     <tr>
@@ -227,7 +227,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--radius-*</code>
       </td>
       <td>
-        Border radius utilities like <code>rounded-sm</code>
+        Utilidades de radio de borde como <code>rounded-sm</code>
       </td>
     </tr>
     <tr>
@@ -235,7 +235,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--shadow-*</code>
       </td>
       <td>
-        Box shadow utilities like <code>shadow-md</code>
+        Utilidades de sombra de caja como <code>shadow-md</code>
       </td>
     </tr>
     <tr>
@@ -243,7 +243,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--inset-shadow-*</code>
       </td>
       <td>
-        Inset box shadow utilities like <code>inset-shadow-xs</code>
+        Utilidades de sombra de caja interior como <code>inset-shadow-xs</code>
       </td>
     </tr>
     <tr>
@@ -251,7 +251,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--drop-shadow-*</code>
       </td>
       <td>
-        Drop shadow filter utilities like <code>drop-shadow-md</code>
+        Utilidades de filtro de sombra paralela como <code>drop-shadow-md</code>
       </td>
     </tr>
     <tr>
@@ -259,7 +259,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--blur-*</code>
       </td>
       <td>
-        Blur filter utilities like <code>blur-md</code>
+        Utilidades de filtro de desenfoque como <code>blur-md</code>
       </td>
     </tr>
     <tr>
@@ -267,7 +267,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--perspective-*</code>
       </td>
       <td>
-        Perspective utilities like <code>perspective-near</code>
+        Utilidades de perspectiva como <code>perspective-near</code>
       </td>
     </tr>
     <tr>
@@ -275,7 +275,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--zoom-*</code>
       </td>
       <td>
-        Zoom utilities like <code>zoom-compact</code>
+        Utilidades de zoom como <code>zoom-compact</code>
       </td>
     </tr>
     <tr>
@@ -283,7 +283,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--aspect-*</code>
       </td>
       <td>
-        Aspect ratio utilities like <code>aspect-video</code>
+        Utilidades de relación de aspecto como <code>aspect-video</code>
       </td>
     </tr>
     <tr>
@@ -291,7 +291,7 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--ease-*</code>
       </td>
       <td>
-        Transition timing function utilities like <code>ease-out</code>
+        Utilidades de función de temporización de transición como <code>ease-out</code>
       </td>
     </tr>
     <tr>
@@ -299,20 +299,20 @@ Defining new theme variables in these namespaces will make new corresponding uti
         <code>--animate-*</code>
       </td>
       <td>
-        Animation utilities like <code>animate-spin</code>
+        Clases de animación como <code>animate-spin</code>
       </td>
     </tr>
   </tbody>
 </table>
 }
 
-For a list of all of the default theme variables, see the [default theme variable reference](#default-theme-variable-reference).
+Para obtener una lista de todas las variables de tema predeterminadas, consulta la [referencia de variables de tema predeterminadas](#referencia-de-variables-de-tema-predeterminadas).
 
-### Default theme variables
+### Variables de tema predeterminadas
 
-When you import `tailwindcss` at the top of your CSS file, it includes a set of default theme variables to get you started.
+Cuando importas `tailwindcss` en la parte superior de tu archivo CSS, este incluye un conjunto de variables de tema predeterminadas para ayudarte a comenzar.
 
-Here's what you're actually importing when you import `tailwindcss`:
+Esto es lo que realmente estás importando cuando importas `tailwindcss`:
 
 ```css
 /* [!code filename:node_modules/tailwindcss/index.css] */
@@ -346,17 +346,17 @@ That `theme.css` file includes the default color palette, type scale, shadows, f
 }
 ```
 
-This is why utilities like `bg-red-200`, `font-serif`, and `shadow-sm` exist out of the box — they're driven by the default theme, not hardcoded into the framework like `flex-col` or `pointer-events-none`.
+Esta es la razón por la que las utilidades como `bg-red-200`, `font-serif` y `shadow-sm` existen desde el principio: están impulsadas por el tema predeterminado, no codificadas de forma fija en el framework como `flex-col` o `pointer-events-none`.
 
-For a list of all of the default theme variables, see the [default theme variable reference](#default-theme-variable-reference).
+Para obtener una lista de todas las variables de tema predeterminadas, consulta la [referencia de variables de tema predeterminadas](#referencia-de-variables-de-tema-predeterminadas).
 
-## Customizing your theme
+## Personalizar el tema
 
-The default theme variables are very general purpose and suitable for building dramatically different designs, but they are still just a starting point. It's very common to customize things like the color palette, fonts, and shadows to build exactly the design you have in mind.
+Las variables de tema predeterminadas son de propósito muy general y adecuadas para construir diseños drásticamente diferentes, pero siguen siendo solo un punto de partida. Es muy común personalizar aspectos como la paleta de colores, las fuentes y las sombras para crear exactamente el diseño que tienes en mente.
 
-### Extending the default theme
+### Extender el tema predeterminado
 
-Use `@theme` to define new theme variables and extend the default theme:
+Usa `@theme` para definir nuevas variables de tema y extender el tema predeterminado:
 
 ```css
 /* [!code filename:app.css] */
@@ -368,19 +368,19 @@ Use `@theme` to define new theme variables and extend the default theme:
 }
 ```
 
-This makes a new `font-script` utility class available that you can use in your HTML, just like the default `font-sans` or `font-mono` utilities:
+Esto hace que una nueva clase de utilidad `font-script` esté disponible para que la uses en tu HTML, al igual que las utilidades predeterminadas `font-sans` o `font-mono`:
 
 ```html
 <!-- [!code filename:HTML] -->
 <!-- [!code word:font-script] -->
-<p class="font-script">This will use the Great Vibes font family.</p>
+<p class="font-script">Esto utilizará la familia tipográfica Great Vibes.</p>
 ```
 
-Learn more about how theme variables map to different utility classes and variants in the [theme variable namespaces](#theme-variable-namespaces) documentation.
+Obtén más información sobre cómo se asignan las variables de tema a diferentes clases de utilidad y variantes en la documentación de [namespaces de variables de tema](#namespaces-de-variables-de-tema).
 
-### Overriding the default theme
+### Anular el tema predeterminado
 
-Override a default theme variable value by redefining it within `@theme`:
+Anula el valor de una variable de tema predeterminada redefiniéndola dentro de `@theme`:
 
 ```css
 /* [!code filename:app.css] */
@@ -392,7 +392,7 @@ Override a default theme variable value by redefining it within `@theme`:
 }
 ```
 
-Now the `sm:*` variant will trigger at 30rem instead of the default 40rem viewport size:
+Ahora la variante `sm:*` se activará a 30rem en lugar del tamaño de viewport predeterminado de 40rem:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -402,7 +402,7 @@ Now the `sm:*` variant will trigger at 30rem instead of the default 40rem viewpo
 </div>
 ```
 
-To completely override an entire namespace in the default theme, set the entire namespace to `initial` using the special asterisk syntax:
+Para anular por completo un namespace entero en el tema predeterminado, establece todo el namespace a `initial` usando la sintaxis especial del asterisco:
 
 ```css
 /* [!code filename:app.css] */
@@ -419,13 +419,13 @@ To completely override an entire namespace in the default theme, set the entire 
 }
 ```
 
-When you do this, all of the default utilities that use that namespace _(like `bg-red-500`)_ will be removed, and only your custom values _(like `bg-midnight`)_ will be available.
+Cuando haces esto, todas las utilidades predeterminadas que usan ese namespace _(como `bg-red-500`)_ se eliminarán, y solo tus valores personalizados _(como `bg-midnight`)_ estarán disponibles.
 
-Learn more about how theme variables map to different utility classes and variants in the [theme variable namespaces](#theme-variable-namespaces) documentation.
+Obtén más información sobre cómo se asignan las variables de tema a diferentes clases de utilidad y variantes en la documentación de [namespaces de variables de tema](#namespaces-de-variables-de-tema).
 
-### Using a custom theme
+### Usar un tema personalizado
 
-To completely disable the default theme and use only custom values, set the global theme variable namespace to `initial`:
+Para desactivar por completo el tema predeterminado y usar solo valores personalizados, establece el namespace global de variables de tema a `initial`:
 
 ```css
 /* [!code filename:app.css] */
@@ -447,11 +447,11 @@ To completely disable the default theme and use only custom values, set the glob
 }
 ```
 
-Now none of the default utility classes that are driven by theme variables will be available, and you'll only be able to use utility classes matching your custom theme variables like `font-body` and `text-dusk`.
+Ahora ninguna de las clases de utilidad predeterminadas que están impulsadas por variables de tema estará disponible, y solo podrás usar clases de utilidad que coincidan con tus variables de tema personalizadas, como `font-body` y `text-dusk`.
 
-### Defining animation keyframes
+### Definir keyframes de animación
 
-Define the `@keyframes` rules for your `--animate-*` theme variables within `@theme` to include them in your generated CSS:
+Define las reglas `@keyframes` para tus variables de tema `--animate-*` dentro de `@theme` para incluirlas en tu CSS generado:
 
 ```css
 /* [!code filename:app.css] */
@@ -473,11 +473,11 @@ Define the `@keyframes` rules for your `--animate-*` theme variables within `@th
 }
 ```
 
-If you want your custom `@keyframes` rules to always be included even when not adding an `--animate-*` theme variable, define them outside of `@theme` instead.
+Si deseas que tus reglas `@keyframes` personalizadas se incluyan siempre, incluso cuando no agregues una variable de tema `--animate-*`, defínelas fuera de `@theme` en su lugar.
 
-### Referencing other variables
+### Hacer referencia a otras variables
 
-When defining theme variables that reference other variables, use the `inline` option:
+Al definir variables de tema que hacen referencia a otras variables, usa la opción `inline`:
 
 ```css
 /* [!code filename:app.css] */
@@ -489,7 +489,7 @@ When defining theme variables that reference other variables, use the `inline` o
 }
 ```
 
-Using the `inline` option, the utility class will use the theme variable _value_ instead of referencing the actual theme variable:
+Al usar la opción `inline`, la clase de utilidad utilizará el _valor_ de la variable de tema en lugar de hacer referencia a la variable de tema real:
 
 ```css
 /* [!code filename:dist.css] */
@@ -498,9 +498,9 @@ Using the `inline` option, the utility class will use the theme variable _value_
 }
 ```
 
-Without using `inline`, your utility classes might resolve to unexpected values because of how variables are resolved in CSS.
+Sin usar `inline`, tus clases de utilidad podrían resolverse a valores inesperados debido a cómo se resuelven las variables en CSS.
 
-For example, this text will fall back to `sans-serif` instead of using `Inter` like you might expect:
+Por ejemplo, este texto recurrirá a `sans-serif` en lugar de usar `Inter` como cabría esperar:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -508,16 +508,16 @@ For example, this text will fall back to `sans-serif` instead of using `Inter` l
 <div id="parent" style="--font-sans: var(--font-inter, sans-serif);">
   <!-- [!code word:--font-inter\: Inter; font-family\: var(--font-sans);] -->
   <div id="child" style="--font-inter: Inter; font-family: var(--font-sans);">
-    This text will use the sans-serif font, not Inter.
+    Este texto utilizará la fuente sans-serif, no Inter.
   </div>
 </div>
 ```
 
-This happens because `var(--font-sans)` is resolved where `--font-sans` is defined _(on `#parent`)_, and `--font-inter` has no value there since it's not defined until deeper in the tree _(on `#child`)_.
+Esto sucede porque `var(--font-sans)` se resuelve donde se define `--font-sans` _(en `#parent`)_, y `--font-inter` no tiene ningún valor allí ya que no se define hasta más profundamente en el árbol _(en `#child`)_.
 
-### Generating all CSS variables
+### Generar todas las variables CSS
 
-By default only used CSS variables will be generated in the final CSS output. If you want to always generate all CSS variables, you can use the `static` theme option:
+Por defecto, solo se generarán las variables CSS utilizadas en el resultado de CSS final. Si deseas generar siempre todas las variables CSS, puedes usar la opción de tema `static`:
 
 ```css
 /* [!code filename:app.css] */
@@ -530,9 +530,9 @@ By default only used CSS variables will be generated in the final CSS output. If
 }
 ```
 
-### Sharing across projects
+### Compartir entre proyectos
 
-Since theme variables are defined in CSS, sharing them across projects is just a matter of throwing them into their own CSS file that you can import in each project:
+Dado que las variables de tema se definen en CSS, compartirlas entre proyectos es solo cuestión de colocarlas en su propio archivo CSS que puedas importar en cada proyecto:
 
 ```css
 /* [!code filename:./packages/brand/theme.css] */
@@ -551,7 +551,7 @@ Since theme variables are defined in CSS, sharing them across projects is just a
 }
 ```
 
-Then you can use `@import` to include your theme variables in other projects:
+Luego puedes usar `@import` para incluir tus variables de tema en otros proyectos:
 
 ```css
 /* [!code filename:./packages/admin/app.css] */
@@ -560,11 +560,11 @@ Then you can use `@import` to include your theme variables in other projects:
 @import "../brand/theme.css";
 ```
 
-You can put shared theme variables like this in their own package in monorepo setups or even publish them to NPM and import them just like any other third-party CSS files.
+Puedes colocar variables de tema compartidas como esta en su propio paquete en configuraciones monorepo o incluso publicarlas en NPM e importarlas al igual que cualquier otro archivo CSS de terceros.
 
-## Using your theme variables
+## Usar tus variables de tema
 
-All of your theme variables are turned into regular CSS variables when you compile your CSS:
+Todas tus variables de tema se convierten en variables CSS normales cuando compilas tu CSS:
 
 ```css
 /* [!code filename:dist.css] */
@@ -586,11 +586,11 @@ All of your theme variables are turned into regular CSS variables when you compi
 }
 ```
 
-This makes it easy to reference all of your design tokens in any of your custom CSS or inline styles.
+Esto facilita hacer referencia a todos tus design tokens en cualquiera de tus estilos CSS personalizados o inline.
 
-### With custom CSS
+### Con CSS personalizado
 
-Use your theme variables to get access to your design tokens when you're writing custom CSS that needs to use the same values:
+Usa tus variables de tema para acceder a tus design tokens cuando estés escribiendo CSS personalizado que necesite usar los mismos valores:
 
 ```css
 /* [!code filename:app.css] */
@@ -624,11 +624,11 @@ Use your theme variables to get access to your design tokens when you're writing
 }
 ```
 
-This is often useful when styling HTML you don't control, like Markdown content coming from a database or API and rendered to HTML.
+Esto suele ser útil al diseñar HTML que no controlas, como contenido Markdown proveniente de una base de datos o API y renderizado a HTML.
 
-### With arbitrary values
+### Con valores arbitrarios
 
-Using theme variables in arbitrary values can be useful, especially in combination with the `calc()` function.
+El uso de variables de tema en valores arbitrarios puede ser útil, especialmente en combinación con la función `calc()`.
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -642,13 +642,13 @@ Using theme variables in arbitrary values can be useful, especially in combinati
 </div>
 ```
 
-In the above example, we're subtracting 1px from the `--radius-xl` value on a nested inset element to make sure it has a concentric border radius.
+En el ejemplo anterior, estamos restando 1px al valor de `--radius-xl` en un elemento inset anidado para asegurarnos de que tenga un radio de borde concéntrico.
 
-### Referencing in JavaScript
+### Referenciar en JavaScript
 
-Most of the time when you need to reference your theme variables in JS you can just use the CSS variables directly, just like any other CSS value.
+La mayoría de las veces, cuando necesitas hacer referencia a tus variables de tema en JS, puedes usar las variables CSS directamente, al igual que cualquier otro valor CSS.
 
-For example, the popular [Motion](https://motion.dev/docs/react-quick-start) library for React lets you animate to and from CSS variable values:
+Por ejemplo, la popular biblioteca [Motion](https://motion.dev/docs/react-quick-start) para React te permite animar hacia y desde valores de variables CSS:
 
 ```jsx
 // [!code filename:JSX]
@@ -656,7 +656,7 @@ For example, the popular [Motion](https://motion.dev/docs/react-quick-start) lib
 <motion.div animate={{ backgroundColor: "var(--color-blue-500)" }} />
 ```
 
-If you need access to a resolved CSS variable value in JS, you can use `getComputedStyle` to get the value of a theme variable on the document root:
+Si necesitas acceso al valor resuelto de una variable CSS en JS, puedes usar `getComputedStyle` para obtener el valor de una variable de tema en la raíz del documento:
 
 ```js
 // [!code filename:spaghetti.js]
@@ -664,9 +664,9 @@ let styles = getComputedStyle(document.documentElement);
 let shadow = styles.getPropertyValue("--shadow-xl");
 ```
 
-## Default theme variable reference
+## Referencia de variables de tema predeterminadas
 
-For reference, here's a complete list of the theme variables included by default when you import Tailwind CSS into your project:
+Para tu referencia, aquí tienes una lista completa de las variables de tema incluidas por defecto cuando importas Tailwind CSS en tu proyecto:
 
 ```css
 /* [!code filename:tailwindcss/theme.css] */
