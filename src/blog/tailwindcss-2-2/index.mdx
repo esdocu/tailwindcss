@@ -6,48 +6,48 @@ import { adamwathan } from "@/app/blog/authors";
 
 export const meta = {
   title: "Tailwind CSS v2.2",
-  description: `An all-new high-performance CLI tool, ::before and ::after support, sibling selectors, selected text variants, and tons more.`,
+  description: `Una herramienta CLI completamente nueva de alto rendimiento, soporte para ::before y ::after, selectores de hermanos, variantes de texto seleccionado, y toneladas más.`,
   date: "2021-06-17T14:00:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      Well I can't say we were really planning on it but over the last few weeks we've been having a ton of fun dumping
-      new and exciting features into Tailwind and now feels like the right time to cut a release, so here it is —
-      Tailwind CSS v2.2!
+      Bueno, no puedo decir que realmente lo estuviéramos planeando, pero durante las últimas semanas nos hemos divertido mucho agregando
+      características nuevas y emocionantes a Tailwind y ahora parece el momento adecuado para lanzar una versión, así que aquí está —
+      ¡Tailwind CSS v2.2!
     </>
   ),
 };
 
 <YouTubeVideo id="DxcJbrs6rKk" />
 
-Well I can't say we were really planning on it but over the last few weeks we've been having a ton of fun dumping new and exciting features into Tailwind and now feels like the right time to cut a release, so here it is — Tailwind CSS v2.2!
+Bueno, no puedo decir que realmente lo estuviéramos planeando, pero durante las últimas semanas nos hemos divertido mucho agregando nuevas y emocionantes características a Tailwind y ahora parece el momento adecuado para lanzar una versión, así que aquí está — ¡Tailwind CSS v2.2!
 
-This has to be one of the most feature-rich Tailwind releases of all-time. Introducing <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link> back in v2.1 has opened the doors to a lot of cool features we couldn't have easily added otherwise, and this release is loaded with great examples of that.
+Este tiene que ser uno de los lanzamientos de Tailwind más ricos en características de todos los tiempos. La introducción del <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link> en v2.1 ha abierto las puertas a muchas características geniales que no podríamos haber agregado fácilmente de otra manera, y este lanzamiento está cargado de grandes ejemplos de eso.
 
-Here are the highlights:
+Aquí están los aspectos más destacados:
 
-- [All-new high-performance Tailwind CLI](#all-new-high-performance-tailwind-cli)
-- [Before and after variants](#before-and-after-variants)
-- [First-letter/line variants](#first-letter-line-variants)
-- [Selected text variants](#selected-text-variants)
-- [List marker variants](#list-marker-variants)
-- [Sibling selector variants](#sibling-selector-variants)
-- [Exhaustive pseudo-class support](#exhaustive-pseudo-class-support)
-- [Shorthand color opacity syntax](#shorthand-color-opacity-syntax)
-- [Extended arbitrary value support](#extended-arbitrary-value-support)
-- [Improved nesting support](#improved-nesting-support)
-- [Caret color utilities](#caret-color-utilities)
-- [Background origin utilities](#background-origin-utilities)
-- [Simplified transform and filter composition](#simplified-transform-and-filter-composition)
-- [Per-side border color utilities](#per-side-border-color-utilities)
-- [Built-in safelist, transform, and extract support](#built-in-safelist-transform-and-extract-support)
+- [Nueva herramienta CLI de Tailwind de alto rendimiento](#all-new-high-performance-tailwind-cli)
+- [Variantes before y after](#before-and-after-variants)
+- [Variantes first-letter/line](#first-letter-line-variants)
+- [Variantes de texto seleccionado](#selected-text-variants)
+- [Variantes de marcador de lista](#list-marker-variants)
+- [Variantes de selector de hermano](#sibling-selector-variants)
+- [Soporte exhaustivo de pseudoclases](#exhaustive-pseudo-class-support)
+- [Sintaxis abreviada de opacidad de color](#shorthand-color-opacity-syntax)
+- [Soporte extendido de valores arbitrarios](#extended-arbitrary-value-support)
+- [Soporte de anidamiento mejorado](#improved-nesting-support)
+- [Utilidades de color de caret](#caret-color-utilities)
+- [Utilidades de background origin](#background-origin-utilities)
+- [Composición simplificada de transform y filter](#simplified-transform-and-filter-composition)
+- [Utilidades de color de borde por lado](#per-side-border-color-utilities)
+- [Soporte incorporado para safelist, transform y extract](#built-in-safelist-transform-and-extract-support)
 
-For the full details, <Link href="https://github.com/tailwindlabs/tailwindcss/releases/tag/v2.2.0">check out the release notes</Link> on GitHub.
+Para todos los detalles, <Link href="https://github.com/tailwindlabs/tailwindcss/releases/tag/v2.2.0">revisa las notas de la versión</Link> en GitHub.
 
-It's important to note that although this is a minor release and there are no breaking changes in the classic engine, <strong>Just-in-Time mode is still in preview and v2.2 introduces a few very small changes that might impact you</strong>, so make sure you read through the <Link href="https://github.com/tailwindlabs/tailwindcss/releases/tag/v2.2.0#changes-and-deprecations">changes and deprecations</Link> in the release notes when upgrading.
+Es importante tener en cuenta que, aunque esta es una versión menor y no hay cambios disruptivos en el motor clásico, <strong>el modo Just-in-Time todavía está en vista previa y v2.2 introduce algunos cambios muy pequeños que podrían afectarte</strong>, así que asegúrate de leer los <Link href="https://github.com/tailwindlabs/tailwindcss/releases/tag/v2.2.0#changes-and-deprecations">cambios y deprecaciones</Link> en las notas de la versión al actualizar.
 
-When you're ready to upgrade, just install the latest version from npm and you're off to the races:
+Cuando estés listo para actualizar, simplemente instala la última versión desde npm y estarás listo para empezar:
 
 ```sh
 npm install -D tailwindcss@latest
@@ -57,131 +57,131 @@ npm install -D tailwindcss@latest
 
 <a name="all-new-high-performance-tailwind-cli"></a>
 
-## All-new high-performance Tailwind CLI
+## Nueva herramienta CLI de Tailwind de alto rendimiento
 
-We've rewritten the Tailwind CLI tool from the ground-up with a performance-first mindset, while also adding support for a bunch of new features.
+Hemos reescrito la herramienta CLI de Tailwind desde cero con una mentalidad de rendimiento primero, al mismo tiempo que agregamos soporte para un montón de nuevas características.
 
 ```sh
 npx tailwindcss -o dist/tailwind.css --watch --jit --purge="./src/**/*.html"
 ```
 
-Here are some of the highlights:
+Aquí están algunos de los aspectos más destacados:
 
-- **No installation or configuration necessary** — simply `npx tailwindcss -o output.css` to compile Tailwind from anywhere. You can even enable JIT mode with the `--jit` flag and pass in your content files using the `--purge` option, all without creating a config file.
-- **Watch mode** — so you can automatically rebuild your CSS whenever you make any changes.
-- **JIT performance optimizations** — since our CLI is Tailwind-specific we've been able to make tons of optimizations that make it the absolute fastest build tool for compiling your CSS in JIT mode.
-- **Minification support** — now you can minify your CSS with <Link href="https://cssnano.co/">cssnano</Link> just by adding the `--minify` flag.
-- **PostCSS plugin support** — the new CLI will read and respect any extra plugins you configure using a `postcss.config.js` file.
+- **No se necesita instalación ni configuración** — simplemente `npx tailwindcss -o output.css` para compilar Tailwind desde cualquier lugar. Incluso puedes habilitar el modo JIT con la bandera `--jit` y pasar tus archivos de contenido usando la opción `--purge`, todo sin crear un archivo de configuración.
+- **Modo Watch** — para que puedas reconstruir automáticamente tu CSS cada vez que realices cambios.
+- **Optimizaciones de rendimiento JIT** — dado que nuestra CLI es específica de Tailwind, hemos podido realizar toneladas de optimizaciones que la convierten en la herramienta de compilación absolutamente más rápida para compilar tu CSS en modo JIT.
+- **Soporte de minificación** — ahora puedes minificar tu CSS con <Link href="https://cssnano.co/">cssnano</Link> simplemente agregando la bandera `--minify`.
+- **Soporte para plugins de PostCSS** — la nueva CLI leerá y respetará cualquier plugin adicional que configures usando un archivo `postcss.config.js`.
 
-It's fully backwards-compatible with the previous CLI, so if you've got any scripts set up already you should be able to upgrade to v2.2 without making any changes to your scripts.
+Es totalmente compatible con la CLI anterior, por lo que si ya tienes scripts configurados, deberías poder actualizar a v2.2 sin realizar ningún cambio en tus scripts.
 
-Check out our <Link href="https://v2.tailwindcss.com/docs/installation#using-tailwind-cli">updated Tailwind CLI documentation</Link> to learn more.
+Revisa nuestra <Link href="https://v2.tailwindcss.com/docs/installation#using-tailwind-cli">documentación actualizada de la CLI de Tailwind</Link> para aprender más.
 
-_Note that if you were using the `tailwindcss-cli` wrapper package, you can safely switch to `tailwindcss` as we've managed to resolve the peer-dependency issues that forced us to create the wrapper package in the first place._
+_Ten en cuenta que si estabas usando el paquete wrapper `tailwindcss-cli`, puedes cambiar de forma segura a `tailwindcss`, ya que hemos logrado resolver los problemas de peer-dependency que nos obligaron a crear el paquete wrapper en primer lugar._
 
 <a name="before-and-after-pseudo-element-variants"></a>
 
-## Before and after pseudo-element variants
+## Variantes de pseudoelementos before y after
 
-_This feature is only available in <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link>_.
+_Esta característica solo está disponible en el <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link>_.
 
-People have been asking for this for years and it's finally here! We've added first-party support for styling pseudo-elements like `before` and `after`:
+¡La gente ha estado pidiendo esto durante años y finalmente está aquí! Hemos agregado soporte de primera parte para estilizar pseudoelementos como `before` y `after`:
 
 ```html
 <div class="before:block before:bg-blue-500 after:flex after:bg-pink-300"></div>
 ```
 
-We set `content: ""` automatically any time you use a `before` or `after` variant to make sure the elements are rendered, but you can override it using the new `content` utilities which have full arbitrary value support:
+Establecemos `content: ""` automáticamente cada vez que usas una variante `before` o `after` para asegurarnos de que los elementos se rendericen, pero puedes sobrescribirlo usando las nuevas utilidades `content` que tienen soporte completo para valores arbitrarios:
 
 ```html
 <div class="before:block before:content-['hello'] ..."></div>
 ```
 
-You can even grab the content from an attribute using the CSS `attr()` function:
+Incluso puedes obtener el contenido de un atributo usando la función CSS `attr()`:
 
 ```html
 <div before="hello world" class="before:block before:content-[attr(before)] ..."></div>
 ```
 
-This can be super helpful when your content has spaces in it, since spaces can't be used in CSS class names.
+Esto puede ser súper útil cuando tu contenido tiene espacios, ya que los espacios no se pueden usar en los nombres de las clases CSS.
 
 <a name="first-letter-line-variants"></a>
 
-## First-letter/line variants
+## Variantes first-letter/line
 
-_This feature is only available in <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link>_.
+_Esta característica solo está disponible en el <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link>_.
 
-We've added variants for the `first-letter` and `first-line` pseudo-elements, so you can do stuff like drop caps:
+Hemos agregado variantes para los pseudoelementos `first-letter` y `first-line`, para que puedas hacer cosas como capitulares:
 
 ```html
 <p class="first-letter:float-left first-letter:text-4xl first-letter:font-bold">
-  The night was March 31, 1996, and it was finally time for Bret Hart to face off against Shawn Michaels in the long
-  anticipated Iron Man match — a 60 minute war of endurance where the man who scored the most number of falls would walk
-  away as the WWF World Heavyweight Champion.
+  La noche era el 31 de marzo de 1996, y finalmente era hora de que Bret Hart se enfrentara a Shawn Michaels en el tan esperado
+  combate Iron Man: una guerra de resistencia de 60 minutos donde el hombre que anotara la mayor cantidad de caídas se iría
+  como Campeón Mundial Peso Pesado de la WWF.
 </p>
 ```
 
 <a name="selected-text-variants"></a>
 
-## Selected text variants
+## Variantes de texto seleccionado
 
-_This feature is only available in <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link>_.
+_Esta característica solo está disponible en el <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link>_.
 
-We've added a new `selection` variant that makes it super easy to style highlighted to match your design:
+Hemos agregado una nueva variante `selection` que hace súper fácil estilizar el texto resaltado para que coincida con tu diseño:
 
 ```html
 <p class="selection:bg-pink-200">
-  After nearly a grueling hour of warfare with neither man scoring a fall, Hart locked in the Sharpshooter, his
-  signature submission hold. As Michaels screamed in pain, the crowd were certain that Hart was about to walk away from
-  WrestleMania XII as the still-World Heavyweight Champion.
+  Después de casi una agotadora hora de guerra sin que ninguno de los hombres lograra una caída, Hart aplicó el
+  Sharpshooter, su llave de sumisión característica. Mientras Michaels gritaba de dolor, la multitud estaba segura de que
+  Hart estaba a punto de irse de WrestleMania XII como el todavía Campeón Mundial Peso Pesado.
 </p>
 ```
 
-We've even built this feature in such a way that it can be applied to a parent element and cascade down, so you can set a highlight color for your whole site by applying a utility to the body:
+Incluso hemos construido esta característica de tal manera que se puede aplicar a un elemento padre y heredar hacia abajo, para que puedas establecer un color de resaltado para todo tu sitio aplicando una utilidad al body:
 
 ```html
 <body class="selection:bg-pink-200">
   <!-- ... -->
   <p>
-    But Michaels didn't give up — he held on until the bell rang and the designated 60 minutes was up. Hart walked away
-    content, thinking that without a clear winner, the title was his to hold. He was not prepared for what would happen
-    next, when Gorilla Monsoon declared the match would continue under sudden death rules.
+    Pero Michaels no se rindió: aguantó hasta que sonó la campana y terminaron los 60 minutos designados. Hart se fue
+    contento, pensando que sin un ganador claro, el título era suyo. No estaba preparado para lo que sucedería
+    después, cuando Gorilla Monsoon declaró que el combate continuaría bajo las reglas de muerte súbita.
   </p>
 </body>
 ```
 
 <a name="list-marker-variants"></a>
 
-## List marker variants
+## Variantes de marcador de lista
 
-_This feature is only available in <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link>_.
+_Esta característica solo está disponible en el <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link>_.
 
-You can use the new `marker` variant to style the bullets or numbers at the beginning of a list:
+Puedes usar la nueva variante `marker` para estilizar las viñetas o números al principio de una lista:
 
 ```html
-<h1>WrestleMania XII Results</h1>
+<h1>Resultados de WrestleMania XII</h1>
 
 <ol class="marker:font-medium marker:text-gray-500">
-  <li>The British Bulldog, Owen Hart, and Vader defeated Ahmed Johnson, Jake Roberts, and Yokozuna</li>
-  <li>Roddy Piper defeated Goldust</li>
-  <li>Stone Cold Steve Austin defeated Savio Vega</li>
-  <li>The Ultimate Warrior defeated Hunter Hearst Helmsley</li>
-  <li>The Undertaker defeated Diesel</li>
-  <li>Shawn Michaels defeated Bret Hart</li>
+  <li>The British Bulldog, Owen Hart y Vader derrotaron a Ahmed Johnson, Jake Roberts y Yokozuna</li>
+  <li>Roddy Piper derrotó a Goldust</li>
+  <li>Stone Cold Steve Austin derrotó a Savio Vega</li>
+  <li>The Ultimate Warrior derrotó a Hunter Hearst Helmsley</li>
+  <li>The Undertaker derrotó a Diesel</li>
+  <li>Shawn Michaels derrotó a Bret Hart</li>
 </ol>
 ```
 
-Like the `selection` variant, we've implemented this in a way that it cascades from the parent, so you don't have to repeat it for each list item.
+Al igual que la variante `selection`, hemos implementado esto de manera que herede del padre, para que no tengas que repetirlo para cada elemento de la lista.
 
 <a name="sibling-selector-variants"></a>
 
-## Sibling selector variants
+## Variantes de selector de hermano
 
-_This feature is only available in <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link>_.
+_Esta característica solo está disponible en el <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link>_.
 
-Tailwind CSS v2.2 adds new `peer-*` variants that behave much like the `group-*` variants, but for targeting sibling elements instead of parent elements.
+Tailwind CSS v2.2 agrega nuevas variantes `peer-*` que se comportan de manera muy similar a las variantes `group-*`, pero para apuntar a elementos hermanos en lugar de elementos padres.
 
-This is useful for things like styling an element when a preceding checkbox is checked, doing things like floating labels, and lots more:
+Esto es útil para cosas como estilizar un elemento cuando se marca una casilla de verificación precedente, hacer cosas como etiquetas flotantes y mucho más:
 
 ```html
 <label>
@@ -192,9 +192,9 @@ This is useful for things like styling an element when a preceding checkbox is c
 </label>
 ```
 
-Just like `group` can be combined with any other variant, `peer` can as well, so you have variants like `peer-hover`, `peer-focus`, `peer-disabled`, and loads more at your fingertips.
+Al igual que `group` se puede combinar con cualquier otra variante, `peer` también puede, por lo que tienes variantes como `peer-hover`, `peer-focus`, `peer-disabled` y muchas más a tu alcance.
 
-The generated CSS uses the <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator">general sibling combinator</Link> and looks like this:
+El CSS generado utiliza el <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/General_sibling_combinator">combinador general de hermanos</Link> y se ve así:
 
 ```css
 .peer:checked ~ .peer-checked\:bg-blue-500 {
@@ -202,15 +202,15 @@ The generated CSS uses the <Link href="https://developer.mozilla.org/en-US/docs/
 }
 ```
 
-So just like in vanilla CSS, it will only work for targeting _previous_ siblings, not siblings that appear later in the DOM.
+Así que, al igual que en CSS vanilla, solo funcionará para apuntar a hermanos _anteriores_, no a hermanos que aparecen más adelante en el DOM.
 
 <a name="exhaustive-pseudo-class-support"></a>
 
-## Exhaustive pseudo-class support
+## Soporte exhaustivo de pseudoclases
 
-_This feature is only available in <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link>_.
+_Esta característica solo está disponible en el <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link>_.
 
-We've added variants for basically every single missing pseudo-class we could think of in this release:
+Hemos agregado variantes para básicamente cada pseudoclase faltante que se nos ocurrió en este lanzamiento:
 
 - `only` _(only-child)_
 - `first-of-type`
@@ -227,22 +227,22 @@ We've added variants for basically every single missing pseudo-class we could th
 - `in-range`
 - `out-of-range`
 
-Personal favorite in the list is `placeholder-shown` — when combined with the new sibling selector variants it makes it possible to do cool stuff like floating labels:
+Mi favorito personal en la lista es `placeholder-shown`; cuando se combina con las nuevas variantes de selector de hermanos, hace posible hacer cosas geniales como etiquetas flotantes:
 
 ```html
 <div class="relative">
   <input id="name" class="peer ..." />
-  <label for="name" class="peer-placeholder-shown:top-4 peer-focus:top-0 ..."> Name </label>
+  <label for="name" class="peer-placeholder-shown:top-4 peer-focus:top-0 ..."> Nombre </label>
 </div>
 ```
 
 <a name="shorthand-color-opacity-syntax"></a>
 
-## Shorthand color opacity syntax
+## Sintaxis abreviada de opacidad de color
 
-_This feature is only available in <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link>_.
+_Esta característica solo está disponible en el <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link>_.
 
-Instead of using utilities like `bg-opacity-50`, `text-opacity-25`, or `placeholder-opacity-40`, Tailwind CSS v2.2 gives you a new color opacity shorthand you can use to tweak the alpha channel of a color directly in the color utility itself:
+En lugar de usar utilidades como `bg-opacity-50`, `text-opacity-25` o `placeholder-opacity-40`, Tailwind CSS v2.2 te ofrece una nueva abreviatura de opacidad de color que puedes usar para ajustar el canal alfa de un color directamente en la propia utilidad de color:
 
 {/* prettier-ignore */}
 ```html
@@ -251,67 +251,67 @@ Instead of using utilities like `bg-opacity-50`, `text-opacity-25`, or `placehol
 </div>
 ```
 
-This means you can now change the opacity of colors anywhere in Tailwind, even where we previously didn’t have specific opacity utilities, like in gradients for example:
+Esto significa que ahora puedes cambiar la opacidad de los colores en cualquier lugar de Tailwind, incluso donde antes no teníamos utilidades de opacidad específicas, como en los degradados, por ejemplo:
 
 ```html
 <div class="bg-gradient-to-r from-red-500/50"></div>
 ```
 
-The opacity values are taken from your `opacity` scale, but you can also use arbitrary opacity values using square bracket notation:
+Los valores de opacidad se toman de tu escala `opacity`, pero también puedes usar valores de opacidad arbitrarios usando la notación de corchetes:
 
 ```html
 <div class="bg-red-500/[0.31]"></div>
 ```
 
-If I'm being honest, I am more excited about never having to create another core plugin like `placeholderOpacity.js` for you people again than I am about actually using the feature. And I'm really excited about the feature, so that says something.
+Si soy sincero, estoy más emocionado por no tener que crear nunca más otro plugin core como `placeholderOpacity.js` para ustedes que por usar realmente la característica. Y estoy muy emocionado por la característica, así que eso dice algo.
 
 <a name="extended-arbitrary-value-support"></a>
 
-## Extended arbitrary value support
+## Soporte extendido de valores arbitrarios
 
-_This feature is only available in <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link>_.
+_Esta característica solo está disponible en el <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link>_.
 
-We've gone over every core plugin in Tailwind to try and add the most flexible arbitrary value support we possibly could, and I think we've covered pretty much everything at this point.
+Hemos revisado cada plugin core en Tailwind para intentar agregar el soporte de valores arbitrarios más flexible posible, y creo que hemos cubierto prácticamente todo en este punto.
 
-You should be able to use whatever arbitrary values you want, just about wherever you want:
+Deberías poder usar los valores arbitrarios que quieras, casi donde quieras:
 
 ```html
 <div class="col-start-[73] object-[50%] placeholder-[#aabbcc] ..."></div>
 ```
 
-If you find one we missed, open an issue and we'll sort it out.
+Si encuentras uno que nos falte, abre un issue y lo solucionaremos.
 
-In addition to making arbitrary value support more comprehensive, we've also added a new type-hint syntax to handle ambiguous situations. For example, if you are using a CSS variable as an arbitrary value, it's not always clear what the generated CSS should be:
+Además de hacer que el soporte de valores arbitrarios sea más completo, también hemos agregado una nueva sintaxis de sugerencia de tipo para manejar situaciones ambiguas. Por ejemplo, si estás usando una variable CSS como valor arbitrario, no siempre está claro cuál debería ser el CSS generado:
 
 ```html
-<!-- Is this a font size utility, or a text color utility? -->
+<!-- ¿Es esto una utilidad de tamaño de fuente o una utilidad de color de texto? -->
 <div class="text-[var(--mystery-var)]"></div>
 ```
 
-Now you can provide a hint to the engine by prefixing the arbitrary value with the type name:
+Ahora puedes proporcionar una sugerencia al motor prefijando el valor arbitrario con el nombre del tipo:
 
 ```html
 <div class="text-[color:var(--mystery-var)]"></div>
 ```
 
-Currently, the supported types are:
+Actualmente, los tipos admitidos son:
 
 - `length`
 - `color`
 - `angle`
 - `list`
 
-We'll probably flesh this out even more over time as people discover new edge cases but this should get you very far.
+Probablemente desarrollaremos esto aún más con el tiempo a medida que la gente descubra nuevos casos extremos, pero esto debería llevarte muy lejos.
 
 <a name="improved-nesting-support"></a>
 
-## Improved nesting support
+## Soporte de anidamiento mejorado
 
-Since Tailwind introduces a lot of non-standard CSS at-rules like `@tailwind` and `@apply`, you can often run into weird output when combining it with a PostCSS nesting plugin like `postcss-nested` or `postcss-nesting`.
+Dado que Tailwind introduce muchas reglas CSS no estándar como `@tailwind` y `@apply`, a menudo puedes encontrarte con resultados extraños al combinarlo con un plugin de anidamiento de PostCSS como `postcss-nested` o `postcss-nesting`.
 
-To ease the pain here, we've included a new PostCSS plugin in the `tailwindcss` package that acts as a lightweight compatibility layer between existing nesting plugins and Tailwind itself.
+Para aliviar el dolor aquí, hemos incluido un nuevo plugin de PostCSS en el paquete `tailwindcss` que actúa como una capa de compatibilidad ligera entre los plugins de anidamiento existentes y el propio Tailwind.
 
-So if you need nesting support in your project, use our plugin, and stick it before Tailwind in your PostCSS plugin list:
+Así que si necesitas soporte de anidamiento en tu proyecto, usa nuestro plugin y colócalo antes de Tailwind en tu lista de plugins de PostCSS:
 
 ```js
 // postcss.config.js
@@ -325,7 +325,7 @@ module.exports = {
 };
 ```
 
-By default, it uses `postcss-nested` under the hood _(since that's what we use to support nesting in Tailwind plugins)_, but if you'd like to use `postcss-nesting` instead, just call our plugin as a function and pass through the `postcss-nesting` plugin:
+Por defecto, usa `postcss-nested` internamente _(ya que eso es lo que usamos para soportar el anidamiento en los plugins de Tailwind)_, pero si prefieres usar `postcss-nesting` en su lugar, simplemente llama a nuestro plugin como una función y pasa el plugin `postcss-nesting`:
 
 ```js
 // postcss.config.js
@@ -339,21 +339,21 @@ module.exports = {
 };
 ```
 
-Under the hood, this uses a new `screen()` function we've introduced that you can use to get the expanded media expression from any of your configured breakpoints:
+Internamente, esto utiliza una nueva función `screen()` que hemos introducido y que puedes usar para obtener la expresión de medios expandida desde cualquiera de tus breakpoints configurados:
 
 ```css
-/* Input */
+/* Entrada */
 @media screen(sm) {
   /* ... */
 }
 
-/* Output */
+/* Salida */
 @media (min-width: 640px) {
   /* ... */
 }
 ```
 
-You probably won't need to use this yourself but it could be helpful if you're ever integrating Tailwind with another tool that understands `@media` but doesn't handle `@screen` properly.
+Puedes probablemente no necesitarás usar esto tú mismo, pero podría ser útil si alguna vez estás integrando Tailwind con otra herramienta que entienda `@media` pero no maneje `@screen` correctamente.
 
 {/* prettier-ignore */}
 ```css
@@ -365,47 +365,47 @@ You probably won't need to use this yourself but it could be helpful if you're e
 
 <a name="caret-color-utilities"></a>
 
-## Caret color utilities
+## Utilidades de color de caret
 
-_This feature is only available in <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link>_.
+_Esta característica solo está disponible en el <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link>_.
 
-You can now set the color of the cursor in form fields using the new `caret-{color}` utilities:
+Ahora puedes establecer el color del cursor en los campos de formulario utilizando las nuevas utilidades `caret-{color}`:
 
 ```html
 <input class="caret-red-500" />
 ```
 
-These are customizable using the `caretColor` key in the `theme` section of your `tailwind.config.js` file.
+Estos son personalizables usando la clave `caretColor` en la sección `theme` de tu archivo `tailwind.config.js`.
 
 <a name="background-origin-utilities"></a>
 
-## Background origin utilities
+## Utilidades de background origin
 
-We've added new utilities for the `background-origin` property, which let you control where an element's background is positioned relative to the element's border, padding box, or content:
+Hemos agregado nuevas utilidades para la propiedad `background-origin`, que te permiten controlar dónde se posiciona el fondo de un elemento en relación con el borde, el padding box o el contenido del elemento:
 
 ```html
 <div class="border-4 border-dashed bg-origin-border p-4 ..." style="background-image: url(...)">
-  Background is rendered under the border
+  El fondo se renderiza debajo del borde
 </div>
 
 <div class="border-4 border-dashed bg-origin-padding p-4 ..." style="background-image: url(...)">
-  Background is rendered within the border but on top of any padding
+  El fondo se renderiza dentro del borde pero encima de cualquier padding
 </div>
 
 <div class="border-4 border-dashed bg-origin-content p-4 ..." style="background-image: url(...)">
-  Background is rendered within any padding and under the content
+  El fondo se renderiza dentro de cualquier padding y debajo del contenido
 </div>
 ```
 
-Learn more in the <Link href="https://v2.tailwindcss.com/docs/background-origin">background origin documentation</Link>.
+Aprende más en la <Link href="https://v2.tailwindcss.com/docs/background-origin">documentación de background origin</Link>.
 
 <a name="simplified-transform-and-filter-composition"></a>
 
-## Simplified transform and filter composition
+## Composición simplificada de transform y filter
 
-_This feature is only available in <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link>_.
+_Esta característica solo está disponible en el <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link>_.
 
-The `transform`, `filter`, and `backdrop-filter` classes are no longer necessary to "enable" their respective set of composable utilities.
+Las clases `transform`, `filter` y `backdrop-filter` ya no son necesarias para "habilitar" su respectivo conjunto de utilidades componibles.
 
 {/* prettier-ignore */}
 ```html
@@ -414,9 +414,9 @@ The `transform`, `filter`, and `backdrop-filter` classes are no longer necessary
 </div>
 ```
 
-Now those features are automatically enabled any time you use any of the relevant sub-utilities.
+Ahora esas características se habilitan automáticamente cada vez que usas cualquiera de las sub-utilidades relevantes.
 
-It's important to understand though that because these utilities aren't needed anymore, you can no longer expect transforms and filters to be "dormant" by default. If you were relying on conditionally "activating" transforms or filters by toggling these classes, you will want to make sure you are toggling the sub-utilities themselves instead:
+Sin embargo, es importante entender que, debido a que estas utilidades ya no son necesarias, ya no puedes esperar que las transformaciones y los filtros estén "inactivos" por defecto. Si dependías de "activar" condicionalmente las transformaciones o los filtros alternando estas clases, querrás asegurarte de alternar las propias sub-utilidades en su lugar:
 
 {/* prettier-ignore */}
 ```html
@@ -425,15 +425,15 @@ It's important to understand though that because these utilities aren't needed a
 </div>
 ```
 
-I don't expect this will be a real problem for most people, but it's technically a breaking change which is why we've limited this improvement to the JIT engine only.
+No espero que esto sea un problema real para la mayoría de las personas, pero técnicamente es un cambio disruptivo, por lo que hemos limitado esta mejora solo al motor JIT.
 
 <a name="per-side-border-color-utilities"></a>
 
-## Per-side border color utilities
+## Utilidades de color de borde por lado
 
-_This feature is only available in <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Just-in-Time mode</Link>_.
+_Esta característica solo está disponible en el <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">modo Just-in-Time</Link>_.
 
-Requested at least once a month for the last four years, I'm excited to share that we've finally added per-side border color support now that we don't have to sweat the development stylesheet size.
+Solicitado al menos una vez al mes durante los últimos cuatro años, me emociona compartir que finalmente hemos agregado soporte de color de borde por lado ahora que no tenemos que preocuparnos por el tamaño de la hoja de estilos de desarrollo.
 
 ```html
 <div class="border-2 border-t-blue-500 border-r-pink-500 border-b-green-500 border-l-yellow-500">
@@ -441,15 +441,15 @@ Requested at least once a month for the last four years, I'm excited to share th
 </div>
 ```
 
-Go forth and build ugly websites! _(Kidding, kidding, I know they are useful settle the hell down.)_
+¡Adelante, construyan sitios web feos! _(Bromeando, bromeando, sé que son útiles, cálmense.)_
 
 <a name="built-in-safelist-transform-and-extract-support"></a>
 
-## Built-in safelist, transform, and extract support
+## Soporte incorporado para safelist, transform y extract
 
-We've added first-class support for a bunch of important PurgeCSS features and made them work in the JIT engine as well, which doesn't actually even use PurgeCSS.
+Hemos agregado soporte de primera clase para un montón de características importantes de PurgeCSS y las hemos hecho funcionar también en el motor JIT, que en realidad ni siquiera usa PurgeCSS.
 
-First is `safelist`, which is super useful if you need to protect specific classes from being removed from your production CSS, perhaps because they are used in content that comes from a database or similar:
+Primero está `safelist`, que es súper útil si necesitas proteger clases específicas para que no se eliminen de tu CSS de producción, quizás porque se usan en contenido que proviene de una base de datos o similar:
 
 ```js
 module.exports = {
@@ -467,9 +467,9 @@ module.exports = {
 };
 ```
 
-**Note that while the classic engine will accept regular expressions here, the JIT engine will not**. That's because when we're generating classes on demand, the class doesn't exist until it's used so we have nothing to match the expression against. So if you're using just-in-time mode, make sure you're providing complete class names to get the expected result.
+**Ten en cuenta que mientras el motor clásico aceptará expresiones regulares aquí, el motor JIT no lo hará**. Esto se debe a que cuando generamos clases bajo demanda, la clase no existe hasta que se usa, por lo que no tenemos nada con qué comparar la expresión. Así que si estás usando el modo just-in-time, asegúrate de proporcionar nombres de clase completos para obtener el resultado esperado.
 
-Next is `transform`, which lets you transform content for different file extensions before scanning it for potential class names:
+Luego está `transform`, que te permite transformar contenido para diferentes extensiones de archivo antes de escanearlo en busca de posibles nombres de clase:
 
 ```js
 let remark = require("remark");
@@ -487,9 +487,9 @@ module.exports = {
 };
 ```
 
-This is really useful if you have templates that are written in a language that compiles to HTML, like Markdown.
+Esto es realmente útil si tienes plantillas escritas en un lenguaje que compila a HTML, como Markdown.
 
-Finally we have `extract`, which lets you customize the logic that Tailwind uses to detect class names in specific file types:
+Finalmente tenemos `extract`, que te permite personalizar la lógica que Tailwind usa para detectar nombres de clase en tipos de archivo específicos:
 
 ```js
 module.exports = {
@@ -505,20 +505,20 @@ module.exports = {
 };
 ```
 
-This is an advanced feature and most users won’t need it. The default extraction logic in Tailwind works extremely well for almost all projects.
+Esta es una característica avanzada y la mayoría de los usuarios no la necesitarán. La lógica de extracción predeterminada en Tailwind funciona extremadamente bien para casi todos los proyectos.
 
-For more information on these features, check out our <Link href="https://v2.tailwindcss.com/docs/optimizing-for-production">optimizing for production documentation</Link>.
+Para obtener más información sobre estas características, consulta nuestra <Link href="https://v2.tailwindcss.com/docs/optimizing-for-production">documentación de optimización para producción</Link>.
 
 ---
 
-## Upgrading
+## Actualizando
 
-To upgrade to Tailwind CSS v2.2, install the latest release from npm:
+Para actualizar a Tailwind CSS v2.2, instala la última versión desde npm:
 
 ```bash
 npm install -D tailwindcss@latest
 ```
 
-If you are using the Just-in-Time mode preview, you'll also want to read through the <Link href="https://github.com/tailwindlabs/tailwindcss/releases/tag/v2.2.0#changes-and-deprecations">changes and deprecations</Link> in the release notes.
+Si estás usando la vista previa del modo Just-in-Time, también querrás leer los <Link href="https://github.com/tailwindlabs/tailwindcss/releases/tag/v2.2.0#changes-and-deprecations">cambios y deprecaciones</Link> en las notas de la versión.
 
-Ready to upgrade? <Link href="https://npmjs.com/tailwindcss">Get it from npm →</Link>
+¿Listo para actualizar? <Link href="https://npmjs.com/tailwindcss">Obtenlo de npm →</Link>

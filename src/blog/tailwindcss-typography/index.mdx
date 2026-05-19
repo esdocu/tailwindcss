@@ -5,36 +5,36 @@ import Link from "next/link";
 import image from "./card.jpg";
 
 export const meta = {
-  title: "Introducing Tailwind CSS Typography",
-  description: `Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS. That's why today we're excited to release @tailwindcss/typography — a plugin that lets you easily style vanilla HTML content with beautiful typographic defaults.`,
+  title: "Presentando Tailwind CSS Typography",
+  description: `Hasta ahora, intentar dar estilo a un artículo, documento o entrada de blog con Tailwind ha sido una tarea tediosa que requería un buen ojo para la tipografía y mucho CSS personalizado complejo. Por eso hoy estamos emocionados de lanzar @tailwindcss/typography, un plugin que te permite dar estilo fácilmente a contenido HTML vanilla con hermosos valores predeterminados tipográficos.`,
   date: "2020-07-13T16:35:02.037Z",
   authors: [adamwathan],
   image,
   excerpt: (
     <>
-      Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required
-      a keen eye for typography and a lot of complex custom CSS.
+      Hasta ahora, intentar dar estilo a un artículo, documento o entrada de blog con Tailwind ha sido una tarea tediosa que requería
+      un buen ojo para la tipografía y mucho CSS personalizado complejo.
       <br />
-      That's why today we're excited to release{" "}
-      <Link href="https://github.com/tailwindcss/typography">@tailwindcss/typography</Link> — a plugin that lets you
-      easily style vanilla HTML content with beautiful typographic defaults.
+      Por eso hoy estamos emocionados de lanzar{" "}
+      <Link href="https://github.com/tailwindcss/typography">@tailwindcss/typography</Link>, un plugin que te permite
+      dar estilo fácilmente a contenido HTML vanilla con hermosos valores predeterminados tipográficos.
     </>
   ),
 };
 
-Until now, trying to style an article, document, or blog post with Tailwind has been a tedious task that required a keen eye for typography and a lot of complex custom CSS.
+Hasta ahora, intentar dar estilo a un artículo, documento o entrada de blog con Tailwind ha sido una tarea tediosa que requería un buen ojo para la tipografía y mucho CSS personalizado complejo.
 
-By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you _really are_ just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.
+Por defecto, Tailwind elimina todo el estilo predeterminado del navegador de párrafos, encabezados, listas y más. Esto termina siendo muy útil para construir interfaces de usuario de aplicaciones porque pasas menos tiempo deshaciendo los estilos del user-agent, pero cuando _realmente_ solo intentas dar estilo a algún contenido que proviene de un editor de texto enriquecido en un CMS o un archivo markdown, puede ser sorprendente y poco intuitivo.
 
-We get lots of complaints about it actually, with people regularly asking us things like:
+De hecho, recibimos muchas quejas al respecto, con gente preguntándonos regularmente cosas como:
 
-> Why is Tailwind removing the default styles on my `h1` elements? How do I disable this? What do you mean I lose all the other base styles too?
+> ¿Por qué Tailwind está eliminando los estilos predeterminados en mis elementos `h1`? ¿Cómo desactivo esto? ¿Qué quieres decir con que también pierdo todos los demás estilos base?
 
-We hear you, but we're not convinced that simply disabling our base styles is what you really want. You don't want to have to remove annoying margins every time you use a `p` element in a piece of your dashboard UI. And I doubt you really want your blog posts to use the user-agent styles either — you want them to look _awesome_, not awful.
+Te escuchamos, pero no estamos convencidos de que simplemente deshabilitar nuestros estilos base sea lo que realmente quieres. No quieres tener que eliminar márgenes molestos cada vez que usas un elemento `p` en una parte de tu interfaz de usuario del dashboard. Y dudo que realmente quieras que las entradas de tu blog usen los estilos del user-agent tampoco — quieres que se vean _geniales_, no horribles.
 
-That's why today we're excited to release [`@tailwindcss/typography`](https://github.com/tailwindcss/typography) — a plugin that gives you what you _actually_ want, without any of the downside of doing something stupid like disabling our base styles.
+Por eso hoy estamos emocionados de lanzar [`@tailwindcss/typography`](https://github.com/tailwindcss/typography), un plugin que te da lo que _realmente_ quieres, sin ninguna de las desventajas de hacer algo estúpido como deshabilitar nuestros estilos base.
 
-It adds a new set of `prose` classes that you can slap on any block of vanilla HTML content and turn it into a beautiful, well-formatted document:
+Agrega un nuevo conjunto de clases `prose` que puedes aplicar a cualquier bloque de contenido HTML vanilla y convertirlo en un documento hermoso y bien formateado:
 
 ```html
 <article class="prose lg:prose-xl">
@@ -51,8 +51,8 @@ It adds a new set of `prose` classes that you can slap on any block of vanilla H
 </article>
 ```
 
-So how does it actually look? Well you're looking at it right now — we use it to style the content on this very blog!
+¿Y cómo se ve realmente? Bueno, lo estás viendo ahora mismo: ¡lo usamos para dar estilo al contenido de este mismo blog!
 
-[**Check out the documentation**](https://github.com/tailwindcss/typography) to learn more and try it out today.
+[**Revisa la documentación**](https://github.com/tailwindcss/typography) para aprender más y probarlo hoy.
 
-Want to talk about this post? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2021">Discuss this on GitHub →</a>
+¿Quieres hablar sobre esta publicación? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2021">Discútelo en GitHub →</a>

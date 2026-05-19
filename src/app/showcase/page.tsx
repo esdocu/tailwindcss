@@ -6,11 +6,11 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Showcase",
   description:
-    "A collection of beautiful websites built with Tailwind CSS, including marketing sites, SaaS applications, ecommerce stores, and more.",
+    "Una colección de sitios web hermosos construidos con Tailwind CSS, incluyendo sitios de marketing, aplicaciones SaaS, tiendas de comercio electrónico y más.",
   openGraph: {
     type: "article",
-    title: "Showcase - Build anything",
-    description: "A collection of beautiful websites built with Tailwind CSS.",
+    title: "Showcase - Construye lo que sea",
+    description: "Una colección de sitios web hermosos construidos con Tailwind CSS.",
     images: "https://tailwindcss.com/api/og?path=/showcase",
     url: "https://tailwindcss.com/showcase",
   },
@@ -19,21 +19,21 @@ export const metadata: Metadata = {
 export default async function Showcase() {
   return (
     <div className="mt-24">
-      <div className="mx-2 font-mono text-sm/7 font-medium tracking-widest text-gray-500 uppercase">Showcase</div>
+      <div className="mx-2 font-mono text-sm/7 font-medium tracking-widest text-gray-500 uppercase">Galería</div>
       <GridContainer>
         <h1 className="mx-2 text-4xl tracking-tighter text-balance sm:text-5xl lg:text-6xl xl:text-8xl">
-          You can build anything with Tailwind CSS.
+          Puedes construir cualquier cosa con Tailwind CSS.
         </h1>
       </GridContainer>
 
       <GridContainer className="mt-10">
         <p className="prose mx-2 max-w-(--breakpoint-md) text-lg leading-8 text-gray-600 dark:text-gray-400">
-          Well not quite <em>anything</em>, like you can't build a spaceship with it. But you can definitely build the
-          website for the spaceship —{" "}
+          Bueno, no exactamente <em>cualquier cosa</em>, por ejemplo, no puedes construir una nave espacial con él. Pero definitivamente puedes construir el
+          sitio web para la nave espacial; la{" "}
           <a href="https://www.jpl.nasa.gov/?utm_source=tailwindcss" target="_blank" rel="noopener noreferrer">
             NASA
           </a>{" "}
-          did.
+          lo hizo.
         </p>
       </GridContainer>
 

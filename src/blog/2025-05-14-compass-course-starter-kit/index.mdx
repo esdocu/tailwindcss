@@ -11,50 +11,50 @@ import transcriptImage from "./transcript.png";
 import lightDarkDiagram from "./light-dark-diagram.png";
 
 export const meta = {
-  title: "Compass: A starter kit for online courses",
+  title: "Compass: Un kit de inicio para cursos en línea",
   description:
-    "I've been itching to get back into screencasting and teaching lately, and the natural first step was to build our own course platform. So we just released Compass, a Next.js starter kit for publishing your own online course.",
+    "Últimamente he tenido muchas ganas de volver a hacer screencasts y enseñar, y el primer paso natural fue construir nuestra propia plataforma de cursos. Así que acabamos de lanzar Compass, un kit de inicio de Next.js para publicar tu propio curso en línea.",
   date: "2025-05-14T19:00:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      I've been itching to get back into screencasting and teaching lately, and the natural first step was to build our
-      own course platform. So we just released <Link href="/plus/templates/compass">Compass</Link>, a Next.js starter
-      kit for publishing your own online course.
+      Últimamente he tenido muchas ganas de volver a hacer screencasts y enseñar, y el primer paso natural fue construir nuestra
+      propia plataforma de cursos. Así que acabamos de lanzar <Link href="/plus/templates/compass">Compass</Link>, un kit de inicio
+      de Next.js para publicar tu propio curso en línea.
     </>
   ),
 };
 
-I've been itching to get back into screencasting and teaching lately, so a couple of months ago I put together this free [Build UIs that don't suck](/build-uis-that-dont-suck) mini-course. People seemed to like it and now I want to do some bigger video projects, but there was a problem.
+Últimamente he tenido muchas ganas de volver a hacer screencasts y enseñar, así que hace un par de meses preparé este minicurso gratuito [Construye UIs que no apesten](/build-uis-that-dont-suck). A la gente pareció gustarle y ahora quiero hacer algunos proyectos de video más grandes, pero había un problema.
 
-I am a software developer.
+Soy desarrollador de software.
 
-And as a software developer, much like I need to write my own static site generator before I can build my own personal website, I needed to build my own course platform before I could even think about putting together a video course.
+Y como desarrollador de software, al igual que necesito escribir mi propio generador de sitios estáticos antes de poder crear mi propio sitio web personal, necesitaba construir mi propia plataforma de cursos antes de poder siquiera pensar en preparar un curso en video.
 
-Well fast-forward six weeks later and we just released [Compass](/plus/templates/compass), a starter kit we designed with Tailwind CSS and Next.js for publishing your own online course.
+Pues bien, seis semanas después, acabamos de lanzar [Compass](/plus/templates/compass), un kit de inicio que diseñamos con Tailwind CSS y Next.js para publicar tu propio curso en línea.
 
 <Link href="/plus/templates/compass">
   <Image src={headerImage} alt="Compass" />
 </Link>
 
-Check out the [live preview](/plus/templates/compass/preview) as always for the full experience.
+Echa un vistazo a la [vista previa en vivo](/plus/templates/compass/preview) como siempre para ver la experiencia completa.
 
-We had a lot of fun working on this one, and got to play with a bunch of new tools and technologies and solve some interesting problems.
+Nos divertimos mucho trabajando en este proyecto, y pudimos jugar con un montón de herramientas y tecnologías nuevas y resolver algunos problemas interesantes.
 
 ---
 
-## Picture-in-picture video
+## Video picture-in-picture (imagen en imagen)
 
-You might not have seen it before but most modern browsers have [native Picture-in-Picture support](https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API). These APIs let you take a video and pop it out into a separate window that the user can move around and resize while still browsing the site.
+Puede que no lo hayas visto antes, pero la mayoría de los navegadores modernos tienen [soporte nativo de Picture-in-Picture](https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API). Estas APIs te permiten tomar un video y mostrarlo en una ventana separada que el usuario puede mover y redimensionar mientras sigue navegando por el sitio.
 
-We had this idea for Compass where if you started to play a course video and scrolled down the page, the video would move to the bottom right of the screen so you could still watch it while reading the page content.
+Tuvimos esta idea para Compass donde, si empezabas a reproducir un video del curso y te desplazabas hacia abajo en la página, el video se movería a la parte inferior derecha de la pantalla para que pudieras seguir viéndolo mientras leías el contenido de la página.
 
 <Video src="https://assets.tailwindcss.com/blog/2025-05-14-compass-course-starter-kit/compass-pip-demo.mp4" />
 
-We were hoping to use the Picture-in-Picture APIs for this, but it turns out you can't passively trigger them on scroll _(for privacy/security reasons I guess?)_ — the user has to actually click something, similar to the clipboard APIs.
+Esperábamos usar las APIs de Picture-in-Picture para esto, pero resulta que no puedes activarlas de forma pasiva al hacer scroll _(supongo que por razones de privacidad/seguridad)_; el usuario tiene que hacer clic en algo, de manera similar a las APIs del portapapeles.
 
-We ended up rolling our own simple thing instead, using [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), video events, and a bit of state to detect when the video was playing and offscreen, and added data attributes to the `<video>` element to so we could target them with utility classes:
+En su lugar, terminamos creando nuestra propia solución sencilla, utilizando [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API), eventos de video y un poco de estado para detectar cuándo el video se estaba reproduciendo y estaba fuera de la pantalla, y añadimos atributos de datos al elemento `<video>` para poder apuntar a ellos con clases de utilidad:
 
 ```jsx
 // [!code filename:video-player.tsx]
@@ -66,37 +66,37 @@ We ended up rolling our own simple thing instead, using [IntersectionObserver](h
 />
 ```
 
-I love using data attributes for this sort of thing, find the code reads a lot more like standard Tailwind stuff compared to a bunch of ternaries and conditional logic in JavaScript.
+Me encanta usar atributos de datos para este tipo de cosas, me parece que el código se lee mucho más como el estilo estándar de Tailwind en comparación con un montón de ternarios y lógica condicional en JavaScript.
 
 ---
 
-## Parsing VTT files into transcripts
+## Parsear archivos VTT en transcripciones
 
-There's a section in Compass for interviews, which each include a video at the top of the page but also a pretty custom transcript UI below:
+Hay una sección en Compass para entrevistas, que incluye un video en la parte superior de la página pero también una interfaz de usuario de transcripción bastante personalizada a continuación:
 
-<Image src={transcriptImage} alt="Stylized transcript of an interview between Tom Harris and Annie King" />
+<Image src={transcriptImage} alt="Transcripción estilizada de una entrevista entre Tom Harris and Annie King" />
 
-At first we weren't totally sure how we should approach this. Our first idea was to just write some React components for these pieces and throw the content directly into an MDX file, but it felt sort of unrealistic to expect anyone to ever author their transcripts in this totally custom format.
+Al principio no estábamos muy seguros de cómo abordar esto. Nuestra primera idea fue simplemente escribir algunos componentes de React para estas partes y colocar el contenido directamente en un archivo MDX, pero se sentía poco realista esperar que alguien creara sus transcripciones en este formato totalmente personalizado.
 
-Then I had the idea to use a standard caption file format, like [SRT](https://en.wikipedia.org/wiki/SubRip). The problem was that for our needs, we needed to encode the current speaker (Tom or Annie in the screenshot above), and SRT has no standardized way of encoding that information in the file.
+Luego tuve la idea de usar un formato de archivo de subtítulos estándar, como [SRT](https://en.wikipedia.org/wiki/SubRip). El problema era que, para nuestras necesidades, necesitábamos codificar al hablante actual (Tom o Annie en la captura de pantalla anterior), y SRT no tiene una forma estandarizada de codificar esa información en el archivo.
 
-I did some more research and eventually landed on [WebVTT](https://en.wikipedia.org/wiki/WebVTT), which is similar to SRT but does support speaker information, and is conveniently designed for the web.
+Investigué un poco más y finalmente llegué a [WebVTT](https://en.wikipedia.org/wiki/WebVTT), que es similar to SRT pero sí admite información del hablante y está diseñado convenientemente para la web.
 
 ```txt
 // [!code filename:annie-king.vtt]
 WEBVTT
 
 00:00.000 --> 00:20.000
-<v Tom Harris>Hello fellow passengers, welcome to the Compass podcast. Today, we have a special guest, Annie King. She's the author of The Inevitable You: How to Embrace Your Path and Succeed with Relentless Precision. Annie, welcome to the show.
+<v Tom Harris>Hola compañeros pasajeros, bienvenidos al podcast Compass. Hoy, tenemos una invitada especial, Annie King. Ella es la autora de The Inevitable You: How to Embrace Your Path and Succeed with Relentless Precision. Annie, bienvenida al programa.
 
 00:20.000 --> 00:35.000
-<v Annie King>Thank you! I'm so happy to be here. And thanks for sending me the questions in advance — I'm really excited to share some of the ideas from the book with your viewers. I think we're going to have a lot of fun unpacking what it means to truly embrace your path.
+<v Annie King>¡Gracias! Estoy muy feliz de estar aquí. Y gracias por enviarme las preguntas por adelantado — estoy muy emocionada de compartir algunas de las ideas del libro con sus espectadores. Creo que nos vamos a divertir mucho desempacando lo que significa abrazar verdaderamente tu camino.
 
 00:35.000 --> 00:45.000
-<v Tom Harris>Absolutely! I want to get into your book, but first I have to ask — what was it like growing up in a household that treated organization almost like...a sport?
+<v Tom Harris>¡Absolutamente! Quiero entrar en tu libro, pero primero tengo que preguntar — ¿cómo fue crecer en un hogar que trataba la organización casi como... un deporte?
 ```
 
-So we wired things up to parse the transcript data from a `.vtt` file, and then map over that data to render it as a custom UI with React:
+Así que conectamos las cosas para parsear los datos de la transcripción de un archivo `.vtt` y luego mapear esos datos para renderizarlos como una interfaz de usuario personalizada con React:
 
 ```jsx
 // [!code filename:src/interview/[slug]/page.tsx]
@@ -117,50 +117,50 @@ So we wired things up to parse the transcript data from a `.vtt` file, and then 
 </div>
 ```
 
-Turned out pretty cool — I can imagine someone just generating a transcript in VTT format using AI, throwing it into the project and it'll automatically be rendered in a nice custom UI.
+Resultó ser bastante genial: puedo imaginar a alguien simplemente generando una transcripción en formato VTT usando IA, metiéndola en el proyecto y automáticamente se renderizará en una bonita interfaz de usuario personalizada.
 
 ---
 
-## Extending Markdown images for dark mode and layout shift
+## Extender imágenes de Markdown para modo oscuro y cambios de diseño (layout shift)
 
-The example content we came up with for Compass includes a lot of diagrams that we wanted to adapt between light and dark mode.
+El contenido de ejemplo que ideamos para Compass incluye muchos diagramas que queríamos adaptar entre el modo claro y oscuro.
 
-<Image src={lightDarkDiagram} alt="Example of a diagram that uses different colors for light and dark mode" />
+<Image src={lightDarkDiagram} alt="Ejemplo de un diagrama que utiliza diferentes colores para el modo claro y oscuro" />
 
-You can do this sort of thing a ton of different ways (the `<picture>` tag supports it natively for example), but we really wanted to keep the content files feeling as much like vanilla Markdown as possible.
+Puedes hacer este tipo de cosas de muchísimas maneras diferentes (la etiqueta `<picture>` lo admite de forma nativa, por ejemplo), pero realmente queríamos que los archivos de contenido se sintieran lo más parecidos posible a Markdown clásico.
 
-So we came up with this idea of a `{scheme}` placeholder in the image URL that we replace with `light` or `dark` dynamically, loading the correct image based on the user's color scheme:
-
-```md
-## The Myth of Free Will
-
-![Neurological Proof](/img/neuro-proof.{scheme}.png) <!-- [!code highlight:1] -->
-
-Your brain makes decisions before you are even aware of them.
-```
-
-Now the underlying image component will automatically render `neuro-proof.light.png` or `neuro-proof.dark.png` depending on the current color scheme. And if you just want to use the same image in both, just don't include `{scheme}` in the URL at all.
-
-We also wanted to avoid layout shift in the content, which you can do pretty easily these days by ensuring you give your images `width` and `height` attributes so the browser can compute the aspect ratio and reserve space for the image when it loads.
-
-There's no standard way to express this in Markdown's image syntax, but after a bit of research we discovered some precedent in [Obsidian](https://help.obsidian.md/syntax#External+images).
-
-Obsidian tacks the image dimensions on to the alt text, like this:
+Así que se nos ocurrió esta idea de un marcador de posición `{scheme}` en la URL de la imagen que reemplazamos con `light` o `dark` dinámicamente, cargando la imagen correcta según el esquema de colores del usuario:
 
 ```md
-## The Myth of Free Will
+## El Mito del Libre Albedrío
 
-![Neurological Proof|2000x990](/img/neuro-proof.{scheme}.png) <!-- [!code highlight:1] -->
+![Prueba Neurológica](/img/neuro-proof.{scheme}.png) <!-- [!code highlight:1] -->
 
-Your brain makes decisions before you are even aware of them.
+Tu cerebro toma decisiones antes de que seas consciente de ellas.
 ```
 
-So we used a custom MDX component to pull out the dimensions using the same format, and add those to the image to make sure there's no layout shift as the content loads.
+Ahora, el componente de imagen subyacente renderizará automáticamente `neuro-proof.light.png` o `neuro-proof.dark.png` según el esquema de colores actual. Y si solo quieres usar la misma imagen en ambos, simplemente no incluyas `{scheme}` in la URL en absoluto.
+
+También queríamos evitar el cambio de diseño (layout shift) en el contenido, lo cual se puede hacer con bastante facilidad hoy en día asegurándote de dar a tus imágenes los atributos `width` y `height` para que el navegador pueda calcular la relación de aspecto y reservar espacio para la imagen cuando se cargue.
+
+No hay una forma estándar de expresar esto en la sintaxis de imágenes de Markdown, pero después de investigar un poco descubrimos algunos precedentes en [Obsidian](https://help.obsidian.md/syntax#External+images).
+
+Obsidian añade las dimensiones de la imagen al texto alternativo (alt), de esta manera:
+
+```md
+## El Mito del Libre Albedrío
+
+![Prueba Neurológica|2000x990](/img/neuro-proof.{scheme}.png) <!-- [!code highlight:1] -->
+
+Tu cerebro toma decisiones antes de que seas consciente de ellas.
+```
+
+Así que usamos un componente MDX personalizado para extraer las dimensiones usando el mismo formato y añadirlas a la imagen para asegurarnos de que no haya cambios de diseño a medida que se carga el contenido.
 
 ---
 
-So there you go — that's Compass! As always it's a free update for anyone with a [Tailwind Plus](/plus) license, so go and [download the codebase](/plus/templates/compass), poke around, and have fun with it.
+¡Así que ahí lo tienes: eso es Compass! Como siempre, es una actualización gratuita para cualquier persona con una licencia de [Tailwind Plus](/plus), así que ve y [descarga la base de código](/plus/templates/compass), explora un poco y diviértete con ella.
 
-If you don't already have a Tailwind Plus license, think about getting one! Picking one up is the best way to support our work on Tailwind CSS and there's a ton of useful stuff in there.
+Si aún no tienes una licencia de Tailwind Plus, ¡considera obtener una! Comprar una es la mejor manera de apoyar nuestro trabajo en Tailwind CSS y hay un montón de cosas útiles en ella.
 
-Looking forward to using this template for some upcoming projects myself in the next couple of months!
+¡Espero usar esta plantilla para algunos proyectos futuros en los próximos meses!

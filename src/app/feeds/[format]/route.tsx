@@ -13,14 +13,14 @@ export async function GET(request: Request, { params }: { params: Promise<{ form
   let format = (await params).format;
 
   const feed = new Feed({
-    title: "Tailwind CSS Blog",
-    description: "All the latest Tailwind CSS news, straight from the team.",
+    title: "Blog de Tailwind CSS",
+    description: "Todas las últimas noticias de Tailwind CSS, directo del equipo.",
     id: BLOG_URL,
     link: BLOG_URL,
-    language: "en",
+    language: "es",
     image: `${BASE_URL}/favicons/favicon-32x32.png?v=3`,
     favicon: `${BASE_URL}/favicons/favicon.ico?v=3`,
-    copyright: `All rights reserved ${new Date().getFullYear()}, Tailwind Labs`,
+    copyright: `Todos los derechos reservados ${new Date().getFullYear()}, Tailwind Labs`,
     feedLinks: {
       rss: `${BASE_URL}/feeds/feed.xml`,
       json: `${BASE_URL}/feeds/feed.json`,

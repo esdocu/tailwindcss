@@ -25,6 +25,37 @@ const BEFORE_AND_AFTER_ONLY_IN_FIRST_COLUMN_OF_CURRENT_GRID = [
   "max-sm:before:block max-sm:after:block",
 ].join(" ");
 
+const descriptionTranslations: Record<string, string> = {
+  "Hosting platform website": "Sitio web de plataforma de hosting",
+  "Developer tool website": "Sitio web de herramientas de desarrollo",
+  "SaaS application website": "Sitio web de aplicación SaaS",
+  "Ecommerce platform website": "Sitio web de plataforma de comercio electrónico",
+  "Code editor website": "Sitio web de editor de código",
+  "Documentation website": "Sitio web de documentación",
+  "Fintech application website": "Sitio web de aplicación fintech",
+  "CMS platform website": "Sitio web de plataforma CMS",
+  "Marketing website & chat interface": "Sitio web de marketing e interfaz de chat",
+  "Fintech marketing website": "Sitio web de marketing fintech",
+  "SaaS marketing website": "Sitio web de marketing SaaS",
+  "News website": "Sitio web de noticias",
+  "Conference website": "Sitio web de conferencia",
+  "Agency website": "Sitio web de agencia",
+  "Vacation rental website": "Sitio web de alquiler vacacional",
+  "Research website": "Sitio web de investigación",
+  "Automotive website": "Sitio web automotriz",
+  "Direct-to-consumer store": "Tienda directa al consumidor",
+  "Space laboratory website": "Sitio web de laboratorio espacial",
+  "Software framework website": "Sitio web de framework de software",
+  "Personal website": "Sitio web personal",
+  "Podcast website": "Sitio web de podcast",
+  "NFT marketing website": "Sitio web de marketing NFT",
+  "Mobile app marketing website": "Sitio web de marketing de aplicación móvil",
+  "Nonprofit website": "Sitio web de organización sin fines de lucro",
+  "SaaS application": "Aplicación SaaS",
+  "Product marketing website": "Sitio web de marketing de producto",
+  "Info product website": "Sitio web de producto informativo",
+};
+
 export default function ShowcaseThumbnail({ showcase, priority = false }: { showcase: Showcase; priority?: boolean }) {
   let videoContainerRef = useRef<HTMLDivElement>(null);
   let videoRef = useRef<HTMLVideoElement>(null);
@@ -156,7 +187,7 @@ export default function ShowcaseThumbnail({ showcase, priority = false }: { show
             </p>
           )}
           <p className="line-clamp-1 w-full flex-none font-mono text-xs/6 text-neutral-600 dark:text-neutral-400">
-            {showcase.description}
+            {descriptionTranslations[showcase.description] || showcase.description}
           </p>
         </div>
       </GridContainer>

@@ -15,11 +15,11 @@ export function SignUpForm() {
           id="email"
           name="email_address"
           className="w-3xs min-w-0 shrink grow rounded-full bg-transparent px-4 py-2 text-sm/6 text-gray-950 focus:outline-none"
-          placeholder="Enter your email"
-          aria-label="Email address"
+          placeholder="Introduce tu correo electrónico"
+          aria-label="Dirección de correo electrónico"
         />
         <button className="mr-0.5 shrink-0 overflow-hidden rounded-full bg-gray-950 px-3 py-1.5 text-sm/6 font-semibold text-nowrap text-white hover:bg-gray-950/85">
-          Get the course
+          Obtener el curso
         </button>
       </div>
     </form>
@@ -94,14 +94,14 @@ export function HeroActions({
                   type="email"
                   name="email_address"
                   className="w-3xs rounded-full bg-transparent px-4 py-2 text-sm/6 text-gray-950 focus:outline-none"
-                  placeholder="Enter your email"
-                  aria-label="Email address"
+                  placeholder="Introduce tu correo electrónico"
+                  aria-label="Dirección de correo electrónico"
                 />
                 <button
                   type="submit"
                   className="mr-0.5 shrink-0 overflow-hidden rounded-full bg-gray-950 px-3 py-1.5 text-sm/6 font-semibold text-nowrap text-white hover:bg-gray-950/85"
                 >
-                  Sign up
+                  Registrarse
                 </button>
               </motion.form>
             )}
@@ -129,7 +129,7 @@ export function HeroActions({
                 }}
                 transition={{ duration: 0.2 }}
               >
-                Get the free course &rarr;
+                Obtener el curso gratuito &rarr;
               </motion.button>
             )}
           </AnimatePresence>
@@ -165,7 +165,7 @@ export function HeroActions({
               />
             </svg>
             <span>
-              Watch <span className="max-sm:hidden">the</span> intro <span className="max-sm:hidden">video</span>
+              Ver <span className="max-sm:hidden">el</span> video <span className="max-sm:hidden">de introducción</span>
             </span>
           </Button>
         )}

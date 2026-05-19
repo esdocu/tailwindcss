@@ -5,139 +5,139 @@ import Link from "next/link";
 
 export const meta = {
   private: true,
-  title: "Designing Tailwind UI Ecommerce",
-  description: `Hey! We've been working on this new Tailwind UI Ecommerce kit for months now and are finally closing in on the finish line so I thought I'd write up a bit about the process and give you an update on where things are at.`,
+  title: "Diseñando Tailwind UI Ecommerce",
+  description: `¡Hola! Hemos estado trabajando en este nuevo kit de Tailwind UI Ecommerce durante meses y finalmente nos estamos acercando a la meta, así que pensé en escribir un poco sobre el proceso y darte una actualización sobre cómo van las cosas.`,
   date: "2021-08-07T12:45:00.0Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      Hey! We've been working on this new Tailwind UI Ecommerce kit for months now and are finally closing in on the
-      finish line so I thought I'd write up a bit about the process and give you an update on where things are at.
+      ¡Hola! Hemos estado trabajando en este nuevo kit de Tailwind UI Ecommerce durante meses y finalmente nos estamos acercando a la
+      meta, así que pensé en escribir un poco sobre el proceso y darte una actualización sobre cómo van las cosas.
     </>
   ),
 };
 
-Hey! We've been working on this new Tailwind UI Ecommerce kit for months now and are finally closing in on the finish line so I thought I'd write up a bit about the process and give you an update on where things are at.
+¡Hola! Hemos estado trabajando en este nuevo kit de Tailwind UI Ecommerce durante meses y finalmente nos estamos acercando a la meta, así que pensé en escribir un poco sobre el proceso y darte una actualización sobre cómo van las cosas.
 
-Designing and building a big component kit like this is a _huge_ amount of work. If you weren't following along when Steve and I started working on Tailwind UI in the first place, it took about 10 months before we had something we felt good about releasing. We designed dozens of components only to scrap all of them and start from scratch at least three separate times. _Oof._
+Diseñar y construir un gran kit de componentes como este es una cantidad _enorme_ de trabajo. Si no estabas siguiendo cuando Steve y yo empezamos a trabajar en Tailwind UI en primer lugar, nos llevó unos 10 meses antes de tener algo que nos sintiéramos cómodos lanzando. Diseñamos docenas de componentes solo para desecharlos todos y empezar de cero al menos tres veces distintas. _Uf._
 
-We've learned a lot since then and have really refined our process, and it's made putting together these ecommerce ideas go a lot smoother.
+Hemos aprendido mucho desde entonces y realmente hemos refinado nuestro proceso, y eso ha hecho que armar estas ideas de ecommerce sea mucho más fluido.
 
 ---
 
-**The first step was to research and catalog**. We started by studying as many ecommerce sites as we could possibly find and cataloging every UI pattern we could pick out, like:
+**El primer paso fue investigar y catalogar**. Empezamos estudiando tantos sitios de ecommerce como pudimos encontrar y catalogando cada patrón de UI que pudimos identificar, como:
 
-- Product overviews
-- Product lists
-- Product feature details
-- Category previews
-- Checkout forms
-- Shopping carts
-- Category filters
-- Customer reviews
-- Order history
-- Order details
-- Category mega menus
-- Product quickviews
-- Promo sections
+- Descripciones generales de productos
+- Listas de productos
+- Detalles de características del producto
+- Vistas previas de categorías
+- Formularios de pago
+- Carritos de compra
+- Filtros de categoría
+- Reseñas de clientes
+- Historial de pedidos
+- Detalles del pedido
+- Mega menús de categoría
+- Vistas rápidas de productos
+- Secciones de promoción
 
-We scoured dozens of different types of stores as part of this research, including clothing stores like [Everlane](https://www.everlane.com/), shoe stores like [Allbirds](https://www.allbirds.com/), office accessory makers like [Grovemade](https://grovemade.com/), mattress companies like [Casper](https://casper.com/), audio plugin developers like [Toontrack](https://www.toontrack.com/), and tons more. We tried not to focus on any one specific _type_ of store, and I think that really helped in identifying which patterns are truly universal for these types of sites, and how different ideas fit into those patterns.
+Exploramos docenas de diferentes tipos de tiendas como parte de esta investigación, incluyendo tiendas de ropa como [Everlane](https://www.everlane.com/), tiendas de zapatos como [Allbirds](https://www.allbirds.com/), fabricantes de accesorios de oficina como [Grovemade](https://grovemade.com/), compañías de colchones como [Casper](https://casper.com/), desarrolladores de plugins de audio como [Toontrack](https://www.toontrack.com/), y muchas más. Intentamos no centrarnos en ningún _tipo_ específico de tienda, y creo que eso realmente ayudó a identificar qué patrones son verdaderamente universales para este tipo de sitios, y cómo encajan las diferentes ideas en esos patrones.
 
-Some of them were pretty hard to identify, especially because there's quite a bit of overlap between the sort of patterns you see in an ecommerce site and in a more brochure-style marketing website.
+Algunos de ellos fueron bastante difíciles de identificar, especialmente porque hay bastante superposición entre el tipo de patrones que ves en un sitio de ecommerce y en un sitio web de marketing más estilo folleto.
 
-For example, this section isn't really that different from a hero section you might see on a marketing site:
+Por ejemplo, esta sección no es realmente tan diferente de una sección hero que podrías ver en un sitio de marketing:
 
 <Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/adidas-hero.jpg" />
 
-So should the ecommerce kit have "Hero Sections" too, like the marketing kit? And if so what makes them different — why have two duplicate categories?
+Entonces, ¿el kit de ecommerce debería tener también "Secciones Hero", como el kit de marketing? Y si es así, ¿qué las hace diferentes? ¿Por qué tener dos categorías duplicadas?
 
-It took a lot of research and thinking before we eventually noticed that in ecommerce sites, the "hero" is almost _never_ a real hero. It's never something with like a summary of the whole brand or anything, like "Handmade office accessories for the modern knowledge worker", it's always some timely promotional thing like "Get 50% off until the end of the summer" or "Our fall collection just dropped, explore it now".
+Nos llevó mucha investigación y reflexión antes de que finalmente notáramos que en los sitios de ecommerce, el "hero" casi _nunca_ es un verdadero hero. Nunca es algo como un resumen de toda la marca o algo así, como "Accesorios de oficina hechos a mano para el trabajador del conocimiento moderno", siempre es algo promocional oportuno como "Obtén un 50% de descuento hasta el final del verano" o "Nuestra colección de otoño acaba de llegar, explórala ahora".
 
-We also noticed that these "hero" sections were almost always designs that could very easily be moved to the middle of the page — they were never really true "header" content. This is when we came up with the concept of a "promo section", which is like a big banner that promotes a sale or a new product and _could_ be used as a hero, but could also be mixed in with other page content as well.
+También notamos que estas secciones "hero" eran casi siempre diseños que podrían moverse muy fácilmente al medio de la página; nunca eran realmente contenido de "encabezado". Fue entonces cuando se nos ocurrió el concepto de "sección de promoción", que es como un gran banner que promociona una oferta o un nuevo producto y _podría_ usarse como un hero, pero también podría mezclarse con otro contenido de la página.
 
-There were lots of little eureka moments like this that don't seem like much when you see the finished result but man, it is hard work to figure this stuff out. Organizing and categorizing all of these ideas was almost as much work as designing them.
+Hubo muchos pequeños momentos eureka como este que no parecen mucho cuando ves el resultado final, pero hombre, es un trabajo duro descifrar estas cosas. Organizar y categorizar todas estas ideas fue casi tanto trabajo como diseñarlas.
 
 ---
 
-**Next was designing full page examples**. If there's one thing we learned from the initial work on the Application UI and Marketing packages, it's that the components you extract are a lot better when designed in the context of a complete page.
+**Lo siguiente fue diseñar ejemplos de página completa**. Si hay algo que aprendimos del trabajo inicial en los paquetes de Application UI y Marketing, es que los componentes que extraes son mucho mejores cuando se diseñan en el contexto de una página completa.
 
-For the first set of Tailwind UI stuff, we did a lot of designing in isolation, just thinking through a nice pagination design for example. But what we found is that when we started putting all that stuff together into real UIs, lots of little things felt off.
+Para el primer conjunto de cosas de Tailwind UI, hicimos mucho diseño de forma aislada, simplemente pensando en un bonito diseño de paginación, por ejemplo. Pero lo que descubrimos es que cuando empezamos a juntar todo eso en interfaces de usuario reales, muchas pequeñas cosas no encajaban.
 
-Sometimes it was the font size being a little too big compared to other elements in the design, maybe not using enough whitespace, or giving an element too much contrast, making it stand out against the rest of the page when it was supposed to feel like secondary content. When we reworked our approach to always _extract_ smaller examples from bigger examples, everything really started to click a lot better.
+A veces era el tamaño de la fuente un poco demasiado grande en comparación con otros elementos del diseño, tal vez no usar suficiente espacio en blanco, o dar a un elemento demasiado contraste, haciéndolo destacar sobre el resto de la página cuando se suponía que debía sentirse como contenido secundario. Cuando reelaboramos nuestro enfoque para _extraer_ siempre ejemplos más pequeños de ejemplos más grandes, todo empezó a encajar mucho mejor.
 
-So for the ecommerce package, we designed _everything_ as page examples from the very beginning. In total, we've designed around 50 complete pages so far, including home pages, category listings, product pages, checkout forms, and tons more.
+Así que para el paquete de ecommerce, diseñamos _todo_ como ejemplos de página desde el principio. En total, hemos diseñado alrededor de 50 páginas completas hasta ahora, incluyendo páginas de inicio, listados de categorías, páginas de productos, formularios de pago y mucho más.
 
 <Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/50-pages.jpg" />
 
-We'd reuse a few things across pages to move quickly (like footer or navbar ideas), but generally we tried to make every core element of every page unique, to generate as many ideas as possible.
+Reutilizaríamos algunas cosas entre páginas para movernos rápidamente (como ideas de pie de página o barra de navegación), pero generalmente intentamos que cada elemento central de cada página fuera único, para generar tantas ideas como fuera posible.
 
 ---
 
-**Then we built the pages.** A lot of folks assume we have this like really clean design hand-off process where we create these bullet-proof, perfect Figma designs, then implement them exactly as-is in their perfect form but that's totally not true at all.
+**Luego construimos las páginas.** Mucha gente asume que tenemos este proceso de entrega de diseño súper limpio donde creamos estos diseños de Figma perfectos a prueba de balas, luego los implementamos exactamente como están en su forma perfecta, pero eso no es cierto en absoluto.
 
-What happens instead is we take the full page designs that are in _pretty good_ shape, build them as best we can, then we review the finished designs together in the browser to make adjustments. Usually there are a _lot_ of little changes that happen, especially stuff related to little spacing details that are just easier to judge in the browser than they are in a design file. Sometimes though we make really drastic changes, like totally replacing part of the design with something else if we decide it just doesn't look as good as we hoped, or if it would make the code extremely complicated to match the design exactly but for little or no benefit over a slightly different design.
+Lo que sucede en cambio es que tomamos los diseños de página completa que están en _bastante buena_ forma, los construimos lo mejor que podemos, luego revisamos los diseños terminados juntos en el navegador para hacer ajustes. Por lo general, hay _muchos_ pequeños cambios que ocurren, especialmente cosas relacionadas con pequeños detalles de espaciado que son simplemente más fáciles de juzgar en el navegador que en un archivo de diseño. Sin embargo, a veces hacemos cambios realmente drásticos, como reemplazar totalmente parte del diseño con otra cosa si decidimos que simplemente no se ve tan bien como esperábamos, o si haría que el código fuera extremadamente complicado para coincidir exactamente con el diseño, pero con poco o ningún beneficio sobre un diseño ligeramente diferente.
 
-Here's an example of a design that changed a _lot_ during the building process — Figma on the left, final HTML version on the right:
+Aquí tienes un ejemplo de un diseño que cambió _mucho_ durante el proceso de construcción: Figma a la izquierda, versión HTML final a la derecha:
 
 <Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/figma-vs-html.jpg" />
 
-Definitely think everything turns out a lot better when we are open to iterating on designs like this as we go instead of just throwing them over the wall.
+Definitivamente creo que todo sale mucho mejor cuando estamos abiertos a iterar en diseños como este sobre la marcha en lugar de simplemente lanzarlos por encima del muro.
 
-If you're interested in the actual process we use for writing the templates, we author them in a sort of home-grown templating language driven by PostHTML, which we ultimately use to render the components to multiple targets, like HTML, React, and Vue.
+Si estás interesado en el proceso real que usamos para escribir las plantillas, las creamos en una especie de lenguaje de plantillas casero impulsado por PostHTML, que finalmente usamos para renderizar los componentes a múltiples destinos, como HTML, React y Vue.
 
-Here's what it looks like:
+Así es como se ve:
 
 <Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/templating-sample.jpg" />
 
-You can read more about it [in this email I sent back in April](https://blog.tailwindcss.com/building-react-and-vue-support-for-tailwind-ui) if you're curious about more of the details!
+Puedes leer más al respecto [en este correo electrónico que envié en abril](https://blog.tailwindcss.com/building-react-and-vue-support-for-tailwind-ui) si tienes curiosidad por más detalles.
 
 ---
 
-**Next, we extracted the individual components.** Once the page designs are finalized and built, we extract the individual elements into their own templates. This is where "Product Overviews" are extracted from product pages, "Product Lists" are extracted from category pages, and "Promo Sections" are extracted from storefront home pages.
+**A continuación, extrajimos los componentes individuales.** Una vez que los diseños de página están finalizados y construidos, extraemos los elementos individuales en sus propias plantillas. Aquí es donde se extraen las "Descripciones generales de productos" de las páginas de productos, las "Listas de productos" de las páginas de categorías y las "Secciones de promoción" de las páginas de inicio de la tienda.
 
 <Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/exploded-view.jpg" />
 
-The thing that's tough about this process is it's not really as simple as just "a page is comprised of components" — as you probably know even _components_ are comprised of components, so deciding exactly how to slice things for Tailwind UI is always tough.
+Lo difícil de este proceso es que no es tan simple como "una página se compone de componentes"; como probablemente sabes, incluso los _componentes_ se componen de componentes, por lo que decidir exactamente cómo dividir las cosas para Tailwind UI siempre es difícil.
 
-Generally we err on the side of bigger components, because it's easy for someone to pull out a small piece of a bigger component if they like it and want to use it elsewhere, but it's not always easy to come up with ideas for the bigger components yourself if all you have is the tiny individual pieces.
+Generalmente nos inclinamos por componentes más grandes, porque es fácil para alguien sacar una pequeña pieza de un componente más grande si le gusta y quiere usarla en otro lugar, pero no siempre es fácil idear los componentes más grandes tú mismo si todo lo que tienes son las pequeñas piezas individuales.
 
-The way I like to think about it is we're trying to give you pre-built LEGO creations, not just the bricks.
+La forma en que me gusta pensar en ello es que estamos tratando de darte creaciones de LEGO preconstruidas, no solo los ladrillos.
 
 <Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/lego.jpeg" />
 
-It's easy to take the wheels off the truck if that's all you need — it's harder to turn the wheels, a seat, and some headlights into a nice truck from scratch though.
+Es fácil quitarle las ruedas al camión si eso es todo lo que necesitas; sin embargo, es más difícil convertir las ruedas, un asiento y unos faros en un bonito camión desde cero.
 
-For example, this single "Product Overview" section could be cut up into a bunch of smaller components:
+Por ejemplo, esta única sección de "Descripción general del producto" podría dividirse en un montón de componentes más pequeños:
 
 <Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/product-overview.jpg" />
 
-There's an image gallery, a star review widget, a color swatch picker, and a feature accordion there at a bare minimum. But I think providing it holistically like this is the better place to start — you can still grab all that stuff if you need it but as a bigger component it also serves as _inspiration_ and that's a really important ingredient in what makes Tailwind UI a cool product.
+Hay una galería de imágenes, un widget de reseña de estrellas, un selector de muestras de color y un acordeón de características allí como mínimo. Pero creo que proporcionarlo de forma holística como esta es el mejor lugar para empezar: todavía puedes tomar todo eso si lo necesitas, pero como un componente más grande también sirve como _inspiración_ y ese es un ingrediente realmente importante en lo que hace que Tailwind UI sea un producto genial.
 
-We might extract a lot of these things into smaller components as well down the road, but I definitely think this "outside-in" approach is the right way to go overall.
+Podríamos extraer muchas de estas cosas en componentes más pequeños también en el futuro, pero definitivamente creo que este enfoque "de afuera hacia adentro" es el camino correcto en general.
 
 ---
 
-**Finally, take inventory, and repeat the whole thing.** A lesson I keep re-learning over and over again about product design is that no amount of planning will lead to the right product on the first try. You have to be keep iterating and improving — it's not a linear process.
+**Finalmente, haz inventario y repite todo el proceso.** Una lección que sigo reaprendiendo una y otra vez sobre el diseño de productos es que ninguna cantidad de planificación conducirá al producto correcto al primer intento. Tienes que seguir iterando y mejorando; no es un proceso lineal.
 
-For this ecommerce kit, we couldn't really see where the holes were in the product until we had designed and built a bunch of pages, extracted all of those components, and then assessed where we were at.
+Para este kit de ecommerce, realmente no pudimos ver dónde estaban los agujeros en el producto hasta que diseñamos y construimos un montón de páginas, extrajimos todos esos componentes y luego evaluamos dónde estábamos.
 
-We noticed a bunch of things we were blind to at first, for example, we only had two mega menu ideas — probably because it was really easy to just not design the "open" state of any navbar when designing new pages. So we went back to the design step, and came up with a bunch of new concepts to flesh out the category.
+Notamos un montón de cosas a las que al principio estábamos ciegos, por ejemplo, solo teníamos dos ideas de mega menú, probablemente porque era muy fácil simplemente no diseñar el estado "abierto" de ninguna barra de navegación al diseñar nuevas páginas. Así que volvimos al paso de diseño y se nos ocurrieron un montón de conceptos nuevos para desarrollar la categoría.
 
 <Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/mega-menu-concepts.jpg" />
 
-We also noticed that we had a disproportionate number of sort of card-based designs on off-white backgrounds, and not enough just flat simple designs which I think is a lot more common in ecommerce design. So we went back to the beginning and designed a bunch of new pages to fill this gap as well:
+También notamos que teníamos un número desproporcionado de diseños basados en tarjetas sobre fondos blanquecinos, y no suficientes diseños planos y simples, que creo que son mucho más comunes en el diseño de ecommerce. Así que volvimos al principio y diseñamos un montón de páginas nuevas para llenar este vacío también:
 
 <Image src="https://tailwindui.nyc3.cdn.digitaloceanspaces.com/20210806-ecommerce-update/white-backgrounds.jpg" />
 
-We're less than a week away from when we hope to release this thing and every day we are _still_ designing brand new things to fill gaps we are identifying as we get closer to the finish line. The product is getting more awesome every day though, and I think these are the best designs we've come up with for Tailwind UI period _(thank god really, getting worse at this would be depressing.)_
+Estamos a menos de una semana de cuando esperamos lanzar esto y todos los días _todavía_ estamos diseñando cosas nuevas para llenar los vacíos que identificamos a medida que nos acercamos a la meta. Sin embargo, el producto se vuelve más increíble cada día, y creo que estos son los mejores diseños que hemos creado para Tailwind UI hasta ahora _(gracias a dios, empeorar en esto sería deprimente.)_
 
 ---
 
-**So when is it coming out?** I don't want to make any promises but we are trying _really_ hard to get this thing out the door mid-next week. I'll definitely send out another update when we know for sure, but it's looking good right now even though we've still got a lot to wrap up.
+**Entonces, ¿cuándo saldrá?** No quiero hacer promesas, pero estamos intentando _muy_ duro sacar esto a mediados de la próxima semana. Definitivamente enviaré otra actualización cuando lo sepamos con certeza, pero se ve bien en este momento aunque todavía tenemos mucho que concluir.
 
-As mentioned in an earlier update, the ecommerce kit is a separate product so it will be a paid add-on for existing customers, but if you already own the Marketing and Application UI packages, it's going to be _really_ affordable, like cheaper than taking your kids out for lunch sort of territory. I **hate** when companies give the best deals to new customers _(hello telecom industry)_ instead of rewarding the people who supported them from the beginning, and we will never be that type of business.
+Como se mencionó en una actualización anterior, el kit de ecommerce es un producto separado, por lo que será un complemento de pago para los clientes existentes, pero si ya posees los paquetes de Marketing y Application UI, será _realmente_ asequible, como más barato que llevar a tus hijos a almorzar. **Odio** cuando las empresas dan las mejores ofertas a los nuevos clientes _(hola industria de las telecomunicaciones)_ en lugar de recompensar a las personas que los apoyaron desde el principio, y nunca seremos ese tipo de negocio.
 
-Thanks as always for following along — look for another update early next week, and fingers crossed we'll have this ready for release shortly after!
+Gracias como siempre por seguirnos; busca otra actualización a principios de la próxima semana, ¡y crucemos los dedos para tener esto listo para lanzar poco después!
 
 – Adam

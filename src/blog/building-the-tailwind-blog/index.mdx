@@ -4,51 +4,51 @@ import Link from "next/link";
 import card from "./card.jpg";
 
 export const meta = {
-  title: "Building the Tailwind Blog with Next.js",
-  description: `One of the things we believe as a team is that everything we make should be sealed with a blog post. Forcing ourselves to write up a short announcement post for every project we work on acts as a built-in quality check, making sure that we never call a project "done" until we feel comfortable telling the world it's out there. The problem was that up until today, we didn't actually have anywhere to publish those posts!`,
+  title: "Construyendo el Blog de Tailwind con Next.js",
+  description: `Una de las cosas en las que creemos como equipo es que todo lo que hacemos debe sellarse con una publicación de blog. Obligarnos a escribir una breve publicación de anuncio para cada proyecto en el que trabajamos actúa como un control de calidad incorporado, asegurándonos de que nunca llamemos a un proyecto "terminado" hasta que nos sintamos cómodos diciéndole al mundo que ya está disponible. ¡El problema era que hasta hoy, en realidad no teníamos dónde publicar esas entradas!`,
   date: "2020-06-30T18:05:31Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      One of the things we believe as a team is that everything we make should be{" "}
-      <Link href="https://public.3.basecamp.com/p/toAcDMxu8Fvq2yMfd2azTuaV">sealed with a blog post</Link>. Forcing
-      ourselves to write up a short announcement post for every project we work on acts as a built-in quality check,
-      making sure that we never call a project "done" until we feel comfortable telling the world it's out there.
+      Una de las cosas en las que creemos como equipo es que todo lo que hacemos debe ser{" "}
+      <Link href="https://public.3.basecamp.com/p/toAcDMxu8Fvq2yMfd2azTuaV">sellado con una publicación de blog</Link>. Obligarnos
+      a escribir una breve publicación de anuncio para cada proyecto en el que trabajamos actúa como un control de calidad incorporado,
+      asegurándonos de que nunca llamemos a un proyecto "terminado" hasta que nos sintamos cómodos diciéndole al mundo que ya está disponible.
     </>
   ),
 };
 
-One of the things we believe as a team is that everything we make should be [sealed with a blog post](https://public.3.basecamp.com/p/toAcDMxu8Fvq2yMfd2azTuaV). Forcing ourselves to write up a short announcement post for every project we work on acts as a built-in quality check, making sure that we never call a project "done" until we feel comfortable telling the world it's out there.
+Una de las cosas en las que creemos como equipo es que todo lo que hacemos debe ser [sellado con una publicación de blog](https://public.3.basecamp.com/p/toAcDMxu8Fvq2yMfd2azTuaV). Obligarnos a escribir una breve publicación de anuncio para cada proyecto en el que trabajamos actúa como un control de calidad incorporado, asegurándonos de que nunca llamemos a un proyecto "terminado" hasta que nos sintamos cómodos diciéndole al mundo que ya está disponible.
 
-The problem was that up until today, we didn't actually have anywhere to publish those posts!
+¡El problema era que hasta hoy, en realidad no teníamos dónde publicar esas entradas!
 
-## Choosing a platform
+## Eligiendo una plataforma
 
-We're a team of developers so naturally there was no way we could convince ourselves to use something off-the-shelf, and opted to build something simple and custom with [Next.js](http://nextjs.org).
+Somos un equipo de desarrolladores, así que, naturalmente, no había forma de convencernos de usar algo listo para usar, y optamos por construir algo simple y personalizado con [Next.js](http://nextjs.org).
 
-There are a lot of things to like about Next.js, but the primary reason we decided to use it is that it has great support for [MDX](https://mdxjs.com/), which is the format we wanted to use to author our posts.
+Hay muchas cosas que gustan de Next.js, pero la razón principal por la que decidimos usarlo es que tiene un gran soporte para [MDX](https://mdxjs.com/), que es el formato que queríamos usar para escribir nuestras publicaciones.
 
 ```md
-# My first MDX post
+# Mi primera publicación MDX
 
-MDX is a really cool authoring format because it lets
-you embed React components right in your markdown:
+MDX es un formato de autoría realmente genial porque te permite
+incrustar componentes de React directamente en tu markdown:
 
 <MyComponent myProp={5} />
 
-How cool is that?
+¿Qué tan genial es eso?
 ```
 
-MDX is really interesting because unlike regular Markdown, you can embed live React components directly in your content. This is exciting because it unlocks a lot of opportunities in how you communicate ideas in your writing. Instead of relying only on images, videos, or code blocks, you can build interactive demos and stick them directly between two paragraphs of content, without throwing away the ergonomics of authoring in Markdown.
+MDX es realmente interesante porque, a diferencia del Markdown normal, puedes incrustar componentes de React en vivo directamente en tu contenido. Esto es emocionante porque abre muchas oportunidades en cómo comunicas ideas en tu escritura. En lugar de depender solo de imágenes, videos o bloques de código, puedes construir demos interactivos y pegarlos directamente entre dos párrafos de contenido, sin desechar la ergonomía de la autoría en Markdown.
 
-We're planning to do a redesign and rebuild of the Tailwind CSS documentation site later this year and being able to embed interactive components makes a huge difference in our ability to teach how the framework works, so using our little blog site as a test project made a lot of sense.
+Estamos planeando hacer un rediseño y reconstrucción del sitio de documentación de Tailwind CSS más adelante este año y poder incrustar componentes interactivos marca una gran diferencia en nuestra capacidad para enseñar cómo funciona el framework, por lo que usar nuestro pequeño sitio de blog como proyecto de prueba tenía mucho sentido.
 
-## Organizing our content
+## Organizando nuestro contenido
 
-We started by writing posts as simple MDX documents that lived directly in the `pages` directory. Eventually though we realized that just about every post would also have associated assets, for example an Open Graph image at the bare minimum.
+Comenzamos escribiendo publicaciones como documentos MDX simples que vivían directamente en el directorio `pages`. Sin embargo, eventualmente nos dimos cuenta de que casi todas las publicaciones también tendrían activos asociados, por ejemplo, una imagen Open Graph como mínimo.
 
-Having to store those in another folder felt a bit sloppy, so we decided instead to give every post its own folder in the `pages` directory, and put the post content in an `index.mdx` file.
+Tener que almacenarlos en otra carpeta se sentía un poco descuidado, así que decidimos darle a cada publicación su propia carpeta en el directorio `pages` y poner el contenido de la publicación en un archivo `index.mdx`.
 
 ```
 public/
@@ -75,31 +75,31 @@ README.md
 tailwind.config.js
 ```
 
-This let us co-locate any assets for that post in the same folder, and leverage webpack's [file-loader](https://github.com/tailwindcss/blog/blob/59bd38f2f423f133c0b6157a925ec2875ce880af/next.config.js#L28-L39) to import those assets directly into the post.
+Esto nos permitió colocar cualquier activo para esa publicación en la misma carpeta y aprovechar el [file-loader](https://github.com/tailwindcss/blog/blob/59bd38f2f423f133c0b6157a925ec2875ce880af/next.config.js#L28-L39) de webpack para importar esos activos directamente en la publicación.
 
-## Metadata
+## Metadatos
 
-We store metadata about each post in a `meta` object that we export at the top of each MDX file:
+Almacenamos metadatos sobre cada publicación en un objeto `meta` que exportamos en la parte superior de cada archivo MDX:
 
 ```js
 import { bradlc } from "@/app/blog/authors";
 import openGraphImage from "./card.jpeg";
 
 export const meta = {
-  title: "Introducing linting for Tailwind CSS IntelliSense",
-  description: `Today we’re releasing a new version of the Tailwind CSS IntelliSense extension for Visual Studio Code that adds Tailwind-specific linting to both your CSS and your markup.`,
+  title: "Presentando el linting para Tailwind CSS IntelliSense",
+  description: `Hoy lanzamos una nueva versión de la extensión Tailwind CSS IntelliSense para Visual Studio Code que agrega linting específico de Tailwind tanto a tu CSS como a tu markup.`,
   date: "2020-06-23T18:52:03Z",
   authors: [bradlc],
   image: openGraphImage,
   discussion: "https://github.com/tailwindcss/tailwindcss/discussions/1956",
 };
 
-// Post content goes here
+// El contenido de la publicación va aquí
 ```
 
-This is where we define the post title (used for the actual `h1` on the post page and the page title), the description (for Open Graph previews), the publish date, the authors, the Open Graph image, and a link to the GitHub Discussions thread for the post.
+Aquí es donde definimos el título de la publicación (utilizado para el `h1` real en la página de la publicación y el título de la página), la descripción (para las vistas previas de Open Graph), la fecha de publicación, los autores, la imagen de Open Graph y un enlace al hilo de GitHub Discussions para la publicación.
 
-We store all of our authors data in a separate file that just contains each team member's name, Twitter handle, and avatar.
+Almacenamos todos los datos de nuestros autores en un archivo separado que solo contiene el nombre de cada miembro del equipo, el nombre de usuario de Twitter y el avatar.
 
 ```js
 import adamwathanAvatar from "./img/adamwathan.jpg";
@@ -125,11 +125,11 @@ export const steveschoger = {
 };
 ```
 
-The nice thing about actually importing the author object into a post instead of connecting it through some sort of identifier is that we can easily add an author inline if we wanted to:
+Lo bueno de importar el objeto de autor en una publicación en lugar de conectarlo a través de algún tipo de identificador es que podemos agregar fácilmente un autor en línea si quisiéramos:
 
 ```js
 export const meta = {
-  title: "An example of a guest post by someone not on the team",
+  title: "Un ejemplo de una publicación invitada por alguien que no está en el equipo",
   authors: [
     {
       name: "Simon Vrachliotis",
@@ -141,24 +141,24 @@ export const meta = {
 };
 ```
 
-This makes it easy for us to keep author information in sync by giving it a central source of truth, but doesn't give up any flexibility.
+Esto nos facilita mantener sincronizada la información del autor al darle una fuente central de verdad, pero no renuncia a ninguna flexibilidad.
 
-## Displaying post previews
+## Mostrando vistas previas de publicaciones
 
-We wanted to display previews for each post on the homepage, and this turned out to be a surprisingly challenging problem.
+Queríamos mostrar vistas previas de cada publicación en la página de inicio, y esto resultó ser un problema sorprendentemente desafiante.
 
-Essentially what we wanted to be able to do was use the `getStaticProps` feature of Next.js to get a list of all the posts at build-time, extract the information we need, and pass that in to the actual page component to render.
+Esencialmente, lo que queríamos poder hacer era usar la función `getStaticProps` de Next.js para obtener una lista de todas las publicaciones en tiempo de compilación, extraer la información que necesitamos y pasarla al componente de la página real para renderizar.
 
-The challenge is that we wanted to do this without actually importing every single page, because that would mean that our bundle for the homepage would contain every single blog post for the entire site, leading to a much bigger bundle than necessary. Maybe not a big deal right now when we only have a couple of posts, but once you're up to dozens or hundreds of posts that's a lot of wasted bytes.
+El desafío es que queríamos hacer esto sin importar realmente cada página, porque eso significaría que nuestro bundle para la página de inicio contendría cada publicación de blog para todo el sitio, lo que llevaría a un bundle mucho más grande de lo necesario. Tal vez no sea un gran problema ahora que solo tenemos un par de publicaciones, pero una vez que llegas a docenas o cientos de publicaciones, son muchos bytes desperdiciados.
 
-We tried a few different approaches but the one we settled on was using webpack's [resourceQuery](https://webpack.js.org/configuration/module/#ruleresourcequery) feature combined with a couple of custom loaders to make it possible to load each blog post in two formats:
+Probamos algunos enfoques diferentes, pero el que elegimos fue usar la función [resourceQuery](https://webpack.js.org/configuration/module/#ruleresourcequery) de webpack combinada con un par de cargadores personalizados para que sea posible cargar cada publicación de blog en dos formatos:
 
-1. The entire post, used for post pages.
-2. The post preview, where we load the minimum data needed for the homepage.
+1. La publicación completa, utilizada para las páginas de publicaciones.
+2. La vista previa de la publicación, donde cargamos los datos mínimos necesarios para la página de inicio.
 
-The way we set it up, any time we add a `?preview` query to the end of an import for an individual post, we get back a much smaller version of that post that just includes the metadata and the preview excerpt, rather than the entire post content.
+La forma en que lo configuramos, cada vez que agregamos una consulta `?preview` al final de una importación para una publicación individual, obtenemos una versión mucho más pequeña de esa publicación que solo incluye los metadatos y el extracto de vista previa, en lugar de todo el contenido de la publicación.
 
-Here's a snippet of what that custom loader looks like:
+Aquí hay un fragmento de cómo se ve ese cargador personalizado:
 
 ```js
 {
@@ -178,33 +178,33 @@ Here's a snippet of what that custom loader looks like:
 },
 ```
 
-It lets us define the excerpt for each post either by sticking `<!--​more-->` after the intro paragraph, or by wrapping the excerpt in a pair of `<!--​excerpt-->` and `<!--​/excerpt-->` tags, allowing us to write an excerpt that's completely independent from the post content.
+Nos permite definir el extracto para cada publicación ya sea pegando `<!--​more-->` después del párrafo de introducción, o envolviendo el extracto en un par de etiquetas `<!--​excerpt-->` y `<!--​/excerpt-->`, lo que nos permite escribir un extracto que es completamente independiente del contenido de la publicación.
 
 ```
 export const meta = {
   // ...
 }
 
-This is the beginning of the post, and what we'd like to
-show on the homepage.
+Este es el comienzo de la publicación, y lo que nos gustaría
+mostrar en la página de inicio.
 
 <!--​more-->
 
-Anything after that is not included in the bundle unless
-you are actually viewing that post.
+Cualquier cosa después de eso no se incluye en el bundle a menos que
+estés viendo esa publicación.
 ```
 
-Solving this problem in an elegant way was pretty challenging, but ultimately it was cool to come up with a solution that let us keep everything in one file instead of using a separate file for the preview and the actual post content.
+Resolver este problema de manera elegante fue bastante desafiante, pero en última instancia fue genial encontrar una solución que nos permitiera mantener todo en un solo archivo en lugar de usar un archivo separado para la vista previa y el contenido real de la publicación.
 
-## Generating next/previous post links
+## Generando enlaces de publicación siguiente/anterior
 
-The last challenge we had when building this simple site was being able to include links to the next and previous post whenever you're viewing an individual post.
+El último desafío que tuvimos al construir este sitio simple fue poder incluir enlaces a la publicación siguiente y anterior cada vez que estás viendo una publicación individual.
 
-At its core, what we needed to do was load up all of the posts (ideally at build-time), find the current post in that list, then grab the post that came before and the post that came after so we could pass those through to the page component as props.
+En esencia, lo que necesitábamos hacer era cargar todas las publicaciones (idealmente en tiempo de compilación), encontrar la publicación actual en esa lista, luego tomar la publicación que vino antes y la publicación que vino después para poder pasarlas al componente de la página como props.
 
-This ended up being harder than we expected, because it turns out that MDX doesn't currently support `getStaticProps` the way you'd normally use it. You can't actually export it directly from your MDX files, instead you have to store your code in a separate file and re-export it from there.
+Esto terminó siendo más difícil de lo que esperábamos, porque resulta que MDX actualmente no admite `getStaticProps` de la manera en que normalmente lo usarías. En realidad, no puedes exportarlo directamente desde tus archivos MDX, sino que tienes que almacenar tu código en un archivo separado y reexportarlo desde allí.
 
-We didn't want to load this extra code when just importing our post _previews_ on the homepage, and we also didn't want to have to repeat this code in every single post, so we decided to prepend this export to the beginning of each post using another custom loader:
+No queríamos cargar este código adicional al importar solo las _vistas previas_ de nuestras publicaciones en la página de inicio, y tampoco queríamos tener que repetir este código en cada publicación, así que decidimos anteponer esta exportación al principio de cada publicación usando otro cargador personalizado:
 
 ```js
 {
@@ -228,11 +228,11 @@ We didn't want to load this extra code when just importing our post _previews_ o
 }
 ```
 
-We also needed to use this custom loader to actually pass those static props to our `Post` component, so we appended that extra export you see above as well.
+También necesitábamos usar este cargador personalizado para pasar esas props estáticas a nuestro componente `Post`, así que agregamos esa exportación adicional que ves arriba también.
 
-This wasn't the only issue though. It turns out `getStaticProps` doesn't give you any information about the current page being rendered, so we had no way of knowing what post we were looking at when trying to determine the next and previous posts. I suspect this is solvable, but due to time constraints we opted to do more of that work on the client and less at build time, so we could actually see what the current route was when trying to figure out which links we needed.
+Sin embargo, este no fue el único problema. Resulta que `getStaticProps` no te da ninguna información sobre la página actual que se está renderizando, por lo que no teníamos forma de saber qué publicación estábamos viendo al tratar de determinar las publicaciones siguiente y anterior. Sospecho que esto se puede resolver, pero debido a limitaciones de tiempo, optamos por hacer más de ese trabajo en el cliente y menos en tiempo de compilación, para poder ver cuál era la ruta actual al tratar de averiguar qué enlaces necesitábamos.
 
-We load up all of the posts in `getStaticProps`, and map them to very lightweight objects that just contain the URL for the post, and the post title:
+Cargamos todas las publicaciones en `getStaticProps` y las mapeamos a objetos muy ligeros que solo contienen la URL de la publicación y el título de la publicación:
 
 ```js
 import getAllPostPreviews from "@/getAllPostPreviews";
@@ -249,7 +249,7 @@ export async function getStaticProps() {
 }
 ```
 
-Then in our actual `Post` layout component, we use the current route to determine the next and previous posts:
+Luego, en nuestro componente de diseño `Post` real, usamos la ruta actual para determinar las publicaciones siguiente y anterior:
 
 ```js
 export default function Post({ meta, children, posts }) {
@@ -262,14 +262,14 @@ export default function Post({ meta, children, posts }) {
 }
 ```
 
-This works well enough for now, but again long-term I'd like to figure out a simpler solution that lets us load only the next and previous posts in `getStaticProps` instead of the entire thing.
+Esto funciona bastante bien por ahora, pero de nuevo, a largo plazo, me gustaría encontrar una solución más simple que nos permita cargar solo las publicaciones siguiente y anterior en `getStaticProps` en lugar de todo.
 
-There's an interesting library by Hashicorp designed to make it possible to treat MDX files like a data source called [Next MDX Remote](https://github.com/hashicorp/next-mdx-remote) that we will probably explore in the future. It should let us switch to dynamic slug-based routing which would give us access to the current pathname in `getStaticProps` and give us a lot more power.
+Hay una biblioteca interesante de Hashicorp diseñada para hacer posible tratar los archivos MDX como una fuente de datos llamada [Next MDX Remote](https://github.com/hashicorp/next-mdx-remote) que probablemente exploraremos en el futuro. Debería permitirnos cambiar al enrutamiento dinámico basado en slugs, lo que nos daría acceso al pathname actual en `getStaticProps` y nos daría mucho más poder.
 
-## Wrapping up
+## Conclusión
 
-Overall, building this little site with Next.js was a fun learning experience. I'm always surprised at how complicated seemingly simple things end up being with a lot of these tools, but I'm very bullish on the future of Next.js and looking forward to building the next iteration of [tailwindcss.com](https://tailwindcss.com) with it in the months to come.
+En general, construir este pequeño sitio con Next.js fue una experiencia de aprendizaje divertida. Siempre me sorprende lo complicadas que terminan siendo cosas aparentemente simples con muchas de estas herramientas, pero soy muy optimista sobre el futuro de Next.js y estoy deseando construir la próxima iteración de [tailwindcss.com](https://tailwindcss.com) con él en los próximos meses.
 
-If you're interested in checking out the codebase for this blog or even submitting a pull request to simplify any of the things I mentioned above, [check out the repository on GitHub](https://github.com/tailwindcss/blog).
+Si estás interesado en revisar el código base de este blog o incluso enviar una pull request para simplificar cualquiera de las cosas que mencioné anteriormente, [revisa el repositorio en GitHub](https://github.com/tailwindcss/blog).
 
-Want to talk about this post? <a href="https://github.com/tailwindcss/tailwindcss/discussions/1987">Discuss this on GitHub →</a>
+¿Quieres hablar sobre esta publicación? <a href="https://github.com/tailwindcss/tailwindcss/discussions/1987">Discútelo en GitHub →</a>

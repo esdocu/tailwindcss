@@ -7,44 +7,44 @@ import sanityStudio from "./sanity-studio.png";
 import blog from "./blog.png";
 
 export const meta = {
-  title: "Radiant: A beautiful new marketing site template",
-  description: `Over the past couple of months we’ve been working away at a new SaaS template called Radiant and it’s out now as part of Tailwind UI.`,
+  title: "Radiant: Una nueva y hermosa plantilla de sitio de marketing",
+  description: `Durante los últimos meses hemos estado trabajando en una nueva plantilla SaaS llamada Radiant y ya está disponible como parte de Tailwind UI.`,
   date: "2024-09-12T10:30:00.000Z",
   authors: [danhollick],
   image: twitterCard,
   excerpt: (
     <>
-      Over the past couple of months we’ve been working away at a new SaaS marketing site template for Tailwind UI. It's
-      called <a href="https://tailwindui.com/templates/radiant">Radiant</a>, and you can start using it today.
+      Durante los últimos meses hemos estado trabajando en una nueva plantilla de sitio de marketing SaaS para Tailwind UI. Se
+      llama <a href="https://tailwindui.com/templates/radiant">Radiant</a>, y puedes empezar a usarla hoy mismo.
     </>
   ),
 };
 
 <a href="https://tailwindui.com/templates/radiant">
-  <Image src={template} alt="Learn about the Radiant template" />
+  <Image src={template} alt="Aprende sobre la plantilla Radiant" />
 </a>
 
-We just wrapped up work on a beautiful new SaaS marketing site template called [Radiant](https://tailwindui.com/templates/radiant), and it's available now as part of [Tailwind UI](https://tailwindui.com).
+Acabamos de terminar el trabajo en una nueva y hermosa plantilla de sitio de marketing SaaS llamada [Radiant](https://tailwindui.com/templates/radiant), y ya está disponible como parte de [Tailwind UI](https://tailwindui.com).
 
-It’s built with Next.js, Framer Motion, and Tailwind CSS, with a blog powered by Sanity.
+Está construida con Next.js, Framer Motion y Tailwind CSS, con un blog impulsado por Sanity.
 
-It's been a while since we built a SaaS marketing template like this, and in that time we've learned a lot about what makes a template like this useful and easy to work with. We've tried to incorporate all of those learnings into Radiant.
+Hacía tiempo que no construíamos una plantilla de marketing SaaS como esta, y en ese tiempo hemos aprendido mucho sobre lo que hace que una plantilla como esta sea útil y fácil de trabajar. Hemos intentado incorporar todos esos aprendizajes en Radiant.
 
-Check out the [live preview](https://radiant.tailwindui.com) as always for the full experience — there are tons of cool details in this one that you have to see in the browser to really appreciate.
+Consulta la [vista previa en vivo](https://radiant.tailwindui.com) como siempre para la experiencia completa — hay toneladas de detalles geniales en esta que tienes que ver en el navegador para apreciarlos realmente.
 
 ---
 
-## Tastefully interactive
+## Interactivo con buen gusto
 
-It's super easy to overdo animation on a site like this. We've all seen sites where you can't even scroll a few pixels without a bunch of different elements animating in to place. Even worse is how slow things feel when you have to wait for the content to appear before you can read it.
+Es súper fácil exagerar la animación en un sitio como este. Todos hemos visto sitios en los que ni siquiera puedes desplazarte unos pocos píxeles sin que un montón de elementos diferentes se animen en su lugar. Peor aún es lo lentas que se sienten las cosas cuando tienes que esperar a que aparezca el contenido antes de poder leerlo.
 
-Radiant is loaded with delightful animations, but they are all layered on to existing content and triggered by user interaction so the site still feels fast. In most cases, we went for animations that loop to make elements feel "alive" while you're interacting with them.
+Radiant está cargado de animaciones encantadoras, pero todas están superpuestas al contenido existente y se activan por la interacción del usuario para que el sitio siga sintiéndose rápido. En la mayoría de los casos, optamos por animaciones que se repiten en bucle para que los elementos se sientan "vivos" mientras interactúas con ellos.
 
 <Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/scheduling-animation.mp4" />
 
-We used [Framer Motion](https://www.framer.com/motion/) for almost all of the animations. It's declarative, making it easy to create our own APIs for complex animations that other people can customize without much effort.
+Usamos [Framer Motion](https://www.framer.com/motion/) para casi todas las animaciones. Es declarativo, lo que facilita la creación de nuestras propias APIs para animaciones complejas que otras personas pueden personalizar sin mucho esfuerzo.
 
-It does have some drawbacks to work around though. For example, when you have multiple elements animating independently it's annoying to pass a hover state down to each child. We ended up leveraging Framer's variant propagation to make this work — a hover event triggers a variant change in the parent that propagates down to the children because they share the same variant keys.
+Sin embargo, tiene algunos inconvenientes que hay que solucionar. Por ejemplo, cuando tienes múltiples elementos animándose independientemente, es molesto pasar un estado hover a cada hijo. Terminamos aprovechando la propagación de variantes de Framer para que esto funcione — un evento hover desencadena un cambio de variante en el padre que se propaga a los hijos porque comparten las mismas claves de variante.
 
 ```jsx
 // [!code filename:bento-card.tsx]
@@ -63,7 +63,7 @@ export function BentoCard() {
 }
 ```
 
-There is no difference between the variants in the parent so it doesn't actually change but the children still get a signal to change variants on hover, even if they are deeply nested.
+No hay diferencia entre las variantes en el padre, por lo que en realidad no cambia, pero los hijos aún reciben una señal para cambiar de variantes en hover, incluso si están profundamente anidados.
 
 ```jsx
 // [!code filename:map.tsx]
@@ -97,11 +97,11 @@ function Marker({
 /* ... */
 ```
 
-The logo timeline animation is a bit different, because we wanted the logos to pause in their current position when you stop hovering, rather than return to their original position. This doesn't play very well with Framer's approach of specifying start and end states, so it was actually easier to build this in CSS.
+La animación de la línea de tiempo del logo es un poco diferente, porque queríamos que los logos se detuvieran en su posición actual cuando dejas de pasar el mouse sobre ellos, en lugar de volver a su posición original. Esto no funciona muy bien con el enfoque de Framer de especificar estados iniciales y finales, por lo que en realidad fue más fácil construir esto en CSS.
 
 <Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/logo-timeline.mp4" />
 
-It exploits the fact that you can set a negative `animation-delay` value to offset the start position of the element. That way all the logos share the same animation keyframes but they can start at different positions and have different durations.
+Aprovecha el hecho de que puedes establecer un valor negativo de `animation-delay` para compensar la posición inicial del elemento. De esa manera, todos los logos comparten los mismos keyframes de animación, pero pueden comenzar en diferentes posiciones y tener diferentes duraciones.
 
 ```jsx
 // [!code filename:logo-timeline.tsx]
@@ -150,51 +150,51 @@ export function LogoTimeline() {
     /* ... */
 ```
 
-This approach means we don't need to track the play state in JavaScript, we can just use a `group-hover:[animation-play-state:running]` class to start the animation when the parent is hovered.
+Este enfoque significa que no necesitamos rastrear el estado de reproducción en JavaScript, podemos simplemente usar una clase `group-hover:[animation-play-state:running]` para iniciar la animación cuando se pasa el mouse sobre el padre.
 
-As you've maybe noticed, we're using a bunch of arbitrary properties for individual `animation` properties in this component, since these utilities don't exist in Tailwind today. This is what's great about building these templates — it helps us find blind spots in Tailwind CSS. Who knows, maybe we'll see these utilities added for v4.0!
+Como quizás hayas notado, estamos usando un montón de propiedades arbitrarias para propiedades individuales de `animation` en este componente, ya que estas utilidades no existen en Tailwind hoy. Esto es lo bueno de construir estas plantillas — nos ayuda a encontrar puntos ciegos en Tailwind CSS. Quién sabe, ¡quizás veamos estas utilidades agregadas para la v4.0!
 
 ---
 
-## Deliberately reusable
+## Deliberadamente reutilizable
 
-The trickiest part of designing a SaaS template like this, is coming up with interactive elements that people can apply to their own product without too much effort. There's nothing worse than buying a template and realizing that it's so specific to the example content that you can't actually use it for your own project.
+La parte más difícil de diseñar una plantilla SaaS como esta es idear elementos interactivos que la gente pueda aplicar a su propio producto sin demasiado esfuerzo. No hay nada peor que comprar una plantilla y darse cuenta de que es tan específica para el contenido de ejemplo que en realidad no puedes usarla para tu propio proyecto.
 
 <Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/light-bento.mp4" />
 
-We came up with some core graphical elements that most SaaS products might have. A map with pins, a logo cluster, a keyboard — things that could be applied to a bunch of different features. Because we wanted them to be easy to repurpose for your own product, we built a lot of them in code and designed nice APIs for them.
+Se nos ocurrieron algunos elementos gráficos centrales que la mayoría de los productos SaaS podrían tener. Un mapa con pines, un clúster de logos, un teclado — cosas que podrían aplicarse a un montón de características diferentes. Como queríamos que fueran fáciles de reutilizar para tu propio producto, construimos muchos de ellos en código y diseñamos APIs agradables para ellos.
 
-The logo cluster, for example, has a simple API that lets you pass in your own logos, tweak their position and hover animation to match.
+El clúster de logos, por ejemplo, tiene una API simple que te permite pasar tus propios logos, ajustar su posición y animación hover para que coincidan.
 
 ```jsx
 <Logo src="./logo-cluster/dribbble.svg" left={285} top={20} hover={{ x: 4, y: -5, rotate: 6, delay: 0.3 }} />
 ```
 
-The keyboard shortcuts section is another good example. Adding your own shortcuts is as simple as passing an array of key names to the Keyboard component and because each key is a component, you can easily add custom keys or change the layout.
+La sección de atajos de teclado es otro buen ejemplo. Agregar tus propios atajos es tan simple como pasar un array de nombres de teclas al componente Keyboard y, como cada tecla es un componente, puedes agregar fácilmente teclas personalizadas o cambiar la disposición.
 
 ```jsx
 <Keyboard highlighted={["F", "M", "L"]} />
 ```
 
-It turns out it's actually quite a lot of work to build a keyboard in code, but at least now you'll never have to find that out for yourself.
+Resulta que en realidad es bastante trabajo construir un teclado en código, pero al menos ahora nunca tendrás que descubrirlo por ti mismo.
 
 <Video src="https://assets.tailwindcss.com/blog/2024-09-12-radiant-a-beautiful-new-marketing-site-template/keyboard.mp4" />
 
-Of course, we also left spots for you to drop in screenshots of your own product. Here's what this section looks like customized to suit our friends at [SavvyCal](https://savvycal.com/), using the same interactive components.
+Por supuesto, también dejamos espacios para que coloques capturas de pantalla de tu propio producto. Así es como se ve esta sección personalizada para adaptarse a nuestros amigos de [SavvyCal](https://savvycal.com/), utilizando los mismos componentes interactivos.
 
-<Image alt="Radiant as SavvyCal" src={savvycalRadiant} />
+<Image alt="Radiant como SavvyCal" src={savvycalRadiant} />
 
 ---
 
-## Powered by a CMS
+## Impulsado por un CMS
 
-Usually we just use MDX when adding a blog to a template, but this time we thought it would be fun to play with a headless CMS for a chance instead. We decided to give [Sanity](https://www.sanity.io/) a go for this one after [polling our audience](https://x.com/adamwathan/status/1796225062279717142) and hearing a lot of good things.
+Normalmente solo usamos MDX al agregar un blog a una plantilla, pero esta vez pensamos que sería divertido jugar con un CMS headless. Decidimos probar [Sanity](https://www.sanity.io/) para este después de [encuestar a nuestra audiencia](https://x.com/adamwathan/status/1796225062279717142) y escuchar muchas cosas buenas.
 
-Instead of creating files, making commits, and managing images and stuff by hand, a CMS lets you handle everything from their UI, so even non-developers can easily contribute.
+En lugar de crear archivos, hacer commits y administrar imágenes y cosas a mano, un CMS te permite manejar todo desde su interfaz de usuario, por lo que incluso los no desarrolladores pueden contribuir fácilmente.
 
 <Image alt="Sanity Studio" src={sanityStudio} />
 
-One cool thing about headless CMSes like Sanity is you get your content back in a structured format, so similar to MDX you can map elements to your own custom components to handle all of your typography styles.
+Una cosa genial de los CMS headless como Sanity es que obtienes tu contenido en un formato estructurado, por lo que, de manera similar a MDX, puedes mapear elementos a tus propios componentes personalizados para manejar todos tus estilos de tipografía.
 
 ```jsx
 <PortableText
@@ -228,7 +228,7 @@ One cool thing about headless CMSes like Sanity is you get your content back in 
 />
 ```
 
-Working with a CMS also means all of your assets like images are hosted for you, and you can control the size, quality, and format of the image on the fly.
+Trabajar con un CMS también significa que todos tus activos como imágenes están alojados para ti, y puedes controlar el tamaño, la calidad y el formato de la imagen sobre la marcha.
 
 {/* prettier-ignore */}
 ```jsx
@@ -252,14 +252,14 @@ Working with a CMS also means all of your assets like images are hosted for you,
 )}
 ```
 
-Like you might do with front matter in Markdown, you can also enrich content with custom fields. For example, we added a `featured` boolean field to the blog post schema so you can highlight some posts in a special section on the blog.
+Como podrías hacer con front matter en Markdown, también puedes enriquecer el contenido con campos personalizados. Por ejemplo, agregamos un campo booleano `featured` al esquema de la publicación del blog para que puedas destacar algunas publicaciones en una sección especial en el blog.
 
-<Image alt="Radiant Blog" src={blog} />
+<Image alt="Blog de Radiant" src={blog} />
 
-Sanity in particular is a paid product, but they have a pretty generous free tier which is more than enough to play around. And if you wanted to try out a different headless CMS, I think the Sanity integration we've put together here will still serve as a great informative example of how you might approach wiring things up with another tool.
+Sanity en particular es un producto de pago, pero tienen un nivel gratuito bastante generoso que es más que suficiente para jugar. Y si quisieras probar un CMS headless diferente, creo que la integración de Sanity que hemos reunido aquí seguirá sirviendo como un gran ejemplo informativo de cómo podrías abordar la conexión de las cosas con otra herramienta.
 
 ---
 
-And that's [Radiant](https://tailwindui.com/templates/radiant)! Have a look under the hood, kick the tires, and let us know what you think.
+¡Y eso es [Radiant](https://tailwindui.com/templates/radiant)! Echa un vistazo bajo el capó, pruébalo y déjanos saber lo que piensas.
 
-Like all of our templates, it's included with a one-time purchase [Tailwind UI all-access](https://tailwindui.com/all-access) license, which is the best way to support our work on Tailwind CSS and make it possible for us to keep building awesome stuff for you for years to come.
+Como todas nuestras plantillas, está incluida con una licencia de compra única [Tailwind UI all-access](https://tailwindui.com/all-access), que es la mejor manera de apoyar nuestro trabajo en Tailwind CSS y hacer posible que sigamos construyendo cosas increíbles para ti durante años.

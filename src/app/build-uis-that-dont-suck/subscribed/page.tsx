@@ -13,14 +13,14 @@ export default async function Course() {
         <div className="mt-6 space-y-4">
           <GridContainer>
             <h1 className="text-center text-5xl tracking-tighter text-balance text-white lg:text-8xl">
-              Check your email.
+              Revisa tu correo.
             </h1>
           </GridContainer>
           <GridContainer>
             <p className="mx-auto max-w-xl text-center text-lg/7 font-medium text-pretty text-gray-400">
-              You should get a confirmation email any minute —{" "}
-              <strong className="font-medium text-white">open it up</strong> and{" "}
-              <strong className="font-medium text-white">confirm your email</strong> and I'll send you the first video.
+              Deberías recibir un correo electrónico de confirmación en cualquier momento —{" "}
+              <strong className="font-medium text-white">ábrelo</strong> y{" "}
+              <strong className="font-medium text-white">confirma tu correo</strong> y te enviaré el primer video.
             </p>
           </GridContainer>
         </div>

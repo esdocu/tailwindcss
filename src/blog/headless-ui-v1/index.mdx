@@ -6,17 +6,17 @@ import { Example } from "@/components/example";
 
 export const meta = {
   title: "Headless UI v1.0",
-  description: `Last fall we announced Headless UI, a library of completely unstyled, fully accessible UI components, designed to pair perfectly with Tailwind CSS. Today we’re super excited to release Headless UI v1.0, which more than doubles the amount of included components for both React and Vue.`,
+  description: `El otoño pasado anunciamos Headless UI, una librería de componentes de UI completamente sin estilo y totalmente accesibles, diseñada para combinar perfectamente con Tailwind CSS. Hoy estamos súper emocionados de lanzar Headless UI v1.0, que más que duplica la cantidad de componentes incluidos tanto para React como para Vue.`,
   date: "2021-04-14T16:00:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      Last fall we announced{" "}
-      <Link href="https://blog.tailwindcss.com/headless-ui-unstyled-accessible-ui-components">Headless UI</Link>, a
-      library of completely unstyled, fully accessible UI components, designed to pair perfectly with Tailwind CSS.
-      Today we’re super excited to release <Link href="https://headlessui.dev">Headless UI v1.0</Link>, which more than
-      doubles the amount of included components for both React and Vue.
+      El otoño pasado anunciamos{" "}
+      <Link href="https://blog.tailwindcss.com/headless-ui-unstyled-accessible-ui-components">Headless UI</Link>, una
+      librería de componentes de UI completamente sin estilo y totalmente accesibles, diseñada para combinar perfectamente con Tailwind CSS.
+      Hoy estamos súper emocionados de lanzar <Link href="https://headlessui.dev">Headless UI v1.0</Link>, que más que
+      duplica la cantidad de componentes incluidos tanto para React como para Vue.
     </>
   ),
 };
@@ -25,17 +25,17 @@ export const meta = {
   <Image alt="Headless UI" src={card} />
 </Link>
 
-Last fall we announced <Link href="https://blog.tailwindcss.com/headless-ui-unstyled-accessible-ui-components">Headless UI</Link>, a library of completely unstyled, fully accessible UI components, designed to pair perfectly with Tailwind CSS.
+El otoño pasado anunciamos <Link href="https://blog.tailwindcss.com/headless-ui-unstyled-accessible-ui-components">Headless UI</Link>, una librería de componentes de UI completamente sin estilo y totalmente accesibles, diseñada para combinar perfectamente con Tailwind CSS.
 
-Today we’re super excited to release <Link href="https://headlessui.dev">Headless UI v1.0</Link>, which more than doubles the amount of included components for both React and Vue.
+Hoy estamos súper emocionados de lanzar <Link href="https://headlessui.dev">Headless UI v1.0</Link>, que más que duplica la cantidad de componentes incluidos tanto para React como para Vue.
 
-## What’s new
+## Qué hay de nuevo
 
-We’ve added four new components to the React library, and five new components for Vue.
+Hemos agregado cuatro nuevos componentes a la librería de React y cinco nuevos componentes para Vue.
 
 ### Dialog (modal)
 
-Headless UI now includes a robust dialog implementation you can use to build traditional modal dialogs, mobile slide-out menus, or any other take-over-style UI that needs to capture the focus of the entire page.
+Headless UI ahora incluye una implementación robusta de diálogo que puedes usar para construir diálogos modales tradicionales, menús deslizables móviles o cualquier otra UI de estilo "take-over" que necesite capturar el foco de toda la página.
 
 ```jsx
 import { useState } from "react";
@@ -65,7 +65,7 @@ function MyDialog() {
 
 ### Disclosure
 
-We’ve added a new `Disclosure` component that makes it easy to show/hide inline content accessibly. This is useful for things like collapsible FAQ questions, "show more" interfaces, or even hamburger menus that open up and push the rest of the page content away.
+Hemos agregado un nuevo componente \`Disclosure\` que facilita mostrar/ocultar contenido en línea de forma accesible. Esto es útil para cosas como preguntas frecuentes plegables, interfaces de "mostrar más" o incluso menús de hamburguesa que se abren y empujan el resto del contenido de la página.
 
 ```html
 <template>
@@ -86,7 +86,7 @@ We’ve added a new `Disclosure` component that makes it easy to show/hide inlin
 
 ### Radio Group
 
-There’s now a `RadioGroup` component that you can use to build totally custom radio button UIs, like when you want to use fancy cards or something instead of a simple little radio circle.
+Ahora hay un componente \`RadioGroup\` que puedes usar para construir interfaces de usuario de botones de radio totalmente personalizadas, como cuando quieres usar tarjetas elegantes o algo así en lugar de un simple círculo de radio.
 
 ```jsx
 import { useState } from "react";
@@ -114,7 +114,7 @@ function MyRadioGroup() {
 
 ### Popover
 
-The new `Popover` component lets you build custom dropdown UIs that don’t have any content restrictions like a regular `Menu` component would. Great for fly-out menus on marketing sites, dropdowns that have form fields in them, and tons more.
+El nuevo componente \`Popover\` te permite construir interfaces de usuario desplegables personalizadas que no tienen restricciones de contenido como las tendría un componente \`Menu\` regular. Genial para menús desplegables en sitios de marketing, desplegables que tienen campos de formulario y mucho más.
 
 ```html
 <template>
@@ -143,17 +143,17 @@ The new `Popover` component lets you build custom dropdown UIs that don’t have
 </script>
 ```
 
-### TransitionRoot and TransitionChild (for Vue)
+### TransitionRoot y TransitionChild (para Vue)
 
-Headless UI already had a `Transition` component for React, but we’ve always recommended the native `<transition>` that already ships with Vue for Vue users. There are some limitations to the native transition though, and things can get complicated when trying to co-ordinate nested transitions that are supposed to run in parallel.
+Headless UI ya tenía un componente \`Transition\` para React, pero siempre hemos recomendado la `\<transition\>` nativa que ya viene con Vue para los usuarios de Vue. Sin embargo, existen algunas limitaciones en la transición nativa, y las cosas pueden complicarse al intentar coordinar transiciones anidadas que se supone deben ejecutarse en paralelo.
 
-Headless UI v1.0 brings our React `Transition` component to Vue as well, which makes it a lot easier to transition things like modal dialogs.
+Headless UI v1.0 trae nuestro componente \`Transition\` de React a Vue también, lo que facilita mucho la transición de cosas como los diálogos modales.
 
 ```html
 <template>
-  <!-- This `show` prop controls all nested `Transition.Child` components. -->
+  <!-- Esta prop `show` controla todos los componentes `Transition.Child` anidados. -->
   <TransitionRoot :show="isOpen">
-    <!-- Background overlay -->
+    <!-- Superposición de fondo -->
     <TransitionChild
       enter="transition-opacity"
       ease-linear
@@ -169,7 +169,7 @@ Headless UI v1.0 brings our React `Transition` component to Vue as well, which m
       <!-- … -->
     </TransitionChild>
 
-    <!-- Sliding sidebar -->
+    <!-- Barra lateral deslizante -->
     <TransitionChild
       enter="transition"
       ease-in-out
@@ -207,8 +207,8 @@ export default {
 </script>
 ```
 
-## Try it out
+## Pruébalo
 
-Head over to our <Link href="https://headlessui.dev">brand new documentation website</Link> to pull Headless UI into your projects and play with it! It’s MIT licensed and open-source, so if you’d like to poke around the code or you need to report an issue, <Link href="https://github.com/tailwindlabs/headlessui">visit the GitHub repository</Link>.
+¡Dirígete a nuestro <Link href="https://headlessui.dev">nuevo sitio web de documentación</Link> para incorporar Headless UI en tus proyectos y jugar con él! Tiene licencia MIT y es de código abierto, así que si quieres curiosear el código o necesitas reportar un problema, <Link href="https://github.com/tailwindlabs/headlessui">visita el repositorio de GitHub</Link>.
 
-Want to try it out? <Link href="https://headlessui.dev">Visit the Headless UI website →</Link>
+¿Quieres probarlo? <Link href="https://headlessui.dev">Visita el sitio web de Headless UI →</Link>

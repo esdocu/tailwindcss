@@ -10,71 +10,71 @@ import graysImage from "./announcement-tailwind-grays.jpg";
 
 export const meta = {
   title: "Tailwind CSS v2.0",
-  description: `Today we're finally releasing Tailwind CSS v2.0, including an all-new color palette, dark mode support, and tons more!`,
+  description: `Hoy finalmente lanzamos Tailwind CSS v2.0, ¡incluyendo una paleta de colores totalmente nueva, soporte para dark mode y mucho más!`,
   date: "2020-11-18T17:45:00.000Z",
   authors: [adamwathan],
   image,
   excerpt: (
     <>
-      Almost exactly 18 months ago we released Tailwind CSS v1.0, which signalled a commitment to stability while
-      continuing to push the boundaries with exciting new features in every minor release.
+      Hace casi exactamente 18 meses lanzamos Tailwind CSS v1.0, que señalaba un compromiso con la estabilidad mientras
+      seguíamos empujando los límites con nuevas y emocionantes características en cada versión menor.
     </>
   ),
 };
 
 <YouTubeVideo id="3u_vIdnJYLc" />
 
-Almost exactly 18 months ago we released Tailwind CSS v1.0, which signalled a commitment to stability while continuing to push the boundaries with exciting new features in every minor release.
+Hace casi exactamente 18 meses lanzamos Tailwind CSS v1.0, que señalaba un compromiso con la estabilidad mientras seguíamos empujando los límites con nuevas y emocionantes características en cada versión menor.
 
-Today we're finally releasing Tailwind CSS v2.0.
+Hoy finalmente lanzamos Tailwind CSS v2.0.
 
-Tailwind CSS v2.0 is the first major update ever, including:
+Tailwind CSS v2.0 es la primera actualización mayor de la historia, incluyendo:
 
-- [**All-new color palette**](#all-new-color-palette), featuring 220 total colors and a new workflow for building your own color schemes
-- [**Dark mode support**](#dark-mode), making it easier than ever to dynamically change your design when dark mode is enabled
-- [**Extra wide 2XL breakpoint**](#extra-wide-2-xl-breakpoint), for designing at 1536px and above
-- [**New outline ring utilities**](#new-outline-ring-utilities), which are almost as good as if they would just make `outline-radius` a real thing
-- [**Utility-friendly form styles**](#utility-friendly-form-styles), a new form reset that makes it easy to customize form elements (even checkboxes) with just utility classes
-- [**Default line-heights per font-size**](#default-line-heights-per-font-size), because if we can't make using a 1.5 line-height with a 48px font illegal we should at least make it not the default
-- [**Extended spacing, typography, and opacity scales**](#extended-spacing-typography-and-opacity-scales), for fine-tuning things at the micro level, making an even bigger impact with huge headlines, and for when `opacity-25` wasn't enough and `opacity-50` was too much
-- [**Use @apply with anything**](#use-apply-with-anything), including responsive, hover, focus, and other variants
-- [**New text overflow utilities**](#new-text-overflow-utilities), for controlling things more precisely than you can with `truncate` alone
-- [**Extend variants**](#extend-variants), so you can enable extra variants like `focus-visible` without redeclaring the entire list or thinking about order
-- [**Group-hover and focus-within by default**](#group-hover-and-focus-within-by-default), because you were enabling them on every project anyways
-- [**Default transition duration and easing curve**](#default-transition-duration-and-easing-curve), so you only have to add 17 classes to make a button instead of 19
-- [**Incompatibility with IE11**](#incompatibility-with-ie-11), so you can tell the person in charge _"sorry boss it's out of my hands, blame Tailwind"_
+- [**Paleta de colores totalmente nueva**](#all-new-color-palette), con 220 colores en total y un nuevo flujo de trabajo para construir tus propios esquemas de color
+- [**Soporte para Dark mode**](#dark-mode), haciendo más fácil que nunca cambiar dinámicamente tu diseño cuando el dark mode está habilitado
+- [**Breakpoint 2XL extra ancho**](#extra-wide-2-xl-breakpoint), para diseñar a 1536px y más
+- [**Nuevas utilidades de outline ring**](#new-outline-ring-utilities), que son casi tan buenas como si simplemente hicieran `outline-radius` algo real
+- [**Estilos de formulario amigables con utilidades**](#utility-friendly-form-styles), un nuevo reseteo de formularios que facilita la personalización de elementos de formulario (incluso checkboxes) solo con clases de utilidad
+- [**Alturas de línea predeterminadas por tamaño de fuente**](#default-line-heights-per-font-size), porque si no podemos hacer ilegal usar una altura de línea de 1.5 con una fuente de 48px, al menos deberíamos hacer que no sea el predeterminado
+- [**Escalas extendidas de espaciado, tipografía y opacidad**](#extended-spacing-typography-and-opacity-scales), para ajustar finamente las cosas a nivel micro, logrando un impacto aún mayor con titulares enormes, y para cuando `opacity-25` no era suficiente y `opacity-50` era demasiado
+- [**Usa @apply con cualquier cosa**](#use-apply-with-anything), incluyendo responsive, hover, focus y otras variantes
+- [**Nuevas utilidades de text overflow**](#new-text-overflow-utilities), para controlar las cosas con más precisión de lo que puedes hacer solo con `truncate`
+- [**Extender variantes**](#extend-variants), para que puedas habilitar variantes adicionales como `focus-visible` sin redeclarar la lista completa o pensar en el orden
+- [**Group-hover y focus-within por defecto**](#group-hover-and-focus-within-by-default), porque de todos modos los estabas habilitando en cada proyecto
+- [**Duración de transición y curva de easing predeterminadas**](#default-transition-duration-and-easing-curve), para que solo tengas que añadir 17 clases para hacer un botón en lugar de 19
+- [**Incompatibilidad con IE11**](#incompatibility-with-ie-11), para que puedas decirle a la persona a cargo _"lo siento jefe, está fuera de mis manos, culpa a Tailwind"_
 
-...and [a bunch of other little things](https://github.com/tailwindlabs/tailwindcss/blob/master/CHANGELOG.md) too.
+...y [un montón de otras pequeñas cosas](https://github.com/tailwindlabs/tailwindcss/blob/master/CHANGELOG.md) también.
 
-Even though Tailwind CSS v2.0 is a new major version, **we've worked really hard to minimize significant breaking changes**, especially ones that would force you to edit tons of your templates. We've renamed two classes, removed three that are no longer relevant in modern browsers, and replaced two with more powerful alternatives. Any other breaking changes that might impact you can be remedied with a couple small additions to your `tailwind.config.js` file. Upgrading shouldn't take more than about 30 minutes.
+Aunque Tailwind CSS v2.0 es una nueva versión mayor, **hemos trabajado muy duro para minimizar los cambios significativos que rompen la compatibilidad**, especialmente aquellos que te obligarían a editar toneladas de tus plantillas. Hemos renombrado dos clases, eliminado tres que ya no son relevantes en los navegadores modernos y reemplazado dos con alternativas más potentes. Cualquier otro cambio que rompa la compatibilidad y que pueda afectarte puede remediarse con un par de pequeñas adiciones a tu archivo `tailwind.config.js`. La actualización no debería llevar más de unos 30 minutos.
 
-[Check out the upgrade guide](https://v2.tailwindcss.com/docs/upgrading-to-v2) for more details and step-by-step instructions on migrating your project to Tailwind CSS v2.0.
+[Consulta la guía de actualización](https://v2.tailwindcss.com/docs/upgrading-to-v2) para obtener más detalles e instrucciones paso a paso sobre cómo migrar tu proyecto a Tailwind CSS v2.0.
 
-If you'd like to start a brand new project with v2.0, [head over to our updated installation documentation](https://v2.tailwindcss.com/docs/installation) to get started fast.
+Si deseas iniciar un proyecto totalmente nuevo con v2.0, [dirígete a nuestra documentación de instalación actualizada](https://v2.tailwindcss.com/docs/installation) para comenzar rápidamente.
 
-Also how about that [brand new website](https://v2.tailwindcss.com) eh? Hot damn.
+Además, ¿qué tal ese [nuevo sitio web](https://v2.tailwindcss.com)? ¡Qué genial!
 
 ---
 
-## All-new color palette
+## Paleta de colores totalmente nueva
 
-We've learned a lot about color since the first time we tried to design a general purpose color palette back in the Tailwind CSS v0.1.0 days, and v2.0 represents our best attempt so far.
+Hemos aprendido mucho sobre el color desde la primera vez que intentamos diseñar una paleta de colores de propósito general allá por los días de Tailwind CSS v0.1.0, y v2.0 representa nuestro mejor intento hasta ahora.
 
-The new color palette includes 22 colors _(compared to 10 previously)_ with 10 shades each _(instead of 9_) for a total of 220 values.
+La nueva paleta de colores incluye 22 colores _(en comparación con 10 anteriormente)_ con 10 tonos cada uno _(en lugar de 9_) para un total de 220 valores.
 
-<img src={colorsImage.src} alt="New Tailwind CSS color palette" />
+<img src={colorsImage.src} alt="Nueva paleta de colores de Tailwind CSS" />
 
-We've added an extra light `50` shade for every color, so they go from 50–900 now:
+Hemos añadido un tono `50` extra claro para cada color, así que ahora van de 50 a 900:
 
 ```html
-<div class="bg-gray-50">I can't believe it's not white.</div>
+<div class="bg-gray-50">No puedo creer que no sea blanco.</div>
 ```
 
-The palette even includes 5 different shades of gray now, so you can choose "blue gray" if you want something really cool, or go all the way to "warm gray" for something with a lot more brown in it.
+La paleta incluso incluye 5 tonos diferentes de gris ahora, así que puedes elegir "blue gray" si quieres algo realmente frío, o ir hasta "warm gray" para algo con mucho más marrón.
 
-<img src={graysImage.src} alt="New Tailwind CSS alternate gray" />
+<img src={graysImage.src} alt="Nuevo gris alternativo de Tailwind CSS" />
 
-We configure a well-balanced 8-color palette for you out of the box, but the complete color palette lives in a new `tailwindcss/colors` module that you can import at the top of your config file to curate your own custom palette however you like:
+Configuramos una paleta bien equilibrada de 8 colores para ti por defecto, pero la paleta de colores completa vive en un nuevo módulo `tailwindcss/colors` que puedes importar en la parte superior de tu archivo de configuración para curar tu propia paleta personalizada como quieras:
 
 ```js {{ filename: 'tailwind.config.js' }}
 const colors = require("tailwindcss/colors");
@@ -91,15 +91,15 @@ module.exports = {
 };
 ```
 
-Learn more in the new [customizing colors documentation](https://v2.tailwindcss.com/docs/customizing-colors).
+Obtén más información en la nueva [documentación de personalización de colores](https://v2.tailwindcss.com/docs/customizing-colors).
 
 ---
 
 ## Dark mode
 
-Ever since iOS added native dark mode all you dark mode nerds haven't been able to leave me alone about adding it to Tailwind. Well you did it, it's here, you win.
+Desde que iOS añadió el dark mode nativo, todos ustedes, nerds del dark mode, no han podido dejarme en paz sobre añadirlo a Tailwind. Bueno, lo lograron, está aquí, ustedes ganan.
 
-Open up your `tailwind.config.js` file and flip `darkMode` to `media`:
+Abre tu archivo `tailwind.config.js` y cambia `darkMode` a `media`:
 
 ```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
@@ -108,16 +108,16 @@ module.exports = {
 };
 ```
 
-Boom — now just add `dark:` to the beginning of a class like `bg-black` and it'll only take effect when dark mode is enabled:
+Boom — ahora solo añade `dark:` al principio de una clase como `bg-black` y solo tendrá efecto cuando el dark mode esté habilitado:
 
 ```html
 <div class="bg-white dark:bg-black">
   <h1 class="text-gray-900 dark:text-white">Dark mode</h1>
-  <p class="text-gray-500 dark:text-gray-300">The feature you've all been waiting for.</p>
+  <p class="text-gray-500 dark:text-gray-300">La característica que todos estaban esperando.</p>
 </div>
 ```
 
-Works with hover and stuff too:
+Funciona con hover y esas cosas también:
 
 ```html
 <button class="bg-gray-900 hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-50">
@@ -125,7 +125,7 @@ Works with hover and stuff too:
 </button>
 ```
 
-And responsive stuff:
+Y con cosas responsive:
 
 ```html
 <div class="lg:bg-white lg:dark:bg-black ...">
@@ -133,7 +133,7 @@ And responsive stuff:
 </div>
 ```
 
-And responsive hover stuff:
+Y con cosas responsive de hover:
 
 ```html
 <button class="lg:dark:bg-white lg:dark:hover:bg-gray-50 ...">
@@ -141,29 +141,29 @@ And responsive hover stuff:
 </button>
 ```
 
-Check out the [dark mode docs](https://v2.tailwindcss.com/docs/dark-mode) for all the gory details.
+Consulta la [documentación de dark mode](https://v2.tailwindcss.com/docs/dark-mode) para todos los detalles sangrientos.
 
 ---
 
-## Extra wide 2XL breakpoint
+## Breakpoint 2XL extra ancho
 
-I'm pretty sure they make an iPhone that is 1280px wide now, so it's time to step it up.
+Estoy bastante seguro de que ahora hacen un iPhone que tiene 1280px de ancho, así que es hora de subir el nivel.
 
-We've added a new `2xl` breakpoint out-of-the-box that lets you target things at 1536px and above:
+Hemos añadido un nuevo breakpoint `2xl` por defecto que te permite apuntar a cosas de 1536px y más:
 
 ```html
 <h1 class="2xl:text-9xl ...">Godzilla</h1>
 ```
 
-Exciting I know but also let's be serious [you've been able to add this yourself](https://v2.tailwindcss.com/docs/responsive-design#customizing-breakpoints) for like three years. Now it's blessed though, I get it.
+Emocionante, lo sé, pero también seamos serios [has podido añadir esto tú mismo](https://v2.tailwindcss.com/docs/responsive-design#customizing-breakpoints) durante unos tres años. Ahora está bendecido, sin embargo, lo entiendo.
 
 ---
 
-## New outline ring utilities
+## Nuevas utilidades de outline ring
 
-You know how the `outline` property ignores border radius and pretty much just always looks bad? The `ring` utilities are our attempt to will a better solution into existence through blood, sweat, and tears.
+¿Sabes cómo la propiedad `outline` ignora el border radius y casi siempre se ve mal? Las utilidades `ring` son nuestro intento de crear una solución mejor a través de sangre, sudor y lágrimas.
 
-They work a lot like the `border` utilities, except they add a solid box-shadow rather than a border so they don't impact the layout:
+Funcionan de manera muy similar a las utilidades `border`, excepto que añaden una box-shadow sólida en lugar de un borde, por lo que no afectan el layout:
 
 ```html
 <button class="focus:ring-opacity-50 focus:ring-2 focus:ring-blue-300 focus:outline-none ...">
@@ -171,7 +171,7 @@ They work a lot like the `border` utilities, except they add a solid box-shadow 
 </button>
 ```
 
-You can even offset them to create a sort of halo effect with `ring-offset-{width}` utilities:
+Incluso puedes desplazarlas para crear una especie de efecto de halo con las utilidades `ring-offset-{width}`:
 
 ```html
 <button class="focus:ring-opacity-50 focus:ring-2 focus:ring-blue-300 focus:ring-offset-2 focus:outline-none ...">
@@ -179,35 +179,35 @@ You can even offset them to create a sort of halo effect with `ring-offset-{widt
 </button>
 ```
 
-Using a bunch of CSS custom property voodoo we've even made them automatically combine with regular box-shadows, too:
+Usando un montón de vudú de propiedades personalizadas CSS, incluso hemos hecho que se combinen automáticamente con box-shadows regulares también:
 
 ```html
 <button class="shadow-sm focus:ring-2 ...">
-  <!-- Both the shadow and ring will render together -->
+  <!-- Tanto la sombra como el anillo se renderizarán juntos -->
 </button>
 ```
 
-The [ring width documentation](https://v2.tailwindcss.com/docs/ring-width) is the best starting point for learning these new APIs. They seriously turned out so cool, more useful than you probably think.
+La [documentación de ring width](https://v2.tailwindcss.com/docs/ring-width) es el mejor punto de partida para aprender estas nuevas APIs. En serio, resultaron geniales, más útiles de lo que probablemente piensas.
 
 ---
 
-## Utility-friendly form styles
+## Estilos de formulario amigables con utilidades
 
-One thing I am constantly surprised by is how few people complain about how unbelievably useless form elements are out of the box with Tailwind. They literally look awful and you can't do anything about it without writing custom CSS full of weird background-image SVG tricks and worrying about obscure edge cases that require CSS properties you've never heard of before like `color-adjust`.
+Una cosa que me sorprende constantemente es cuántas pocas personas se quejan de lo increíblemente inútiles que son los elementos de formulario por defecto con Tailwind. Literalmente se ven horribles y no puedes hacer nada al respecto sin escribir CSS personalizado lleno de trucos extraños de background-image SVG y preocupándote por casos extremos oscuros que requieren propiedades CSS de las que nunca has oído hablar antes como `color-adjust`.
 
-I tried to solve this a while back with the [@tailwindcss/custom-forms](https://github.com/tailwindlabs/tailwindcss-custom-forms) plugin, but something about adding a bunch of classes like `form-input` and `form-checkbox` just didn't feel quite right so we didn't really promote it and didn't even link to it from the Tailwind documentation. This time though I think we figured it out.
+Intenté resolver esto hace un tiempo con el plugin [@tailwindcss/custom-forms](https://github.com/tailwindlabs/tailwindcss-custom-forms), pero algo sobre añadir un montón de clases como `form-input` y `form-checkbox` simplemente no se sentía del todo bien, así que realmente no lo promocionamos y ni siquiera lo enlazamos desde la documentación de Tailwind. Esta vez, sin embargo, creo que lo resolvimos.
 
-Alongside Tailwind CSS v2.0, we're releasing a brand new official plugin called `@tailwindcss/forms` that normalizes and resets all of the basic form controls across browsers to a state that is super easy to style with pure utility classes:
+Junto con Tailwind CSS v2.0, estamos lanzando un nuevo plugin oficial llamado `@tailwindcss/forms` que normaliza y resetea todos los controles de formulario básicos en todos los navegadores a un estado que es súper fácil de estilizar con clases de utilidad puras:
 
 ```html
-<!-- This will be a nice rounded checkbox with an indigo focus ring and an indigo checked state -->
+<!-- Este será un bonito checkbox redondeado con un anillo de foco índigo y un estado marcado índigo -->
 <input
   type="checkbox"
   class="focus:ring-opacity-50 h-4 w-4 rounded border-gray-300 text-indigo-500 focus:border-indigo-300 focus:ring-2 focus:ring-indigo-200"
 />
 ```
 
-It's not included out of the box but you can add it to your `tailwind.config.js` file with a single line:
+No está incluido por defecto, pero puedes añadirlo a tu archivo `tailwind.config.js` con una sola línea:
 
 ```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
@@ -216,16 +216,16 @@ module.exports = {
 };
 ```
 
-Check out [the @tailwindcss/forms documentation](https://github.com/tailwindlabs/tailwindcss-forms) for more information.
+Consulta [la documentación de @tailwindcss/forms](https://github.com/tailwindlabs/tailwindcss-forms) para obtener más información.
 
 ---
 
-## Default line-heights per font-size
+## Alturas de línea predeterminadas por tamaño de fuente
 
-Every font-size utility in Tailwind now comes paired with a sensible default line-height:
+Cada utilidad de tamaño de fuente en Tailwind ahora viene emparejada con una altura de línea predeterminada sensata:
 
 ```js
-// Tailwind's default theme
+// Tema predeterminado de Tailwind
 module.exports = {
   theme: {
     // ...
@@ -248,37 +248,37 @@ module.exports = {
 };
 ```
 
-So now when you add a utility like `text-xl`, the corresponding default line-height (`1.75rem` in this case) is added automatically:
+Así que ahora, cuando añades una utilidad como `text-xl`, la altura de línea predeterminada correspondiente (`1.75rem` en este caso) se añade automáticamente:
 
 ```html
-<p class="text-xl">This will have a line-height of 1.75rem automatically.</p>
+<p class="text-xl">Esto tendrá una altura de línea de 1.75rem automáticamente.</p>
 ```
 
-If you want to override this, you can still do it by layering on a `leading` utility:
+Si quieres anular esto, todavía puedes hacerlo superponiendo una utilidad `leading`:
 
 ```html
-<p class="text-3xl leading-normal">Come on don't do this to me.</p>
+<p class="text-3xl leading-normal">Vamos, no me hagas esto.</p>
 ```
 
-Check out the [font size documentation](https://v2.tailwindcss.com/docs/font-size#providing-a-default-line-height) for some additional details.
+Consulta la [documentación de tamaño de fuente](https://v2.tailwindcss.com/docs/font-size#providing-a-default-line-height) para algunos detalles adicionales.
 
 ---
 
-## Extended spacing, typography, and opacity scales
+## Escalas extendidas de espaciado, tipografía y opacidad
 
-We've extended the default spacing scale to include a bunch of micro values like `0.5`, `1.5`, `2.5`, and `3.5`:
-
-```html
-<span class="ml-0.5">Just a little nudge.</span>
-```
-
-...as well as a bunch of new values at the top end as well like `72`, `80`, and `96`:
+Hemos extendido la escala de espaciado predeterminada para incluir un montón de micro valores como `0.5`, `1.5`, `2.5` y `3.5`:
 
 ```html
-<div class="p-96">This is too much padding.</div>
+<span class="ml-0.5">Solo un pequeño empujón.</span>
 ```
 
-We've also extended the `inset` (that's top/right/bottom/left for you dinosaurs) and `translate` plugins to include the full spacing scale, so now you can do things like this:
+...así como un montón de nuevos valores en el extremo superior también como `72`, `80` y `96`:
+
+```html
+<div class="p-96">Esto es demasiado padding.</div>
+```
+
+También hemos extendido los plugins `inset` (eso es top/right/bottom/left para ustedes, dinosaurios) y `translate` para incluir la escala de espaciado completa, así que ahora puedes hacer cosas como esta:
 
 ```html
 <div class="top-8">
@@ -286,32 +286,32 @@ We've also extended the `inset` (that's top/right/bottom/left for you dinosaurs)
 </div>
 ```
 
-We've extended the default typography scale with new `7xl`, `8xl`, and `9xl` values:
+Hemos extendido la escala de tipografía predeterminada con nuevos valores `7xl`, `8xl` y `9xl`:
 
 ```html
-<h1 class="text-9xl font-bold">What is this, an Apple website?</h1>
+<h1 class="text-9xl font-bold">¿Qué es esto, un sitio web de Apple?</h1>
 ```
 
-And we've also extended the default opacity scale with steps of 10, as well as 5 and 95 values:
+Y también hemos extendido la escala de opacidad predeterminada con pasos de 10, así como valores de 5 y 95:
 
 ```html
 <figure class="opacity-5">
-  <blockquote>You can't see me.</blockquote>
+  <blockquote>No puedes verme.</blockquote>
   <figcaption>John Cena</figcaption>
 </figure>
 ```
 
-Peruse the entire [default config file](https://unpkg.com/browse/tailwindcss@^2/stubs/defaultConfig.stub.js) to see exactly what's available.
+Examina todo el [archivo de configuración predeterminado](https://unpkg.com/browse/tailwindcss@^2/stubs/defaultConfig.stub.js) para ver exactamente qué está disponible.
 
 ---
 
-## Use @apply with anything
+## Usa @apply con cualquier cosa
 
-By far the most common question I've gotten over the years is "why doesn't `@apply hover:bg-black` work?"
+De lejos, la pregunta más común que he recibido a lo largo de los años es "¿por qué `@apply hover:bg-black` no funciona?"
 
-And it's a fair question, it's stupid that it ~~doesn't~~ didn't work.
+Y es una pregunta justa, es estúpido que ~~no~~ no funcionara.
 
-It took some serious engineering muscle but we figured it out — now you can `@apply` literally anything:
+Requirió un serio esfuerzo de ingeniería, pero lo descubrimos — ahora puedes `@apply` literalmente cualquier cosa:
 
 ```css
 .btn {
@@ -319,27 +319,27 @@ It took some serious engineering muscle but we figured it out — now you can `@
 }
 ```
 
-Check out [the updated @apply documentation](https://v2.tailwindcss.com/docs/functions-and-directives#apply) to learn more.
+Consulta [la documentación actualizada de @apply](https://v2.tailwindcss.com/docs/functions-and-directives#apply) para obtener más información.
 
 ---
 
-## New text overflow utilities
+## Nuevas utilidades de text overflow
 
-Up until v2.0, if you wanted to control overflowing text all we really gave you was the fairly heavy-handed `truncate` utility.
+Hasta la v2.0, si querías controlar el texto desbordado, todo lo que realmente te dábamos era la utilidad bastante torpe `truncate`.
 
-Now we've added dedicated `overflow-ellipsis` and `overflow-clip` utilities to control _just_ the `text-overflow` property, in case you wanted to add ellipsis to overflowing text without restricting that text to one line.
+Ahora hemos añadido utilidades dedicadas `overflow-ellipsis` y `overflow-clip` para controlar _solo_ la propiedad `text-overflow`, en caso de que quisieras añadir puntos suspensivos al texto desbordado sin restringir ese texto a una sola línea.
 
 ```html
-<p class="overflow-hidden overflow-ellipsis">Look ma no whitespace-nowrap ipsum...</p>
+<p class="overflow-hidden overflow-ellipsis">Mira mamá sin whitespace-nowrap ipsum...</p>
 ```
 
-Check out the new [text overflow documentation](https://v2.tailwindcss.com/docs/text-overflow) to see it in action.
+Consulta la nueva [documentación de text overflow](https://v2.tailwindcss.com/docs/text-overflow) para verlo en acción.
 
 ---
 
-## Extend variants
+## Extender variantes
 
-You know what sucks? Wanting to enable `focus-visible` for `backgroundColor` but having to list _every single default variant_ just to add one extra one:
+¿Sabes qué apesta? Querer habilitar `focus-visible` para `backgroundColor` pero tener que listar _cada variante predeterminada_ solo para añadir una extra:
 
 ```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
@@ -350,7 +350,7 @@ module.exports = {
 };
 ```
 
-You know what's better? Just adding the one you want to enable:
+¿Sabes qué es mejor? Simplemente añadir la que quieres habilitar:
 
 ```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
@@ -363,15 +363,15 @@ module.exports = {
 };
 ```
 
-[Giddy up](https://v2.tailwindcss.com/docs/configuring-variants#enabling-extra-variants).
+[¡Arre!](https://v2.tailwindcss.com/docs/configuring-variants#enabling-extra-variants).
 
 ---
 
-## Group-hover and focus-within by default
+## Group-hover y focus-within por defecto
 
-One of the things we learned working on [Tailwind UI](https://tailwindui.com/components) is that `group-hover` and `focus-within` aren't nice-to-haves, they're must-haves.
+Una de las cosas que aprendimos trabajando en [Tailwind UI](https://tailwindui.com/components) es que `group-hover` y `focus-within` no son agradables de tener, son imprescindibles.
 
-Anywhere where we enabled hover or focus by default previously now has `group-hover` and `focus-within` enabled by default too:
+Dondequiera que habilitamos hover o focus por defecto anteriormente, ahora también tiene `group-hover` y `focus-within` habilitados por defecto:
 
 ```html
 <div class="group ...">
@@ -379,19 +379,19 @@ Anywhere where we enabled hover or focus by default previously now has `group-ho
 </div>
 ```
 
-Check out [the default variants reference](https://v2.tailwindcss.com/docs/configuring-variants#default-variants-reference) for a full list of what's enabled where in v2.0.
+Consulta [la referencia de variantes predeterminadas](https://v2.tailwindcss.com/docs/configuring-variants#default-variants-reference) para obtener una lista completa de lo que está habilitado y dónde en v2.0.
 
 ---
 
-## Default transition duration and easing curve
+## Duración de transición y curva de easing predeterminadas
 
-Until now, any time you wanted to add a transition in Tailwind you typically needed to add three classes:
+Hasta ahora, cada vez que querías añadir una transición en Tailwind, normalmente necesitabas añadir tres clases:
 
 ```html
-<button class="transition duration-150 ease-in-out ...">Count them</button>
+<button class="transition duration-150 ease-in-out ...">Cuéntalas</button>
 ```
 
-In v2.0, we've made it possible to specify a default duration and timing function that is used automatically any time any `transitionProperty` utility is added:
+En v2.0, hemos hecho posible especificar una duración y una función de temporización predeterminadas que se usan automáticamente cada vez que se añade cualquier utilidad `transitionProperty`:
 
 ```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
@@ -410,34 +410,34 @@ module.exports = {
 };
 ```
 
-So now you only need to write a single class if you have a common duration and timing function that you use really frequently:
+Así que ahora solo necesitas escribir una sola clase si tienes una duración y una función de temporización comunes que usas con mucha frecuencia:
 
 ```html
-<button class="transition ...">Count them again</button>
+<button class="transition ...">Cuéntalas de nuevo</button>
 ```
 
-Of course you can override this by layering on separate duration or timing function utilities:
+Por supuesto, puedes anular esto superponiendo utilidades separadas de duración o función de temporización:
 
 ```html
-<button class="transition duration-300 ease-out ...">We're back baby</button>
+<button class="transition duration-300 ease-out ...">Hemos vuelto, nene</button>
 ```
 
-Learn more about transitions in the [transition property documentation](https://v2.tailwindcss.com/docs/transition-property).
+Aprende más sobre transiciones en la [documentación de la propiedad transition](https://v2.tailwindcss.com/docs/transition-property).
 
 ---
 
-## Incompatibility with IE11
+## Incompatibilidad con IE11
 
-We've decided to unburden ourselves with caring about IE11 at all, which has allowed us to fully embrace CSS custom properties for [all sorts of crazy stuff](https://adamwathan.me/composing-the-uncomposable-with-css-variables/) and is what makes things like the new `ring` utilities even possible.
+Hemos decidido liberarnos de preocuparnos por IE11 en absoluto, lo que nos ha permitido abrazar completamente las propiedades personalizadas CSS para [todo tipo de cosas locas](https://adamwathan.me/composing-the-uncomposable-with-css-variables/) y es lo que hace posibles cosas como las nuevas utilidades `ring`.
 
-Dropping IE11 support means smaller builds even when using PurgeCSS, because we don't have to ship any CSS variable fallbacks which adds up more than you'd expect.
+Eliminar el soporte para IE11 significa compilaciones más pequeñas incluso cuando se usa PurgeCSS, porque no tenemos que enviar ningún fallback de variable CSS, lo que suma más de lo que esperarías.
 
-Cheers to Bootstrap for having the cojones to [do this first](https://github.com/twbs/bootstrap/pull/30377) — I don't think we would have been so bold if they hadn't decided to pave the way.
+Felicidades a Bootstrap por tener las agallas de [hacer esto primero](https://github.com/twbs/bootstrap/pull/30377) — no creo que hubiéramos sido tan audaces si no hubieran decidido allanar el camino.
 
-The good news is that if you need to support IE11, you can always use Tailwind CSS v1.9 which is still an amazingly productive framework.
+La buena noticia es que si necesitas soportar IE11, siempre puedes usar Tailwind CSS v1.9, que sigue siendo un framework increíblemente productivo.
 
 ---
 
-So there you have it folks, that's Tailwind CSS v2.0 in a _(pretty big)_ nutshell!
+¡Así que ahí lo tienen amigos, eso es Tailwind CSS v2.0 en pocas palabras _(bastante grandes)_!
 
-What are you waiting for? [Go build something awesome](https://v2.tailwindcss.com).
+¿Qué estás esperando? [Ve a construir algo increíble](https://v2.tailwindcss.com).

@@ -7,15 +7,15 @@ import { adamwathan, robinmalfait } from "@/app/blog/authors";
 import { CodeExampleGroup, CodeBlock, js, jsx, html } from "@/components/code-example";
 
 export const meta = {
-  title: "Headless UI v1.4: The One With Tabs",
-  description: `We just released Headless UI v1.4, which includes a brand new \`Tab\` component, and new APIs for manually closing \`Popover\` and \`Disclosure\` components more easily.`,
+  title: "Headless UI v1.4: El de las pestañas",
+  description: `Acabamos de lanzar Headless UI v1.4, que incluye un nuevo componente \`Tab\`, y nuevas API para cerrar manualmente los componentes \`Popover\` y \`Disclosure\` más fácilmente.`,
   date: "2021-07-29T12:00:00.000Z",
   authors: [adamwathan, robinmalfait],
   image: card,
   excerpt: (
     <>
-      We just released Headless UI v1.4, which includes a brand new <code>Tab</code> component, and new APIs for
-      manually closing <code>Popover</code> and <code>Disclosure</code> components more easily.
+      Acabamos de lanzar Headless UI v1.4, que incluye un nuevo componente <code>Tab</code>, y nuevas API para
+      cerrar manualmente los componentes <code>Popover</code> y <code>Disclosure</code> más fácilmente.
     </>
   ),
 };
@@ -24,17 +24,17 @@ export const meta = {
   <Image alt="Headless UI v1.4" src={banner} />
 </Link>
 
-We just released Headless UI v1.4, which includes a brand new `Tab` component, and new APIs for manually closing `Popover` and `Disclosure` components more easily.
+Acabamos de lanzar Headless UI v1.4, que incluye un nuevo componente \`Tab\`, y nuevas API para cerrar manualmente los componentes \`Popover\` y \`Disclosure\` más fácilmente.
 
-## Tabs
+## Pestañas
 
-Earlier this year we started working on [Tailwind UI Ecommerce](https://tailwindui.com/ecommerce), and we realized pretty quickly we were going to need to support tabs in Headless UI to be able to build the new interfaces we were designing.
+A principios de este año empezamos a trabajar en [Tailwind UI Ecommerce](https://tailwindui.com/ecommerce), y nos dimos cuenta bastante rápido de que íbamos a necesitar compatibilidad con pestañas en Headless UI para poder construir las nuevas interfaces que estábamos diseñando.
 
 <Link href="https://tailwindui.com/ecommerce">
-  <Image alt="Product details interface design from Tailwind UI Ecommerce." src={ecommerceScreenie} />
+  <Image alt="Diseño de interfaz de detalles de producto de Tailwind UI Ecommerce." src={ecommerceScreenie} />
 </Link>
 
-Here's what we ended up with:
+Esto es lo que obtuvimos:
 
 <CodeExampleGroup filenames={['React', 'Vue']}>
   <CodeBlock
@@ -97,17 +97,17 @@ Here's what we ended up with:
 
 </CodeExampleGroup>
 
-And yep, those are tabs!
+¡Y sí, esas son pestañas!
 
-Like all Headless UI components, this totally abstracts away stuff like keyboard navigation for you so you can create custom tabs in a completely declarative way, without having to think about any of the tricky accessibility details.
+Como todos los componentes de Headless UI, esto abstrae totalmente cosas como la navegación por teclado para que puedas crear pestañas personalizadas de forma completamente declarativa, sin tener que pensar en ninguno de los complicados detalles de accesibilidad.
 
-[Check out the documentation](https://headlessui.dev/react/tabs) to learn more.
+[Consulta la documentación](https://headlessui.dev/react/tabs) para obtener más información.
 
-### Closing disclosures and popovers
+### Cerrando disclosures y popovers
 
-Up until now, there was no way to close a `Disclosure` without clicking the actual button used to open it. For typical disclosure use cases this isn't a big deal, but it often makes sense to use disclosures for things like mobile navigation, where you want to close it when someone clicks a link _inside_ of it.
+Hasta ahora, no había forma de cerrar un \`Disclosure\` sin hacer clic en el botón real utilizado para abrirlo. Para los casos de uso típicos de disclosure, esto no es un gran problema, pero a menudo tiene sentido usar disclosures para cosas como la navegación móvil, donde quieres cerrarlo cuando alguien hace clic en un enlace _dentro_ de él.
 
-Now you can use `Disclosure.Button` or (`DisclosureButton` in Vue) within your disclosure panel to close the panel, making it easy to wrap up things like links or other buttons so the panel doesn't stay open:
+Ahora puedes usar \`Disclosure.Button\` o (\`DisclosureButton\` en Vue) dentro de tu panel de disclosure para cerrar el panel, facilitando la envoltura de cosas como enlaces u otros botones para que el panel no permanezca abierto:
 
 <CodeExampleGroup filenames={['React', 'Vue']}>
   <CodeBlock
@@ -162,7 +162,7 @@ Now you can use `Disclosure.Button` or (`DisclosureButton` in Vue) within your d
 
 </CodeExampleGroup>
 
-The same thing works with `Popover` components, too:
+Lo mismo funciona también con los componentes \`Popover\`:
 
 <CodeExampleGroup filenames={['React', 'Vue']}>
   <CodeBlock
@@ -214,7 +214,7 @@ The same thing works with `Popover` components, too:
 
 </CodeExampleGroup>
 
-If you need finer control, we also pass a `close` function via the render prop/scoped slot, so you can imperatively close the panel when you need to:
+Si necesitas un control más preciso, también pasamos una función \`close\` a través de la render prop/scoped slot, para que puedas cerrar imperativamente el panel cuando lo necesites:
 
 <CodeExampleGroup filenames={['React', 'Vue']}>
   <CodeBlock
@@ -277,20 +277,20 @@ If you need finer control, we also pass a `close` function via the render prop/s
 
 </CodeExampleGroup>
 
-For more details, check out the updated [Popover](https://headlessui.dev/react/popover#closing-popovers-manually) and [Disclosure](https://headlessui.dev/react/disclosure#closing-disclosures-manually) documentation.
+Para obtener más detalles, consulta la documentación actualizada de [Popover](https://headlessui.dev/react/popover#closing-popovers-manually) y [Disclosure](https://headlessui.dev/react/disclosure#closing-disclosures-manually).
 
-## Try it out
+## Pruébalo
 
-Headless UI v1.4 is a minor update so there are no breaking changes. To upgrade, just install the latest version via npm:
+Headless UI v1.4 es una actualización menor, por lo que no hay cambios disruptivos. Para actualizar, simplemente instala la última versión a través de npm:
 
 ```sh
-# For React
+# Para React
 npm install @headlessui/react
 
-# For Vue
+# Para Vue
 npm install @headlessui/vue
 ```
 
-Check out [the official website](https://headlessui.dev) for the latest documentation, and check out [Tailwind UI](https://tailwindui.com) if you want to play with tons of styled examples.
+Consulta [el sitio web oficial](https://headlessui.dev) para obtener la documentación más reciente y echa un vistazo a [Tailwind UI](https://tailwindui.com) si quieres jugar con toneladas de ejemplos estilizados.
 
-Ready to try it out? <Link href="https://headlessui.dev">Visit the Headless UI website →</Link>
+¿Listo para probarlo? <Link href="https://headlessui.dev">Visita el sitio web de Headless UI →</Link>

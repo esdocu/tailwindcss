@@ -56,6 +56,29 @@ export const directoryCategories = [
   "Other",
 ] as const;
 
+export const categoryTranslations: Record<string, string> = {
+  All: "Todos",
+  "AI Code Editors": "Editores de código de IA",
+  "AI App Builders": "Creadores de aplicaciones de IA",
+  "AI Code Review": "Revisión de código de IA",
+  "AI Platforms": "Plataformas de IA",
+  "Foundation Models": "Modelos fundacionales",
+  "Vertical AI": "IA vertical",
+  Browsers: "Navegadores",
+  Hosting: "Alojamiento",
+  Monitoring: "Monitoreo",
+  Databases: "Bases de datos",
+  Auth: "Autenticación",
+  Email: "Correo electrónico",
+  "Media APIs": "APIs de medios",
+  "Developer Tools": "Herramientas de desarrollo",
+  Documentation: "Documentación",
+  "CMS & Editors": "CMS y editores",
+  Commerce: "Comercio",
+  Agencies: "Agencias",
+  Other: "Otros",
+};
+
 export function getDirectorySponsors(): DirectorySponsor[] {
   const tierOrder = { partner: 0, ambassador: 1, supporter: 2 };
   const all: DirectorySponsor[] = [

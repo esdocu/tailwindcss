@@ -9,40 +9,40 @@ import { adamwathan } from "@/app/blog/authors";
 
 export const meta = {
   title: "Tailwind CSS v1.5.0",
-  description: `Tailwind CSS v1.5.0 is here, now with component variants, responsive container variants, focus-visible support, and more.`,
+  description: `¡Tailwind CSS v1.5.0 ya está aquí, ahora con variantes de componentes, variantes de contenedor Responsive, soporte para focus-visible y más!`,
   date: "2020-07-15T18:55:18.391Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      I was hoping to save v1.5.0 for something <em>really</em> exciting but we needed a new feature to support the new{" "}
+      Esperaba guardar la v1.5.0 para algo <em>realmente</em> emocionante pero necesitábamos una nueva característica para soportar el nuevo plugin{" "}
       <Link href="https://github.com/tailwindcss/typography">
         <code>@tailwindcss/typography</code>
       </Link>{" "}
-      plugin so h*ck it, we're dropping some new stuff on you early.
+      así que, ¡al diablo!, te traemos cosas nuevas antes de tiempo.
     </>
   ),
 };
 
-I was hoping to save v1.5.0 for something _really_ exciting but we needed a new feature to support the new [`@tailwindcss/typography`](https://github.com/tailwindcss/typography) plugin so h\*ck it, we're dropping some new stuff on you early.
+Esperaba guardar la v1.5.0 para algo _realmente_ emocionante pero necesitábamos una nueva característica para soportar el nuevo plugin [`@tailwindcss/typography`](https://github.com/tailwindcss/typography) así que, ¡al diablo!, te traemos cosas nuevas antes de tiempo.
 
-No breaking changes, this is a minor release and we're professionals you silly goose.
+No hay cambios que rompan la compatibilidad, esta es una versión menor y somos profesionales, tontorrón.
 
-## New features
+## Nuevas características
 
-### Component `variants` support
+### Soporte de `variants` para componentes
 
-Until Tailwind CSS v1.5.0, only "utility" classes were really intended to be used with `variants` (like "responsive", "hover", "focus", etc.)
+Hasta Tailwind CSS v1.5.0, solo las clases de "utilidad" estaban realmente destinadas a ser usadas con `variants` (como "responsive", "hover", "focus", etc.)
 
-While these are still much more useful for utilities than any other type of class, we now support generating variants for component classes as well, like the `prose` classes in the new `@tailwindcss/typography` plugin:
+Aunque estas siguen siendo mucho más útiles para las utilidades que cualquier otro tipo de clase, ahora también soportamos la generación de variantes para clases de componentes, como las clases `prose` en el nuevo plugin `@tailwindcss/typography`:
 
 ```html
 <article class="prose md:prose-lg">
-  <!-- Content -->
+  <!-- Contenido -->
 </article>
 ```
 
-You can take advantage of this feature in your own component classes by using the new `variants` option in the second argument of the `addComponents` plugin API:
+Puedes aprovechar esta característica en tus propias clases de componentes usando la nueva opción `variants` en el segundo argumento de la API del plugin `addComponents`:
 
 ```js
 plugin(function ({ addComponents })) {
@@ -56,7 +56,7 @@ plugin(function ({ addComponents })) {
 })
 ```
 
-...or using the array shorthand you might be familiar with from the `addUtilities` API:
+...o usando la abreviatura de array con la que quizás estés familiarizado de la API `addUtilities`:
 
 ```js
 plugin(function ({ addComponents })) {
@@ -68,7 +68,7 @@ plugin(function ({ addComponents })) {
 })
 ```
 
-To take advantage of these feature in your custom CSS (rather than using the plugin API), you can use a new `@layer` directive to explicitly tell Tailwind that your styles belong to the "components" bucket:
+Para aprovechar estas características en tu CSS personalizado (en lugar de usar la API del plugin), puedes usar una nueva directiva `@layer` para decirle explícitamente a Tailwind que tus estilos pertenecen al grupo "components":
 
 ```css
 @layer components {
@@ -80,20 +80,20 @@ To take advantage of these feature in your custom CSS (rather than using the plu
 }
 ```
 
-This helps Tailwind purge your unused CSS correctly, ensuring it doesn't remove any responsive component variants when using the default "conservative" purge mode.
+Esto ayuda a Tailwind a purgar tu CSS no utilizado correctamente, asegurando que no elimine ninguna variante de componente Responsive cuando se usa el modo de purga "conservative" por defecto.
 
-### Responsive `container` variants
+### Variantes Responsive de `container`
 
-Piggy-backing off of the new component `variants` support, the `container` class now supports variants!
+Aprovechando el nuevo soporte de `variants` para componentes, ¡la clase `container` ahora soporta variantes!
 
 ```html
-<!-- Only lock the width at `md` sizes and above -->
+<!-- Bloquear el ancho solo en tamaños `md` y superiores -->
 <div class="md:container">
   <!-- ... -->
 </div>
 ```
 
-We've enabled responsive variants by default, but if you are sick in the head you can also manually enable other variants like `focus`, `group-hover`, whatever:
+Hemos habilitado las variantes Responsive por defecto, pero si estás mal de la cabeza también puedes habilitar manualmente otras variantes como `focus`, `group-hover`, lo que sea:
 
 ```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
@@ -104,17 +104,17 @@ module.exports = {
 };
 ```
 
-### New `focus-visible` variant
+### Nueva variante `focus-visible`
 
-We've added support for the [`:focus-visible` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible) using a new `focus-visible` variant.
+Hemos añadido soporte para la pseudo-clase [`:focus-visible`](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible) usando una nueva variante `focus-visible`.
 
-This is super useful for adding focus styles that _only_ appear to keyboard users, and are ignored for mouse users:
+Esto es súper útil para añadir estilos de foco que _solo_ aparecen a los usuarios de teclado, y son ignorados por los usuarios de ratón:
 
 ```html
-<button class="focus-visible:shadow-outline focus-visible:outline-none ...">Click me</button>
+<button class="focus-visible:shadow-outline focus-visible:outline-none ...">Haz clic aquí</button>
 ```
 
-It's not enabled for anything by default, but you can enable it in the `variants` section of your config file:
+No está habilitado para nada por defecto, pero puedes habilitarlo en la sección `variants` de tu archivo de configuración:
 
 ```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
@@ -125,17 +125,17 @@ module.exports = {
 };
 ```
 
-Browser support is still pretty weak on this but getting better. In the mean time, check out the [polyfill](https://github.com/WICG/focus-visible) and corresponding [PostCSS plugin](https://github.com/csstools/postcss-focus-visible) if you'd like to use this in all browsers right away.
+El soporte de navegadores todavía es bastante débil en esto, pero está mejorando. Mientras tanto, echa un vistazo al [polyfill](https://github.com/WICG/focus-visible) y al [plugin de PostCSS](https://github.com/csstools/postcss-focus-visible) correspondiente si te gustaría usar esto en todos los navegadores de inmediato.
 
-### New `checked` variant
+### Nueva variante `checked`
 
-We've added a new `checked` variant you can use to conditionally style things like checkboxes and radio buttons:
+Hemos añadido una nueva variante `checked` que puedes usar para aplicar estilos condicionalmente a cosas como casillas de verificación y botones de radio:
 
 ```html
 <input type="checkbox" class="bg-white checked:bg-blue-500" />
 ```
 
-It's not enabled for anything by default, but you can enable it in the `variants` section of your config file:
+No está habilitado para nada por defecto, pero puedes habilitarlo en la sección `variants` de tu archivo de configuración:
 
 ```js {{ filename: 'tailwind.config.js' }}
 module.exports = {
@@ -146,4 +146,4 @@ module.exports = {
 };
 ```
 
-Want to talk about this post? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2033">Discuss this on GitHub →</a>
+¿Quieres hablar sobre esta publicación? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2033">Discútelo en GitHub →</a>

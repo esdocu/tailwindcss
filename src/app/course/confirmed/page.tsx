@@ -23,15 +23,15 @@ export default async function Subscribed() {
           </div>
           <div className="mt-2 border-y border-black/5 p-2 max-sm:px-4 dark:border-white/10">
             <p className="font-mono text-sm font-medium text-gray-700 uppercase max-sm:text-center dark:text-gray-400">
-              Tailwind CSS by Example
+              Tailwind CSS mediante ejemplos
             </p>
             <h1 className="text-5xl tracking-tighter text-balance text-gray-900 max-sm:text-center lg:text-8xl dark:text-white">
-              You're in!
+              ¡Ya estás dentro!
             </h1>
           </div>
           <div className="mt-4 border-y border-black/5 p-2 max-md:border-b-0 max-sm:px-4 dark:border-white/10">
             <p className="max-w-xl text-lg/7 font-medium text-pretty text-gray-500 max-sm:text-center dark:text-gray-400">
-              Stay tuned for sneak peaks, early video previews, and behind-the-scenes updates soon.
+              Mantente al tanto para recibir adelantos, avances en video y actualizaciones detrás de escena muy pronto.
             </p>
           </div>
         </div>

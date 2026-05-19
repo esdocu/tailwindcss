@@ -11,15 +11,15 @@ import { CodeExampleGroup, CodeBlock, js, jsx, html } from "@/components/code-ex
 import Demo from "./demo";
 
 export const meta = {
-  title: "Headless UI v1.5: The One With Comboboxes",
-  description: `We just released Headless UI v1.5, which includes a brand new \`Combobox\` component.`,
+  title: "Headless UI v1.5: El que tiene Comboboxes",
+  description: `Acabamos de lanzar Headless UI v1.5, que incluye un nuevo componente \`Combobox\`.`,
   date: "2022-02-24T12:00:00.000Z",
   authors: [reinink, adamwathan],
   image: card,
   excerpt: (
     <>
-      We just released Headless UI v1.5, which includes a brand new <code>Combobox</code> component. Comboboxes are like
-      select controls but with autocomplete/typeahead functionality.
+      Acabamos de lanzar Headless UI v1.5, que incluye un nuevo componente <code>Combobox</code>. Los Comboboxes son como
+      controles select pero con funcionalidad de autocompletado/typeahead.
     </>
   ),
 };
@@ -28,11 +28,11 @@ export const meta = {
   <Image alt="Headless UI v1.5" src={banner} />
 </Link>
 
-We just released Headless UI v1.5, which includes a brand new `Combobox` component. Comboboxes are like select controls but with autocomplete/typeahead functionality, and are a great alternative to a regular select when you're working with large datasets and want to quickly filter for the right option.
+Acabamos de lanzar Headless UI v1.5, que incluye un nuevo componente `Combobox`. Los Comboboxes son como controles select pero con funcionalidad de autocompletado/typeahead, y son una gran alternativa a un select regular cuando trabajas con grandes conjuntos de datos y quieres filtrar rápidamente la opción correcta.
 
-Like all other Headless UI components, the combobox abstracts away all of the complex accessibility considerations but leaves the styling completely up to you, giving you total control to design exactly the combobox you want without worrying about things like keyboard navigation or screen reader support.
+Como todos los demás componentes de Headless UI, el combobox abstrae todas las consideraciones complejas de accesibilidad pero deja el estilo completamente a tu cargo, dándote control total para diseñar exactamente el combobox que deseas sin preocuparte por cosas como la navegación por teclado o el soporte para lectores de pantalla.
 
-Here's a quick demo if you'd like to see it in action:
+Aquí tienes una demostración rápida si quieres verlo en acción:
 
 <Figure>
 
@@ -40,9 +40,9 @@ Here's a quick demo if you'd like to see it in action:
 
 </Figure>
 
-We've intentionally designed it so that you have full control over filtering the actual results. You can do basic string comparisons, use a fuzzy search library like <Link href="https://fusejs.io/">Fuse.js</Link>, or even make server-side requests to an API — whatever makes sense for your project.
+Lo hemos diseñado intencionalmente para que tengas control total sobre el filtrado de los resultados reales. Puedes hacer comparaciones básicas de cadenas, usar una librería de búsqueda difusa como <Link href="https://fusejs.io/">Fuse.js</Link>, o incluso hacer solicitudes del lado del servidor a una API — lo que tenga sentido para tu proyecto.
 
-Here's what it looks like to filter the results using a basic string comparison:
+Así es como se ve filtrar los resultados usando una comparación básica de cadenas:
 
 <CodeExampleGroup filenames={['React', 'Vue']}>
   <CodeBlock
@@ -129,34 +129,34 @@ Here's what it looks like to filter the results using a basic string comparison:
 
 </CodeExampleGroup>
 
-## Command palettes
+## Paletas de comandos
 
-Comboboxes are not only great as standalone inputs, but they can also be used as a lower-level primitive for building more complex components, such as command palettes.
+Los Comboboxes no solo son geniales como inputs independientes, sino que también pueden usarse como una primitiva de nivel inferior para construir componentes más complejos, como paletas de comandos.
 
-This is actually what originally motivated us to create the combobox component in the first place — we wanted to add a new command palettes category to Tailwind UI and needed this component to make that happen.
+Esto es en realidad lo que nos motivó originalmente a crear el componente combobox en primer lugar — queríamos agregar una nueva categoría de paletas de comandos a Tailwind UI y necesitábamos este componente para hacerlo realidad.
 
-If you happen to have a Tailwind UI license, be sure to browse the new <Link href="https://tailwindui.com/components/application-ui/navigation/command-palettes">Command Palettes</Link> category to see how these turned out. And if you're wondering, we also added a new <Link href="https://tailwindui.com/components/application-ui/forms/comboboxes">Comboboxes</Link> category as well.
+Si tienes una licencia de Tailwind UI, asegúrate de explorar la nueva categoría <Link href="https://tailwindui.com/components/application-ui/navigation/command-palettes">Command Palettes</Link> para ver cómo quedaron. Y si te lo preguntas, también agregamos una nueva categoría <Link href="https://tailwindui.com/components/application-ui/forms/comboboxes">Comboboxes</Link>.
 
 <Link href="https://tailwindui.com/components/application-ui/navigation/command-palettes">
-  <Image alt="Command palette from Tailwind UI" src={commandPalette} />
+  <Image alt="Paleta de comandos de Tailwind UI" src={commandPalette} />
 </Link>
 
-Riding on the excitement of the new command palettes, we also just published a new <Link href="https://www.youtube.com/watch?v=-jix4KyxLuQ">in-depth screencast</Link> on building a command palette from scratch with Tailwind CSS, React and Headless UI.
+Aprovechando la emoción de las nuevas paletas de comandos, también acabamos de publicar un nuevo <Link href="https://www.youtube.com/watch?v=-jix4KyxLuQ">screencast detallado</Link> sobre cómo construir una paleta de comandos desde cero con Tailwind CSS, React y Headless UI.
 
-It covers tons of interesting Tailwind tricks for getting the design and animations just right, and teaches you a ton about how to use the new combobox component and wire it into your app.
+Cubre montones de trucos interesantes de Tailwind para lograr el diseño y las animaciones perfectas, y te enseña muchísimo sobre cómo usar el nuevo componente combobox e integrarlo en tu aplicación.
 
-{/* Command palettes video */}
+{/* Video de paletas de comandos */}
 
-## Try it out
+## Pruébalo
 
-If you already have Headless UI installed in your project, be sure to upgrade to v1.5 to get the new `Combobox` component. This is a minor update so there are no breaking changes.
+Si ya tienes Headless UI instalado en tu proyecto, asegúrate de actualizar a la v1.5 para obtener el nuevo componente `Combobox`. Esta es una actualización menor, por lo que no hay cambios disruptivos.
 
 ```sh
-# For React
+# Para React
 npm install @headlessui/react
 
-# For Vue
+# Para Vue
 npm install @headlessui/vue
 ```
 
-Be sure to also check out <Link href="https://headlessui.dev">the official website</Link> for the latest documentation.
+Asegúrate también de revisar <Link href="https://headlessui.dev">el sitio web oficial</Link> para la documentación más reciente.

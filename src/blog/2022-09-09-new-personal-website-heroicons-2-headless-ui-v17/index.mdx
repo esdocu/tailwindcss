@@ -12,86 +12,86 @@ import { Example, Figure } from "@/components/example.tsx";
 import { CodeExampleGroup, CodeBlock, js, ts } from "@/components/code-example";
 
 export const meta = {
-  title: "We built you a new personal website + Heroicons v2.0, Headless UI v1.7, and more",
-  description: `We just released a stunning new personal website template for Tailwind UI, redesigned Heroicons from scratch, tagged a new version of Headless UI with some exciting new features, and more.`,
+  title: "Te construimos un nuevo sitio web personal + Heroicons v2.0, Headless UI v1.7 y más",
+  description: `Acabamos de lanzar una nueva e impresionante plantilla de sitio web personal para Tailwind UI, rediseñamos Heroicons desde cero, etiquetamos una nueva versión de Headless UI con algunas características nuevas emocionantes y más.`,
   date: "2022-09-09T16:24:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      We just released a stunning new personal website template for Tailwind UI, redesigned Heroicons from scratch,
-      tagged a new version of Headless UI with some exciting new features, and more.
+      Acabamos de lanzar una nueva e impresionante plantilla de sitio web personal para Tailwind UI, rediseñamos Heroicons desde cero,
+      etiquetamos una nueva versión de Headless UI con algunas características nuevas emocionantes y más.
     </>
   ),
 };
 
-It's been a busy week wrapping up a bunch of projects we've been working on, but everything is finally out the door so it feels like a good time for another update.
+Ha sido una semana ocupada terminando un montón de proyectos en los que hemos estado trabajando, pero finalmente todo está listo, así que parece un buen momento para otra actualización.
 
-We triaged and resolved another <Link href="https://github.com/search?q=is%3Aclosed+org%3Atailwindlabs+archived%3Afalse+sort%3Acreated-desc+is%3Apublic+closed%3A%3E%3D2022-08-19+-author%3Aapp%2Fdependabot+-author%3Aapp%2Fgithub-actions+-author%3Aapp%2Fdepfu&type=Issues">226 GitHub issues and pull requests</Link> since my last post, and we're finally at under 50 open issues/PRs across our entire organization for the first time ever. So please stop finding bugs I just want to design and build beautiful stuff with Tailwind CSS for a while.
+Clasificamos y resolvimos otros <Link href="https://github.com/search?q=is%3Aclosed+org%3Atailwindlabs+archived%3Afalse+sort%3Acreated-desc+is%3Apublic+closed%3A%3E%3D2022-08-19+-author%3Aapp%2Fdependabot+-author%3Aapp%2Fgithub-actions+-author%3Aapp%2Fdepfu&type=Issues">226 issues y pull requests de GitHub</Link> desde mi última publicación, y finalmente estamos por debajo de 50 issues/PRs abiertos en toda nuestra organización por primera vez. Así que, por favor, dejen de encontrar errores, solo quiero diseñar y construir cosas hermosas con Tailwind CSS por un tiempo.
 
-Speaking of beautiful stuff, here's what shipped over the last couple of weeks!
+Hablando de cosas hermosas, ¡esto es lo que se lanzó en las últimas semanas!
 
 ---
 
-## Spotlight: Your new personal website
+## Spotlight: Tu nuevo sitio web personal
 
-A couple of days ago we released <Link href="https://tailwindui.com/templates/spotlight">Spotlight</Link>, a stunning new personal website template we designed for Tailwind UI.
+Hace un par de días lanzamos <Link href="https://tailwindui.com/templates/spotlight">Spotlight</Link>, una nueva e impresionante plantilla de sitio web personal que diseñamos para Tailwind UI.
 
 <Link href="https://tailwindui.com/templates/spotlight">
-  <Image alt="Learn about the Spotlight template" src={spotlightPreview} />
+  <Image alt="Aprende sobre la plantilla Spotlight" src={spotlightPreview} />
 </Link>
 
-Like our other templates, it's built with [Next.js](https://nextjs.org/), and this time we're using [MDX](https://mdxjs.com/) to power all of the markdown-driven stuff like the blog section.
+Como nuestras otras plantillas, está construida con [Next.js](https://nextjs.org/), y esta vez estamos usando [MDX](https://mdxjs.com/) para impulsar todo el contenido basado en markdown, como la sección del blog.
 
-Designing this template was a pretty fun and interesting challenge — we wanted to come up with something that was really beautiful and inspiring, but that was also unopinionated enough to feel like a good fit for almost anyone. We landed on a pretty minimalist design that gets its personality from little touches like rotated images, hints of color for links, and some subtle depth from shadows and layering in places like the top navigation.
+Diseñar esta plantilla fue un desafío bastante divertido e interesante — queríamos crear algo que fuera realmente hermoso e inspirador, pero que también fuera lo suficientemente poco dogmático como para sentirse adecuado para casi cualquier persona. Optamos por un diseño bastante minimalista que obtiene su personalidad de pequeños detalles como imágenes rotadas, toques de color para los enlaces y una sutil profundidad de sombras y capas en lugares como la navegación superior.
 
 <Link href="https://spotlight.tailwindui.com">
-  <Image alt="Preview the Spotlight template" src={spotlightDetail} />
+  <Image alt="Vista previa de la plantilla Spotlight" src={spotlightDetail} />
 </Link>
 
-As always, I recommend checking out <Link href="https://spotlight.tailwindui.com">the live preview</Link> for the full experience — especially pay attention to the way the avatar and navigation works on the home page as you scroll, it's very _*chef's kiss*_ when you're playing with the real site.
+Como siempre, recomiendo revisar <Link href="https://spotlight.tailwindui.com">la vista previa en vivo</Link> para la experiencia completa — presta especial atención a la forma en que funcionan el avatar y la navegación en la página de inicio mientras te desplazas, es muy _*beso de chef*_ cuando juegas con el sitio real.
 
-We tried to structure the site the way we'd structure our own personal sites, so it includes a dedicated blog, a page for you to list some of your favorite projects you've worked on, an area for you to link to things like conference talks you've given, and a <Link href="https://spotlight.tailwindui.com/uses">"uses" page</Link> to list all of your favorite tools and gear.
+Intentamos estructurar el sitio de la manera en que estructuraríamos nuestros propios sitios personales, por lo que incluye un blog dedicado, una página para que listes algunos de tus proyectos favoritos en los que has trabajado, un área para que enlaces a cosas como charlas de conferencias que has dado, y una <Link href="https://spotlight.tailwindui.com/uses">página "usos"</Link> para listar todas tus herramientas y equipos favoritos.
 
-If you've got a <Link href="https://tailwindui.com/all-access">Tailwind UI all-access</Link> license then you've already got access to this template! And if you don't, consider it — it's the best way to support our work on open-source projects like Tailwind CSS, Headless UI, and Heroicons.
+Si tienes una licencia de <Link href="https://tailwindui.com/all-access">acceso total a Tailwind UI</Link>, ¡ya tienes acceso a esta plantilla! Y si no la tienes, considéralo — es la mejor manera de apoyar nuestro trabajo en proyectos de código abierto como Tailwind CSS, Headless UI y Heroicons.
 
 ---
 
 ## Heroicons v2.0
 
-Last year we released <Link href="/blog/heroicons-v1">Heroicons v1.0</Link>. Well last week we released <Link href="https://heroicons.com/">Heroicons v2.0</Link>, which is a brand new icon set, illustrated from scratch that Steve has been working on for about a year.
+El año pasado lanzamos <Link href="/blog/heroicons-v1">Heroicons v1.0</Link>. Bueno, la semana pasada lanzamos <Link href="https://heroicons.com/">Heroicons v2.0</Link>, que es un conjunto de iconos completamente nuevo, ilustrado desde cero en el que Steve ha estado trabajando durante aproximadamente un año.
 
 <Link href="https://heroicons.com">
   <Image alt="Heroicons v2.0" src={heroiconsCover} />
 </Link>
 
-It includes 280 icons drawn in three distinct styles:
+Incluye 280 iconos dibujados en tres estilos distintos:
 
-- **Outline** — line icons with a 1.5px stroke, drawn in a 24px view box.
-- **Solid** — solid icons with filled shapes, drawn in a 24px view box.
-- **Mini** — solid icons with filled shapes, drawn in a 20px view box.
+- **Outline** — iconos de línea con un trazo de 1.5px, dibujados en un view box de 24px.
+- **Solid** — iconos sólidos con formas rellenas, dibujados en un view box de 24px.
+- **Mini** — iconos sólidos con formas rellenas, dibujados en un view box de 20px.
 
-The biggest differences from v1 are that the outline set uses a thinner stroke, which feels a bit more modern and fashionable these days, and visually the icons are a bit more playful in style.
+Las mayores diferencias con la v1 son que el conjunto outline utiliza un trazo más fino, que se siente un poco más moderno y de moda en estos días, y visualmente los iconos son un poco más juguetones en estilo.
 
-Even though these have "v2" in the name, it's better to think of Heroicons v2 more like Terminator 2 than OpenSSL 2 — we feel like they represent our best work but it's a new icon set, not strictly an upgrade from the original icon set. Don't feel pressured to upgrade existing projects like you would with a real application dependency, but if you want to migrate, <Link href="https://github.com/tailwindlabs/heroicons/releases/tag/v2.0.0">check out the release notes</Link> for everything you need to switch.
+Aunque estos tengan "v2" en el nombre, es mejor pensar en Heroicons v2 más como Terminator 2 que como OpenSSL 2 — sentimos que representan nuestro mejor trabajo pero es un nuevo conjunto de iconos, no estrictamente una actualización del conjunto de iconos original. No te sientas presionado a actualizar proyectos existentes como lo harías con una dependencia de aplicación real, pero si quieres migrar, <Link href="https://github.com/tailwindlabs/heroicons/releases/tag/v2.0.0">consulta las notas de la versión</Link> para todo lo que necesitas para cambiar.
 
-To explore all of the new icons, visit the totally <Link href="https://heroicons.com/">redesigned Heroicons website</Link> we launched with the new set.
+Para explorar todos los nuevos iconos, visita el sitio web totalmente <Link href="https://heroicons.com/">rediseñado de Heroicons</Link> que lanzamos con el nuevo conjunto.
 
 ---
 
 ## Headless UI v1.7
 
-Earlier this week we tagged a new release of <Link href="https://headlessui.com/">Headless UI</Link>, our React and Vue libraries of unstyled UI components.
+A principios de esta semana etiquetamos una nueva versión de <Link href="https://headlessui.com/">Headless UI</Link>, nuestras librerías React y Vue de componentes de UI sin estilo.
 
 <Link href="https://headlessui.com/">
   <Image alt="Headless UI v1.7" src={headlessuiV17} />
 </Link>
 
-Headless UI v1.7 includes the usual slew of bug fixes and improvements, but also some really useful new features!
+Headless UI v1.7 incluye la habitual serie de correcciones de errores y mejoras, ¡pero también algunas características nuevas realmente útiles!
 
-### Added "by" prop for controlling object comparisons
+### Añadida la prop "by" para controlar las comparaciones de objetos
 
-We've added a new `by` prop to the `Listbox`, `Combobox`, and `RadioGroup` components that make it a lot less cumbersome to bind an object as the form value.
+Hemos añadido una nueva prop `by` a los componentes `Listbox`, `Combobox` y `RadioGroup` que hacen que sea mucho menos engorroso vincular un objeto como valor del formulario.
 
 ```jsx
 import { Listbox } from "@headlessui/react";
@@ -120,13 +120,13 @@ function DepartmentPicker({ selectedDepartment, onChange }) {
 }
 ```
 
-This makes it a lot easier for the value to come from outside the component, and saves you having to just bind the `id` or similar and do a bunch of lookups yourself to find the full object when needed.
+Esto hace que sea mucho más fácil que el valor provenga de fuera del componente, y te ahorra tener que simplemente vincular el `id` o similar y hacer un montón de búsquedas tú mismo para encontrar el objeto completo cuando sea necesario.
 
-Check out the updated <Link href="https://headlessui.com/react/listbox#binding-objects-as-values">"Binding objects as values" documentation</Link> for each component for some more detail.
+Consulta la documentación actualizada <Link href="https://headlessui.com/react/listbox#binding-objects-as-values">"Vincular objetos como valores"</Link> para cada componente para obtener más detalles.
 
-### Use form controls as uncontrolled components
+### Usar controles de formulario como componentes no controlados
 
-The `Listbox`, `Combobox`, and `RadioGroup` components now let you optionally pass a `defaultValue` instead of a `value`, allowing you to use them as an uncontrolled component.
+Los componentes `Listbox`, `Combobox` y `RadioGroup` ahora te permiten pasar opcionalmente un `defaultValue` en lugar de un `value`, lo que te permite usarlos como un componente no controlado.
 
 ```jsx
 import { Listbox } from "@headlessui/react";
@@ -158,17 +158,17 @@ function Example() {
 }
 ```
 
-This can simplify your code when using traditional HTML forms or form APIs that collect their state using `FormData` instead of tracking it using React state.
+Esto puede simplificar tu código cuando usas formularios HTML tradicionales o APIs de formularios que recopilan su estado usando `FormData` en lugar de rastrearlo usando el estado de React.
 
-Check out the <Link href="https://headlessui.com/react/listbox#using-as-an-uncontrolled-component">"Using as an uncontrolled component" documentation</Link> for each component to see some more examples.
+Consulta la documentación <Link href="https://headlessui.com/react/listbox#using-as-an-uncontrolled-component">"Usar como componente no controlado"</Link> para cada componente para ver más ejemplos.
 
-### Data attributes for CSS-only state styling
+### Atributos de datos para estilo de estado solo con CSS
 
-Historically, you've always had to style the different states of a Headless UI component by inspecting arguments passed through a render prop and conditionally rendering whatever classes or content made sense. This could feel like a lot of boilerplate when just trying to tweak a background color or make some other CSS-only change.
+Históricamente, siempre has tenido que dar estilo a los diferentes estados de un componente Headless UI inspeccionando los argumentos pasados a través de una prop de renderizado y renderizando condicionalmente las clases o el contenido que tuviera sentido. Esto podría sentirse como mucho código repetitivo cuando solo intentabas ajustar un color de fondo o hacer algún otro cambio solo de CSS.
 
-In Headless UI v1.7, we've added a `data-headlessui-state` attribute to the rendered HTML that includes information about the current state so you can target it with just CSS.
+En Headless UI v1.7, hemos agregado un atributo `data-headlessui-state` al HTML renderizado que incluye información sobre el estado actual para que puedas apuntarlo solo con CSS.
 
-We've also released a new <Link href="https://github.com/tailwindlabs/headlessui/tree/main/packages/%40headlessui-tailwindcss">@headlessui/tailwindcss</Link> plugin that gives you variants for these states so they are super easy to style with just Tailwind CSS classes:
+También hemos lanzado un nuevo plugin <Link href="https://github.com/tailwindlabs/headlessui/tree/main/packages/%40headlessui-tailwindcss">@headlessui/tailwindcss</Link> que te da variantes para estos estados para que sean súper fáciles de estilizar solo con clases de Tailwind CSS:
 
 ```jsx
 <Listbox.Option
@@ -181,38 +181,38 @@ We've also released a new <Link href="https://github.com/tailwindlabs/headlessui
 </Listbox.Option>
 ```
 
-Check out the new documentation on <Link href="https://headlessui.com/react/listbox#using-data-attributes">styling using data attributes</Link> for some more details.
+Consulta la nueva documentación sobre <Link href="https://headlessui.com/react/listbox#using-data-attributes">estilo usando atributos de datos</Link> para obtener más detalles.
 
 ---
 
-### Insiders support on Tailwind Play
+### Soporte Insiders en Tailwind Play
 
-Not everyone knows this but we ship an `insiders` build of Tailwind CSS to npm that is automatically built and deployed every single time a new commit lands in the repository. This makes it really easy to test out new features and fixes before they are actually tagged in a proper release.
+No todo el mundo sabe esto, pero enviamos una compilación `insiders` de Tailwind CSS a npm que se construye y despliega automáticamente cada vez que un nuevo commit llega al repositorio. Esto hace que sea realmente fácil probar nuevas características y correcciones antes de que se etiqueten realmente en una versión adecuada.
 
-Well now we include access to the insiders build in <Link href="https://play.tailwindcss.com/">Tailwind Play</Link> as well, so you can play with bleeding edge stuff without even setting up a project:
+Bueno, ahora también incluimos acceso a la compilación insiders en <Link href="https://play.tailwindcss.com/">Tailwind Play</Link>, así que puedes jugar con cosas de última generación sin siquiera configurar un proyecto:
 
 <Link href="https://play.tailwindcss.com">
-  <Image alt="Tailwind Play insiders option" src={playInsiders} />
+  <Image alt="Opción insiders de Tailwind Play" src={playInsiders} />
 </Link>
 
-We only keep the _latest_ insiders build on Play, so if you create a demo using an insiders build know that it might break if the next insiders build changes something in some unreleased feature you were using. You shouldn't be putting important things there anyways, come on be a professional.
+Solo mantenemos la _última_ compilación insiders en Play, así que si creas una demo usando una compilación insiders, ten en cuenta que podría romperse si la próxima compilación insiders cambia algo en alguna característica no lanzada que estuvieras usando. De todos modos, no deberías poner cosas importantes ahí, vamos, sé profesional.
 
 ---
 
 ### Tailwind CSS + Phoenix v1.7
 
-A while ago we started talking with the <Link href="https://www.phoenixframework.org/">Phoenix</Link> team because they wanted to ship Tailwind CSS by default in a future release. I thought this was super exciting, and wanted to work with them to make the out-of-the-box experience really beautiful.
+Hace un tiempo empezamos a hablar con el equipo de <Link href="https://www.phoenixframework.org/">Phoenix</Link> porque querían enviar Tailwind CSS por defecto en una versión futura. Pensé que esto era súper emocionante y quería trabajar con ellos para hacer que la experiencia lista para usar fuera realmente hermosa.
 
-We designed a new splash screen and all of the necessary scaffolding for their generator system, which will ship as part of Phoenix v1.7.
+Diseñamos una nueva pantalla de bienvenida y todo el andamiaje necesario para su sistema generador, que se enviará como parte de Phoenix v1.7.
 
-<Image alt="New designs for Phoenix v1.7" src={phoenix} />
+<Image alt="Nuevos diseños para Phoenix v1.7" src={phoenix} />
 
-Chris McCord the creator of Phoenix gave <Link href="https://www.youtube.com/watch?v=9-rqBLjr5Eo">a great talk</Link> last week that walks through all of the Tailwind CSS stuff they are shipping, worth a watch if you're curious to learn more.
+Chris McCord, el creador de Phoenix, dio <Link href="https://www.youtube.com/watch?v=9-rqBLjr5Eo">una gran charla</Link> la semana pasada que recorre todas las cosas de Tailwind CSS que están enviando, vale la pena verla si tienes curiosidad por saber más.
 
 ---
 
-So there you go, that's all of the coolest stuff we've been working on over the last few weeks!
+¡Así que ahí lo tienes, eso es todo lo más genial en lo que hemos estado trabajando durante las últimas semanas!
 
-Over the next month or so I'm excited to build a bunch of new Tailwind UI components we've been designing, explore some <Link href="https://caniuse.com/?search=container%20queries">new feature ideas</Link> for Tailwind CSS, and start doing some R&D on what it would look like to create a sort of application starter kit template with Tailwind + Next.js — think it could be pretty cool if we can nail it.
+Durante el próximo mes más o menos, estoy emocionado por construir un montón de nuevos componentes de Tailwind UI que hemos estado diseñando, explorar algunas <Link href="https://caniuse.com/?search=container%20queries">ideas de nuevas características</Link> para Tailwind CSS, y empezar a hacer algo de I+D sobre cómo sería crear una especie de plantilla de kit de inicio de aplicación con Tailwind + Next.js — creo que podría ser bastante genial si podemos lograrlo.
 
-Catch you in the next update!
+¡Nos vemos en la próxima actualización!

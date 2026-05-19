@@ -12,12 +12,12 @@ import TailwindCSSVsCodeThemeImage from "./tailwindcss-vs-theme.png";
 export const metadata: Metadata = {
   title: "Insiders",
   description:
-    "Join a community of enthusiasts who get early access to new features, internal tooling, and direct connection with the team.",
+    "Únete a una comunidad de entusiastas que obtienen acceso anticipado a nuevas funciones, herramientas internas y conexión directa con el equipo.",
   openGraph: {
     type: "article",
     title: "Insiders - Tailwind CSS",
     description:
-      "Join a community of enthusiasts who get early access to new features, internal tooling, and direct connection with the team.",
+      "Únete a una comunidad de entusiastas que obtienen acceso anticipado a nuevas funciones, herramientas internas y conexión directa con el equipo.",
     url: "https://tailwindcss.com/insiders",
   },
 };
@@ -78,12 +78,12 @@ function MessageFromAdam() {
           />
           <div className="relative text-white max-xl:max-w-2xl max-lg:mx-auto max-lg:mt-60 lg:max-w-lg xl:max-w-2xl">
             <p className="text-2xl/10">
-              Tailwind CSS exists because a passionate community believes in building better software together. By
-              becoming a Tailwind Insider or Partner you can directly support that mission — so we can keep shipping
-              tools you love, with no strings attached.
+              Tailwind CSS existe porque una comunidad apasionada cree en la construcción de mejor software juntos. Al
+              convertirte en un Tailwind Insider o Partner, puedes apoyar directamente esa misión, para que podamos seguir lanzando
+              herramientas que te encanten, sin condiciones.
             </p>
             <p className="mt-8 text-base/8 font-medium">Adam Wathan</p>
-            <p className="text-gray-400">Creator of Tailwind CSS</p>
+            <p className="text-gray-400">Creador de Tailwind CSS</p>
           </div>
         </section>
       </div>
@@ -94,7 +94,7 @@ function MessageFromAdam() {
 function InsiderPerks() {
   return (
     <section className="mt-16">
-      <h2 className="px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Insider perks</h2>
+      <h2 className="px-4 text-2xl/10 font-medium tracking-tight sm:px-2">Beneficios de Insider</h2>
       <div className="relative mt-4">
         <div className="pointer-events-none absolute inset-0 z-10 grid grid-cols-1 gap-2 max-sm:hidden sm:grid-cols-2 sm:gap-x-5 sm:gap-y-10 md:gap-10 lg:grid-cols-3">
           <div className="border-r border-gray-950/5 dark:border-white/10"></div>
@@ -105,46 +105,43 @@ function InsiderPerks() {
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
               <strong className="font-semibold text-gray-950 dark:text-white">
-                Access to private insiders area in Discord
+                Acceso a la zona privada de insiders en Discord
               </strong>{" "}
-              — where Tailwind insiders share tips, play with upcoming features, and connect directly with the core
-              team.
+              — donde los insiders de Tailwind comparten consejos, experimentan con próximas funciones y se conectan directamente con el equipo principal.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Cursor/Claude/AGENTS.md rules</strong> —
-              Adam's personal ruleset for working with AI coding assistants, straight from the Tailwind founder's own
-              development setup.
+              <strong className="font-semibold text-gray-950 dark:text-white">Reglas de Cursor/Claude/AGENTS.md</strong> —
+              las reglas personales de Adam para trabajar con asistentes de codificación de IA, directamente desde la configuración de desarrollo del propio fundador de Tailwind.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
               <strong className="font-semibold text-gray-950 dark:text-white">
-                Early documentation for pre-release builds
+                Documentación anticipada para compilaciones previas
               </strong>{" "}
-              — preview documentation for unreleased Tailwind features and start experimenting with tomorrow's CSS
-              utilities today.
+              — previsualiza la documentación de las funciones de Tailwind que aún no se han lanzado y comienza a experimentar hoy mismo con las utilidades CSS del mañana.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">VS Code themes</strong> — get the VS Code
-              themes built and battle-tested by the Tailwind team, crafted with the same attention to detail we put into
-              Tailwind CSS itself
+              <strong className="font-semibold text-gray-950 dark:text-white">Temas de VS Code</strong> — obtén los temas de VS Code
+              creados y probados en combate por el equipo de Tailwind, diseñados con la misma atención al detalle que ponemos en
+              el propio Tailwind CSS.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Raycast extension</strong> — instantly
-              find the nearest Tailwind theme value for any color or size, or see the generated CSS output of any class.
+              <strong className="font-semibold text-gray-950 dark:text-white">Extensión de Raycast</strong> — encuentra al instante
+              el valor del tema de Tailwind más cercano para cualquier color o tamaño, o consulta el resultado CSS generado para cualquier clase.
             </p>
           </li>
           <li className="p-2 sm:max-lg:nth-[2n+1]:line-y lg:nth-[3n+1]:line-y">
             <p className="text-sm/7 text-gray-600 dark:text-gray-400">
-              <strong className="font-semibold text-gray-950 dark:text-white">Source code + Figma files</strong> —
-              download the source code from our feature demos, that usually never see the light of day, to learn exactly
-              how we prototype ideas with Tailwind.
+              <strong className="font-semibold text-gray-950 dark:text-white">Código fuente + archivos de Figma</strong> —
+              descarga el código fuente de nuestras demostraciones de funciones, que por lo general nunca ven la luz, para aprender exactamente
+              cómo prototipamos ideas con Tailwind.
             </p>
           </li>
         </ul>
@@ -167,16 +164,16 @@ function InsiderPerkScreenshots() {
             <path fill="#E3E3E3" d="M15.988 4h-7v12" />
             <path fill="#fff" d="M1.988 4h14l-7 4" />
           </svg>
-          AGENTS.md file
+          Archivo AGENTS.md
         </p>
         <Image
           src={InsidersGitHubRepositoryImage}
-          alt="Insiders GitHub repository"
+          alt="Repositorio de GitHub de Insiders"
           className="w-212 max-w-none rounded-tl-xl bg-white outline outline-gray-950/10 dark:hidden"
         />
         <Image
           src={InsidersGitHubRepositoryDarkImage}
-          alt="Insiders GitHub repository"
+          alt="Repositorio de GitHub de Insiders"
           className="hidden w-212 max-w-none rounded-tl-xl bg-[#0F1116] outline outline-gray-950/10 dark:block dark:outline dark:outline-white/10"
         />
       </div>
@@ -189,18 +186,18 @@ function InsiderPerkScreenshots() {
               fillRule="evenodd"
             />
           </svg>
-          Raycast extension
+          Extensión de Raycast
         </p>
         <Image
           src={TailwindcssRaycastExtensionImage}
-          alt="Tailwind CSS Raycast Extension"
+          alt="Extensión de Raycast de Tailwind CSS"
           className="w-180 max-w-none rounded-tl-xl border border-black bg-[#1B1B1C] outline -outline-offset-2 outline-white/30 sm:w-200 md:w-150"
         />
       </div>
       <div className="relative flex items-center justify-center rounded-xl bg-[#5865F2] inset-ring inset-ring-gray-950/10 max-md:aspect-[4/3] md:row-start-2 md:max-lg:col-start-1 lg:col-start-2">
         <p className="absolute right-4 bottom-4 flex items-center gap-2 rounded-full border border-white/20 bg-black/80 pr-4 pl-2 font-mono text-xs/7 font-medium text-white outline outline-black backdrop-blur-sm lg:right-6 lg:bottom-6">
           <LockClosedIcon className="size-4 fill-white/75" />
-          Private community
+          Comunidad privada
         </p>
         <svg fill="#E0E3FF" viewBox="0 0 127 96" className="w-1/4">
           <path d="M81.15 0a73.745 73.745 0 0 0-3.36 6.794 97.867 97.867 0 0 0-28.994 0A67.876 67.876 0 0 0 45.437 0a105.544 105.544 0 0 0-26.14 8.057C2.779 32.53-1.691 56.373.53 79.887a105.038 105.038 0 0 0 32.05 16.088 76.912 76.912 0 0 0 6.87-11.063c-3.737-1.389-7.35-3.131-10.81-5.152.91-.657 1.794-1.339 2.653-1.995a75.255 75.255 0 0 0 64.075 0c.86.707 1.743 1.389 2.652 1.995a68.772 68.772 0 0 1-10.835 5.178A76.903 76.903 0 0 0 94.056 96a104.99 104.99 0 0 0 32.051-16.063c2.626-27.277-4.496-50.917-18.817-71.855A103.922 103.922 0 0 0 81.175.051L81.15 0ZM42.28 65.414c-6.238 0-11.416-5.657-11.416-12.653s4.976-12.679 11.391-12.679 11.517 5.708 11.416 12.679c-.101 6.97-5.026 12.653-11.39 12.653Zm42.078 0c-6.264 0-11.391-5.657-11.391-12.653s4.975-12.679 11.39-12.679c6.416 0 11.492 5.708 11.391 12.679-.1 6.97-5.026 12.653-11.39 12.653Z" />
@@ -234,11 +231,11 @@ function InsiderPerkScreenshots() {
             <path fill="#E3E3E3" d="M15.988 4h-7v12" />
             <path fill="#fff" d="M1.988 4h14l-7 4" />
           </svg>
-          Editor themes
+          Temas de editor
         </p>
         <Image
           src={TailwindCSSVsCodeThemeImage}
-          alt="Tailwind CSS VS Code Theme"
+          alt="Tema de VS Code de Tailwind CSS"
           className="w-195 max-w-none rounded-tl-xl bg-[#21293A] dark:outline dark:outline-white/10"
         />
       </div>
@@ -293,11 +290,11 @@ function BecomeAnInsider() {
           Insiders
         </Eyebrow>
         <p className="max-w-3xl text-3xl font-medium tracking-tight text-pretty md:text-[2.5rem]/14">
-          Become a Tailwind Insider
+          Conviértete en un Tailwind Insider
         </p>
         <p className="mt-4 max-w-2xl text-base/7 text-gray-600 dark:text-gray-400">
-          Join a community of enthusiasts who get early access to new features, insider perks, and direct connection
-          with the team — all while supporting the project you love.
+          Únete a una comunidad de entusiastas que obtienen acceso anticipado a nuevas funciones, beneficios de insider y conexión directa
+          con el equipo — todo mientras apoyas el proyecto que amas.
         </p>
       </div>
       <div className="grid grid-cols-1 gap-2 bg-gray-950/5 py-[calc(--spacing(2)+1px)] max-xl:-mx-px max-xl:px-[calc(--spacing(2)+1px)] xl:col-span-2 xl:-mr-px xl:border-l xl:border-gray-950/5 xl:pr-[calc(--spacing(2)+1px)] xl:pl-2 dark:bg-white/10 dark:xl:border-white/10">
@@ -310,15 +307,15 @@ function BecomeAnInsider() {
               <div className="flex items-center gap-x-4">
                 <p className="text-5xl/12 font-medium first-letter:font-light">$120</p>
                 <div>
-                  <p className="text-sm/6 font-semibold">per year</p>
-                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                  <p className="text-sm/6 font-semibold">al año</p>
+                  <p className="text-sm/6 text-gray-600 dark:text-gray-400">más impuestos</p>
                 </div>
               </div>
               <DarkButtonLink
                 href="https://buy.polar.sh/polar_cl_sdvKSPOnjtdElmQ57la4wv3C91Io5vGZpJmC71jdFXv"
                 className="inline-flex items-center justify-center gap-2"
               >
-                Become an Insider
+                Convertirse en Insider
                 <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
                   <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
                 </svg>
@@ -337,61 +334,60 @@ function Faqs() {
       <div className="lg:border-r lg:border-gray-950/5 dark:lg:border-white/5">
         <div className="grid grid-cols-1 gap-y-2 px-4 py-2 max-lg:line-b sm:px-2 lg:line-b/half">
           <Eyebrow as="h2" color="fuchsia">
-            Frequently asked questions
+            Preguntas frecuentes
           </Eyebrow>
-          <p className="text-[2.5rem]/none font-medium tracking-tight text-pretty">Everything you need to know.</p>
+          <p className="text-[2.5rem]/none font-medium tracking-tight text-pretty">Todo lo que necesitas saber.</p>
         </div>
       </div>
       <div className="lg:border-l lg:border-gray-950/5 dark:lg:border-white/5">
         <div className="grid grid-cols-1 gap-10">
           <FaqGroup title="General">
-            <Faq question="Who can I contact about Insiders?">
+            <Faq question="¿Con quién puedo contactar acerca de Insiders?">
               <p>
-                If you have any questions about the Insiders program, reach out to us at{" "}
-                <a href="mailto:support@tailwindcss.com">support@tailwindcss.com</a> and we'll be happy to help.
+                Si tienes alguna pregunta sobre el programa de Insiders, escríbenos a{" "}
+                <a href="mailto:support@tailwindcss.com">support@tailwindcss.com</a> y estaremos encantados de ayudarte.
               </p>
             </Faq>
-            <Faq question="How are the Insider perks delivered?">
+            <Faq question="¿Cómo se entregan los beneficios de Insider?">
               <p>
-                After you check out via Polar, you'll get access to a Polar customer portal where you can manage your
-                membership and access any perks that come with it.
+                Después de realizar el pago a través de Polar, tendrás acceso a un portal de clientes de Polar donde podrás gestionar tu
+                suscripción y acceder a los beneficios que la acompañan.
               </p>
             </Faq>
-            <Faq question="How are the Insider perks licensed?">
-              <p>Insider perks are provided under a custom commercial license.</p>
+            <Faq question="¿Cómo se licencian los beneficios de Insider?">
+              <p>Los beneficios de Insider se proporcionan bajo una licencia comercial personalizada.</p>
               <p>
-                They're licensed for personal or internal use by active Tailwind Insiders only. Redistribution,
-                sublicensing, or public sharing of the perks — such as the VS Code theme, Raycast extension, or
-                Cursor/Claude/AGENTS.md rules — is not permitted.
+                Están licenciados únicamente para uso personal o interno por parte de Insiders activos de Tailwind. No se permite la redistribución,
+                sublicenciamiento o el uso compartido público de los beneficios, como el tema de VS Code, la extensión de Raycast o las reglas de
+                Cursor/Claude/AGENTS.md.
               </p>
             </Faq>
           </FaqGroup>
-          <FaqGroup title="Support">
-            <Faq question="Do you offer technical support for Insider perks?">
+          <FaqGroup title="Soporte">
+            <Faq question="¿Ofrecen soporte técnico para los beneficios de Insider?">
               <p>
-                No — we don't offer technical support for Insider perks. These perks are a bonus for supporters who want
-                to give back to the project, but they're provided as-is.
+                No, no ofrecemos soporte técnico para los beneficios de Insider. Estos beneficios son una cortesía para los colaboradores que desean
+                apoyar el proyecto, pero se proporcionan tal cual.
               </p>
               <p>
-                That said, the <strong>Insiders Discord</strong> is a great place to ask for help with anything related
-                to the perks.
-              </p>
-            </Faq>
-            <Faq question="How do I cancel my membership?">
-              <p>
-                You can cancel your membership at any time through the Polar customer portal. Once you cancel, your
-                perks will remain active until the end of your current billing period.
+                Dicho esto, el canal de <strong>Discord de Insiders</strong> es un gran lugar para pedir ayuda con cualquier tema relacionado
+                con los beneficios.
               </p>
             </Faq>
-            <Faq question="What happens if my membership ends?">
+            <Faq question="¿Cómo cancelo mi suscripción?">
               <p>
-                If your membership ends, you'll lose access to any perks like the Insiders Discord server,
-                Cursor/Claude/AGENTS.md rules, and pre-release documentation. These are only available while you're
-                an active Insider.
+                Puedes cancelar tu suscripción en cualquier momento a través del portal de clientes de Polar. Una vez que la canceles, tus
+                beneficios seguirán activos hasta el final del período de facturación actual.
               </p>
             </Faq>
-            <Faq question="What is your refund policy?">
-              <p>Memberships are non-refundable, but of course you can cancel at any time.</p>
+            <Faq question="¿Qué pasa si mi suscripción expira?">
+              <p>
+                Si tu suscripción expira, perderás el acceso a todos los beneficios, como el servidor de Discord de Insiders, las reglas de
+                Cursor/Claude/AGENTS.md y la documentación anticipada. Estos solo están disponibles mientras seas un Insider activo.
+              </p>
+            </Faq>
+            <Faq question="¿Cuál es su política de reembolso?">
+              <p>Las suscripciones no son reembolsables, pero por supuesto puedes cancelarlas en cualquier momento.</p>
             </Faq>
           </FaqGroup>
         </div>
@@ -407,28 +403,28 @@ export default async function InsidersPage() {
       <div className="line-y mt-12 grid gap-x-10 sm:mt-20 lg:mt-24 lg:grid-cols-[3fr_2fr]">
         <div className="px-4 py-2 max-lg:line-b sm:px-2 lg:border-r lg:border-gray-950/5 dark:lg:border-white/10">
           <Eyebrow>Insiders</Eyebrow>
-          <h1 className="mt-2 text-6xl tracking-tighter text-balance sm:text-8xl">Become a Tailwind Insider.</h1>
+          <h1 className="mt-2 text-6xl tracking-tighter text-balance sm:text-8xl">Conviértete en un Tailwind Insider.</h1>
         </div>
         <div className="@container grid grid-cols-1 grid-rows-[1fr_auto] lg:border-l lg:border-gray-950/5 dark:lg:border-white/10">
           <div className="flex items-center px-4 py-2 max-lg:line-y max-lg:mt-6 sm:px-2">
             <p className="max-w-2xl text-lg/7 font-medium text-pretty text-gray-600 dark:text-gray-400">
-              Join a community of enthusiasts who get early access to new features, insider perks, and direct
-              connection with the team — all while supporting the project you love.
+              Únete a una comunidad de entusiastas que obtienen acceso anticipado a nuevas funciones, beneficios de insider y conexión directa
+              con el equipo — todo mientras apoyas el proyecto que amas.
             </p>
           </div>
           <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-4 px-4 py-2 whitespace-nowrap max-lg:line-t max-lg:mt-6 sm:px-2 lg:border-t lg:border-gray-950/5 dark:lg:border-white/10">
             <div className="flex items-center gap-x-4">
               <p className="text-5xl/12 font-medium first-letter:font-light">$120</p>
               <div>
-                <p className="text-sm/6 font-semibold">per year</p>
-                <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                <p className="text-sm/6 font-semibold">al año</p>
+                <p className="text-sm/6 text-gray-600 dark:text-gray-400">más impuestos</p>
               </div>
             </div>
             <DarkButtonLink
               href="https://buy.polar.sh/polar_cl_sdvKSPOnjtdElmQ57la4wv3C91Io5vGZpJmC71jdFXv"
               className="inline-flex items-center justify-center gap-2"
             >
-              Become an Insider
+              Convertirse en Insider
               <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
                 <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
               </svg>

@@ -7,58 +7,58 @@ import Link from "next/link";
 import { Image } from "@/components/media";
 
 export const meta = {
-  title: "Tailwind CSS v3.4: Dynamic viewport units, :has() support, balanced headlines, subgrid, and more",
-  description: `There’s nothing like building a major new product for finding all the features you wish you had in your own tools, so we capitalized on that inspiration and turned it into this — Tailwind CSS v3.4.`,
+  title: "Tailwind CSS v3.4: Unidades dinámicas de viewport, soporte :has(), titulares equilibrados, subgrid y más",
+  description: `No hay nada como construir un nuevo producto importante para encontrar todas las características que desearías tener en tus propias herramientas, así que aprovechamos esa inspiración y la convertimos en esto — Tailwind CSS v3.4.`,
   date: "2023-12-19T17:45:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      There's nothing like building{" "}
-      <Link href="https://twitter.com/steveschoger/status/1732143245696639167">a major new product</Link> for finding
-      all the features you wish you had in your own tools, so we capitalized on some of that inspiration and turned it
-      into this — Tailwind CSS v3.4.
+      No hay nada como construir{" "}
+      <Link href="https://twitter.com/steveschoger/status/1732143245696639167">un nuevo producto importante</Link> para encontrar
+      todas las características que desearías tener en tus propias herramientas, así que aprovechamos parte de esa inspiración y la convertimos
+      en esto — Tailwind CSS v3.4.
     </>
   ),
 };
 
 <Image alt="Tailwind CSS v3.4" src={card} />
 
-There's nothing like building [a major new product](https://twitter.com/steveschoger/status/1732143245696639167) for finding all the features you wish you had in your own tools, so we capitalized on some of that inspiration and turned it into this — Tailwind CSS v3.4.
+No hay nada como construir [un nuevo producto importante](https://twitter.com/steveschoger/status/1732143245696639167) para encontrar todas las características que desearías tener en tus propias herramientas, así que aprovechamos parte de esa inspiración y la convertimos en esto — Tailwind CSS v3.4.
 
-As always the improvements range from things you've been angry about for years, to supporting CSS features you've never even heard of and probably can't even use at work.
+Como siempre, las mejoras van desde cosas por las que has estado enojado durante años, hasta soportar características CSS de las que nunca has oído hablar y probablemente ni siquiera puedas usar en el trabajo.
 
-- [**Dynamic viewport units:**](#dynamic-viewport-units) Full-height elements that actually work on mobile.
-- [**New `:has()` variant**:](#new-has-variant) Style parent elements based on their children.
-- [**Style children with the `*` variant**:](#style-children-with-the-variant) We'll probably regret giving you this one.
-- [**New `size-*` utilities**:](#new-size-utilities) Set width and height at the same time, finally.
-- [**Balanced headlines with `text-wrap` utilities**:](#balanced-headlines-with-text-wrap-utilities) No more max-width tweaking or responsive line breaks.
-- [**Subgrid support**:](#subgrid-support) That grid feature you struggle to understand, finally in Tailwind CSS.
-- [**Extended min-width, max-width, and min-height scales**:](#extended-min-width-max-width-and-min-height-scales) Now `min-w-12` is a real class.
-- [**Extended opacity scale**:](#extended-opacity-scale) For those moments when neither 60% or 70% were quite right.
-- [**Extended `grid-rows-*` scale**:](#extended-grid-rows-scale) Might as well make it match the column scale.
-- [**New `forced-colors` variant**:](#new-forced-colors-variant) Easily fine-tune your site for forced colors mode.
-- [**New `forced-color-adjust` utilities**:](#new-forced-color-adjust-utilities) For even more forced colors fine-tuning.
+- [**Unidades dinámicas de viewport:**](#dynamic-viewport-units) Elementos de altura completa que realmente funcionan en móviles.
+- [**Nueva variante `:has()`**:](#new-has-variant) Estiliza elementos padres basándose en sus hijos.
+- [**Estiliza hijos con la variante `*`**:](#style-children-with-the-variant) Probablemente nos arrepentiremos de darte esta.
+- [**Nuevas utilidades `size-*`**:](#new-size-utilities) Establece width y height al mismo tiempo, finalmente.
+- [**Titulares equilibrados con utilidades `text-wrap`**:](#balanced-headlines-with-text-wrap-utilities) No más ajustes de max-width ni saltos de línea responsivos.
+- [**Soporte Subgrid**:](#subgrid-support) Esa característica de grid que te cuesta entender, finalmente en Tailwind CSS.
+- [**Escalas extendidas de min-width, max-width y min-height**:](#extended-min-width-max-width-and-min-height-scales) Ahora `min-w-12` es una clase real.
+- [**Escala de opacidad extendida**:](#extended-opacity-scale) Para esos momentos en que ni 60% ni 70% eran del todo correctos.
+- [**Escala `grid-rows-*` extendida**:](#extended-grid-rows-scale) Podríamos hacerla coincidir con la escala de columnas.
+- [**Nueva variante `forced-colors`**:](#new-forced-colors-variant) Ajusta finamente tu sitio para el modo forced colors fácilmente.
+- [**Nuevas utilidades `forced-color-adjust`**:](#new-forced-color-adjust-utilities) Para un ajuste aún más fino de forced colors.
 
-All the good stuff is in that list, but check out the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.4.0) for a couple more details that weren't exciting enough to earn a spot in this post.
+Todo lo bueno está en esa lista, pero echa un vistazo a las [notas de la versión](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.4.0) para un par de detalles más que no fueron lo suficientemente emocionantes como para ganarse un lugar en esta publicación.
 
-Upgrade your projects by installing the latest version of `tailwindcss` from npm:
+Actualiza tus proyectos instalando la última versión de `tailwindcss` desde npm:
 
 ```sh
 npm install tailwindcss@latest
 ```
 
-Or try out all of the new features on [Tailwind Play](https://play.tailwindcss.com), right in your browser.
+O prueba todas las nuevas características en [Tailwind Play](https://play.tailwindcss.com), directamente en tu navegador.
 
 ---
 
-## Dynamic viewport units
+## Unidades dinámicas de viewport
 
-When the `vh` unit was added to browsers we all got so excited — finally a way to build full-height application layouts and stuff without drilling `height: 100%` through 17 layers of DOM! But mobile devices and their damn disappearing menu bars spoiled all the fun, effectively making the `vh` unit just a cruel reminder of a future that could've been so great.
+Cuando se agregó la unidad `vh` a los navegadores, todos nos emocionamos mucho — ¡finalmente una forma de construir layouts de aplicación de altura completa y cosas así sin perforar `height: 100%` a través de 17 capas de DOM! Pero los dispositivos móviles y sus malditas barras de menú que desaparecen arruinaron toda la diversión, haciendo efectivamente que la unidad `vh` fuera solo un cruel recordatorio de un futuro que podría haber sido tan genial.
 
-Well we've got a new future now — `dvh`, `lvh`, and `svh` are designed to accommodate that disappearing browser chrome and Tailwind CSS v3.4 supports them out of the box:
+Bueno, ahora tenemos un nuevo futuro — `dvh`, `lvh`, y `svh` están diseñados para acomodar ese cromo del navegador que desaparece y Tailwind CSS v3.4 los soporta de forma predeterminada:
 
-<Figure hint="Scroll up and down in the viewport to hide/show the browser UI">
+<Figure hint="Desplázate hacia arriba y abajo en el viewport para ocultar/mostrar la UI del navegador">
 
 <DynamicViewportExample
   unit="dvh"
@@ -75,14 +75,14 @@ Well we've got a new future now — `dvh`, `lvh`, and `svh` are designed to acco
 
 </Figure>
 
-We've added the following new classes by default:
+Hemos agregado las siguientes nuevas clases por defecto:
 
 {
 
 <table>
   <thead>
     <tr>
-      <th>Class</th>
+      <th>Clase</th>
       <th>CSS</th>
     </tr>
   </thead>
@@ -164,25 +164,25 @@ We've added the following new classes by default:
 
 }
 
-If you need other values, you can always use arbitrary values too like `min-h-[75dvh]`.
+Si necesitas otros valores, siempre puedes usar valores arbitrarios también como `min-h-[75dvh]`.
 
-Browser support is [pretty great](https://caniuse.com/viewport-unit-variants) for these nowadays, so unless you need to support Safari 14 you can start using these right away.
+El soporte de navegadores es [bastante bueno](https://caniuse.com/viewport-unit-variants) para estos hoy en día, así que a menos que necesites soportar Safari 14 puedes empezar a usarlos de inmediato.
 
 ---
 
-## New `:has()` variant
+## Nueva variante `:has()`
 
-The [`:has()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:has) is the most powerful thing that's been added to CSS since flexbox. For the first time ever, you can style an element based on its _children_, not just based on its parents. It even makes it possible to style based on subsequent siblings.
+La pseudo-clase [`:has()`](https://developer.mozilla.org/en-US/docs/Web/CSS/:has) es lo más poderoso que se ha agregado a CSS desde flexbox. Por primera vez, puedes estilizar un elemento basándote en sus _hijos_, no solo en sus padres. Incluso hace posible estilizar basándose en hermanos posteriores.
 
-Here's an example where the parent gets a colored ring if the radio button inside of it is checked:
+Aquí hay un ejemplo donde el padre obtiene un anillo de color si el botón de radio dentro de él está marcado:
 
 <Figure>
 
 <Example padding={false}>
   {
-    <div className="mx-auto max-w-md bg-white px-4 py-6 shadow">
+    <div className="mx-auto max-md bg-white px-4 py-6 shadow">
       <fieldset>
-        <legend className="text-base font-semibold text-slate-900 dark:text-slate-200">Payment method</legend>
+        <legend className="text-base font-semibold text-slate-900 dark:text-slate-200">Método de pago</legend>
         <div className="mt-4 space-y-2">
           <label
             htmlFor="apple"
@@ -222,7 +222,7 @@ Here's an example where the parent gets a colored ring if the radio button insid
                 d="M16.539 3.18591C16.0742 3.01652 15.5828 2.93152 15.088 2.93491C13.488 2.93491 12.358 3.74091 12.35 4.89791C12.34 5.74791 13.153 6.22691 13.768 6.51091C14.399 6.80291 14.61 6.98691 14.608 7.24791C14.604 7.64491 14.104 7.82491 13.639 7.82491C13 7.82491 12.651 7.73591 12.114 7.51291L11.915 7.41991L11.688 8.75191C12.077 8.91391 12.778 9.05291 13.502 9.06491C15.203 9.06491 16.315 8.26391 16.328 7.03291C16.342 6.35391 15.902 5.84091 14.976 5.41691C14.413 5.14191 14.064 4.95791 14.064 4.67891C14.064 4.43191 14.363 4.16791 14.988 4.16791C15.404 4.15785 15.8174 4.23589 16.201 4.39691L16.351 4.46391L16.578 3.17691L16.539 3.18591ZM20.691 3.04291H19.441C19.052 3.04291 18.759 3.14991 18.589 3.53591L16.185 8.98191H17.886L18.226 8.08891L20.302 8.09091C20.351 8.29991 20.501 8.98191 20.501 8.98191H22.001L20.691 3.04291ZM10.049 2.99291H11.67L10.656 8.93491H9.03705L10.049 2.99091V2.99291ZM5.93405 6.26791L6.10205 7.09291L7.68605 3.04291H9.40305L6.85205 8.97391H5.13905L3.73905 3.95191C3.71637 3.8691 3.66312 3.79798 3.59005 3.75291C3.08545 3.49225 2.55079 3.29444 1.99805 3.16391L2.02005 3.03891H4.62905C4.98305 3.05291 5.26805 3.16391 5.36305 3.54191L5.93305 6.27091L5.93405 6.26791ZM18.691 6.87391L19.337 5.21191C19.329 5.22991 19.47 4.86891 19.552 4.64591L19.663 5.15891L20.038 6.87291H18.69L18.691 6.87391Z"
               />
             </svg>
-            Credit Card
+            Tarjeta de crédito
             <input
               name="payment_method"
               id="credit-card"
@@ -252,9 +252,9 @@ Here's an example where the parent gets a colored ring if the radio button insid
 
 </Figure>
 
-I feel like I've found a new use-case for `:has()` every week while working on this new UI kit we've been building for the last few months, and it's replaced a crazy amount of JavaScript in our code.
+Siento que he encontrado un nuevo caso de uso para `:has()` cada semana mientras trabajaba en este nuevo kit de UI que hemos estado construyendo durante los últimos meses, y ha reemplazado una cantidad loca de JavaScript en nuestro código.
 
-For example, our text inputs are pretty complicated design-wise and require a little wrapper element to build. Without `:has()`, we had no way of styling the wrapper based on things like the `:disabled` state of the input, but now we can:
+Por ejemplo, nuestros inputs de texto son bastante complicados en cuanto a diseño y requieren un pequeño elemento contenedor para construir. Sin `:has()`, no teníamos forma de estilizar el contenedor basándonos en cosas como el estado `:disabled` del input, pero ahora podemos:
 
 ```jsx
 // [!code filename:input.jsx]
@@ -267,15 +267,15 @@ export function Input({ ... }) {
 }
 ```
 
-This one is pretty bleeding edge but as of literally today it's now supported in the latest version of all major browsers. Give it a few weeks for any Firefox users to install today's update and we should be able to go wild with it.
+Este es bastante vanguardista pero, literalmente a partir de hoy, ya es compatible con la última versión de todos los principales navegadores. Dale unas semanas para que cualquier usuario de Firefox instale la actualización de hoy y deberíamos poder volvernos locos con él.
 
 ---
 
-## Style children with the `*` variant
+## Estiliza hijos con la variante `*`
 
-Here's one people have wanted for literally ever — a way to style children from the parent using utility classes.
+Aquí hay una que la gente ha querido literalmente desde siempre — una forma de estilizar hijos desde el padre usando clases de utilidad.
 
-We've added a new `*` variant that targets direct children, letting you do stuff like this:
+Hemos agregado una nueva variante `*` que apunta a hijos directos, permitiéndote hacer cosas como esta:
 
 <Figure>
 
@@ -283,18 +283,18 @@ We've added a new `*` variant that targets direct children, letting you do stuff
   {
     <div className="mx-auto max-w-md p-6 shadow dark:bg-gray-950/50">
       <h2 className="text-base font-semibold text-gray-900 dark:text-gray-200">
-        <>Categories</>
+        <>Categorías</>
       </h2>
       <div className="flex flex-wrap gap-2 pt-4 text-sm text-sky-600 *:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10">
-        <div>Sales</div>
+        <div>Ventas</div>
         <div>Marketing</div>
         <div>SEO</div>
-        <div>Analytics</div>
-        <div>Design</div>
-        <div>Strategy</div>
-        <div>Security</div>
-        <div>Growth</div>
-        <div>Mobile</div>
+        <div>Analítica</div>
+        <div>Diseño</div>
+        <div>Estrategia</div>
+        <div>Seguridad</div>
+        <div>Crecimiento</div>
+        <div>Móvil</div>
         <div>UX/UI</div>
       </div>
     </div>
@@ -303,10 +303,10 @@ We've added a new `*` variant that targets direct children, letting you do stuff
 
 ```html
 <div>
-  <h2>Categories:<h2>
+  <h2>Categorías:<h2>
   <!-- [!code highlight:2] -->
   <ul class="*:rounded-full *:border *:border-sky-100 *:bg-sky-50 *:px-2 *:py-0.5 dark:text-sky-300 dark:*:border-sky-500/15 dark:*:bg-sky-500/10 ...">
-    <li>Sales</li>
+    <li>Ventas</li>
     <li>Marketing</li>
     <li>SEO</li>
     <!-- ... -->
@@ -316,11 +316,11 @@ We've added a new `*` variant that targets direct children, letting you do stuff
 
 </Figure>
 
-Generally I'd recommend just styling the children directly, but this can be useful when you don't control those elements or need to make a conditional tweak because of the context the element is used in.
+Generalmente recomendaría simplemente estilizar los hijos directamente, but esto puede ser útil cuando no controlas esos elementos o necesitas hacer un ajuste condicional debido al contexto en el que se usa el elemento.
 
-It can be composed with other variants too, for instance `hover:*:underline` will style any child when the child is hovered.
+También se puede componer con otras variantes, por ejemplo `hover:*:underline` estilizará cualquier hijo cuando el hijo esté en hover.
 
-Here's a cool way we're using that to conditionally add layout styles to different child elements in the new UI kit we're working on:
+Aquí hay una forma genial en que estamos usando eso para agregar condicionalmente estilos de layout a diferentes elementos hijos en el nuevo kit de UI en el que estamos trabajando:
 
 ```jsx
 // [!code filename:JSX]
@@ -349,19 +349,19 @@ function Example() {
 }
 ```
 
-See that crazy `data-[slot=description]:*:mt-4` class? It first targets all direct children (that's the `*:` part), then filters them down to just items with a `data-slot="description"` attribute using `data-[slot=description]`.
+¿Ves esa loca clase `data-[slot=description]:*:mt-4`? Primero apunta a todos los hijos directos (esa es la parte `*:`), luego los filtra a solo los elementos con un atributo `data-slot="description"` usando `data-[slot=description]`.
 
-This makes it easy to target only specific children, without having to drop all the way down to a raw arbitrary variant.
+Esto facilita apuntar solo a hijos específicos, sin tener que bajar hasta una variante arbitraria cruda.
 
-Looking forward to seeing all the horrible stuff everyone does to make me regret adding this feature.
+Esperando ver todas las cosas horribles que todos harán para hacerme arrepentir de agregar esta característica.
 
 ---
 
-## New `size-*` utilities
+## Nuevas utilidades `size-*`
 
-You're sick of typing `h-5 w-5` every time you need to size an avatar, you know it and I know it.
+Estás harto de escribir `h-5 w-5` cada vez que necesitas dimensionar un avatar, tú lo sabes y yo lo sé.
 
-In Tailwind CSS v3.4 we've finally added a new `size-*` utility that sets width and height at the same time:
+En Tailwind CSS v3.4 finalmente hemos agregado una nueva utilidad `size-*` que establece width y height al mismo tiempo:
 
 <Figure>
 
@@ -405,15 +405,15 @@ In Tailwind CSS v3.4 we've finally added a new `size-*` utility that sets width 
 
 </Figure>
 
-We've wanted to add this forever but have always been hung up on the exact name — `size-*` felt like so much to type compared to `w-*` or `h-*` and `s-*` felt way too cryptic.
+Hemos querido agregar esto desde siempre, pero siempre nos hemos atascado en el nombre exacto — `size-*` parecía mucho para escribir en comparación con `w-*` o `h-*` y `s-*` parecía demasiado críptico.
 
-After using it for a few weeks though I can say decisively that even with the longer name, it's way better than separate width and height utilities. Super convenient, especially if you're combining it with variants or using a complex arbitrary value.
+Después de usarlo durante unas semanas, sin embargo, puedo decir decisivamente que incluso con el nombre más largo, es mucho mejor que utilidades separadas de width y height. Súper conveniente, especialmente si lo combinas con variantes o usas un valor arbitrario complejo.
 
 ---
 
-## Balanced headlines with `text-wrap` utilities
+## Titulares equilibrados con utilidades `text-wrap`
 
-How much time have you spent fiddling with `max-width` or inserting responsive line breaks to try and make those little section headings wrap nicely on your landing pages? Well now you can spend zero time on it, because the browser can do it for you with `text-wrap: balance`:
+¿Cuánto tiempo has pasado jugueteando con `max-width` o insertando saltos de línea responsivos para intentar que esos pequeños encabezados de sección se ajusten bien en tus páginas de destino? Bueno, ahora puedes dedicarle cero tiempo, porque el navegador puede hacerlo por ti con `text-wrap: balance`:
 
 <Figure>
 
@@ -422,11 +422,10 @@ How much time have you spent fiddling with `max-width` or inserting responsive l
     <div className="px-4 sm:px-0">
       <div className="mx-auto grid max-w-sm gap-4 bg-white p-8 text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400">
         <h3 className="text-xl font-semibold text-balance text-slate-900 dark:text-white">
-          Beloved Manhattan soup stand closes
+          Amado puesto de sopa de Manhattan cierra
         </h3>
         <p className="text-sm/6">
-          New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand
-          unexpectedly shutters, following a series of events that have left the community puzzled.
+          Los neoyorquinos enfrentan el frío invernal con menos calidez este año ya que el puesto de sopa más venerado de la ciudad cierra inesperadamente, tras una serie de eventos que han dejado perpleja a la comunidad.
         </p>
       </div>
     </div>
@@ -436,14 +435,14 @@ How much time have you spent fiddling with `max-width` or inserting responsive l
 ```html
 <article>
   <!-- [!code word:text-balance] -->
-  <h3 class="text-balance ...">Beloved Manhattan soup stand closes<h3>
-  <p>New Yorkers are facing the winter chill...</p>
+  <h3 class="text-balance ...">Amado puesto de sopa de Manhattan cierra<h3>
+  <p>Los neoyorquinos enfrentan el frío invernal...</p>
 </article>
 ```
 
 </Figure>
 
-We've also added `text-pretty` which tries to avoid orphaned words at the end of paragraphs using `text-wrap: pretty`:
+También hemos agregado `text-pretty` que intenta evitar palabras huérfanas al final de los párrafos usando `text-wrap: pretty`:
 
 <Figure>
 
@@ -451,10 +450,9 @@ We've also added `text-pretty` which tries to avoid orphaned words at the end of
   {
     <div className="px-4 sm:px-0">
       <div className="mx-auto grid max-w-sm gap-4 bg-white p-8 text-pretty text-slate-700 shadow-xl dark:bg-slate-800 dark:text-slate-400">
-        <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Beloved Manhattan soup stand closes</h3>
+        <h3 className="text-xl font-semibold text-slate-900 dark:text-white">Amado puesto de sopa de Manhattan cierra</h3>
         <p className="text-sm/6">
-          New Yorkers are facing the winter chill with less warmth this year as the city's most revered soup stand
-          unexpectedly shutters, following a series of events that have left the community puzzled.
+          Los neoyorquinos enfrentan el frío invernal con menos calidez este año ya que el puesto de sopa más venerado de la ciudad cierra inesperadamente, tras una serie de eventos que han dejado perpleja a la comunidad.
         </p>
       </div>
     </div>
@@ -464,20 +462,20 @@ We've also added `text-pretty` which tries to avoid orphaned words at the end of
 ```html
 <!-- [!code word:text-pretty] -->
 <article class="text-pretty ...">
-  <h3>Beloved Manhattan soup stand closes<h3>
-  <p>New Yorkers are facing the winter chill...</p>
+  <h3>Amado puesto de sopa de Manhattan cierra<h3>
+  <p>Los neoyorquinos enfrentan el frío invernal...</p>
 </article>
 ```
 
 </Figure>
 
-The nice thing about these features is that even if someone visits your site with an older browser, they'll just fallback to the regular wrapping behavior so it's totally safe to start using these today.
+Lo bueno de estas características es que incluso si alguien visita tu sitio con un navegador más antiguo, simplemente recurrirán al comportamiento de ajuste regular, por lo que es totalmente seguro empezar a usarlas hoy.
 
 ---
 
-## Subgrid support
+## Soporte Subgrid
 
-Subgrid is a fairly recent CSS feature that lets an element sort of inherit the grid columns or rows from its parent, make it possible to place its child elements in the parent grid.
+Subgrid es una característica CSS bastante reciente que permite a un elemento heredar las columnas o filas de la cuadrícula de su padre, haciendo posible colocar sus elementos hijos en la cuadrícula padre.
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -491,7 +489,7 @@ Subgrid is a fairly recent CSS feature that lets an element sort of inherit the 
 </div>
 ```
 
-We're using subgrid in the new UI kit we're working on for example in [dropdown menus](https://twitter.com/adamwathan/status/1717576154008240615), so that if any item has an icon, all of the other items are indented to keep the text aligned:
+Estamos usando subgrid en el nuevo kit de UI en el que estamos trabajando, por ejemplo en [menús desplegables](https://twitter.com/adamwathan/status/1717576154008240615), para que si algún elemento tiene un icono, todos los demás elementos se sangren para mantener el texto alineado:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -499,27 +497,27 @@ We're using subgrid in the new UI kit we're working on for example in [dropdown 
   <!-- [!code word:grid-cols-subgrid] -->
   <a href="#" class="col-span-2 grid-cols-subgrid">
     <svg class="mr-2">...</svg>
-    <span class="col-start-2">Account</span>
+    <span class="col-start-2">Cuenta</span>
   </a>
   <a href="#" class="col-span-2 grid-cols-subgrid">
     <svg class="mr-2">...</svg>
-    <span class="col-start-2">Settings</span>
+    <span class="col-start-2">Configuración</span>
   </a>
   <a href="#" class="col-span-2 grid-cols-subgrid">
-    <span class="col-start-2">Sign out</span>
+    <span class="col-start-2">Cerrar sesión</span>
   </a>
 </div>
 ```
 
-When none of the items have an icon, the first column shrinks to 0px and the text is aligned all the way to left.
+Cuando ninguno de los elementos tiene un icono, la primera columna se encoge a 0px y el texto se alinea completamente a la izquierda.
 
-Check out the [MDN documentation on subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid) for a full primer — it's a bit of a tricky feature to wrap your head around at first, but once it clicks it's a game-changer.
+Echa un vistazo a la [documentación de MDN sobre subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid) para una introducción completa — es una característica un poco difícil de entender al principio, pero una vez que hace clic es un cambio de juego.
 
 ---
 
-## Extended min-width, max-width, and min-height scales
+## Escalas extendidas de min-width, max-width y min-height
 
-We've finally extended the `min-width`, `max-width`, and `min-height` scales to include the full spacing scale, so classes like `min-w-12` are actually a real thing now:
+Finalmente hemos extendido las escalas `min-width`, `max-width`, y `min-height` para incluir la escala completa de espaciado, por lo que clases como `min-w-12` son realmente algo ahora:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -529,13 +527,13 @@ We've finally extended the `min-width`, `max-width`, and `min-height` scales to 
 </div>
 ```
 
-We should've just done this for v3.0 but never really got around to it — I'm sorry and you're welcome.
+Deberíamos haber hecho esto para v3.0 pero nunca llegamos a hacerlo — lo siento y de nada.
 
 ---
 
-## Extended opacity scale
+## Escala de opacidad extendida
 
-We've also extended the opacity scale to include every step of 5 out of the box:
+También hemos extendido la escala de opacidad para incluir cada paso de 5 de forma predeterminada:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -545,13 +543,13 @@ We've also extended the opacity scale to include every step of 5 out of the box:
 </div>
 ```
 
-Hopefully that means a few less arbitrary values in your markup. I'm coming for you next 2.5%.
+Esperemos que eso signifique unos pocos valores arbitrarios menos en tu marcado. Voy por ti después 2.5%.
 
 ---
 
-## Extended `grid-rows-*` scale
+## Escala `grid-rows-*` extendida
 
-We've also bumped the baked-in number of grid rows from 6 to 12 because why not:
+También hemos aumentado el número incorporado de filas de grid de 6 a 12 porque por qué no:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -561,15 +559,15 @@ We've also bumped the baked-in number of grid rows from 6 to 12 because why not:
 </div>
 ```
 
-Maybe we'll get even crazier and bump it to 16 in the next release.
+Tal vez nos volvamos aún más locos y lo subamos a 16 en el próximo lanzamiento.
 
 ---
 
-## New `forced-colors` variant
+## Nueva variante `forced-colors`
 
-Ever heard of [forced colors mode](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors)? Your site probably looks pretty bad in it.
+¿Alguna vez has oído hablar del [modo forced colors](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/forced-colors)? Tu sitio probablemente se ve bastante mal en él.
 
-Well now you can't blame us at least, because Tailwind CSS v3.4 includes a `forced-colors` variant for adjusting styles for forced colors mode:
+Bueno, ahora al menos no puedes culparnos, porque Tailwind CSS v3.4 incluye una variante `forced-colors` para ajustar estilos para el modo forced colors:
 
 ```html
 <!-- [!code filename:HTML] -->
@@ -579,28 +577,28 @@ Well now you can't blame us at least, because Tailwind CSS v3.4 includes a `forc
 </form>
 ```
 
-It's really useful for fine-tuning totally custom controls, especially combined with arbitrary values and a working knowledge of [CSS system colors](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color).
+Es realmente útil para ajustar finamente controles totalmente personalizados, especialmente combinado con valores arbitrarios y un conocimiento práctico de los [colores del sistema CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/system-color).
 
 ---
 
-## New `forced-color-adjust` utilities
+## Nuevas utilidades `forced-color-adjust`
 
-We've also added new `forced-color-adjust-auto` and `forces-color-adjust-none` utilities to control how forced colors mode affects your design:
+También hemos agregado nuevas utilidades `forced-color-adjust-auto` y `forces-color-adjust-none` para controlar cómo afecta el modo forced colors a tu diseño:
 
 ```html
 <!-- [!code filename:HTML] -->
 <fieldset>
-  <legend>Choose a color</legend>
+  <legend>Elige un color</legend>
   <!-- [!code word:forced-color-adjust-none] -->
   <div class="forced-color-adjust-none ...">
     <label>
       <input class="sr-only" type="radio" name="color-choice" value="white" />
-      <span class="sr-only">White</span>
+      <span class="sr-only">Blanco</span>
       <span class="size-6 rounded-full bg-white"></span>
     </label>
     <label>
       <input class="sr-only" type="radio" name="color-choice" value="gray" />
-      <span class="sr-only">Gray</span>
+      <span class="sr-only">Gris</span>
       <span class="size-6 rounded-full bg-gray-300"></span>
     </label>
     <!-- ... -->
@@ -608,20 +606,20 @@ We've also added new `forced-color-adjust-auto` and `forces-color-adjust-none` u
 </fieldset>
 ```
 
-These should be used pretty sparingly, but they can be useful when it's critical that something is rendered in a specific color no matter what, like choosing the color of something someone is buying in an online store.
+Estas deben usarse con bastante moderación, pero pueden ser útiles cuando es crítico que algo se renderice en un color específico sin importar qué, como elegir el color de algo que alguien está comprando en una tienda en línea.
 
-To learn more about all this forced colors stuff, I recommend reading ["Forced colors explained: A practical guide"](https://polypane.app/blog/forced-colors-explained-a-practical-guide/) on the Polypane blog — by far the most useful post I've found on this topic.
+Para aprender más sobre todo esto de forced colors, recomiendo leer ["Forced colors explicado: Una guía práctica"](https://polypane.app/blog/forced-colors-explained-a-practical-guide/) en el blog de Polypane — de lejos la publicación más útil que he encontrado sobre este tema.
 
 ---
 
-If you've been paying close attention, you might be wondering about [Oxide](https://youtu.be/CLkxRnRQtDE?t=2146), the engine improvements we previewed at [Tailwind Connect](https://tailwindcss.com/blog/2023-07-18-tailwind-connect-2023-recap) this summer.
+Si has estado prestando mucha atención, quizás te estés preguntando sobre [Oxide](https://youtu.be/CLkxRnRQtDE?t=2146), las mejoras del motor que previsualizamos en [Tailwind Connect](https://tailwindcss.com/blog/2023-07-18-tailwind-connect-2023-recap) este verano.
 
-We'd originally slated those improvements for v3.4, but we have a few things still to iron out and so many of these other improvements had been piling up that we felt it made sense to get it all out the door instead of holding it back. The Oxide stuff is still coming, and will be the headlining improvement for the next Tailwind CSS release in the new year.
+Originalmente habíamos programado esas mejoras para v3.4, pero todavía tenemos algunas cosas que pulir y tantas de estas otras mejoras se habían acumulado que sentimos que tenía sentido sacarlo todo en lugar de retenerlo. Lo de Oxide todavía está por llegar, y será la mejora principal para el próximo lanzamiento de Tailwind CSS en el nuevo año.
 
-In the mean time, dig in to Tailwind CSS v3.4 by updating to the latest version with npm:
+Mientras tanto, profundiza en Tailwind CSS v3.4 actualizando a la última versión con npm:
 
 ```bash
 $ npm install tailwindcss@latest
 ```
 
-With `:has()` and the new `*` variant, your HTML is about to get more out of control than ever.
+Con `:has()` y la nueva variante `*`, tu HTML está a punto de descontrolarse más que nunca.

@@ -3,28 +3,28 @@ import card from "./card.jpg";
 import { Image, Video } from "@/components/media";
 
 export const meta = {
-  title: "Headless UI v2.1: Simplified transition API and improved multi-dialog support",
+  title: "Headless UI v2.1: API de transición simplificada y soporte mejorado para múltiples diálogos",
   description: "",
   date: "2024-06-21T15:00:00.000Z",
   authors: [adamwathan, reinink],
   image: card,
   excerpt: (
     <>
-      We just released Headless UI v2.1 for React, which dramatically simplifies our transition APIs and adds support
-      for rendering multiple dialogs as siblings.
+      Acabamos de lanzar Headless UI v2.1 para React, que simplifica drásticamente nuestras APIs de transición y agrega soporte
+      para renderizar múltiples diálogos como hermanos.
     </>
   ),
 };
 
 <Image src={card} alt="Headless UI v2.1" />
 
-We just released Headless UI v2.1 for React, which dramatically simplifies our transition APIs and adds support for rendering multiple dialogs as siblings.
+Acabamos de lanzar Headless UI v2.1 para React, que simplifica drásticamente nuestras APIs de transición y agrega soporte para renderizar múltiples diálogos como hermanos.
 
 ---
 
-## Simplified transition API
+## API de transición simplificada
 
-We've made transitions way easier in v2.1 by adding a new `transition` prop to all of the built-in components you might want to transition, and adding data attributes for each transition stage so you can add transition styles by just throwing some classes on the target element:
+Hemos facilitado mucho las transiciones en la v2.1 agregando una nueva prop `transition` a todos los componentes integrados que quizás quieras transicionar, y agregando atributos de datos para cada etapa de la transición para que puedas agregar estilos de transición simplemente lanzando algunas clases en el elemento de destino:
 
 {/* prettier-ignore */}
 ```jsx
@@ -33,7 +33,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 function Example() {
   return (
     <Menu>
-      <MenuButton>My account</MenuButton>
+      <MenuButton>Mi cuenta</MenuButton>
       <MenuItems
         // [!code highlight:7]
         transition
@@ -43,21 +43,21 @@ function Example() {
           data-[enter]:duration-200 data-[leave]:duration-300
         `}
       >
-        {/* Menu items… */}
+        {/* Elementos del menú… */}
       </MenuItems>
     </Menu>
   );
 }
 ```
 
-There are four data attributes you can use to target the different stages of your transitions:
+Hay cuatro atributos de datos que puedes usar para apuntar a las diferentes etapas de tus transiciones:
 
-- `data-closed`: The styles the element should transition from when entering and to when leaving.
-- `data-enter`: Styles to apply while the element is entering, like a duration or easing curve.
-- `data-leave`: Styles to apply while the element is leaving, like a duration or easing curve.
-- `data-transition`: Styles to apply while the element is entering or leaving, useful for sharing values between both stages.
+- `data-closed`: Los estilos desde los que el elemento debe transicionar al entrar y hacia los que debe transicionar al salir.
+- `data-enter`: Estilos para aplicar mientras el elemento está entrando, como una duración o una curva de easing.
+- `data-leave`: Estilos para aplicar mientras el elemento está saliendo, como una duración o una curva de easing.
+- `data-transition`: Estilos para aplicar mientras el elemento está entrando o saliendo, útil para compartir valores entre ambas etapas.
 
-You can even stack these attributes to use different `closed` styles for entering and leaving. For example this dialog slides in from the left, but slides out to the right:
+Puedes incluso apilar estos atributos para usar diferentes estilos `closed` para entrar y salir. Por ejemplo, este diálogo se desliza desde la izquierda, pero se desliza hacia la derecha:
 
 {/* prettier-ignore */}
 ```jsx
@@ -69,7 +69,7 @@ function Example() {
 
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>Open dialog</button>
+      <button onClick={() => setIsOpen(true)}>Abrir diálogo</button>
       <Dialog
         open={isOpen}
         onClose={() => setIsOpen(false)}
@@ -82,14 +82,14 @@ function Example() {
           data-[closed]:data-[leave]:translate-x-8
         `}
       >
-        {/* Dialog content… */}
+        {/* Contenido del diálogo… */}
       </Dialog>
     </>
   );
 }
 ```
 
-And for transitioning regular HTML elements or other components, you can still use the `<Transition>` component but with the new data attribute APIs:
+Y para transicionar elementos HTML regulares u otros componentes, todavía puedes usar el componente `<Transition>` pero con las nuevas APIs de atributos de datos:
 
 ```jsx
 import { Transition } from "@headlessui/react";
@@ -100,42 +100,42 @@ function Example() {
 
   return (
     <>
-      <button onClick={() => setIsShowing((isShowing) => !isShowing)}>Toggle</button>
+      <button onClick={() => setIsShowing((isShowing) => !isShowing)}>Alternar</button>
       // [!code highlight:6]
       <Transition show={isShowing}>
-        <div className="transition duration-300 data-[closed]:opacity-0">I will fade in and out</div>
+        <div className="transition duration-300 data-[closed]:opacity-0">Apareceré y desapareceré gradualmente</div>
       </Transition>
     </>
   );
 }
 ```
 
-We've already updated all of Tailwind UI to use this new transition API and the code is a lot simpler and lighter. Take a look at the [Modal Dialog](https://tailwindui.com/components/application-ui/overlays/modal-dialogs), [Dropdown](https://tailwindui.com/components/application-ui/elements/dropdowns), [Slide-over](https://tailwindui.com/components/application-ui/overlays/slide-overs), [Flyout Menu](https://tailwindui.com/components/marketing/elements/flyout-menus), or [Select Menu](https://tailwindui.com/components/application-ui/forms/select-menus) components for more examples.
+Ya hemos actualizado todo Tailwind UI para usar esta nueva API de transición y el código es mucho más simple y ligero. Echa un vistazo a los componentes [Modal Dialog](https://tailwindui.com/components/application-ui/overlays/modal-dialogs), [Dropdown](https://tailwindui.com/components/application-ui/elements/dropdowns), [Slide-over](https://tailwindui.com/components/application-ui/overlays/slide-overs), [Flyout Menu](https://tailwindui.com/components/marketing/elements/flyout-menus), o [Select Menu](https://tailwindui.com/components/application-ui/forms/select-menus) para más ejemplos.
 
-All of the existing APIs continue to work for backwards compatibility, but this new approach is what we're going to recommend going forward.
+Todas las APIs existentes continúan funcionando para compatibilidad hacia atrás, pero este nuevo enfoque es lo que vamos a recomendar en adelante.
 
-Check out the updated [`Transition` component documentation](https://headlessui.com/react/transition) to learn more.
+Consulta la documentación actualizada del [`Transition` component](https://headlessui.com/react/transition) para obtener más información.
 
 ---
 
-## Rendering multiple dialogs as siblings
+## Renderizar múltiples diálogos como hermanos
 
-In Headless UI v2.1 you can finally render multiple dialogs at the same time without nesting one inside the other.
+En Headless UI v2.1 finalmente puedes renderizar múltiples diálogos al mismo tiempo sin anidar uno dentro del otro.
 
-This can be really helpful when two unrelated parts of your application need to show a dialog at the same time — for example maybe you already have some sort of confirmation dialog open but another part of your app detects that you've lost network connectivity or your session has timed-out and needs to throw up a new dialog on top.
+Esto puede ser realmente útil cuando dos partes no relacionadas de tu aplicación necesitan mostrar un diálogo al mismo tiempo — por ejemplo, quizás ya tengas abierto algún tipo de diálogo de confirmación pero otra parte de tu aplicación detecta que has perdido la conectividad de red o tu sesión ha expirado y necesita mostrar un nuevo diálogo encima.
 
-Here's what something like that might look like with [Catalyst](https://tailwindui.com/templates/catalyst), the application UI kit we've been working on recently:
+Así es como podría verse algo así con [Catalyst](https://tailwindui.com/templates/catalyst), el kit de interfaz de usuario de aplicación en el que hemos estado trabajando recientemente:
 
 <Video src="https://assets.tailwindcss.com/blog%2F2024-06-21-headless-ui-v2-1%2Fheadlessui-sibling-dialogs.mp4" />
 
-We keep track of the order in which each dialog is opened, and whichever one was opened last is the one that will close when you press escape or click outside the dialog.
+Mantenemos un registro del orden en que se abre cada diálogo, y el que se abrió último es el que se cerrará cuando presiones escape o hagas clic fuera del diálogo.
 
 ---
 
-To start using this stuff today, just install the latest version of Headless UI:
+Para empezar a usar esto hoy, simplemente instala la última versión de Headless UI:
 
 ```sh
 npm i @headlessui/react@latest
 ```
 
-If you run into any issues, let us know on [GitHub](https://github.com/tailwindlabs/headlessui)!
+Si tienes algún problema, ¡háznoslo saber en [GitHub](https://github.com/tailwindlabs/headlessui)!

@@ -5,41 +5,42 @@ import { YouTubeVideo } from "@/components/media";
 import { Image } from "@/components/media";
 
 export const meta = {
-  title: `Just-In-Time: The Next Generation of Tailwind CSS`,
-  description: `One of the hardest constraints we've had to deal with as we've improved Tailwind CSS over the years is the generated file size in development. Today I'm super excited to share a new project that makes this constraint a thing of the past: a just-in-time compiler for Tailwind CSS.`,
+  title: `Just-In-Time: La Próxima Generación de Tailwind CSS`,
+  description: `Una de las restricciones más difíciles con las que hemos tenido que lidiar mientras mejorábamos Tailwind CSS a lo largo de los años es el tamaño del archivo generado en desarrollo. Hoy estoy súper emocionado de compartir un nuevo proyecto que hace que esta restricción sea cosa del pasado: un compilador just-in-time para Tailwind CSS.`,
   date: "2021-03-15T16:30:00.000Z",
   authors: [adamwathan],
   image,
   excerpt: (
     <>
-      One of the hardest constraints we've had to deal with as we've improved Tailwind CSS over the years is the
-      generated file size in development. With enough customizations to your config file, the generated CSS can reach
-      10mb or more, and there's only so much CSS that build tools and even the browser itself will comfortably tolerate.
+      Una de las restricciones más difíciles con las que hemos tenido que lidiar mientras mejorábamos Tailwind CSS a lo
+      largo de los años es el tamaño del archivo generado en desarrollo. Con suficientes personalizaciones en tu archivo
+      de configuración, el CSS generado puede alcanzar los 10mb o más, y hay un límite de CSS que las herramientas de
+      compilación e incluso el propio navegador pueden tolerar cómodamente.
     </>
   ),
 };
 
 <YouTubeVideo id="3O_3X7InOw8" />
 
-_**Update**: As of Tailwind CSS v2.1, the new Just-in-Time engine is included right in Tailwind CSS itself, so you don't need the `@tailwindcss/jit` package anymore. <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Learn more in the documentation</Link>._
+_**Actualización**: A partir de Tailwind CSS v2.1, el nuevo motor Just-in-Time está incluido directamente en Tailwind CSS, por lo que ya no necesitas el paquete `@tailwindcss/jit`. <Link href="https://v2.tailwindcss.com/docs/just-in-time-mode">Aprende más en la documentación</Link>._
 
-One of the hardest constraints we've had to deal with as we've improved Tailwind CSS over the years is the generated file size in development. With enough customizations to your config file, the generated CSS can reach 10mb or more, and there's only so much CSS that build tools and even the browser itself will comfortably tolerate.
+Una de las restricciones más difíciles con las que hemos tenido que lidiar mientras mejorábamos Tailwind CSS a lo largo de los años es el tamaño del archivo generado en desarrollo. Con suficientes personalizaciones en tu archivo de configuración, el CSS generado puede alcanzar los 10mb o más, y hay un límite de CSS que las herramientas de compilación e incluso el propio navegador pueden tolerar cómodamente.
 
-For that reason, you've always had to be careful about expensive changes to your config file like adding too many extra breakpoints or enabling extra variants like `disabled` or `focus-visible`.
+Por esa razón, siempre has tenido que tener cuidado con los cambios costosos en tu archivo de configuración, como agregar demasiados breakpoints adicionales o habilitar variantes extra como `disabled` o `focus-visible`.
 
-Today I'm super excited to share a new project we've been working on that makes these considerations a thing of the past: <Link href="https://github.com/tailwindlabs/tailwindcss-jit">**a just-in-time compiler for Tailwind CSS**</Link>.
+Hoy estoy súper emocionado de compartir un nuevo proyecto en el que hemos estado trabajando que hace que estas consideraciones sean cosa del pasado: <Link href="https://github.com/tailwindlabs/tailwindcss-jit">**un compilador just-in-time para Tailwind CSS**</Link>.
 
-[@tailwindcss/jit](https://github.com/tailwindlabs/tailwindcss-jit) is a new experimental library that compiles all of your CSS _on-demand_ as you author your template files, instead of generating your entire stylesheet up front.
+[@tailwindcss/jit](https://github.com/tailwindlabs/tailwindcss-jit) es una nueva biblioteca experimental que compila todo tu CSS _bajo demanda_ mientras creas tus archivos de plantilla, en lugar de generar toda tu hoja de estilos por adelantado.
 
-This comes with a lot of advantages:
+Esto viene con muchas ventajas:
 
-- **Lightning fast build times**. Tailwind can take 3–8s to initially compile using our CLI, and upwards of 30–45s in webpack projects because webpack struggles with large CSS files. This library can compile even the biggest projects in about 800ms _(with incremental rebuilds as fast as 3ms)_, no matter what build tool you're using.
-- **Every variant is enabled out of the box**. Variants like `focus-visible`, `active`, `disabled`, and others are not normally enabled by default due to file-size considerations. Since this library generates styles on demand, you can use any variant you want, whenever you want. You can even stack them like `sm:hover:active:disabled:opacity-75`. Never configure your variants again.
-- **Generate arbitrary styles without writing custom CSS.** Ever needed some ultra-specific value that wasn't part of your design system, like `top: -113px` for a quirky background image? Since styles are generated on demand, you can just generate a utility for this as needed using square bracket notation like `top-[-113px]`. Works with variants too, like `md:top-[-113px]`.
-- **Your CSS is identical in development and production**. Since styles are generated as they are needed, you don't need to purge unused styles for production, which means you see the exact same CSS in all environments. Never worry about accidentally purging an important style in production again.
-- **Better browser performance in development**. Since development builds are as small as production builds, the browser doesn't have to parse and manage multiple megabytes of pre-generated CSS. In projects with heavily extended configurations this makes dev tools a lot more responsive.
+- **Tiempos de compilación ultrarrápidos**. Tailwind puede tardar entre 3 y 8 segundos en compilar inicialmente usando nuestro CLI, y más de 30 a 45 segundos en proyectos webpack porque webpack tiene dificultades con archivos CSS grandes. Esta biblioteca puede compilar incluso los proyectos más grandes en aproximadamente 800 ms _(con reconstrucciones incrementales tan rápidas como 3 ms)_, sin importar la herramienta de compilación que estés utilizando.
+- **Cada variante está habilitada de fábrica**. Variantes como `focus-visible`, `active`, `disabled` y otras normalmente no están habilitadas por defecto debido a consideraciones de tamaño de archivo. Dado que esta biblioteca genera estilos bajo demanda, puedes usar cualquier variante que desees, cuando lo desees. Incluso puedes apilarlas como `sm:hover:active:disabled:opacity-75`. Nunca más tendrás que configurar tus variantes.
+- **Genera estilos arbitrarios sin escribir CSS personalizado.** ¿Alguna vez necesitaste algún valor ultraespecífico que no formaba parte de tu sistema de diseño, como `top: -113px` para una imagen de fondo peculiar? Dado que los estilos se generan bajo demanda, puedes simplemente generar una utilidad para esto según sea necesario usando la notación de corchetes como `top-[-113px]`. Funciona también con variantes, como `md:top-[-113px]`.
+- **Tu CSS es idéntico en desarrollo y producción**. Como los estilos se generan a medida que se necesitan, no necesitas purgar los estilos no utilizados para producción, lo que significa que ves exactamente el mismo CSS en todos los entornos. Nunca más te preocupes por purgar accidentalmente un estilo importante en producción.
+- **Mejor rendimiento del navegador en desarrollo**. Dado que las compilaciones de desarrollo son tan pequeñas como las de producción, el navegador no tiene que analizar y administrar múltiples megabytes de CSS pregenerado. En proyectos con configuraciones muy extendidas, esto hace que las herramientas de desarrollo sean mucho más responsivas.
 
-Try it today by installing `@tailwindcss/jit` and swapping it into your PostCSS configuration:
+Pruébalo hoy instalando `@tailwindcss/jit` e incorporándolo en tu configuración de PostCSS:
 
 ```sh
 npm install -D @tailwindcss/jit tailwindcss postcss autoprefixer
@@ -55,9 +56,8 @@ module.exports = {
 };
 ```
 
-We're shipping it as a separate library for now, but once we've worked out all the kinks we're going to roll it right back into `tailwindcss` behind a configuration option, and we're aiming to make it the default in Tailwind CSS v3.0 later this year.
+Lo estamos lanzando como una biblioteca separada por ahora, pero una vez que hayamos resuelto todos los problemas, lo integraremos directamente en `tailwindcss` detrás de una opción de configuración, y nuestro objetivo es convertirlo en el predeterminado en Tailwind CSS v3.0 más adelante este año.
 
-<Link href="https://github.com/tailwindlabs/tailwindcss-jit">Learn more about the project on GitHub</Link>, then install
-it, play with it, bend it, break it, and let us know what you think!
+<Link href="https://github.com/tailwindlabs/tailwindcss-jit">Aprende más sobre el proyecto en GitHub</Link>, luego instálalo, juega con él, dóblalo, rómpelo y ¡cuéntanos qué piensas!
 
-Ready to try it out? <Link href="https://github.com/tailwindlabs/tailwindcss-jit">Get started →</Link>
+¿Listo para probarlo? <Link href="https://github.com/tailwindlabs/tailwindcss-jit">Comienza →</Link>

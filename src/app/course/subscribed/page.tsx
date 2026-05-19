@@ -23,18 +23,18 @@ export default async function Subscribed() {
           </div>
           <div className="mt-2 border-y border-black/5 p-2 max-sm:px-4 dark:border-white/10">
             <p className="font-mono text-sm font-medium text-gray-700 uppercase max-sm:text-center dark:text-gray-400">
-              Tailwind CSS by Example
+              Tailwind CSS mediante ejemplos
             </p>
             <h1 className="text-5xl tracking-tighter text-balance text-gray-900 max-sm:text-center lg:text-8xl dark:text-white">
-              Check your email.
+              Revisa tu correo.
             </h1>
           </div>
           <div className="mt-4 border-y border-black/5 p-2 max-md:border-b-0 max-sm:px-4 dark:border-white/10">
             <p className="max-w-xl text-lg/7 font-medium text-pretty text-gray-500 max-sm:text-center dark:text-gray-400">
-              You should get a confirmation email any minute —{" "}
-              <strong className="font-medium text-gray-900 dark:text-white">open it up</strong> and{" "}
-              <strong className="font-medium text-gray-900 dark:text-white">confirm your email</strong> to make sure
-              you're on the list.
+              Deberías recibir un correo electrónico de confirmación en cualquier momento —{" "}
+              <strong className="font-medium text-gray-900 dark:text-white">ábrelo</strong> y{" "}
+              <strong className="font-medium text-gray-900 dark:text-white">confirma tu correo</strong> para asegurarte
+              de estar en la lista.
             </p>
           </div>
         </div>

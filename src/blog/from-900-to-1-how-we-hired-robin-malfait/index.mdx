@@ -6,145 +6,145 @@ import robinImage from "./robin.jpg";
 import cardImage from "./card.jpg";
 
 export const meta = {
-  title: "From Nine Hundred to One: How We Hired Robin Malfait",
-  description: `Back in May we published our first job posting for a full-stack developer to join our team. This is the story of how we worked through almost 900 applications, and eventually hired Robin Malfait, a talented developer from Belgium who is starting with us today.`,
+  title: "De novecientos a uno: Cómo contratamos a Robin Malfait",
+  description: `En mayo publicamos nuestra primera oferta de trabajo para un desarrollador full-stack que se uniera a nuestro equipo. Esta es la historia de cómo revisamos casi 900 solicitudes y finalmente contratamos a Robin Malfait, un talentoso desarrollador de Bélgica que comienza con nosotros hoy.`,
   date: "2020-08-10T13:30:00.000Z",
   authors: [adamwathan],
   image: cardImage,
   excerpt: (
     <>
-      Back in May we published{" "}
-      <Link href="https://jobs.tailwindui.com/full-stack-developer">our first job posting</Link> to help us find a
-      full-stack developer to join our team. After receiving almost 900 applications and interviewing dozens of talented
-      people, we're excited to finally share that <Link href="https://twitter.com/malfaitrobin">Robin Malfait</Link>{" "}
-      accepted our offer for the position and is officially part of the Tailwind Labs team as of today!
+      En mayo publicamos{" "}
+      <Link href="https://jobs.tailwindui.com/full-stack-developer">nuestra primera oferta de trabajo</Link> para ayudarnos a encontrar un
+      desarrollador full-stack que se uniera a nuestro equipo. Después de recibir casi 900 solicitudes y entrevistar a docenas de personas talentosas,
+      estamos emocionados de compartir finalmente que <Link href="https://twitter.com/malfaitrobin">Robin Malfait</Link>{" "}
+      aceptó nuestra oferta para el puesto y ¡es oficialmente parte del equipo de Tailwind Labs a partir de hoy!
     </>
   ),
 };
 
 <Image alt="Robin Malfait" src={robinImage} />
 
-Back in May we published [our first job posting](https://jobs.tailwindui.com/full-stack-developer) to help us find a full-stack developer to join our team.
+En mayo publicamos [nuestra primera oferta de trabajo](https://jobs.tailwindui.com/full-stack-developer) para ayudarnos a encontrar un desarrollador full-stack que se uniera a nuestro equipo.
 
-After receiving almost 900 applications and interviewing dozens of talented people, we're excited to finally share that [Robin Malfait](https://twitter.com/malfaitrobin) accepted our offer for the position and is officially part of the Tailwind Labs team as of today!
+Después de recibir casi 900 solicitudes y entrevistar a docenas de personas talentosas, estamos emocionados de compartir finalmente que [Robin Malfait](https://twitter.com/malfaitrobin) aceptó nuestra oferta para el puesto y ¡es oficialmente parte del equipo de Tailwind Labs a partir de hoy!
 
-Robin is a talented developer from Belgium, and has been an active member of the Tailwind community for a long time. If you're a Tailwind UI customer and have ever asked a question in the `#react` channel on our Discord server, there's a 90% chance he's the helpful person who answered your question. He even built a [bookmarklet](https://gist.github.com/RobinMalfait/a90e8651196c273dfa51eec0f43e1676) to help people convert Tailwind UI components to JSX!
+Robin es un talentoso desarrollador de Bélgica y ha sido un miembro activo de la comunidad Tailwind durante mucho tiempo. Si eres cliente de Tailwind UI y alguna vez has hecho una pregunta en el \`#react\` channel de nuestro servidor de Discord, hay un 90% de posibilidades de que él sea la persona servicial que respondió tu pregunta. ¡Incluso construyó un [bookmarklet](https://gist.github.com/RobinMalfait/a90e8651196c273dfa51eec0f43e1676) para ayudar a la gente a convertir componentes de Tailwind UI a JSX!
 
-Robin is a seriously experienced React developer, and is joining us to help spearhead the open-source [renderless UI libraries](https://twitter.com/adamwathan/status/1265815748917813248) we are working on that will be the foundation for official React and Vue _(to start anyways)_ support in Tailwind UI.
+Robin es un desarrollador React con mucha experiencia y se une a nosotros para ayudar a liderar las [librerías de UI renderless](https://twitter.com/adamwathan/status/1265815748917813248) de código abierto en las que estamos trabajando y que serán la base para el soporte oficial de React y Vue _(para empezar)_ en Tailwind UI.
 
-We're super excited that he is finally starting with us today, and can't wait to watch his contributions enable people to build awesome UIs even faster and with more confidence. Welcome to the team dude!
+Estamos súper emocionados de que finalmente comience con nosotros hoy, y no podemos esperar a ver cómo sus contribuciones permiten a las personas construir interfaces de usuario increíbles aún más rápido y con más confianza. ¡Bienvenido al equipo, amigo!
 
-What follows is the story of how we went about hiring for this role, and how we narrowed down the candidates from almost 900 initial applications to finally making an offer to Robin.
+Lo que sigue es la historia de cómo procedimos a contratar para este puesto, y cómo redujimos los candidatos de casi 900 solicitudes iniciales hasta finalmente hacerle una oferta a Robin.
 
 ---
 
-## The job posting
+## La oferta de trabajo
 
-Before this role, we had only hired [Brad](https://blog.tailwindcss.com/welcoming-brad-cornes-to-the-tailwind-team) who we already knew and trusted, so we didn't need a job posting or any sort of rigorous application process.
+Antes de este puesto, solo habíamos contratado a [Brad](https://blog.tailwindcss.com/welcoming-brad-cornes-to-the-tailwind-team) a quien ya conocíamos y en quien confiábamos, por lo que no necesitábamos una oferta de trabajo ni ningún tipo de proceso de solicitud riguroso.
 
-I knew that if we wanted to get really great candidates, we had to write a compelling job posting. After about 3-4 days of working on it, this is where we ended up:
+Sabía que si queríamos conseguir candidatos realmente geniales, teníamos que escribir una oferta de trabajo convincente. Después de unos 3-4 días de trabajar en ella, aquí es donde terminamos:
 
-[**Read the job posting &rarr;**](https://jobs.tailwindui.com/full-stack-developer)
+[**Lee la oferta de trabajo &rarr;**](https://jobs.tailwindui.com/full-stack-developer)
 
-Here are the important things I focused on when writing it:
+Estas son las cosas importantes en las que me centré al escribirla:
 
-- Be specific about the projects the applicant would be working on after they started
-- Be clear that we are a small team, so everyone has to do a bit of everything, including customer support
-- Give concrete examples of projects we just finished that the applicant would have worked on if they were already at the company
-- Go into detail about specific hard problems we expect to run into on the next major upcoming project, to help the applicant understand the sort of expertise that would be valuable to us
-- Share concrete salary and benefit information. I would never apply for a job without a clear understanding of the salary, so why should I expect talented people to apply for our posting without it?
+- Sé específico sobre los proyectos en los que el solicitante trabajaría después de empezar
+- Sé claro en que somos un equipo pequeño, por lo que todos tienen que hacer un poco de todo, incluido el soporte al cliente
+- Da ejemplos concretos de proyectos que acabamos de terminar en los que el solicitante habría trabajado si ya estuviera en la empresa
+- Entra en detalles sobre problemas difíciles específicos que esperamos encontrar en el próximo gran proyecto, para ayudar al solicitante a comprender el tipo de experiencia que sería valiosa para nosotros
+- Comparte información concreta sobre el salario y los beneficios. Nunca solicitaría un trabajo sin una comprensión clara del salario, así que ¿por qué debería esperar que personas talentosas soliciten nuestra oferta sin ella?
 
-We got _tons_ of positive feedback about this posting, and I'm really proud of how it turned out. I think it was very applicant-centric, and I think it made a big difference in the quality of submissions we got.
+Recibimos _toneladas_ de comentarios positivos sobre esta publicación, y estoy muy orgulloso de cómo resultó. Creo que estaba muy centrada en el solicitante, y creo que marcó una gran diferencia en la calidad de las solicitudes que recibimos.
 
-## The application process
+## El proceso de solicitud
 
-One thing we did a bit differently from other companies is that we didn't ask for a resume or give applicants a big list of questions to answer. All we asked for was an "application", in whatever form the person decided. It could be a cover letter, a small website, a video, a slide deck, whatever.
+Una cosa que hicimos un poco diferente de otras empresas es que no pedimos un currículum ni dimos a los solicitantes una gran lista de preguntas para responder. Todo lo que pedimos fue una "solicitud", en cualquier forma que la persona decidiera. Podría ser una carta de presentación, un pequeño sitio web, un video, una presentación de diapositivas, lo que sea.
 
-I decided to ask for applications this way for a few reasons:
+Decidí pedir solicitudes de esta manera por algunas razones:
 
-- I just don't think resumes are that important
-- I wanted to filter for people with some inherent marketing sensibilities, we're a tiny company so we need [T-shaped](https://en.wikipedia.org/wiki/T-shaped_skills) people more than we need specialists
-- I wanted to filter for people who can ship things, and making the application completely free-form tells you a lot about someone's ability to take something from nothing to polished product on their own
-- I wanted to find someone who talked about the stuff we were looking for without being prompted for it — finding someone who was naturally well-aligned with what we are trying to do would be a big advantage for us
-- I expected a lot of applications, and I thought asking for applications this way would make it easy to filter people out who were using a shotgun approach to job-searching and not specifically interested in working with us
+- Simplemente no creo que los currículums sean tan importantes
+- Quería filtrar por personas con cierta sensibilidad inherente al marketing, somos una empresa pequeña, por lo que necesitamos personas [en forma de T](https://en.wikipedia.org/wiki/T-shaped_skills) más que especialistas
+- Quería filtrar por personas que pueden entregar cosas, y hacer la solicitud completamente libre te dice mucho sobre la capacidad de alguien para llevar algo de la nada a un producto pulido por su cuenta
+- Quería encontrar a alguien que hablara de las cosas que buscábamos sin que se le pidiera; encontrar a alguien que estuviera naturalmente bien alineado con lo que intentamos hacer sería una gran ventaja para nosotros
+- Esperaba muchas solicitudes, y pensé que pedir solicitudes de esta manera facilitaría filtrar a las personas que estaban usando un enfoque de "escopeta" para buscar trabajo y no estaban específicamente interesadas en trabajar con nosotros
 
-Even with what I think was a fairly intimidating application process, we got well over 100 applications where there was clearly a lot of time spent crafting something very specific for our posting, including Robin's of course:
+Incluso con lo que creo que fue un proceso de solicitud bastante intimidante, recibimos más de 100 solicitudes en las que claramente se dedicó mucho tiempo a elaborar algo muy específico para nuestra publicación, incluida la de Robin, por supuesto:
 
-[**Read Robin's application &rarr;**](https://robin-malfait-tailwind-job-application.now.sh/)
+[**Lee la solicitud de Robin &rarr;**](https://robin-malfait-tailwind-job-application.now.sh/)
 
-Some people did some _really_ out there and creative things in their applications _(one person even made an interactive game!)_ but Robin's stood out to us for a few reasons:
+Algunas personas hicieron cosas _realmente_ extravagantes y creativas en sus solicitudes _(¡una persona incluso hizo un juego interactivo!)_, pero la de Robin nos llamó la atención por algunas razones:
 
-- The visual design was great. We're a very design-focused company, so having good taste in design is really important to us.
-- His story about learning to program and getting into the Laravel community told me we had a rich shared history, even if we had never met.
-- He took a chance and shared some strong opinions he had about component design that were _extremely_ relevant to some work we'll be doing very soon, and I agreed with what he was saying and even learned a few things.
-- He shared a super interesting [open-source library](https://github.com/RobinMalfait/lazy-collections) he authored, which despite being very unknown, still had very well thought-out and complete documentation that was presented in a very well-structured way. It was clear he thinks about visual design even when authoring a markdown file.
-- He shared lots of concrete ideas for projects he'd like to work on with us, and a lot of them were things I was already excited about doing.
-- He capitalized the "H" in "GitHub" _(holy shit I hate when people don't do that)_.
+- El diseño visual era genial. Somos una empresa muy centrada en el diseño, por lo que tener buen gusto en el diseño es realmente importante para nosotros.
+- Su historia sobre aprender a programar y entrar en la comunidad de Laravel me dijo que teníamos una rica historia compartida, aunque nunca nos hubiéramos conocido.
+- Se arriesgó y compartió algunas opiniones firmes que tenía sobre el diseño de componentes que eran _extremadamente_ relevantes para un trabajo que haremos muy pronto, y estuve de acuerdo con lo que decía e incluso aprendí algunas cosas.
+- Compartió una [librería de código abierto](https://github.com/RobinMalfait/lazy-collections) súper interesante de la que es autor, que a pesar de ser muy desconocida, todavía tenía una documentación muy bien pensada y completa que se presentaba de una manera muy bien estructurada. Estaba claro que piensa en el diseño visual incluso al crear un archivo markdown.
+- Compartió muchas ideas concretas para proyectos en los que le gustaría trabajar con nosotros, y muchas de ellas eran cosas que ya me entusiasmaba hacer.
+- Escribió en mayúscula la "H" en "GitHub" _(mierda, odio cuando la gente no hace eso)_.
 
-Robin's was one of maybe 40-50 that _really_ stood out from a content perspective.
+La de Robin fue una de las quizás 40-50 que _realmente_ destacaron desde la perspectiva del contenido.
 
-## Filtering the applications
+## Filtrando las solicitudes
 
-Dealing with almost 900 job applications is a lot of work. Over half of them we were able to discard immediately because they just provided a link to their LinkedIn profile or a generic resume, but filtering through the rest was really tough.
+Manejar casi 900 solicitudes de empleo es mucho trabajo. Más de la mitad pudimos descartarlas inmediatamente porque solo proporcionaron un enlace a su perfil de LinkedIn o un currículum genérico, pero filtrar el resto fue realmente difícil.
 
-I've never hired anyone this way before, and at first I really felt like we needed to meet with and interview _everyone_ who submitted a quality application. As the applications poured in though, I realized this was just not practical, and that we had to put some sort of cap on it.
+Nunca antes había contratado a nadie de esta manera, y al principio realmente sentí que necesitábamos reunirnos y entrevistar a _todos_ los que enviaron una solicitud de calidad. Sin embargo, a medida que llegaban las solicitudes, me di cuenta de que esto simplemente no era práctico y que teníamos que ponerle algún tipo de límite.
 
-I decided to sort the good applications as best I could, then just slice off the top 20 and start there. It meant there were lots of great people we wouldn't talk to and that maybe we even missed out on the absolute best applicant, but the reality is that we only have so much time we can dedicate to this, and I had to believe that out of the ~20 best applications, there would certainly be _multiple_ people we wouldn't regret hiring at all, even if there was a chance that the absolute best person was somewhere in the other 30.
+Decidí ordenar las buenas solicitudes lo mejor que pude, luego simplemente tomar las 20 mejores y empezar por ahí. Significaba que había mucha gente genial con la que no hablaríamos y que tal vez incluso nos perdimos al mejor solicitante absoluto, pero la realidad es que solo tenemos una cantidad limitada de tiempo que podemos dedicar a esto, y tuve que creer que de las ~20 mejores solicitudes, ciertamente habría _múltiples_ personas que no lamentaríamos contratar en absoluto, incluso si existiera la posibilidad de que la mejor persona absoluta estuviera en algún lugar entre las otras 30.
 
-## The interview process
+## El proceso de entrevista
 
-We started by scheduling video interviews with the top ~20 applicants, which took about 3 weeks to get through.
+Empezamos programando entrevistas por video con los ~20 mejores solicitantes, lo que nos llevó unas 3 semanas.
 
-These were 30-45 minute calls where we had a pretty casual conversation about a few topics:
+Fueron llamadas de 30-45 minutos donde tuvimos una conversación bastante informal sobre algunos temas:
 
-- What the person had been working on recently, and where they think their strengths are
-- Why they applied for the job, and what about the role was interesting to them
-- What we as a company are going to be doing over the next year or so, and digging into a few projects in detail
-- Answering any questions the person had about the job or our company
+- En qué había estado trabajando la persona recientemente y dónde cree que están sus puntos fuertes
+- Por qué solicitaron el trabajo y qué les interesó del puesto
+- Qué vamos a hacer como empresa durante el próximo año más o menos, y profundizar en algunos proyectos en detalle
+- Responder cualquier pregunta que la persona tuviera sobre el trabajo o nuestra empresa
 
-This was a great way just to get to know the people who applied and get a gut sense for who stood out the most. We really enjoyed meeting with every single person we talked to, but made the hard decision to filter down again to about 10 people for the next phase.
+Esta fue una excelente manera de conocer a las personas que postularon y tener una idea intuitiva de quién se destacaba más. Realmente disfrutamos reuniéndonos con cada persona con la que hablamos, pero tomamos la difícil decisión de filtrar nuevamente a unas 10 personas para la siguiente fase.
 
-## Take-home project
+## Proyecto para llevar a casa
 
-The next step in the application process was a take-home project, where the applicant had to build out a design Steve had created using either Vue or React. We estimated it to be about a 4-8 hour project.
+El siguiente paso en el proceso de solicitud fue un proyecto para llevar a casa, donde el solicitante tenía que construir un diseño que Steve había creado usando Vue o React. Estimamos que sería un proyecto de unas 4-8 horas.
 
-We provided a zip file containing all of the instructions, the design as a Figma file, and a walk-through video of a working implementation outlining any behavior that was hard to capture in Figma.
+Proporcionamos un archivo zip que contenía todas las instrucciones, el diseño como un archivo Figma y un video explicativo de una implementación funcional que describía cualquier comportamiento difícil de capturar en Figma.
 
-[**See the take-home project on GitHub &rarr;**](https://github.com/adamwathan/tailwind-take-home-project)
+[**Ve el proyecto para llevar a casa en GitHub &rarr;**](https://github.com/adamwathan/tailwind-take-home-project)
 
-We tried to give very clear instructions, and made sure to point out where we wanted people to focus their time, and what areas we didn't want them to overthink or spend too much time on.
+Intentamos dar instrucciones muy claras y nos aseguramos de señalar dónde queríamos que la gente centrara su tiempo y en qué áreas no queríamos que pensaran demasiado o dedicaran demasiado tiempo.
 
-We gave each candidate about two weeks to complete the project, just to make sure they had the opportunity to fit it into their schedule without it being disruptive.
+Dimos a cada candidato unas dos semanas para completar el proyecto, solo para asegurarnos de que tuvieran la oportunidad de encajarlo en su horario sin que fuera perjudicial.
 
-All of the submissions we got back were great, but again we forced ourselves to limit the candidates for the next phase, this time down to 6 people.
+Todas las entregas que recibimos fueron geniales, pero nuevamente nos obligamos a limitar los candidatos para la siguiente fase, esta vez a 6 personas.
 
-One thing we really loved about Robin's submission was that he spent a lot of time guiding us through his solution with comments in the code. For regular production code I would say it was definitely overkill, but as part of a job application I thought it was extremely helpful to get a behind-the-scenes look into how he actually _thinks_ about the code he is writing. He also spent a lot of time describing alternate solutions to certain problems and why he didn't go with those approaches, which was very beneficial as well.
+Una cosa que realmente nos encantó de la entrega de Robin fue que dedicó mucho tiempo a guiarnos a través de su solución con comentarios en el código. Para el código de producción regular, diría que definitivamente fue excesivo, pero como parte de una solicitud de empleo, pensé que era extremadamente útil tener una visión interna de cómo _piensa_ realmente sobre el código que está escribiendo. También dedicó mucho tiempo a describir soluciones alternativas a ciertos problemas y por qué no eligió esos enfoques, lo que también fue muy beneficioso.
 
-## Pairing session
+## Sesión de pairing
 
-The final step in the application process was a two-hour pair programming session with me.
+El último paso en el proceso de solicitud fue una sesión de pair programming de dos horas conmigo.
 
-When pairing as part of an interview process like this, there's a really high risk of the inherent power dynamic coloring how the whole thing goes. I _really_ wanted to avoid that as much as possible, so I did two things:
+Al hacer pairing como parte de un proceso de entrevista como este, existe un riesgo muy alto de que la dinámica de poder inherente influya en cómo va todo. _Realmente_ quería evitar eso tanto como fuera posible, así que hice dos cosas:
 
-- I made sure whatever we were pairing on was something completely new, that I had no prior experience with
-- I let the candidate suggest a few things for us to pair on, and picked something from their list
+- Me aseguré de que cualquier cosa en la que hiciéramos pairing fuera algo completamente nuevo, con lo que no tuviera experiencia previa
+- Dejé que el candidato sugiriera algunas cosas para hacer pairing y elegí algo de su lista
 
-I absolutely didn't want to pair on something where I knew all the answers and I was just watching to see if the candidate could figure out something I already knew. That is absolutely not representative of real work and I don't think it would've been useful at all.
+Absolutamente no quería hacer pairing en algo donde supiera todas las respuestas y solo estuviera observando para ver si el candidato podía resolver algo que yo ya sabía. Eso no es en absoluto representativo del trabajo real y no creo que hubiera sido útil en absoluto.
 
-Instead, by choosing a problem that neither of us had significant experience with, we got to put the power dynamic aside (as much as possible at least), and just focus on learning something new together, and seeing how we helped each other get unstuck.
+En cambio, al elegir un problema con el que ninguno de los dos tenía una experiencia significativa, pudimos dejar de lado la dinámica de poder (al menos tanto como fuera posible), y simplemente centrarnos en aprender algo nuevo juntos y ver cómo nos ayudábamos mutuamente a desatascarnos.
 
-Some of the things I paired on included:
+Algunas de las cosas en las que hice pairing incluyeron:
 
-- Building a date picker from scratch
-- Learning XState
-- Building a modal dialog with the Vue 3 composition API
+- Construir un selector de fechas desde cero
+- Aprender XState
+- Construir un diálogo modal con la API de composición de Vue 3
 
-I really enjoyed this process and am very proud of how we put it together. It was definitely the most informative part of the interview process and really gave me a ton of confidence that we were offering the job to the right person.
+Realmente disfruté este proceso y estoy muy orgulloso de cómo lo armamos. Definitivamente fue la parte más informativa del proceso de entrevista y realmente me dio mucha confianza en que le estábamos ofreciendo el trabajo a la persona adecuada.
 
-For Robin's session, we decided to build an SVG charting library from scratch _(something neither of us had ever done before)_, in Svelte _(a framework neither of us had ever used before)_. This was Robin's idea, and that he had the courage to tackle two completely new problems at the same time _in an interview context_ really impressed me. We had a great time pairing together on this, and not once in the session did it ever feel like either of us was ahead of the other person or trying to catch them up on something. We had really great chemistry and it felt very energizing and productive, and reminded me of some of the best pairing sessions I've had in my career, which is pretty incredible given we'd never worked together before, and that he was being evaluated for a job.
+Para la sesión de Robin, decidimos construir una librería de gráficos SVG desde cero _(algo que ninguno de los dos había hecho antes)_, en Svelte _(un framework que ninguno de los dos había usado antes)_. Esta fue idea de Robin, y que tuviera el coraje de abordar dos problemas completamente nuevos al mismo tiempo _en un contexto de entrevista_ realmente me impresionó. Lo pasamos muy bien haciendo pairing juntos en esto, y ni una sola vez en la sesión sentimos que alguno de nosotros estuviera por delante de la otra persona o tratando de ponerla al día en algo. Tuvimos una química realmente genial y se sintió muy energizante y productivo, y me recordó algunas de las mejores sesiones de pairing que he tenido en mi carrera, lo cual es bastante increíble dado que nunca habíamos trabajado juntos antes, y que él estaba siendo evaluado para un trabajo.
 
-## Making the offer
+## Haciendo la oferta
 
-This whole process took about 1.5 months, and at the end we had a very hard time choosing between the top few candidates. Realistically we could've hired any of them and not regretted it, but my experience interviewing and pairing with Robin stood out just a bit more and I was really excited to be able to offer him the role. We know he's going to be an amazing fit for the team, and I can't wait to dig in to some hard problems with him in the coming months.
+Todo este proceso tomó alrededor de 1.5 meses, y al final nos costó mucho elegir entre los principales candidatos. Siendo realistas, podríamos haber contratado a cualquiera de ellos y no arrepentirnos, pero mi experiencia entrevistando y haciendo pairing con Robin se destacó un poco más y estaba realmente emocionado de poder ofrecerle el puesto. Sabemos que encajará increíblemente en el equipo, y no puedo esperar para abordar algunos problemas difíciles con él en los próximos meses.
 
-Want to talk about this post? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2153">Discuss this on GitHub →</a>
+¿Quieres hablar sobre esta publicación? <a href="https://github.com/tailwindcss/tailwindcss/discussions/2153">Discútelo en GitHub →</a>

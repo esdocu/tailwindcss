@@ -7,18 +7,18 @@ import card from "./card.jpg";
 import { adamwathan } from "@/app/blog/authors";
 
 export const meta = {
-  title: "Tailwind CSS v3.2: Dynamic breakpoints, multi-config, and container queries, oh my!",
-  description: "...and nested group support, `aria-*` variants, `data-*` variants, `@supports` support, and more.",
+  title: "Tailwind CSS v3.2: Breakpoints dinámicos, configuración múltiple y container queries, ¡oh cielos!",
+  description: "...y soporte para grupos anidados, variantes `aria-*`, variantes `data-*`, soporte para `@supports` y más.",
   date: "2022-10-19T15:30:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      Well it's that time again! The time where we quickly go from{" "}
-      <em>"I really have no idea what we could even add to a new Tailwind release"</em> to{" "}
+      Bueno, ¡llegó ese momento otra vez! El momento en el que pasamos rápidamente de{" "}
+      <em>"Realmente no tengo idea de qué podríamos añadir a una nueva versión de Tailwind"</em> a{" "}
       <em>
-        "wow, well this is actually a ridiculous amount of new stuff — we better tag a release before things get
-        completely out of hand"
+        "vaya, bueno, esto es en realidad una cantidad ridícula de cosas nuevas — será mejor que etiquetemos una versión antes de que las cosas se nos vayan
+        completamente de las manos"
       </em>
       .
     </>
@@ -27,37 +27,37 @@ export const meta = {
 
 <Image alt="Tailwind CSS v3.2" src={card} />
 
-Tailwind CSS v3.2 is here with an absolutely _massive_ amount of new stuff, including support for dynamic breakpoints, multiple config files in a single project, nested groups, parameterized variants, container queries, and more.
+Tailwind CSS v3.2 está aquí con una cantidad absolutamente _masiva_ de cosas nuevas, incluyendo soporte para breakpoints dinámicos, múltiples archivos de configuración en un solo proyecto, grupos anidados, variantes parametrizadas, container queries y más.
 
-As always check out the <Link href="https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.2.0">release notes</Link> for every nitty-gritty fix and improvement, but here's the highlight reel:
+Como siempre, revisa las <Link href="https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.2.0">notas de la versión</Link> para cada pequeño arreglo y mejora, pero aquí está lo más destacado:
 
 - <Link href="#multiple-config-files-in-one-project-using-config">
-    Multiple config files in one project using `@config`
+    Múltiples archivos de configuración en un proyecto usando `@config`
   </Link>
-- <Link href="#browser-support-based-styling-with-supports">Browser-support-based styling with `supports-*`</Link>
-- <Link href="#aria-attribute-variants">ARIA attribute variants</Link>
-- <Link href="#data-attribute-variants">Data attribute variants</Link>
-- <Link href="#max-width-and-dynamic-breakpoints">Max-width and dynamic breakpoints</Link>
-- <Link href="#dynamic-group-and-peer-variants">Dynamic `group-*` and `peer-*` variants</Link>
-- <Link href="#dynamic-variants-with-match-variant">Dynamic variants with `matchVariant`</Link>
+- <Link href="#browser-support-based-styling-with-supports">Estilos basados en el soporte del navegador con `supports-*`</Link>
+- <Link href="#aria-attribute-variants">Variantes de atributos ARIA</Link>
+- <Link href="#data-attribute-variants">Variantes de atributos Data</Link>
+- <Link href="#max-width-and-dynamic-breakpoints">Max-width y breakpoints dinámicos</Link>
+- <Link href="#dynamic-group-and-peer-variants">Variantes dinámicas `group-*` y `peer-*`</Link>
+- <Link href="#dynamic-variants-with-match-variant">Variantes dinámicas con `matchVariant`</Link>
 - <Link href="#nested-group-and-multiple-peer-support-using-variant-modifiers">
-    Nested `group` and multiple `peer` support using variant modifiers
+    Soporte para `group` anidado y múltiples `peer` usando modificadores de variantes
   </Link>
 - <Link href="#container-queries">Container queries</Link>
 
-Upgrade your projects by installing the latest version of `tailwindcss` from npm:
+Actualiza tus proyectos instalando la última versión de `tailwindcss` desde npm:
 
 ```sh
 npm install -D tailwindcss@latest
 ```
 
-Or play with the new features in <Link href="https://play.tailwindcss.com">Tailwind Play</Link> where you can try everything out instantly, right in the browser.
+O juega con las nuevas características en <Link href="https://play.tailwindcss.com">Tailwind Play</Link> donde puedes probar todo al instante, directamente en el navegador.
 
 ---
 
-## Multiple config files in one project using @config
+## Múltiples archivos de configuración en un proyecto usando @config
 
-We've added a new `@config` directive that you can use in a CSS file to specify which Tailwind CSS config to use for that file:
+Hemos añadido una nueva directiva `@config` que puedes usar en un archivo CSS para especificar qué configuración de Tailwind CSS usar para ese archivo:
 
 <CodeExampleGroup filenames={["./styles/admin.css", "./styles/client.css"]}>
   <CodeBlock
@@ -78,15 +78,15 @@ We've added a new `@config` directive that you can use in a CSS file to specify 
   />
 </CodeExampleGroup>
 
-This makes it a lot easier to build multiple stylesheets in a single project that have separate Tailwind configurations. For example, you might have one config file for the customer-facing part of your site, and another config for the admin/backend area.
+Esto facilita mucho la construcción de múltiples hojas de estilo en un solo proyecto que tengan configuraciones de Tailwind separadas. Por ejemplo, podrías tener un archivo de configuración para la parte de tu sitio orientada al cliente, y otro archivo de configuración para el área de administración/backend.
 
-You've always technically been able to do this with enough webpack wizardry, but the new `@config` directive makes it super easy and accessible to everyone, even in projects where you don't have as much control over the build tool configuration.
+Técnicamente siempre has podido hacer esto con suficiente magia de webpack, pero la nueva directiva `@config` lo hace súper fácil y accesible para todos, incluso en proyectos donde no tienes tanto control sobre la configuración de la herramienta de compilación.
 
 ---
 
-## Browser-support-based styling with supports-\*
+## Estilos basados en el soporte del navegador con supports-\*
 
-You can now conditionally style things based on whether a certain feature is supported in the user's browser with the `supports-[...]` variant, which generates [@supports rules](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) under the hood.
+Ahora puedes aplicar estilos condicionalmente según si una característica específica es compatible con el navegador del usuario usando la variante `supports-[...]`, que genera reglas [@supports](https://developer.mozilla.org/en-US/docs/Web/CSS/@supports) bajo el capó.
 
 ```html
 <!-- [!code word:supports-[display\:grid\]\:grid] -->
@@ -95,9 +95,9 @@ You can now conditionally style things based on whether a certain feature is sup
 </div>
 ```
 
-The `supports-[...]` variant takes anything you'd use with `@supports (...)` between the square brackets, like a property/value pair, and even expressions using `and` and `or`.
+La variante `supports-[...]` acepta cualquier cosa que usarías con `@supports (...)` entre los corchetes, como un par propiedad/valor, e incluso expresiones usando `and` y `or`.
 
-If you only need to check if a property itself is supported, you can even just specify the property name and Tailwind will fill in the blanks for you:
+Si solo necesitas comprobar si una propiedad en sí misma es compatible, puedes incluso especificar solo el nombre de la propiedad y Tailwind rellenará los espacios por ti:
 
 ```html
 <!-- [!code word:supports-[backdrop-filter\]\:bg-black/25] -->
@@ -109,11 +109,11 @@ If you only need to check if a property itself is supported, you can even just s
 
 ---
 
-## ARIA attribute variants
+## Variantes de atributos ARIA
 
-You can now conditionally style things based on [ARIA attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes) with the new `aria-*` variants.
+Ahora puedes aplicar estilos condicionalmente basados en [atributos ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes) con las nuevas variantes `aria-*`.
 
-For example, you can update the background color of an element based on whether the `aria-checked` state is `true`:
+Por ejemplo, puedes actualizar el color de fondo de un elemento basado en si el estado `aria-checked` es `true`:
 
 ```html
 <!-- [!code word:aria-checked\:bg-blue-600] -->
@@ -122,14 +122,14 @@ For example, you can update the background color of an element based on whether 
 </span>
 ```
 
-By default we've included modifiers for the most common boolean ARIA attributes:
+Por defecto, hemos incluido modificadores para los atributos booleanos ARIA más comunes:
 
 {
 
 <table>
   <thead>
     <tr>
-      <th>Modifier</th>
+      <th>Modificador</th>
       <th>CSS</th>
     </tr>
   </thead>
@@ -218,8 +218,8 @@ By default we've included modifiers for the most common boolean ARIA attributes:
 </table>
 }
 
-You can customize which `aria-*` modifiers are available by editing `theme.aria` or `theme.extend.aria` in your
-`tailwind.config.js` file:
+Puedes personalizar qué modificadores `aria-*` están disponibles editando `theme.aria` o `theme.extend.aria` en tu
+archivo `tailwind.config.js`:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -235,7 +235,7 @@ module.exports = {
 };
 ```
 
-If you need to use a one-off `aria` modifier that doesn’t make sense to include in your theme, or for more complex ARIA attributes that take specific values, use square brackets to generate a property on the fly using any arbitrary value.
+Si necesitas usar un modificador `aria` único que no tenga sentido incluir en tu tema, o para atributos ARIA más complejos que toman valores específicos, usa corchetes para generar una propiedad sobre la marcha usando cualquier valor arbitrario.
 
 <Figure>
 
@@ -250,7 +250,7 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
               aria-sort="ascending"
             >
               <span className="flex w-full items-center justify-between gap-2">
-                Invoice #
+                Nº Factura
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -265,10 +265,10 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
               </span>
             </th>
             <th className="border border-slate-300 px-4 py-3 text-left font-semibold text-slate-900 first:border-l-0 last:border-r-0 dark:border-slate-600 dark:text-slate-200">
-              Client
+              Cliente
             </th>
             <th className="border border-slate-300 px-4 py-3 text-right font-semibold text-slate-900 first:border-l-0 last:border-r-0 dark:border-slate-600 dark:text-slate-200">
-              Amount
+              Monto
             </th>
           </tr>
         </thead>
@@ -312,7 +312,7 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
   }
 </Example>
 
-<CodeExampleGroup filenames={['HTML', 'Generated CSS']}>
+<CodeExampleGroup filenames={['HTML', 'CSS Generado']}>
   <CodeBlock
     example={html`
       <!-- [!code word:aria-[sort=ascending\]\:bg-[url('/img/down-arrow.svg')\]] -->
@@ -324,7 +324,7 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
               aria-sort="ascending"
               class="aria-[sort=ascending]:bg-[url('/img/down-arrow.svg')] aria-[sort=descending]:bg-[url('/img/up-arrow.svg')]"
             >
-              Invoice #
+              Nº Factura
             </th>
             <!-- ... -->
           </tr>
@@ -335,11 +335,11 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
   />
   <CodeBlock
     example={css`
-      .aria-\[sort\=ascending\]\:bg-\[url\(\'\/img\/down-arrow\.svg\'\)\][aria-sort="ascending"] {
+      .aria-\\[sort\\=ascending\\]\\:bg-\\[url\\(\\'\\/img\\/down-arrow\\.svg\\'\\)\\][aria-sort="ascending"] {
         background-image: url("/img/down-arrow.svg");
       }
 
-      .aria-\[sort\=descending\]\:bg-\[url\(\'\/img\/up-arrow\.svg\'\)\][aria-sort="descending"] {
+      .aria-\\[sort\\=descending\\]\\:bg-\\[url\\(\\'\\/img\\/up-arrow\\.svg\\'\\)\\][aria-sort="descending"] {
       background-image: url("/img/up-arrow.svg");
       }
     `}
@@ -350,9 +350,9 @@ If you need to use a one-off `aria` modifier that doesn’t make sense to includ
 
 </Figure>
 
-ARIA state modifiers can also target parent and sibling elements using the `group-aria-*` and `peer-aria-*` modifiers:
+Los modificadores de estado ARIA también pueden apuntar a elementos padre y hermanos usando los modificadores `group-aria-*` y `peer-aria-*`:
 
-<CodeExampleGroup filenames={['HTML', 'Generated CSS']}>
+<CodeExampleGroup filenames={['HTML', 'CSS Generado']}>
   <CodeBlock
     example={html`
       <!-- [!code word:group-aria-[sort=ascending\]\:rotate-0] -->
@@ -361,7 +361,7 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
         <thead>
           <tr>
             <th aria-sort="ascending" class="group">
-              Invoice #
+              Nº Factura
               <svg
                 class="group-aria-[sort=ascending]:rotate-0 group-aria-[sort=descending]:rotate-180"
               >
@@ -377,14 +377,14 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
   />
   <CodeBlock
     example={js`
-      .group[aria-sort="ascending"] .group-aria-\[sort\=ascending\]\:rotate-0 {
+      .group[aria-sort="ascending"] .group-aria-\\[sort\\=ascending\\]\\:rotate-0 {
         --tw-rotate: 0deg;
         transform: translate(var(--tw-translate-x), var(--tw-translate-y))
           rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
           scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
       }
 
-      .group[aria-sort="descending"] .group-aria-\[sort\=descending\]\:rotate-180 {
+      .group[aria-sort="descending"] .group-aria-\\[sort\\=descending\\]\\:rotate-180 {
         --tw-rotate: 180deg;
         transform: translate(var(--tw-translate-x), var(--tw-translate-y))
         rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
@@ -398,32 +398,32 @@ ARIA state modifiers can also target parent and sibling elements using the `grou
 
 ---
 
-## Data attribute variants
+## Variantes de atributos Data
 
-You can now conditionally style things based on [data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes) with the new `data-*` variants.
+Ahora puedes aplicar estilos condicionalmente basados en [atributos data](https://developer.mozilla.org/es/docs/Learn/HTML/Howto/Use_data_attributes) con las nuevas variantes `data-*`.
 
-Since there are no standard `data-*` attributes by definition, we only support arbitrary values out of the box, for example:
+Dado que no hay atributos `data-*` estándar por definición, solo admitimos valores arbitrarios de forma predeterminada, por ejemplo:
 
 ```html
-<!-- Will apply -->
+<!-- Se aplicará -->
 <div data-size="large" class="data-[size=large]:p-8">
   <!-- ... -->
 </div>
 
-<!-- Will not apply -->
+<!-- No se aplicará -->
 <div data-size="medium" class="data-[size=large]:p-8">
   <!-- ... -->
 </div>
 
-<!-- Generated CSS -->
+<!-- CSS Generado -->
 <style>
-  .data-\[size\=large\]\:p-8[data-size="large"] {
+  .data-\\[size\\=large\\]\\:p-8[data-size="large"] {
     padding: 2rem;
   }
 </style>
 ```
 
-You can configure shortcuts for common data attribute selectors you're using in your project under the `data` key in the `theme` section of your `tailwind.config.js` file:
+Puedes configurar atajos para selectores de atributos de datos comunes que estés usando en tu proyecto bajo la clave `data` en la sección `theme` de tu archivo `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -443,37 +443,37 @@ module.exports = {
 </div>
 ```
 
-These variants also work as `group-*` and `peer-*` variants like many other variants in the framework:
+Estas variantes también funcionan como variantes `group-*` y `peer-*` como muchas otras variantes en el framework:
 
 ```html
 <div data-size="large" class="group">
   <div class="group-data-[size=large]:p-8">
-    <!-- Will apply `p-8` -->
+    <!-- Aplicará `p-8` -->
   </div>
 </div>
 
 <div data-size="medium" class="group">
   <div class="group-data-[size=large]:p-8">
-    <!-- Will not apply `p-8` -->
+    <!-- No aplicará `p-8` -->
   </div>
 </div>
 ```
 
 ---
 
-## Max-width and dynamic breakpoints
+## Max-width y breakpoints dinámicos
 
-We've added a new `max-*` variant that lets you apply max-width media queries based on your configured breakpoints:
+Hemos añadido una nueva variante `max-*` que te permite aplicar media queries de max-width basadas en tus breakpoints configurados:
 
 ```html
 <div class="max-lg:p-8">
-  <!-- Will apply `p-8` until the `lg` breakpoint kicks in -->
+  <!-- Aplicará `p-8` hasta que el breakpoint `lg` entre en acción -->
 </div>
 ```
 
-As a general rule I would still recommend using min-width breakpoints personally, but this feature does unlock one useful workflow benefit which is not having to _undo_ some style at a different breakpoint.
+Como regla general, personalmente seguiría recomendando usar breakpoints de min-width, pero esta característica desbloquea un beneficio útil del flujo de trabajo que es no tener que _deshacer_ algún estilo en un breakpoint diferente.
 
-For example, without this feature you often end up doing things like this:
+Por ejemplo, sin esta característica, a menudo terminas haciendo cosas como esta:
 
 ```html
 <div class="md:sr-only xl:not-sr-only">
@@ -481,7 +481,7 @@ For example, without this feature you often end up doing things like this:
 </div>
 ```
 
-With this feature, you can avoid undoing that style by stacking a `max-*` variant on the original declaration:
+Con esta característica, puedes evitar deshacer ese estilo apilando una variante `max-*` en la declaración original:
 
 ```html
 <div class="md:max-xl:sr-only">
@@ -489,7 +489,7 @@ With this feature, you can avoid undoing that style by stacking a `max-*` varian
 </div>
 ```
 
-Along with this, we've added support for arbitrary values, and a new `min-*` variant that only accepts arbitrary values, so you can do things like this:
+Junto con esto, hemos añadido soporte para valores arbitrarios, y una nueva variante `min-*` que solo acepta valores arbitrarios, para que puedas hacer cosas como esta:
 
 ```html
 <div class="min-[712px]:max-[877px]:right-16 ...">
@@ -497,9 +497,9 @@ Along with this, we've added support for arbitrary values, and a new `min-*` var
 </div>
 ```
 
-It's important to note that **these features will only be available if your project uses a simple `screens` configuration.**
+Es importante tener en cuenta que **estas características solo estarán disponibles si tu proyecto utiliza una configuración `screens` simple.**
 
-These features are a lot more complicated than they look due to needing to ensure that all of these media queries are sorted in the final CSS in a way that gives you the expected behavior in the browser. So for now, they will only work if your `screens` configuration is a simple object with string values, like the default configuration:
+Estas características son mucho más complicadas de lo que parecen debido a la necesidad de asegurar que todas estas media queries estén ordenadas en el CSS final de una manera que te dé el comportamiento esperado en el navegador. Así que, por ahora, solo funcionarán si tu configuración `screens` es un objeto simple con valores de cadena, como la configuración por defecto:
 
 ```js
 // tailwind.config.js
@@ -516,37 +516,37 @@ module.exports = {
 };
 ```
 
-If you have a complex configuration where you already have `max-width` breakpoints defined, or range-based media queries, or _anything_ other than just strings, these features won't be available. We might be able to figure that out in the future but it just creates so many questions about how the CSS should be ordered that we don't have answers for yet.
+Si tienes una configuración compleja donde ya tienes breakpoints de `max-width` definidos, o media queries basadas en rangos, o _cualquier cosa_ que no sean solo cadenas, estas características no estarán disponibles. Podríamos resolver eso en el futuro, pero simplemente crea tantas preguntas sobre cómo se debe ordenar el CSS que aún no tenemos respuestas.
 
-So for now (and possibly forever), if you want to use these features, your `screens` configuration needs to be simple. My hope is that these features make complex `screens` configurations unnecessary anyways.
+Así que por ahora (y posiblemente para siempre), si quieres usar estas características, tu configuración `screens` necesita ser simple. Mi esperanza es que estas características hagan innecesarias de todos modos las configuraciones `screens` complejas.
 
 ---
 
-## Dynamic group-\* and peer-\* variants
+## Variantes dinámicas group-\* y peer-\*
 
-It's now possible to create custom `group-*` and `peer-*` variants on the fly by passing your own selector to be "groupified" or "peerified" between square brackets:
+Ahora es posible crear variantes personalizadas `group-*` y `peer-*` sobre la marcha pasando tu propio selector para ser "groupificado" o "peerificado" entre corchetes:
 
-<CodeExampleGroup filenames={['HTML', 'Generated CSS']}>
+<CodeExampleGroup filenames={['HTML', 'CSS Generado']}>
   <CodeBlock
     example={html`
       <!-- [!code word:group-[.is-published\]\:block] -->
       <div class="group is-published">
-        <div class="group-[.is-published]:block hidden">Published</div>
+        <div class="group-[.is-published]:block hidden">Publicado</div>
       </div>
     `}
   />
   <CodeBlock
     example={css`
-      .group.is-published .group-\[\.is-published\]\:block {
+      .group.is-published .group-\\[\\.is-published\\]\\:block {
         display: block;
       }
     `}
   />
 </CodeExampleGroup>
 
-For more control, you can use the `&` character to mark where `.group` or `.peer` should end up in the final selector relative to the selector you are passing in:
+Para mayor control, puedes usar el carácter `&` para marcar dónde deben terminar `.group` o `.peer` en el selector final en relación con el selector que estás pasando:
 
-<CodeExampleGroup filenames={['HTML', 'Generated CSS']}>
+<CodeExampleGroup filenames={['HTML', 'CSS Generado']}>
   <CodeBlock
     example={html`
       <!-- [!code word:peer-[\:nth-of-type(3)_&\]\:block] -->
@@ -560,22 +560,22 @@ For more control, you can use the `&` character to mark where `.group` or `.peer
   />
   <CodeBlock
     example={css`
-      :nth-of-type(3) .peer ~ .peer-\[\:nth-of-type\(3\)_\&\]\:block {
+      :nth-of-type(3) .peer ~ .peer-\\[\\:nth-of-type\\(3\\)_\\&\\]\\:block {
         display: block;
       }
     `}
   />
 </CodeExampleGroup>
 
-Let's be serious you're probably going to use these features like three times in your entire life but it's still pretty cool. Hoping we can use this as a building block to make `group` and `peer` work more automatically with variants registered by third-party plugins in the future.
+Seamos serios, probablemente vas a usar estas características como tres veces en toda tu vida, pero sigue siendo bastante genial. Esperamos poder usar esto como un bloque de construcción para hacer que `group` y `peer` funcionen más automáticamente con variantes registradas por plugins de terceros en el futuro.
 
 ---
 
-## Dynamic variants with matchVariant
+## Variantes dinámicas con matchVariant
 
-You've probably noticed this new `variant-[...]` syntax in a lot of these new features — this is all powered by a new `matchVariant` plugin API that makes it possible to create what we're calling "dynamic variants".
+Probablemente hayas notado esta nueva sintaxis `variant-[...]` en muchas de estas nuevas características — todo esto está impulsado por una nueva API de plugin `matchVariant` que hace posible crear lo que llamamos "variantes dinámicas".
 
-Here's an example of creating a `placement-*` variant for some imaginary tooltip library that uses a `data-placement` attribute to tell you where the tooltip is currently positioned:
+Aquí hay un ejemplo de cómo crear una variante `placement-*` para alguna biblioteca imaginaria de tooltips que usa un atributo `data-placement` para decirte dónde está posicionado actualmente el tooltip:
 
 ```js
 // [!code word:js]
@@ -604,7 +604,7 @@ module.exports = {
 };
 ```
 
-The variant defined above would give you variants like `placement-t` and `placement-b`, but would also support the arbitrary portion in square brackets, so if this imaginary tooltip library had other potential values that you didn't feel the need to create built-in values for, you could still do stuff like this:
+La variante definida arriba te daría variantes como `placement-t` y `placement-b`, pero también soportaría la porción arbitraria entre corchetes, así que si esta biblioteca imaginaria de tooltips tuviera otros valores potenciales para los que no sintieras la necesidad de crear valores incorporados, aún podrías hacer cosas como esta:
 
 ```html
 <div class="placement-[top-start]:mb-2 ...">
@@ -612,7 +612,7 @@ The variant defined above would give you variants like `placement-t` and `placem
 </div>
 ```
 
-When defining a custom variant with this API, it's often important that you have some control over which order the CSS is generated in to make sure each class has the right precedence with respect to other values that come from the same variant. To support this, there's a `sort` function you can provide when defining your variant:
+Al definir una variante personalizada con esta API, a menudo es importante que tengas cierto control sobre en qué orden se genera el CSS para asegurarte de que cada clase tenga la precedencia correcta con respecto a otros valores que provienen de la misma variante. Para soportar esto, hay una función `sort` que puedes proporcionar al definir tu variante:
 
 ```js
 // [!code word:js]
@@ -625,13 +625,13 @@ matchVariant("min", (value) => `@media (min-width: ${value})`, {
 
 ---
 
-## Nested group and multiple peer support using variant modifiers
+## Soporte para group anidado y múltiples peer usando modificadores de variantes
 
-Sometimes you can run into problems when you have multiple `group` chunks nested within each other because Tailwind has no real way to disambiguate between them.
+A veces puedes encontrarte con problemas cuando tienes múltiples trozos de `group` anidados unos dentro de otros porque Tailwind no tiene una forma real de desambiguarlos.
 
-To solve this, we're adding support for _variant modifiers_, which are a new dynamic chunk that you can add to the end of a variant (inspired by our optional opacity modifier syntax) that you can use to give each group/peer your own identifier.
+Para solucionar esto, estamos añadiendo soporte para _modificadores de variantes_, que son un nuevo trozo dinámico que puedes añadir al final de una variante (inspirado en nuestra sintaxis opcional de modificador de opacidad) que puedes usar para darle a cada group/peer tu propio identificador.
 
-Here's what it looks like:
+Así es como se ve:
 
 ```html
 <!-- [!code word:group/sidebar] -->
@@ -649,17 +649,17 @@ Here's what it looks like:
 </div>
 ```
 
-This lets you give each group a clear name that makes sense for that context on the fly, and Tailwind will generate the necessary CSS to make it work.
+Esto te permite dar a cada grupo un nombre claro que tenga sentido para ese contexto sobre la marcha, y Tailwind generará el CSS necesario para hacerlo funcionar.
 
-I'm really excited to have a solution out there for this because it's something I've been trying to land on a good approach for solving for several years, and this is the first thing we've come up with that really feels like it offers the power and flexibility I think it should.
+Estoy realmente emocionado de tener una solución para esto porque es algo en lo que he estado tratando de encontrar un buen enfoque durante varios años, y esta es la primera cosa que se nos ha ocurrido que realmente parece ofrecer el poder y la flexibilidad que creo que debería.
 
 ---
 
 ## Container queries
 
-I can barely believe it but [container queries](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Container_Queries) are finally real and the browser support is dangerously close to making these ready for production — in fact if you're building an [Electron](https://www.electronjs.org/) app you could use these today.
+Apenas puedo creerlo, pero las [container queries](https://developer.mozilla.org/es/docs/Web/CSS/CSS_Container_Queries) finalmente son reales y el soporte de los navegadores está peligrosamente cerca de hacerlas listas para producción — de hecho, si estás construyendo una aplicación [Electron](https://www.electronjs.org/) podrías usarlas hoy mismo.
 
-Today we're releasing `@tailwindcss/container-queries` which is a new first-party plugin that adds container query support to the framework, using a new `@` syntax to differentiate them from normal media queries:
+Hoy estamos lanzando `@tailwindcss/container-queries`, que es un nuevo plugin oficial que añade soporte para container query al framework, usando una nueva sintaxis `@` para diferenciarlas de las media queries normales:
 
 ```html
 <div class="@container">
@@ -669,15 +669,15 @@ Today we're releasing `@tailwindcss/container-queries` which is a new first-part
 </div>
 ```
 
-Out-of-the-box we include a set of container sizes that match our default `max-width` scale:
+De forma predeterminada, incluimos un conjunto de tamaños de contenedor que coinciden con nuestra escala `max-width` predeterminada:
 
 {
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Value</th>
+      <th>Nombre</th>
+      <th>Valor</th>
     </tr>
   </thead>
   <tbody>
@@ -729,7 +729,7 @@ Out-of-the-box we include a set of container sizes that match our default `max-w
 </table>
 }
 
-You can configure which values are available using the `containers` key in your `tailwind.config.js` file:
+Puedes configurar qué valores están disponibles usando la clave `containers` en tu archivo `tailwind.config.js`:
 
 ```js
 // tailwind.config.js
@@ -745,7 +745,7 @@ module.exports = {
 };
 ```
 
-We also include support for arbitrary values, using the `@[...]` syntax:
+También incluimos soporte para valores arbitrarios, usando la sintaxis `@[...]`:
 
 ```html
 <div class="@container">
@@ -755,7 +755,7 @@ We also include support for arbitrary values, using the `@[...]` syntax:
 </div>
 ```
 
-...and named containers using the same variant modifier syntax we're now shipping for `group-*` and `peer-*` variants:
+...y contenedores nombrados usando la misma sintaxis de modificador de variante que ahora enviamos para las variantes `group-*` y `peer-*`:
 
 ```html
 <div class="@container/main">
@@ -768,16 +768,16 @@ We also include support for arbitrary values, using the `@[...]` syntax:
 </div>
 ```
 
-Right now we're starting with simple `min-width` based container queries, but we plan to expand the scope over time, and when it feels like we've really nailed the APIs we'll bring it all into core.
+Por ahora estamos empezando con simple `min-width` based container queries, pero planeamos expandir el alcance con el tiempo, y cuando sintamos que realmente hemos perfeccionado las APIs, lo llevaremos todo al núcleo.
 
-For complete documentation, check out the plugin <Link href="https://github.com/tailwindlabs/tailwindcss-container-queries">on GitHub</Link>.
+Para una documentación completa, consulta el plugin <Link href="https://github.com/tailwindlabs/tailwindcss-container-queries">en GitHub</Link>.
 
 ---
 
-So there you have it — Tailwind CSS v3.2! Major improvements but just a minor version change, so no breaking changes and you should be able to update your project by just updating your dependency:
+¡Así que ahí lo tienes — Tailwind CSS v3.2! Mejoras importantes pero solo un cambio de versión menor, así que no hay cambios que rompan la compatibilidad y deberías poder actualizar tu proyecto simplemente actualizando tu dependencia:
 
 ```sh
 npm install -D tailwindcss@latest
 ```
 
-Yeah I hear you in the back, still no text shadows, but hey at least you can style the sibling of a checkbox when the checkbox's parent is the third child in a list without leaving your HTML. Priorities people.
+Sí, te escucho al fondo, todavía no hay sombras de texto, pero bueno, al menos puedes estilizar el hermano de un checkbox cuando el padre del checkbox es el tercer hijo en una lista sin salir de tu HTML. Prioridades, gente.

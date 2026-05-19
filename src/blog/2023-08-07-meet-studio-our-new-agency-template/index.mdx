@@ -5,49 +5,49 @@ import { Image, Video } from "@/components/media";
 import template from "./template.png";
 
 export const meta = {
-  title: "Meet Studio: Our beautiful new agency site template",
-  description: `We just released Studio — a beautiful new agency website template we've been working on for the last couple of months for Tailwind UI.`,
+  title: "Conoce Studio: Nuestra nueva y hermosa plantilla de sitio para agencias",
+  description: `Acabamos de lanzar Studio — una nueva y hermosa plantilla de sitio web para agencias en la que hemos estado trabajando durante los últimos meses para Tailwind UI.`,
   date: "2023-08-07T10:30:00.000Z",
   authors: [adamwathan],
   image: twitterCard,
   excerpt: (
     <>
-      We just released <Link href="https://tailwindui.com/templates/studio">Studio</Link> — a beautiful new agency
-      website template we've been working on for the last couple of months for Tailwind UI.
+      Acabamos de lanzar <Link href="https://tailwindui.com/templates/studio">Studio</Link> — una nueva y hermosa plantilla de sitio web
+      para agencias en la que hemos estado trabajando durante los últimos meses para Tailwind UI.
     </>
   ),
 };
 
-We just released [Studio](https://tailwindui.com/templates/studio) — a beautiful new agency website template we've been working on for the last couple of months for Tailwind UI.
+Acabamos de lanzar [Studio](https://tailwindui.com/templates/studio) — una nueva y hermosa plantilla de sitio web para agencias en la que hemos estado trabajando durante los últimos meses para Tailwind UI.
 
 <Link href="https://tailwindui.com/templates/studio">
-  <Image src={template} alt="Learn about the Studio template" />
+  <Image src={template} alt="Aprende sobre la plantilla Studio" />
 </Link>
 
-We built it with Next.js, MDX, and of course Tailwind CSS, and it's the first template we've published using the new Next.js [App Router](https://nextjs.org/docs/app).
+La construimos con Next.js, MDX y, por supuesto, Tailwind CSS, y es la primera plantilla que publicamos usando el nuevo [App Router](https://nextjs.org/docs/app) de Next.js.
 
-Designing an agency template is an interesting project, because creative agencies commonly use their own website to show off some really flashy, bespoke ideas, and using a template just kind of feels strange when the goal is to show what your own company is capable of.
+Diseñar una plantilla de agencia es un proyecto interesante, porque las agencias creativas comúnmente usan su propio sitio web para mostrar algunas ideas realmente llamativas y personalizadas, y usar una plantilla simplemente se siente extraño cuando el objetivo es mostrar de lo que tu propia empresa es capaz.
 
-So we tried to approach this one with two goals in mind to actually make it useful to people:
+Así que intentamos abordar este con dos objetivos en mente para hacerlo realmente útil para la gente:
 
-1. **Teach people how to do some of the cool stuff you see on flash agency sites** — I've always believed our templates are just as (if not more) valuable as an educational resource than as simply templates, so we wanted to use this template as an opportunity to show off how we'd build a lot of the cool interactive and animated details you see on these sorts of sites.
-2. **Design it for agencies that don't sell design** — there are a lot of agencies out there who just focus on engineering work, and a lot of the time those companies struggle to stand out design-wise. We tried to design this template in a way that it didn't depend on tons of screenshots of design work and stuff to look good, so that an agency that focuses on code could use it as a starting point for their own site.
+1.  **Enseñar a la gente cómo hacer algunas de las cosas geniales que ves en los sitios llamativos de las agencias** — Siempre he creído que nuestras plantillas son tan valiosas (si no más) como recurso educativo que como simples plantillas, así que queríamos usar esta plantilla como una oportunidad para mostrar cómo construiríamos muchos de los detalles interactivos y animados geniales que ves en este tipo de sitios.
+2.  **Diseñarla para agencias que no venden diseño** — Hay muchas agencias por ahí que solo se enfocan en el trabajo de ingeniería, y muchas veces esas empresas luchan por destacar en cuanto a diseño. Intentamos diseñar esta plantilla de manera que no dependiera de toneladas de capturas de pantalla de trabajo de diseño y cosas así para verse bien, para que una agencia que se enfoca en código pudiera usarla como punto de partida para su propio sitio.
 
-I think what we came up with nailed these two goals and I'm really proud of how it all turned out.
+Creo que lo que se nos ocurrió cumplió estos dos objetivos y estoy muy orgulloso de cómo quedó todo.
 
-Check out the [live preview](https://studio.tailwindui.com/) as always for the full experience — there are tons of cool details in this one that you have to see in the browser to really appreciate.
+Echa un vistazo a la [vista previa en vivo](https://studio.tailwindui.com/) como siempre para la experiencia completa — hay toneladas de detalles geniales en esta que tienes que ver en el navegador para apreciarlos realmente.
 
 ---
 
-## Delightfully animated
+## Deliciosamente animado
 
-One of the unspoken rules of agency websites is that they've gotta be flashy. We didn't go full replace-the-mouse-cursor or render-the-entire-site-with-WebGL but we did look for opportunities to tastefully introduce animations and interactivity wherever we could.
+Una de las reglas no escritas de los sitios web de agencias es que tienen que ser llamativos. No llegamos al extremo de reemplazar el cursor del ratón o renderizar todo el sitio con WebGL, pero sí buscamos oportunidades para introducir con buen gusto animaciones e interactividad donde pudimos.
 
-For instance, we built a light declarative component-based API around some features of [Framer Motion](https://www.framer.com/motion/) to make it easy to do scroll-triggered entrance animations:
+Por ejemplo, construimos una API ligera declarativa basada en componentes en torno a algunas características de [Framer Motion](https://www.framer.com/motion/) para facilitar la realización de animaciones de entrada activadas por desplazamiento:
 
 <Video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/scroll-entrance-animations.mp4" />
 
-The authoring experience for these types of animations turned out really nice — just wrap the stuff you want to fade in with a `FadeIn` or `FadeInStagger` component and you're in business:
+La experiencia de autoría para este tipo de animaciones resultó realmente agradable — simplemente envuelve las cosas que quieres que aparezcan gradualmente con un componente `FadeIn` o `FadeInStagger` y listo:
 
 ```jsx
 function Clients() {
@@ -56,7 +56,7 @@ function Clients() {
       <Container>
         <FadeIn className="flex items-center gap-x-8">
           <h2 className="font-display text-center text-sm font-semibold tracking-wider text-white sm:text-left">
-            We’ve worked with hundreds of amazing people
+            Hemos trabajado con cientos de personas increíbles
           </h2>
           <div className="h-px flex-auto bg-neutral-800" />
         </FadeIn>
@@ -77,33 +77,33 @@ function Clients() {
 }
 ```
 
-We also added this nice little animation to the logo where the mark is filled with a solid color on hover:
+También agregamos esta pequeña y agradable animación al logotipo donde la marca se llena con un color sólido al pasar el ratón:
 
 <Video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/logo-hover-animation.mp4" />
 
-This little detail looks small but interestingly you can't really do it without client-side navigation, because the animation would re-run when clicking the logo to go back to the homepage. Using a framework like Next.js, we're able to keep the logo filled in while hovering, even across URL changes, which feels a lot nicer.
+Este pequeño detalle parece pequeño pero, curiosamente, no puedes hacerlo realmente sin navegación del lado del cliente, porque la animación se volvería a ejecutar al hacer clic en el logotipo para volver a la página de inicio. Usando un framework como Next.js, podemos mantener el logotipo relleno mientras se pasa el ratón, incluso a través de cambios de URL, lo que se siente mucho mejor.
 
-The menu drawer animation turned out really nice as well, pushing the whole page down when it opens:
+La animación del cajón del menú también resultó muy agradable, empujando toda la página hacia abajo cuando se abre:
 
 <Video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/menu-slide-animation.mp4" />
 
-If you look closely, the logo and button don't just naively change color either — it's actually driven precisely by the position of the sheet that's sliding down, and the logo is actually partially white and partially black at the same time when the edge of the sheet is intersecting with it.
+Si miras de cerca, el logotipo y el botón tampoco cambian de color ingenuamente — en realidad está impulsado precisamente por la posición de la hoja que se desliza hacia abajo, y el logotipo es en realidad parcialmente blanco y parcialmente negro al mismo tiempo cuando el borde de la hoja se interseca con él.
 
-Another detail I really love is this interaction we came up with for the images on the case study pages:
+Otro detalle que realmente me encanta es esta interacción que se nos ocurrió para las imágenes en las páginas de estudio de caso:
 
 <Video src="https://assets.tailwindcss.com/blog/2023-08-07-meet-studio-our-new-agency-template/scroll-saturation-animation.mp4" />
 
-We wanted the whole site to feel black and white, but showing black and white images all of the time didn't feel right. So we came up with this treatment where the image starts off black and white, and the saturation animates back in as the image gets close to the center of the screen when scrolling. We also show the full color image on hover.
+Queríamos que todo el sitio se sintiera en blanco y negro, pero mostrar imágenes en blanco y negro todo el tiempo no se sentía bien. Así que se nos ocurrió este tratamiento donde la imagen comienza en blanco y negro, y la saturación vuelve a animarse a medida que la imagen se acerca al centro de la pantalla al desplazarse. También mostramos la imagen a todo color al pasar el ratón.
 
-We were also careful to try and implement all of these animations in a way that's mindful of people with vestibular motion disorders and are sensitive to these types of big animations. Using Framer Motion's `useReducedMotion` hook and the `motion-safe` variant in Tailwind, we do things like conditionally disable the navigation menu animation, and limit the scroll-driven entrance animations to opacity only so things aren't moving on the screen.
+También tuvimos cuidado de intentar implementar todas estas animaciones de una manera que tenga en cuenta a las personas con trastornos del movimiento vestibular y que son sensibles a este tipo de grandes animaciones. Usando el hook `useReducedMotion` de Framer Motion y la variante `motion-safe` en Tailwind, hacemos cosas como deshabilitar condicionalmente la animación del menú de navegación y limitar las animaciones de entrada impulsadas por el desplazamiento solo a la opacidad para que las cosas no se muevan en la pantalla.
 
 ---
 
-## Developer-centric case study and blog workflow
+## Flujo de trabajo de estudio de caso y blog centrado en el desarrollador
 
-Studio includes support for both [case studies](https://studio.tailwindui.com/work/family-fund) and [blog posts](https://studio.tailwindui.com/blog/future-of-web-development), and as you might have guessed if you've played with any of our other templates, we used this an excuse to integrate [MDX](https://mdxjs.com/) into the project.
+Studio incluye soporte tanto para [estudios de caso](https://studio.tailwindui.com/work/family-fund) como para [publicaciones de blog](https://studio.tailwindui.com/blog/future-of-web-development), y como podrías haber adivinado si has jugado con alguna de nuestras otras plantillas, usamos esto como excusa para integrar [MDX](https://mdxjs.com/) en el proyecto.
 
-Here's an example of what a basic case study looks like — authored mostly in markdown with some common metadata and support for custom components mixed in to the content:
+Aquí tienes un ejemplo de cómo se ve un estudio de caso básico — escrito principalmente en markdown con algunos metadatos comunes y soporte para componentes personalizados mezclados en el contenido:
 
 ```mdx
 import logo from "@/images/clients/phobia/logomark-dark.svg";
@@ -112,47 +112,47 @@ import imageJennyWilson from "./jenny-wilson.jpeg";
 
 export const caseStudy = {
   client: "Phobia",
-  title: "Overcome your fears, find your match",
+  title: "Supera tus miedos, encuentra tu pareja",
   description:
-    "Find love in the face of fear — Phobia is a dating app that matches users based on their mutual phobias so they can be scared together.",
+    "Encuentra el amor frente al miedo — Phobia es una aplicación de citas que empareja a los usuarios en función de sus fobias mutuas para que puedan asustarse juntos.",
   summary: [
-    "Find love in the face of fear — Phobia is a dating app that matches users based on their mutual phobias so they can be scared together.",
-    "We worked with Phobia to develop a new onboarding flow. A user is shown pictures of common phobias and we use the microphone to detect which ones make them scream, feeding the results into the matching algorithm.",
+    "Encuentra el amor frente al miedo — Phobia es una aplicación de citas que empareja a los usuarios en función de sus fobias mutuas para que puedan asustarse juntos.",
+    "Trabajamos con Phobia para desarrollar un nuevo flujo de incorporación. Se le muestran al usuario imágenes de fobias comunes y usamos el micrófono para detectar cuáles les hacen gritar, alimentando los resultados al algoritmo de emparejamiento.",
   ],
   logo,
   image: { src: imageHero },
   date: "2022-06",
-  service: "App development",
+  service: "Desarrollo de aplicaciones",
   testimonial: {
-    author: { name: "Jenny Wilson", role: "CPO of Phobia" },
+    author: { name: "Jenny Wilson", role: "CPO de Phobia" },
     content:
-      "The team at Studio went above and beyond with our onboarding, even finding a way to access the user’s microphone without triggering one of those annoying permission dialogs.",
+      "El equipo de Studio superó todas las expectativas con nuestra incorporación, incluso encontrando una manera de acceder al micrófono del usuario sin activar uno de esos molestos diálogos de permisos.",
   },
 };
 
 export const metadata = {
-  title: `${caseStudy.client} Case Study`,
+  title: `Estudio de caso de ${caseStudy.client}`,
   description: caseStudy.description,
 };
 
-## Overview
+## Descripción general
 
-Noticing incredibly high churn, the team at Phobia came to the conclusion that, instead of having a
-fundamentally flawed business idea, they needed to improve their onboarding process.
+Al notar una tasa de abandono increíblemente alta, el equipo de Phobia llegó a la conclusión de que, en lugar de tener una
+idea de negocio fundamentalmente defectuosa, necesitaban mejorar su proceso de incorporación.
 
-Previously users selected their phobias manually but this led to some users selecting things they
-weren’t actually afraid of to increase their matches.
+Anteriormente, los usuarios seleccionaban sus fobias manualmente, pero esto llevó a que algunos usuarios seleccionaran cosas a las que
+realmente no tenían miedo para aumentar sus coincidencias.
 
-To combat this, we developed a system that displays a slideshow of common phobias during
-onboarding. We then use malware to surreptitiously access their microphone and detect when they
-have audible reactions. We measure the pitch, volume and duration of their screams and feed that
-information to the matching algorithm.
+Para combatir esto, desarrollamos un sistema que muestra una presentación de diapositivas de fobias comunes durante
+la incorporación. Luego usamos malware para acceder subrepticiamente a su micrófono y detectar cuándo
+tienen reacciones audibles. Medimos el tono, el volumen y la duración de sus gritos y alimentamos esa
+información al algoritmo de emparejamiento.
 
-The next phase is a VR version of the onboarding flow where users are subjected to a series of
-scenarios that will determine their fears. We are currently developing the first scenario, working
-title: “Jumping out of a plane full of spiders”.
+La siguiente fase es una versión VR del flujo de incorporación donde los usuarios son sometidos a una serie de
+escenarios que determinarán sus miedos. Actualmente estamos desarrollando el primer escenario, título provisional:
+"Saltar de un avión lleno de arañas".
 
-## What we did
+## Qué hicimos
 
 <TagList>
   <TagListItem>Android</TagListItem>
@@ -161,27 +161,27 @@ title: “Jumping out of a plane full of spiders”.
   <TagListItem>VR</TagListItem>
 </TagList>
 
-<Blockquote author={{ name: "Jenny Wilson", role: "CPO of Phobia" }} image={{ src: imageJennyWilson }}>
-  The team at Studio went above and beyond with our onboarding, even finding a way to access the user’s microphone
-  without triggering one of those annoying permission dialogs.
+<Blockquote author={{ name: "Jenny Wilson", role: "CPO de Phobia" }} image={{ src: imageJennyWilson }}>
+  El equipo de Studio superó todas las expectativas con nuestra incorporación, incluso encontrando una manera de acceder al micrófono del usuario
+  sin activar uno de esos molestos diálogos de permisos.
 </Blockquote>
 
 <StatList>
-  <StatListItem value="20%" label="Churn rate" />
-  <StatListItem value="5x" label="Uninstalls" />
-  <StatListItem value="2.3" label="App store rating" />
-  <StatListItem value="8" label="Pending lawsuits" />
+  <StatListItem value="20%" label="Tasa de abandono" />
+  <StatListItem value="5x" label="Desinstalaciones" />
+  <StatListItem value="2.3" label="Calificación en la tienda de aplicaciones" />
+  <StatListItem value="8" label="Demandas pendientes" />
 </StatList>
 ```
 
-All of the typography styles for this template are totally custom and we took a bit of a different approach this time than we have in the past — instead of writing a bunch of complex CSS to avoid our typography styles clashing with any custom components in the MDX, we created a little remark plugin called [`remark-rehype-wrap`](https://github.com/bradlc/remark-rehype-wrap) that makes it possible to wrap chunks of Markdown content with a wrapper element.
+Todos los estilos de tipografía para esta plantilla son totalmente personalizados y adoptamos un enfoque un poco diferente esta vez que en el pasado — en lugar de escribir un montón de CSS complejo para evitar que nuestros estilos de tipografía choquen con cualquier componente personalizado en el MDX, creamos un pequeño plugin de remark llamado [`remark-rehype-wrap`](https://github.com/bradlc/remark-rehype-wrap) que permite envolver trozos de contenido Markdown con un elemento contenedor.
 
-This way, we could wrap anything that was vanilla Markdown content with a `typography` class, but make sure any custom components in the document were simply _not_ wrapped, rather than try to craft the CSS in such a way that it ignores those parts of the tree.
+De esta manera, podíamos envolver cualquier cosa que fuera contenido Markdown simple con una clase `typography`, pero asegurarnos de que cualquier componente personalizado en el documento simplemente _no_ estuviera envuelto, en lugar de intentar crear el CSS de tal manera que ignore esas partes del árbol.
 
-Both approaches totally work but it's always fun to try new ideas and see what you learn. I'm curious to see what a solution based on the new [style queries](https://ishadeed.com/article/css-container-style-queries/) feature coming to CSS might look like in the future too!
+Ambos enfoques funcionan totalmente, pero siempre es divertido probar nuevas ideas y ver qué aprendes. ¡Tengo curiosidad por ver cómo podría ser una solución basada en la nueva característica [style queries](https://ishadeed.com/article/css-container-style-queries/) que llegará a CSS en el futuro también!
 
 ---
 
-So that's [Studio](https://tailwindui.com/templates/studio)! Pull it down, tear it apart, and see if you learn a couple of new tricks.
+¡Así que eso es [Studio](https://tailwindui.com/templates/studio)! Descárgalo, desármalo y ve si aprendes un par de trucos nuevos.
 
-Like all of our templates, it's included with a one-time purchase [Tailwind UI all-access](https://tailwindui.com/all-access) license, which is the best way to support our work on Tailwind CSS and make it possible for us to keep building awesome stuff for years to come.
+Como todas nuestras plantillas, está incluida con una licencia de [acceso total a Tailwind UI](https://tailwindui.com/all-access) de compra única, que es la mejor manera de apoyar nuestro trabajo en Tailwind CSS y hacer posible que sigamos construyendo cosas increíbles durante años.

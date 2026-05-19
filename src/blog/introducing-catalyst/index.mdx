@@ -10,88 +10,89 @@ import catalystButtons from "./catalyst-buttons.png";
 import catalystTable from "./catalyst-table.png";
 
 export const meta = {
-  title: "Introducing Catalyst: A modern UI kit for React",
-  description: `We just released the first development preview of Catalyst, our new fully-componentized, batteries-included application UI kit for React.`,
+  title: "Presentando Catalyst: Un moderno kit de UI para React",
+  description: `Acabamos de lanzar la primera vista previa de desarrollo de Catalyst, nuestro nuevo kit de UI de aplicación para React, totalmente componentizado y con todo incluido.`,
   date: "2023-12-20T20:00:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      Today's the day — we just published the first development preview of Catalyst, our first fully-componentized,
-      batteries-included application UI kit for React, just in time for your holiday hacking sessions.
+      Hoy es el día: acabamos de publicar la primera vista previa de desarrollo de Catalyst, nuestro primer kit de UI de
+      aplicación para React, totalmente componentizado y con todo incluido, justo a tiempo para tus sesiones de hacking
+      navideñas.
     </>
   ),
 };
 
-<Image alt="Overview of components included in Catalyst" src={catalystUiKit} />
+<Image alt="Vista general de los componentes incluidos en Catalyst" src={catalystUiKit} />
 
-Today's the day — we just published the first development preview of [Catalyst](https://tailwindui.com/templates/catalyst), just in time for your holiday hacking sessions.
+Hoy es el día: acabamos de publicar la primera vista previa de desarrollo de [Catalyst](https://tailwindui.com/templates/catalyst), justo a tiempo para tus sesiones de hacking navideñas.
 
-**Catalyst is our first fully-componentized, batteries-included application UI kit** — real React components with thoughtfully designed APIs that build on each other to create a real component architecture, the same way we'd do it in a real application.
+**Catalyst es nuestro primer kit de UI de aplicación totalmente componentizado y con todo incluido**: componentes reales de React con APIs cuidadosamente diseñadas que se construyen unas sobre otras para crear una arquitectura de componentes real, de la misma manera que lo haríamos en una aplicación real.
 
-Check out the [live demo](https://catalyst.tailwindui.com), read the [documentation](https://catalyst.tailwindui.com/docs), and if you're a Tailwind UI All-Access customer, [download it](https://tailwindui.com/templates/catalyst/download) and try it out in a new project today.
+Echa un vistazo a la [demostración en vivo](https://catalyst.tailwindui.com), lee la [documentación](https://catalyst.tailwindui.com/docs), y si eres cliente de Tailwind UI All-Access, [descárgalo](https://tailwindui.com/templates/catalyst/download) y pruébalo hoy mismo en un nuevo proyecto.
 
-**Catalyst is currently in development preview** and there's a lot more to come, but we're releasing it today so you can play with it right away as we continue to build new components and find ways to make it an even better experience.
+**Catalyst está actualmente en vista previa de desarrollo** y hay mucho más por venir, pero lo estamos lanzando hoy para que puedas jugar con él de inmediato mientras continuamos construyendo nuevos componentes y encontramos formas de hacerlo una experiencia aún mejor.
 
 ---
 
-## Your components, not ours
+## Tus componentes, no los nuestros
 
-With Catalyst, we set out to build a UI kit that tomorrow's Stripe or Linear would feel good about using to build their products — design-obsessed teams who want to own their UI components, and would never choose an off-the-shelf library.
+Con Catalyst, nos propusimos construir un kit de UI que el Stripe o Linear del mañana se sentiría cómodo usando para construir sus productos: equipos obsesionados con el diseño que quieren ser dueños de sus componentes de UI y que nunca elegirían una biblioteca lista para usar.
 
-So it's not a dependency you install, instead you download the source and copy the components into your own project where they become the starting point for your own component system:
+Así que no es una dependencia que instalas, sino que descargas el código fuente y copias los componentes en tu propio proyecto, donde se convierten en el punto de partida para tu propio sistema de componentes:
 
 <Image alt="" src={catalystInstallation} />
 
-Want to change the border radius on your buttons? Just open `button.tsx` and change some classes. You don't need to open a GitHub issue and try to convince us to expose a new configuration option.
+¿Quieres cambiar el radio del borde en tus botones? Simplemente abre `button.tsx` y cambia algunas clases. No necesitas abrir un issue en GitHub e intentar convencernos de exponer una nueva opción de configuración.
 
-Catalyst is a "disappearing UI kit" — six months after you've installed it, you should almost forget it wasn't you who built the original components.
+Catalyst es un "kit de UI que desaparece": seis meses después de haberlo instalado, casi deberías olvidar que no fuiste tú quien construyó los componentes originales.
 
 ---
 
-## Design is in the details
+## El diseño está en los detalles
 
-Getting the visual style right on a project like this is hard. We went into it with a few goals:
+Lograr el estilo visual correcto en un proyecto como este es difícil. Lo abordamos con algunos objetivos:
 
-- **Be competitive** — we wanted to design something that could hold its own next to some of the nicest interfaces on the web today.
-- **Be timeless** — we didn't want to design something that would look dated in 6 months because it leaned too hard into specific trends.
-- **Be productive** — whatever we designed needed to feel fast and efficient to real users, not just look great in a Dribbble shot.
+- **Ser competitivos**: queríamos diseñar algo que pudiera competir con algunas de las interfaces más bonitas de la web actual.
+- **Ser atemporales**: no queríamos diseñar algo que pareciera anticuado en 6 meses porque se apoyaba demasiado en tendencias específicas.
+- **Ser productivos**: lo que diseñáramos necesitaba sentirse rápido y eficiente para los usuarios reales, no solo verse genial en una captura de Dribbble.
 
-It took a lot of work and there were a lot of trade-offs to balance, but I'm really in love with where we ended up:
+Nos costó mucho trabajo y hubo muchas concesiones que equilibrar, pero estoy realmente enamorado de dónde terminamos:
 
 <Image alt="" src={catalystComponents} />
 
-**To be competitive**, we invested in lots of details like subtle backdrop blurs on dropdown menus, perfecting the way shadows and borders blend with each other on form controls, and thoughtful use of animation in things like dialogs and toggle switches.
+**Para ser competitivos**, invertimos en muchos detalles como sutiles desenfoques de fondo en los menús desplegables, perfeccionando la forma en que las sombras y los bordes se mezclan entre sí en los controles de formulario, y un uso reflexivo de la animación en cosas como diálogos e interruptores.
 
 <Image alt="" src={catalystShadowDetail} />
 
-**To be timeless**, we tried to strike the right balance between flat and skeuomorphic design, with just enough depth cues that our components will look great even if the trends change a bit in either direction.
+**Para ser atemporales**, intentamos encontrar el equilibrio adecuado entre el diseño plano y el esqueumórfico, con suficientes señales de profundidad para que nuestros componentes se vean geniales incluso si las tendencias cambian un poco en cualquier dirección.
 
 <Image alt="" src={catalystButtons} />
 
-We also took inspiration from the browser, and used unopinionated blue focus rings to avoid picking a treatment that might soon look out of fashion.
+También nos inspiramos en el navegador y utilizamos anillos de enfoque azules sin opinión para evitar elegir un tratamiento que pronto podría parecer pasado de moda.
 
-**To be productive**, we worked carefully to make sure there was still plenty of whitespace, but that the UI was still dense enough to fit plenty of information on the screen.
+**Para ser productivos**, trabajamos cuidadosamente para asegurarnos de que todavía hubiera mucho espacio en blanco, pero que la interfaz de usuario fuera lo suficientemente densa como para mostrar mucha información en la pantalla.
 
 <Image alt="" src={catalystTable} />
 
-We also limited our use of transitions and animations only to places where it felt important, and even then tried to keep them fast so it never feels like you're waiting on the UI.
+También limitamos nuestro uso de transiciones y animaciones solo a lugares donde se sentía importante, e incluso entonces intentamos mantenerlas rápidas para que nunca sientas que estás esperando a la interfaz de usuario.
 
 <Video src="https://assets.tailwindcss.com/blog/introducing-catalyst/catalyst-switch.mp4" />
 
-**Catalyst also ships with full dark mode support**, and anything you build with Catalyst components automatically adapts between light and dark modes.
+**Catalyst también viene con soporte completo para el modo oscuro**, y cualquier cosa que construyas con componentes de Catalyst se adapta automáticamente entre los modos claro y oscuro.
 
 <Image alt="" src={catalystComponentsDarkMode} />
 
-It's not obvious, but there are a ton of little details we had to change to make things look their best in dark mode, like adjusting shadows, changing outer rings to inner rings to mimic the change in lighting, and more.
+No es obvio, pero hay un montón de pequeños detalles que tuvimos que cambiar para que las cosas se vieran lo mejor posible en modo oscuro, como ajustar sombras, cambiar anillos exteriores por anillos interiores para imitar el cambio de iluminación, y más.
 
 ---
 
-## Modeled after HTML
+## Modelado según HTML
 
-We spent a _lot_ of time working on the component APIs, trying very hard to make things really easy to drop in and use right away, without compromising on flexibility.
+Pasamos _mucho_ tiempo trabajando en las APIs de los componentes, esforzándonos mucho para que las cosas fueran realmente fáciles de incorporar y usar de inmediato, sin comprometer la flexibilidad.
 
-It's common for UI libraries to use APIs like this:
+Es común que las bibliotecas de UI usen APIs como esta:
 
 ```jsx
 // [!code filename:JSX]
@@ -106,11 +107,11 @@ function Example() {
 }
 ```
 
-But with all the props living on the same component, it starts to get difficult to do things like add a class just to the `<input>` element itself.
+Pero con todos los props viviendo en el mismo componente, comienza a ser difícil hacer cosas como agregar una clase solo al elemento `<input>`.
 
-Ultimately that led us to APIs that closely mirrored HTML, where it's rare that a single component renders more than one element.
+Finalmente, eso nos llevó a APIs que reflejaban de cerca HTML, donde es raro que un solo componente renderice más de un elemento.
 
-Creating a text field with Catalyst looks like this for example:
+Crear un campo de texto con Catalyst se ve así, por ejemplo:
 
 ```jsx {{ filename: 'JSX', style: 'framed', color: 'indigo' }}
 import { Description, Field, Label } from "@/components/fieldset";
@@ -127,7 +128,7 @@ function Example() {
 }
 ```
 
-By keeping things composable like this, it makes it really easy to do things like constrain the width of the input, without constraining the width of any of the other elements:
+Al mantener las cosas componibles de esta manera, es realmente fácil hacer cosas como restringir el ancho de la entrada, sin restringir el ancho de ninguno de los otros elementos:
 
 ```jsx {{ filename: 'JSX', style: 'framed', color: 'fuchsia' }}
 import { Description, Field, Label } from "@/components/fieldset";
@@ -145,7 +146,7 @@ function Example() {
 }
 ```
 
-It also makes it easy to move the description _below_ the input, instead of above:
+También facilita mover la descripción _debajo_ de la entrada, en lugar de arriba:
 
 {/* prettier-ignore */}
 ```jsx {{ filename: 'JSX', style: 'framed', color: 'sky' }}
@@ -164,36 +165,36 @@ function Example() {
 }
 ```
 
-It took a lot of experimenting to figure out the right way to make these APIs work, especially around details like adding layout styles to the right children, but the payoff was worth it, and these components are really a delight to use.
+Costó mucha experimentación descubrir la forma correcta de hacer funcionar estas APIs, especialmente en detalles como agregar estilos de diseño a los hijos correctos, pero la recompensa valió la pena, y estos componentes son realmente un placer de usar.
 
 ---
 
-## Powered by the next generation of Headless UI
+## Impulsado por la próxima generación de Headless UI
 
-We released the first version of [Headless UI](https://headlessui.com/) back in the summer of 2020, but it's been just over a year now since the last significant feature release because of all the work we've been focused on with Tailwind CSS itself.
+Lanzamos la primera versión de [Headless UI](https://headlessui.com/) en el verano de 2020, but ha pasado poco más de un año desde el último lanzamiento significativo de características debido a todo el trabajo en el que nos hemos centrado con Tailwind CSS.
 
-Catalyst was the perfect excuse to get our hands dirty with Headless UI again, and we quickly found lots of ways to improve the project to simplify the code in Catalyst itself.
+Catalyst fue la excusa perfecta para ensuciarnos las manos con Headless UI nuevamente, y rápidamente encontramos muchas formas de mejorar el proyecto para simplificar el código en Catalyst.
 
-We just published Headless UI v2.0.0-alpha.1, which includes a ton of new stuff:
+Acabamos de publicar Headless UI v2.0.0-alpha.1, que incluye un montón de cosas nuevas:
 
-- **Built-in anchor positioning** — using [Floating UI](https://floating-ui.com/), components like `Menu`, `Listbox`, and more can now automatically position their popovers to be anchored to their trigger, adapting as needed to changes in the viewport.
-- **Headless checkbox component** — we've added a headless `Checkbox` component to complement our existing `RadioGroup` component, making it easy to build totally custom checkbox controls.
-- **HTML form components** — we've added `Input`, `Select`, `Textarea`, `Label`, `Description`, `Fieldset`, and `Legend` components that handle all of the ID generation and `aria-*` attribute mapping you need to do to connect form fields together.
-- **Improved hover and focus-visible detection** — using hooks from the awesome [React Aria](https://react-spectrum.adobe.com/react-aria/hooks.html) library under the hood, Headless UI now adds smarter `data-hover` and `data-focus` attributes to your controls that behave more consistently across different devices than the native pseudo-classes.
-- **Combobox list virtualization** — the next version of Headless UI can now handle giant lists of combobox options with no performance issues.
+- **Posicionamiento de anclaje incorporado**: usando [Floating UI](https://floating-ui.com/), componentes como `Menu`, `Listbox` y más ahora pueden posicionar automáticamente sus popovers para que estén anclados a su disparador, adaptándose según sea necesario a los cambios en el viewport.
+- **Componente de checkbox headless**: hemos agregado un componente `Checkbox` headless para complementar nuestro componente `RadioGroup` existente, lo que facilita la creación de controles de checkbox totalmente personalizados.
+- **Componentes de formulario HTML**: hemos agregado componentes `Input`, `Select`, `Textarea`, `Label`, `Description`, `Fieldset` y `Legend` que manejan toda la generación de ID y el mapeo de atributos `aria-*` que necesitas hacer para conectar los campos de formulario.
+- **Detección mejorada de hover y focus-visible**: usando hooks de la increíble biblioteca [React Aria](https://react-spectrum.adobe.com/react-aria/hooks.html) bajo el capó, Headless UI ahora agrega atributos `data-hover` y `data-focus` más inteligentes a tus controles que se comportan de manera más consistente en diferentes dispositivos que las pseudoclases nativas.
+- **Virtualización de listas Combobox**: la próxima versión de Headless UI ahora puede manejar listas gigantes de opciones de combobox sin problemas de rendimiento.
 
-...with plenty of other improvements to come, including a date picker, tooltips, and more.
+...con muchas otras mejoras por venir, incluyendo un selector de fechas, tooltips y más.
 
-These improvements are React-only for now during this early alpha period, but we plan to bring all of these improvements to Vue as well before tagging v2.0.
+Estas mejoras son solo para React por ahora durante este período alfa temprano, pero planeamos llevar todas estas mejoras a Vue también antes de etiquetar v2.0.
 
-We'll have documentation published for this stuff really soon, but couldn't resist getting Catalyst out before the holidays, even if it meant publishing the Headless UI docs a few days later.
+Pronto publicaremos la documentación para estas cosas, pero no pudimos resistirnos a sacar Catalyst antes de las vacaciones, incluso si eso significaba publicar la documentación de Headless UI unos días después.
 
 ---
 
-## Try it out
+## Pruébalo
 
-[Catalyst](https://tailwindui.com/templates/catalyst) is a free update for all [Tailwind UI All-Access](https://tailwindui.com/all-access) customers, and you can [download it](https://tailwindui.com/templates/catalyst/download) and start playing with this first release today.
+[Catalyst](https://tailwindui.com/templates/catalyst) es una actualización gratuita para todos los clientes de [Tailwind UI All-Access](https://tailwindui.com/all-access), y puedes [descargarlo](https://tailwindui.com/templates/catalyst/download) y comenzar a jugar con esta primera versión hoy.
 
-More work went into getting everything we're releasing today just right than you could ever imagine, but we're eager for feedback and ways it could be improved, so build some stuff with it and let us know what you think.
+Se invirtió más trabajo del que puedas imaginar para que todo lo que estamos lanzando hoy quede perfecto, pero estamos ansiosos por recibir comentarios y formas en que podría mejorarse, así que construye algunas cosas con él y cuéntanos qué piensas.
 
-We're going to take a couple weeks to recharge over the holidays, but we'll be right back into Catalyst in the new year, working on new components like application layouts, comboboxes, command palettes, tooltips, and more.
+Nos tomaremos un par de semanas para recargar energías durante las vacaciones, pero volveremos a Catalyst en el nuevo año, trabajando en nuevos componentes como diseños de aplicaciones, comboboxes, paletas de comandos, tooltips y más.

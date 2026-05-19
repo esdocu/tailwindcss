@@ -3,70 +3,70 @@ import stackedListExample from "./stacked-list-example.png";
 import { Image } from "@/components/media";
 export const meta = {
   private: true,
-  title: "Building React + Vue support for Tailwind UI",
-  description: `Hey! We're getting really close to releasing React + Vue support for Tailwind UI, so I thought it would be interesting to share some of the behind-the-scenes efforts that have gone into even making it possible.`,
+  title: "Construyendo soporte para React + Vue para Tailwind UI",
+  description: `¡Hola! Estamos muy cerca de lanzar el soporte para React + Vue para Tailwind UI, así que pensé que sería interesante compartir algunos de los esfuerzos detrás de escena que se han realizado para hacerlo posible.`,
   date: "2021-04-12T19:45:00.0Z",
   authors: [adamwathan],
   excerpt: (
     <>
-      Hey! We're getting _really_ close to releasing React + Vue support for Tailwind UI, so I thought it would be
-      interesting to share some of the behind-the-scenes efforts that have gone into even making it possible.
+      ¡Hola! Estamos _muy_ cerca de lanzar el soporte para React + Vue para Tailwind UI, así que pensé que sería
+      interesante compartir algunos de los esfuerzos detrás de escena que se han realizado para hacerlo posible.
     </>
   ),
 };
 
-Hey! We're getting _really_ close to releasing React + Vue support for Tailwind UI, so I thought it would be interesting to share some of the behind-the-scenes efforts that have gone into even making it possible.
+¡Hola! Estamos _muy_ cerca de lanzar el soporte para React + Vue para Tailwind UI, así que pensé que sería interesante compartir algunos de los esfuerzos detrás de escena que se han realizado para hacerlo posible.
 
-Grab some popcorn...
+Agarra unas palomitas...
 
-## The backstory
+## La historia de fondo
 
-From the day we started working on Tailwind UI somewhere in mid-2019 I knew that ultimately it would be 10x more valuable to people if they could grab fully interactive examples built using their favorite JS framework. Trying to make that happen for the first release was way too ambitious though, so we had to figure out how to get there one step at a time.
+Desde el día en que comenzamos a trabajar en Tailwind UI en algún momento a mediados de 2019, supe que, en última instancia, sería 10 veces más valioso para la gente si pudieran obtener ejemplos totalmente interactivos construidos con su framework JS favorito. Intentar que eso sucediera para el primer lanzamiento era demasiado ambicioso, así que tuvimos que averiguar cómo llegar allí paso a paso.
 
-We decided to focus on vanilla HTML first because it's totally universal, and even if something like JSX would be more helpful for some people, there are lots of existing tools out there for converting HTML to JSX that people could lean on already.
+Decidimos centrarnos primero en HTML vanilla porque es totalmente universal, e incluso si algo como JSX sería más útil para algunas personas, ya existen muchas herramientas para convertir HTML a JSX en las que la gente podría apoyarse.
 
-We also made the hard trade-off not to provide any JS for interactions like toggling a responsive menu or opening and closing a modal dialog in the first version. I felt like anything we provided would just do more harm than good, because there's no one JS framework that makes up the majority of the Tailwind user base. If we catered to React developers, we'd be making it harder to use for the 70% of people _not_ using React. If we catered to Vue developers, we'd be making it harder for the 70% of people _not_ using Vue. If we tried to write it in custom vanilla JS, well we'd be making it harder for literally everyone _(seriously do you have any idea how much code it takes to build a robust enter/leave transition system from scratch in JS?)_
+También hicimos la difícil concesión de no proporcionar ningún JS para interacciones como alternar un menú responsive o abrir y cerrar un diálogo modal en la primera versión. Sentí que cualquier cosa que proporcionáramos haría más daño que bien, porque no hay un solo framework JS que constituya la mayoría de la base de usuarios de Tailwind. Si atendiéramos a los desarrolladores de React, estaríamos dificultando su uso para el 70% de las personas que _no_ usan React. Si atendiéramos a los desarrolladores de Vue, estaríamos dificultándolo para el 70% de las personas que _no_ usan Vue. Si intentáramos escribirlo en JS vanilla personalizado, bueno, lo estaríamos dificultando literalmente para todos _(¿en serio tienes idea de cuánto código se necesita para construir un sistema robusto de transición de entrada/salida desde cero en JS?)_
 
-So instead I just documented the different states using comments in the HTML, and left it to the end user to wire it up with their favorite JS framework. I know a lot of people love that about [Bulma](https://bulma.io), and I think it was a great approach for us to start with as well.
+Así que, en cambio, simplemente documenté los diferentes estados usando comentarios en el HTML, y dejé que el usuario final lo conectara con su framework JS favorito. Sé que a mucha gente le encanta eso de [Bulma](https://bulma.io), y creo que también fue un gran enfoque para empezar.
 
-But once we felt like Tailwind UI was pretty fleshed out with hundreds of great examples, we decided it was time to tackle the JS problem and see what we could do.
+Pero una vez que sentimos que Tailwind UI estaba bastante completo con cientos de excelentes ejemplos, decidimos que era hora de abordar el problema de JS y ver qué podíamos hacer.
 
-## What should it even be?
+## ¿Qué debería ser siquiera?
 
-As an abstract concept adding "JavaScript support" to Tailwind UI sounds straightforward, but when you dig in to the details it is _not_. There are _so_ many decisions to make about what to even build, and so many trade-offs you have to consider when trying to make something useful for as many people as possible.
+Como concepto abstracto, agregar "soporte de JavaScript" a Tailwind UI suena sencillo, pero cuando profundizas en los detalles, _no lo es_. Hay _tantas_ decisiones que tomar sobre qué construir, y tantas concesiones que debes considerar al tratar de hacer algo útil para la mayor cantidad de personas posible.
 
-I tossed the whole concept around in the back of my head for a full year while working on Tailwind UI before I actually had a plan I was happy with. Ultimately, these are the core values I decided on when designing a solution:
+Le di vueltas a todo el concepto en mi cabeza durante un año completo mientras trabajaba en Tailwind UI antes de tener un plan con el que estuviera contento. En última instancia, estos son los valores centrales que decidí al diseñar una solución:
 
-1. **The promise of Tailwind UI is that it's just a code snippet** — it's easy to customize and adapt by directly editing the code. Any JS examples we provide need to respect this foundational idea.
-2. **The JS needs to be updateable**. Unlike the markup which we expect people to just totally own and edit to their heart's content, the JS needs to come from `node_modules` _somehow_, because building these things right is hard, there are going to be bugs, and we want to be able to fix them for people without asking them to copy a new code snippet. On top of that, we don't want people to have to carefully transport 200 lines of JS they didn't write around their codebase, and constantly worry about accidentally breaking some small implementation detail by mistake.
-3. **It just has to be better than vanilla HTML**. At the end of the day, the most important thing is that we make the existing experience _better_ for people using the JS frameworks we decide to add support for first. Any time I found myself frustrated by two competing trade-offs that made it hard to make something _perfect_, asking myself "is this still strictly better and in no ways worse for framework X users than vanilla HTML?" provided a lot of clarity.
+1. **La promesa de Tailwind UI es que es solo un fragmento de código** — es fácil de personalizar y adaptar editando directamente el código. Cualquier ejemplo de JS que proporcionemos debe respetar esta idea fundamental.
+2. **El JS necesita ser actualizable**. A diferencia del markup, que esperamos que la gente simplemente posea y edite a su antojo, el JS necesita provenir de `node_modules` _de alguna manera_, porque construir estas cosas bien es difícil, habrá errores, y queremos poder solucionarlos para la gente sin pedirles que copien un nuevo fragmento de código. Además de eso, no queremos que la gente tenga que transportar cuidadosamente 200 líneas de JS que no escribieron por su código base, y preocuparse constantemente por romper accidentalmente algún pequeño detalle de implementación por error.
+3. **Simplemente tiene que ser mejor que HTML vanilla**. Al final del día, lo más importante es que mejoremos la experiencia existente para las personas que usan los frameworks JS para los que decidimos agregar soporte primero. Cada vez que me encontraba frustrado por dos concesiones contrapuestas que dificultaban hacer algo _perfecto_, preguntarme "¿sigue siendo esto estrictamente mejor y de ninguna manera peor para los usuarios del framework X que HTML vanilla?" proporcionó mucha claridad.
 
-The other thing that was really important to me is that none of the underlying JS stuff was proprietary or Tailwind UI-specific. To me, Tailwind UI is not a UI kit like Ant Design or Material UI — those are great projects but it's not what I wanted to build.
+La otra cosa que fue realmente importante para mí es que nada del JS subyacente fuera propietario o específico de Tailwind UI. Para mí, Tailwind UI no es un kit de interfaz de usuario como Ant Design o Material UI — esos son grandes proyectos, pero no es lo que quería construir.
 
-To me, Tailwind UI is a collection of _blueprints_, showing you how to build awesome stuff using tools that are _already available_ to you. If you want to use things exactly as they come off the shelf you totally can and you'll get great results. But you should also be able to use Tailwind UI as a helpful starting point, tweak it to the nines, and end up with something that feels uniquely _yours_, even if we gave you a boost at the beginning.
+Para mí, Tailwind UI es una colección de _planos_, que te muestran cómo construir cosas increíbles usando herramientas que _ya están disponibles_ para ti. Si quieres usar las cosas exactamente como vienen de fábrica, puedes hacerlo totalmente y obtendrás excelentes resultados. Pero también deberías poder usar Tailwind UI como un punto de partida útil, modificarlo hasta el extremo y terminar con algo que se sienta únicamente _tuyo_, incluso si te dimos un impulso al principio.
 
-So before we could add JavaScript support to Tailwind UI, we needed to build some tools.
+Así que antes de que pudiéramos agregar soporte de JavaScript a Tailwind UI, necesitábamos construir algunas herramientas.
 
-## Building Headless UI
+## Construyendo Headless UI
 
-Years ago I remember seeing Kent C. Dodds' [downshift](https://www.downshift-js.com) library and thinking _"man, this is a cool concept — all of the complex behavior is tucked away in the library, but all of the actual markup and styling is left to the user"_.
+Hace años recuerdo haber visto la biblioteca [downshift](https://www.downshift-js.com) de Kent C. Dodds y pensar _"hombre, este es un concepto genial — todo el comportamiento complejo está escondido en la biblioteca, pero todo el markup y el estilo reales se dejan al usuario"_.
 
-This sort of approach is the perfect fit for Tailwind philosophically, because the entire goal of Tailwind is to help you build totally custom designs more quickly. Tailwind + a library of JS components that abstract away all of the keyboard navigation and accessibility logic without including any design opinions would be such a powerful combo — it would let teams building totally custom UIs move almost as fast as teams who were content to use hard-to-customize, opinionated frameworks.
+Este tipo de enfoque encaja perfectamente con Tailwind filosóficamente, porque todo el objetivo de Tailwind es ayudarte a construir diseños totalmente personalizados más rápidamente. Tailwind + una biblioteca de componentes JS que abstraigan toda la lógica de navegación por teclado y accesibilidad sin incluir ninguna opinión de diseño sería una combinación muy poderosa — permitiría a los equipos que construyen interfaces de usuario totalmente personalizadas moverse casi tan rápido como los equipos que se contentan con usar frameworks opinativos y difíciles de personalizar.
 
-We looked to see if there were any other tools out there solving these same problems, and while there were a few awesome projects in the space ([Reach UI](https://reach.tech) and [Reakit](https://reakit.io) especially at the time, and [react-aria](https://react-spectrum.adobe.com/react-aria/) since starting on our own library, phenomenal work by all those folks), ultimately we decided that something so important for our company would be best to build and control ourselves.
+Buscamos si había otras herramientas que resolvieran estos mismos problemas, y aunque había algunos proyectos increíbles en el espacio ([Reach UI](https://reach.tech) y [Reakit](https://reakit.io) especialmente en ese momento, y [react-aria](https://react-spectrum.adobe.com/react-aria/) desde que comenzamos nuestra propia biblioteca, trabajo fenomenal de toda esa gente), finalmente decidimos que algo tan importante para nuestra empresa sería mejor construirlo y controlarlo nosotros mismos.
 
-There were two big reasons we ended up starting our own project:
+Hubo dos grandes razones por las que terminamos iniciando nuestro propio proyecto:
 
-1. **We wanted the APIs to work well with a class-based styling solution like Tailwind.** A lot of the other tools out there expected you to write custom CSS to target the different bits of each component, which is very different than the workflow you use to style things with Tailwind. We wanted to design something that was very class-friendly.
-2. **We wanted to support multiple frameworks using a consistent API.** There are React libraries, Vue libraries, Angular libraries, and others, but each one is different, designed by different people with different tastes. We wanted something that would be as consistent as possible from framework to framework, so that the framework-specific examples in Tailwind UI wouldn't be radically different from each other.
+1. **Queríamos que las APIs funcionaran bien con una solución de estilo basada en clases como Tailwind.** Muchas de las otras herramientas esperaban que escribieras CSS personalizado para apuntar a las diferentes partes de cada componente, lo cual es muy diferente del flujo de trabajo que usas para estilizar cosas con Tailwind. Queríamos diseñar algo que fuera muy amigable con las clases.
+2. **Queríamos soportar múltiples frameworks usando una API consistente.** Hay bibliotecas de React, bibliotecas de Vue, bibliotecas de Angular y otras, pero cada una es diferente, diseñada por diferentes personas con diferentes gustos. Queríamos algo que fuera lo más consistente posible de un framework a otro, para que los ejemplos específicos del framework en Tailwind UI no fueran radicalmente diferentes entre sí.
 
-I was really excited about what we were going to end up with at the end, but holy crap this was going to be a lot of work.
+Estaba realmente emocionado por lo que íbamos a terminar al final, pero maldita sea, esto iba a ser mucho trabajo.
 
-### Getting the ball rolling
+### Poniendo la bola en marcha
 
-We decided to call this project "Headless UI" and in August of last year [Robin Malfait](https://twitter.com/malfaitrobin) joined the team to work on it full-time, pretty much exclusively.
+Decidimos llamar a este proyecto "Headless UI" y en agosto del año pasado [Robin Malfait](https://twitter.com/malfaitrobin) se unió al equipo para trabajar en él a tiempo completo, casi exclusivamente.
 
-The very first thing he worked on was a `Transition` component for React that would allow you to add enter/leave animations to elements, entirely using classes, and was very inspired by the [`<transition>`](https://v3.vuejs.org/guide/transitions-enterleave.html#enter-leave-transitions) component in Vue:
+Lo primero en lo que trabajó fue en un componente `Transition` para React que te permitiría agregar animaciones de entrada/salida a los elementos, completamente usando clases, y estaba muy inspirado en el componente [`<transition>`](https://v3.vuejs.org/guide/transitions-enterleave.html#enter-leave-transitions) en Vue:
 
 ```jsx
 <Transition
@@ -78,21 +78,21 @@ The very first thing he worked on was a `Transition` component for React that wo
   leaveFrom="opacity-100"
   leaveTo="opacity-0"
 >
-  I will fade in and out
+  Apareceré y desapareceré gradualmente
 </Transition>
 ```
 
-This is a great example of what I meant earlier when I said we really wanted to design components that were "class-friendly". This component makes it really easy to style your enter/leave transitions with regular old Tailwind utility classes, so it feels just like styling anything else in your app. It's also _not_ coupled to Tailwind in any way though, and you can use whatever classes you want!
+Este es un gran ejemplo de lo que quise decir antes cuando dije que realmente queríamos diseñar componentes que fueran "amigables con las clases". Este componente hace que sea realmente fácil estilizar tus transiciones de entrada/salida con clases de utilidad de Tailwind regulares, por lo que se siente como estilizar cualquier otra cosa en tu aplicación. Sin embargo, tampoco está acoplado a Tailwind de ninguna manera, ¡y puedes usar las clases que quieras!
 
-We published the [first public release](https://blog.tailwindcss.com/headless-ui-unstyled-accessible-ui-components) in October, and it included React and Vue libraries with the first three components:
+Publicamos el [primer lanzamiento público](https://blog.tailwindcss.com/headless-ui-unstyled-accessible-ui-components) en octubre, e incluía bibliotecas de React y Vue con los primeros tres componentes:
 
-- Menu Button (or dropdown)
-- Listbox (or custom select)
-- Switch (or toggle)
+- Botón de menú (o dropdown)
+- Listbox (o select personalizado)
+- Switch (o toggle)
 
-We landed on a set of APIs that used "compound components" to abstract away all of the complexity while communicating with each other via [context](https://reactjs.org/docs/context.html) (or [provide/inject](https://v3.vuejs.org/api/composition-api.html#provide-inject) in Vue).
+Aterrizamos en un conjunto de APIs que usaban "componentes compuestos" para abstraer toda la complejidad mientras se comunicaban entre sí a través de [context](https://reactjs.org/docs/context.html) (o [provide/inject](https://v3.vuejs.org/api/composition-api.html#provide-inject) en Vue).
 
-Here's what a custom dropdown looks like in React:
+Así es como se ve un dropdown personalizado en React:
 
 ```jsx
 import { Menu } from "@headlessui/react";
@@ -100,24 +100,24 @@ import { Menu } from "@headlessui/react";
 function MyDropdown() {
   return (
     <Menu as="div" className="relative">
-      <Menu.Button className="rounded bg-blue-600 px-4 py-2 text-white ...">Options</Menu.Button>
+      <Menu.Button className="rounded bg-blue-600 px-4 py-2 text-white ...">Opciones</Menu.Button>
       <Menu.Items className="absolute right-0 mt-1">
         <Menu.Item>
           {({ active }) => (
             <a className={`${active && "bg-blue-500 text-white"} ...`} href="/account-settings">
-              Account settings
+              Configuración de la cuenta
             </a>
           )}
         </Menu.Item>
         <Menu.Item>
           {({ active }) => (
             <a className={`${active && "bg-blue-500 text-white"} ...`} href="/documentation">
-              Documentation
+              Documentación
             </a>
           )}
         </Menu.Item>
         <Menu.Item disabled>
-          <span className="opacity-75 ...">Invite a friend (coming soon!)</span>
+          <span className="opacity-75 ...">Invitar a un amigo (¡próximamente!)</span>
         </Menu.Item>
       </Menu.Items>
     </Menu>
@@ -125,83 +125,83 @@ function MyDropdown() {
 }
 ```
 
-You'll notice that to do things like style the "active" dropdown item, we use a [render prop](https://reactjs.org/docs/render-props.html) (or a [scoped slot](https://v3.vuejs.org/guide/component-slots.html#scoped-slots) in Vue):
+Notarás que para hacer cosas como estilizar el elemento de dropdown "activo", usamos una [render prop](https://reactjs.org/docs/render-props.html) (o un [scoped slot](https://v3.vuejs.org/guide/component-slots.html#scoped-slots) en Vue):
 
 ```jsx
 <Menu.Item>
   {({ active }) => (
     <a className={`${active && "bg-blue-500 text-white"} ...`} href="/documentation">
-      Documentation
+      Documentación
     </a>
   )}
 </Menu.Item>
 ```
 
-Render props aren't as common as they used to be because hooks have replaced the need for them in many situations. But for this sort of problem where you need access to internal state that's managed by the component you're consuming, they are still the right (only?) solution, and very elegant.
+Las render props no son tan comunes como solían ser porque los hooks han reemplazado la necesidad de ellas en muchas situaciones. Pero para este tipo de problema donde necesitas acceso al estado interno que es administrado por el componente que estás consumiendo, siguen siendo la solución correcta (¿la única?) y muy elegante.
 
-### Designing the right components
+### Diseñando los componentes correctos
 
-After releasing the first version of Headless UI in October, we buckled down for a couple of months to release [Tailwind CSS v2.0](https://blog.tailwindcss.com/tailwindcss-v2), and then spent the last month of the year focused on bug fixes and lots of project house keeping before taking a break for the holidays.
+Después de lanzar la primera versión de Headless UI en octubre, nos pusimos manos a la obra durante un par de meses para lanzar [Tailwind CSS v2.0](https://blog.tailwindcss.com/tailwindcss-v2), y luego pasamos el último mes del año enfocados en la corrección de errores y mucho mantenimiento del proyecto antes de tomar un descanso para las vacaciones.
 
-When we came back, we buckled down hard to get to work on actually adding React + Vue support to Tailwind UI itself, and the first thing we needed to was audit all of the interactive behavior we needed for the examples in Tailwind UI and figure out what Headless UI abstractions we needed to design.
+Cuando volvimos, nos pusimos manos a la obra para trabajar en la adición de soporte para React + Vue a Tailwind UI, y lo primero que necesitábamos era auditar todo el comportamiento interactivo que necesitábamos para los ejemplos en Tailwind UI y averiguar qué abstracciones de Headless UI necesitábamos diseñar.
 
-This was actually a pretty interesting and challenging job, because it's really not always obvious how a certain design-specific interaction should map to an established UI pattern that has known accessibility expectations.
+Este fue en realidad un trabajo bastante interesante y desafiante, porque realmente no siempre es obvio cómo una interacción específica del diseño debe mapearse a un patrón de interfaz de usuario establecido que tiene expectativas de accesibilidad conocidas.
 
-Some are obvious:
+Algunos son obvios:
 
-- A modal dialog should be a [dialog](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)
-- A toggle should be a [switch](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Switch_role)
-- A dropdown should be a [menu](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) _(well, sometimes...)_
+- Un diálogo modal debe ser un [dialog](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)
+- Un toggle debe ser un [switch](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/Switch_role)
+- Un dropdown debe ser un [menu](https://www.w3.org/TR/wai-aria-practices/examples/menu-button/menu-button-links.html) _(bueno, a veces...)_
 
-But some are a lot trickier. For example, what about mobile menus, the kind of thing you open with a hamburger button?
+Pero algunos son mucho más complicados. Por ejemplo, ¿qué pasa con los menús móviles, el tipo de cosa que abres con un botón de hamburguesa?
 
-_If it opens kinda like a popup, is that a menu like a dropdown?_
+_Si se abre como un popup, ¿es eso un menú como un dropdown?_
 
-_What if it slides in from the side of the screen?_
+_¿Qué pasa si se desliza desde el costado de la pantalla?_
 
-_What if it just opens in place and pushes the rest of the page further down?_
+_¿Qué pasa si simplemente se abre en su lugar y empuja el resto de la página hacia abajo?_
 
-We worked through questions like this regularly, and landing on good solutions took a lot of research and experimentation. We're lucky to have [David Luhr](https://twitter.com/david_luhr) on the team who has specialized in accessibility for a long time, and with his help we were able to feel really good about the solutions we landed on.
+Trabajamos en preguntas como esta regularmente, y llegar a buenas soluciones requirió mucha investigación y experimentación. Tenemos la suerte de tener a [David Luhr](https://twitter.com/david_luhr) en el equipo, que se ha especializado en accesibilidad durante mucho tiempo, y con su ayuda pudimos sentirnos realmente bien con las soluciones a las que llegamos.
 
-Here's what we decided we needed in order to support the patterns that already existed in Tailwind UI:
+Esto es lo que decidimos que necesitábamos para soportar los patrones que ya existían en Tailwind UI:
 
-- **Menu Button**. Used for dropdown menus that only contain links or buttons, like a little actions menu at the end of a table row.
-- **Listbox**. For custom `select` implementations where you want to include extra stuff in the `option` elements. For example a country picker where you put a flag next to each country.
-- **Switch**. For custom toggle switches that behave like checkboxes.
-- **Disclosure**. For showing/hiding content in place. Think like collapsible FAQ questions. Also useful for bigger chunks of UI too though, like a mobile menu that opens in place and pushes the rest of the page down.
-- **Dialog**. For, well, modal dialogs! But also for mobile navigation that slides out from the side of the page, and other "take-over"-style UIs, even if they don't look like a traditional panel-centered-in-the-screen modal.
-- **Popover**. For panels that pop up on top of the page when you click a button. This is useful for menus where you need lots of custom content that would violate the strictness of regular `role="menu"` menu buttons. We use these for some mobile menus, flyout menus in navigation bars, and other interesting places too. It's kind of like a menu/disclosure hybrid.
-- **Radio Group**. For custom radio selection UIs, like where you want a set of clickable cards instead of a boring little radio circle.
+- **Botón de Menú**. Se utiliza para menús desplegables que solo contienen enlaces o botones, como un pequeño menú de acciones al final de una fila de tabla.
+- **Listbox**. Para implementaciones personalizadas de `select` donde deseas incluir cosas adicionales en los elementos `option`. Por ejemplo, un selector de país donde pones una bandera al lado de cada país.
+- **Switch**. Para interruptores de palanca personalizados que se comportan como casillas de verificación.
+- **Disclosure**. Para mostrar/ocultar contenido en su lugar. Piensa en preguntas frecuentes plegables. También útil para fragmentos más grandes de la interfaz de usuario, como un menú móvil que se abre en su lugar y empuja el resto de la página hacia abajo.
+- **Dialog**. Para, bueno, ¡diálogos modales! Pero también para la navegación móvil que se desliza desde el costado de la página y otras interfaces de usuario de estilo "toma el control", incluso si no se ven como un panel tradicional centrado en la pantalla modal.
+- **Popover**. Para paneles que aparecen encima de la página cuando haces clic en un botón. Esto es útil para menús donde necesitas mucho contenido personalizado que violaría la rigidez de los botones de menú `role="menu"` regulares. Los usamos para algunos menús móviles, menús desplegables en barras de navegación y otros lugares interesantes también. Es como un híbrido de menú/disclosure.
+- **Radio Group**. Para interfaces de usuario de selección de radio personalizadas, como donde deseas un conjunto de tarjetas en las que se puede hacer clic en lugar de un aburrido círculo de radio.
 
-We ran into tons of challenges building this stuff, especially around complex stuff like focus management, and _especially_ around nested focus management.
+Nos encontramos con toneladas de desafíos al construir estas cosas, especialmente en torno a cosas complejas como la gestión del foco, y _especialmente_ en torno a la gestión del foco anidado.
 
-Imaging you have a modal that opens, and inside that modal there's a dropdown. You open the modal, then open the dropdown, and hit escape. What happens? Well the dropdown should close right, but the modal should stay open.
+Imagina que tienes un modal que se abre, y dentro de ese modal hay un dropdown. Abres el modal, luego abres el dropdown y presionas escape. ¿Qué pasa? Bueno, el dropdown debería cerrarse, ¿verdad?, pero el modal debería permanecer abierto.
 
-I guarantee 99% of modals on the internet would close too in this case, even though they aren't supposed to. But not ours — ours works!
+Te garantizo que el 99% de los modales en Internet también se cerrarían en este caso, aunque no deberían. Pero el nuestro no — ¡el nuestro funciona!
 
-We _(well mostly Robin)_ spent _months_ working on little details like this to make everything as bullet-proof as possible, and while I'm sure there have to be bugs hiding in there still somewhere, where we ended up feels _so_ rock solid compared to almost every UI you encounter day-to-day on the web.
+Nosotros _(bueno, principalmente Robin)_ pasamos _meses_ trabajando en pequeños detalles como este para hacer que todo sea lo más a prueba de balas posible, y aunque estoy seguro de que debe haber errores escondidos todavía en alguna parte, donde terminamos se siente _tan_ sólido como una roca en comparación con casi cualquier interfaz de usuario que encuentres día a día en la web.
 
-We still have a lot of new patterns we want to add to Headless UI like tabs, accordions, maybe even _gulp_ a datepicker, and we're looking forward to exploring other frameworks in the future (Alpine.js is next on our list), but we're super proud to call what we're releasing this week Headless UI v1.0 and commit to a stable API going forward.
+Todavía tenemos muchos patrones nuevos que queremos agregar a Headless UI como pestañas, acordeones, tal vez incluso _trago saliva_ un selector de fechas, y estamos ansiosos por explorar otros frameworks en el futuro (Alpine.js es el siguiente en nuestra lista), pero estamos súper orgullosos de llamar a lo que lanzamos esta semana Headless UI v1.0 y comprometernos con una API estable en el futuro.
 
-We think you're gonna love it. _&lt;/TimCook&gt;_
+Creemos que te va a encantar. _&lt;/TimCook&gt;_
 
-## Just enough abstraction
+## Solo la abstracción suficiente
 
-With the Headless UI stuff figured out, the next big problem was figuring out _exactly_ what a React or Vue version of an existing Tailwind UI example should look like.
+Con las cosas de Headless UI resueltas, el siguiente gran problema fue averiguar _exactamente_ cómo debería verse una versión React o Vue de un ejemplo existente de Tailwind UI.
 
-The examples in Tailwind UI are pure HTML snippets — you find something you like, copy the HTML into your project, then tweak it as much you like, chop it up into individual components, whatever you want. We don't make any assumptions about how you're going to use it, what elements you're going to keep or delete, or how you want to abstract away any duplication with your preferred tools.
+Los ejemplos en Tailwind UI son fragmentos de HTML puro — encuentras algo que te gusta, copias el HTML en tu proyecto, luego lo modificas tanto como quieras, lo divides en componentes individuales, lo que quieras. No hacemos ninguna suposición sobre cómo lo vas a usar, qué elementos vas a conservar o eliminar, o cómo quieres abstraer cualquier duplicación con tus herramientas preferidas.
 
-This is an easy decision when working with pure HTML — what other choice do you really even have? But when offering framework-specific examples, it gets a lot trickier to know exactly what to provide.
+Esta es una decisión fácil cuando se trabaja con HTML puro — ¿qué otra opción tienes realmente? Pero al ofrecer ejemplos específicos del framework, se vuelve mucho más complicado saber exactamente qué proporcionar.
 
-The biggest question was how hard should we try to remove any duplication, and what are the right approaches to doing so?
+La pregunta más importante era ¿cuánto deberíamos intentar eliminar cualquier duplicación y cuáles son los enfoques correctos para hacerlo?
 
-Both React and Vue are _component_ frameworks, and the way you reuse code in your projects is by extracting bits of UI into components that you can use over and over again.
+Tanto React como Vue son frameworks de _componentes_, y la forma en que reutilizas el código en tus proyectos es extrayendo bits de la interfaz de usuario en componentes que puedes usar una y otra vez.
 
-The challenge is that creating components like that is always _very_ project specific. Take this list component for example:
+El desafío es que crear componentes como ese siempre es _muy_ específico del proyecto. Toma este componente de lista como ejemplo:
 
-<Image alt="Stacked list component example from Tailwind UI" src={stackedListExample} />
+<Image alt="Ejemplo de componente de lista apilada de Tailwind UI" src={stackedListExample} />
 
-Fully componentized in a real app, the final code might look something like this:
+Totalmente componentizado en una aplicación real, el código final podría verse algo así:
 
 ```jsx
 <TeamList>
@@ -211,32 +211,32 @@ Fully componentized in a real app, the final code might look something like this
 </TeamList>
 ```
 
-It looks super clean sure, but it's forcing a lot of opinions on you.
+Se ve súper limpio, claro, pero te está imponiendo muchas opiniones.
 
-For example, it assumes the items are team members. What if you're building an invoicing app and you want to use this pattern for a list of clients instead? Hell, you might be using this for a sports betting app and these should be baseball teams, not even people!
+Por ejemplo, asume que los elementos son miembros del equipo. ¿Qué pasa si estás construyendo una aplicación de facturación y quieres usar este patrón para una lista de clientes en su lugar? ¡Demonios, podrías estar usando esto para una aplicación de apuestas deportivas y estos deberían ser equipos de béisbol, ni siquiera personas!
 
-It also makes assumptions about the shape of a `member` object. It would have to encode that it's pulling out a `name` and an `email` property, even though your data might be different.
+También hace suposiciones sobre la forma de un objeto `member`. Tendría que codificar que está extrayendo una propiedad `name` y una `email`, aunque tus datos podrían ser diferentes.
 
-The other issue is that in frameworks like Vue, you can only have one component per file. This means copying an example that was made up of 4-5 subcomponents would mean you have to copy 4-5 different snippets, create files for each one, and link them all together with the correct names/paths.
+El otro problema es que en frameworks como Vue, solo puedes tener un componente por archivo. Esto significa que copiar un ejemplo que estaba compuesto por 4-5 subcomponentes significaría que tienes que copiar 4-5 fragmentos diferentes, crear archivos para cada uno y vincularlos todos juntos con los nombres/rutas correctos.
 
-To me, something about doing all of this for people felt like going too far, at least for the problem we're trying to solve today. When everything is super broken up like that with predefined prop APIs and deliberately chosen component names, **it feels like you aren't supposed to change it anymore**. What I love about Tailwind UI is that clicking the "code" tab feels like opening up some complex piece of electronics and seeing all of the circuitry right there in front of you. It's a learning opportunity, and you can read the markup and class names and understand how it all works together.
+Para mí, algo acerca de hacer todo esto por la gente se sentía como ir demasiado lejos, al menos para el problema que estamos tratando de resolver hoy. Cuando todo está súper dividido así con APIs de props predefinidas y nombres de componentes elegidos deliberadamente, **se siente como si ya no se supiera que puedes cambiarlo**. Lo que me encanta de Tailwind UI es que hacer clic en la pestaña "código" se siente como abrir una pieza compleja de electrónica y ver todos los circuitos justo ahí frente a ti. Es una oportunidad de aprendizaje, y puedes leer el markup y los nombres de las clases y entender cómo funciona todo junto.
 
-I wrestled with it for a long time, but ultimately decided that right now we were trying to solve two main problems:
+Luché con esto durante mucho tiempo, but ultimately decided that right now we were trying to solve two main problems:
 
-1. **Give people code using the syntax they actually need**, like giving React users JSX instead of HTML so they don't have to manually convert things like `for` to `htmlFor`.
-2. **Make the interactive elements work out of the box**, so dropdowns, mobile menus, toggles, and everything else was ready to go, instead of having to write all of that boilerplate JS yourself.
+1. **Darle a la gente código usando la sintaxis que realmente necesitan**, como darle a los usuarios de React JSX en lugar de HTML para que no tengan que convertir manualmente cosas como `for` a `htmlFor`.
+2. **Hacer que los elementos interactivos funcionen de inmediato**, para que los dropdowns, menús móviles, toggles y todo lo demás estuviera listo para usar, en lugar de tener que escribir todo ese JS boilerplate tú mismo.
 
-I decided that the right solution was to focus on solving those problems, and be careful not to do anything that would turn Tailwind UI into a different product.
+Decidí que la solución correcta era centrarse en resolver esos problemas y tener cuidado de no hacer nada que convirtiera a Tailwind UI en un producto diferente.
 
-So this is what's different when you look at a React or Vue example compared to the vanilla HTML version:
+Así que esto es lo que es diferente cuando miras un ejemplo de React o Vue en comparación con la versión HTML vanilla:
 
-1. **Each framework example uses the right syntax** — React examples use JSX, and Vue examples are provided in the single-file component syntax.
-2. **Transitions are real now** — instead of comments telling you what classes to add at each phase of a transition, the transition is just there, using either a Headless UI transition component or Vue's native transition component.
-3. **Interactive elements are handled by Headless UI** — you'll see a few imports in any example that requires JS where we pull in the required Headless UI components and then those are used directly in the markup.
-4. **Any repeated chunks of markup have been converted into basic loops** — any data-driven loop stuff (like lists of people, or navigation items) are extracted into simple variables right there in the example to reduce duplication but still keep everything together in one place. In your own projects, you'd swap this out with data from an API or database or whatever, but we keep the examples simple and don't make any assumptions for you.
-5. **Icons are pulled in from the Heroicons library**. Instead of inlining the SVG directly whenever an icon is used, we pull them in from our React/Vue icon libraries instead to keep the markup simpler.
+1. **Cada ejemplo de framework usa la sintaxis correcta** — los ejemplos de React usan JSX, y los ejemplos de Vue se proporcionan en la sintaxis de componente de archivo único.
+2. **Las transiciones son reales ahora** — en lugar de comentarios que te dicen qué clases agregar en cada fase de una transición, la transición simplemente está ahí, usando un componente de transición de Headless UI o el componente de transición nativo de Vue.
+3. **Los elementos interactivos son manejados por Headless UI** — verás algunas importaciones en cualquier ejemplo que requiera JS donde traemos los componentes de Headless UI requeridos y luego esos se usan directamente en el markup.
+4. **Cualquier fragmento repetido de markup se ha convertido en bucles básicos** — cualquier cosa de bucle impulsada por datos (como listas de personas o elementos de navegación) se extrae en variables simples justo ahí en el ejemplo para reducir la duplicación pero aún mantener todo junto en un solo lugar. En tus propios proyectos, reemplazarías esto con datos de una API o base de datos o lo que sea, pero mantenemos los ejemplos simples y no hacemos ninguna suposición por ti.
+5. **Los iconos se extraen de la biblioteca Heroicons**. En lugar de incrustar el SVG directamente cada vez que se usa un icono, los traemos de nuestras bibliotecas de iconos de React/Vue para mantener el markup más simple.
 
-Here's an example of what it actually looks like:
+Aquí hay un ejemplo de cómo se ve realmente:
 
 ```jsx
 import { Menu, Transition } from "@headlessui/react";
@@ -279,7 +279,7 @@ export default function Example() {
               <>
                 <div>
                   <Menu.Button className="flex items-center rounded-full bg-gray-100 text-gray-400 hover:text-gray-600 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 focus:outline-none">
-                    <span className="sr-only">Open options</span>
+                    <span className="sr-only">Abrir opciones</span>
                     <DotsVerticalIcon className="h-5 w-5" aria-hidden="true" />
                   </Menu.Button>
                 </div>
@@ -308,7 +308,7 @@ export default function Example() {
                               "block px-4 py-2 text-sm",
                             )}
                           >
-                            View details
+                            Ver detalles
                           </a>
                         )}
                       </Menu.Item>
@@ -321,7 +321,7 @@ export default function Example() {
                               "block px-4 py-2 text-sm",
                             )}
                           >
-                            Send message
+                            Enviar mensaje
                           </a>
                         )}
                       </Menu.Item>
@@ -338,23 +338,23 @@ export default function Example() {
 }
 ```
 
-It's still a single example where you can see everything that's going on at once, and you can cut it up however makes the most sense for your project. You get to define your own prop APIs to meet your own needs, name things however makes the most sense for your domain, and fetch your data in whatever way works best with the other technologies you work with.
+Sigue siendo un solo ejemplo donde puedes ver todo lo que está sucediendo a la vez, y puedes cortarlo como tenga más sentido para tu proyecto. Puedes definir tus propias APIs de props para satisfacer tus propias necesidades, nombrar las cosas como tenga más sentido para tu dominio y obtener tus datos de la manera que funcione mejor con las otras tecnologías con las que trabajas.
 
-## The machine that makes it work
+## La máquina que lo hace funcionar
 
-So that's how it all works from a customer's perspective, but if you're curious how we actually built this stuff internally, it's pretty interesting and worth talking about.
+Así que así es como funciona todo desde la perspectiva del cliente, pero si tienes curiosidad sobre cómo construimos realmente estas cosas internamente, es bastante interesante y vale la pena hablar de ello.
 
-Tailwind UI is like 450 examples or something now, and converting all of that stuff to React/Vue by hand would have been absolute torture, and impossible to maintain in the long-term. So we needed some way to automate it.
+Tailwind UI tiene como 450 ejemplos o algo así ahora, y convertir todas esas cosas a React/Vue a mano habría sido una tortura absoluta, e imposible de mantener a largo plazo. Así que necesitábamos alguna forma de automatizarlo.
 
-If you're anything like me, the entire idea of automatically generating this stuff in different formats might make you cringe. For me at least, my gut reaction is just _"well there goes the human touch — it's just going to feel like machine-generated garbage now"_, and of course that is not acceptable to me at all — I want to be proud of the stuff we release, not feel like we had to make really ugly compromises.
+Si eres como yo, toda la idea de generar automáticamente estas cosas en diferentes formatos podría hacerte estremecer. Para mí, al menos, mi reacción instintiva es simplemente _"bueno, ahí va el toque humano — simplemente se sentirá como basura generada por una máquina ahora"_, y por supuesto eso no es aceptable para mí en absoluto — quiero estar orgulloso de las cosas que lanzamos, no sentir que tuvimos que hacer compromisos realmente feos.
 
-So however we did this, the output had to live up to our standards. This meant we were gonna have to build a system to do this ourselves, from scratch.
+Así que, como sea que hiciéramos esto, el resultado tenía que estar a la altura de nuestros estándares. Esto significaba que íbamos a tener que construir un sistema para hacer esto nosotros mismos, desde cero.
 
-For the first 2 months of the year, [Brad](https://twitter.com/bradlc) spent all of his time building a custom authoring chain specifically for Tailwind UI components that could take our HTML and turn it into React code that looked like it was hand-written by a person.
+Durante los primeros 2 meses del año, [Brad](https://twitter.com/bradlc) pasó todo su tiempo construyendo una cadena de autoría personalizada específicamente para los componentes de Tailwind UI que pudiera tomar nuestro HTML y convertirlo en código React que pareciera escrito a mano por una persona.
 
-Here's how it works — instead of authoring our examples in vanilla HTML, we author them in a sort of custom flavor of HTML full of custom elements that we ultimately transform to vanilla HTML using [PostHTML](https://github.com/posthtml/posthtml).
+Así es como funciona — en lugar de crear nuestros ejemplos en HTML vanilla, los creamos en una especie de sabor personalizado de HTML lleno de elementos personalizados que finalmente transformamos a HTML vanilla usando [PostHTML](https://github.com/posthtml/posthtml).
 
-Here's what one of our dropdown examples looks like in our internal authoring format:
+Así es como se ve uno de nuestros ejemplos de dropdown en nuestro formato de autoría interno:
 
 ```html
 <x-menu as="div" id="options-menu" class="relative inline-block text-left">
@@ -362,7 +362,7 @@ Here's what one of our dropdown examples looks like in our internal authoring fo
     <x-menu-button
       class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 focus:outline-none"
     >
-      Options
+      Opciones
       <x-heroicon type="solid" name="chevron-down" class="-mr-1 ml-2 h-5 w-5" />
     </x-menu-button>
   </div>
@@ -387,7 +387,7 @@ Here's what one of our dropdown examples looks like in our internal authoring fo
             x-active-class="bg-gray-100 text-gray-900"
             x-not-active-class="text-gray-700"
           >
-            Account settings
+            Configuración de la cuenta
           </a>
         </x-menu-item>
         <x-menu-item>
@@ -397,7 +397,7 @@ Here's what one of our dropdown examples looks like in our internal authoring fo
             x-active-class="bg-gray-100 text-gray-900"
             x-not-active-class="text-gray-700"
           >
-            Support
+            Soporte
           </a>
         </x-menu-item>
         <x-menu-item>
@@ -407,7 +407,7 @@ Here's what one of our dropdown examples looks like in our internal authoring fo
             x-active-class="bg-gray-100 text-gray-900"
             x-not-active-class="text-gray-700"
           >
-            License
+            Licencia
           </a>
         </x-menu-item>
       </div>
@@ -416,27 +416,27 @@ Here's what one of our dropdown examples looks like in our internal authoring fo
 </x-menu>
 ```
 
-You can probably already see why authoring things this way makes it so much easier to convert to something like React or Vue than just writing the HTML by hand.
+Probablemente ya puedas ver por qué crear cosas de esta manera hace que sea mucho más fácil convertirlas a algo como React o Vue que simplemente escribir el HTML a mano.
 
-We crawl this document as an AST, and actually transform it into _four_ formats:
+Rastreamos este documento como un AST, y en realidad lo transformamos en _cuatro_ formatos:
 
-1. The vanilla HTML you get when you copy the snippet.
-2. The HTML that gets injected into the preview pane, where we use some very quick and dirty Alpine.js to demo the different interactions in the example.
-3. The React snippet for you to copy.
-4. The Vue snippet for you to copy.
+1. El HTML vanilla que obtienes cuando copias el fragmento.
+2. El HTML que se inyecta en el panel de vista previa, donde usamos algo de Alpine.js muy rápido y sucio para demostrar las diferentes interacciones en el ejemplo.
+3. El fragmento de React para que lo copies.
+4. El fragmento de Vue para que lo copies.
 
-The key to getting sensible output is really just having total control of the input format. It's still hard work, but when you can encode the _intent_ of each example into a custom input format, converting that to another format turns out _so_ much better than trying to write something that can convert arbitrary jQuery to React or something.
+La clave para obtener un resultado sensato es realmente tener un control total del formato de entrada. Sigue siendo un trabajo duro, pero cuando puedes codificar la _intención_ de cada ejemplo en un formato de entrada personalizado, convertir eso a otro formato resulta _mucho_ mejor que intentar escribir algo que pueda convertir jQuery arbitrario a React o algo así.
 
-There's still some dark magic in there with regular expressions and all of the other usual suspects, but ultimately by keeping things as declarative as possible and hiding the real complexity inside of Headless UI, we're mostly just transforming markup which is a lot more restricted than regular code.
+Todavía hay algo de magia oscura ahí dentro con expresiones regulares y todos los demás sospechosos habituales, pero en última instancia, al mantener las cosas lo más declarativas posible y ocultar la complejidad real dentro de Headless UI, estamos principalmente transformando markup, que está mucho más restringido que el código regular.
 
-## When's it coming out?
+## ¿Cuándo sale?
 
-React and Vue support for Tailwind UI is going to be available to everyone on Wednesday April 14th — two days from now! It's a completely free update for all customers, you'll just see a new little dropdown appear in the UI for changing the snippet language and you'll be ready to go.
+El soporte de React y Vue para Tailwind UI estará disponible para todos el miércoles 14 de abril — ¡dentro de dos días! Es una actualización completamente gratuita para todos los clientes, simplemente verás aparecer un nuevo pequeño dropdown en la interfaz de usuario para cambiar el idioma del fragmento y estarás listo para empezar.
 
-We'll also be releasing Headless UI v1.0 on the same day _(of course, since how else would this Tailwind UI stuff even work)_ along with a brand new documentation site, so even if you're not a Tailwind UI customer, there's gonna be lots of new free open-source goodies for you to play with.
+También lanzaremos Headless UI v1.0 el mismo día _(por supuesto, ya que de qué otra manera funcionaría esto de Tailwind UI)_ junto con un nuevo sitio de documentación, así que incluso si no eres cliente de Tailwind UI, habrá muchas novedades gratuitas de código abierto para que juegues.
 
-Thanks as always to everyone supporting our work on this stuff — it's seriously a gift to get to work on tools like this for other developers every day and it brings us a ton of fulfillment to see people benefiting from what we build.
+Gracias como siempre a todos los que apoyan nuestro trabajo en estas cosas — es en serio un regalo poder trabajar en herramientas como esta para otros desarrolladores todos los días y nos llena de satisfacción ver a la gente beneficiarse de lo que construimos.
 
-Hope you enjoy the stuff!
+¡Espero que disfrutes de las cosas!
 
 – Adam

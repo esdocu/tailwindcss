@@ -5,40 +5,40 @@ import { YouTubeVideo } from "@/components/media";
 import card from "./card.jpg";
 
 export const meta = {
-  title: "Effortless Typography, Even in Dark Mode",
-  description: `Today we're announcing the next version of the Tailwind CSS Typography plugin, which brings easy dark mode support and a brand new customization API.`,
+  title: "Tipografía sin esfuerzo, incluso en Dark Mode",
+  description: `Hoy anunciamos la próxima versión del plugin Tailwind CSS Typography, que trae soporte fácil para dark mode y una API de personalización totalmente nueva.`,
   date: "2021-12-17T18:50:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      Today we're announcing the next version of the{" "}
-      <Link href="https://v3.tailwindcss.com/docs/typography-plugin">Tailwind CSS Typography plugin</Link>, which brings
-      easy dark mode support, a brand new customization API, and the `not-prose` class I wasn't sure we'd ever figure
-      out how to support.
+      Hoy anunciamos la próxima versión del{" "}
+      <Link href="https://v3.tailwindcss.com/docs/typography-plugin">plugin Tailwind CSS Typography</Link>, que trae
+      soporte fácil para dark mode, una API de personalización totalmente nueva y la clase `not-prose` que no estaba seguro de que alguna vez descubriríamos
+      cómo soportar.
     </>
   ),
 };
 
 <YouTubeVideo id="Aa2RjxU-BCw" />
 
-Today we're announcing the next version of the [Tailwind CSS Typography plugin](https://v3.tailwindcss.com/docs/typography-plugin), which brings easy dark mode support, a brand new customization API, and the `not-prose` class I wasn't sure we'd ever figure out how to support.
+Hoy anunciamos la próxima versión del [plugin Tailwind CSS Typography](https://v3.tailwindcss.com/docs/typography-plugin), que trae soporte fácil para dark mode, una API de personalización totalmente nueva y la clase `not-prose` que no estaba seguro de que alguna vez descubriríamos cómo soportar.
 
-For a full tour of everything that's new, check out [the official release video](https://www.youtube.com/watch?v=GEYkwfYytAM) on our YouTube channel.
+Para un recorrido completo de todo lo nuevo, mira [el video oficial de lanzamiento](https://www.youtube.com/watch?v=GEYkwfYytAM) en nuestro canal de YouTube.
 
-Tailwind CSS Typography v0.5 is designed for Tailwind CSS v3.0, so make sure you're on the latest version of Tailwind, then install the new plugin release from npm:
+Tailwind CSS Typography v0.5 está diseñado para Tailwind CSS v3.0, así que asegúrate de tener la última versión de Tailwind, luego instala la nueva versión del plugin desde npm:
 
 ```sh
 npm install -D @tailwindcss/typography@latest
 ```
 
-To learn more about everything the plugin provides, check out our update [typography plugin](https://v3.tailwindcss.com/docs/typography-plugin) documentation.
+Para aprender más sobre todo lo que ofrece el plugin, consulta nuestra [documentación actualizada del plugin typography](https://v3.tailwindcss.com/docs/typography-plugin).
 
 ---
 
-## Easy dark mode support
+## Soporte fácil para dark mode
 
-We've added a `prose-invert` class you can use to easily swap out your typography colors in dark mode:
+Hemos añadido una clase `prose-invert` que puedes usar para intercambiar fácilmente los colores de tu tipografía en dark mode:
 
 ```html
 <!-- [!code word:dark\:prose-invert] -->
@@ -47,28 +47,28 @@ We've added a `prose-invert` class you can use to easily swap out your typograph
 </body>
 ```
 
-The dark themes are hand-crafted by our expert design team, and automatically adapt to whatever gray scale you're using.
+Los temas oscuros están hechos a mano por nuestro equipo de diseño experto y se adaptan automáticamente a cualquier escala de grises que estés utilizando.
 
 ---
 
-## Pick your gray scale
+## Elige tu escala de grises
 
-Tailwind CSS v3.0 ships with five different sets of grays by default, and the updated typography plugin includes classes for each one, making it easy to match your typography to the rest of your site:
+Tailwind CSS v3.0 incluye cinco conjuntos diferentes de grises por defecto, y el plugin de tipografía actualizado incluye clases para cada uno, lo que facilita la combinación de tu tipografía con el resto de tu sitio:
 
 ```html
 <!-- [!code word:prose-slate] -->
 <article class="prose prose-slate">{{ markdown }}</article>
 ```
 
-We've simplified how we define color themes internally too, which makes it easier to add your own if you need to.
+También hemos simplificado la forma en que definimos los temas de color internamente, lo que facilita añadir los tuyos propios si es necesario.
 
-Check out the [documentation](https://v3.tailwindcss.com/docs/typography-plugin#choosing-a-gray-scale) to learn more.
+Consulta la [documentación](https://v3.tailwindcss.com/docs/typography-plugin#choosing-a-gray-scale) para obtener más información.
 
 ---
 
-## HTML-based customization API
+## API de personalización basada en HTML
 
-We've added tons of modifiers you can use to tweak specific elements in your prose styles, directly in your HTML:
+Hemos añadido toneladas de modificadores que puedes usar para ajustar elementos específicos en tus estilos de prosa, directamente en tu HTML:
 
 {/* prettier-ignore */}
 ```html
@@ -80,24 +80,24 @@ We've added tons of modifiers you can use to tweak specific elements in your pro
 </article>
 ```
 
-This makes it easy to do things like style links to match your brand, add a border radius to images, and tons more.
+Esto facilita hacer cosas como estilizar enlaces para que coincidan con tu marca, añadir un border radius a las imágenes y mucho más.
 
-Check out the [element modifiers](https://v3.tailwindcss.com/docs/typography-plugin#element-modifiers) documentation to learn more.
+Consulta la documentación de [modificadores de elementos](https://v3.tailwindcss.com/docs/typography-plugin#element-modifiers) para obtener más información.
 
 ---
 
-## Undo prose styles
+## Deshacer estilos de prosa
 
-Ever needed to stick some non-content HTML in the middle of your content? Now you can wrap that with `not-prose` to make sure the prose styles don't interfere with it:
+¿Alguna vez has necesitado meter algo de HTML que no es contenido en medio de tu contenido? Ahora puedes envolverlo con `not-prose` para asegurarte de que los estilos de prosa no interfieran con él:
 
 ```html
 <!-- [!code word:not-prose] -->
 <article class="prose">
-  <h1>My Heading</h1>
+  <h1>Mi encabezado</h1>
   <p>...</p>
 
   <div class="not-prose">
-    <!-- Some HTML that needs to be prose-free -->
+    <!-- Algún HTML que necesita estar libre de prosa -->
   </div>
 
   <p>...</p>
@@ -107,4 +107,4 @@ Ever needed to stick some non-content HTML in the middle of your content? Now yo
 
 ---
 
-Ready to try it out? Check out the [typography plugin documentation](https://v3.tailwindcss.com/docs/typography-plugin) to learn more and get started.
+¿Listo para probarlo? Consulta la [documentación del plugin typography](https://v3.tailwindcss.com/docs/typography-plugin) para obtener más información y empezar.

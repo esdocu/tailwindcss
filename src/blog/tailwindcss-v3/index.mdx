@@ -8,98 +8,98 @@ import { adamwathan } from "@/app/blog/authors";
 export const meta = {
   title: "Tailwind CSS v3.0",
   description:
-    "Tailwind CSS v3.0 is here — bringing incredible performance gains, huge workflow improvements, and a seriously ridiculous number of new features.",
+    "Tailwind CSS v3.0 ya está aquí — trayendo increíbles ganancias de rendimiento, enormes mejoras en el flujo de trabajo y un número seriamente ridículo de nuevas características.",
   date: "2021-12-09T16:00:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      Tailwind CSS v3.0 is here — bringing incredible performance gains, huge workflow improvements, and a seriously
-      ridiculous number of new features.
+      Tailwind CSS v3.0 ya está aquí — trayendo increíbles ganancias de rendimiento, enormes mejoras en el flujo de trabajo y un número seriamente
+      ridículo de nuevas características.
     </>
   ),
 };
 
 <YouTubeVideo id="TmWIrBPE6Bc" />
 
-Tailwind CSS v3.0 is here — bringing incredible performance gains, huge workflow improvements, and a seriously ridiculous number of new features.
+Tailwind CSS v3.0 ya está aquí — trayendo increíbles ganancias de rendimiento, enormes mejoras en el flujo de trabajo y un número seriamente ridículo de nuevas características.
 
-For a tour of some of the coolest new features, check out the {" "}<Link href="https://www.youtube.com/watch?v=mSC6GwizOag">"What's new in Tailwind CSS v3.0"</Link> video on our YouTube
+Para un recorrido por algunas de las características nuevas más geniales, echa un vistazo al video {" "}<Link href="https://www.youtube.com/watch?v=mSC6GwizOag">"Novedades en Tailwind CSS v3.0"</Link> en nuestro canal de YouTube
 channel.
 
-Tailwind CSS v3.0 has got to be our most exciting release ever, including improvements like:
+Tailwind CSS v3.0 tiene que ser nuestro lanzamiento más emocionante hasta la fecha, incluyendo mejoras como:
 
-- [Just-in-Time, all the time](#just-in-time-all-the-time) — lightning fast build times, stackable
-  variants, arbitrary value support, better browser performance, and more.
-- [Every color out of the box](#every-color-out-of-the-box) — including all of the extended palette
-  colors like cyan, rose, fuchsia, and lime, and fifty shades of ~~grey~~ gray.
-- [Colored box shadows](#colored-box-shadows) — for fun glow and reflection effects, and more natural
-  shadows on colored backgrounds.
-- [Scroll snap API](#scroll-snap-api) — a comprehensive and composable set of utilities for CSS-only
-  scroll snapping.
-- [Multi-column layout](#multi-column-layout) — so you can finally build that online newspaper you've
-  been dreaming about.
-- [Native form control styling](#native-form-control-styling) — make checkboxes, radio buttons, and
-  file inputs match your brand without reinventing the wheel.
-- [Print modifier](#print-modifier) — control how your site looks when someone prints it, right from
-  your HTML.
-- [Modern aspect ratio API](#modern-aspect-ratio-api) — no more padding hacks, well unless you need to
-  support Safari 14, which you probably do, but still.
-- [Fancy underline styles](#fancy-underline-styles) — the missing piece to making that side-project of
-  yours finally take off.
-- [RTL and LTR modifiers](#rtl-and-ltr-modifiers) — for complete control when building
-  multi-directional websites.
-- [Portrait and landscape modifiers](#portrait-and-landscape-modifiers) — honestly just because they
-  were really easy to add.
-- [Arbitrary properties](#arbitrary-properties) — now Tailwind supports CSS properties we've never even
-  heard of.
-- [Play CDN](#play-cdn) — the new Just-in-Time engine squeezed into a CDN script that runs right in the
-  browser.
-- **Tons of other utilities** — including support for touch-action, will-change, flex-basis, text-indent, scroll-behavior, and more.
+- [Just-in-Time, todo el tiempo](#just-in-time-all-the-time) — tiempos de compilación ultrarrápidos, variantes apilables,
+  soporte para valores arbitrarios, mejor rendimiento del navegador y más.
+- [Todos los colores listos para usar](#every-color-out-of-the-box) — incluyendo todos los colores de la paleta extendida
+  como cyan, rose, fuchsia y lime, y cincuenta sombras de ~~grey~~ gray.
+- [Sombras de caja coloreadas](#colored-box-shadows) — para efectos divertidos de brillo y reflejo, y sombras más naturales
+  en fondos coloreados.
+- [API de Scroll snap](#scroll-snap-api) — un conjunto completo y componible de utilidades para scroll snapping
+  solo con CSS.
+- [Layout Multi-columna](#multi-column-layout) — para que finalmente puedas construir ese periódico en línea con el que has
+  estado soñando.
+- [Estilizado de controles de formulario nativos](#native-form-control-styling) — haz que checkboxes, radio buttons y
+  entradas de archivo coincidan con tu marca sin reinventar la rueda.
+- [Modificador de impresión](#print-modifier) — controla cómo se ve tu sitio cuando alguien lo imprime, directamente desde
+  tu HTML.
+- [API moderna de aspect ratio](#modern-aspect-ratio-api) — no más trucos de padding, bueno, a menos que necesites
+  soportar Safari 14, lo cual probablemente hagas, pero aún así.
+- [Estilos de subrayado elegantes](#fancy-underline-styles) — la pieza faltante para hacer que ese proyecto paralelo tuyo
+  finalmente despegue.
+- [Modificadores RTL y LTR](#rtl-and-ltr-modifiers) — para un control completo al construir
+  sitios web multidireccionales.
+- [Modificadores Portrait y landscape](#portrait-and-landscape-modifiers) — honestamente, solo porque eran
+  muy fáciles de añadir.
+- [Propiedades arbitrarias](#arbitrary-properties) — ahora Tailwind soporta propiedades CSS de las que nunca habíamos
+  oído hablar.
+- [Play CDN](#play-cdn) — el nuevo motor Just-in-Time comprimido en un script CDN que se ejecuta directamente en el
+  navegador.
+- **Toneladas de otras utilidades** — incluyendo soporte para touch-action, will-change, flex-basis, text-indent, scroll-behavior y más.
 
-Plus a beautiful, brand-spanking new [documentation website](https://tailwindcss.com), loaded with improved content and examples on every page.
+Además de un hermoso y flamante [sitio web de documentación](https://tailwindcss.com), cargado con contenido mejorado y ejemplos en cada página.
 
-To start playing with Tailwind CSS v3.0 today, grab the latest release from npm:
+Para empezar a jugar con Tailwind CSS v3.0 hoy, obtén la última versión de npm:
 
 ```sh
 npm install -D tailwindcss@latest postcss autoprefixer
 ```
 
-...or head over to [Tailwind Play](https://play.tailwindcss.com) to try out the latest features right in the browser.
+...o dirígete a [Tailwind Play](https://play.tailwindcss.com) para probar las últimas características directamente en el navegador.
 
-Tailwind CSS v3.0 is a new major version of the framework and there are some minor breaking changes, but we've worked really hard to make the upgrade process as smooth as possible, and for most projects you should be able to install v3.0 without making any changes.
+Tailwind CSS v3.0 es una nueva versión mayor del framework y hay algunos cambios menores que rompen la compatibilidad, pero hemos trabajado muy duro para hacer el proceso de actualización lo más fluido posible, y para la mayoría de los proyectos deberías poder instalar v3.0 sin hacer ningún cambio.
 
-For example, [Tailwind UI](https://tailwindui.com) is probably the biggest Tailwind project on earth and every template is totally compatible with both v2 and v3 with no changes required.
+Por ejemplo, [Tailwind UI](https://tailwindui.com) es probablemente el proyecto Tailwind más grande del mundo y cada plantilla es totalmente compatible tanto con v2 como con v3 sin necesidad de cambios.
 
-For more details and step-by-step instructions on migrating to v3.0, check out the <Link href="https://v3.tailwindcss.com/docs/upgrade-guide">upgrade guide</Link>.
+Para más detalles e instrucciones paso a paso sobre cómo migrar a v3.0, consulta la <Link href="https://v3.tailwindcss.com/docs/upgrade-guide">guía de actualización</Link>.
 
 ---
 
-## Just-in-Time, all the time
+## Just-in-Time, todo el tiempo
 
-Back in March we introduced the brand new <Link href="/blog/just-in-time-the-next-generation-of-tailwind-css">Just-in-Time engine</Link> which brought huge performance gains, unlocked exciting new features like <Link href="https://v3.tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values">arbitrary values</Link>, and made complex variant configurations a thing of the past.
+En marzo introdujimos el nuevo <Link href="/blog/just-in-time-the-next-generation-of-tailwind-css">motor Just-in-Time</Link> que trajo enormes ganancias de rendimiento, desbloqueó nuevas y emocionantes características como <Link href="https://v3.tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values">valores arbitrarios</Link>, e hizo que las configuraciones complejas de variantes fueran cosa del pasado.
 
 <YouTubeVideo id="3O_3X7InOw8" />
 
-In Tailwind CSS v3.0, the new engine has gone stable and replaced the classic engine, so every Tailwind project can benefit from these improvements out of the box.
+En Tailwind CSS v3.0, el nuevo motor se ha vuelto estable y ha reemplazado al motor clásico, por lo que cada proyecto de Tailwind puede beneficiarse de estas mejoras de forma predeterminada.
 
 ---
 
-## Every color out of the box
+## Todos los colores listos para usar
 
-Before the new engine, we always had to be careful with CSS file size in development, and one of the biggest trade-offs we had to make was carefully limiting the color palette.
+Antes del nuevo motor, siempre teníamos que tener cuidado con el tamaño del archivo CSS en desarrollo, y una de las mayores concesiones que tuvimos que hacer fue limitar cuidadosamente la paleta de colores.
 
-In v3.0, every single color in the extended color palette is enabled by default, including lime, cyan, sky, fuchsia, rose, and fifty shades of gray.
+En v3.0, cada color de la paleta de colores extendida está habilitado por defecto, incluyendo lime, cyan, sky, fuchsia, rose y cincuenta sombras de gray.
 
-Check out the <Link href="https://v3.tailwindcss.com/docs/customizing-colors">color palette reference</Link> to learn more.
+Consulta la <Link href="https://v3.tailwindcss.com/docs/customizing-colors">referencia de la paleta de colores</Link> para obtener más información.
 
 ---
 
-## Colored box shadows
+## Sombras de caja coloreadas
 
-People have been asking us for colored shadows for years, but supporting it in a composable way that actually made sense was way harder than I expected it to be.
+La gente nos ha estado pidiendo sombras coloreadas durante años, pero soportarlo de una manera componible que realmente tuviera sentido fue mucho más difícil de lo que esperaba.
 
-After about five false starts, we finally figured out an approach we liked, and now Tailwind CSS v3.0 includes colored shadows:
+Después de unas cinco salidas en falso, finalmente descubrimos un enfoque que nos gustó, y ahora Tailwind CSS v3.0 incluye sombras coloreadas:
 
 <Figure>
 
@@ -111,7 +111,7 @@ After about five false starts, we finally figured out an approach we liked, and 
           <>shadow-cyan-500/50</>
         </p>
         <button className="rounded-md bg-cyan-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-cyan-500/50 focus:outline-none">
-          <>Subscribe</>
+          <>Suscribirse</>
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
@@ -119,7 +119,7 @@ After about five false starts, we finally figured out an approach we liked, and 
           <>shadow-blue-500/50</>
         </p>
         <button className="rounded-md bg-blue-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-blue-500/50 focus:outline-none">
-          <>Subscribe</>
+          <>Suscribirse</>
         </button>
       </div>
       <div className="flex shrink-0 flex-col items-center">
@@ -127,7 +127,7 @@ After about five false starts, we finally figured out an approach we liked, and 
           <>shadow-indigo-500/50</>
         </p>
         <button className="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-lg shadow-indigo-500/50 focus:outline-none">
-          <>Subscribe</>
+          <>Suscribirse</>
         </button>
       </div>
     </div>
@@ -136,31 +136,31 @@ After about five false starts, we finally figured out an approach we liked, and 
 
 ```html
 <!-- [!code word:shadow-lg shadow-cyan-500/50] -->
-<button class="bg-cyan-500 shadow-lg shadow-cyan-500/50 ...">Subscribe</button>
+<button class="bg-cyan-500 shadow-lg shadow-cyan-500/50 ...">Suscribirse</button>
 <!-- [!code word:shadow-lg shadow-blue-500/50] -->
-<button class="bg-blue-500 shadow-lg shadow-blue-500/50 ...">Subscribe</button>
+<button class="bg-blue-500 shadow-lg shadow-blue-500/50 ...">Suscribirse</button>
 <!-- [!code word:shadow-lg shadow-indigo-500/50] -->
-<button class="bg-indigo-500 shadow-lg shadow-indigo-500/50 ...">Subscribe</button>
+<button class="bg-indigo-500 shadow-lg shadow-indigo-500/50 ...">Suscribirse</button>
 ```
 
 </Figure>
 
-Learn more in the <Link href="https://v3.tailwindcss.com/docs/box-shadow-color">Box Shadow Color</Link> documentation.
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/box-shadow-color">Color de Sombra de Caja</Link>.
 
 ---
 
-## Scroll snap API
+## API de Scroll snap
 
-We've added a comprehensive set of utilities for the CSS Scroll Snap module, giving you the power to build very rich scroll snapping experiences directly in your HTML:
+Hemos añadido un conjunto completo de utilidades para el módulo CSS Scroll Snap, dándote el poder de construir experiencias de scroll snapping muy ricas directamente en tu HTML:
 
-<Figure hint="Scroll in the grid of images to see the expected behavior">
+<Figure hint="Desplázate en la cuadrícula de imágenes para ver el comportamiento esperado">
 
 <Example padding={false}>
   {
     <div className="relative">
       <div className="mb-6 ml-[50%] flex items-end justify-start pt-10">
         <div className="dark:highlight-white/10 ml-2 rounded bg-indigo-50 px-1.5 font-mono text-[0.625rem] leading-6 text-indigo-600 ring-1 ring-indigo-600 ring-inset dark:bg-indigo-500 dark:text-white dark:ring-0">
-          <>snap point</>
+          <>punto de snap</>
         </div>
         <div className="absolute top-0 bottom-0 left-1/2 border-l border-indigo-500"></div>
       </div>
@@ -240,13 +240,13 @@ We've added a comprehensive set of utilities for the CSS Scroll Snap module, giv
 
 </Figure>
 
-Start with the new <Link href="https://v3.tailwindcss.com/docs/scroll-margin">Scroll Margin</Link> utilities and work your way through the whole API to learn more.
+Comienza con las nuevas utilidades de <Link href="https://v3.tailwindcss.com/docs/scroll-margin">Margen de Scroll</Link> y recorre toda la API para obtener más información.
 
 ---
 
-## Multi-column layout
+## Layout Multi-columna
 
-We've added support for <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/columns">columns</Link> — the newspaper layout kind. These are actually super useful, and are great for things like footer navigation layouts too.
+Hemos añadido soporte para <Link href="https://developer.mozilla.org/en-US/docs/Web/CSS/columns">columns</Link> — del tipo de layout de periódico. Estas son realmente súper útiles, y son geniales para cosas como layouts de navegación de pie de página también.
 
 <Figure>
 
@@ -302,13 +302,13 @@ We've added support for <Link href="https://developer.mozilla.org/en-US/docs/Web
 
 </Figure>
 
-Learn more in the <Link href="https://v3.tailwindcss.com/docs/columns">columns</Link> documentation — and check out the new <Link href="https://v3.tailwindcss.com/docs/break-after">break-after/inside/before</Link> utilities as well.
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/columns">columns</Link> — y echa un vistazo también a las nuevas utilidades de <Link href="https://v3.tailwindcss.com/docs/break-after">break-after/inside/before</Link>.
 
 ---
 
-## Native form control styling
+## Estilizado de controles de formulario nativos
 
-We've added support for the new accent-color property, as well as a modifier for styling file input buttons to make it easier than ever to put your own touch on native form controls:
+Hemos añadido soporte para la nueva propiedad accent-color, así como un modificador para estilizar botones de entrada de archivo para que sea más fácil que nunca poner tu propio toque en los controles de formulario nativos:
 
 <Figure>
 
@@ -322,11 +322,11 @@ We've added support for the new accent-color property, as well as a modifier for
               <img
                 className="h-16 w-16 rounded-full object-cover"
                 src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
-                alt="Current profile photo"
+                alt="Foto de perfil actual"
               />
             </div>
             <label className="block">
-              <span className="sr-only">Choose profile photo</span>
+              <span className="sr-only">Elegir foto de perfil</span>
               <input
                 type="file"
                 className="block w-full text-sm text-slate-500 file:mr-4 file:rounded-full file:border-0 file:bg-violet-50 file:px-4 file:py-2 file:text-sm file:font-semibold file:text-violet-700 hover:file:bg-violet-100"
@@ -335,7 +335,7 @@ We've added support for the new accent-color property, as well as a modifier for
           </div>
           <label className="mt-6 flex items-center justify-center space-x-2 text-sm font-medium text-slate-600">
             <input type="checkbox" className="accent-violet-500" defaultChecked />
-            <span>Yes, send me all your stupid updates</span>
+            <span>Sí, envíenme todas sus estúpidas actualizaciones</span>
           </label>
         </form>
       </div>
@@ -360,11 +360,11 @@ We've added support for the new accent-color property, as well as a modifier for
       <img
         class="h-16 w-16 rounded-full object-cover"
         src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1361&q=80"
-        alt="Current profile photo"
+        alt="Foto de perfil actual"
       />
     </div>
     <label class="block">
-      <span class="sr-only">Choose profile photo</span>
+      <span class="sr-only">Elegir foto de perfil</span>
       <input
         type="file"
         class="block w-full text-sm text-slate-500 file:mr-4 file:rounded-full file:border-0 file:bg-violet-50 file:py-2 file:text-sm file:font-semibold file:text-violet-700 hover:file:bg-violet-100"
@@ -374,41 +374,41 @@ We've added support for the new accent-color property, as well as a modifier for
   <label class="mt-6 flex items-center justify-center space-x-2 text-sm font-medium text-slate-600">
     <!-- [!code word:accent-violet-500] -->
     <input type="checkbox" class="accent-violet-500" checked />
-    <span>Yes, send me all your stupid updates</span>
+    <span>Sí, envíenme todas sus estúpidas actualizaciones</span>
   </label>
 </form>
 ```
 
 </Figure>
 
-Learn more in the <Link href="https://v3.tailwindcss.com/docs/accent-color">accent color</Link> and <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#file-input-buttons">file input buttons</Link> documentation.
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/accent-color">accent color</Link> y <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#file-input-buttons">botones de entrada de archivo</Link>.
 
 ---
 
-## Print modifier
+## Modificador de impresión
 
-The new `print` modifier lets you style how your site should look when ~~animals~~ people print it:
+El nuevo modificador `print` te permite estilizar cómo debería verse tu sitio cuando los ~~animales~~ personas lo imprimen:
 
 ```html
 <div>
   <!-- [!code word:print\:hidden] -->
   <article class="print:hidden">
-    <h1>My Secret Pizza Recipe</h1>
-    <p>This recipe is a secret, and must not be shared with anyone</p>
+    <h1>Mi receta secreta de pizza</h1>
+    <p>Esta receta es secreta y no debe compartirse con nadie</p>
     <!-- ... -->
   </article>
   <!-- [!code word:print\:block] -->
-  <div class="hidden print:block">Are you seriously trying to print this? It's secret!</div>
+  <div class="hidden print:block">¿En serio estás intentando imprimir esto? ¡Es secreto!</div>
 </div>
 ```
 
-I'd say "learn more in the <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#print-styles">print styles documentation</Link>" but it wouldn't be true.
+Diría "obtén más información en la <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#print-styles">documentación de estilos de impresión</Link>" pero no sería verdad.
 
 ---
 
-## Modern aspect ratio API
+## API moderna de aspect ratio
 
-We've added support for the new native `aspect-ratio` property, which is starting to see solid browser support:
+Hemos añadido soporte para la nueva propiedad nativa `aspect-ratio`, que está empezando a tener un sólido soporte en navegadores:
 
 <Figure>
 
@@ -431,13 +431,13 @@ We've added support for the new native `aspect-ratio` property, which is startin
 
 </Figure>
 
-Learn more in the <Link href="https://v3.tailwindcss.com/docs/aspect-ratio">aspect ratio</Link> documentation.
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/aspect-ratio">aspect ratio</Link>.
 
 ---
 
-## Fancy underline styles
+## Estilos de subrayado elegantes
 
-Now you can change underline colors, thickness, and more:
+Ahora puedes cambiar los colores, el grosor y más del subrayado:
 
 <Figure>
 
@@ -445,19 +445,19 @@ Now you can change underline colors, thickness, and more:
   {
     <div className="mx-auto max-w-md bg-white p-8 text-sm leading-6 text-slate-900 shadow-lg sm:text-base sm:leading-7 dark:bg-slate-800 dark:text-slate-200">
       <p className="text-base leading-6">
-        I’m Derek, an astro-engineer based in Tatooine. I like to build X-Wings at{" "}
+        Soy Derek, un astro-ingeniero con sede en Tatooine. Me gusta construir X-Wings en{" "}
         <a href="#" className="font-semibold underline decoration-sky-500 decoration-2">
-          My Company, Inc
+          Mi Compañía, Inc
         </a>
-        . Outside of work, I like to{" "}
+        . Fuera del trabajo, me gusta{" "}
         <a href="#" className="font-semibold underline decoration-pink-500 decoration-dotted decoration-2">
-          watch pod-racing
+          ver carreras de pods
         </a>{" "}
-        and have{" "}
+        y tener{" "}
         <a href="#" className="font-semibold underline decoration-indigo-500 decoration-wavy decoration-2">
-          light-saber
-        </a>{" "}
-        fights.
+          peleas de sables de luz
+        </a>
+        .
       </p>
     </div>
   }
@@ -465,31 +465,31 @@ Now you can change underline colors, thickness, and more:
 
 ```html
 <p>
-  I’m Derek, an astro-engineer based in Tatooine. I like to build X-Wings at
+  Soy Derek, un astro-ingeniero con sede en Tatooine. Me gusta construir X-Wings en
   <!-- [!code word:decoration-sky-500 decoration-2] -->
-  <a href="#" class="underline decoration-sky-500 decoration-2"> My Company, Inc </a>. Outside of work, I like to{" "}
+  <a href="#" class="underline decoration-sky-500 decoration-2"> Mi Compañía, Inc </a>. Fuera del trabajo, me gusta{" "}
   <!-- [!code word:decoration-pink-500 decoration-dotted decoration-2] -->
-  <a href="#" class="underline decoration-pink-500 decoration-dotted decoration-2"> watch pod-racing </a> and have
+  <a href="#" class="underline decoration-pink-500 decoration-dotted decoration-2"> ver carreras de pods </a> y tener
   <!-- [!code word:decoration-indigo-500 decoration-wavy decoration-2] -->
-  <a href="#" class="underline decoration-indigo-500 decoration-wavy decoration-2"> light-saber </a>{" "} fights.
+  <a href="#" class="underline decoration-indigo-500 decoration-wavy decoration-2"> peleas de sables de luz </a>.
 </p>
 ```
 
 </Figure>
 
-Learn more in the <Link href="https://v3.tailwindcss.com/docs/text-decoration-color">text decoration color</Link>, <Link href="https://v3.tailwindcss.com/docs/text-decoration-style">text decoration style</Link>, <Link href="https://v3.tailwindcss.com/docs/text-decoration-thickness">text decoration thickness</Link>, and <Link href="https://v3.tailwindcss.com/docs/text-underline-offset">text underline offset</Link> documentation.
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/text-decoration-color">color de decoración de texto</Link>, <Link href="https://v3.tailwindcss.com/docs/text-decoration-style">estilo de decoración de texto</Link>, <Link href="https://v3.tailwindcss.com/docs/text-decoration-thickness">grosor de decoración de texto</Link>, y <Link href="https://v3.tailwindcss.com/docs/text-underline-offset">desplazamiento de subrayado de texto</Link>.
 
 ---
 
-## RTL and LTR modifiers
+## Modificadores RTL y LTR
 
-We've added experimental support for multi-directional layouts with new `rtl` and `ltr` modifiers:
+Hemos añadido soporte experimental para layouts multidireccionales con nuevos modificadores `rtl` y `ltr`:
 
 <Example>
   {
     <div className="mx-auto grid max-w-lg grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2">
       <div dir="ltr">
-        <p className="mb-4 text-sm font-medium text-slate-500 dark:text-slate-400">Left-to-right</p>
+        <p className="mb-4 text-sm font-medium text-slate-500 dark:text-slate-400">De izquierda a derecha</p>
         <div className="group flex items-center">
           <img
             className="h-12 w-12 shrink-0 rounded-full"
@@ -501,13 +501,13 @@ We've added experimental support for multi-directional layouts with new `rtl` an
               <>Tom Cook</>
             </p>
             <p className="text-sm font-medium text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300">
-              <>Director of Operations</>
+              <>Director de Operaciones</>
             </p>
           </div>
         </div>
       </div>
       <div dir="rtl">
-        <p className="mb-4 text-sm font-medium text-slate-500 dark:text-slate-400">Right-to-left</p>
+        <p className="mb-4 text-sm font-medium text-slate-500 dark:text-slate-400">De derecha a izquierda</p>
         <div className="group flex items-center">
           <img
             className="h-12 w-12 shrink-0 rounded-full"
@@ -540,13 +540,13 @@ We've added experimental support for multi-directional layouts with new `rtl` an
 </div>
 ```
 
-Learn more in the <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#rtl-support">RTL support</Link> documentation.
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#rtl-support">soporte RTL</Link>.
 
 ---
 
-## Portrait and landscape modifiers
+## Modificadores Portrait y landscape
 
-Use the new `portrait` and `landscape` modifiers to conditionally add styles when the viewport is in a specific orientation:
+Usa los nuevos modificadores `portrait` y `landscape` para añadir estilos condicionalmente cuando el viewport está en una orientación específica:
 
 ```html
 <div>
@@ -554,18 +554,18 @@ Use the new `portrait` and `landscape` modifiers to conditionally add styles whe
     <!-- ... -->
   </div>
   <div class="landscape:hidden">
-    <p>This experience is designed to be viewed in landscape. Please rotate your device to view the site.</p>
+    <p>Esta experiencia está diseñada para ser vista en landscape. Por favor, rota tu dispositivo para ver el sitio.</p>
   </div>
 </div>
 ```
 
-The <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#viewport-orientation">documentation for this feature</Link> has even less content than this section of this post does.
+La <Link href="https://v3.tailwindcss.com/docs/hover-focus-and-other-states#viewport-orientation">documentación para esta característica</Link> tiene incluso menos contenido que esta sección de esta publicación.
 
 ---
 
-## Arbitrary properties
+## Propiedades arbitrarias
 
-This might be illegal but we've made it possible to add totally arbitrary CSS that you can combine with modifiers like `hover`, `lg`, and whatever else:
+Esto podría ser ilegal, pero hemos hecho posible añadir CSS totalmente arbitrario que puedes combinar con modificadores como `hover`, `lg` y cualquier otro:
 
 ```html
 <div class="[mask-type:luminance] hover:[mask-type:alpha]">
@@ -573,13 +573,13 @@ This might be illegal but we've made it possible to add totally arbitrary CSS th
 </div>
 ```
 
-This is what inline styles want to be when they grow up. Learn more in the <Link href="https://v3.tailwindcss.com/docs/adding-custom-styles#arbitrary-properties">arbitrary properties</Link> documentation.
+Esto es lo que los estilos inline quieren ser cuando crezcan. Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/adding-custom-styles#arbitrary-properties">propiedades arbitrarias</Link>.
 
 ---
 
 ## Play CDN
 
-There's no way to make a sensible CSS-based CDN build for Tailwind CSS v3.0 so we had to do something different — we built a JavaScript library.
+No hay forma de hacer una compilación CDN basada en CSS sensata para Tailwind CSS v3.0, así que tuvimos que hacer algo diferente — construimos una biblioteca JavaScript.
 
 {/* prettier-ignore */}
 ```html
@@ -588,7 +588,7 @@ There's no way to make a sensible CSS-based CDN build for Tailwind CSS v3.0 so w
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Example</title>
+    <title>Ejemplo</title>
     <script src="https://cdn.tailwindcss.com/"></script> <!-- [!code ++] -->
   </head>
   <body>
@@ -597,12 +597,12 @@ There's no way to make a sensible CSS-based CDN build for Tailwind CSS v3.0 so w
 </html>
 ```
 
-Add that script tag to any HTML document and you can use every Tailwind feature, right in the browser. It's meant for development purposes only, but it sure is a fun way to build little demos or hack on a new idea.
+Añade esa etiqueta de script a cualquier documento HTML y podrás usar todas las características de Tailwind, directamente en el navegador. Está destinado solo para fines de desarrollo, pero seguro que es una forma divertida de construir pequeñas demos o experimentar con una nueva idea.
 
-Learn more in the <Link href="https://v3.tailwindcss.com/docs/installation/play-cdn">Play CDN</Link> documentation.
+Obtén más información en la documentación de <Link href="https://v3.tailwindcss.com/docs/installation/play-cdn">Play CDN</Link>.
 
 ---
 
-So there it is — Tailwind CSS v3.0! Head over to the new <Link href="/">documentation site</Link> to get started with it today.
+Así que ahí lo tienes — ¡Tailwind CSS v3.0! Dirígete al nuevo <Link href="/">sitio de documentación</Link> para empezar a usarlo hoy mismo.
 
-For a comprehensive list of every single change, check out the <Link href="https://github.com/tailwindlabs/tailwindcss/blob/master/CHANGELOG.md">changelog</Link> on GitHub.
+Para una lista completa de cada cambio, consulta el <Link href="https://github.com/tailwindlabs/tailwindcss/blob/master/CHANGELOG.md">changelog</Link> en GitHub.

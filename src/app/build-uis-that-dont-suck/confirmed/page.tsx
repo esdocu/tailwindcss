@@ -12,12 +12,14 @@ export default async function Course() {
         </GridContainer>
         <div className="mt-6 space-y-4">
           <GridContainer>
-            <h1 className="text-center text-5xl tracking-tighter text-balance text-white lg:text-8xl">You’re in!</h1>
+            <h1 className="text-center text-5xl tracking-tighter text-balance text-white lg:text-8xl">
+              ¡Ya estás dentro!
+            </h1>
           </GridContainer>
           <GridContainer>
             <p className="mx-auto max-w-xl text-center text-lg/7 font-medium text-pretty text-gray-400">
-              Look for the first video in your inbox any minute, and check again every morning for the next one in the
-              series.
+              Recibirás el primer video en tu bandeja de entrada en cualquier momento, y podrás revisar cada mañana para
+              ver el siguiente de la serie.
             </p>
           </GridContainer>
         </div>

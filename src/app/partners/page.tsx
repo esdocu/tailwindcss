@@ -2,21 +2,21 @@ import { FooterMeta } from "@/components/footer";
 import { MinusIcon, PlusIcon } from "@heroicons/react/16/solid";
 import { clsx } from "clsx";
 import type { Metadata } from "next";
-import { getDirectorySponsors, type DirectorySponsor } from "@/lib/sponsors";
+import { getDirectorySponsors, type DirectorySponsor, categoryTranslations } from "@/lib/sponsors";
 
 import { PartnerDirectory } from "./partner-directory";
 
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "Partners",
+  title: "Socios",
   description:
-    "Become a Tailwind CSS partner to support the project and get your brand in front of millions of developers.",
+    "Conviértete en socio de Tailwind CSS para apoyar el proyecto y mostrar tu marca a millones de desarrolladores.",
   openGraph: {
     type: "article",
-    title: "Partners - Tailwind CSS",
+    title: "Socios - Tailwind CSS",
     description:
-      "Become a Tailwind CSS partner to support the project and get your brand in front of millions of developers.",
+      "Conviértete en socio de Tailwind CSS para apoyar el proyecto y mostrar tu marca a millones de desarrolladores.",
     url: "https://tailwindcss.com/partners",
   },
 };
@@ -78,25 +78,24 @@ function Header() {
     <div className="mt-28 sm:mt-32 lg:mt-40">
       <div>
         <h1 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
-          Partners
+          Socios
         </h1>
         <p className="mt-6 max-w-[40ch] text-[2.5rem]/[2.75rem] tracking-tight text-pretty sm:text-[3.5rem]/[3.75rem]">
-          <strong className="font-normal text-gray-950 dark:text-white">Become part of the Tailwind ecosystem.</strong>{" "}
+          <strong className="font-normal text-gray-950 dark:text-white">Forma parte del ecosistema de Tailwind.</strong>{" "}
           <span className="text-gray-500 dark:text-gray-400">
-            Partner with Tailwind CSS to support the project, get your brand in front of millions of developers, and get
-            direct access to the team.
+            Asóciate con Tailwind CSS para apoyar el proyecto, mostrar tu marca ante millones de desarrolladores y obtener acceso directo al equipo.
           </span>
         </p>
       </div>
       <div className="mt-14 flex gap-4 whitespace-nowrap max-sm:flex-col">
         <DarkButtonLink href="#why" className="inline-flex items-center justify-center gap-2">
-          Become a partner
+          Conviértete en socio
           <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
             <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
           </svg>
         </DarkButtonLink>
         <LightButtonLink href="/insiders" className="inline-flex items-center justify-center gap-2">
-          Support as an individual
+          Apoya como individuo
           <svg
             fill="currentColor"
             aria-hidden="true"
@@ -150,51 +149,51 @@ function TestimonialLogo({ company, ...props }: { company: string } & React.SVGP
 function WhyPartner() {
   const features = [
     {
-      name: "Your brand in front of millions of developers",
+      name: "Tu marca frente a millones de desarrolladores",
       description:
-        "A sponsorship puts your brand in front of tens of millions of frontend developers building with Tailwind CSS.",
+        "El patrocinio coloca tu marca frente a decenas de millones de desarrolladores frontend que construyen con Tailwind CSS.",
       testimonial: {
         company: "Resend",
         quote:
-          "We've been part of the Tailwind CSS partner program since day one. Being on the homepage of a tool this widely used has put Resend in front of exactly the developers we want to reach.",
+          "Hemos formado parte del programa de socios de Tailwind CSS desde el primer día. Estar en la página de inicio de una herramienta de uso tan extendido ha colocado a Resend exactamente frente a los desarrolladores a los que queremos llegar.",
         name: "Zeno Rocha",
-        title: "Founder & CEO, Resend",
+        title: "Fundador y CEO, Resend",
       },
     },
     {
-      name: "Direct access to the Tailwind CSS team",
+      name: "Acceso directo al equipo de Tailwind CSS",
       description:
-        "Your team gets direct access to the Tailwind CSS team. A Slack channel, a call, a prioritized bug fix, or whatever it takes to unblock your team.",
+        "Tu equipo obtiene acceso directo al equipo de Tailwind CSS. Un canal de Slack, una llamada, una corrección de errores priorizada o lo que sea necesario para desbloquear a tu equipo.",
       testimonial: {
         company: "Vercel",
         quote:
-          "We build on Tailwind every day at Vercel. Having direct access to the Tailwind CSS team means we can move faster without worrying about getting blocked by framework-level issues. When something comes up, we can resolve it quickly with the team in Slack.",
+          "Construimos sobre Tailwind todos los días en Vercel. Tener acceso directo al equipo de Tailwind CSS significa que podemos avanzar más rápido sin preocuparnos por quedar bloqueados por problemas a nivel de framework. Cuando surge algo, podemos resolverlo rápidamente con el equipo en Slack.",
         name: "Andrew Qu",
-        title: "Chief of Software, Vercel",
+        title: "Jefe de Software, Vercel",
       },
     },
     {
-      name: "Tailored partnership opportunities",
+      name: "Oportunidades de asociación a la medida",
       description:
-        "Every partnership looks different. We'll work with you to find something that actually makes sense for your product.",
+        "Cada asociación es diferente. Trabajaremos contigo para encontrar algo que realmente tenga sentido para tu producto.",
       testimonial: {
         company: "CodeRabbit",
         quote:
-          "We worked with the Tailwind team to find a way to put CodeRabbit in front of their audience that felt native to how our product actually works. At the same time, we get to support a tool our team uses every day.",
+          "Trabajamos con el equipo de Tailwind para encontrar una manera de presentar CodeRabbit ante su audiencia que se sintiera nativa de cómo funciona realmente nuestro producto. Al mismo tiempo, podemos apoyar una herramienta que nuestro equipo usa todos los días.",
         name: "Aravind Putrevu",
-        title: "VP of Growth, CodeRabbit",
+        title: "VP de Crecimiento, CodeRabbit",
       },
     },
     {
-      name: "Support the future of Tailwind CSS",
+      name: "Apoya el futuro de Tailwind CSS",
       description:
-        "Tailwind CSS isn't owned by a big tech company. Your sponsorship directly funds the small team building the tool your developers use every day.",
+        "Tailwind CSS no es propiedad de una gran empresa tecnológica. Tu patrocinio financia directamente al pequeño equipo que construye la herramienta que tus desarrolladores usan todos los días.",
       testimonial: {
         company: "Shopify",
         quote:
-          "Tailwind has become core infrastructure for how the modern web gets built. At Shopify, we rely on it across the company, and supporting the small team behind it is an easy call.",
+          "Tailwind se ha convertido en una infraestructura central para cómo se construye la web moderna. En Shopify, confiamos en él en toda la empresa, y apoyar al pequeño equipo detrás de él es una decisión fácil.",
         name: "Ben Sehl",
-        title: "Product Director, Shopify",
+        title: "Director de Producto, Shopify",
       },
     },
   ];
@@ -207,14 +206,13 @@ function WhyPartner() {
             <h2 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
               <a href="#why">
                 <span aria-hidden="true">02 / </span>
-                Why become a partner?
+                ¿Por qué convertirse en socio?
               </a>
             </h2>
             <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
-              <strong className="font-medium text-gray-950 dark:text-white">More than a sponsorship.</strong>{" "}
+              <strong className="font-medium text-gray-950 dark:text-white">Más que un patrocinio.</strong>{" "}
               <span className="text-gray-500 dark:text-gray-400">
-                Get your brand in front of millions of developers, direct access to the team behind Tailwind CSS, and
-                help shape the future of the framework.
+                Coloca tu marca frente a millones de desarrolladores, obtén acceso directo al equipo detrás de Tailwind CSS y ayuda a dar forma al futuro del framework.
               </span>
             </p>
           </div>
@@ -285,76 +283,76 @@ function CheckmarkIcon() {
 function PartnerPlans() {
   const plans = [
     {
-      name: "Supporter",
+      name: "Colaborador",
       price: "$500",
       url: "https://buy.polar.sh/polar_cl_som3lU3ZaBEFOr4nZlkoAuRBhRbFDMoFzJUC04Jn1Sc",
-      description: "For companies who want to support Tailwind while getting some extra exposure.",
+      description: "Para empresas que desean apoyar a Tailwind mientras obtienen algo de exposición adicional.",
       features: [
-        { name: "Logo on the sponsors page", description: "your logo proudly displayed on the sponsors page." },
-        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
+        { name: "Logo en la página de patrocinadores", description: "tu logo se mostrará con orgullo en la página de patrocinadores." },
+        { name: "Acceso de equipo a Insiders", description: "todos los beneficios del nivel Insiders para todos en tu equipo." },
         {
-          name: "Support Tailwind CSS",
-          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
+          name: "Apoya a Tailwind CSS",
+          description: "duerme tranquilo sabiendo que estás apoyando el desarrollo de Tailwind CSS.",
         },
       ],
     },
     {
-      name: "Ambassador",
+      name: "Embajador",
       price: "$2,500",
       url: "https://buy.polar.sh/polar_cl_TqBd09tnOwN7SQf7YpOcUZnDwxMVQB58Snhas2cdEDL",
-      description: "For companies looking to boost visibility and credibility with the Tailwind community.",
+      description: "Para empresas que buscan aumentar la visibilidad y la credibilidad dentro de la comunidad de Tailwind.",
       features: [
         {
-          name: "Logo on the Tailwind homepage",
-          description: "your logo displayed in a rotating spot on the homepage.",
+          name: "Logo en la página de inicio de Tailwind",
+          description: "tu logo se mostrará en un espacio rotativo en la página de inicio.",
         },
-        { name: "Logo on the sponsors page", description: "your logo proudly displayed on the sponsors page." },
-        { name: "Website in the showcase", description: "a spot on the showcase page for your company’s website." },
-        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
+        { name: "Logo en la página de patrocinadores", description: "tu logo se mostrará con orgullo en la página de patrocinadores." },
+        { name: "Sitio web en la galería", description: "un espacio en la página de galería para el sitio web de tu empresa." },
+        { name: "Acceso de equipo a Insiders", description: "todos los beneficios del nivel Insiders para todos en tu equipo." },
         {
-          name: "Tailwind Plus team access",
-          description: "access to the UI Kit, templates, and 500+ components for your team.",
-        },
-        {
-          name: "Access to sponsor Discord",
-          description: "A private Discord channel for sponsors to talk to the Tailwind team.",
+          name: "Acceso de equipo a Tailwind Plus",
+          description: "acceso al UI Kit, plantillas y más de 500 componentes para tu equipo.",
         },
         {
-          name: "Support Tailwind CSS",
-          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
+          name: "Acceso al Discord de patrocinadores",
+          description: "un canal privado de Discord para patrocinadores para hablar con el equipo de Tailwind.",
+        },
+        {
+          name: "Apoya a Tailwind CSS",
+          description: "duerme tranquilo sabiendo que estás apoyando el desarrollo de Tailwind CSS.",
         },
       ],
     },
     {
-      name: "Partner",
+      name: "Socio",
       price: "$5,000",
       url: "https://buy.polar.sh/polar_cl_Ae2EFQATomRTUPq3DVTqzjOCAEsI7m7GNrmoh1n6ZRk",
-      description: "For companies who want increased exposure and easy access to the Tailwind team.",
+      description: "Para empresas que desean una mayor exposición y un acceso fácil al equipo de Tailwind.",
       features: [
         {
-          name: "Permanent logo on the Tailwind homepage",
-          description: "your logo permanently displayed on the homepage.",
+          name: "Logo permanente en la página de inicio de Tailwind",
+          description: "tu logo se mostrará permanentemente en la página de inicio.",
         },
         {
-          name: "Priority logo placement on sponsors page",
-          description: "your logo will appear at the top of the sponsors page.",
+          name: "Colocación prioritaria de logo en la página de patrocinadores",
+          description: "tu logo aparecerá en la parte superior de la página de patrocinadores.",
         },
         {
-          name: "Featured spot in the showcase",
-          description: "a featured spot on the showcase page for your website.",
+          name: "Espacio destacado en la galería",
+          description: "un espacio destacado en la página de galería para tu sitio web.",
         },
         {
-          name: "Expedited bug fixes and issue resolution",
-          description: "we’ll address issues you run into on an expedited schedule.",
+          name: "Correcciones de errores y resolución de problemas aceleradas",
+          description: "abordaremos los problemas con los que te encuentres de forma prioritaria.",
         },
-        { name: "Insiders team access", description: "all the perks of the Insiders tier for everyone in your team." },
+        { name: "Acceso de equipo a Insiders", description: "todos los beneficios del nivel Insiders para todos en tu equipo." },
         {
-          name: "Tailwind Plus team access",
-          description: "access to the UI Kit, templates, and 500+ components for your team.",
+          name: "Acceso de equipo a Tailwind Plus",
+          description: "acceso al UI Kit, plantillas y más de 500 componentes para tu equipo.",
         },
         {
-          name: "Support Tailwind CSS",
-          description: "sleep easy knowing that you’re supporting the development of Tailwind CSS.",
+          name: "Apoya a Tailwind CSS",
+          description: "duerme tranquilo sabiendo que estás apoyando el desarrollo de Tailwind CSS.",
         },
       ],
     },
@@ -367,13 +365,13 @@ function PartnerPlans() {
           <h2 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
             <a href="#pricing">
               <span aria-hidden="true">03 / </span>
-              Pricing
+              Precios
             </a>
           </h2>
           <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
-            <strong className="font-medium text-gray-950 dark:text-white">Choose the right plan for your team.</strong>{" "}
+            <strong className="font-medium text-gray-950 dark:text-white">Elige el plan adecuado para tu equipo.</strong>{" "}
             <span className="text-gray-500 dark:text-gray-400">
-              Whether you&apos;re looking for visibility, access to the team, or just want to support the project.
+              Ya sea que busques visibilidad, acceso al equipo o simplemente quieras apoyar al proyecto.
             </span>
           </p>
         </div>
@@ -386,12 +384,12 @@ function PartnerPlans() {
                   <div className="flex items-center gap-x-4">
                     <p className="text-5xl font-medium first-letter:font-light">{plan.price}</p>
                     <div>
-                      <p className="text-sm/6 font-semibold">per month</p>
-                      <p className="text-sm/6 text-gray-600 dark:text-gray-400">plus tax</p>
+                      <p className="text-sm/6 font-semibold">por mes</p>
+                      <p className="text-sm/6 text-gray-600 dark:text-gray-400">más impuestos</p>
                     </div>
                   </div>
                   <DarkButtonLink className="max-sm:hidden xl:hidden" href={plan.url}>
-                    {`Become ${plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} ${plan.name.toLowerCase()}`}
+                    {`Conviértete en ${plan.name.toLowerCase()}`}
                   </DarkButtonLink>
                 </div>
                 <p className="max-w-2xl text-sm/7 text-gray-600 dark:text-gray-400">{plan.description}</p>
@@ -411,7 +409,7 @@ function PartnerPlans() {
                   ))}
                 </ul>
                 <DarkButtonLink className="mt-auto sm:max-xl:hidden" href={plan.url}>
-                  {`Become ${plan.name.toLowerCase().match(/^[aeiou]/i) ? "an" : "a"} ${plan.name.toLowerCase()}`}
+                  {`Conviértete en ${plan.name.toLowerCase()}`}
                 </DarkButtonLink>
               </div>
             ))}
@@ -463,95 +461,82 @@ function Faqs() {
           <h2 className="inline-block rounded-md bg-gray-950/5 px-3 py-1 font-mono text-xs/5 tracking-widest text-gray-950 uppercase dark:bg-white/10 dark:text-white">
             <a href="#faqs">
               <span aria-hidden="true">04 / </span>
-              FAQ
+              Preguntas frecuentes
             </a>
           </h2>
           <p className="mt-8 text-lg/7 font-medium tracking-tight text-pretty">
-            <strong className="font-medium text-gray-950 dark:text-white">Everything you need to know.</strong>{" "}
+            <strong className="font-medium text-gray-950 dark:text-white">Todo lo que necesitas saber.</strong>{" "}
             <span className="text-gray-500 dark:text-gray-400">
-              Common questions about partnering with Tailwind CSS.
+              Preguntas comunes sobre asociarse con Tailwind CSS.
             </span>
           </p>
         </div>
         <div className="grid grid-cols-1 gap-10">
           <FaqGroup title="General">
-            <Faq question="Who can I contact about a sponsorship?">
+            <Faq question="¿Con quién puedo ponerme en contacto sobre un patrocinio?">
               <p>
-                If you have any questions about sponsoring, reach out to us at{" "}
-                <a href="mailto:support@tailwindcss.com">support@tailwindcss.com</a> and we&apos;ll be happy to help.
+                Si tienes alguna pregunta sobre el patrocinio, escríbenos a{" "}
+                <a href="mailto:support@tailwindcss.com">support@tailwindcss.com</a> y estaremos encantados de ayudarte.
               </p>
             </Faq>
-            <Faq question="Can any company sponsor?">
+            <Faq question="¿Cualquier empresa puede patrocinar?">
               <p>
-                We’re excited to have support from all kinds of companies who use Tailwind CSS, but we do have a few
-                guidelines:
+                Nos entusiasma contar con el apoyo de todo tipo de empresas que utilizan Tailwind CSS, pero tenemos algunas pautas:
               </p>
               <ul>
                 <li>
                   <strong>
-                    We typically don’t accept sponsorships from companies that sell commercial Tailwind UI kits,
-                    templates, or component libraries
+                    Por lo general, no aceptamos patrocinios de empresas que venden kits de interfaz de usuario de Tailwind comerciales, plantillas o librerías de componentes
                   </strong>
-                  , since that directly overlaps with our own product offerings and can create confusion about what is
-                  officially endorsed.
+                  , ya que eso se superpone directamente con nuestras propias ofertas de productos y puede crear confusión sobre lo que está respaldado oficialmente.
                 </li>
                 <li>
                   <strong>
-                    We also reserve the right to decline sponsorships from companies or services that we feel could
-                    reflect poorly on the project
+                    También nos reservamos el derecho de rechazar patrocinios de empresas o servicios que consideremos que podrían reflejar negativamente en el proyecto
                   </strong>
-                  , for example products that are low-quality or deceptive.
+                  , por ejemplo, productos de baja calidad o engañosos.
                 </li>
               </ul>
               <p>
-                If you&apos;re unsure whether your company qualifies, feel free to reach out — we&apos;re happy to chat.
+                Si no estás seguro de si tu empresa cumple con los requisitos, no dudes en ponerte en contacto; estaremos encantados de hablar.
               </p>
             </Faq>
-            <Faq question="How are the sponsor perks delivered?">
+            <Faq question="¿Cómo se entregan los beneficios de patrocinador?">
               <p>
-                After you check out via Polar, you&apos;ll get access to a Polar customer portal where you can manage
-                your sponsorship and access any perks that come with it.
+                Después de realizar el pago a través de Polar, obtendrás acceso a un portal de clientes de Polar donde podrás gestionar tu patrocinio y acceder a los beneficios que este incluye.
               </p>
               <p>
-                If you&apos;re sponsoring as a company, we&apos;ll follow up to coordinate how to feature you on the
-                Tailwind CSS website as well as how to give your team <strong>Tailwind Insider</strong> access.
+                Si patrocinas como empresa, nos comunicaremos contigo para coordinar cómo mostrarte en el sitio web de Tailwind CSS, así como para darle a tu equipo acceso a <strong>Tailwind Insider</strong>.
               </p>
             </Faq>
-            <Faq question="How are the sponsor perks licensed?">
-              <p>Sponsor perks are provided under a custom commercial license.</p>
+            <Faq question="¿Cómo tienen licencia los beneficios de patrocinador?">
+              <p>Los beneficios de patrocinador se proporcionan bajo una licencia comercial personalizada.</p>
               <p>
-                They’re licensed for personal or internal use by active Tailwind CSS Insiders sponsors only.
-                Redistribution, sublicensing, or public sharing of the perks — such as the VS Code theme, Raycast
-                extension, or Cursor/Claude/AGENTS.md rules — is not permitted.
+                Están licenciados únicamente para uso personal o interno por parte de patrocinadores activos de Tailwind CSS Insiders. No se permite la redistribución, sublicenciamiento o el uso compartido público de los beneficios, como el tema de VS Code, la extensión de Raycast o las reglas de Cursor/Claude/AGENTS.md.
               </p>
             </Faq>
           </FaqGroup>
-          <FaqGroup title="Support">
-            <Faq question="Do you offer technical support for sponsor perks?">
+          <FaqGroup title="Soporte">
+            <Faq question="¿Ofrecen soporte técnico para los beneficios de patrocinador?">
               <p>
-                No — we don&apos;t offer technical support for sponsor perks. These perks are a bonus for supporters who
-                want to give back to the project, but they&apos;re provided as-is.
+                No; no ofrecemos soporte técnico para los beneficios de patrocinador. Estos beneficios son una recompensa adicional para los colaboradores que desean apoyar al proyecto, pero se proporcionan tal cual.
               </p>
               <p>
-                That said, the <strong>Insiders Discord</strong> is a great place to ask for help with anything related
-                to the perks.
+                Dicho esto, el Discord de Insiders es un gran lugar para pedir ayuda con cualquier tema relacionado con los beneficios.
               </p>
             </Faq>
-            <Faq question="How do I cancel my sponsorship?">
+            <Faq question="¿Cómo cancelo mi patrocinio?">
               <p>
-                You can cancel your sponsorship at any time through the Polar customer portal. Once you cancel, your
-                perks will remain active until the end of your current billing period.
+                Puedes cancelar tu patrocinio en cualquier momento a través del portal de clientes de Polar. Una vez que canceles, tus beneficios seguirán activos hasta el final de tu período de facturación actual.
               </p>
             </Faq>
-            <Faq question="What happens if I stop sponsoring?">
+            <Faq question="¿Qué pasa si dejo de patrocinar?">
               <p>
-                If your sponsorship ends, you&apos;ll lose access to any perks like the Insiders Discord server,
-                Cursor/Claude/AGENTS.md rules, and pre-release documentation. These are only available while you&apos;re
-                actively sponsoring.
+                Si tu patrocinio finaliza, perderás el acceso a cualquier beneficio, como el servidor de Discord de Insiders, las reglas de Cursor/Claude/AGENTS.md y la documentación previa al lanzamiento. Estos solo están disponibles mientras patrocines activamente.
               </p>
             </Faq>
-            <Faq question="What is your refund policy?">
-              <p>Sponsorships are non-refundable, but of course you can cancel your sponsorship at any time.</p>
+            <Faq question="¿Cuál es su política de reembolso?">
+              <p>Los patrocinios no son reembolsables, pero por supuesto puedes cancelar tu patrocinio en cualquier momento.</p>
             </Faq>
           </FaqGroup>
         </div>
@@ -561,6 +546,12 @@ function Faqs() {
 }
 
 function TierBadge({ tier }: { tier: string }) {
+  const translations: Record<string, string> = {
+    partner: "Socio",
+    ambassador: "Embajador",
+    supporter: "Colaborador",
+  };
+  const label = translations[tier] || tier;
   return (
     <span
       className={clsx(
@@ -570,7 +561,7 @@ function TierBadge({ tier }: { tier: string }) {
         tier === "supporter" && "bg-gray-400/10 text-gray-500 dark:bg-white/5 dark:text-gray-400",
       )}
     >
-      {tier.charAt(0).toUpperCase() + tier.slice(1)}
+      {label}
     </span>
   );
 }
@@ -598,10 +589,12 @@ function DirectoryItems({ sponsors }: { sponsors: DirectorySponsor[] }) {
               <TierBadge tier={sponsor.tier} />
             </div>
             <div className="max-sm:hidden">
-              <span className="text-sm/6 text-gray-500 dark:text-gray-400">{sponsor.categories.join(", ")}</span>
+              <span className="text-sm/6 text-gray-500 dark:text-gray-400">
+                {sponsor.categories.map((c) => categoryTranslations[c] || c).join(", ")}
+              </span>
             </div>
             <span className="inline-flex items-center gap-1.5 text-sm/6 font-medium whitespace-nowrap text-gray-400 dark:text-gray-500">
-              Visit site
+              Visitar sitio
               <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5 -rotate-45">
                 <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z" />
               </svg>

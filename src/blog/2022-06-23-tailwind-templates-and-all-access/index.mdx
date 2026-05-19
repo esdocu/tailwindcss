@@ -7,85 +7,79 @@ import { Image } from "@/components/media";
 import Link from "next/link";
 
 export const meta = {
-  title: "Tailwind UI: Site templates and all-access",
-  description: `Today we're releasing our first batch of official Tailwind CSS website templates — beautiful designs engineered into production-quality codebases, powered by Tailwind CSS and Next.js.`,
+  title: "Tailwind UI: Plantillas de sitio y acceso total",
+  description: `Hoy lanzamos nuestro primer lote de plantillas oficiales de sitios web de Tailwind CSS — hermosos diseños diseñados en bases de código de calidad de producción, impulsados por Tailwind CSS y Next.js.`,
   date: "2022-06-23T19:40:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      When I was early in my programming career, I loved following{" "}
-      <Link href="https://thoughtbot.com/">thoughtbot</Link>. They were always writing interesting programming articles
-      and producing fantastic screencasts.
+      Cuando estaba empezando mi carrera de programación, me encantaba seguir a{" "}
+      <Link href="https://thoughtbot.com/">thoughtbot</Link>. Siempre estaban escribiendo artículos de programación interesantes
+      y produciendo screencasts fantásticos.
     </>
   ),
 };
 
-<Image alt="Tailwind CSS Templates" src={templates} />
+<Image alt="Plantillas Tailwind CSS" src={templates} />
 
-When I was early in my programming career, I loved following <Link href="https://thoughtbot.com/">thoughtbot</Link>. They were always writing interesting programming articles, producing fantastic screencasts, and publishing incredible books. I could tell they really cared about their craft and it inspired the hell out of me.
+Cuando estaba empezando mi carrera de programación, me encantaba seguir a <Link href="https://thoughtbot.com/">thoughtbot</Link>. Siempre estaban escribiendo artículos de programación interesantes, produciendo screencasts fantásticos y publicando libros increíbles. Podía notar que realmente se preocupaban por su oficio y eso me inspiró muchísimo.
 
-But when they launched <Link href="https://thoughtbot.com/upcase">Upcase</Link>, the thing I was most excited about wasn't the courses or weekly videos. What I was most excited about was the source code for Upcase itself — the _actual-in-production_ Rails codebase that they gave you access to when you subscribed.
+Pero cuando lanzaron <Link href="https://thoughtbot.com/upcase">Upcase</Link>, lo que más me emocionaba no eran los cursos ni los videos semanales. Lo que más me emocionaba era el código fuente de Upcase mismo — la base de código Rails _real-en-producción_ a la que te daban acceso cuando te suscribías.
 
-I'd learned a ton from blog posts, books, and screencasts, but I still craved the chance to dig into a real-world codebase crafted by people I trust and study how they put all that knowledge together to build a production-ready application.
+Había aprendido un montón de publicaciones de blog, libros y screencasts, pero todavía anhelaba la oportunidad de sumergirme en una base de código del mundo real creada por personas en las que confío y estudiar cómo juntaron todo ese conocimiento para construir una aplicación lista para producción.
 
-That experience was transformative for me, and so for a long time I've wanted to give people something like it to learn how real websites are built with Tailwind CSS.
+Esa experiencia fue transformadora para mí, y durante mucho tiempo he querido darle a la gente algo así para aprender cómo se construyen sitios web reales con Tailwind CSS.
 
-How a layout is broken down into components, what sort of APIs those components expose, how the config has been customized — all of the interesting decisions that you can't see when you just click _view source_ in the browser.
+Cómo se descompone un diseño en componentes, qué tipo de APIs exponen esos componentes, cómo se ha personalizado la configuración — todas las decisiones interesantes que no puedes ver cuando simplemente haces clic en _ver código fuente_ en el navegador.
 
-So today we're releasing our first batch of official Tailwind CSS <Link href="https://tailwindui.com/templates">website templates</Link> — beautiful designs engineered into production-quality codebases, powered by Tailwind CSS and Next.js.
+Así que hoy lanzamos nuestro primer lote de plantillas oficiales de sitios web de Tailwind CSS <Link href="https://tailwindui.com/templates"> </Link> — hermosos diseños diseñados en bases de código de calidad de producción, impulsados por Tailwind CSS y Next.js.
 
-We started designing these way back in March and I'm really excited to get these first five out the door so you can check them out and start playing with them:
+Empezamos a diseñar estos allá por marzo y estoy muy emocionado de sacar estos primeros cinco para que puedas echarles un vistazo y empezar a jugar con ellos:
 
-- <Link href="https://syntax.tailwindui.com/">Syntax</Link> — a documentation site template powered by Stripe's new <Link href="https://markdoc.io/">
-    Markdoc
-  </Link> library that's perfect for things like open-source projects or product documentation.
-- <Link href="https://primer.tailwindui.com/">Primer</Link> — a landing page template for ebooks and courses that bakes
-  in a lot of the best practices we've learned releasing our own info products.
-- <Link href="https://salient.tailwindui.com/">Salient</Link> — a stunning but simple SaaS marketing website you can
-  quickly adapt for your next idea without burning time you wish you were spending on the actual product.
-- <Link href="https://keynote.tailwindui.com/">Keynote</Link> — a beautiful conference website design that works just as
-  well for small local gatherings as it does for international events.
-- <Link href="https://transmit.tailwindui.com/">Transmit</Link> — an awesome podcasting template with a custom
-  persistent audio player that you can wire up to your own RSS feed in no time.
+- <Link href="https://syntax.tailwindui.com/">Syntax</Link> — una plantilla de sitio de documentación impulsada por la nueva librería <Link href="https://markdoc.io/"> Markdoc </Link> de Stripe que es perfecta para cosas como proyectos de código abierto o documentación de productos.
+- <Link href="https://primer.tailwindui.com/">Primer</Link> — una plantilla de página de destino para ebooks y cursos que incorpora muchas de las mejores prácticas que hemos aprendido al lanzar nuestros propios productos de información.
+- <Link href="https://salient.tailwindui.com/">Salient</Link> — un sitio web de marketing SaaS impresionante pero simple que puedes adaptar rápidamente para tu próxima idea sin quemar tiempo que desearías estar dedicando al producto real.
+- <Link href="https://keynote.tailwindui.com/">Keynote</Link> — un hermoso diseño de sitio web para conferencias que funciona igual de bien para pequeñas reuniones locales que para eventos internacionales.
+- <Link href="https://transmit.tailwindui.com/">Transmit</Link> — una plantilla de podcasting increíble con un reproductor de audio persistente personalizado que puedes conectar a tu propio feed RSS en poco tiempo.
 
-We've put a ton of time and attention into both the design and the code, and everything is structured exactly the way we'd do it in a real production project. They're the perfect starting point when you don't want to start from a blank canvas, and the best way to learn how experts build modern websites with Tailwind CSS.
+Hemos puesto mucho tiempo y atención tanto en el diseño como en el código, y todo está estructurado exactamente como lo haríamos en un proyecto de producción real. Son el punto de partida perfecto cuando no quieres empezar desde un lienzo en blanco, y la mejor manera de aprender cómo los expertos construyen sitios web modernos con Tailwind CSS.
 
-<Image alt="Code Structure" src={codeStructure} />
+<Image alt="Estructura del Código" src={codeStructure} />
 
-Each template can be purchased on its own for **$99**, or you can get all of them with <Link href="https://tailwindui.com/all-access">all-access</Link> — the new _get-everything-we-ever-add-forever_ package we're launching today.
+Cada plantilla se puede comprar por separado por **$99**, o puedes obtenerlas todas con <Link href="https://tailwindui.com/all-access">acceso total</Link> — el nuevo paquete _obtén-todo-lo-que-agreguemos-para-siempre_ que lanzamos hoy.
 
 ---
 
-## Going all in on all-access
+## Apostando todo por el acceso total
 
-When we started working on templates, one of the things I was really sure about is that I wanted it to be easy to get access to _all_ of them.
+Cuando empezamos a trabajar en las plantillas, una de las cosas de las que estaba realmente seguro es que quería que fuera fácil obtener acceso a _todas_ ellas.
 
-This was important to me for two reasons:
+Esto era importante para mí por dos razones:
 
-1. **I want people to think of our templates more like educational resources than traditional website themes**. Every template we build has its own unique learning moments, and I don't want people to have to be selective about what they get to learn from.
-2. **I don't want to worry about ROI on a per-template basis**. Nothing would suck the fun out of designing and building templates like having to make sure each one had mass appeal. I want us to have the freedom to make niche, interesting stuff with cool ideas to study, not just templates that can sell enough copies on their own to justify the work we put into them.
+1.  **Quiero que la gente piense en nuestras plantillas más como recursos educativos que como temas de sitios web tradicionales**. Cada plantilla que construimos tiene sus propios momentos de aprendizaje únicos, y no quiero que la gente tenga que ser selectiva sobre lo que puede aprender.
+2.  **No quiero preocuparme por el ROI por plantilla**. Nada arruinaría más la diversión de diseñar y construir plantillas que tener que asegurarse de que cada una tuviera un atractivo masivo. Quiero que tengamos la libertad de hacer cosas de nicho, interesantes, con ideas geniales para estudiar, no solo plantillas que puedan vender suficientes copias por sí solas para justificar el trabajo que les dedicamos.
 
-When I was a kid I went to this <Link href="https://en.concerts-metal.com/concert_-_Hellfest_2008-3308.html">music festival</Link> in France where almost a hundred bands performed. There were a couple of bands on the bill I absolutely _loved_, knew every song, and would buy a ticket to see any day of the week.
+Cuando era niño fui a este <Link href="https://en.concerts-metal.com/concert_-_Hellfest_2008-3308.html">festival de música</Link> en Francia donde actuaron casi cien bandas. Había un par de bandas en el cartel que absolutamente _amaba_, conocía cada canción y compraría una entrada para ver cualquier día de la semana.
 
-Most of them though were bands I really _liked_, but wouldn't have made the 90 minute drive to make it out to a show. But putting all of them on a bill together got me to buy a plane ticket to Paris, and have one of the best experiences of my life.
+Sin embargo, la mayoría eran bandas que realmente me _gustaban_, pero no habría hecho el viaje de 90 minutos para ir a un concierto. Pero ponerlas todas juntas en un cartel me hizo comprar un billete de avión a París y tener una de las mejores experiencias de mi vida.
 
-I want Tailwind UI to feel like a music festival, where you can wander from stage to stage, enjoy a song or two from a band you've never heard of, and once in a while be blown away by a performance you would have never otherwise bothered to check out.
+Quiero que Tailwind UI se sienta como un festival de música, donde puedes pasear de escenario en escenario, disfrutar de una canción o dos de una banda que nunca has oído hablar, y de vez en cuando quedarte impresionado por una actuación que de otro modo nunca te habrías molestado en ver.
 
-So we're launching a new <Link href="https://tailwindui.com/all-access">all-access package</Link> for Tailwind UI that includes access to every template and component package that exists today and any new content we add in the future.
+Así que estamos lanzando un nuevo paquete de <Link href="https://tailwindui.com/all-access">acceso total</Link> para Tailwind UI que incluye acceso a cada plantilla y paquete de componentes que existe hoy y cualquier contenido nuevo que agreguemos en el futuro.
 
-<Image alt="Get Tailwind UI all-access" src={allAccess} />
+<Image alt="Obtén acceso total a Tailwind UI" src={allAccess} />
 
-It's a one-time purchase of **$299**. No subscription, no upgrade costs — if we add something new to Tailwind UI, it's yours, forever.
+Es una compra única de **$299**. Sin suscripción, sin costos de actualización — si agregamos algo nuevo a Tailwind UI, es tuyo, para siempre.
 
-And if you already own everything in Tailwind UI, **we've upgraded you to all-access for free**.
+ Y si ya posees todo en Tailwind UI, **te hemos actualizado a acceso total gratis**.
 
 ---
 
-So there you have it — that's everything we've been working on for the last few months!
+¡Así que ahí lo tienes — eso es todo en lo que hemos estado trabajando durante los últimos meses!
 
-We've got a bunch of new templates in the works already, and we're actively working on extracting a lot of the component ideas from these templates into new examples to include in the Marketing, Application UI, and Ecommerce component categories.
+Ya tenemos un montón de nuevas plantillas en proceso, y estamos trabajando activamente en extraer muchas de las ideas de componentes de estas plantillas en nuevos ejemplos para incluir en las categorías de componentes de Marketing, Application UI y Ecommerce.
 
-That's one of my favorite things about working on these site templates — building real-world stuff with Tailwind is the best way for us to come up with new component ideas, and to find ways to improve both Tailwind CSS and Headless UI too.
+Esa es una de mis cosas favoritas de trabajar en estas plantillas de sitio — construir cosas del mundo real con Tailwind es la mejor manera para nosotros de encontrar nuevas ideas de componentes, y de encontrar formas de mejorar tanto Tailwind CSS como Headless UI también.
 
-Look forward to lots of new Tailwind UI stuff in the coming months!
+¡Espera muchas cosas nuevas de Tailwind UI en los próximos meses!

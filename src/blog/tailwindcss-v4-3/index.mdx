@@ -4,60 +4,60 @@ import { Example } from "@/components/example";
 import { Figure } from "@/components/figure";
 
 export const meta = {
-  title: "Tailwind CSS v4.3: Scrollbars, new colors, and more",
+  title: "Tailwind CSS v4.3: Barras de desplazamiento, nuevos colores y más",
   description:
-    "Tailwind CSS v4.3 is here with first-party scrollbar styling, even more logical property utilities, new zoom and tab-size utilities, better @variant support, and all the v4.2 stuff we shipped while forgetting blogs existed.",
+    "Tailwind CSS v4.3 ya está aquí con diseño de barras de desplazamiento de primer nivel, aún más utilidades de propiedades lógicas, nuevas utilidades de zoom y tab-size, mejor soporte para @variant y todo el contenido de v4.2 que lanzamos mientras nos olvidábamos de que existían los blogs.",
   date: "2026-05-08T20:00:00.000Z",
   authors: [adamwathan, robinmalfait],
   excerpt: (
     <>
-      Tailwind CSS v4.3 is here with first-party scrollbar styling, even more logical property utilities, new zoom and
-      tab-size utilities, better @variant support, and all the v4.2 stuff we shipped while forgetting blogs existed.
+      Tailwind CSS v4.3 ya está aquí con diseño de barras de desplazamiento de primer nivel, aún más utilidades de propiedades lógicas, nuevas utilidades de zoom y
+      tab-size, mejor soporte para @variant y todo el contenido de v4.2 que lanzamos mientras nos olvidábamos de que existían los blogs.
     </>
   ),
 };
 
-Tailwind CSS v4.3 is here, and because apparently shipping v4.2 was easier than remembering to blog about it, this post is secretly about two releases worth of new stuff.
+Tailwind CSS v4.3 ya está aquí, y porque aparentemente lanzar v4.2 fue más fácil que acordarse de escribir un artículo en el blog sobre ello, esta publicación trata secretamente sobre las novedades de dos lanzamientos.
 
-Here's what landed in v4.2:
+Esto es lo que llegó en v4.2:
 
-- [New `mauve`, `olive`, `mist`, and `taupe` palettes](#new-mauve-olive-mist-and-taupe-palettes) — four more neutral-ish palettes for when gray, zinc, neutral, stone, and slate have somehow failed you.
-- [First-class webpack plugin](#first-class-webpack-plugin) — for a huge performance boost in frameworks like Next.js.
-- [More logical property utilities](#more-logical-property-utilities) — including `pbs-*`, `mbs-*`, `inline-*`, `block-*`, and new logical inset utilities.
-- [New `font-features-*` utility](#new-font-features-utility) — control low-level OpenType features without writing custom CSS every time.
+- [Nuevas paletas `mauve`, `olive`, `mist` y `taupe`](#new-mauve-olive-mist-and-taupe-palettes) — cuatro paletas más de tonos neutros para cuando gray, zinc, neutral, stone y slate te hayan fallado de alguna manera.
+- [Plugin de webpack de primer nivel](#first-class-webpack-plugin) — para un gran aumento de rendimiento en frameworks como Next.js.
+- [Más utilidades de propiedades lógicas](#more-logical-property-utilities) — incluyendo `pbs-*`, `mbs-*`, `inline-*`, `block-*` y nuevas utilidades de insets lógicos.
+- [Nueva utilidad `font-features-*`](#new-font-features-utility) — controla características de OpenType de bajo nivel sin tener que escribir CSS personalizado cada vez.
 
-…and here's what's new in v4.3:
+…y esto es lo nuevo en v4.3:
 
-- [New scrollbar utilities](#new-scrollbar-utilities) — style scrollbars without wondering which half-supported browser API you're supposed to use this week.
-- [New `@container-size` utility](#new-container-size-utility) — create size containers for when your container queries need to care about height too.
-- [New `zoom-*` utilities](#new-zoom-utilities) — use the CSS `zoom` property directly in your markup, now that every browser has finally agreed it exists.
-- [New `tab-*` utilities](#new-tab-utilities) — control the rendered width of tab characters, just please don't make it eight like GitHub used to.
-- [Stacked + compound `@variant` support](#stacked-compound-variant-support) — use stacked and compound variants directly in CSS.
-- [Default values for functional utilities](#default-values-for-functional-utilities) — define utilities that work with or without a value.
+- [Nuevas utilidades de barra de desplazamiento](#new-scrollbar-utilities) — diseña barras de desplazamiento sin preguntarte qué API de navegador a medio soportar deberías usar esta semana.
+- [Nueva utilidad `@container-size`](#new-container-size-utility) — crea contenedores de tamaño para cuando tus consultas de contenedor (container queries) también necesiten tener en cuenta la altura.
+- [Nuevas utilidades `zoom-*`](#new-zoom-utilities) — usa la propiedad `zoom` de CSS directamente en tu marcado, ahora que todos los navegadores finalmente se han puesto de acuerdo en que existe.
+- [Nuevas utilidades `tab-*`](#new-tab-utilities) — controla el ancho renderizado de los caracteres de tabulación, solo por favor no los hagas de ocho espacios como solía hacer GitHub.
+- [Soporte para `@variant` apilados y compuestos](#stacked-compound-variant-support) — usa variantes apiladas y compuestas directamente en CSS.
+- [Valores por defecto para utilidades funcionales](#default-values-for-functional-utilities) — define utilidades que funcionen con o sin valor.
 
-A lot of the v4.2 improvements, including the new logical property utilities and `font-features-*` support, came out of collaborations with teams at Netflix and Vercel through our [Partners Program](/sponsor#partners). If there are framework improvements like this that would make Tailwind CSS work better for your team, we'd love to help.
+Muchas de las mejoras de v4.2, incluyendo las nuevas utilidades de propiedades lógicas y el soporte para `font-features-*`, surgieron de colaboraciones con equipos de Netflix y Vercel a través de nuestro [Programa de socios](/sponsor#partners). Si hay mejoras de frameworks como esta que harían que Tailwind CSS funcione mejor para tu equipo, nos encantaría ayudarte.
 
-Upgrade your projects by installing the latest version of `tailwindcss` from npm:
+Actualiza tus proyectos instalando la última versión de `tailwindcss` desde npm:
 
 <CodeExampleStack>
 
 ```sh
-# [!code filename:Using the Tailwind CLI]
+# [!code filename:Uso de la CLI de Tailwind]
 npm install tailwindcss@latest @tailwindcss/cli@latest
 ```
 
 ```sh
-# [!code filename:Using Vite]
+# [!code filename:Uso de Vite]
 npm install tailwindcss@latest @tailwindcss/vite@latest
 ```
 
 ```sh
-# [!code filename:Using PostCSS]
+# [!code filename:Uso de PostCSS]
 npm install tailwindcss@latest @tailwindcss/postcss@latest
 ```
 
 ```sh
-# [!code filename:Using webpack]
+# [!code filename:Uso de webpack]
 npm install tailwindcss@latest @tailwindcss/webpack@latest
 ```
 
@@ -65,13 +65,13 @@ npm install tailwindcss@latest @tailwindcss/webpack@latest
 
 ---
 
-## New `mauve`, `olive`, `mist`, and `taupe` palettes
+## Nuevas paletas `mauve`, `olive`, `mist` y `taupe`
 
-In v4.2 we added four new color palettes to the default theme: `mauve`, `olive`, `mist`, and `taupe`.
+En v4.2 añadimos cuatro nuevas paletas de colores al tema predeterminado: `mauve`, `olive`, `mist` y `taupe`.
 
-These originally came out of [Oatmeal](https://tailwindcss.com/plus/changelog#2025-12-18), the multi-theme marketing site kit we released for Tailwind Plus back in December, where we needed a few more neutral-ish palettes that still felt distinct from the grays we already ship.
+Estas surgieron originalmente de [Oatmeal](https://tailwindcss.com/plus/changelog#2025-12-18), el kit de sitio de marketing multitema que lanzamos para Tailwind Plus en diciembre, donde necesitábamos algunas paletas neutras más que aún se sintieran distintas de las escalas de grises que ya incluimos.
 
-They're all in that useful neutral-adjacent category where you want something that still behaves like gray, but has a little more personality:
+Todas están en esa útil categoría adyacente a los neutros donde quieres algo que siga comportándose como el gris, pero que tenga un poco más de personalidad:
 
 <Figure>
 
@@ -159,7 +159,7 @@ They're all in that useful neutral-adjacent category where you want something th
 
 </Figure>
 
-They're a nice substitute for the existing gray palettes when you want the whole design to lean a little warmer, cooler, greener, or… mauver?
+Son un buen sustituto para las paletas de grises existentes cuando quieres que todo el diseño se incline a ser un poco más cálido, frío, verde o… ¿malva?
 
 ```html
 <!-- [!code classes:bg-mauve-950,text-mauve-100,bg-olive-100,text-olive-950,border-mist-200,shadow-taupe-950/10] -->
@@ -168,25 +168,25 @@ They're a nice substitute for the existing gray palettes when you want the whole
 <div class="border border-mist-200 shadow-taupe-950/10 ...">Mist and taupe</div>
 ```
 
-Check out the [colors documentation](/docs/colors) for a pretty grid of all the available colors.
+Echa un vistazo a la [documentación de colores](/docs/colors) para ver una bonita cuadrícula de todos los colores disponibles.
 
 ---
 
-## First-class webpack plugin
+## Plugin de webpack de primer nivel
 
-Tailwind CSS v4.2 added a dedicated `@tailwindcss/webpack` loader for integrating Tailwind CSS in webpack projects.
+Tailwind CSS v4.2 añadió un loader `@tailwindcss/webpack` dedicado para integrar Tailwind CSS en proyectos webpack.
 
-Before this, webpack projects usually ran Tailwind through `postcss-loader` and `@tailwindcss/postcss`, which works, but means CSS has to take a little detour through PostCSS just so Tailwind can get its hands on a string it already knows how to compile.
+Antes de esto, los proyectos webpack generalmente ejecutaban Tailwind a través de `postcss-loader` y `@tailwindcss/postcss`, lo cual funciona, pero significa que el CSS tiene que dar un pequeño rodeo por PostCSS solo para que Tailwind pueda procesar una cadena que ya sabe cómo compilar.
 
-The dedicated loader skips that extra work, and we've seen it make Tailwind over 2x faster in large, complicated webpack projects. For example, here's what we saw testing against the tailwindcss.com docs with Next.js and Turbopack:
+El loader dedicado evita ese trabajo adicional, y hemos visto que hace que Tailwind sea más de 2 veces más rápido en proyectos webpack grandes y complicados. Por ejemplo, esto es lo que vimos al hacer pruebas con la documentación de tailwindcss.com usando Next.js y Turbopack:
 
 {
 
 <table>
   <thead>
     <tr>
-      <th>Package</th>
-      <th className="text-right">Build time</th>
+      <th>Paquete</th>
+      <th className="text-right">Tiempo de compilación</th>
     </tr>
   </thead>
   <tbody>
@@ -200,13 +200,13 @@ The dedicated loader skips that extra work, and we've seen it make Tailwind over
     </tr>
     <tr>
       <td></td>
-      <td className="text-right font-medium text-gray-950 dark:text-white">2.17x faster</td>
+      <td className="text-right font-medium text-gray-950 dark:text-white">2.17 veces más rápido</td>
     </tr>
   </tbody>
 </table>
 }
 
-Using it is the same sort of setup you're used to from other webpack loaders:
+Usarlo requiere el mismo tipo de configuración al que estás acostumbrado con otros loaders de webpack:
 
 ```js
 // [!code filename:webpack.config.js]
@@ -226,17 +226,17 @@ module.exports = {
 };
 ```
 
-Because Turbopack supports webpack loaders through its compatibility layer, these improvements carry over there too, which is a big deal for frameworks like Next.js where Turbopack is becoming the default.
+Debido a que Turbopack admite loaders de webpack a través de su capa de compatibilidad, estas mejoras también se trasladan allí, lo cual es muy importante para frameworks como Next.js, donde Turbopack se está convirtiendo en el estándar predeterminado.
 
-Check out the [`@tailwindcss/webpack` README](https://github.com/tailwindlabs/tailwindcss/tree/main/packages/%40tailwindcss-webpack) for more details.
+Echa un vistazo al [README de `@tailwindcss/webpack`](https://github.com/tailwindlabs/tailwindcss/tree/main/packages/%40tailwindcss-webpack) para más detalles.
 
 ---
 
-## More logical property utilities
+## Más utilidades de propiedades lógicas
 
-Tailwind CSS v4.2 added a whole bunch of new logical property utilities, making it easier to build layouts that adapt correctly across different writing modes and directions.
+Tailwind CSS v4.2 añadió un montón de nuevas utilidades de propiedades lógicas, lo que facilita la creación de diseños que se adapten correctamente a diferentes modos de escritura y direcciones.
 
-For spacing, there are new block-start and block-end utilities for padding, margin, scroll padding, scroll margin, and borders:
+Para el espaciado, hay nuevas utilidades de inicio de bloque (block-start) e inicio de bloque final (block-end) para padding, margin, scroll padding, scroll margin y borders:
 
 ```html
 <!-- [!code classes:pbs-4,pbe-8,mbs-6,mbe-2] -->
@@ -259,7 +259,7 @@ For spacing, there are new block-start and block-end utilities for padding, marg
 </div>
 ```
 
-We've also added logical sizing utilities for `inline-size` and `block-size`, along with min and max variants:
+También hemos añadido utilidades de tamaño lógico para `inline-size` y `block-size`, junto con variantes min y max:
 
 ```html
 <!-- [!code classes:inline-full,min-inline-0,max-inline-lg,block-64,min-block-24,max-block-screen] -->
@@ -268,7 +268,7 @@ We've also added logical sizing utilities for `inline-size` and `block-size`, al
 </div>
 ```
 
-And we've added logical inset utilities for positioning elements:
+Y hemos añadido utilidades de insets lógicos para posicionar elementos:
 
 ```html
 <!-- [!code classes:inset-s-0,inset-e-4,inset-bs-2,inset-be-8] -->
@@ -277,15 +277,15 @@ And we've added logical inset utilities for positioning elements:
 </div>
 ```
 
-The existing `start-*` and `end-*` utilities are still available, but they're now deprecated in favor of `inset-s-*` and `inset-e-*` so the whole API lines up with `inset-bs-*` and `inset-be-*`.
+Las utilidades `start-*` y `end-*` existentes todavía están disponibles, pero ahora están obsoletas en favor de `inset-s-*` e `inset-e-*` para que toda la API se alinee con `inset-bs-*` e `inset-be-*`.
 
-Check out the [`padding`](/docs/padding#using-logical-properties), [`margin`](/docs/margin#using-logical-properties), [`scroll-padding`](/docs/scroll-padding#using-logical-properties), [`scroll-margin`](/docs/scroll-margin#using-logical-properties), [`border-width`](/docs/border-width#using-logical-properties), [`inline-size`](/docs/inline-size), [`block-size`](/docs/block-size), and [`top / right / bottom / left`](/docs/top-right-bottom-left#using-logical-properties) docs for more details.
+Echa un vistazo a la documentación de [`padding`](/docs/padding#using-logical-properties), [`margin`](/docs/margin#using-logical-properties), [`scroll-padding`](/docs/scroll-padding#using-logical-properties), [`scroll-margin`](/docs/scroll-margin#using-logical-properties), [`border-width`](/docs/border-width#using-logical-properties), [`inline-size`](/docs/inline-size), [`block-size`](/docs/block-size) y [`top / right / bottom / left`](/docs/top-right-bottom-left#using-logical-properties) para más detalles.
 
 ---
 
-## New `font-features-*` utility
+## Nueva utilidad `font-features-*`
 
-We've also added `font-features-*` utilities for controlling `font-feature-settings`:
+También hemos añadido utilidades `font-features-*` para controlar `font-feature-settings`:
 
 <Figure>
 
@@ -319,41 +319,37 @@ We've also added `font-features-*` utilities for controlling `font-feature-setti
 
 </Figure>
 
-For common cases like tabular numbers, you should still reach for higher-level utilities like `tabular-nums` first, because nobody should have to remember that `"tnum"` is a thing.
+Para casos comunes como los números tabulares, deberías recurrir primero a utilidades de nivel superior como `tabular-nums`, porque nadie debería tener que recordar que `"tnum"` es una opción.
 
-But when you need to enable a font-specific stylistic set or some other OpenType feature we don't have a dedicated utility for, `font-features-*` gives you a clean escape hatch.
+Pero cuando necesitas habilitar un conjunto estilístico específico de la fuente u otra característica de OpenType para la cual no tenemos una utilidad dedicada, `font-features-*` te brinda una salida limpia.
 
-Check out the [`font-feature-settings`](/docs/font-feature-settings) docs for more details.
+Echa un vistazo a la documentación de [`font-feature-settings`](/docs/font-feature-settings) para más detalles.
 
 ---
 
-## New scrollbar utilities
+## Nuevas utilidades de barras de desplazamiento
 
-Tailwind CSS v4.3 adds first-party utilities for the CSS scrollbar APIs, so you can finally do the boring-but-useful scrollbar stuff without opening a second tab and remembering which browser supports what.
+Tailwind CSS v4.3 añade utilidades integradas (first-party) para las APIs de barras de desplazamiento de CSS, para que finalmente puedas hacer lo aburrido pero útil de las barras de desplazamiento sin abrir una segunda pestaña y recordar qué navegador admite qué.
 
-Use `scrollbar-auto`, `scrollbar-thin`, and `scrollbar-none` to control `scrollbar-width`:
+Usa `scrollbar-auto`, `scrollbar-thin` y `scrollbar-none` para controlar `scrollbar-width`:
 
-<Figure hint="Scroll vertically">
+<Figure hint="Desplazar verticalmente">
 
 <Example>
   {
     <div className="mx-auto h-72 max-w-sm scrollbar-thin scrollbar-thumb-sky-700 scrollbar-track-sky-100 overflow-auto rounded-xl bg-white p-6 text-sm/6 text-gray-600 shadow-lg ring-1 ring-black/5 dark:scrollbar-thumb-sky-400 dark:scrollbar-track-gray-700 dark:bg-gray-800 dark:text-gray-300">
       <div className="space-y-4">
         <p>
-          The Cerulean Archives occupy three narrow floors above the old observatory, each lined with drawers of star
-          maps, expedition notes, and brass instruments cataloged by hand.
+          Los Archivos Cerúleos ocupan tres pisos estrechos sobre el antiguo observatorio, cada uno de ellos repleto de cajones con mapas estelares, notas de expediciones e instrumentos de latón catalogados a mano.
         </p>
         <p>
-          On winter mornings, the staff rolls ladders between the shelves while pale light cuts through the roof windows
-          and settles on the reading tables.
+          En las mañanas de invierno, el personal desplaza escaleras de mano entre las estanterías mientras una luz pálida entra por las ventanas del techo y se posa sobre las mesas de lectura.
         </p>
         <p>
-          Visitors can request anything from the collection, but most come for the atlases that chart coastlines no
-          longer found on modern maps.
+          Los visitantes pueden solicitar cualquier elemento de la colección, pero la mayoría viene por los atlas que trazan líneas de costa que ya no se encuentran en los mapas modernos.
         </p>
         <p>
-          Every returned volume is inspected, dusted, and wrapped before being carried back into the stacks for the next
-          researcher.
+          Cada volumen devuelto es inspeccionado, desempolvado y envuelto antes de ser devuelto a los estantes para el siguiente investigador.
         </p>
       </div>
     </div>
@@ -369,7 +365,7 @@ Use `scrollbar-auto`, `scrollbar-thin`, and `scrollbar-none` to control `scrollb
 
 </Figure>
 
-You can also control scrollbar colors using `scrollbar-thumb-*` and `scrollbar-track-*` utilities:
+También puedes controlar los colores de la barra de desplazamiento usando las utilidades `scrollbar-thumb-*` y `scrollbar-track-*`:
 
 ```html
 <!-- [!code classes:scrollbar-thumb-sky-700,scrollbar-track-sky-100] -->
@@ -378,7 +374,7 @@ You can also control scrollbar colors using `scrollbar-thumb-*` and `scrollbar-t
 </div>
 ```
 
-They work with the usual color opacity modifiers too:
+También funcionan con los modificadores habituales de opacidad de color:
 
 ```html
 <!-- [!code classes:scrollbar-thumb-slate-900/60,scrollbar-track-slate-900/10] -->
@@ -387,7 +383,7 @@ They work with the usual color opacity modifiers too:
 </div>
 ```
 
-And for preventing layout shift when scrollbars appear, we've added `scrollbar-gutter-auto`, `scrollbar-gutter-stable`, and `scrollbar-gutter-both`:
+Y para evitar los cambios de diseño (layout shift) cuando aparecen las barras de desplazamiento, hemos añadido `scrollbar-gutter-auto`, `scrollbar-gutter-stable` y `scrollbar-gutter-both`:
 
 <Figure>
 
@@ -398,8 +394,7 @@ And for preventing layout shift when scrollbars appear, we've added `scrollbar-g
         <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">scrollbar-gutter-auto</p>
         <div className="h-40 scrollbar-gutter-auto overflow-auto rounded-lg bg-gray-50 py-4 dark:bg-white/5">
           <p className="text-justify">
-            Hey everyone! It's almost 2027 and we still don't know if there are aliens living among us, or do we? Maybe
-            the person writing this is an alien. You will never know.
+            ¡Hola a todos! Es casi 2027 y todavía no sabemos si hay extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre. Nunca lo sabrás.
           </p>
         </div>
       </div>
@@ -407,8 +402,7 @@ And for preventing layout shift when scrollbars appear, we've added `scrollbar-g
         <p className="mb-3 font-mono text-xs font-medium text-gray-500 dark:text-gray-400">scrollbar-gutter-stable</p>
         <div className="relative h-40 scrollbar-gutter-stable overflow-auto rounded-lg bg-gray-50 py-4 pr-4 dark:bg-white/5">
           <p className="text-justify">
-            Hey everyone! It's almost 2027 and we still don't know if there are aliens living among us, or do we? Maybe
-            the person writing this is an alien. You will never know.
+            ¡Hola a todos! Es casi 2027 y todavía no sabemos si hay extraterrestres viviendo entre nosotros, ¿o sí? Tal vez la persona que escribe esto sea un extraterrestre. Nunca lo sabrás.
           </p>
           <div className="absolute top-0 right-0 bottom-0 w-4 rounded-r-lg border bg-[image:repeating-linear-gradient(315deg,currentColor_0,currentColor_1px,transparent_0,transparent_50%)] bg-[size:8px_8px] bg-top-left text-black/10 dark:text-white/12.5" />
         </div>
@@ -426,17 +420,17 @@ And for preventing layout shift when scrollbars appear, we've added `scrollbar-g
 
 </Figure>
 
-Check out the [`scrollbar-width`](/docs/scrollbar-width), [`scrollbar-color`](/docs/scrollbar-color), and [`scrollbar-gutter`](/docs/scrollbar-gutter) docs for more details.
+Echa un vistazo a las documentaciones de [`scrollbar-width`](/docs/scrollbar-width), [`scrollbar-color`](/docs/scrollbar-color) y [`scrollbar-gutter`](/docs/scrollbar-gutter) para más detalles.
 
 ---
 
-## New `@container-size` utility
+## Nueva utilidad `@container-size`
 
-In Tailwind CSS v4.0 we added first-party container query support with the `@container` utility, which creates an inline-size container.
+En Tailwind CSS v4.0 añadimos soporte nativo de consultas de contenedor con la utilidad `@container`, la cual crea un contenedor de tamaño en línea (inline-size).
 
-That's what you want most of the time, but container query length units like `cqb` and `cqh` depend on the block size of the container, and inline-size containers don't expose that information.
+Eso es lo que quieres la mayor parte del tiempo, pero las unidades de longitud de consulta de contenedor como `cqb` y `cqh` dependen del tamaño del bloque (block size) del contenedor, y los contenedores de tamaño en línea no exponen esa información.
 
-So in v4.3 we've added `@container-size`, which creates a size container instead:
+Así que en v4.3 hemos añadido `@container-size`, que crea un contenedor de tamaño completo en su lugar:
 
 ```html
 <!-- [!code word:@container-size] -->
@@ -448,40 +442,40 @@ So in v4.3 we've added `@container-size`, which creates a size container instead
 </div>
 ```
 
-You can name size containers too using `@container-size/{name}`, just like `@container/{name}`.
+También puedes nombrar contenedores de tamaño usando `@container-size/{nombre}`, al igual que `@container/{nombre}`.
 
-Check out the [responsive design docs](/docs/responsive-design#using-size-containers) for more details.
+Echa un vistazo a la [documentación de diseño responsivo](/docs/responsive-design#using-size-containers) para más detalles.
 
 ---
 
-## New `zoom-*` utilities
+## Nuevas utilidades `zoom-*`
 
-Tailwind CSS v4.3 adds `zoom-*` utilities for the CSS `zoom` property, one of those ancient browser features that was supported in Chrome 1 back in 2008, but only became fully supported across all major browsers in 2024 after taking the scenic route through a few long-standing SVG bugs:
+Tailwind CSS v4.3 añade utilidades `zoom-*` para la propiedad `zoom` de CSS, una de esas antiguas características del navegador que ya era compatible con Chrome 1 en 2008, pero que solo llegó a tener soporte completo en todos los navegadores principales en 2024 después de tomar la ruta panorámica a través de algunos errores de SVG de larga data:
 
 ```html
 <!-- [!code classes:zoom-75,zoom-100,zoom-125] -->
-<div class="zoom-75 ...">Zoomed out</div>
+<div class="zoom-75 ...">Con zoom alejado</div>
 <div class="zoom-100 ...">Normal</div>
-<div class="zoom-125 ...">Zoomed in</div>
+<div class="zoom-125 ...">Con zoom acercado</div>
 ```
 
-You can also use arbitrary values and CSS variables:
+También puedes usar valores arbitrarios y variables CSS:
 
 ```html
 <!-- [!code classes:zoom-[1.1],zoom-(--preview-zoom)] -->
-<div class="zoom-[1.1] ...">Zoomed in a little</div>
-<div class="zoom-(--preview-zoom) ...">Zoomed using a variable</div>
+<div class="zoom-[1.1] ...">Con un poco de zoom</div>
+<div class="zoom-(--preview-zoom) ...">Zoom usando una variable</div>
 ```
 
-Check out the [`zoom`](/docs/zoom) docs for more details.
+Echa un vistazo a la documentación de [`zoom`](/docs/zoom) para más detalles.
 
 ---
 
-## New `tab-*` utilities
+## Nuevas utilidades `tab-*`
 
-We've also added `tab-*` utilities for controlling the rendered width of tab characters using `tab-size`.
+También hemos añadido utilidades `tab-*` para controlar el ancho renderizado de los caracteres de tabulación usando `tab-size`.
 
-This is mostly useful for code examples, editors, and any other UI where you're rendering preformatted text that might contain real tab characters:
+Esto es principalmente útil para ejemplos de código, editores y cualquier otra interfaz de usuario donde estés renderizando texto preformateado que pueda contener caracteres de tabulación reales:
 
 <Figure>
 
@@ -521,7 +515,7 @@ function indent() {
 
 </Figure>
 
-Arbitrary values and CSS variables work here too:
+Los valores arbitrarios y las variables CSS también funcionan aquí:
 
 ```html
 <!-- [!code classes:tab-[12px],tab-(--tab-size)] -->
@@ -529,15 +523,15 @@ Arbitrary values and CSS variables work here too:
 <pre class="tab-(--tab-size) ...">...</pre>
 ```
 
-Check out the [`tab-size`](/docs/tab-size) docs for more details.
+Echa un vistazo a la documentación de [`tab-size`](/docs/tab-size) para más detalles.
 
 ---
 
-## Stacked + compound `@variant` support
+## Soporte para `@variant` apilados y compuestos
 
-Tailwind CSS v4.3 makes `@variant` more flexible when you're using variants in CSS instead of directly in your markup.
+Tailwind CSS v4.3 hace que `@variant` sea más flexible cuando estás usando variantes en CSS en lugar de hacerlo directamente en tu marcado.
 
-You can now use stacked variants:
+Ahora puedes usar variantes apiladas:
 
 <CodeExampleStack>
 
@@ -554,7 +548,7 @@ You can now use stacked variants:
 ```
 
 ```css
-/* [!code filename:Compiled CSS] */
+/* [!code filename:CSS compilado] */
 .button {
   background: var(--color-sky-500);
 
@@ -588,7 +582,7 @@ And you can use compound variants to share the same block of CSS across multiple
 ```
 
 ```css
-/* [!code filename:Compiled CSS] */
+/* [!code filename:CSS compilado] */
 .button {
   background: var(--color-sky-500);
 
@@ -608,17 +602,17 @@ And you can use compound variants to share the same block of CSS across multiple
 
 </CodeExampleStack>
 
-You're usually better off creating a real component and styling it with Tailwind CSS classes directly, but when CSS is the right tool, this makes `@variant` a lot nicer to work with.
+Normalmente es mejor crear un componente real y darle estilo con clases de Tailwind CSS directamente, pero cuando CSS es la herramienta adecuada, esto hace que sea mucho más agradable trabajar con `@variant`.
 
-Check out the [`@variant`](/docs/adding-custom-styles#adding-custom-variants) docs for more details.
+Echa un vistazo a la documentación de [`@variant`](/docs/adding-custom-styles#adding-custom-variants) para más detalles.
 
 ---
 
-## Default values for functional utilities
+## Valores por defecto para utilidades funcionales
 
-Tailwind CSS v4.0 introduced functional `@utility` definitions, where you can use `--value(…)` and `--modifier(…)` to define utilities that accept theme values, bare values, arbitrary values, and modifiers.
+Tailwind CSS v4.0 introdujo las definiciones funcionales de `@utility`, donde puedes usar `--value(…)` y `--modifier(…)` para definir utilidades que acepten valores del tema, valores simples, valores arbitrarios y modificadores.
 
-In v4.3, you can now pass `--default(…)` to `--value(…)` and `--modifier(…)` when a utility should work with or without a value:
+En v4.3, ahora puedes pasar `--default(…)` a `--value(…)` y `--modifier(…)` cuando una utilidad deba funcionar con o sin valor:
 
 ```css
 /* [!code filename:CSS] */
@@ -628,7 +622,7 @@ In v4.3, you can now pass `--default(…)` to `--value(…)` and `--modifier(…
 }
 ```
 
-Now the bare `tab` utility can fall back to `4`, while `tab-2` still resolves to `2`:
+Ahora la utilidad simple `tab` puede recurrir a `4`, mientras que `tab-2` todavía se resuelve como `2`:
 
 <CodeExampleStack>
 
@@ -640,7 +634,7 @@ Now the bare `tab` utility can fall back to `4`, while `tab-2` still resolves to
 ```
 
 ```css
-/* [!code filename:Generated CSS] */
+/* [!code filename:CSS generado] */
 .tab {
   /* [!code word:4] */
   tab-size: 4;
@@ -654,38 +648,38 @@ Now the bare `tab` utility can fall back to `4`, while `tab-2` still resolves to
 
 </CodeExampleStack>
 
-That makes it easier to define APIs where the bare utility does the obvious thing, while still supporting explicit values for the same utility family.
+Eso facilita la definición de APIs donde la utilidad simple hace lo obvio, mientras que se siguen admitiendo valores explícitos para la misma familia de utilidades.
 
-It's a small thing, but it lets plugin authors and anyone writing custom utilities create APIs that feel a lot more like the ones we ship in the framework itself.
+Es un detalle pequeño, pero permite a los autores de plugins y a cualquiera que escriba utilidades personalizadas crear APIs que se sientan mucho más parecidas a las que incluimos en el propio framework.
 
 ---
 
-So that's Tailwind CSS v4.2 and v4.3!
+¡Así que eso es Tailwind CSS v4.2 y v4.3!
 
-Update to the latest version using npm and start playing with it today:
+Actualiza a la última versión usando npm y empieza a jugar con ella hoy mismo:
 
 <CodeExampleStack>
 
 ```sh
-# [!code filename:Using the Tailwind CLI]
+# [!code filename:Uso de la CLI de Tailwind]
 npm install tailwindcss@latest @tailwindcss/cli@latest
 ```
 
 ```sh
-# [!code filename:Using Vite]
+# [!code filename:Uso de Vite]
 npm install tailwindcss@latest @tailwindcss/vite@latest
 ```
 
 ```sh
-# [!code filename:Using PostCSS]
+# [!code filename:Uso de PostCSS]
 npm install tailwindcss@latest @tailwindcss/postcss@latest
 ```
 
 ```sh
-# [!code filename:Using webpack]
+# [!code filename:Uso de webpack]
 npm install tailwindcss@latest @tailwindcss/webpack@latest
 ```
 
 </CodeExampleStack>
 
-Try the new stuff and let us know what you run into. Just remember a tab size over 4 is a crime and may result in the suspension of your software engineering license.
+Prueba las novedades y cuéntanos con qué te encuentras. Solo recuerda que un tamaño de tabulación superior a 4 es un crimen y puede resultar en la suspensión de tu licencia de ingeniería de software.

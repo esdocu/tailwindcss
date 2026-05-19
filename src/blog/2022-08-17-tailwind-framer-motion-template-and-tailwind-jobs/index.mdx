@@ -8,84 +8,84 @@ import card from "./card.jpg";
 import pocketPreview from "./pocket-preview.png";
 
 export const meta = {
-  title: "New Tailwind CSS + Framer Motion template and Tailwind Jobs",
-  description: `All about the brand new Tailwind UI template we just shipped, the official Tailwind CSS job board, and a bunch of new projects coming out in the next few weeks.`,
+  title: "Nueva plantilla Tailwind CSS + Framer Motion y Tailwind Jobs",
+  description: `Todo sobre la nueva plantilla de Tailwind UI que acabamos de lanzar, la bolsa de trabajo oficial de Tailwind CSS y un montón de nuevos proyectos que saldrán en las próximas semanas.`,
   date: "2022-08-19T12:45:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      All about the brand new Tailwind UI template we just shipped, the official Tailwind CSS job board, and a bunch of
-      new projects coming out in the next few weeks.
+      Todo sobre la nueva plantilla de Tailwind UI que acabamos de lanzar, la bolsa de trabajo oficial de Tailwind CSS y un montón de
+      nuevos proyectos que saldrán en las próximas semanas.
     </>
   ),
 };
 
-Got another update for you today on some cool things we've shipped, and some other things that are in the works but shipping soon!
+¡Tengo otra actualización para ti hoy sobre algunas cosas geniales que hemos lanzado, y algunas otras cosas que están en proceso pero que se lanzarán pronto!
 
-Since the <Link href="/blog/2022-06-23-tailwind-templates-and-all-access">Tailwind UI site templates and all-access</Link> release back in June we've been doing a lot of maintenance-focused stuff, like processing <Link href="https://github.com/search?q=is%3Aclosed+org%3Atailwindlabs+archived%3Afalse+sort%3Acreated-desc+is%3Apublic+closed%3A%3E%3D2022-06-23+-author%3Aapp%2Fdependabot+-author%3Aapp%2Fgithub-actions+-author%3Aapp%2Fdepfu&type=Issues">over 350 GitHub issues and pull requests</Link> and updating all of the new templates we released to use <Link href="https://nextjs.org/blog/next-12-2">Next.js 12.2</Link> and the new <Link href="https://nextjs.org/docs/app/api-reference/next-config-js/images">`next/future/image`</Link> component.
+Desde el lanzamiento de <Link href="/blog/2022-06-23-tailwind-templates-and-all-access">las plantillas de sitio y el acceso total de Tailwind UI</Link> en junio, hemos estado haciendo muchas cosas centradas en el mantenimiento, como procesar <Link href="https://github.com/search?q=is%3Aclosed+org%3Atailwindlabs+archived%3Afalse+sort%3Acreated-desc+is%3Apublic+closed%3A%3E%3D2022-06-23+-author%3Aapp%2Fdependabot+-author%3Aapp%2Fgithub-actions+-author%3Aapp%2Fdepfu&type=Issues">más de 350 issues y pull requests de GitHub</Link> y actualizar todas las nuevas plantillas que lanzamos para usar <Link href="https://nextjs.org/blog/next-12-2">Next.js 12.2</Link> y el nuevo componente <Link href="https://nextjs.org/docs/app/api-reference/next-config-js/images">`next/future/image`</Link>.
 
-We did find time to ship a few new things in there too though!
+¡Aunque también encontramos tiempo para lanzar algunas cosas nuevas!
 
 ---
 
 ## Tailwind + Framer Motion = Pocket
 
-About a week ago we shipped a brand new Tailwind UI template, built with Next.js and (of course) Tailwind CSS.
+Hace aproximadamente una semana lanzamos una nueva plantilla de Tailwind UI, construida con Next.js y (por supuesto) Tailwind CSS.
 
-We're calling it <Link href="https://tailwindui.com/templates/pocket">Pocket</Link>, and it's a mobile app landing page loaded with tons of fun animations and interactions, powered by <Link href="https://www.framer.com/motion/">Framer Motion</Link> which is basically the coolest library anyone has ever made.
+La llamamos <Link href="https://tailwindui.com/templates/pocket">Pocket</Link>, y es una página de destino de aplicación móvil cargada con toneladas de animaciones e interacciones divertidas, impulsada por <Link href="https://www.framer.com/motion/">Framer Motion</Link>, que es básicamente la librería más genial que alguien haya creado jamás.
 
 <Link href="https://tailwindui.com/templates/pocket">
-  <Image alt="Learn about the Pocket template" src={pocketPreview} />
+  <Image alt="Aprende sobre la plantilla Pocket" src={pocketPreview} />
 </Link>
 
-Be sure to check out <Link href="https://pocket.tailwindui.com/">the live preview</Link> for the full experience — screenshots miss all the coolest parts, like the graph that draws in on page load, the animated mobile device UI in the features section, and the Frogger-inspired testimonials animation.
+Asegúrate de revisar <Link href="https://pocket.tailwindui.com/">la vista previa en vivo</Link> para la experiencia completa — las capturas de pantalla se pierden todas las partes más geniales, como el gráfico que se dibuja al cargar la página, la interfaz de usuario animada del dispositivo móvil en la sección de características y la animación de testimonios inspirada en Frogger.
 
-Funny story about this template — when we initially designed it and built it we actually didn't plan to do anything in terms of animations or interactions. We put together a static design in Figma that we were all really excited about, then built the whole thing out with a plan to ship it like three and a half weeks ago.
+Una historia divertida sobre esta plantilla — cuando la diseñamos y construimos inicialmente, en realidad no planeamos hacer nada en términos de animaciones o interacciones. Creamos un diseño estático en Figma que nos entusiasmó mucho a todos, luego construimos todo con el plan de lanzarlo hace unas tres semanas y media.
 
-But once we had the finished template in the browser it just kinda felt stiff. It looked great in Figma where you sort of expect everything to be still and static, but once we could see it in real life it felt more like a screenshot or something instead of a real, interactive website.
+Pero una vez que tuvimos la plantilla terminada en el navegador, simplemente se sentía un poco rígida. Se veía genial en Figma donde esperas que todo esté quieto y estático, pero una vez que pudimos verla en la vida real, se sintió más como una captura de pantalla o algo así en lugar de un sitio web real e interactivo.
 
-Take a look at <Link href="https://tailwindui-template-wip-saas-02-7i25puvq2-tailwindlabs.vercel.app/">this earlier version of the template</Link> and maybe you'll see what I mean.
+Echa un vistazo a <Link href="https://tailwindui-template-wip-saas-02-7i25puvq2-tailwindlabs.vercel.app/">esta versión anterior de la plantilla</Link> y quizás veas a qué me refiero.
 
-We decided to delay the release for a couple of weeks while we experimented with some things we could do to breathe some life into it, and after trying a bunch of different ideas ended up with what we have today.
+Decidimos retrasar el lanzamiento un par de semanas mientras experimentábamos con algunas cosas que podíamos hacer para darle vida, y después de probar un montón de ideas diferentes terminamos con lo que tenemos hoy.
 
-I'm super stoked about how this one turned out, and I think the codebase is a really interesting case study to pour over if you want to learn how to use Framer Motion to pull off some of the cool effects we landed on.
+Estoy súper emocionado por cómo quedó esta, y creo que la base de código es un estudio de caso realmente interesante para analizar si quieres aprender cómo usar Framer Motion para lograr algunos de los efectos geniales que conseguimos.
 
-And like all of our templates, if you've got a <Link href="https://tailwindui.com/all-access">Tailwind UI all-access</Link> license, it's included alongside all of our other components and templates at no extra cost.
+Y como todas nuestras plantillas, si tienes una licencia de <Link href="https://tailwindui.com/all-access">acceso total a Tailwind UI</Link>, está incluida junto con todos nuestros otros componentes y plantillas sin costo adicional.
 
 ---
 
 ## Tailwind Jobs
 
-We've tossed around the idea of building an official Tailwind CSS job board for about two years, and finally made the decision in the last few weeks to give it a shot and see what happens.
+Hemos estado considerando la idea de construir una bolsa de trabajo oficial de Tailwind CSS durante unos dos años, y finalmente tomamos la decisión en las últimas semanas de intentarlo y ver qué pasa.
 
-If you're a company that uses Tailwind and are looking for front-end engineers or you're a developer who wants to work at a company that uses Tailwind, <Link href="https://jobs.tailwindcss.com/">check out Tailwind Jobs</Link> to learn more about it.
+Si eres una empresa que usa Tailwind y estás buscando ingenieros de front-end o eres un desarrollador que quiere trabajar en una empresa que usa Tailwind, <Link href="https://jobs.tailwindcss.com/">echa un vistazo a Tailwind Jobs</Link> para saber más al respecto.
 
 <Link href="https://jobs.tailwindcss.com">
   <Image alt="Tailwind Jobs" src={tailwindJobs} />
 </Link>
 
-We broke ground on the codebase on July 14th, and launched the site to companies on August 2nd. We built it with <Link href="https://laravel.com/">Laravel</Link>, <Link href="https://inertiajs.com/">Inertia</Link>, <Link href="https://reactjs.org/">React</Link>, and of course Tailwind CSS. Pretty amazing what you can build with tools like these in just 20 days!
+Empezamos a trabajar en la base de código el 14 de julio y lanzamos el sitio para empresas el 2 de agosto. Lo construimos con <Link href="https://laravel.com/">Laravel</Link>, <Link href="https://inertiajs.com/">Inertia</Link>, <Link href="https://reactjs.org/">React</Link> y, por supuesto, Tailwind CSS. ¡Es bastante increíble lo que puedes construir con herramientas como estas en solo 20 días!
 
-We're still figuring out the positioning and what we can do to make it _the best_ place for companies using Tailwind to find front-end talent, so if you do any hiring at your company and have any feedback or ideas, [shoot Peter an email](mailto:peter@tailwindcss.com) — he's taking the lead on this project and is looking for people to talk to about it.
+Todavía estamos definiendo el posicionamiento y qué podemos hacer para que sea _el mejor_ lugar para que las empresas que usan Tailwind encuentren talento de front-end, así que si haces contrataciones en tu empresa y tienes algún comentario o idea, [envíale un correo electrónico a Peter](mailto:peter@tailwindcss.com) — él está liderando este proyecto y está buscando gente con quien hablar al respecto.
 
-One thing we're trying to figure out for example is how to make it clear that jobs don't have to be strictly "styling things with Tailwind CSS all day" to be a good fit — there's really not a lot of jobs like that in the world, we don't even have any jobs like that here at the company that actually _makes_ Tailwind CSS itself!
+Una cosa que estamos tratando de resolver, por ejemplo, es cómo dejar claro que los trabajos no tienen que ser estrictamente "dar estilo a las cosas con Tailwind CSS todo el día" para ser una buena opción — realmente no hay muchos trabajos así en el mundo, ¡ni siquiera tenemos trabajos así aquí en la empresa que realmente _hace_ Tailwind CSS!
 
-But man a lot of people hate wrestling with CSS, even if they're not writing it every single day.
+Pero hombre, mucha gente odia lidiar con CSS, incluso si no lo escriben todos los días.
 
-There's ton of developers out there who would be ecstatic to know that whenever they _do_ have to do some styling, they'll get do it with Tailwind instead of some custom CSS spaghetti.
+Hay toneladas de desarrolladores por ahí que estarían extasiados de saber que cada vez que _tengan_ que hacer algo de estilo, lo harán con Tailwind en lugar de algún espagueti CSS personalizado.
 
-We want the job board to be a place to find React developers, Vue developers, Laravel developers, Rails developers, whatever — as long as the person would get to use Tailwind when it's time to style something, it's a good fit for Tailwind Jobs.
+Queremos que la bolsa de trabajo sea un lugar para encontrar desarrolladores de React, desarrolladores de Vue, desarrolladores de Laravel, desarrolladores de Rails, lo que sea — siempre que la persona pueda usar Tailwind cuando sea el momento de dar estilo a algo, es una buena opción para Tailwind Jobs.
 
 ---
 
-## Work in progress...
+## Trabajo en progreso...
 
-We've got a bunch of cool stuff in the works that will be coming out in the next few weeks:
+Tenemos un montón de cosas geniales en proceso que saldrán en las próximas semanas:
 
-- We've almost finished <Link href="https://twitter.com/steveschoger/status/1559622409136873473">Heroicons v2.0</Link>, with a <Link href="https://twitter.com/jamesm/status/1556957434194829314">new website</Link> to go along with it
-- There's a damn beautiful <Link href="https://twitter.com/jamesm/status/1560289211424595973">personal website template</Link> coming soon to Tailwind UI
-- [Headless UI v1.7](https://github.com/tailwindlabs/headlessui/blob/main/packages/@headlessui-react/CHANGELOG.md#unreleased) is almost ready for release
-- We've got a bunch of new components designed for Tailwind UI that we're going to start building next week
+- Casi hemos terminado <Link href="https://twitter.com/steveschoger/status/1559622409136873473">Heroicons v2.0</Link>, con un <Link href="https://twitter.com/jamesm/status/1556957434194829314">nuevo sitio web</Link> para acompañarlo
+- Hay una plantilla de sitio web personal <Link href="https://twitter.com/jamesm/status/1560289211424595973">condenadamente hermosa</Link> que llegará pronto a Tailwind UI
+- [Headless UI v1.7](https://github.com/tailwindlabs/headlessui/blob/main/packages/@headlessui-react/CHANGELOG.md#unreleased) está casi lista para su lanzamiento
+- Tenemos un montón de nuevos componentes diseñados para Tailwind UI que empezaremos a construir la próxima semana
 
-So look for another update in a couple weeks with a bunch more stuff! With the big templates/all-access release behind us I'm excited to switch gears from creating brand new products and spend the rest of the year focused on making Tailwind CSS and Headless UI even better, and adding tons of awesome new stuff to Tailwind UI.
+¡Así que espera otra actualización en un par de semanas con un montón de cosas más! Con el gran lanzamiento de plantillas/acceso total detrás de nosotros, estoy emocionado de cambiar de marcha de crear productos completamente nuevos y pasar el resto del año enfocado en hacer que Tailwind CSS y Headless UI sean aún mejores, y agregar toneladas de cosas nuevas e increíbles a Tailwind UI.

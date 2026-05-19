@@ -8,64 +8,61 @@ import { Image, YouTubeVideo } from "@/components/media";
 import Link from "next/link";
 
 export const meta = {
-  title: "Tailwind CSS v3.1: You wanna get nuts? Come on, let's get nuts!",
-  description: `Now with first-party TypeScript types, arbitrary variants, improved CSS variable DX, and tons more.`,
+  title: "Tailwind CSS v3.1: ¿Quieres volverte loco? ¡Vamos, volvámonos locos!",
+  description: `Ahora con tipos TypeScript de primera parte, variantes arbitrarias, DX de variables CSS mejorado y mucho más.`,
   date: "2022-06-07T15:00:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      It's been about six months since we released <Link href="/blog/tailwindcss-v3">Tailwind CSS v3.0</Link>, and even
-      though we've been collecting a lot of little improvements in the codebase since then, we just didn't have{" "}
-      <em>that-one-feature</em> yet that makes you say
-      <em>"okay, it's release-cuttin' time"</em>.
+      Han pasado unos seis meses desde que lanzamos <Link href="/blog/tailwindcss-v3">Tailwind CSS v3.0</Link>, y aunque
+      hemos estado recopilando muchas pequeñas mejoras en el código base desde entonces, simplemente no teníamos{" "}
+      <em>esa característica única</em> que te hace decir
+      <em>"ok, es hora de lanzar la versión"</em>.
     </>
   ),
 };
 
 <YouTubeVideo id="nOQyWbPO2Ds" />
 
-It's been about six months since we released [Tailwind CSS v3.0](/blog/tailwindcss-v3), and even though we've been collecting a lot of little improvements in the codebase since then, we just didn't have _that-one-feature_ yet that makes you say _"okay, it's release-cuttin' time"_.
+Han pasado unos seis meses desde que lanzamos [Tailwind CSS v3.0](/blog/tailwindcss-v3), y aunque hemos estado recopilando muchas pequeñas mejoras en el código base desde entonces, simplemente no teníamos _esa característica única_ todavía que te hace decir _"ok, es hora de lanzar la versión"_.
 
-Then on a random Saturday night a couple of weeks ago, I was talking to Robin in our Discord about coming up with a way to target the `html` element using `:has` and a class deeper in the document, and explained how I thought it would look if we added support for arbitrary variants — something I've wanted to tackle for over a year:
+Luego, un sábado por la noche al azar hace un par de semanas, estaba hablando con Robin en nuestro Discord sobre cómo encontrar una manera de apuntar al elemento `html` usando `:has` y una clase más profunda en el documento, y expliqué cómo pensé que se vería si añadiéramos soporte para variantes arbitrarias — algo que he querido abordar durante más de un año:
 
 <Image
-  alt={`Adam Wathan: I think if we do arbitrary variants, the syntax should just be that exact thing, '[html:has(&)]:bg-blue-500'. Feel like that is pretty flexible, like anything you can do with a real variant you can also do with an arbitrary variant since they are the same thing. '[&>*:not(:first-child)]:pl-4'.
-Robin: This is going to break my brain haha because '[html:has(&)]:bg-blue-500' would be used as a literal inside the '&'. That in combination with other variants... 🤯.
-Adam Wathan: 😅 it'll be a brain melter for sure. The CSS would be this lol 'html:has([html:has(&)]:bg-blue-500 {"{"} background: blue 500 }'.
-Robin: exactly haha. ok, now I want to try that brb.`}
+  alt={`Adam Wathan: Creo que si hacemos variantes arbitrarias, la sintaxis debería ser exactamente eso, '[html:has(&)]:bg-blue-500'. Siento que eso es bastante flexible, como cualquier cosa que puedas hacer con una variante real también puedes hacerla con una variante arbitraria ya que son lo mismo. '[&>*:not(:first-child)]:pl-4'. Robin: Esto va a romperme el cerebro jaja porque '[html:has(&)]:bg-blue-500' se usaría como un literal dentro del '&'. Eso en combinación con otras variantes... 🤯. Adam Wathan: 😅 será un derrite-cerebros seguro. El CSS sería este lol 'html:has([html:has(&)]:bg-blue-500) { background: blue 500 }'. Robin: exacto jaja. ok, ahora quiero probar eso brb.`}
   src={discordMessage}
 />
 
-Twenty minutes later Robin had a working proof of concept _(in six lines of code!)_, and after another hour or so of Jordan performing regex miracles in our class detection engine, [arbitrary variants](https://github.com/tailwindlabs/tailwindcss/pull/8299) were born and we had our release-worthy feature.
+Veinte minutos después, Robin tenía una prueba de concepto funcional _(¡en seis líneas de código!)_, y después de otra hora más o menos de Jordan realizando milagros de regex en nuestro motor de detección de clases, nacieron las [variantes arbitrarias](https://github.com/tailwindlabs/tailwindcss/pull/8299) y tuvimos nuestra característica digna de lanzamiento.
 
-So here it is — Tailwind CSS v3.1! For a complete list of every fix and improvement check out the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.1.0), but here's the highlights:
+Así que aquí está — ¡Tailwind CSS v3.1! Para una lista completa de cada arreglo y mejora, consulta las [notas de la versión](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.1.0), pero aquí están los puntos destacados:
 
-- [First-party TypeScript types](#first-party-type-script-types)
-- [Built-in support for CSS imports in the CLI](#built-in-support-for-css-imports-in-the-cli)
-- [Change color opacity when using the theme function](#change-color-opacity-when-using-the-theme-function)
-- [Easier CSS variable color configuration](#easier-css-variable-color-configuration)
-- [Border spacing utilities](#border-spacing-utilities)
-- [Enabled and optional variants](#enabled-and-optional-variants)
-- [Prefers-contrast variants](#prefers-contrast-variants)
-- [Style native dialog backdrops](#style-native-dialog-backdrops)
-- [Arbitrary values but for variants](#arbitrary-values-but-for-variants)
+- [Tipos TypeScript de primera parte](#first-party-type-script-types)
+- [Soporte integrado para importaciones CSS en la CLI](#built-in-support-for-css-imports-in-the-cli)
+- [Cambiar la opacidad del color al usar la función theme](#change-color-opacity-when-using-the-theme-function)
+- [Configuración de color de variable CSS más fácil](#easier-css-variable-color-configuration)
+- [Utilidades de espaciado de borde](#border-spacing-utilities)
+- [Variantes Enabled y optional](#enabled-and-optional-variants)
+- [Variantes Prefers-contrast](#prefers-contrast-variants)
+- [Estilizar backdrops de diálogo nativos](#style-native-dialog-backdrops)
+- [Valores arbitrarios pero para variantes](#arbitrary-values-but-for-variants)
 
-Upgrade your projects by installing the latest version of `tailwindcss` from npm:
+Actualiza tus proyectos instalando la última versión de `tailwindcss` desde npm:
 
 ```sh
 npm install tailwindcss@latest
 ```
 
-Or spin up a [Tailwind Play](https://play.tailwindcss.com) to play around with all of the new goodies right in the browser.
+O abre un [Tailwind Play](https://play.tailwindcss.com) para jugar con todas las novedades directamente en el navegador.
 
 ---
 
-## First-party TypeScript types
+## Tipos TypeScript de primera parte
 
-We're now shipping types for all of our JS APIs you work with when using Tailwind, most notably the `tailwind.config.js` file. This means you get all sorts of useful IDE support, and makes it a lot easier to make changes to your configuration without referencing the documentation quite as much.
+Ahora estamos enviando tipos para todas nuestras APIs JS con las que trabajas al usar Tailwind, especialmente el archivo `tailwind.config.js`. Esto significa que obtienes todo tipo de soporte útil del IDE, y hace que sea mucho más fácil hacer cambios en tu configuración sin consultar tanto la documentación.
 
-To set it up, just add the type annotation above your config definition:
+Para configurarlo, simplemente añade la anotación de tipo sobre la definición de tu configuración:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -81,11 +78,11 @@ module.exports = {
 };
 ```
 
-If you're a big TypeScript nerd you might enjoy poking around the actual [type definitions](https://github.com/tailwindlabs/tailwindcss/blob/4a745439f010aca2ea24bb7fd9ab0ac3e15a40c1/types/config.d.ts) — lots of interesting stuff going on there to support such a potentially complex object.
+Si eres un gran nerd de TypeScript, podrías disfrutar husmeando en las [definiciones de tipos](https://github.com/tailwindlabs/tailwindcss/blob/4a745439f010aca2ea24bb7fd9ab0ac3e15a40c1/types/config.d.ts) reales — hay muchas cosas interesantes sucediendo allí para soportar un objeto potencialmente tan complejo.
 
-## Built-in support for CSS imports in the CLI
+## Soporte integrado para importaciones CSS en la CLI
 
-If you're using our CLI tool to compile your CSS, [`postcss-import`](https://github.com/postcss/postcss-import) is now baked right in so you can organize your custom CSS into multiple files without any additional configuration.
+Si estás usando nuestra herramienta CLI para compilar tu CSS, [`postcss-import`](https://github.com/postcss/postcss-import) ahora está integrado directamente para que puedas organizar tu CSS personalizado en múltiples archivos sin ninguna configuración adicional.
 
 <CodeExampleGroup filenames={["main.css", "select2-theme.css"]}>
   <CodeBlock
@@ -113,13 +110,13 @@ If you're using our CLI tool to compile your CSS, [`postcss-import`](https://git
   />
 </CodeExampleGroup>
 
-If you're not using our CLI tool and instead using Tailwind as a PostCSS plugin, you'll still need to install and configure `postcss-import` yourself just like you do with `autoprefixer`, but if you _are_ using our CLI tool this will totally just work now.
+Si no estás usando nuestra herramienta CLI y en su lugar estás usando Tailwind como un plugin de PostCSS, todavía necesitarás instalar y configurar `postcss-import` tú mismo, tal como lo haces con `autoprefixer`, pero si _estás_ usando nuestra herramienta CLI, esto funcionará totalmente ahora.
 
-This is especially handy if you're using our [standalone CLI](/blog/standalone-cli) and don't want to install any node dependencies at all.
+Esto es especialmente útil si estás usando nuestra [CLI independiente](/blog/standalone-cli) y no quieres instalar ninguna dependencia de node en absoluto.
 
-## Change color opacity when using the theme function
+## Cambiar la opacidad del color al usar la función theme
 
-I don't think tons of people know about this, but Tailwind exposes a [`theme()` function](https://v3.tailwindcss.com/docs/functions-and-directives#theme) to your CSS files that lets you grab values from your config file — sort of turning them into variables that you can reuse.
+No creo que mucha gente sepa esto, pero Tailwind expone una [`función theme()`](https://v3.tailwindcss.com/docs/functions-and-directives#theme) a tus archivos CSS que te permite obtener valores de tu archivo de configuración — convirtiéndolos en una especie de variables que puedes reutilizar.
 
 ```css
 /* [!code filename:select2-theme.css] */
@@ -131,7 +128,7 @@ I don't think tons of people know about this, but Tailwind exposes a [`theme()` 
 /* ... */
 ```
 
-One limitation though was that you couldn't adjust the alpha channel any colors you grabbed this way. So in v3.1 we've added support for using a slash syntax to adjust the opacity, like you can with the modern `rgb` and `hsl` CSS color functions:
+Una limitación, sin embargo, era que no podías ajustar el canal alfa de ningún color que obtuvieras de esta manera. Así que en v3.1 hemos añadido soporte para usar una sintaxis de barra inclinada para ajustar la opacidad, como puedes hacer con las funciones de color CSS modernas `rgb` y `hsl`:
 
 ```css
 /* [!code filename:select2-theme.css] */
@@ -144,7 +141,7 @@ One limitation though was that you couldn't adjust the alpha channel any colors 
 /* ... */
 ```
 
-We've made this work with the `theme` function in your `tailwind.config.js` file, too:
+Hemos hecho que esto funcione también con la función `theme` en tu archivo `tailwind.config.js`:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -165,7 +162,7 @@ module.exports = {
 };
 ```
 
-You can even use this stuff in arbitrary values which is pretty wild — honestly surprisingly useful for weird custom gradients and stuff:
+Incluso puedes usar estas cosas en valores arbitrarios, lo cual es bastante salvaje — honestamente sorprendentemente útil para gradientes personalizados extraños y cosas así:
 
 ```html
 <div class="bg-[image:linear-gradient(to_right,theme(colors.red.500)_75%,theme(colors.red.500/25%))]">
@@ -173,11 +170,11 @@ You can even use this stuff in arbitrary values which is pretty wild — honestl
 </div>
 ```
 
-Anything to avoid editing a CSS file am I right?
+Cualquier cosa para evitar editar un archivo CSS, ¿verdad?
 
-## Easier CSS variable color configuration
+## Configuración de color de variable CSS más fácil
 
-If you like to define and configure your colors as CSS variables, you probably have some horrible boilerplate like this in your `tailwind.config.js` file right now:
+Si te gusta definir y configurar tus colores como variables CSS, probablemente tengas algún boilerplate horrible como este en tu archivo `tailwind.config.js` ahora mismo:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -201,7 +198,7 @@ module.exports = {
 };
 ```
 
-We've made this way less awful in v3.1 by adding support for defining your colors with a format string instead of having to use a function:
+Hemos hecho esto mucho menos horrible en v3.1 añadiendo soporte para definir tus colores con una cadena de formato en lugar de tener que usar una función:
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -216,13 +213,13 @@ module.exports = {
 };
 ```
 
-Instead of writing a function that receives that `opacityValue` argument, you can just write a string with an `<alpha-value>` placeholder, and Tailwind will replace that placeholder with the correct alpha value based on the utility.
+En lugar de escribir una función que recibe ese argumento `opacityValue`, puedes simplemente escribir una cadena con un marcador de posición `<alpha-value>`, y Tailwind reemplazará ese marcador de posición con el valor alfa correcto basado en la utilidad.
 
-If you haven't seen any of this before, check out our updated [Using CSS variables](https://v3.tailwindcss.com/docs/customizing-colors#using-css-variables) documentation for more details.
+Si no has visto nada de esto antes, consulta nuestra [documentación actualizada de Uso de variables CSS](https://v3.tailwindcss.com/docs/customizing-colors#using-css-variables) para obtener más detalles.
 
-## Border spacing utilities
+## Utilidades de espaciado de borde
 
-We've added new set of utilities for the `border-spacing` property, so you can control the space between table borders when using [separate borders](https://v3.tailwindcss.com/docs/border-collapse#separate):
+Hemos añadido un nuevo conjunto de utilidades para la propiedad `border-spacing`, para que puedas controlar el espacio entre los bordes de la tabla al usar [bordes separados](https://v3.tailwindcss.com/docs/border-collapse#separate):
 
 <Figure>
 
@@ -233,10 +230,10 @@ We've added new set of utilities for the `border-spacing` property, so you can c
         <thead className="bg-slate-100 dark:bg-slate-700">
           <tr>
             <th className="w-1/2 border border-slate-300 p-4 text-left font-semibold text-slate-900 dark:border-slate-600 dark:text-slate-200">
-              <>State</>
+              <>Estado</>
             </th>
             <th className="w-1/2 border border-slate-300 p-4 text-left font-semibold text-slate-900 dark:border-slate-600 dark:text-slate-200">
-              <>City</>
+              <>Ciudad</>
             </th>
           </tr>
         </thead>
@@ -246,7 +243,7 @@ We've added new set of utilities for the `border-spacing` property, so you can c
               Indiana
             </td>
             <td className="border border-slate-300 p-4 text-slate-500 dark:border-slate-700 dark:text-slate-400">
-              <>Indianapolis</>
+              <>Indianápolis</>
             </td>
           </tr>
           <tr>
@@ -276,14 +273,14 @@ We've added new set of utilities for the `border-spacing` property, so you can c
 <table class="border-separate border-spacing-2 ...">
   <thead>
     <tr>
-      <th class="border border-slate-300 ...">State</th>
-      <th class="border border-slate-300 ...">City</th>
+      <th class="border border-slate-300 ...">Estado</th>
+      <th class="border border-slate-300 ...">Ciudad</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td class="border border-slate-300 ...">Indiana</td>
-      <td class="border border-slate-300 ...">Indianapolis</td>
+      <td class="border border-slate-300 ...">Indianápolis</td>
     </tr>
     <!-- ... -->
   </tbody>
@@ -292,11 +289,11 @@ We've added new set of utilities for the `border-spacing` property, so you can c
 
 </Figure>
 
-I know what you're thinking — _"I have never in my life wanted to build a table that looks like that..."_ — but listen for a second!
+Sé lo que estás pensando — _"Nunca en mi vida he querido construir una tabla que se vea así..."_ — ¡pero escucha por un segundo!
 
-One situation where this is actually super useful is when building a table with a sticky header row and you want a persistent bottom border under the headings:
+Una situación en la que esto es realmente súper útil es al construir una tabla con una fila de encabezado fija (sticky) y quieres un borde inferior persistente debajo de los encabezados:
 
-<Figure hint="Scroll this table to see the sticky header row in action">
+<Figure hint="Desplázate por esta tabla para ver la fila de encabezado fija en acción">
 
 <Example padding={false}>
   {
@@ -308,7 +305,7 @@ One situation where this is actually super useful is when building a table with 
               scope="col"
               className="bg-opacity-75 sticky top-0 z-10 border-b border-gray-300 bg-gray-50 py-3.5 pr-3 pl-4 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter sm:pl-6 lg:pl-8"
             >
-              <>Name</>
+              <>Nombre</>
             </th>
             <th
               scope="col"
@@ -320,7 +317,7 @@ One situation where this is actually super useful is when building a table with 
               scope="col"
               className="bg-opacity-75 sticky top-0 z-10 border-b border-gray-300 bg-gray-50 px-3 py-3.5 text-left text-sm font-semibold text-gray-900 backdrop-blur backdrop-filter"
             >
-              <>Role</>
+              <>Rol</>
             </th>
           </tr>
         </thead>
@@ -341,7 +338,7 @@ One situation where this is actually super useful is when building a table with 
             <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
               <>tom.cook@example.com</>
             </td>
-            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Member</td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
           </tr>
           <tr>
             <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
@@ -359,7 +356,7 @@ One situation where this is actually super useful is when building a table with 
             <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
               <>leonard.krasner@example.com</>
             </td>
-            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Owner</td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Propietario</td>
           </tr>
           <tr>
             <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
@@ -368,7 +365,7 @@ One situation where this is actually super useful is when building a table with 
             <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
               <>floyd.miles@example.com</>
             </td>
-            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Member</td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
           </tr>
           <tr>
             <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
@@ -377,7 +374,7 @@ One situation where this is actually super useful is when building a table with 
             <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
               <>emily.selman@example.com</>
             </td>
-            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Member</td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
           </tr>
           <tr>
             <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
@@ -395,7 +392,7 @@ One situation where this is actually super useful is when building a table with 
             <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
               <>emma.dorsey@example.com</>
             </td>
-            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Member</td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
           </tr>
           <tr>
             <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
@@ -413,7 +410,7 @@ One situation where this is actually super useful is when building a table with 
             <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
               <>jenny.wilson@example.com</>
             </td>
-            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Owner</td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Propietario</td>
           </tr>
           <tr>
             <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
@@ -422,7 +419,7 @@ One situation where this is actually super useful is when building a table with 
             <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
               <>anna.roberts@example.com</>
             </td>
-            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Member</td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
           </tr>
           <tr>
             <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
@@ -431,7 +428,7 @@ One situation where this is actually super useful is when building a table with 
             <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
               <>benjamin.russel@example.com</>
             </td>
-            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Member</td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
           </tr>
           <tr>
             <td className="border-b border-gray-200 py-4 pr-3 pl-4 text-sm font-medium whitespace-nowrap text-gray-900 sm:pl-6 lg:pl-8">
@@ -449,7 +446,7 @@ One situation where this is actually super useful is when building a table with 
             <td className="hidden border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500 lg:table-cell">
               <>kathryn.murphy@example.com</>
             </td>
-            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Member</td>
+            <td className="border-b border-gray-200 px-3 py-4 text-sm whitespace-nowrap text-gray-500">Miembro</td>
           </tr>
         </tbody>
       </table>
@@ -463,9 +460,9 @@ One situation where this is actually super useful is when building a table with 
 <table class="border-separate border-spacing-0">
   <thead class="bg-gray-50">
     <tr>
-      <th class="sticky top-0 z-10 border-b border-gray-300 ...">Name</th>
+      <th class="sticky top-0 z-10 border-b border-gray-300 ...">Nombre</th>
       <th class="sticky top-0 z-10 border-b border-gray-300 ...">Email</th>
-      <th class="sticky top-0 z-10 border-b border-gray-300 ...">Role</th>
+      <th class="sticky top-0 z-10 border-b border-gray-300 ...">Rol</th>
     </tr>
   </thead>
   <tbody class="bg-white">
@@ -481,19 +478,19 @@ One situation where this is actually super useful is when building a table with 
 
 </Figure>
 
-You might think you could just use `border-collapse` here since you actually don't want any space between the borders but you'd be mistaken. Without `border-separate` and `border-spacing-0`, the border will scroll away instead of sticking under the headings. CSS is fun isn't it?
+Pensarías que podrías usar `border-collapse` aquí, ya que en realidad no quieres ningún espacio entre los bordes, pero te equivocarías. Sin `border-separate` y `border-spacing-0`, el borde se desplazará en lugar de quedarse fijo debajo de los encabezados. CSS es divertido, ¿no?
 
-Check out the [border spacing documentation](https://v3.tailwindcss.com/docs/border-spacing) for some more details.
+Consulta la [documentación de espaciado de borde](https://v3.tailwindcss.com/docs/border-spacing) para obtener más detalles.
 
-## Enabled and optional variants
+## Variantes Enabled y optional
 
-We've added new variants for the `:enabled` and `:optional` pseudo-classes, which target form elements when they are, well, enabled and optional.
+Hemos añadido nuevas variantes para las pseudo-clases `:enabled` y `:optional`, que apuntan a los elementos de formulario cuando están, bueno, habilitados y opcionales.
 
-_"But Adam why would I ever need these, enabled and optional aren't even states, they are the defaults. Do you even make websites?"_
+_"Pero Adam, ¿por qué necesitaría esto alguna vez? Habilitado y opcional ni siquiera son estados, son los predeterminados. ¿Acaso haces sitios web?"_
 
-Ouch, that hurts because it's true — I pretty much just write emails and answer the same questions over and over again on GitHub now.
+Ay, eso duele porque es verdad — prácticamente solo escribo correos electrónicos y respondo las mismas preguntas una y otra vez en GitHub ahora.
 
-But check out this disabled button example:
+Pero mira este ejemplo de botón deshabilitado:
 
 <Figure>
 
@@ -505,19 +502,19 @@ But check out this disabled button example:
         className="inline-flex cursor-not-allowed items-center rounded-md bg-indigo-500 px-4 py-2 text-sm leading-6 font-semibold text-white shadow transition duration-150 ease-in-out hover:bg-indigo-400 disabled:opacity-75"
         disabled
       >
-        Processing...
+        Procesando...
       </button>
     </div>
   }
 </Example>
 
 ```html
-<button type="button" class="bg-indigo-500 hover:bg-indigo-400 disabled:opacity-75 ..." disabled>Processing...</button>
+<button type="button" class="bg-indigo-500 hover:bg-indigo-400 disabled:opacity-75 ..." disabled>Procesando...</button>
 ```
 
 </Figure>
 
-Notice how when you hover over the button, the background still changes color even though it's disabled? Before this release, you'd usually fix that like this:
+¿Notas cómo cuando pasas el cursor sobre el botón, el fondo todavía cambia de color aunque esté deshabilitado? Antes de esta versión, normalmente arreglarías eso así:
 
 ```html
 <!-- [!code word:disabled\:hover\:bg-indigo-500] -->
@@ -526,11 +523,11 @@ Notice how when you hover over the button, the background still changes color ev
   class="bg-indigo-500 hover:bg-indigo-400 disabled:opacity-75 disabled:hover:bg-indigo-500 ..."
   disabled
 >
-  Processing...
+  Procesando...
 </button>
 ```
 
-But with the new `enabled` modifier, you can write it like this instead:
+Pero con el nuevo modificador `enabled`, puedes escribirlo así en su lugar:
 
 <Figure>
 
@@ -542,7 +539,7 @@ But with the new `enabled` modifier, you can write it like this instead:
         className="inline-flex cursor-not-allowed items-center rounded-md bg-indigo-500 px-4 py-2 text-sm leading-6 font-semibold text-white shadow transition duration-150 ease-in-out hover:enabled:bg-indigo-400 disabled:opacity-75"
         disabled
       >
-        Processing...
+        Procesando...
       </button>
     </div>
   }
@@ -551,15 +548,15 @@ But with the new `enabled` modifier, you can write it like this instead:
 ```html
 <!-- [!code word:hover\:enabled\:bg-indigo-400] -->
 <button type="button" class="bg-indigo-500 hover:enabled:bg-indigo-400 disabled:opacity-75 ..." disabled>
-  Processing...
+  Procesando...
 </button>
 ```
 
 </Figure>
 
-Instead of overriding the hover color back to the default color when the button is disabled, we combine the `hover` and `enabled` variants to just not apply the hover styles when the button is disabled in the first place. I think that's better!
+En lugar de anular el color de hover volviendo al color predeterminado cuando el botón está deshabilitado, combinamos las variantes `hover` y `enabled` para simplemente no aplicar los estilos de hover cuando el botón está deshabilitado en primer lugar. ¡Creo que eso es mejor!
 
-Here's an example combining the new `optional` modifier with our [sibling state features](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-sibling-state) to hide a little "Required" notice for fields that aren't required:
+Aquí hay un ejemplo que combina el nuevo modificador `optional` con nuestras [características de estado de hermano](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-sibling-state) para ocultar un pequeño aviso "Requerido" para los campos que no son requeridos:
 
 <Figure>
 
@@ -580,13 +577,13 @@ Here's an example combining the new `optional` modifier with our [sibling state 
               className="peer block w-full rounded-md border border-slate-300 bg-white px-3 py-2 placeholder-slate-400 shadow-sm focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:outline-none sm:text-sm"
             />
             <div className="absolute inset-y-0 right-0 border-y border-transparent py-2 pr-3 text-sm text-slate-400 peer-optional:hidden">
-              <>Required</>
+              <>Requerido</>
             </div>
           </div>
         </div>
         <div className="mt-6">
           <label htmlFor="optional-name" className="block text-sm font-medium text-slate-700">
-            <>Name</>
+            <>Nombre</>
           </label>
           <div className="relative mt-1">
             <input
@@ -596,13 +593,13 @@ Here's an example combining the new `optional` modifier with our [sibling state 
               className="peer block w-full rounded-md border border-slate-300 bg-white px-3 py-2 placeholder-slate-400 shadow-sm focus:border-sky-500 focus:ring-1 focus:ring-sky-500 focus:outline-none sm:text-sm"
             />
             <div className="absolute inset-y-0 right-0 border-y border-transparent py-2 pr-3 text-sm text-slate-400 peer-optional:hidden">
-              <>Required</>
+              <>Requerido</>
             </div>
           </div>
         </div>
         <div className="mt-6 text-right">
           <button className="rounded-md bg-sky-500 px-5 py-2.5 text-sm leading-5 font-semibold text-white hover:bg-sky-700">
-            <>Submit</>
+            <>Enviar</>
           </button>
         </div>
       </form>
@@ -617,14 +614,14 @@ Here's an example combining the new `optional` modifier with our [sibling state 
     <div>
       <input required class="peer ..." id="email" />
       <!-- [!code word:peer-optional\:hidden] -->
-      <div class="peer-optional:hidden ...">Required</div>
+      <div class="peer-optional:hidden ...">Requerido</div>
     </div>
   </div>
   <div>
-    <label for="name" ...>Name</label>
+    <label for="name" ...>Nombre</label>
     <div>
       <input class="peer ..." id="name" />
-      <div class="peer-optional:hidden ...">Required</div>
+      <div class="peer-optional:hidden ...">Requerido</div>
     </div>
   </div>
   <!-- ... -->
@@ -633,15 +630,15 @@ Here's an example combining the new `optional` modifier with our [sibling state 
 
 </Figure>
 
-This lets you use the same markup for all of your form groups and letting CSS handle all of the conditional rendering for you instead of handling it yourself. Kinda neat!
+Esto te permite usar el mismo marcado para todos tus grupos de formularios y dejar que CSS maneje todo el renderizado condicional por ti en lugar de manejarlo tú mismo. ¡Bastante ingenioso!
 
-## Prefers-contrast variants
+## Variantes Prefers-contrast
 
-Did you know there's a `prefers-contrast` media query? Well there is, and now Tailwind supports it out of the box.
+¿Sabías que hay una media query `prefers-contrast`? Bueno, existe, y ahora Tailwind la soporta de forma predeterminada.
 
-Use the new `contrast-more` and `contrast-less` variants to modify your design when the user has requested more or less contrast, usually through an operating system accessibility preference like "Increase contrast" on macOS.
+Usa las nuevas variantes `contrast-more` y `contrast-less` para modificar tu diseño cuando el usuario ha solicitado más o menos contraste, generalmente a través de una preferencia de accesibilidad del sistema operativo como "Aumentar contraste" en macOS.
 
-<Figure hint="Try emulating `prefers-contrast: more` in your developer tools to see the changes">
+<Figure hint="Intenta emular `prefers-contrast: more` en tus herramientas de desarrollador para ver los cambios">
 
 <Example padding={false}>
   {
@@ -649,7 +646,7 @@ Use the new `contrast-more` and `contrast-less` variants to modify your design w
       <form>
         <div>
           <label htmlFor="contrast-example" className="block text-sm font-medium text-slate-700">
-            Social Security Number
+            Número de Seguro Social
           </label>
           <div className="mt-1">
             <input
@@ -660,7 +657,7 @@ Use the new `contrast-more` and `contrast-less` variants to modify your design w
               placeholder="000-00-0000"
             />
             <p className="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">
-              <>We need this to steal your identity.</>
+              <>Necesitamos esto para robar tu identidad.</>
             </p>
           </div>
         </div>
@@ -672,43 +669,43 @@ Use the new `contrast-more` and `contrast-less` variants to modify your design w
 ```html
 <form>
   <label class="block">
-    <span class="block text-sm font-medium text-slate-700">Social Security Number</span>
+    <span class="block text-sm font-medium text-slate-700">Número de Seguro Social</span>
     <!-- [!code word:contrast-more\:border-slate-400] -->
     <!-- [!code word:contrast-more\:placeholder-slate-500] -->
     <!-- [!code word:contrast-more\:opacity-100] -->
     <input
       class="border-slate-200 placeholder-slate-400 contrast-more:border-slate-400 contrast-more:placeholder-slate-500"
     />
-    <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">We need this to steal your identity.</p>
+    <p class="mt-2 text-sm text-slate-600 opacity-10 contrast-more:opacity-100">Necesitamos esto para robar tu identidad.</p>
   </label>
 </form>
 ```
 
 </Figure>
 
-I wrote [some documentation](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#prefers-contrast) for this but honestly I wrote more here than I did there.
+Escribí [alguna documentación](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#prefers-contrast) para esto, pero honestamente escribí más aquí que allí.
 
-## Style native dialog backdrops
+## Estilizar backdrops de diálogo nativos
 
-There's a pretty new [HTML `<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) with surprisingly decent [browser support](https://caniuse.com/dialog) that is worth playing with if you like to live on the bleeding edge.
+Hay un elemento HTML `<dialog>` bastante nuevo](https://developer.mozilla.org/es/docs/Web/HTML/Element/dialog) con un [soporte de navegador](https://caniuse.com/dialog) sorprendentemente decente con el que vale la pena jugar si te gusta vivir al límite.
 
-Dialogs have this new `::backdrop` pseudo-element that's rendered while the dialog is open, and Tailwind CSS v3.1 adds a new `backdrop` modifier you can use to style this baby:
+Los diálogos tienen este nuevo pseudo-elemento `::backdrop` que se renderiza mientras el diálogo está abierto, y Tailwind CSS v3.1 añade un nuevo modificador `backdrop` que puedes usar para estilizar a este bebé:
 
 ```html
 <dialog class="backdrop:bg-slate-900/50 ...">
   <form method="dialog">
     <!-- ... -->
-    <button value="cancel">Cancel</button>
-    <button>Submit</button>
+    <button value="cancel">Cancelar</button>
+    <button>Enviar</button>
   </form>
 </dialog>
 ```
 
-I recommend reading the [MDN Dialog documentation](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog) if you want to dig in to this thing more — it's exciting stuff but there's a lot to know.
+Recomiendo leer la [documentación de MDN sobre Dialog](https://developer.mozilla.org/es/docs/Web/HTML/Element/dialog) si quieres profundizar más en esto — es algo emocionante pero hay mucho que saber.
 
-## Arbitrary values but for variants
+## Valores arbitrarios pero para variantes
 
-Okay so this one is the real highlight for me — you know how we give you the [`addVariant` API](https://v3.tailwindcss.com/docs/plugins#adding-variants) for creating your own custom variants?
+Ok, así que este es el verdadero punto culminante para mí — ¿sabes cómo te damos la [API `addVariant`](https://v3.tailwindcss.com/docs/plugins#adding-variants) para crear tus propias variantes personalizadas?
 
 ```js
 // [!code filename:tailwind.config.js]
@@ -725,7 +722,7 @@ module.exports = {
 };
 ```
 
-...and you know how we have [arbitrary values](https://v3.tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values) for using any value you want with a utility directly in your HTML?
+...¿y sabes cómo tenemos [valores arbitrarios](https://v3.tailwindcss.com/docs/adding-custom-styles#using-arbitrary-values) para usar cualquier valor que quieras con una utilidad directamente en tu HTML?
 
 ```html
 <!-- [!code word:top-[117px]] -->
@@ -734,7 +731,7 @@ module.exports = {
 </div>
 ```
 
-Well Tailwind CSS v3.1 introduces [arbitrary variants](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#using-arbitrary-variants), letting you create your own ad hoc variants directly in your HTML:
+Bueno, Tailwind CSS v3.1 introduce [variantes arbitrarias](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#using-arbitrary-variants), permitiéndote crear tus propias variantes ad hoc directamente en tu HTML:
 
 ```html
 <!-- [!code word:[&\:nth-child(3)\]] -->
@@ -743,7 +740,7 @@ Well Tailwind CSS v3.1 introduces [arbitrary variants](https://v3.tailwindcss.co
 </div>
 ```
 
-This is super useful for variants that sort of feel like they need to be parameterized, for example adding a style if the browser supports a specific CSS feature using a `@supports` query:
+Esto es súper útil para variantes que de alguna manera parecen necesitar ser parametrizadas, por ejemplo, añadir un estilo si el navegador soporta una característica CSS específica usando una consulta `@supports`:
 
 ```html
 <!-- [!code word:@supports(backdrop-filter\:blur(0))\]\:bg-white/50] -->
@@ -755,7 +752,7 @@ This is super useful for variants that sort of feel like they need to be paramet
 </div>
 ```
 
-You can even use this feature to target child elements with arbitrary variants like `[&>*]`:
+Incluso puedes usar esta característica para apuntar a elementos hijos con variantes arbitrarias como `[&>*]`:
 
 <Figure>
 
@@ -812,7 +809,7 @@ You can even use this feature to target child elements with arbitrary variants l
     <div class="ml-3 overflow-hidden">
       <p class="text-sm font-medium text-slate-900">Kristen Ramos</p>
       <p class="truncate text-sm text-slate-500">kristen.ramos@example.com</p>
-    </div>
+</div>
   </li>
   <!-- ... -->
 </ul>
@@ -820,9 +817,9 @@ You can even use this feature to target child elements with arbitrary variants l
 
 </Figure>
 
-You can even style the first `p` inside the `div` in the second child `li` but only on `hover`:
+Incluso puedes estilizar el primer `p` dentro del `div` en el segundo `li` hijo pero solo en `hover`:
 
-<Figure hint="Try hovering over the text “Floyd Miles”">
+<Figure hint="Intenta pasar el cursor sobre el texto 'Floyd Miles'">
 
 <Example>
   {
@@ -881,7 +878,7 @@ You can even style the first `p` inside the `div` in the second child `li` but o
     <div class="ml-3 overflow-hidden">
       <p class="text-sm font-medium text-slate-900">Floyd Miles</p>
       <p class="truncate text-sm text-slate-500">floyd.miles@example.com</p>
-    </div>
+</div>
   </li>
   <!-- ... -->
 </ul>
@@ -889,18 +886,18 @@ You can even style the first `p` inside the `div` in the second child `li` but o
 
 </Figure>
 
-Now _should_ you do this? Probably not very often, but honestly it can be a pretty useful escape hatch when trying to style HTML you can't directly change. It's a sharp knife, but the best chefs aren't preparing food with safety scissors.
+Ahora, _deberías_ hacer esto? Probablemente no muy a menudo, pero honestamente puede ser una vía de escape bastante útil cuando intentas estilizar HTML que no puedes cambiar directamente. Es un cuchillo afilado, pero los mejores chefs no preparan comida con tijeras de seguridad.
 
-Play with them a bit and I'll bet you find they are a great tool when the situation calls for it. We're using them in a couple of tricky spots in these new website templates we're working on and the experience is much nicer than creating a custom class.
+Juega un poco con ellas y apuesto a que encontrarás que son una gran herramienta cuando la situación lo requiere. Las estamos usando en un par de puntos complicados en estas nuevas plantillas de sitio web en las que estamos trabajando y la experiencia es mucho más agradable que crear una clase personalizada.
 
 ---
 
-So that's Tailwind CSS v3.1! It's only a minor version change, so there are no breaking changes and you should be able to update your project by just installing the latest version:
+¡Así que eso es Tailwind CSS v3.1! Es solo un cambio de versión menor, así que no hay cambios que rompan la compatibilidad y deberías poder actualizar tu proyecto simplemente instalando la última versión:
 
 ```sh
 npm install tailwindcss@latest
 ```
 
-For the complete list of changes including bug fixes and a few minor improvements I didn't talk about here, dig in to the [release notes](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.1.0) on GitHub.
+Para la lista completa de cambios, incluyendo correcciones de errores y algunas mejoras menores de las que no hablé aquí, profundiza en las [notas de la versión](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.1.0) en GitHub.
 
-I've already got a bunch of ideas for Tailwind CSS v3.2 _(maybe even text shadows finally?!)_, but right now we're working hard to push these new [website templates](/blog/2022-05-23-headless-ui-v1-6-tailwind-ui-team-management#tailwind-css-templates-are-coming-soon) over the finish line. Look for another update on that topic in the next week or two!
+Ya tengo un montón de ideas para Tailwind CSS v3.2 _(¡quizás incluso sombras de texto finalmente?!)_, pero ahora mismo estamos trabajando duro para llevar estas nuevas [plantillas de sitio web](/blog/2022-05-23-headless-ui-v1-6-tailwind-ui-team-management#tailwind-css-templates-are-coming-soon) a la línea de meta. ¡Busca otra actualización sobre ese tema en la próxima semana o dos!

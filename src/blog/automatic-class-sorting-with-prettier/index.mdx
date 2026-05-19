@@ -7,16 +7,16 @@ import card from "./card.jpg";
 import banner from "./banner.jpg";
 
 export const meta = {
-  title: "Automatic Class Sorting with Prettier",
-  description: `People have been talking about the best way to sort your utility classes in Tailwind projects for at least four years. Today we’re excited to announce that you can finally stop worrying about it with the release of our official Prettier plugin for Tailwind CSS.`,
+  title: "Clasificación Automática de Clases con Prettier",
+  description: `La gente ha estado hablando sobre la mejor manera de ordenar tus clases de utilidad en proyectos de Tailwind durante al menos cuatro años. Hoy estamos emocionados de anunciar que finalmente puedes dejar de preocuparte por eso con el lanzamiento de nuestro plugin oficial de Prettier para Tailwind CSS.`,
   date: "2022-01-24T19:00:00.000Z",
   authors: [reinink, adamwathan],
   image: card,
   excerpt: (
     <>
-      People have been talking about the best way to sort your utility classes in Tailwind projects for{" "}
-      <Link href="https://github.com/tailwindlabs/discuss/issues/97">at least four years</Link>. Today we're excited to
-      announce that you can finally stop worrying about it with the release of our official Prettier plugin for Tailwind
+      La gente ha estado hablando sobre la mejor manera de ordenar tus clases de utilidad en proyectos de Tailwind durante{" "}
+      <Link href="https://github.com/tailwindlabs/discuss/issues/97">al menos cuatro años</Link>. Hoy estamos emocionados de
+      anunciar que finalmente puedes dejar de preocuparte por eso con el lanzamiento de nuestro plugin oficial de Prettier para Tailwind
       CSS.
     </>
   ),
@@ -26,28 +26,28 @@ export const meta = {
   <Image alt="Tailwind CSS v3.4" src={banner} />
 </Link>
 
-People have been talking about the best way to sort your utility classes in Tailwind projects for <Link href="https://github.com/tailwindlabs/discuss/issues/97">at least four years</Link>. Today we're excited to announce that you can finally stop worrying about it with the release of our official <Link href="https://github.com/tailwindlabs/prettier-plugin-tailwindcss">Prettier plugin for Tailwind CSS</Link>.
+La gente ha estado hablando sobre la mejor manera de ordenar tus clases de utilidad en proyectos de Tailwind durante <Link href="https://github.com/tailwindlabs/discuss/issues/97">al menos cuatro años</Link>. Hoy estamos emocionados de anunciar que finalmente puedes dejar de preocuparte por eso con el lanzamiento de nuestro <Link href="https://github.com/tailwindlabs/prettier-plugin-tailwindcss">plugin oficial de Prettier para Tailwind CSS</Link>.
 
-This plugin scans your templates for class attributes containing Tailwind CSS classes, and then sorts those classes automatically following our [recommended class order](#how-classes-are-sorted).
+Este plugin escanea tus plantillas en busca de atributos de clase que contengan clases de Tailwind CSS, y luego ordena esas clases automáticamente siguiendo nuestro [orden de clases recomendado](#cómo-se-ordenan-las-clases).
 
 {/* prettier-ignore */}
 ```html {{ filename: 'HTML' }}
-<!-- Before -->
+<!-- Antes -->
 <button class="text-white px-4 sm:px-8 py-2 sm:py-3 bg-sky-700 hover:bg-sky-800">...</button>
 
-<!-- After -->
+<!-- Después -->
 <button class="bg-sky-700 px-4 py-2 text-white hover:bg-sky-800 sm:px-8 sm:py-3">...</button>
 ```
 
-It works seamlessly with custom Tailwind configurations, and because it's just a [Prettier](https://prettier.io/) plugin, it works anywhere Prettier works — including every popular editor and IDE, and of course on the command line.
+Funciona perfectamente con configuraciones personalizadas de Tailwind, y como es solo un plugin de [Prettier](https://prettier.io/), funciona en cualquier lugar donde Prettier funcione — incluyendo cada editor e IDE popular, y por supuesto en la línea de comandos.
 
-To get started, install `prettier-plugin-tailwindcss` as a dev-dependency:
+Para empezar, instala `prettier-plugin-tailwindcss` como una dependencia de desarrollo:
 
 ```sh {{ filename: 'Terminal' }}
 npm install -D prettier prettier-plugin-tailwindcss
 ```
 
-Then add the plugin to your [Prettier configuration file](https://prettier.io/docs/en/configuration):
+Luego agrega el plugin a tu [archivo de configuración de Prettier](https://prettier.io/docs/en/configuration):
 
 ```json {{ filename: '.prettierrc' }}
 {
@@ -55,24 +55,24 @@ Then add the plugin to your [Prettier configuration file](https://prettier.io/do
 }
 ```
 
-You can also [load the plugin by using the `--plugin` flag with the Prettier CLI, or by using the `plugins` option with the Prettier API](https://prettier.io/docs/en/plugins.html#using-plugins).
+Puedes también [cargar el plugin usando la bandera `--plugin` con la CLI de Prettier, o usando la opción `plugins` con la API de Prettier](https://prettier.io/docs/en/plugins.html#using-plugins).
 
 ---
 
-## How classes are sorted
+## Cómo se ordenan las clases
 
-At its core, all this plugin does is organize your classes in the same order that Tailwind orders them in your CSS.
+En esencia, todo lo que hace este plugin es organizar tus clases en el mismo orden en que Tailwind las ordena en tu CSS.
 
-This means that any classes in the base layer will be sorted first, followed by classes in the components layer, and then finally classes in the utilities layer.
+Esto significa que cualquier clase en la capa base se ordenará primero, seguida por las clases en la capa de componentes, y finalmente las clases en la capa de utilidades.
 
 ```html
-<!-- `container` is a component so it comes first -->
+<!-- `container` es un componente así que va primero -->
 <div class="container mx-auto px-6">
   <!-- ... -->
 </div>
 ```
 
-Utilities themselves are sorted in the same order we sort them in the CSS as well, which means that any classes that override other classes always appear later in the class list:
+Las utilidades mismas se ordenan en el mismo orden en que las ordenamos en el CSS también, lo que significa que cualquier clase que sobrescriba a otras clases siempre aparece más tarde en la lista de clases:
 
 {/* prettier-ignore */}
 ```html
@@ -83,7 +83,7 @@ Utilities themselves are sorted in the same order we sort them in the CSS as wel
 </div>
 ```
 
-The actual order of the different utilities is loosely based on the box model, and tries to put high impact classes that affect the layout at the beginning and decorative classes at the end, while also trying to keep related utilities together:
+El orden real de las diferentes utilidades se basa vagamente en el modelo de caja, e intenta poner las clases de alto impacto que afectan el diseño al principio y las clases decorativas al final, al mismo tiempo que intenta mantener juntas las utilidades relacionadas:
 
 {/* prettier-ignore */}
 ```html
@@ -94,7 +94,7 @@ The actual order of the different utilities is loosely based on the box model, a
 </div>
 ```
 
-Modifiers like `hover:` and `focus:` are grouped together and sorted after any plain utilities:
+Los modificadores como `hover:` y `focus:` se agrupan y se ordenan después de cualquier utilidad simple:
 
 {/* prettier-ignore */}
 ```html
@@ -105,7 +105,7 @@ Modifiers like `hover:` and `focus:` are grouped together and sorted after any p
 </div>
 ```
 
-Responsive modifiers like `md:` and `lg:` are grouped together at the end in the same order they're configured in your theme — which is smallest to largest by default:
+Los modificadores Responsive como `md:` y `lg:` se agrupan al final en el mismo orden en que están configurados en tu tema — que es de menor a mayor por defecto:
 
 {/* prettier-ignore */}
 ```html
@@ -116,7 +116,7 @@ Responsive modifiers like `md:` and `lg:` are grouped together at the end in the
 </div>
 ```
 
-Any custom classes that don't come from Tailwind plugins (like classes for targeting a third-party library) are always sorted to the front, so it's easy to see when an element is using them:
+Cualquier clase personalizada que no provenga de plugins de Tailwind (como clases para apuntar a una biblioteca de terceros) siempre se ordena al principio, para que sea fácil ver cuándo un elemento las está usando:
 
 {/* prettier-ignore */}
 ```html
@@ -129,12 +129,12 @@ Any custom classes that don't come from Tailwind plugins (like classes for targe
 
 ---
 
-## Customization
+## Personalización
 
-We think [Prettier gets it right](https://prettier.io/docs/en/option-philosophy.html) when it comes to being opinionated and offering little in terms of customizability — at the end of the day the biggest benefit to sorting your classes is that it's just one less thing to argue with your team about.
+Creemos que [Prettier acierta](https://prettier.io/docs/en/option-philosophy.html) cuando se trata de ser opinativo y ofrecer poco en términos de personalización — al final del día, el mayor beneficio de ordenar tus clases es que es simplemente una cosa menos sobre la que discutir con tu equipo.
 
-We've tried really hard to come up with a sort order that is easy to understand and communicates the most important information as fast as possible.
+Hemos intentado mucho encontrar un orden de clasificación que sea fácil de entender y comunique la información más importante lo más rápido posible.
 
-The plugin _will_ respect your `tailwind.config.js` file and work with any Tailwind plugins you've installed, but **there is no way to change the sort order**. Just like with Prettier, we think that the benefits of auto-formatting will quickly outweigh any stylistic preferences you have and that you'll get used to it pretty fast.
+El plugin _respetará_ tu archivo `tailwind.config.js` y funcionará con cualquier plugin de Tailwind que hayas instalado, pero **no hay forma de cambiar el orden de clasificación**. Al igual que con Prettier, creemos que los beneficios del formateo automático superarán rápidamente cualquier preferencia estilística que tengas y que te acostumbrarás bastante rápido.
 
-Ready to try it out? <a href="https://github.com/tailwindlabs/prettier-plugin-tailwindcss">Check out the full documentation on GitHub →</a>
+¿Listo para probarlo? <a href="https://github.com/tailwindlabs/prettier-plugin-tailwindcss">Consulta la documentación completa en GitHub →</a>

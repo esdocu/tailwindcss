@@ -7,46 +7,46 @@ import { Example } from "@/components/example";
 import { CodeExampleStack } from "@/components/code-example";
 
 export const meta = {
-  title: "Vanilla JavaScript support for Tailwind Plus",
+  title: "Soporte de JavaScript vanilla para Tailwind Plus",
   description:
-    "Every UI block in Tailwind Plus is now fully functional, accessible, and interactive, even if you don't use a framework like React or Vue.",
+    "Cada bloque de interfaz de usuario en Tailwind Plus ahora es completamente funcional, accesible e interactivo, incluso si no usas un framework como React o Vue.",
   date: "2025-07-25T14:30:00.000Z",
   authors: [philippspiess, adamwathan],
   image: card,
   excerpt: (
     <>
-      There are a lot of UI blocks in Tailwind Plus that need JavaScript to really be useful, like dialogs, dropdowns,
-      command palettes, and more. And unless you're a React or Vue user, using those UI blocks has always meant writing
-      all of that tricky JavaScript yourself. Well today that finally changes — every UI block in Tailwind Plus is now
-      fully functional, accessible, and interactive, including the plain HTML examples.
+      Hay muchos bloques de interfaz de usuario en Tailwind Plus que necesitan JavaScript para ser realmente útiles, como diálogos, menús desplegables,
+      paletas de comandos y más. Y a menos que seas usuario de React o Vue, usar esos bloques de interfaz de usuario siempre ha significado escribir
+      todo ese JavaScript complicado por ti mismo. Pues hoy eso finalmente cambia: cada bloque de interfaz de usuario en Tailwind Plus ahora es
+      completamente funcional, accesible e interactivo, incluidos los ejemplos de HTML puro.
     </>
   ),
 };
 
-<Image src={hero} alt="Tailwind Plus Elements" />
+<Image src={hero} alt="Elementos de Tailwind Plus" />
 
-There are a lot of UI blocks in Tailwind Plus that need JavaScript to really be useful, like dialogs, dropdowns, command palettes, and more. And unless you're a React or Vue user, using those UI blocks has always meant writing all of that tricky JavaScript yourself.
+Hay muchos bloques de interfaz de usuario en Tailwind Plus que necesitan JavaScript para ser realmente útiles, como diálogos, menús desplegables, paletas de comandos y más. Y a menos que seas usuario de React o Vue, usar esos bloques de interfaz de usuario siempre ha significado escribir todo ese JavaScript complicado por ti mismo.
 
-Well today that finally changes — **every UI block in Tailwind Plus is now fully functional, accessible, and interactive**, including the plain HTML examples.
+Pues hoy eso finalmente cambia: **cada bloque de interfaz de usuario en Tailwind Plus ahora es completamente funcional, accesible e interactivo**, incluidos los ejemplos de HTML puro.
 
-Now you can use any [dropdown](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns), [command palette](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes), [dialog](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/modal-dialogs), [drawer](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/drawers), and more in any project you're working on — no JavaScript framework required.
+Ahora puedes usar cualquier [menú desplegable](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns), [paleta de comandos](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes), [diálogo](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/modal-dialogs), [panel lateral](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/drawers) y más en cualquier proyecto en el que estés trabajando, sin necesidad de un framework de JavaScript.
 
 ---
 
-## No framework required
+## Sin necesidad de framework
 
-To pull this off, we built `@tailwindplus/elements` — a library we're releasing exclusively for [Tailwind Plus](https://tailwindcss.com/plus) customers.
+Para lograr esto, creamos `@tailwindplus/elements`, una biblioteca que lanzamos exclusivamente para clientes de [Tailwind Plus](https://tailwindcss.com/plus).
 
-Elements is a collection of headless [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) that wrap up all of the complex behavior needed to build custom interactive UIs using just HTML, and can be styled any way you like using utility classes or custom CSS.
+Elements es una colección de [elementos personalizados](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) headless que encapsulan todo el comportamiento complejo necesario para construir interfaces de usuario interactivas y personalizadas usando solo HTML, y se pueden diseñar de la manera que desees utilizando clases de utilidad o CSS personalizado.
 
-Instead of being coupled to a specific JavaScript framework, these custom elements work anywhere you can use a `<script>` tag:
+En lugar de estar acoplados a un framework de JavaScript específico, estos elementos personalizados funcionan en cualquier lugar donde puedas usar una etiqueta `<script>`:
 
 ```html
 /* [!code filename:index.html] */
 <script src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1" type="module"></script>
 ```
 
-Here's what it look like to build a [custom dropdown](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns#component-f8a14da22f26a67757b19f2fe3ca00ed) menu with Elements:
+Así se ve construir un menú [desplegable personalizado](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns#component-f8a14da22f26a67757b19f2fe3ca00ed) con Elements:
 
 <Video
   src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/intro-video.mp4"
@@ -58,7 +58,7 @@ Here's what it look like to build a [custom dropdown](https://tailwindcss.com/pl
 <!-- [!code highlight:2] -->
 <el-dropdown class="relative inline-block text-left">
   <button class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-xs ring-1 ring-gray-300 ring-inset hover:bg-gray-50">
-    Options
+    Opciones
     <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="-mr-1 size-5 text-gray-400">
       <path d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
     </svg>
@@ -67,11 +67,11 @@ Here's what it look like to build a [custom dropdown](https://tailwindcss.com/pl
   <!-- [!code highlight:2] -->
   <el-menu anchor="bottom end" popover class="w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black/5 transition transition-discrete [--anchor-gap:--spacing(2)] focus:outline-hidden data-closed:scale-95 data-closed:transform data-closed:opacity-0 data-enter:duration-100 data-enter:ease-out data-leave:duration-75 data-leave:ease-in">
     <div class="py-1">
-      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Account settings</a>
-      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Support</a>
-      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">License</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Configuración de la cuenta</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Soporte</a>
+      <a href="#" class="block px-4 py-2 text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Licencia</a>
       <form action="#" method="POST">
-        <button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Sign out</button>
+        <button type="submit" class="block w-full px-4 py-2 text-left text-sm text-gray-700 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden">Cerrar sesión</button>
       </form>
     </div>
   <!-- [!code highlight:3] -->
@@ -79,13 +79,13 @@ Here's what it look like to build a [custom dropdown](https://tailwindcss.com/pl
 </el-dropdown>
 ```
 
-And here's what it looks like to build a [custom select](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/select-menus#component-e0f6280e5501d69e188768909fda485e):
+Y aquí tienes cómo se ve construir un [menú de selección personalizado](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/select-menus#component-e0f6280e5501d69e188768909fda485e):
 
 <Video src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/select.mp4" alt="Select" />
 
 {/* prettier-ignore */}
 ```html
-<label for="select" class="block text-sm/6 font-medium text-gray-900">Assigned to</label>
+<label for="select" class="block text-sm/6 font-medium text-gray-900">Asignado a</label>
 <!-- [!code highlight:2] -->
 <el-select id="select" name="selected" value="4" class="mt-2 block">
   <button type="button" class="grid w-full cursor-default grid-cols-1 ...">
@@ -104,7 +104,7 @@ And here's what it looks like to build a [custom select](https://tailwindcss.com
         <span aria-hidden="true" class="inline-block size-2 shrink-0 ..."></span>
         <span class="ml-3 block group-aria-selected/option:font-semibold ...">
           Wade Cooper
-          <span class="sr-only"> is online</span>
+          <span class="sr-only"> está en línea</span>
         </span>
       </div>
       <span class="group-not-aria-selected/option:hidden group-focus/option:text-white in-[el-selectedcontent]:hidden ...">
@@ -121,9 +121,9 @@ And here's what it looks like to build a [custom select](https://tailwindcss.com
 </el-select>
 ```
 
-See those custom HTML elements like `<el-select>` and `<el-options>`? Those are the secret sauce that make everything work, including automatic ARIA attribute management, focus handling, keyboard support, and more.
+¿Ves esos elementos HTML personalizados como `<el-select>` y `<el-options>`? Esos son la fórmula secreta que hace que todo funcione, incluyendo la gestión automática de atributos ARIA, el manejo del foco, el soporte para teclado y más.
 
-You can even build something as sophisticated as a custom [command palette](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes#component-5e859372042e1b3b308dc51f3ac8bad6) with Elements, without having to write any of your own JavaScript:
+Incluso puedes construir algo tan sofisticado como una [paleta de comandos](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes#component-5e859372042e1b3b308dc51f3ac8bad6) personalizada con Elements, sin tener que escribir nada de tu propio JavaScript:
 
 <Video
   src="https://assets.tailwindcss.com/blog/vanilla-js-support-for-tailwind-plus/command-palette-demo.mp4"
@@ -133,7 +133,7 @@ You can even build something as sophisticated as a custom [command palette](http
 {/* prettier-ignore */}
 ```html
 <button command="show-modal" commandfor="dialog" class="rounded-md bg-white/80 px-2.5 py-1.5 text-sm font-semibold text-gray-900 hover:bg-white/90">
-  Open command palette
+  Abrir paleta de comandos
 </button>
 
 <!-- [!code highlight:2] -->
@@ -146,7 +146,7 @@ You can even build something as sophisticated as a custom [command palette](http
       <el-dialog-panel class="mx-auto block max-w-3xl transform overflow-hidden rounded-xl bg-white shadow-2xl ring-1 ring-black/5 transition-all data-closed:scale-95 data-closed:opacity-0 data-enter:duration-300 data-enter:ease-out data-leave:duration-200 data-leave:ease-in">
         <el-command-palette class="divide-y divide-gray-100">
           <div class="grid grid-cols-1">
-            <input type="text" autofocus placeholder="Search..." class="col-start-1 row-start-1 h-12 w-full pr-4 pl-11 text-base text-gray-900 outline-hidden placeholder:text-gray-400 sm:text-sm" />
+            <input type="text" autofocus placeholder="Buscar..." class="col-start-1 row-start-1 h-12 w-full pr-4 pl-11 text-base text-gray-900 outline-hidden placeholder:text-gray-400 sm:text-sm" />
             <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" class="pointer-events-none col-start-1 row-start-1 ml-4 size-5 self-center text-gray-400">
               <path d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" fill-rule="evenodd" />
             </svg>
@@ -157,7 +157,7 @@ You can even build something as sophisticated as a custom [command palette](http
               <!-- [!code highlight:3] -->
               <el-command-list class="-mx-2 block text-sm text-gray-700">
                 <el-defaults>
-                  <h2 class="mx-2 mt-2 mb-4 text-xs font-semibold text-gray-500">Recent searches</h2>
+                  <h2 class="mx-2 mt-2 mb-4 text-xs font-semibold text-gray-500">Búsquedas recientes</h2>
                   <div class="text-sm text-gray-700">
                     <a id="person-suggestion-6" href="#" class="group flex cursor-default items-center rounded-md p-2 select-none focus:outline-hidden aria-selected:bg-gray-100 aria-selected:text-gray-900">
                       <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="size-6 flex-none rounded-full" />
@@ -187,8 +187,8 @@ You can even build something as sophisticated as a custom [command palette](http
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true" class="mx-auto size-6 text-gray-400">
                   <path d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
-                <p class="mt-4 font-semibold text-gray-900">No people found</p>
-                <p class="mt-2 text-gray-500">We couldn't find anything with that term. Please try again.</p>
+                <p class="mt-4 font-semibold text-gray-900">No se encontraron personas</p>
+                <p class="mt-2 text-gray-500">No pudimos encontrar nada con ese término. Por favor, inténtalo de nuevo.</p>
                 <!-- [!code highlight:2] -->
               </el-no-results>
             </div>
@@ -198,18 +198,18 @@ You can even build something as sophisticated as a custom [command palette](http
               <div class="flex-none p-6 text-center">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="mx-auto size-16 rounded-full" />
                 <h2 class="mt-3 font-semibold text-gray-900">Leslie Alexander</h2>
-                <p class="text-sm/6 text-gray-500">Co-Founder / CEO</p>
+                <p class="text-sm/6 text-gray-500">Cofundador / CEO</p>
               </div>
               <div class="flex flex-auto flex-col justify-between p-6">
                 <dl class="grid grid-cols-1 gap-x-6 gap-y-3 text-sm text-gray-700">
-                  <dt class="col-end-1 font-semibold text-gray-900">Phone</dt>
+                  <dt class="col-end-1 font-semibold text-gray-900">Teléfono</dt>
                   <dd>1-493-747-9031</dd>
                   <dt class="col-end-1 font-semibold text-gray-900">URL</dt>
                   <dd class="truncate"><a href="https://example.com" class="text-indigo-600 underline">https://example.com</a></dd>
-                  <dt class="col-end-1 font-semibold text-gray-900">Email</dt>
+                  <dt class="col-end-1 font-semibold text-gray-900">Correo electrónico</dt>
                   <dd class="truncate"><a href="mailto:lesliealexander@example.com" class="text-indigo-600 underline">lesliealexander@example.com</a></dd>
                 </dl>
-                <button type="button" class="mt-6 w-full rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Send message</button>
+                <button type="button" class="mt-6 w-full rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Enviar mensaje</button>
               </div>
               <!-- [!code highlight:2] -->
             </el-command-preview>
@@ -224,40 +224,40 @@ You can even build something as sophisticated as a custom [command palette](http
 </el-dialog>
 ```
 
-To support all of the UI blocks in Tailwind Plus, we're shipping the following primitives in this first release of Elements:
+Para dar soporte a todos los bloques de interfaz de usuario en Tailwind Plus, incluimos las siguientes primitivas en este primer lanzamiento de Elements:
 
-- [Autocomplete](https://tailwindcss.com/plus/ui-blocks/documentation/autocomplete) — for building things like custom [Comboboxes](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/comboboxes).
-- [Command palette](https://tailwindcss.com/plus/ui-blocks/documentation/command-palette) — for building custom [Command Palettes](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes).
-- [Dialog](https://tailwindcss.com/plus/ui-blocks/documentation/dialog) — for building custom [Modal Dialogs](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/modal-dialogs), [Drawers](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/drawers), and more.
-- [Disclosure](https://tailwindcss.com/plus/ui-blocks/documentation/disclosure) — for building collapsible [FAQs](https://tailwindcss.com/plus/ui-blocks/marketing/sections/faq-sections#component-8699d80b13ef524eb573e54b4d4b89d1), mobile menus in [Navbars](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/navbars), and more.
-- [Dropdown menu](https://tailwindcss.com/plus/ui-blocks/documentation/dropdown-menu) — for building custom [Dropdowns](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns), of course.
-- [Popover](https://tailwindcss.com/plus/ui-blocks/documentation/popover) — for building custom [Flyout Menus](https://tailwindcss.com/plus/ui-blocks/marketing/elements/flyout-menus) and more.
-- [Select](https://tailwindcss.com/plus/ui-blocks/documentation/select) — for building custom [Select Menus](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/select-menus#component-8298198b136afab3bb19391ae716077f).
-- [Tabs](https://tailwindcss.com/plus/ui-blocks/documentation/tabs) — for building custom tabs, like we use in custom [Textareas](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/textareas#component-532d35bcb49664c16a4f877d71658b12) and [Product Overviews](https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-overviews#component-13a89c2dc50a31afd66541dc28fa3c13).
+- [Autocomplete](https://tailwindcss.com/plus/ui-blocks/documentation/autocomplete) — para construir elementos como [Comboboxes](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/comboboxes) personalizados.
+- [Command palette](https://tailwindcss.com/plus/ui-blocks/documentation/command-palette) — para construir [Paletas de comandos](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes) personalizadas.
+- [Dialog](https://tailwindcss.com/plus/ui-blocks/documentation/dialog) — para construir [Diálogos modales](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/modal-dialogs) personalizados, [Paneles laterales](https://tailwindcss.com/plus/ui-blocks/application-ui/overlays/drawers) y más.
+- [Disclosure](https://tailwindcss.com/plus/ui-blocks/documentation/disclosure) — para construir secciones de [Preguntas frecuentes (FAQ)](https://tailwindcss.com/plus/ui-blocks/marketing/sections/faq-sections#component-8699d80b13ef524eb573e54b4d4b89d1) colapsables, menús móviles en [Barras de navegación](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/navbars) y más.
+- [Dropdown menu](https://tailwindcss.com/plus/ui-blocks/documentation/dropdown-menu) — para construir [Menús desplegables](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns) personalizados, por supuesto.
+- [Popover](https://tailwindcss.com/plus/ui-blocks/documentation/popover) — para construir [Menús flotantes](https://tailwindcss.com/plus/ui-blocks/marketing/elements/flyout-menus) personalizados y más.
+- [Select](https://tailwindcss.com/plus/ui-blocks/documentation/select) — para construir [Menús de selección](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/select-menus#component-8298198b136afab3bb19391ae716077f) personalizados.
+- [Tabs](https://tailwindcss.com/plus/ui-blocks/documentation/tabs) — para construir pestañas personalizadas, como las que usamos en [Áreas de texto](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/textareas#component-532d35bcb49664c16a4f877d71658b12) y [Vistas generales de productos](https://tailwindcss.com/plus/ui-blocks/ecommerce/components/product-overviews#component-13a89c2dc50a31afd66541dc28fa3c13) personalizadas.
 
-If you're a Tailwind Plus customer, head over to the brand new [Elements documentation](https://tailwindcss.com/plus/ui-blocks/documentation/elements) to learn more about how everything works and check out some examples.
-
----
-
-## Leveraging the modern web
-
-We leaned on a lot of modern platform features to keep Elements as light and native as a possible.
-
-- [Custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) as a cross-platform component abstraction.
-- [The `popover` attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover) to manage overlays and popovers with automatic top-layer rendering together with [`beforetoggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforetoggle_event) to control transitions.
-- [Native `<dialog>` elements](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement) for focus trapping and top-layer rendering.
-- [Invoker commands](https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API) to declaratively manage interactive elements, like toggling a custom disclosure.
-- [`ElementInternals`](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals) to make our custom form controls work like native form controls.
-
-We also bundle any necessary polyfills for these features to make sure that Elements works in all of the same [browsers supported by Tailwind CSS v4.0](https://tailwindcss.com/docs/compatibility#browser-support). This means Elements will only get smaller as these modern platform features become more widely available.
+Si eres cliente de Tailwind Plus, dirígete a la nueva [documentación de Elements](https://tailwindcss.com/plus/ui-blocks/documentation/elements) para obtener más información sobre cómo funciona todo y ver algunos ejemplos.
 
 ---
 
-## Components that work everywhere
+## Aprovechando la web moderna
 
-Since HTML is the lowest common denominator between all web frameworks, Elements makes it possible for all of HTML-only UI blocks in Tailwind Plus to work literally anywhere.
+Nos apoyamos en muchas características modernas de la plataforma para mantener a Elements lo más ligero y nativo posible.
 
-Here's one of our [Combobox](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/comboboxes) examples wired up with two-way binding in [Svelte](https://svelte.dev/):
+- [Elementos personalizados](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) como una abstracción de componentes multiplataforma.
+- [El atributo `popover`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover) para gestionar superposiciones y ventanas emergentes con renderizado automático en la capa superior (top-layer) junto con [`beforetoggle`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/beforetoggle_event) para controlar las transiciones.
+- [Elementos `<dialog>` nativos](https://developer.mozilla.org/en-US/docs/Web/API/HTMLDialogElement) para captura de foco y renderizado en la capa superior.
+- [Comandos invocadores](https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API) para gestionar de forma declarativa elementos interactivos, como alternar una divulgación (disclosure) personalizada.
+- [`ElementInternals`](https://developer.mozilla.org/en-US/docs/Web/API/ElementInternals) para hacer que nuestros controles de formulario personalizados funcionen como controles de formulario nativos.
+
+También incluimos los polyfills necesarios para estas características para asegurarnos de que Elements funcione en todos los mismos [navegadores compatibles con Tailwind CSS v4.0](https://tailwindcss.com/docs/compatibility#browser-support). Esto significa que Elements solo se reducirá de tamaño a medida que estas características modernas de la plataforma estén más disponibles.
+
+---
+
+## Componentes que funcionan en todas partes
+
+Dado que el HTML es el mínimo común denominador entre todos los frameworks web, Elements hace posible que todos los bloques de interfaz de usuario de solo HTML en Tailwind Plus funcionen literalmente en cualquier lugar.
+
+Aquí tienes uno de nuestros ejemplos de [Combobox](https://tailwindcss.com/plus/ui-blocks/application-ui/forms/comboboxes) conectado con enlace bidireccional (two-way binding) en [Svelte](https://svelte.dev/):
 
 {/* prettier-ignore */}
 ```html
@@ -270,7 +270,7 @@ Here's one of our [Combobox](https://tailwindcss.com/plus/ui-blocks/application-
 </script>
 
 <form onsubmit={handleSubmit}>
-  <label for="autocomplete" class="block text-sm/6 font-medium text-gray-900">Assigned to</label>
+  <label for="autocomplete" class="block text-sm/6 font-medium text-gray-900">Asignado a</label>
   <el-autocomplete class="relative mt-2 block">
     <input bind:value={input} id="autocomplete" type="text" class="block w-full rounded-md ..." />
     <button type="button" class="absolute inset-y-0 right-0 flex ...">
@@ -287,7 +287,7 @@ Here's one of our [Combobox](https://tailwindcss.com/plus/ui-blocks/application-
 </form>
 ```
 
-Or here's a custom select in [Rails](https://rubyonrails.org/) that's included in form submissions, just like a native form control:
+O aquí tienes un select personalizado en [Rails](https://rubyonrails.org/) que se incluye en los envíos de formularios, al igual que un control de formulario nativo:
 
 <CodeExampleStack>
 
@@ -310,7 +310,7 @@ end
 ```erb
 // [!code filename:app/views/orders/new.html.erb]
 <%= form_with do |form| %>
-  <%= form.label :car_id, "Select model:" %>
+  <%= form.label :car_id, "Seleccionar modelo:" %>
 
   <el-select name="car_id" id="car_id" value="<%= @selected_car.id %>">
     <button type="button" class="grid w-full cursor-default grid-cols-1 ...">
@@ -338,13 +338,13 @@ end
     </el-options>
   </el-select>
 
-  <%= form.submit "Place order" %>
+  <%= form.submit "Realizar pedido" %>
 <% end %>
 ```
 
 </CodeExampleStack>
 
-You can even use Elements in [React](https://react.dev/) instead of using a React-only library like Headless UI or React Aria if you want:
+Incluso puedes usar Elements en [React](https://react.dev/) en lugar de usar una biblioteca exclusiva para React como Headless UI o React Aria si lo deseas:
 
 {/* prettier-ignore */}
 ```jsx
@@ -354,7 +354,7 @@ export function Menu() {
   return (
     <el-dropdown className="relative inline-block text-left">
       <button className="inline-flex w-full justify-center ...">
-        Menu
+        Menú
         <svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" className="-mr-1 size-5 text-gray-400">
           <path d="M5.22 8.22a.75.75 ..." clip-rule="evenodd" fill-rule="evenodd" />
         </svg>
@@ -362,9 +362,9 @@ export function Menu() {
 
       <el-menu anchor="bottom end" popover className="transition transition-discrete [--anchor-gap:--spacing(2)] focus:outline-hidden data-closed:scale-95 ...">
         <div className="py-1">
-          <Link href="/" className="block px-4 py-2 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden ...">Home</Link>
-          <Link href="/about" className="block px-4 py-2 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden ...">About</Link>
-          <Link href="/faq" className="block px-4 py-2 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden ...">FAQ</Link>
+          <Link href="/" className="block px-4 py-2 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden ...">Inicio</Link>
+          <Link href="/about" className="block px-4 py-2 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden ...">Acerca de</Link>
+          <Link href="/faq" className="block px-4 py-2 focus:bg-gray-100 focus:text-gray-900 focus:outline-hidden ...">Preguntas frecuentes</Link>
         </div>
       </el-menu>
     </el-dropdown>
@@ -374,10 +374,10 @@ export function Menu() {
 
 ---
 
-## Try it out today
+## Pruébalo hoy mismo
 
-All of the updated UI blocks and the new Elements library are available now to all [Tailwind Plus](https://tailwindcss.com/plus) customers.
+Todos los bloques de interfaz de usuario actualizados y la nueva biblioteca Elements ya están disponibles para todos los clientes de [Tailwind Plus](https://tailwindcss.com/plus).
 
-Check out UI block categories like [Dropdowns](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns) and [Command Palettes](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes) to play with these updated interactive examples yourself, and explore the new [Elements documentation](https://tailwindcss.com/plus/ui-blocks/documentation/elements) to learn how it all works and how to customize things for your projects.
+Echa un vistazo a las categorías de bloques de interfaz de usuario como [Menús desplegables](https://tailwindcss.com/plus/ui-blocks/application-ui/elements/dropdowns) y [Paletas de comandos](https://tailwindcss.com/plus/ui-blocks/application-ui/navigation/command-palettes) para probar estos ejemplos interactivos actualizados por ti mismo, y explora la nueva [documentación de Elements](https://tailwindcss.com/plus/ui-blocks/documentation/elements) para aprender cómo funciona todo y cómo personalizar las cosas para tus proyectos.
 
-We can't wait to see what you'll build with this stuff!
+¡Estamos ansiosos por ver lo que construirás con esto!

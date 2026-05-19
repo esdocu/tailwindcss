@@ -4,76 +4,76 @@ import Link from "next/link";
 import { Image } from "@/components/media";
 
 export const meta = {
-  title: "Open-sourcing our progress on Tailwind CSS v4.0",
-  description: `We just tagged the first public v4.0.0-alpha so you can start experimenting with it and help us get to a stable release later this year.`,
+  title: "Abriendo nuestro progreso en Tailwind CSS v4.0",
+  description: `Acabamos de etiquetar la primera versión pública v4.0.0-alpha para que puedas empezar a experimentar con ella y ayudarnos a llegar a una versión estable más adelante este año.`,
   date: "2024-03-06T16:30:00.000Z",
   authors: [adamwathan],
   image: card,
   excerpt: (
     <>
-      Last summer at Tailwind Connect{" "}
-      <Link href="https://www.youtube.com/watch?v=CLkxRnRQtDE&t=2146s">I shared a preview of Oxide</Link> — a new
-      high-performance engine for Tailwind CSS that we've been working on, designed to simplify the developer experience
-      and take advantage of how the web platform has evolved since Tailwind was first released.
+      El verano pasado en Tailwind Connect{" "}
+      <Link href="https://www.youtube.com/watch?v=CLkxRnRQtDE&t=2146s">compartí una vista previa de Oxide</Link> — un nuevo
+      motor de alto rendimiento para Tailwind CSS en el que hemos estado trabajando, diseñado para simplificar la experiencia del desarrollador
+      y aprovechar cómo ha evolucionado la plataforma web desde que se lanzó Tailwind por primera vez.
     </>
   ),
 };
 
 <Image src={card} alt="Tailwind CSS v4.0-alpha" />
 
-Last summer at Tailwind Connect [I shared a preview of Oxide](https://www.youtube.com/watch?v=CLkxRnRQtDE&t=2146s) — a new high-performance engine for Tailwind CSS that we've been working on, designed to simplify the developer experience and take advantage of how the web platform has evolved in recent years.
+El verano pasado en Tailwind Connect [compartí una vista previa de Oxide](https://www.youtube.com/watch?v=CLkxRnRQtDE&t=2146s) — un nuevo motor de alto rendimiento para Tailwind CSS en el que hemos estado trabajando, diseñado para simplificar la experiencia del desarrollador y aprovechar cómo ha evolucionado la plataforma web en los últimos años.
 
-The new engine was originally going to ship as a v3.x release, but even though we're committed to backwards compatibility, this feels so clearly like a new generation of the framework that it deserves to be v4.0.
+El nuevo motor originalmente iba a lanzarse como una versión v3.x, pero aunque estamos comprometidos con la compatibilidad hacia atrás, esto se siente tan claramente como una nueva generación del framework que merece ser v4.0.
 
-It's still early and we've got [a lot of work to do](#roadmap-to-v4-0), but today we're [open-sourcing our progress](https://github.com/tailwindlabs/tailwindcss/tree/next) and tagging the first public [v4.0.0-alpha](https://www.npmjs.com/package/tailwindcss/v/4.0.0-alpha.3) so you can start experimenting with it and help us get to a stable release later this year.
+Todavía es temprano y tenemos [mucho trabajo por hacer](#roadmap-to-v4-0), pero hoy estamos [abriendo nuestro progreso](https://github.com/tailwindlabs/tailwindcss/tree/next) y etiquetando la primera versión pública [v4.0.0-alpha](https://www.npmjs.com/package/tailwindcss/v/4.0.0-alpha.3) para que puedas empezar a experimentar con ella y ayudarnos a llegar a una versión estable más adelante este año.
 
-I'll try keep it brief to save some of the excitement for the stable release, but if you like to play with very early and experimental stuff, there should be plenty of information here to get you going.
-
----
-
-## A new engine, built for speed
-
-The new engine is a ground-up rewrite, using everything we know about the framework now to better model the problem space, making things faster with a lot less code.
-
-- **Up to 10x faster** — we can do a full build of the Tailwind CSS website in 105ms instead of 960ms, or our Catalyst UI kit in 55ms instead of 341ms.
-- **Smaller footprint** — the new engine is over 35% smaller installed, even with the heavier native packages we ship like the parts we've rewritten in Rust and Lightning CSS.
-- **Rust where it counts** — we've migrated some of the most expensive and parallelizable parts of the framework to Rust, while keeping the core of the framework in TypeScript for extensibility.
-- **One dependency** — the only thing the new engine depends on is Lightning CSS.
-- **Custom parser** — we wrote our own CSS parser and designed our own data structures tailored to our needs, making parsing over 2x as fast for us as it was with PostCSS.
+Intentaré ser breve para guardar parte de la emoción para la versión estable, pero si te gusta jugar con cosas muy tempranas y experimentales, debería haber suficiente información aquí para empezar.
 
 ---
 
-## Unified toolchain
+## Un nuevo motor, construido para la velocidad
 
-Tailwind CSS v4 isn't just a plugin anymore — it's an all-in-one tool for processing your CSS. We've integrated [Lightning CSS](https://lightningcss.dev/) directly into the framework so you don't have to configure anything about your CSS pipeline.
+El nuevo motor es una reescritura desde cero, utilizando todo lo que sabemos ahora sobre el framework para modelar mejor el espacio del problema, haciendo las cosas más rápidas con mucho menos código.
 
-- **Built-in `@import` handling** — no need to setup and configure a tool like `postcss-import`.
-- **Built-in vendor prefixing** — you don't have to add `autoprefixer` to your projects anymore.
-- **Built-in nesting support** — no plugins needed to flatten nested CSS, it works out of the box.
-- **Syntax transforms** — modern CSS features like `oklch()` colors and media query ranges are transpiled to syntax with better browser support.
-
-We're still shipping a PostCSS plugin, but we're also exploring first-party bundler plugins, and we're shipping an official Vite plugin with this first alpha release that you can try out today.
-
----
-
-## Designed for the modern web
-
-We're looking into the future with Tailwind CSS v4 and trying to build a framework that's going to feel cutting edge for years to come.
-
-- **Native cascade layers** — we're using real `@layer` rules now, which solves a ton of specificity problems we've wrestled with in the past.
-- **Explicitly defined custom properties** — we use `@property` to define our internal custom properties with proper types and constraints, making it possible to do things like transition background gradients.
-- **Using `color-mix` for opacity modifiers** — making it easier than ever to use our opacity modifier syntax when using CSS variables for colors, or even adjusting the opacity of `currentColor`.
-- **Container queries in core** — we've added support for container queries directly to core, with new `@min-*` and `@max-*` variants to support container query ranges.
-
-We're also working on refreshing our color palette with wide gamut colors, and introducing support for other modern CSS features like `@starting-style`, anchor positioning, and more.
+- **Hasta 10 veces más rápido** — podemos hacer una compilación completa del sitio web de Tailwind CSS en 105 ms en lugar de 960 ms, o nuestro kit de interfaz de usuario Catalyst en 55 ms en lugar de 341 ms.
+- **Huella más pequeña** — el nuevo motor es más de un 35% más pequeño instalado, incluso con los paquetes nativos más pesados que enviamos como las partes que hemos reescrito en Rust y Lightning CSS.
+- **Rust donde cuenta** — hemos migrado algunas de las partes más costosas y paralelizables del framework a Rust, manteniendo el núcleo del framework en TypeScript para la extensibilidad.
+- **Una dependencia** — lo único de lo que depende el nuevo motor es Lightning CSS.
+- **Analizador personalizado** — escribimos nuestro propio analizador CSS y diseñamos nuestras propias estructuras de datos adaptadas a nuestras necesidades, haciendo que el análisis sea más del doble de rápido para nosotros de lo que era con PostCSS.
 
 ---
 
-## Composable variants
+## Cadena de herramientas unificada
 
-The new architecture makes it possible to compose together variants that act on other selectors, like `group-*`, `peer-*`, `has-*`, and a new `not-*` variant we're introducing for v4.
+Tailwind CSS v4 ya no es solo un plugin, es una herramienta todo en uno para procesar tu CSS. Hemos integrado [Lightning CSS](https://lightningcss.dev/) directamente en el framework para que no tengas que configurar nada sobre tu pipeline de CSS.
 
-In earlier releases, variants like `group-has-*` were explicitly defined in the framework, but now `group-*` can compose with the existing `has-*` variant, which can compose with other variants like `focus`:
+- **Manejo integrado de `@import`** — no necesitas configurar ni usar una herramienta como `postcss-import`.
+- **Prefijos de proveedor integrados** — ya no tienes que añadir `autoprefixer` a tus proyectos.
+- **Soporte de anidamiento integrado** — no se necesitan plugins para aplanar CSS anidado, funciona de forma nativa.
+- **Transformaciones de sintaxis** — las características modernas de CSS como los colores `oklch()` y los rangos de media query se transpilan a sintaxis con mejor soporte de navegador.
+
+Todavía estamos enviando un plugin de PostCSS, pero también estamos explorando plugins de bundler de primera parte, y estamos enviando un plugin oficial de Vite con esta primera versión alfa que puedes probar hoy.
+
+---
+
+## Diseñado para la web moderna
+
+Estamos mirando hacia el futuro con Tailwind CSS v4 e intentando construir un framework que se sienta de vanguardia durante años.
+
+- **Capas de cascada nativas** — ahora usamos reglas `@layer` reales, lo que resuelve un montón de problemas de especificidad con los que hemos luchado en el pasado.
+- **Propiedades personalizadas definidas explícitamente** — usamos `@property` para definir nuestras propiedades personalizadas internas con tipos y restricciones adecuados, lo que permite hacer cosas como transicionar gradientes de fondo.
+- **Uso de `color-mix` para modificadores de opacidad** — haciendo más fácil que nunca usar nuestra sintaxis de modificador de opacidad al usar variables CSS para colores, o incluso ajustar la opacidad de `currentColor`.
+- **Container queries en el núcleo** — hemos añadido soporte para container queries directamente al núcleo, con nuevas variantes `@min-*` y `@max-*` para soportar rangos de container query.
+
+También estamos trabajando en actualizar nuestra paleta de colores con colores de amplia gama, e introduciendo soporte para otras características modernas de CSS como `@starting-style`, posicionamiento de anclaje y más.
+
+---
+
+## Variantes componibles
+
+La nueva arquitectura permite componer variantes que actúan sobre otros selectores, como `group-*`, `peer-*`, `has-*`, y una nueva variante `not-*` que estamos introduciendo para v4.
+
+En versiones anteriores, variantes como `group-has-*` estaban definidas explícitamente en el framework, pero ahora `group-*` puede componerse con la variante existente `has-*`, que puede componerse con otras variantes como `focus`:
 
 {/* prettier-ignore */}
 ```html
@@ -87,36 +87,36 @@ In earlier releases, variants like `group-has-*` were explicitly defined in the 
 </div>
 ```
 
-There's no limits to this composability, and you can even write stuff like `group-not-has-peer-not-data-active:underline` if for some horrible reason that's what you need to do.
+No hay límites para esta componibilidad, e incluso puedes escribir cosas como `group-not-has-peer-not-data-active:underline` si por alguna horrible razón eso es lo que necesitas hacer.
 
 ---
 
-## Zero-configuration content detection
+## Detección de contenido sin configuración
 
-You'll notice that at least in these early alpha releases, it's not even possible to configure your `content` paths. For most projects, you're never going to need to do this ever again — Tailwind just finds your template files for you.
+Notarás que, al menos en estas primeras versiones alfa, ni siquiera es posible configurar tus rutas de `content`. Para la mayoría de los proyectos, nunca más necesitarás hacer esto — Tailwind simplemente encuentra tus archivos de plantilla por ti.
 
-We do this using one of two ways depending on how you've integrated Tailwind into your project:
+Hacemos esto usando una de dos maneras dependiendo de cómo hayas integrado Tailwind en tu proyecto:
 
-- **Using the PostCSS plugin or the CLI**, Tailwind will crawl your entire project looking for template files, using a bunch of heuristics we've built in to keep things fast, like not crawling directories that are in your `.gitignore` file, and ignoring binary file formats.
+- **Usando el plugin de PostCSS o la CLI**, Tailwind rastreará todo tu proyecto en busca de archivos de plantilla, usando un montón de heurísticas que hemos incorporado para mantener las cosas rápidas, como no rastrear directorios que están en tu archivo `.gitignore`, e ignorar formatos de archivo binarios.
 
-- **Using the Vite plugin**, we rely on the module graph. This is amazing because we know exactly what files you're actually using, so it's maximally performant, and with no false positives or negatives. We're hoping to expand this approach outside of the Vite ecosystem with other bundler plugins in the future.
+- **Usando el plugin de Vite**, dependemos del grafo de módulos. Esto es increíble porque sabemos exactamente qué archivos estás usando realmente, por lo que es máximamente eficiente, y sin falsos positivos ni negativos. Esperamos expandir este enfoque fuera del ecosistema de Vite con otros plugins de bundler en el futuro.
 
-We'll introduce a way to configure content paths explicitly in the future for sure, but we're curious to see how well this automatic approach works for everyone — it's working awesome in our own projects.
+Introduciremos una forma de configurar explícitamente las rutas de contenido en el futuro, seguro, pero tenemos curiosidad por ver qué tan bien funciona este enfoque automático para todos — está funcionando increíble en nuestros propios proyectos.
 
 ---
 
-## CSS-first configuration
+## Configuración CSS-first
 
-A major goal of Tailwind CSS v4.0 is making the framework feel CSS-native, and less like a JavaScript library.
+Un objetivo principal de Tailwind CSS v4.0 es hacer que el framework se sienta nativo de CSS, y menos como una librería de JavaScript.
 
-Once you've installed it, you add it to your project with a regular CSS `@import` statement:
+Una vez que lo has instalado, lo añades a tu proyecto con una declaración `@import` de CSS regular:
 
 ```css
 /* [!code filename:main.css] */
 @import "tailwindcss";
 ```
 
-And instead of setting up all of your customizations in a JavaScript configuration file, you just use CSS variables:
+Y en lugar de configurar todas tus personalizaciones en un archivo de configuración de JavaScript, simplemente usas variables CSS:
 
 ```css
 /* [!code filename:main.css] */
@@ -133,7 +133,7 @@ And instead of setting up all of your customizations in a JavaScript configurati
 }
 ```
 
-The special `@theme` directive tells Tailwind to make new utilities and variants available based on those variables, letting you use classes like `3xl:text-neon-lime` in your markup:
+La directiva especial `@theme` le dice a Tailwind que haga disponibles nuevos utilitarios y variantes basados en esas variables, permitiéndote usar clases como `3xl:text-neon-lime` en tu marcado:
 
 {/* prettier-ignore */}
 ```html
@@ -143,12 +143,12 @@ The special `@theme` directive tells Tailwind to make new utilities and variants
 <!-- [!code word:text-neon-cyan] -->
 <div class="max-w-lg 3xl:max-w-xl">
   <h1 class="font-display text-4xl">
-    Data to <span class="text-neon-cyan">enrich</span> your online business
+    Datos para <span class="text-neon-cyan">enriquecer</span> tu negocio online
   </h1>
 </div>
 ```
 
-Adding new CSS variables behaves like `extend` did in earlier versions of the framework, but you can override a whole set of variables by clearing the namespace with syntax like `--color-*: initial` before defining all of your custom values:
+Añadir nuevas variables CSS se comporta como lo hacía `extend` en versiones anteriores del framework, pero puedes sobrescribir un conjunto completo de variables limpiando el espacio de nombres con sintaxis como `--color-*: initial` antes de definir todos tus valores personalizados:
 
 ```css
 /* [!code filename:main.css] */
@@ -167,9 +167,9 @@ Adding new CSS variables behaves like `extend` did in earlier versions of the fr
 }
 ```
 
-We're still fine-tuning some of the naming conventions, but you can [explore the default theme on GitHub](https://github.com/tailwindlabs/tailwindcss/blob/next/packages/tailwindcss/theme.css) to see what's available to customize.
+Todavía estamos afinando algunas de las convenciones de nomenclatura, pero puedes [explorar el tema por defecto en GitHub](https://github.com/tailwindlabs/tailwindcss/blob/next/packages/tailwindcss/theme.css) para ver qué está disponible para personalizar.
 
-If you don't want to explicitly clear the default theme and would rather start from scratch, you can import `"tailwindcss/preflight"` and `"tailwindcss/utilities"` directly to skip importing the default theme:
+Si no quieres limpiar explícitamente el tema por defecto y prefieres empezar desde cero, puedes importar `"tailwindcss/preflight"` y `"tailwindcss/utilities"` directamente para omitir la importación del tema por defecto:
 
 ```css
 /* [!code filename:main.css] */
@@ -189,7 +189,7 @@ If you don't want to explicitly clear the default theme and would rather start f
 }
 ```
 
-We also make all of your theme values available as native CSS variables in your custom CSS:
+También hacemos que todos tus valores de tema estén disponibles como variables CSS nativas en tu CSS personalizado:
 
 ```css
 /* [!code filename:dist/main.css] */
@@ -204,7 +204,7 @@ We also make all of your theme values available as native CSS variables in your 
 }
 ```
 
-This makes it easy to reference any of your theme values in arbitrary values without needing the `theme()` function:
+Esto hace que sea fácil referenciar cualquiera de tus valores de tema en valores arbitrarios sin necesitar la función `theme()`:
 
 ```html
 <!-- [!code filename:index.html] -->
@@ -213,7 +213,7 @@ This makes it easy to reference any of your theme values in arbitrary values wit
 </div>
 ```
 
-It also makes it possible to use your theme values when working with UI libraries like Framer Motion, without having to use the `resolveConfig()` function:
+También hace posible usar tus valores de tema al trabajar con librerías de UI como Framer Motion, sin tener que usar la función `resolveConfig()`:
 
 ```jsx
 // [!code filename:JSX]
@@ -228,58 +228,58 @@ export const MyComponent = () => (
 
 ---
 
-## What's changed
+## Lo que ha cambiado
 
-We don't take breaking changes lightly, but there are a few things we're doing differently in v4 so far that are worth sharing:
+No nos tomamos los breaking changes a la ligera, pero hay algunas cosas que estamos haciendo de manera diferente en v4 hasta ahora que vale la pena compartir:
 
-- **Removed deprecated utilities** — we've removed utilities we stopped documenting a long time ago like `text-opacity-*`, `flex-grow-*`, and `decoration-slice` in favor of their modern replacements like `text-{color}/*`, `grow-*`, and `box-decoration-slice`.
-- **PostCSS plugin and CLI are separate packages** — the main `tailwindcss` package doesn't include these anymore since not everyone needs them, instead they should be installed separately using `@tailwindcss/postcss` and `@tailwindcss/cli`.
-- **No default border color** — the `border` utility used to default to `gray-200`, but now it defaults to `currentColor` like the browser does. We made this change to make it harder to accidentally introduce a wrong gray into your project if you're using `zinc` or `slate` or something else as your main gray.
-- **Rings are 1px by default** — the `ring` utility used to be a 3px blue ring by default, now it's a 1px ring using `currentColor`. We find ourselves using the `ring-*` utilities as an alternative to borders in our projects, and using `outline-*` for focus rings, so we think making things consistent here is a helpful change.
+- **Utilitarios obsoletos eliminados** — hemos eliminado utilitarios que dejamos de documentar hace mucho tiempo como `text-opacity-*`, `flex-grow-*`, y `decoration-slice` en favor de sus reemplazos modernos como `text-{color}/*`, `grow-*`, y `box-decoration-slice`.
+- **El plugin de PostCSS y la CLI son paquetes separados** — el paquete principal `tailwindcss` ya no los incluye ya que no todos los necesitan, en su lugar deben instalarse por separado usando `@tailwindcss/postcss` y `@tailwindcss/cli`.
+- **Sin color de borde por defecto** — el utilitario `border` solía tener por defecto `gray-200`, pero ahora tiene por defecto `currentColor` como lo hace el navegador. Hicimos este cambio para hacer más difícil introducir accidentalmente un gris incorrecto en tu proyecto si estás usando `zinc` o `slate` o alguna otra cosa como tu gris principal.
+- **Los anillos son de 1px por defecto** — el utilitario `ring` solía ser un anillo azul de 3px por defecto, ahora es un anillo de 1px usando `currentColor`. Nos encontramos usando los utilitarios `ring-*` como alternativa a los bordes en nuestros proyectos, y usando `outline-*` para los anillos de foco, por lo que pensamos que hacer las cosas consistentes aquí es un cambio útil.
 
-There are a handful of other really low-level implementation detail changes that might surface in some way in your projects, but nothing deliberate like these changes. If you bump into anything surprising, let us know.
-
----
-
-## Roadmap to v4.0
-
-This new engine is a ground-up rewrite, and up until now we've been focused entirely on this reimagined developer experience using the new configuration approach.
-
-**We put an enormous amount of value in backwards compatibility**, and that's where the bulk of the work lies before we can tag a stable v4.0 release later this year.
-
-- **Support for JavaScript configuration files** — reintroducing compatibility with the classic `tailwind.config.js` file to make migrating to v4 easy.
-- **Explicit content path configuration** — making it possible to tell Tailwind exactly where your templates are when automatic content detection isn't good enough for your setup.
-- **Support for other dark modes** — right now we only support dark mode using media queries, and still need to reimplement the selector and variant strategies.
-- **Plugins and custom utilities** — we don't have support for plugins, or for writing custom utilities that automatically work with variants yet. Obviously we will make this work before a stable release.
-- **Prefix support** — there's no way to configure a prefix for your classes yet, but we'll bring it back for sure.
-- **Safelists and blocklists** — can't force Tailwind to generate certain classes or prevent it from generating other classes yet.
-- **Support for `important` configuration** — there's no way to make utilities all generate with `!important` right now, but we plan to implement it.
-- **Support for the `theme()` function** — this isn't needed for new projects because you can use `var()` now, but we'll implement it for backwards compatibility.
-- **Standalone CLI** — we haven't worked on a standalone CLI for the new engine yet, but will absolutely have it before the v4.0 release.
-
-Aside from that, I'm sure we'll find a lot of bugs to fix, some exciting new CSS features to sneak in, and refine some of these new APIs that need some more polish before a proper release.
-
-I don't want to make promises on a specific release timeline, but I'd personally love to mark v4.0 as stable before the summer holiday season kicks in.
+Hay un puñado de otros cambios de detalles de implementación de muy bajo nivel que podrían surgir de alguna manera en tus proyectos, pero nada deliberado como estos cambios. Si te encuentras con algo sorprendente, háznoslo saber.
 
 ---
 
-## Try out the alpha
+## Hoja de ruta hacia v4.0
 
-We've tagged a couple alpha releases already, and you can start playing with it in your projects today.
+Este nuevo motor es una reescritura desde cero, y hasta ahora nos hemos centrado por completo en esta experiencia de desarrollador reimaginada usando el nuevo enfoque de configuración.
 
-If you're using the Tailwind CSS IntelliSense extension for VS Code, make sure you switch to the prerelease version from the extension page, and if you're using our Prettier plugin, make sure you install the latest version.
+**Damos un enorme valor a la compatibilidad hacia atrás**, y ahí es donde reside la mayor parte del trabajo antes de que podamos etiquetar una versión estable v4.0 más adelante este año.
 
-If you find an issue, please [let us know on GitHub](https://github.com/tailwindlabs/tailwindcss/issues/new/choose). We really want this thing to be bullet-proof before we tag a stable release and reporting any problems you find will help us a lot.
+- **Soporte para archivos de configuración de JavaScript** — reintroduciendo la compatibilidad con el clásico archivo `tailwind.config.js` para facilitar la migración a v4.
+- **Configuración explícita de la ruta de contenido** — haciendo posible decirle a Tailwind exactamente dónde están tus plantillas cuando la detección automática de contenido no es suficiente para tu configuración.
+- **Soporte para otros modos oscuros** — ahora mismo solo soportamos el modo oscuro usando media queries, y todavía necesitamos reimplementar las estrategias de selector y variante.
+- **Plugins y utilitarios personalizados** — no tenemos soporte para plugins, o para escribir utilitarios personalizados que funcionen automáticamente con variantes todavía. Obviamente haremos que esto funcione antes de una versión estable.
+- **Soporte de prefijo** — no hay forma de configurar un prefijo para tus clases todavía, pero lo traeremos de vuelta seguro.
+- **Listas seguras y listas de bloqueo** — no se puede forzar a Tailwind a generar ciertas clases o evitar que genere otras clases todavía.
+- **Soporte para la configuración `important`** — no hay forma de hacer que todos los utilitarios se generen con `!important` ahora mismo, pero planeamos implementarlo.
+- **Soporte para la función `theme()`** — esto no es necesario para nuevos proyectos porque puedes usar `var()` ahora, pero lo implementaremos por compatibilidad hacia atrás.
+- **CLI independiente** — no hemos trabajado en una CLI independiente para el nuevo motor todavía, pero absolutamente la tendremos antes de la versión v4.0.
 
-### Using Vite
+Además de eso, estoy seguro de que encontraremos muchos errores que corregir, algunas nuevas y emocionantes características de CSS que incluir, y refinar algunas de estas nuevas APIs que necesitan más pulido antes de un lanzamiento adecuado.
 
-Install the Tailwind CSS v4 alpha and our new Vite plugin:
+No quiero hacer promesas sobre un cronograma de lanzamiento específico, pero personalmente me encantaría marcar v4.0 como estable antes de que comience la temporada de vacaciones de verano.
+
+---
+
+## Prueba la alfa
+
+Ya hemos etiquetado un par de versiones alfa, y puedes empezar a jugar con ella en tus proyectos hoy mismo.
+
+Si estás usando la extensión Tailwind CSS IntelliSense para VS Code, asegúrate de cambiar a la versión preliminar desde la página de la extensión, y si estás usando nuestro plugin de Prettier, asegúrate de instalar la última versión.
+
+Si encuentras un problema, por favor [háznoslo saber en GitHub](https://github.com/tailwindlabs/tailwindcss/issues/new/choose). Realmente queremos que esto sea a prueba de balas antes de etiquetar una versión estable y reportar cualquier problema que encuentres nos ayudará mucho.
+
+### Usando Vite
+
+Instala la alfa de Tailwind CSS v4 y nuestro nuevo plugin de Vite:
 
 ```sh
 npm install tailwindcss@next @tailwindcss/vite@next
 ```
 
-Then add our plugin to your `vite.config.ts` file:
+Luego añade nuestro plugin a tu archivo `vite.config.ts`:
 
 ```ts
 // [!code filename:vite.config.ts]
@@ -291,22 +291,22 @@ export default defineConfig({
 });
 ```
 
-Finally, import Tailwind in your main CSS file:
+Finalmente, importa Tailwind en tu archivo CSS principal:
 
 ```css
 /* [!code filename:app.css]
 @import "tailwindcss";
 ```
 
-### Using PostCSS
+### Usando PostCSS
 
-Install the Tailwind CSS v4 alpha and the separate PostCSS plugin package:
+Instala la alfa de Tailwind CSS v4 y el paquete separado del plugin de PostCSS:
 
 ```sh
 npm install tailwindcss@next @tailwindcss/postcss@next
 ```
 
-Then add our plugin to your `postcss.config.js` file:
+Luego añade nuestro plugin a tu archivo `postcss.config.js`:
 
 ```js
 // [!code filename:postcss.config.js]
@@ -317,29 +317,29 @@ module.exports = {
 };
 ```
 
-Finally, import Tailwind in your main CSS file:
+Finalmente, importa Tailwind en tu archivo CSS principal:
 
 ```css
 /* [!code filename:app.css] */
 @import "tailwindcss";
 ```
 
-### Using the CLI
+### Usando la CLI
 
-Install the Tailwind CSS v4 alpha and the separate CLI package:
+Instala la alfa de Tailwind CSS v4 y el paquete separado de la CLI:
 
 ```sh
 npm install tailwindcss@next @tailwindcss/cli@next
 ```
 
-Next, import Tailwind in your main CSS file:
+Luego, importa Tailwind en tu archivo CSS principal:
 
 ```css
 /* [!code filename:app.css] */
 @import "tailwindcss";
 ```
 
-Finally, compile your CSS using the CLI tool:
+Finalmente, compila tu CSS usando la herramienta CLI:
 
 ```sh
 npx @tailwindcss/cli@next -i app.css -o dist/app.css

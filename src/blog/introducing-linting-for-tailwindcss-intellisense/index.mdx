@@ -4,55 +4,55 @@ import { Image, Video } from "@/components/media";
 import Link from "next/link";
 
 export const meta = {
-  title: "Introducing linting for Tailwind CSS IntelliSense",
+  title: "Presentando el linting para Tailwind CSS IntelliSense",
   description:
-    "Today we’re releasing a new version of the Tailwind CSS IntelliSense extension for Visual Studio Code that adds Tailwind-specific linting to both your CSS and your markup.",
+    "Hoy lanzamos una nueva versión de la extensión Tailwind CSS IntelliSense para Visual Studio Code que añade linting específico de Tailwind tanto a tu CSS como a tu marcado.",
   date: "2020-06-23T18:52:03Z",
   authors: [bradlc],
   image,
   excerpt: (
     <>
-      Today we’re releasing a new version of the{" "}
+      Hoy lanzamos una nueva versión de la{" "}
       <Link href="https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss">
-        Tailwind CSS IntelliSense extension for Visual Studio Code
+        extensión Tailwind CSS IntelliSense para Visual Studio Code
       </Link>{" "}
-      that adds Tailwind-specific linting to both your CSS and your markup.
+      que añade linting específico de Tailwind tanto a tu CSS como a tu marcado.
     </>
   ),
 };
 
-Today we’re releasing a new version of the [Tailwind CSS IntelliSense extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) that adds Tailwind-specific linting to both your CSS and your markup.
+Hoy lanzamos una nueva versión de la [extensión Tailwind CSS IntelliSense para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) que añade linting específico de Tailwind tanto a tu CSS como a tu marcado.
 
-## Detecting errors in your CSS
+## Detectando errores en tu CSS
 
-Tailwind already detects CSS errors, for example when you mistype a screen name in the `@screen` directive. The linting feature for Tailwind CSS IntelliSense surfaces these errors and displays them in context, directly inside your editor. The linter will validate your `@tailwind`, `@screen`, `@variants` and `@apply` directives, as well as any `theme` function calls:
+Tailwind ya detecta errores CSS, por ejemplo cuando escribes mal el nombre de una pantalla en la directiva `@screen`. La función de linting para Tailwind CSS IntelliSense muestra estos errores y los presenta en contexto, directamente dentro de tu editor. El linter validará tus directivas `@tailwind`, `@screen`, `@variants` y `@apply`, así como cualquier llamada a la función `theme`:
 
-<Image alt="Screen capture showing CSS linting in action" src={require("./css@2x.png").default} />
+<Image alt="Captura de pantalla mostrando el linting CSS en acción" src={require("./css@2x.png").default} />
 
-## Catching conflicts in your HTML
+## Detectando conflictos en tu HTML
 
-There is one more lint rule which analyses class lists in your template files and highlights any instances where utilities seem to be in conflict. For example you probably didn’t intend to have `mt-4` and `mt-6` in the same class list!
+Hay una regla de lint más que analiza las listas de clases en tus archivos de plantilla y resalta cualquier instancia donde las utilidades parezcan estar en conflicto. Por ejemplo, ¡probablemente no tenías la intención de tener `mt-4` y `mt-6` en la misma lista de clases!
 
-<Image alt="Screen capture showing markup linting in action" src={require("./html@2x.png").default} />
+<Image alt="Captura de pantalla mostrando el linting de marcado en acción" src={require("./html@2x.png").default} />
 
-## Quick fixes included
+## Correcciones rápidas incluidas
 
-To make it as easy as possible to fix any issues, all of the lint rules have their own "quick fixes" which can be triggered directly within Visual Studio Code. If you accidentally typed `@screen small` instead of `@screen sm`, the editor can automatically replace `small` with `sm` for you!
+Para que sea lo más fácil posible corregir cualquier problema, todas las reglas de lint tienen sus propias "correcciones rápidas" que se pueden activar directamente dentro de Visual Studio Code. Si accidentalmente escribiste `@screen small` en lugar de `@screen sm`, ¡el editor puede reemplazar automáticamente `small` por `sm` por ti!
 
-As well as simple text replacements there’s also some more interesting quick fixes for the more complex lint rules. Take a look at how the extension can automatically refactor an invalid `@apply` directive:
+Además de los reemplazos de texto simples, también hay algunas correcciones rápidas más interesantes para las reglas de lint más complejas. Echa un vistazo a cómo la extensión puede refactorizar automáticamente una directiva `@apply` inválida:
 
 <Video src="https://assets.tailwindcss.com/blog/introducing-linting-for-tailwindcss-intellisense/apply-quick-fix.mp4" />
 
-## Configuration
+## Configuración
 
-We think you’ll love the new lint feature, but if you don’t, or you just want to tweak some behavior, we’ve got you covered. You can decide how each rule violation is treated: is it an `error`, or just a `warning`, or do you want to `ignore` the rule altogether? If you really want to you can disable linting entirely using the new `tailwindCSS.validate` setting.
+Creemos que te encantará la nueva función de lint, pero si no es así, o simplemente quieres ajustar algún comportamiento, te tenemos cubierto. Puedes decidir cómo se trata cada violación de regla: ¿es un `error`, o solo una `warning`, o quieres `ignore` la regla por completo? Si realmente quieres, puedes deshabilitar el linting por completo usando la nueva configuración `tailwindCSS.validate`.
 
-Check out the [extension readme](https://github.com/tailwindcss/intellisense#tailwindcssvalidate) for more details about configuring the lint rules to suit your workflow.
+Consulta el [readme de la extensión](https://github.com/tailwindcss/intellisense#tailwindcssvalidate) para obtener más detalles sobre cómo configurar las reglas de lint para que se ajusten a tu flujo de trabajo.
 
-## Conclusion
+## Conclusión
 
-Linting is available now in `v0.4.0` of Tailwind CSS IntelliSense! If you already have the extension you may need to reload Visual Studio Code to get the update, and if you don’t you can install it via the [extension marketplace](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss).
+¡El linting ya está disponible en `v0.4.0` de Tailwind CSS IntelliSense! Si ya tienes la extensión, es posible que necesites recargar Visual Studio Code para obtener la actualización, y si no la tienes, puedes instalarla a través del [marketplace de extensiones](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss).
 
-This is the very first iteration of this feature, and we’d love to hear your feedback! Do you have an idea for a new lint rule? Let us know!
+Esta es la primera iteración de esta función, ¡y nos encantaría conocer tu opinión! ¿Tienes alguna idea para una nueva regla de lint? ¡Cuéntanos!
 
-Want to talk about this post? <a href="https://github.com/tailwindcss/tailwindcss/discussions/1956">Discuss this on GitHub →</a>
+¿Quieres hablar sobre esta publicación? <a href="https://github.com/tailwindcss/tailwindcss/discussions/1956">Discútelo en GitHub →</a>
