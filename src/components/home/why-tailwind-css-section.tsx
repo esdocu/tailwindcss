@@ -56,12 +56,12 @@ export default function WhyTailwindCssSection() {
       </div>
 
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
-        <CategoryHeader className="text-pink-500 dark:text-pink-400">Why Tailwind CSS?</CategoryHeader>
+        <CategoryHeader className="text-pink-500 dark:text-pink-400">¿Por qué Tailwind CSS?</CategoryHeader>
       </GridContainer>
 
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
-          Built for the modern web.
+          Creado para la web moderna.
         </h2>
       </GridContainer>
 
@@ -75,8 +75,7 @@ export default function WhyTailwindCssSection() {
 
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
-          Tailwind is unapologetically modern, and takes advantage of all the latest and greatest CSS features to make
-          the developer experience as enjoyable as possible.
+          Tailwind es inconfundiblemente moderno y aprovecha todas las últimas y mejores características de CSS para hacer que la experiencia del desarrollador sea lo más agradable posible.
         </p>
       </GridContainer>
 
@@ -88,10 +87,9 @@ export default function WhyTailwindCssSection() {
                 <ResponsiveDesignIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>Responsive design</BentoTitle>
+                <BentoTitle>Diseño responsivo</BentoTitle>
                 <BentoDescription>
-                  Okay, it’s not exactly cutting edge, but just throw a screen size in front of literally any utility to
-                  apply it at a specific breakpoint.
+                  De acuerdo, no es exactamente de vanguardia, pero simplemente coloca un tamaño de pantalla frente a literalmente cualquier utilidad para aplicarla en un punto de interrupción específico.
                 </BentoDescription>
               </div>
             </BentoHeader>
@@ -101,7 +99,7 @@ export default function WhyTailwindCssSection() {
                   <div className="flex w-10 shrink-0 grow-0 gap-2">
                     <div className="h-8 w-px shrink-0 bg-gray-950/20 dark:bg-white/30"></div>
                     <span className="text-gray-950 dark:text-white">
-                      <Code>Mobile</Code>
+                      <Code>Móvil</Code>
                     </span>
                   </div>
                   <div className="ml-150 flex w-32 shrink-0 grow-0 gap-2">
@@ -155,19 +153,19 @@ export default function WhyTailwindCssSection() {
                           </div>
 
                           <div className="absolute inset-0 flex flex-col justify-end gap-2 bg-linear-to-b from-transparent via-transparent to-gray-950 p-6 @min-[theme(--breakpoint-sm)]:hidden">
-                            <span className="text-sm/6 font-semibold text-white/80">Entire house</span>
-                            <span className="text-xl/6 font-semibold text-white">Beach House on Lake Huron</span>
+                            <span className="text-sm/6 font-semibold text-white/80">Casa entera</span>
+                            <span className="text-xl/6 font-semibold text-white">Casa de playa en el Lago Hurón</span>
                           </div>
                         </div>
 
                         <span className="font-medium text-gray-500 @max-[theme(--breakpoint-sm)]:hidden dark:text-gray-500">
-                          Entire house
+                          Casa entera
                         </span>
 
                         <div className="grid grid-cols-1 gap-4 @min-[theme(--breakpoint-sm)]:grid-cols-[1fr_auto] @min-[theme(--breakpoint-xl)]:grid-cols-1">
                           <div>
                             <span className="mt-2 text-3xl font-semibold text-gray-950 @max-[theme(--breakpoint-sm)]:hidden dark:text-white">
-                              Beach House on Lake Huron
+                              Casa de playa en el Lago Hurón
                             </span>
 
                             <span className="mt-2 flex gap-2">
@@ -175,7 +173,7 @@ export default function WhyTailwindCssSection() {
                                 <StarIcon className="size-4" />
                                 <span className="text-sm/6 font-medium">2.66</span>
                               </span>
-                              <span className="text-sm/6 text-gray-500">(128 reviews)</span>
+                              <span className="text-sm/6 text-gray-500">(128 opiniones)</span>
                               <span className="text-pink-300 dark:text-gray-600">&middot;</span>
                               <span className="text-sm/6 font-medium text-pink-600 dark:text-pink-500">
                                 Bayfield, ON
@@ -188,22 +186,21 @@ export default function WhyTailwindCssSection() {
                               type="button"
                               className="w-full rounded-lg bg-pink-500 px-3 py-2 text-sm/6 font-bold text-white @min-[theme(--breakpoint-sm)]:w-auto"
                             >
-                              Check availability
+                              Consultar disponibilidad
                             </button>
                           </div>
                         </div>
 
                         <div>
                           <p className="mt-4 line-clamp-2 text-sm/6 text-gray-600 @min-[theme(--breakpoint-xl)]:max-w-md dark:text-gray-400">
-                            This sunny and spacious room is for those traveling light and looking for a comfy and cozy
-                            place to lay their head for a night...{" "}
+                            Esta habitación soleada y espaciosa es para quienes viajan ligeros y buscan un lugar cómodo y acogedor donde descansar por una noche...{" "}
                             <span className="hidden font-bold text-pink-600 before:text-white sm:@max-[theme(--breakpoint-sm)]:inline-block dark:text-pink-500">
-                              Show more
+                              Mostrar más
                             </span>
                           </p>
 
                           <span className="mt-3 inline-block shrink-0 text-sm/6 font-semibold text-pink-600 dark:text-pink-500">
-                            Show more
+                            Mostrar más
                           </span>
                         </div>
 
@@ -212,7 +209,7 @@ export default function WhyTailwindCssSection() {
                             type="button"
                             className="w-auto rounded-lg bg-pink-500 px-3 py-2 text-sm/6 font-bold text-white"
                           >
-                            Check availability
+                            Consultar disponibilidad
                           </button>
                         </div>
                       </div>
@@ -265,10 +262,9 @@ export default function WhyTailwindCssSection() {
                 <FiltersIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>Filters</BentoTitle>
+                <BentoTitle>Filtros</BentoTitle>
                 <BentoDescription>
-                  What’s a website these days without a few backdrop blurs? Keep stacking filters until your designer
-                  asks you to please, please stop.
+                  ¿Qué es un sitio web hoy en día sin algunos desenfoques de fondo? Sigue acumulando filtros hasta que tu diseñador te pida que, por favor, te detengas.
                 </BentoDescription>
               </div>
             </BentoHeader>
@@ -315,11 +311,9 @@ export default function WhyTailwindCssSection() {
                 <DarkModeIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>Dark mode</BentoTitle>
+                <BentoTitle>Modo oscuro</BentoTitle>
                 <BentoDescription>
-                  If you’re not a fan of burning your retinas, just stick{" "}
-                  <code className="font-medium text-gray-950 dark:text-white">dark:</code> in front of any color to
-                  apply it in dark mode.
+                  Si no eres fan de quemarte las retinas, simplemente coloca <code className="font-medium text-gray-950 dark:text-white">dark:</code> delante de cualquier color para aplicarlo en modo oscuro.
                 </BentoDescription>
               </div>
             </BentoHeader>
@@ -334,9 +328,9 @@ export default function WhyTailwindCssSection() {
                 <CssVariablesIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>CSS variables</BentoTitle>
+                <BentoTitle>Variables CSS</BentoTitle>
                 <BentoDescription>
-                  Customizing your theme is as simple as creating a few CSS variables.
+                  Personalizar tu tema es tan simple como crear unas pocas variables CSS.
                 </BentoDescription>
               </div>
             </BentoHeader>
@@ -384,10 +378,9 @@ export default function WhyTailwindCssSection() {
                 <P3ColorsIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>P3 colors</BentoTitle>
+                <BentoTitle>Colores P3</BentoTitle>
                 <BentoDescription>
-                  The color palette now uses more vibrant wide gamut colors without you needing to understand what any
-                  of that even means.
+                  La paleta de colores ahora utiliza colores de amplia gama más vibrantes sin que necesites entender qué significa nada de eso.
                 </BentoDescription>
               </div>
             </BentoHeader>
@@ -493,9 +486,9 @@ export default function WhyTailwindCssSection() {
                 <CssGridIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>CSS grid layout</BentoTitle>
+                <BentoTitle>Diseño CSS Grid</BentoTitle>
                 <BentoDescription>
-                  Using grid utilities directly in your HTML makes it so much easier to reason about complex layouts.
+                  Usar utilidades de grid directamente en tu HTML hace que sea mucho más fácil razonar sobre diseños complejos.
                 </BentoDescription>
               </div>
             </BentoHeader>
@@ -503,31 +496,31 @@ export default function WhyTailwindCssSection() {
               <div className="-mr-16 -mb-8 [--size:--spacing(48)] lg:flex lg:justify-center xl:block">
                 <div className="-mt-18 sm:-mt-26">
                   <div className="bg-white p-6 ring ring-gray-950/5 sm:p-16 dark:bg-gray-950 dark:ring-white/10">
-                    <h3 className="text-base/6 font-semibold text-gray-950 dark:text-white">Browse properties</h3>
+                    <h3 className="text-base/6 font-semibold text-gray-950 dark:text-white">Explorar propiedades</h3>
                     <div className="mt-6 grid grid-cols-[repeat(2,var(--size))] grid-rows-[repeat(3,var(--size))] gap-2 sm:grid-cols-[repeat(3,var(--size))] sm:grid-rows-[repeat(2,var(--size))]">
                       <div className="relative col-span-2 row-span-1 overflow-hidden rounded-t-2xl sm:col-span-1 sm:row-span-2 sm:rounded-none sm:rounded-l-2xl dark:outline dark:outline-white/10">
                         <img alt="" className="not-sm:hidden" src={cssGrid1.src} />
                         <img alt="" className="sm:hidden" src={cssGrid1Mobile.src} />
                         <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
-                          <span className="p-4 text-sm/5 font-semibold text-white">Treehouses</span>
+                          <span className="p-4 text-sm/5 font-semibold text-white">Casas en el árbol</span>
                         </div>
                       </div>
                       <div className="relative dark:outline dark:outline-white/10">
                         <img alt="" src={cssGrid2.src} />
                         <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
-                          <span className="p-4 text-sm/5 font-semibold text-white">Mansions</span>
+                          <span className="p-4 text-sm/5 font-semibold text-white">Mansiones</span>
                         </div>
                       </div>
                       <div className="relative overflow-hidden sm:rounded-tr-2xl dark:outline dark:outline-white/10">
                         <img alt="" src={cssGrid3.src} />
                         <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
-                          <span className="p-4 text-sm/5 font-semibold text-white">Lakefront cottages</span>
+                          <span className="p-4 text-sm/5 font-semibold text-white">Cabañas frente al lago</span>
                         </div>
                       </div>
                       <div className="relative col-span-2 overflow-hidden rounded-b-2xl sm:rounded-bl-none dark:outline dark:outline-white/10">
                         <img alt="" className="aspect-2/1" src={cssGrid4.src} />
                         <div className="absolute inset-0 flex items-end bg-linear-to-b from-transparent via-transparent to-gray-950">
-                          <span className="p-4 text-sm/5 font-semibold text-white">Designer homes</span>
+                          <span className="p-4 text-sm/5 font-semibold text-white">Casas de diseño</span>
                         </div>
                       </div>
                     </div>
@@ -543,10 +536,9 @@ export default function WhyTailwindCssSection() {
                 <TransitionsAndAnimationsIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>Transitions and animations</BentoTitle>
+                <BentoTitle>Transiciones y animaciones</BentoTitle>
                 <BentoDescription>
-                  Transitions that work the way you'd expect — throw a few utilities on an element and you're in
-                  business.
+                  Transiciones que funcionan como esperarías: aplica unas pocas utilidades a un elemento y listo.
                 </BentoDescription>
               </div>
             </BentoHeader>
@@ -563,9 +555,9 @@ export default function WhyTailwindCssSection() {
                 <CascadeLayersIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>Cascade layers</BentoTitle>
+                <BentoTitle>Capas de cascada</BentoTitle>
                 <BentoDescription>
-                  Tailwind uses CSS layers so you don’t have to worry about specificity issues.
+                  Tailwind utiliza capas de CSS para que no tengas que preocuparte por problemas de especificidad.
                 </BentoDescription>
               </div>
             </BentoHeader>
@@ -578,20 +570,20 @@ export default function WhyTailwindCssSection() {
 
                       @layer theme {
                         :root {
-                          /* Your theme variables */
+                          /* Variables de tu tema */
                         }
                       }
 
                       @layer base {
-                        /* Preflight styles */
+                        /* Estilos preestablecidos */
                       }
 
                       @layer components {
-                        /* Your custom components */
+                        /* Tus componentes personalizados */
                       }
 
                       @layer utilities {
-                        /* Your utility classes */
+                        /* Tus clases de utilidad */
                       }
                     `}
                   />
@@ -606,9 +598,9 @@ export default function WhyTailwindCssSection() {
                 <LogicalPropertiesIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>Logical properties</BentoTitle>
+                <BentoTitle>Propiedades lógicas</BentoTitle>
                 <BentoDescription>
-                  Supporting multiple language text directions is no longer a nightmare.
+                  Soportar múltiples direcciones de texto de idiomas ya no es una pesadilla.
                 </BentoDescription>
               </div>
             </BentoHeader>
@@ -624,10 +616,10 @@ export default function WhyTailwindCssSection() {
               <div className="@container relative isolate flex h-full items-center justify-center">
                 <div className="absolute bottom-12 -left-2 z-1 w-[60cqw] shrink-0 divide-y divide-gray-950/5 rounded-xl bg-white shadow-2xl inset-ring inset-ring-gray-950/5 dark:divide-white/5 dark:bg-gray-800 dark:inset-ring-white/5">
                   {[
-                    { src: avatar4.src, name: "Will Winton", role: "Director of Operations" },
-                    { src: avatar5.src, name: "Kristin Yardly", role: "Marketing Coordinator" },
-                    { src: avatar6.src, name: "Emanual Cuccittini", role: "Staff Engineer" },
-                    { src: avatar7.src, name: "Kiara Smith", role: "VP of Engineering" },
+                    { src: avatar4.src, name: "Will Winton", role: "Director de Operaciones" },
+                    { src: avatar5.src, name: "Kristin Yardly", role: "Coordinadora de Marketing" },
+                    { src: avatar6.src, name: "Emanual Cuccittini", role: "Ingeniero Principal" },
+                    { src: avatar7.src, name: "Kiara Smith", role: "Vicepresidenta de Ingeniería" },
                   ].map((user, idx) => {
                     return (
                       <div key={idx} className="flex items-center justify-start gap-4 p-6">
@@ -679,9 +671,9 @@ export default function WhyTailwindCssSection() {
                 <ContainerQueriesIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>Container queries</BentoTitle>
+                <BentoTitle>Consultas de contenedor</BentoTitle>
                 <BentoDescription>
-                  Tag an element as a container to let children adapt to changes in its size.
+                  Etiqueta un elemento como contenedor para permitir que los hijos se adapten a los cambios en su tamaño.
                 </BentoDescription>
               </div>
             </BentoHeader>
@@ -727,10 +719,9 @@ export default function WhyTailwindCssSection() {
                 <GradientsIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>Gradients</BentoTitle>
+                <BentoTitle>Degradados</BentoTitle>
                 <BentoDescription>
-                  No need to remember that complicated gradient syntax — create silky-smooth gradients with just a few
-                  utility classes.
+                  No es necesario recordar esa complicada sintaxis de degradados: crea degradados sumamente suaves con solo unas pocas clases de utilidad.
                 </BentoDescription>
               </div>
             </BentoHeader>
@@ -738,21 +729,20 @@ export default function WhyTailwindCssSection() {
               <div className="-mt-27 -mr-124 -mb-8 bg-white px-6 py-16 ring ring-gray-950/5 md:px-16 xl:-mr-26 dark:bg-gray-950 dark:ring-white/10">
                 <div className="flex flex-col gap-2">
                   <span className="text-sm/7 font-medium text-gray-950/75 dark:text-white/75">
-                    Power Meets Precision
+                    La potencia se une a la precisión
                   </span>
                   <h3 className="text-4xl/12 font-semibold text-gray-950 dark:text-white">
-                    Redefining real-time performance
+                    Redefiniendo el rendimiento en tiempo real
                   </h3>
                   <p className="text-lg/7 font-medium text-gray-950/75 dark:text-white/75">
-                    Our next-generation rendering engine delivers unmatched speed and efficiency, empowering creators to
-                    push boundaries like never before.
+                    Nuestro motor de renderizado de próxima generación ofrece velocidad y eficiencia inigualables, capacitando a los creadores a superar límites como nunca antes.
                   </p>
                 </div>
                 <div className="mt-10 flex flex-col gap-10">
                   <div className="flex gap-6">
                     <div className="flex flex-1 flex-col gap-2.5">
                       <span className="text-base/7 font-medium text-gray-950 dark:text-white">
-                        Render time performance
+                        Rendimiento de tiempo de renderizado
                       </span>
                       <div className="h-2.5 w-full rounded-full bg-linear-to-r from-emerald-500 to-sky-400 ring-1 ring-gray-950/10 ring-inset dark:from-emerald-400 dark:ring-white/10"></div>
                     </div>
@@ -761,7 +751,7 @@ export default function WhyTailwindCssSection() {
                   <div className="flex gap-6">
                     <div className="flex flex-1 flex-col gap-2.5">
                       <span className="text-base/7 font-medium text-gray-950 dark:text-white">
-                        Real-time frame rate
+                        Tasa de fotogramas en tiempo real
                       </span>
                       <div className="h-2.5 w-3/4 rounded-full bg-linear-to-r from-pink-600 to-amber-300 ring-1 ring-gray-950/10 ring-inset dark:from-pink-500 dark:to-amber-200 dark:ring-white/10"></div>
                     </div>
@@ -770,7 +760,7 @@ export default function WhyTailwindCssSection() {
                   <div className="flex gap-6">
                     <div className="flex flex-1 flex-col gap-2.5">
                       <span className="text-base/7 font-medium text-gray-950 dark:text-white">
-                        Multi-platform build time
+                        Tiempo de compilación multiplataforma
                       </span>
                       <div className="h-2.5 w-1/2 rounded-full bg-linear-to-r from-purple-600 to-cyan-400 ring-1 ring-gray-950/10 ring-inset dark:from-purple-500 dark:ring-white/10"></div>
                     </div>
@@ -787,10 +777,9 @@ export default function WhyTailwindCssSection() {
                 <_3DTransformsIcon />
               </BentoIcon>
               <div>
-                <BentoTitle>3D transforms</BentoTitle>
+                <BentoTitle>Transformaciones 3D</BentoTitle>
                 <BentoDescription>
-                  Sometimes two dimensions aren’t enough. Scale, rotate, and translate any element in 3D space to add a
-                  touch of depth.
+                  A veces dos dimensiones no son suficientes. Escala, rota y traslada cualquier elemento en un espacio 3D para añadir un toque de profundidad.
                 </BentoDescription>
               </div>
             </BentoHeader>

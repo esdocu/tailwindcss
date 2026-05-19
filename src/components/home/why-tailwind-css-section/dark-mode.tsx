@@ -22,7 +22,7 @@ export function DarkMode() {
         />
         <div ref={constraintsRef}>
           <motion.div
-            title="Drag to resize"
+            title="Arrastra para cambiar el tamaño"
             className="absolute inset-1/2 z-10 flex size-10 shrink-0 -translate-1/2 cursor-ew-resize items-center justify-center rounded-full bg-sky-500"
             drag="x"
             dragElastic={0}

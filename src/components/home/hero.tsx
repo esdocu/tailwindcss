@@ -63,7 +63,7 @@ const Hero: React.FC = () => {
       </div>
       <GridContainer>
         <h1 className="px-2 text-4xl tracking-tighter text-balance max-lg:font-medium max-sm:px-4 sm:text-5xl lg:text-6xl xl:text-8xl">
-          Rapidly build modern websites without ever leaving your HTML.
+          Construye rápidamente sitios web modernos sin salir de tu HTML.
         </h1>
       </GridContainer>
       <div
@@ -75,23 +75,23 @@ const Hero: React.FC = () => {
       </div>
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-lg/7 font-medium text-gray-600 max-sm:px-4 dark:text-gray-400">
-          A utility-first CSS framework packed with classes like{" "}
+          Un framework CSS primero en utilidades repleto de clases como{" "}
           <span className="font-mono text-[1.0625rem] text-sky-500 dark:text-sky-400">flex</span>,{" "}
           <span className="font-mono text-[1.0625rem] text-sky-500 dark:text-sky-400">pt-4</span>,{" "}
-          <span className="font-mono text-[1.0625rem] text-sky-500 dark:text-sky-400">text-center</span> and{" "}
-          <span className="font-mono text-[1.0625rem] text-sky-500 dark:text-sky-400">rotate-90</span> that can be
-          composed to build any design, directly in your markup.
+          <span className="font-mono text-[1.0625rem] text-sky-500 dark:text-sky-400">text-center</span> y{" "}
+          <span className="font-mono text-[1.0625rem] text-sky-500 dark:text-sky-400">rotate-90</span> que pueden ser
+          compuestas para construir cualquier diseño, directamente en tu marcado.
         </p>
       </GridContainer>
       <GridContainer className="mt-10 px-4 sm:hidden">
         <LinkButton href="docs/installation" className="z-1 w-full text-center">
-          Get started
+          Comenzar
         </LinkButton>
       </GridContainer>
       <GridContainer className="mt-4 sm:mt-10 sm:px-2">
         <div className="flex gap-4 max-sm:px-4">
           <LinkButton href="docs/installation" className="z-1 max-sm:hidden">
-            Get started
+            Comenzar
           </LinkButton>
           <SearchButton className="grid w-full grid-cols-[auto_1fr_auto] items-center gap-1 rounded-full px-4 py-2 text-left text-sm/6 text-gray-950/50 inset-ring inset-ring-gray-950/8 sm:w-80 dark:bg-white/5 dark:text-white/50 dark:inset-ring-white/15">
             <svg
@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
                 clipRule="evenodd"
               />
             </svg>
-            Quick search
+            Búsqueda rápida
             <kbd className="hidden font-sans text-xs/4 text-gray-500 dark:text-gray-400 [.os-macos_&]:block">
               <span className="opacity-60">⌘</span>K
             </kbd>
@@ -256,7 +256,7 @@ const Hero: React.FC = () => {
                           autostart={shouldAutostartTypingAnimations}
                         />
                         <span style={SYMBOL}>&gt;</span>
-                        <span style={{ color: "var(--color-slate-50)" }}>Class Warfare</span>
+                        <span style={{ color: "var(--color-slate-50)" }}>Guerra de Clases</span>
                         <span style={SYMBOL}>&lt;/</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
@@ -274,7 +274,7 @@ const Hero: React.FC = () => {
                           autostart={shouldAutostartTypingAnimations}
                         />
                         <span style={SYMBOL}>&gt;</span>
-                        <span style={{ color: "var(--color-slate-50)" }}>The Anti-Patterns</span>
+                        <span style={{ color: "var(--color-slate-50)" }}>Los Antipatrones</span>
                         <span style={SYMBOL}>&lt;/</span>
                         <span style={ELEMENT}>span</span>
                         <span style={SYMBOL}>&gt;</span>
@@ -439,7 +439,7 @@ function Example({ step }: { step: number }) {
               step > 2 ? "text-2xl font-medium" : null,
             )}
           >
-            Class Warfare
+            Guerra de Clases
           </motion.span>
           <motion.span
             transition={TRANSITION}
@@ -449,7 +449,7 @@ function Example({ step }: { step: number }) {
               step > 3 ? "font-medium text-sky-500!" : null,
             )}
           >
-            The Anti-Patterns
+            Los Antipatrones
           </motion.span>
           <motion.span
             layout="position"

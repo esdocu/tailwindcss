@@ -69,12 +69,12 @@ export default function TailwindUiSection() {
       </div>
 
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
-        <CategoryHeader className="text-pink-600 dark:text-pink-500">Ready-made Components</CategoryHeader>
+        <CategoryHeader className="text-pink-600 dark:text-pink-500">Componentes listos para usar</CategoryHeader>
       </GridContainer>
 
       <GridContainer>
         <h2 className="px-2 text-[2.5rem]/10 font-medium tracking-tighter max-sm:px-4 2xl:mt-0">
-          Move even faster with Tailwind Plus.
+          Avanza aún más rápido con Tailwind Plus.
         </h2>
       </GridContainer>
 
@@ -88,9 +88,7 @@ export default function TailwindUiSection() {
 
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
-          Tailwind Plus is a collection of beautiful, fully responsive UI components, designed and developed by us, the
-          creators of Tailwind CSS. It's got hundreds of ready-to-use examples to choose from, and is guaranteed to help
-          you find the perfect starting point for what you want to build.
+          Tailwind Plus es una colección de componentes de interfaz de usuario hermosos y totalmente responsivos, diseñados y desarrollados por nosotros, los creadores de Tailwind CSS. Cuenta con cientos de ejemplos listos para usar a tu elección y te garantiza encontrar el punto de partida perfecto para lo que deseas construir.
         </p>
       </GridContainer>
 
@@ -100,7 +98,7 @@ export default function TailwindUiSection() {
             href="https://tailwindcss.com/plus?ref=home"
             className="inline-block rounded-4xl bg-black px-4 py-2 text-sm/6 font-semibold text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
           >
-            Explore Tailwind Plus
+            Explorar Tailwind Plus
           </a>
         </div>
       </GridContainer>
@@ -201,9 +199,9 @@ export default function TailwindUiSection() {
                   />
                 </svg>
                 <div className="text-center xl:text-left">
-                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">Templates</p>
+                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">Plantillas</p>
                   <p className="mt-2 hidden text-sm text-gray-600 lg:block dark:text-gray-400">
-                    Visually-stunning, easy to customize site templates built with React and Next.js.
+                    Plantillas de sitio visualmente impresionantes y fáciles de personalizar, creadas con React y Next.js.
                   </p>
                 </div>
               </TabButton>
@@ -274,9 +272,9 @@ export default function TailwindUiSection() {
                   </g>
                 </svg>
                 <div className="text-center xl:text-left">
-                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">UI Blocks</p>
+                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">Bloques de IU</p>
                   <p className="mt-2 hidden text-sm text-gray-600 lg:block dark:text-gray-400">
-                    Over 500+ professionally designed, fully responsive, expertly crafted components.
+                    Más de 500 componentes diseñados profesionalmente, totalmente responsivos y creados por expertos.
                   </p>
                 </div>
               </TabButton>
@@ -355,9 +353,9 @@ export default function TailwindUiSection() {
                   </g>
                 </svg>
                 <div className="text-center xl:text-left">
-                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">UI Kit</p>
+                  <p className="font-mono text-sm font-semibold tracking-widest uppercase">Kit de IU</p>
                   <p className="mt-2 hidden text-sm text-gray-600 lg:block dark:text-gray-400">
-                    A starter kit for building your own component systems with React and Tailwind CSS.
+                    Un kit de inicio para construir tus propios sistemas de componentes con React y Tailwind CSS.
                   </p>
                 </div>
               </TabButton>

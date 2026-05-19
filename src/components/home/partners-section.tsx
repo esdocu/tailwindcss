@@ -15,12 +15,12 @@ export default function PartnersSection({ sponsors }: { sponsors: Sponsor[] }) {
       </div>
 
       <GridContainer className="2xl:before:hidden 2xl:after:hidden">
-        <CategoryHeader className="text-sky-500 dark:text-sky-400">Sponsors</CategoryHeader>
+        <CategoryHeader className="text-sky-500 dark:text-sky-400">Patrocinadores</CategoryHeader>
       </GridContainer>
 
       <GridContainer>
         <h2 className="max-w-lg px-2 text-[2.5rem]/10 font-medium tracking-tighter text-balance max-sm:px-4 2xl:mt-0">
-          Supported by the best.
+          Apoyado por los mejores.
         </h2>
       </GridContainer>
 
@@ -34,8 +34,7 @@ export default function PartnersSection({ sponsors }: { sponsors: Sponsor[] }) {
 
       <GridContainer>
         <p className="max-w-(--breakpoint-md) px-2 text-base/7 text-gray-600 max-sm:px-4 dark:text-gray-400">
-          Tailwind is supported by incredible partners and sponsors who make it possible for a team of talented
-          designers and engineers to maintain the framework full-time.
+          Tailwind cuenta con el apoyo de socios y patrocinadores increíbles que hacen posible que un equipo de talentosos diseñadores e ingenieros mantenga el framework a tiempo completo.
         </p>
       </GridContainer>
 
@@ -45,7 +44,7 @@ export default function PartnersSection({ sponsors }: { sponsors: Sponsor[] }) {
             href="/partners"
             className="inline-flex items-center justify-center gap-2 rounded-4xl bg-black px-4 py-2 text-sm/6 font-semibold text-white hover:bg-gray-800 dark:bg-gray-700 dark:hover:bg-gray-600"
           >
-            Become a sponsor
+            Conviértete en patrocinador
             <svg fill="currentColor" aria-hidden="true" viewBox="0 0 10 10" className="-mr-0.5 w-2.5">
               <path d="M4.85355 0.146423L9.70711 4.99998L4.85355 9.85353L4.14645 9.14642L7.79289 5.49998H0V4.49998H7.79289L4.14645 0.85353L4.85355 0.146423Z"></path>
             </svg>
