@@ -185,7 +185,7 @@ export function MultiCursorPreview() {
             className,
           )}
         >
-          Home
+          Inicio
         </a>
         <a
           href="#/team"
@@ -194,7 +194,7 @@ export function MultiCursorPreview() {
             className,
           )}
         >
-          Team
+          Equipo
         </a>
         <a
           href="#/projects"
@@ -203,7 +203,7 @@ export function MultiCursorPreview() {
             className,
           )}
         >
-          Projects
+          Proyectos
         </a>
         <a
           href="#/reports"
@@ -212,7 +212,7 @@ export function MultiCursorPreview() {
             className,
           )}
         >
-          Reports
+          Reportes
         </a>
       </nav>
     </div>

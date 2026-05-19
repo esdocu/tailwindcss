@@ -4,31 +4,34 @@ import { TabBar } from "@/components/installation-tabs";
 export const metadata: Metadata = {
   title: {
     template: "%s - Tailwind CSS",
-    default: "Installation",
+    default: "Instalación",
   },
   openGraph: {
     type: "article",
     title: {
-      template: "%s - Installation",
-      default: "Installation",
+      template: "%s - Instalación",
+      default: "Instalación",
     },
   },
 };
 
 const tabs = {
-  "Using Vite": "/docs/installation/using-vite",
-  "Using PostCSS": "/docs/installation/using-postcss",
-  "Tailwind CLI": "/docs/installation/tailwind-cli",
-  "Framework Guides": "/docs/installation/framework-guides",
+  "Uso de Vite": "/docs/installation/using-vite",
+  "Uso de PostCSS": "/docs/installation/using-postcss",
+  "CLI de Tailwind": "/docs/installation/tailwind-cli",
+  "Guías de frameworks": "/docs/installation/framework-guides",
   "Play CDN": "/docs/installation/play-cdn",
 };
 
 const readNext = [
   {
-    title: "Styling with utility classes",
+    title: "Diseño con clases de utilidad",
     href: "/docs/styling-with-utility-classes",
     body: (
-      <p>Using a utility-first workflow to build complex components from a constrained set of primitive utilities.</p>
+      <p>
+        Uso de un flujo de trabajo que prioriza las utilidades para crear componentes complejos a partir de un conjunto
+        limitado de utilidades primitivas.
+      </p>
     ),
     // icon: {
     //   className: "dark:bg-indigo-500 dark:highlight-white/20",
@@ -38,9 +41,14 @@ const readNext = [
     icon: require("@/components/home/icons/css-grid-icon").default,
   },
   {
-    title: "Responsive Design",
+    title: "Diseño responsivo",
     href: "/docs/responsive-design",
-    body: <p>Build fully responsive user interfaces that adapt to any screen size using responsive modifiers.</p>,
+    body: (
+      <p>
+        Crea interfaces de usuario totalmente responsivas que se adaptan a cualquier tamaño de pantalla mediante
+        modificadores responsivos.
+      </p>
+    ),
     icon: {
       className: "dark:bg-indigo-500 dark:highlight-white/20",
       // light: require("@/img/icons/home/mobile-first.png").default.src,
@@ -48,9 +56,14 @@ const readNext = [
     },
   },
   {
-    title: "Hover, Focus & Other States",
+    title: "Hover, Focus y otros estados",
     href: "/docs/hover-focus-and-other-states",
-    body: <p>Style elements in interactive states like hover, focus, and more using conditional modifiers.</p>,
+    body: (
+      <p>
+        Aplica estilos a elementos en estados interactivos como hover, focus y más utilizando modificadores
+        condicionales.
+      </p>
+    ),
     icon: {
       className: "dark:bg-blue-500 dark:highlight-white/20",
       // light: require("@/img/icons/home/state-variants.png").default.src,
@@ -58,9 +71,11 @@ const readNext = [
     },
   },
   {
-    title: "Dark Mode",
+    title: "Modo oscuro",
     href: "/docs/dark-mode",
-    body: <p>Optimize your site for dark mode directly in your HTML using the dark mode modifier.</p>,
+    body: (
+      <p>Optimiza tu sitio para el modo oscuro directamente en tu HTML utilizando el modificador de modo oscuro.</p>
+    ),
     icon: {
       className: "dark:bg-slate-600 dark:highlight-white/20",
       // light: require("@/img/icons/home/dark-mode.png").default.src,
@@ -68,9 +83,9 @@ const readNext = [
     },
   },
   {
-    title: "Reusing Styles",
+    title: "Reutilización de estilos",
     href: "/docs/reusing-styles",
-    body: <p>Manage duplication and keep your projects maintainable by creating reusable abstractions.</p>,
+    body: <p>Gestiona la duplicación y mantén tus proyectos mantenibles creando abstracciones reutilizables.</p>,
     icon: {
       className: "dark:bg-sky-500 dark:highlight-white/20",
       // light: require("@/img/icons/home/component-driven.png").default.src,
@@ -78,9 +93,13 @@ const readNext = [
     },
   },
   {
-    title: "Customizing the Framework",
+    title: "Personalización del framework",
     href: "/docs/adding-custom-styles",
-    body: <p>Customize the framework to match your brand and extend it with your own custom styles.</p>,
+    body: (
+      <p>
+        Personaliza el framework para que coincida con tu marca y extiéndelo con tus propios estilos personalizados.
+      </p>
+    ),
     icon: {
       className: "dark:bg-pink-500 dark:highlight-white/30",
       // light: require("@/img/icons/home/customization.png").default.src,
@@ -101,17 +120,18 @@ export default function Page({ children }: { children: React.ReactNode }) {
             data-section="true"
             className="font-mono text-xs/6 font-medium tracking-widest text-gray-600 uppercase dark:text-gray-400"
           >
-            Installation
+            Instalación
           </p>
           <h1 className="mt-2 text-3xl font-medium tracking-tight text-gray-950 dark:text-white">
-            Get started with Tailwind CSS
+            Primeros pasos con Tailwind CSS
           </h1>
           <p data-description="true" className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
-            Tailwind CSS works by scanning all of your HTML files, JavaScript components, and any other templates for
-            class names, generating the corresponding styles and then writing them to a static CSS file.
+            Tailwind CSS funciona escaneando todos tus archivos HTML, componentes de JavaScript y cualquier otra
+            plantilla en busca de nombres de clases, generando los estilos correspondientes y luego escribiéndolos en un
+            archivo CSS estático.
           </p>
           <p className="mt-4 text-base/7 text-gray-700 dark:text-gray-300">
-            It's fast, flexible, and reliable — with zero-runtime.
+            Es rápido, flexible y confiable, sin tiempo de ejecución.
           </p>
 
           <div className="mt-10" data-content="true">
@@ -121,7 +141,7 @@ export default function Page({ children }: { children: React.ReactNode }) {
                   data-docsearch-ignore
                   className="mb-6 text-lg font-semibold tracking-tight text-gray-950 dark:text-white"
                 >
-                  Installation
+                  Instalación
                 </h2>
                 <TabBar
                   tabs={Object.entries(tabs).map(([title, url]) => ({

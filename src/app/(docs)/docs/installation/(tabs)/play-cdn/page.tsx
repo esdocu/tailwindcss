@@ -5,11 +5,12 @@ import dedent from "dedent";
 
 export const metadata: Metadata = {
   title: "Play CDN",
-  description: "Use the Play CDN to try Tailwind right in the browser without any build step.",
+  description:
+    "Usa la CDN de prueba (Play CDN) para probar Tailwind directamente en el navegador sin ningún paso de compilación.",
   openGraph: {
     type: "article",
     title: "Play CDN",
-    description: "Try Tailwind CSS right in the browser without any build step.",
+    description: "Prueba Tailwind CSS directamente en el navegador sin ningún paso de compilación.",
     images: "https://tailwindcss.com/api/og?path=/docs/installation/play-cdn",
     url: "https://tailwindcss.com/docs/installation/play-cdn",
   },
@@ -17,11 +18,11 @@ export const metadata: Metadata = {
 
 const steps: Step[] = [
   {
-    title: "Add the Play CDN script to your HTML",
+    title: "Añade el script de Play CDN a tu HTML",
     body: (
       <p>
-        Add the Play CDN script tag to the <code>&lt;head&gt;</code> of your HTML file, and start using Tailwind’s
-        utility classes to style your content.
+        Añade la etiqueta del script de Play CDN al <code>&lt;head&gt;</code> de tu archivo HTML y comienza a usar las
+        clases de utilidad de Tailwind para dar estilo a tu contenido.
       </p>
     ),
     code: {
@@ -47,10 +48,11 @@ const steps: Step[] = [
     },
   },
   {
-    title: "Try adding some custom CSS",
+    title: "Intenta añadir algo de CSS personalizado",
     body: (
       <p>
-        Use <code>type="text/tailwindcss"</code> to add custom CSS that supports all of Tailwind's CSS features.
+        Usa <code>type="text/tailwindcss"</code> para añadir CSS personalizado compatible con todas las características
+        de CSS de Tailwind.
       </p>
     ),
     code: {
@@ -87,11 +89,11 @@ export default function Page() {
     <>
       <div id="content-wrapper" className="prose relative z-10 mb-10 max-w-3xl" data-content="true">
         <h3 className="sr-only" data-title="true">
-          Using Play CDN
+          Uso de Play CDN
         </h3>
         <p>
-          Use the Play CDN to try Tailwind right in the browser without any build step. The Play CDN is designed for
-          development purposes only, and is not intended for production.
+          Usa la CDN de prueba (Play CDN) para probar Tailwind directamente en el navegador sin ningún paso de
+          compilación. Play CDN está diseñada únicamente para fines de desarrollo y no está pensada para producción.
         </p>
       </div>
       <Steps steps={steps} />

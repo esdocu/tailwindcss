@@ -15,5 +15,5 @@ export default async function Page({ params }: { params: Params }) {
   let guide = await loadGuide(slug);
   if (!guide) return notFound();
 
-  return <Breadcrumb section="Installation" title={guide.page.title} />;
+  return <Breadcrumb section="Instalación" title={guide.page.title} />;
 }

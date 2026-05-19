@@ -38,7 +38,7 @@ function TopNav() {
               d="M8 14.1379C9.21677 13.1157 10.7865 12.5 12.5 12.5C13.5736 12.5 14.5907 12.7417 15.5 13.1736V2.17363C14.5907 1.74169 13.5736 1.5 12.5 1.5C10.7865 1.5 9.21677 2.11568 8 3.13789M8 14.1379C6.78323 13.1157 5.21352 12.5 3.5 12.5C2.4264 12.5 1.40926 12.7417 0.5 13.1736V2.17363C1.40926 1.74169 2.4264 1.5 3.5 1.5C5.21352 1.5 6.78323 2.11568 8 3.13789M8 14.1379V3.13789"
             />
           </svg>
-          Documentation
+          Documentación
         </TopNavLink>
       </li>
       <li>
@@ -48,7 +48,7 @@ function TopNav() {
             <path data-highlight d="M8 1 1 5.5 8 10l7-4.5L8 1Z" />
             <path data-outline d="M8 1 1 5.5 8 10l7-4.5L8 1Z" />
           </svg>
-          Components
+          Componentes
         </TopNavLink>
       </li>
       <li>
@@ -63,7 +63,7 @@ function TopNav() {
               d="M5.5 4.5H14.5M5.5 4.5H1.5M5.5 4.5V14.5M14.5 4.5V3.5C14.5 2.39543 13.6046 1.5 12.5 1.5H3.5C2.39543 1.5 1.5 2.39543 1.5 3.5V4.5M14.5 4.5V12.5C14.5 13.6046 13.6046 14.5 12.5 14.5H5.5M1.5 4.5V12.5C1.5 13.6046 2.39543 14.5 3.5 14.5H5.5"
             />
           </svg>
-          Templates
+          Plantillas
         </TopNavLink>
       </li>
       <li>
@@ -75,7 +75,7 @@ function TopNav() {
               d="M0.5 4.5V11.5L8 15.5M0.5 4.5L8 0.5L15.5 4.5M0.5 4.5L8 8.5M15.5 4.5V11.5L8 15.5M15.5 4.5L8 8.5M8 15.5V8.5"
             />
           </svg>
-          UI Kit
+          Kit de UI
         </TopNavLink>
       </li>
       <li>
@@ -100,10 +100,10 @@ function TopNav() {
             />
           </svg>
 
-          <span>Course</span>
+          <span>Curso</span>
           <span className="relative px-1.5 font-mono text-[0.625rem]/[1.125rem] font-medium tracking-widest text-sky-800 uppercase dark:text-sky-300">
             <span className="absolute inset-0 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15 dark:border-sky-300/30" />
-            New
+            Nuevo
             <svg
               width="5"
               height="5"
@@ -153,7 +153,7 @@ function TopNav() {
             />
           </svg>
 
-          <span>Community</span>
+          <span>Comunidad</span>
         </TopNavLink>
       </li>
     </ul>

@@ -79,7 +79,7 @@ export function ColorPalette() {
         ))}
 
         <div className="pt-2 text-center text-gray-500 italic max-sm:hidden sm:col-span-2 md:col-span-1 md:col-start-2 dark:text-gray-400">
-          Click to copy the OKLCH value or shift+click to copy the nearest hex value.
+          Haz clic para copiar el valor OKLCH o Shift+clic para copiar el valor hexadecimal más cercano.
         </div>
       </div>
     </>

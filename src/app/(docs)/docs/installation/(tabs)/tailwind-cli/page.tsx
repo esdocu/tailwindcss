@@ -6,11 +6,11 @@ import { type Step, Steps } from "@/components/installation-steps";
 export const metadata: Metadata = {
   title: "Tailwind CLI",
   description:
-    "The simplest and fastest way to get up and running with Tailwind CSS from scratch is with the Tailwind CLI tool.",
+    "La forma más sencilla y rápida de empezar a utilizar Tailwind CSS desde cero es con la herramienta Tailwind CLI.",
   openGraph: {
     type: "article",
     title: "Tailwind CLI",
-    description: "The simplest and fastest way to get up and running with Tailwind CSS from scratch.",
+    description: "La forma más sencilla y rápida de empezar a utilizar Tailwind CSS desde cero.",
     images: "https://tailwindcss.com/api/og?path=/docs/installation/tailwind-cli",
     url: "https://tailwindcss.com/docs/installation/tailwind-cli",
   },
@@ -18,10 +18,10 @@ export const metadata: Metadata = {
 
 const steps: Step[] = [
   {
-    title: "Install Tailwind CSS",
+    title: "Instalar Tailwind CSS",
     body: (
       <p>
-        Install <code>tailwindcss</code> and <code>@tailwindcss/cli</code> via npm.
+        Instala <code>tailwindcss</code> y <code>@tailwindcss/cli</code> a través de npm.
       </p>
     ),
     code: {
@@ -31,10 +31,10 @@ const steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind in your CSS",
+    title: "Importar Tailwind en tu CSS",
     body: (
       <p>
-        Add the <code>@import "tailwindcss";</code> import to your main CSS file.
+        Añade la importación <code>@import "tailwindcss";</code> a tu archivo CSS principal.
       </p>
     ),
     code: {
@@ -44,8 +44,8 @@ const steps: Step[] = [
     },
   },
   {
-    title: "Start the Tailwind CLI build process",
-    body: <p>Run the CLI tool to scan your source files for classes and build your CSS.</p>,
+    title: "Iniciar el proceso de compilación de Tailwind CLI",
+    body: <p>Ejecuta la herramienta CLI para escanear tus archivos de origen en busca de clases y compilar tu CSS.</p>,
     code: {
       name: "Terminal",
       lang: "shell",
@@ -53,11 +53,11 @@ const steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your HTML",
+    title: "Comenzar a usar Tailwind en tu HTML",
     body: (
       <p>
-        Add your compiled CSS file to the <code>{"<head>"}</code> and start using Tailwind’s utility classes to style
-        your content.
+        Añade tu archivo CSS compilado al <code>{"<head>"}</code> y comienza a usar las clases de utilidad de Tailwind
+        para dar estilo a tu contenido.
       </p>
     ),
     code: {
@@ -79,7 +79,7 @@ const steps: Step[] = [
           </h1>
         </body>
         </html>
-     `,
+      `,
     },
   },
 ];
@@ -89,13 +89,13 @@ export default function Page() {
     <>
       <div id="content-wrapper" className="prose relative z-10 mb-10 max-w-3xl" data-content="true">
         <h3 className="sr-only" data-title="true">
-          Installing Tailwind CLI
+          Instalación de Tailwind CLI
         </h3>
         <p>
-          The simplest and fastest way to get up and running with Tailwind CSS from scratch is with the Tailwind CLI
-          tool. The CLI is also available as a{" "}
-          <Link href="https://github.com/tailwindlabs/tailwindcss/releases/latest">standalone executable</Link> if you
-          want to use it without installing Node.js.
+          La forma más sencilla y rápida de empezar a utilizar Tailwind CSS desde cero es con la herramienta Tailwind
+          CLI. La CLI también está disponible como un{" "}
+          <Link href="https://github.com/tailwindlabs/tailwindcss/releases/latest">ejecutable independiente</Link> si
+          deseas utilizarla sin instalar Node.js.
         </p>
       </div>
       <Steps steps={steps} />

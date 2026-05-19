@@ -371,9 +371,9 @@ export function Color({ name, shade, value }: { name: string; shade: string; val
   let tooltip: string;
 
   if (copied === "color") {
-    tooltip = "Copied to clipboard!";
+    tooltip = "¡Copiado al portapapeles!";
   } else if (copied === "hex") {
-    tooltip = "Copied hex value!";
+    tooltip = "¡Valor hexadecimal copiado!";
   } else if (useShift) {
     tooltip = hexValue;
   } else {

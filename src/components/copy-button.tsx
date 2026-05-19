@@ -22,7 +22,7 @@ export function CopyButton({ value, className }: { value: string; className?: st
     <button
       onClick={handleCopy}
       className={clsx("flex size-8 items-center justify-center", className)}
-      title="Copy to clipboard"
+      title="Copiar al portapapeles"
     >
       <div className="grid size-4">
         <svg

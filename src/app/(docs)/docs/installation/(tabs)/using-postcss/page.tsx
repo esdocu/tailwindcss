@@ -4,13 +4,13 @@ import dedent from "dedent";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Installing Tailwind CSS with PostCSS",
+  title: "Instalación de Tailwind CSS con PostCSS",
   description:
-    "Installing Tailwind CSS as a PostCSS plugin is the most seamless way to integrate it with frameworks like Next.js and Angular.",
+    "Instalar Tailwind CSS como un plugin de PostCSS es la forma más fluida de integrarlo con frameworks como Next.js y Angular.",
   openGraph: {
     type: "article",
-    title: "Installing with PostCSS",
-    description: "Integrate Tailwind CSS with frameworks like Next.js and Angular.",
+    title: "Instalación con PostCSS",
+    description: "Integra Tailwind CSS con frameworks como Next.js y Angular.",
     images: "https://tailwindcss.com/api/og?path=/docs/installation/using-postcss",
     url: "https://tailwindcss.com/docs/installation/using-postcss",
   },
@@ -18,10 +18,10 @@ export const metadata: Metadata = {
 
 const steps: Step[] = [
   {
-    title: "Install Tailwind CSS",
+    title: "Instalar Tailwind CSS",
     body: (
       <p>
-        Install <code>tailwindcss</code>, <code>@tailwindcss/postcss</code>, and <code>postcss</code> via npm.
+        Instala <code>tailwindcss</code>, <code>@tailwindcss/postcss</code> y <code>postcss</code> a través de npm.
       </p>
     ),
     code: {
@@ -33,11 +33,11 @@ const steps: Step[] = [
     },
   },
   {
-    title: "Add Tailwind to your PostCSS configuration",
+    title: "Añade Tailwind a tu configuración de PostCSS",
     body: (
       <p>
-        Add <code>@tailwindcss/postcss</code> to your <code>postcss.config.mjs</code> file, or wherever PostCSS is
-        configured in your project.
+        Añade <code>@tailwindcss/postcss</code> a tu archivo <code>postcss.config.mjs</code>, o donde se configure
+        PostCSS en tu proyecto.
       </p>
     ),
     code: {
@@ -54,10 +54,10 @@ const steps: Step[] = [
     },
   },
   {
-    title: "Import Tailwind CSS",
+    title: "Importar Tailwind CSS",
     body: (
       <p>
-        Add an <code>@import</code> to your CSS file that imports Tailwind CSS.
+        Añade un <code>@import</code> a tu archivo CSS que importe Tailwind CSS.
       </p>
     ),
     code: {
@@ -69,11 +69,11 @@ const steps: Step[] = [
     },
   },
   {
-    title: "Start your build process",
+    title: "Iniciar tu proceso de compilación",
     body: (
       <p>
-        Run your build process with <code>npm run dev</code> or whatever command is configured in your{" "}
-        <code>package.json</code> file.
+        Ejecuta tu proceso de compilación con <code>npm run dev</code> o cualquier comando que esté configurado en tu
+        archivo <code>package.json</code>.
       </p>
     ),
     code: {
@@ -85,12 +85,12 @@ const steps: Step[] = [
     },
   },
   {
-    title: "Start using Tailwind in your HTML",
+    title: "Comenzar a usar Tailwind en tu HTML",
     body: (
       <p>
-        Make sure your compiled CSS is included in the <code>{"<head>"}</code>{" "}
-        <em>(your framework might handle this for you)</em>, then start using Tailwind’s utility classes to style your
-        content.
+        Asegúrate de que tu CSS compilado esté incluido en el <code>{"<head>"}</code>{" "}
+        <em>(es posible que tu framework se encargue de esto por ti)</em>, luego comienza a usar las clases de utilidad
+        de Tailwind para dar estilo a tu contenido.
       </p>
     ),
     code: {
@@ -122,19 +122,19 @@ export default function Page() {
     <>
       <div id="content-wrapper" className="prose relative z-10 mb-10 max-w-3xl" data-content="true">
         <h3 data-title="true" className="sr-only">
-          Installing Tailwind CSS as a PostCSS plugin
+          Instalación de Tailwind CSS como plugin de PostCSS
         </h3>
         <p>
-          Installing Tailwind CSS as a PostCSS plugin is the most seamless way to integrate it with frameworks like
-          Next.js and Angular.
+          Instalar Tailwind CSS como plugin de PostCSS es la forma más fluida de integrarlo con frameworks como Next.js
+          y Angular.
         </p>
       </div>
       <Steps steps={steps} />
       <div className="my-4 md:my-16">
-        <Cta label="Explore our framework guides" href="/docs/installation/framework-guides">
-          <strong className="font-semibold text-gray-950 dark:text-white">Are you stuck?</strong> Setting up Tailwind
-          with PostCSS can be a bit different across different build tools. Check our framework guides to see if we have
-          more specific instructions for your particular setup.
+        <Cta label="Explorar nuestras guías de frameworks" href="/docs/installation/framework-guides">
+          <strong className="font-semibold text-gray-950 dark:text-white">¿Te has atascado?</strong> Configurar Tailwind
+          con PostCSS puede ser un poco diferente en las distintas herramientas de compilación. Consulta nuestras guías
+          de frameworks para ver si tenemos instrucciones más específicas para tu configuración particular.
         </Cta>
       </div>
     </>

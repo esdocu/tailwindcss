@@ -1,5 +1,5 @@
 import { Breadcrumb } from "@/components/breadcrumb";
 
 export default function Page() {
-  return <Breadcrumb section="Getting Started" title="Install Tailwind CSS using Vite" />;
+  return <Breadcrumb section="Primeros pasos" title="Instalar Tailwind CSS con Vite" />;
 }

@@ -61,7 +61,7 @@ export function Example({
       </motion.div>
       <div ref={constraintsRef} className="pointer-events-none absolute inset-y-0 right-1.5 left-60 max-sm:hidden">
         <motion.div
-          title="Drag to resize"
+          title="Arrastra para cambiar el tamaño"
           className={clsx(
             "pointer-events-auto absolute top-1/2 right-0 z-50 -mt-6 h-12 w-1.5 cursor-ew-resize rounded-full",
             "bg-slate-950/20 group-data-dragging:bg-slate-950/40 hover:bg-slate-950/40",

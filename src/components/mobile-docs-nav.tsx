@@ -23,7 +23,7 @@ export function MobileNav({
 
   return (
     <div className="flex h-14 items-center border-t border-gray-950/5 bg-white px-4 sm:px-6 lg:hidden dark:border-white/10 dark:bg-gray-950">
-      <IconButton onClick={() => setIsOpen(true)} aria-label="Open navigation menu" className="-ml-1.5">
+      <IconButton onClick={() => setIsOpen(true)} aria-label="Abrir menú de navegación" className="-ml-1.5">
         <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
           <path
             fillRule="evenodd"
@@ -43,7 +43,7 @@ export function MobileNav({
             <div className="flex h-14 items-center border-t border-gray-950/5 bg-white px-4 sm:px-6 lg:hidden dark:border-white/10 dark:bg-gray-950">
               <IconButton
                 onClick={() => setIsOpen(false)}
-                aria-label="Close navigation menu"
+                aria-label="Cerrar menú de navegación"
                 className="-ml-1.5"
                 data-autofocus
               >

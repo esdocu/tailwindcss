@@ -4,13 +4,13 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Framework guides",
+  title: "Guías de frameworks",
   description:
-    "Framework-specific guides that cover our recommended approach to installing Tailwind CSS in a number of popular environments.",
+    "Guías específicas de frameworks que cubren nuestro enfoque recomendado para instalar Tailwind CSS en una serie de entornos populares.",
   openGraph: {
     type: "article",
-    title: "Framework guides",
-    description: "Our recommended approach to installing Tailwind CSS in popular frameworks.",
+    title: "Guías de frameworks",
+    description: "Nuestro enfoque recomendado para instalar Tailwind CSS en frameworks populares.",
     images: "https://tailwindcss.com/api/og?path=/docs/installation/framework-guides",
     url: "https://tailwindcss.com/docs/installation/framework-guides",
   },
@@ -23,11 +23,11 @@ export default async function FrameworkGuides() {
     <>
       <div id="content-wrapper" className="prose mb-10 max-w-3xl" data-content="true">
         <h3 className="sr-only" data-title="true">
-          Framework Guides
+          Guías de frameworks
         </h3>
         <p>
-          Framework-specific guides that cover our recommended approach to installing Tailwind CSS in a number of
-          popular environments.
+          Guías específicas de frameworks que cubren nuestro enfoque recomendado para instalar Tailwind CSS en una serie
+          de entornos populares.
         </p>
       </div>
       <ul className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-3">
@@ -37,10 +37,10 @@ export default async function FrameworkGuides() {
       </ul>
       <div className="my-4 md:my-16">
         <Cta>
-          Don't see your framework of choice? Try using the{" "}
-          <Link href="/docs/installation/tailwind-cli">Tailwind CLI</Link>, the{" "}
-          <Link href="/docs/installation/using-vite">Vite plugin</Link>, or the{" "}
-          <Link href="/docs/installation/using-postcss">PostCSS plugin</Link> instead.
+          ¿No ves tu framework preferido? Intenta usar la{" "}
+          <Link href="/docs/installation/tailwind-cli">CLI de Tailwind</Link>, el{" "}
+          <Link href="/docs/installation/using-vite">plugin de Vite</Link> o el{" "}
+          <Link href="/docs/installation/using-postcss">plugin de PostCSS</Link> en su lugar.
         </Cta>
       </div>
     </>

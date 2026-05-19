@@ -55,7 +55,7 @@ function VersionPicker() {
     <Menu>
       <MenuButton
         className="flex items-center gap-0.5 rounded-2xl bg-gray-950/5 py-0.5 pr-1.5 pl-2.5 text-xs/5 font-medium text-gray-950 tabular-nums hover:bg-gray-950/7.5 data-active:bg-gray-950/7.5 dark:bg-white/10 dark:text-white dark:hover:bg-white/12.5 dark:data-active:bg-white/12.5"
-        aria-label="Select version of library"
+        aria-label="Seleccionar versión de la biblioteca"
       >
         v{TAILWINDCSS_VERSION}
         <ChevronDownIcon className="size-4 fill-gray-400" />
@@ -118,7 +118,7 @@ export function Header(props: React.PropsWithChildren) {
           <Link
             href="/"
             className="shrink-0"
-            aria-label="Home"
+            aria-label="Inicio"
             onContextMenu={(evt) => {
               evt.preventDefault();
               router.push("/brand");
@@ -154,10 +154,10 @@ export function Header(props: React.PropsWithChildren) {
             Blog
           </Link>
           <Link href="/showcase" className="text-sm/6 text-gray-950 dark:text-white">
-            Showcase
+            Galería
           </Link>
           <Link href="/partners" className="text-sm/6 text-gray-950 dark:text-white">
-            Partners
+            Socios
           </Link>
           <a href="/plus?ref=top" className="group relative px-1.5 text-sm/6 text-sky-800 dark:text-sky-300">
             <span className="absolute inset-0 border border-dashed border-sky-300/60 bg-sky-400/10 group-hover:bg-sky-400/15 dark:border-sky-300/30" />
@@ -196,12 +196,12 @@ export function Header(props: React.PropsWithChildren) {
             </svg>
           </a>
 
-          <Link href="https://github.com/tailwindlabs/tailwindcss" aria-label="GitHub repository">
+          <Link href="https://github.com/tailwindlabs/tailwindcss" aria-label="Repositorio de GitHub">
             <GitHubLogo className="size-5 fill-black/40 dark:fill-gray-400" />
           </Link>
         </div>
         <div className="flex items-center gap-2.5 md:hidden">
-          <SearchButton aria-label="Search" className="inline-grid size-7 place-items-center rounded-md">
+          <SearchButton aria-label="Buscar" className="inline-grid size-7 place-items-center rounded-md">
             <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
               <path
                 fillRule="evenodd"
@@ -211,7 +211,7 @@ export function Header(props: React.PropsWithChildren) {
             </svg>
           </SearchButton>
 
-          <IconButton aria-label="Navigation" onClick={() => setNavIsOpen(!navIsOpen)}>
+          <IconButton aria-label="Navegación" onClick={() => setNavIsOpen(!navIsOpen)}>
             <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
               <path d="M8 2a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM8 6.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM9.5 12.5a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" />
             </svg>
@@ -225,7 +225,7 @@ export function Header(props: React.PropsWithChildren) {
             <DialogPanel className="size-full overflow-y-auto">
               <div className="flex h-14 items-center justify-between px-4 py-4 sm:px-6">
                 <TailwindMark className="h-6" />
-                <IconButton aria-label="Navigation" onClick={() => setNavIsOpen(false)}>
+                <IconButton aria-label="Navegación" onClick={() => setNavIsOpen(false)}>
                   <svg viewBox="0 0 16 16" fill="currentColor" className="size-4">
                     <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
                   </svg>
@@ -254,13 +254,13 @@ export function Header(props: React.PropsWithChildren) {
                   href="/showcase"
                   className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
                 >
-                  Showcase
+                  Galería
                 </Link>
                 <Link
                   href="/partners"
                   className="rounded-lg px-3 py-2 text-xl/9 font-medium text-gray-950 data-active:bg-gray-950/5 dark:text-white dark:hover:bg-white/10"
                 >
-                  Partners
+                  Socios
                 </Link>
                 <Link
                   href="https://github.com/tailwindlabs/tailwindcss"

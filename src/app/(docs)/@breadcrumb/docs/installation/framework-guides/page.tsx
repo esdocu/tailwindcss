@@ -1,5 +1,5 @@
 import { Breadcrumb } from "@/components/breadcrumb";
 
 export default function Page() {
-  return <Breadcrumb section="Getting Started" title="Framework Guides" />;
+  return <Breadcrumb section="Primeros pasos" title="Guías de frameworks" />;
 }
